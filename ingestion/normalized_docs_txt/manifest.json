@@ -1,0 +1,3508 @@
+{
+  "counts": {
+    "script_episode_txt_docs": 186,
+    "summary_episode_txt_docs": 202,
+    "total_docs": 388
+  },
+  "inputs": {
+    "scripts_min_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json",
+    "episode_summaries_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+  },
+  "outputs": {
+    "output_root": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt"
+  },
+  "documents": [
+    {
+      "doc_id": "scripts_s01e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+      "season": 1,
+      "episode": 1,
+      "title": "Pilot",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s01e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+      "season": 1,
+      "episode": 2,
+      "title": "Diversity Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s01e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+      "season": 1,
+      "episode": 3,
+      "title": "Health Care",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s01e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+      "season": 1,
+      "episode": 4,
+      "title": "The Alliance",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s01e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+      "season": 1,
+      "episode": 5,
+      "title": "Basketball",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s01e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e06_hot_girl_script.txt",
+      "season": 1,
+      "episode": 6,
+      "title": "Hot Girl",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt",
+      "season": 2,
+      "episode": 1,
+      "title": "The Dundies",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e02_sexual_harassment_script.txt",
+      "season": 2,
+      "episode": 2,
+      "title": "Sexual Harassment",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+      "season": 2,
+      "episode": 3,
+      "title": "Office Olympics",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e04_the_fire_script.txt",
+      "season": 2,
+      "episode": 4,
+      "title": "The Fire",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+      "season": 2,
+      "episode": 5,
+      "title": "Halloween",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+      "season": 2,
+      "episode": 6,
+      "title": "The Fight",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+      "season": 2,
+      "episode": 7,
+      "title": "The Client",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+      "season": 2,
+      "episode": 8,
+      "title": "Performance Review",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e09_e_mail_surveillance_script.txt",
+      "season": 2,
+      "episode": 9,
+      "title": "E-mail Surveillance",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "season": 2,
+      "episode": 10,
+      "title": "Christmas Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt",
+      "season": 2,
+      "episode": 11,
+      "title": "Booze Cruise",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+      "season": 2,
+      "episode": 12,
+      "title": "The Injury",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e13_the_secret_script.txt",
+      "season": 2,
+      "episode": 13,
+      "title": "The Secret",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt",
+      "season": 2,
+      "episode": 14,
+      "title": "The Carpet",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e15_boys_and_girls_script.txt",
+      "season": 2,
+      "episode": 15,
+      "title": "Boys and Girls",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e16_valentine_s_day_script.txt",
+      "season": 2,
+      "episode": 16,
+      "title": "Valentine’s Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e17_dwight_s_speech_script.txt",
+      "season": 2,
+      "episode": 17,
+      "title": "Dwight’s Speech",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e18_take_your_daughter_to_work_day_script.txt",
+      "season": 2,
+      "episode": 18,
+      "title": "Take Your Daughter to Work Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e19_michael_s_birthday_script.txt",
+      "season": 2,
+      "episode": 19,
+      "title": "Michael’s Birthday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+      "season": 2,
+      "episode": 20,
+      "title": "Drug Testing",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e21_conflict_resolution_script.txt",
+      "season": 2,
+      "episode": 21,
+      "title": "Conflict Resolution",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s02e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+      "season": 2,
+      "episode": 22,
+      "title": "Casino Night",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+      "season": 3,
+      "episode": 1,
+      "title": "Gay Witch Hunt",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e02_the_convention_script.txt",
+      "season": 3,
+      "episode": 2,
+      "title": "The Convention",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+      "season": 3,
+      "episode": 3,
+      "title": "The Coup",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e04_grief_counseling_script.txt",
+      "season": 3,
+      "episode": 4,
+      "title": "Grief Counseling",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e05_initiation_script.txt",
+      "season": 3,
+      "episode": 5,
+      "title": "Initiation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e06_diwali_script.txt",
+      "season": 3,
+      "episode": 6,
+      "title": "Diwali",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+      "season": 3,
+      "episode": 7,
+      "title": "Branch Closing",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e08_the_merger_script.txt",
+      "season": 3,
+      "episode": 8,
+      "title": "The Merger",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e09_the_convict_script.txt",
+      "season": 3,
+      "episode": 9,
+      "title": "The Convict",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "season": 3,
+      "episode": 10,
+      "title": "A Benihana Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e11_back_from_vacation_script.txt",
+      "season": 3,
+      "episode": 11,
+      "title": "Back From Vacation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+      "season": 3,
+      "episode": 12,
+      "title": "Traveling Salesmen",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e13_the_return_script.txt",
+      "season": 3,
+      "episode": 13,
+      "title": "The Return",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e14_ben_franklin_script.txt",
+      "season": 3,
+      "episode": 14,
+      "title": "Ben Franklin",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+      "season": 3,
+      "episode": 15,
+      "title": "Phyllis’ Wedding",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e16_business_school_script.txt",
+      "season": 3,
+      "episode": 16,
+      "title": "Business School",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e17_cocktails_script.txt",
+      "season": 3,
+      "episode": 17,
+      "title": "Cocktails",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e18_the_negotiation_script.txt",
+      "season": 3,
+      "episode": 18,
+      "title": "The Negotiation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt",
+      "season": 3,
+      "episode": 19,
+      "title": "Safety Training",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+      "season": 3,
+      "episode": 20,
+      "title": "Product Recall",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt",
+      "season": 3,
+      "episode": 21,
+      "title": "Women’s Appreciation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+      "season": 3,
+      "episode": 22,
+      "title": "Beach Games",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s03e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+      "season": 3,
+      "episode": 23,
+      "title": "The Job",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+      "season": 4,
+      "episode": 1,
+      "title": "Fun Run",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+      "season": 4,
+      "episode": 2,
+      "title": "Dunder Mifflin Infinity",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+      "season": 4,
+      "episode": 3,
+      "title": "Launch Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+      "season": 4,
+      "episode": 4,
+      "title": "Money",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+      "season": 4,
+      "episode": 5,
+      "title": "Local Ad",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+      "season": 4,
+      "episode": 6,
+      "title": "Branch Wars",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+      "season": 4,
+      "episode": 7,
+      "title": "Survivor Man",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+      "season": 4,
+      "episode": 8,
+      "title": "The Deposition",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e09_dinner_party_script.txt",
+      "season": 4,
+      "episode": 9,
+      "title": "Dinner Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+      "season": 4,
+      "episode": 10,
+      "title": "Chair Model",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+      "season": 4,
+      "episode": 11,
+      "title": "Night Out",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+      "season": 4,
+      "episode": 12,
+      "title": "Did I Stutter?",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+      "season": 4,
+      "episode": 13,
+      "title": "Job Fair",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s04e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+      "season": 4,
+      "episode": 14,
+      "title": "Goodbye Toby",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e01_weight_loss_script.txt",
+      "season": 5,
+      "episode": 1,
+      "title": "Weight Loss",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+      "season": 5,
+      "episode": 2,
+      "title": "Business Ethics",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+      "season": 5,
+      "episode": 3,
+      "title": "Baby Shower",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+      "season": 5,
+      "episode": 4,
+      "title": "Crime Aid",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt",
+      "season": 5,
+      "episode": 5,
+      "title": "Employee Transfer",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e06_customer_survey_script.txt",
+      "season": 5,
+      "episode": 6,
+      "title": "Customer Survey",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+      "season": 5,
+      "episode": 7,
+      "title": "Business Trip",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+      "season": 5,
+      "episode": 8,
+      "title": "Frame Toby",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+      "season": 5,
+      "episode": 9,
+      "title": "The Surplus",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e10_moroccan_christmas_script.txt",
+      "season": 5,
+      "episode": 10,
+      "title": "Moroccan Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+      "season": 5,
+      "episode": 11,
+      "title": "The Duel",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+      "season": 5,
+      "episode": 12,
+      "title": "Prince Family Paper",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e13_stress_relief_script.txt",
+      "season": 5,
+      "episode": 13,
+      "title": "Stress Relief",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+      "season": 5,
+      "episode": 14,
+      "title": "Lecture Circuit 1",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e15_lecture_circuit_2_script.txt",
+      "season": 5,
+      "episode": 15,
+      "title": "Lecture Circuit 2",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e16_blood_drive_script.txt",
+      "season": 5,
+      "episode": 16,
+      "title": "Blood Drive",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+      "season": 5,
+      "episode": 17,
+      "title": "Golden Ticket",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+      "season": 5,
+      "episode": 18,
+      "title": "New Boss",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e19_two_weeks_script.txt",
+      "season": 5,
+      "episode": 19,
+      "title": "Two Weeks",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e20_dream_team_script.txt",
+      "season": 5,
+      "episode": 20,
+      "title": "Dream Team",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e21_michael_scott_paper_company_script.txt",
+      "season": 5,
+      "episode": 21,
+      "title": "Michael Scott Paper Company",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e22_heavy_competition_script.txt",
+      "season": 5,
+      "episode": 22,
+      "title": "Heavy Competition",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e23_broke_script.txt",
+      "season": 5,
+      "episode": 23,
+      "title": "Broke",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e24_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+      "season": 5,
+      "episode": 24,
+      "title": "Casual Friday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e25_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e25_cafe_disco_script.txt",
+      "season": 5,
+      "episode": 25,
+      "title": "Cafe Disco",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s05e26_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+      "season": 5,
+      "episode": 26,
+      "title": "Company Picnic",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+      "season": 6,
+      "episode": 1,
+      "title": "Gossip",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e02_the_meeting_script.txt",
+      "season": 6,
+      "episode": 2,
+      "title": "The Meeting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+      "season": 6,
+      "episode": 3,
+      "title": "The Promotion",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+      "season": 6,
+      "episode": 4,
+      "title": "Niagara",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e05_mafia_script.txt",
+      "season": 6,
+      "episode": 5,
+      "title": "Mafia",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt",
+      "season": 6,
+      "episode": 6,
+      "title": "The Lover",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e07_koi_pond_script.txt",
+      "season": 6,
+      "episode": 7,
+      "title": "Koi Pond",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+      "season": 6,
+      "episode": 8,
+      "title": "Double Date",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e09_murder_script.txt",
+      "season": 6,
+      "episode": 9,
+      "title": "Murder",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e10_shareholder_meeting_script.txt",
+      "season": 6,
+      "episode": 10,
+      "title": "Shareholder Meeting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e11_scott_s_tots_script.txt",
+      "season": 6,
+      "episode": 11,
+      "title": "Scott’s Tots",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+      "season": 6,
+      "episode": 12,
+      "title": "Secret Santa",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e13_the_banker_script.txt",
+      "season": 6,
+      "episode": 13,
+      "title": "The Banker",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e14_sabre_script.txt",
+      "season": 6,
+      "episode": 14,
+      "title": "Sabre",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+      "season": 6,
+      "episode": 15,
+      "title": "Manager and Salesman",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e16_the_delivery_script.txt",
+      "season": 6,
+      "episode": 16,
+      "title": "The Delivery",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e17_st_patrick_s_day_script.txt",
+      "season": 6,
+      "episode": 17,
+      "title": "St. Patrick’s Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e18_new_leads_script.txt",
+      "season": 6,
+      "episode": 18,
+      "title": "New Leads",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt",
+      "season": 6,
+      "episode": 19,
+      "title": "Happy Hour",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+      "season": 6,
+      "episode": 20,
+      "title": "Secretary’s Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "season": 6,
+      "episode": 21,
+      "title": "Body Language",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "season": 6,
+      "episode": 22,
+      "title": "The Cover-Up",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+      "season": 6,
+      "episode": 23,
+      "title": "The Chump",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s06e24_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e24_whistleblower_script.txt",
+      "season": 6,
+      "episode": 24,
+      "title": "Whistleblower",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+      "season": 7,
+      "episode": 1,
+      "title": "Nepotism",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+      "season": 7,
+      "episode": 2,
+      "title": "Counseling",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e03_andy_s_play_script.txt",
+      "season": 7,
+      "episode": 3,
+      "title": "Andy’s Play",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e04_sex_ed_script.txt",
+      "season": 7,
+      "episode": 4,
+      "title": "Sex Ed",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e05_the_sting_script.txt",
+      "season": 7,
+      "episode": 5,
+      "title": "The Sting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e06_costume_contest_script.txt",
+      "season": 7,
+      "episode": 6,
+      "title": "Costume Contest",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+      "season": 7,
+      "episode": 7,
+      "title": "Christening",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+      "season": 7,
+      "episode": 8,
+      "title": "Viewing Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e09_wuphf_com_script.txt",
+      "season": 7,
+      "episode": 9,
+      "title": "WUPHF.com",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e10_china_script.txt",
+      "season": 7,
+      "episode": 10,
+      "title": "China",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "season": 7,
+      "episode": 11,
+      "title": "Classy Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e12_ultimatum_script.txt",
+      "season": 7,
+      "episode": 12,
+      "title": "Ultimatum",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e13_the_seminar_script.txt",
+      "season": 7,
+      "episode": 13,
+      "title": "The Seminar",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e14_the_search_script.txt",
+      "season": 7,
+      "episode": 14,
+      "title": "The Search",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e15_pda_script.txt",
+      "season": 7,
+      "episode": 15,
+      "title": "PDA",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+      "season": 7,
+      "episode": 16,
+      "title": "Threat Level Midnight",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e17_todd_packer_script.txt",
+      "season": 7,
+      "episode": 17,
+      "title": "Todd Packer",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e18_garage_sale_script.txt",
+      "season": 7,
+      "episode": 18,
+      "title": "Garage Sale",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e19_trainin_day_script.txt",
+      "season": 7,
+      "episode": 19,
+      "title": "Trainin Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e20_michael_s_last_dundies_script.txt",
+      "season": 7,
+      "episode": 20,
+      "title": "Michael’s Last Dundies",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt",
+      "season": 7,
+      "episode": 21,
+      "title": "Goodbye Michael",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+      "season": 7,
+      "episode": 22,
+      "title": "The Inner Circle",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+      "season": 7,
+      "episode": 23,
+      "title": "Dwight K. Schrute, (Acting) Manager",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s07e24_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+      "season": 7,
+      "episode": 24,
+      "title": "Search Committee",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+      "season": 8,
+      "episode": 1,
+      "title": "The List",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e02_the_incentive_script.txt",
+      "season": 8,
+      "episode": 2,
+      "title": "The Incentive",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e03_lotto_script.txt",
+      "season": 8,
+      "episode": 3,
+      "title": "Lotto",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e04_garden_party_script.txt",
+      "season": 8,
+      "episode": 4,
+      "title": "Garden Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e05_spooked_script.txt",
+      "season": 8,
+      "episode": 5,
+      "title": "Spooked",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+      "season": 8,
+      "episode": 6,
+      "title": "Doomsday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+      "season": 8,
+      "episode": 7,
+      "title": "Pam’s Replacement",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt",
+      "season": 8,
+      "episode": 8,
+      "title": "Gettysburg",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e09_mrs_california_script.txt",
+      "season": 8,
+      "episode": 9,
+      "title": "Mrs. California",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e10_christmas_wishes_script.txt",
+      "season": 8,
+      "episode": 10,
+      "title": "Christmas Wishes",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e11_trivia_script.txt",
+      "season": 8,
+      "episode": 11,
+      "title": "Trivia",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e12_pool_party_script.txt",
+      "season": 8,
+      "episode": 12,
+      "title": "Pool Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e13_jury_duty_script.txt",
+      "season": 8,
+      "episode": 13,
+      "title": "Jury Duty",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt",
+      "season": 8,
+      "episode": 14,
+      "title": "Special Project",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e15_tallahasse_script.txt",
+      "season": 8,
+      "episode": 15,
+      "title": "Tallahasse",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e16_after_hours_script.txt",
+      "season": 8,
+      "episode": 16,
+      "title": "After Hours",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e17_test_the_store_script.txt",
+      "season": 8,
+      "episode": 17,
+      "title": "Test the Store",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+      "season": 8,
+      "episode": 18,
+      "title": "Last Day In Florida",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e19_get_the_girl_script.txt",
+      "season": 8,
+      "episode": 19,
+      "title": "Get The Girl",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+      "season": 8,
+      "episode": 20,
+      "title": "Welcome Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt",
+      "season": 8,
+      "episode": 21,
+      "title": "Angry Andy",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e22_fundraiser_script.txt",
+      "season": 8,
+      "episode": 22,
+      "title": "Fundraiser",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e23_turf_war_script.txt",
+      "season": 8,
+      "episode": 23,
+      "title": "Turf War",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s08e24_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e24_free_family_portrait_studio_script.txt",
+      "season": 8,
+      "episode": 24,
+      "title": "Free Family Portrait Studio",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e01_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt",
+      "season": 9,
+      "episode": 1,
+      "title": "New Guys",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e02_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e02_roy_s_wedding_script.txt",
+      "season": 9,
+      "episode": 2,
+      "title": "Roy’s Wedding",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e03_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+      "season": 9,
+      "episode": 3,
+      "title": "Andy’s Ancestry",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e04_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+      "season": 9,
+      "episode": 4,
+      "title": "Work Bus",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e05_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e05_here_comes_treble_script.txt",
+      "season": 9,
+      "episode": 5,
+      "title": "Here Comes Treble",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e06_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+      "season": 9,
+      "episode": 6,
+      "title": "The Boat",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e07_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt",
+      "season": 9,
+      "episode": 7,
+      "title": "The Whale",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e08_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+      "season": 9,
+      "episode": 8,
+      "title": "The Target",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e09_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+      "season": 9,
+      "episode": 9,
+      "title": "Dwight Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e10_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e10_lice_script.txt",
+      "season": 9,
+      "episode": 10,
+      "title": "Lice",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e11_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+      "season": 9,
+      "episode": 11,
+      "title": "Suit Warehouse",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e12_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+      "season": 9,
+      "episode": 12,
+      "title": "Customer Loyalty",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e13_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+      "season": 9,
+      "episode": 13,
+      "title": "Junior Salesman",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e14_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e14_vandalism_script.txt",
+      "season": 9,
+      "episode": 14,
+      "title": "Vandalism",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e15_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e15_couples_discount_script.txt",
+      "season": 9,
+      "episode": 15,
+      "title": "Couples Discount",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e16_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+      "season": 9,
+      "episode": 16,
+      "title": "Moving On",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e17_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e17_the_farm_script.txt",
+      "season": 9,
+      "episode": 17,
+      "title": "The Farm",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e18_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+      "season": 9,
+      "episode": 18,
+      "title": "Promos",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e19_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e19_stairmageddon_script.txt",
+      "season": 9,
+      "episode": 19,
+      "title": "Stairmageddon",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e20_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+      "season": 9,
+      "episode": 20,
+      "title": "Paper Airplane",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e21_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+      "season": 9,
+      "episode": 21,
+      "title": "Livin’ The Dream",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e22_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+      "season": 9,
+      "episode": 22,
+      "title": "A.A.R.M",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "scripts_s09e23_episode",
+      "doc_type": "script_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+      "season": 9,
+      "episode": 23,
+      "title": "Finale",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json"
+    },
+    {
+      "doc_id": "summaries_s01e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e01_pilot_summary.txt",
+      "season": 1,
+      "episode": 1,
+      "title": "Pilot",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s01e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e02_diversity_day_summary.txt",
+      "season": 1,
+      "episode": 2,
+      "title": "Diversity Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s01e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e03_health_care_summary.txt",
+      "season": 1,
+      "episode": 3,
+      "title": "Health Care",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s01e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e04_the_alliance_summary.txt",
+      "season": 1,
+      "episode": 4,
+      "title": "The Alliance",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s01e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e05_basketball_summary.txt",
+      "season": 1,
+      "episode": 5,
+      "title": "Basketball",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s01e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e06_hot_girl_summary.txt",
+      "season": 1,
+      "episode": 6,
+      "title": "Hot Girl",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt",
+      "season": 2,
+      "episode": 1,
+      "title": "The Dundies",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e02_sexual_harassment_summary.txt",
+      "season": 2,
+      "episode": 2,
+      "title": "Sexual Harassment",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt",
+      "season": 2,
+      "episode": 3,
+      "title": "Office Olympics",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt",
+      "season": 2,
+      "episode": 4,
+      "title": "The Fire",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e05_halloween_summary.txt",
+      "season": 2,
+      "episode": 5,
+      "title": "Halloween",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e06_the_fight_summary.txt",
+      "season": 2,
+      "episode": 6,
+      "title": "The Fight",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e07_the_client_summary.txt",
+      "season": 2,
+      "episode": 7,
+      "title": "The Client",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e08_performance_review_summary.txt",
+      "season": 2,
+      "episode": 8,
+      "title": "Performance Review",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e09_e_mail_surveillance_summary.txt",
+      "season": 2,
+      "episode": 9,
+      "title": "E-Mail Surveillance",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e10_christmas_party_summary.txt",
+      "season": 2,
+      "episode": 10,
+      "title": "Christmas Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e11_booze_cruise_summary.txt",
+      "season": 2,
+      "episode": 11,
+      "title": "Booze Cruise",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt",
+      "season": 2,
+      "episode": 12,
+      "title": "The Injury",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt",
+      "season": 2,
+      "episode": 13,
+      "title": "The Secret",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e14_the_carpet_summary.txt",
+      "season": 2,
+      "episode": 14,
+      "title": "The Carpet",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e15_boys_and_girls_summary.txt",
+      "season": 2,
+      "episode": 15,
+      "title": "Boys and Girls",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e16_valentine_s_day_summary.txt",
+      "season": 2,
+      "episode": 16,
+      "title": "Valentine's Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e17_dwight_s_speech_summary.txt",
+      "season": 2,
+      "episode": 17,
+      "title": "Dwight's Speech",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e18_take_your_daughter_to_work_day_summary.txt",
+      "season": 2,
+      "episode": 18,
+      "title": "Take Your Daughter to Work Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt",
+      "season": 2,
+      "episode": 19,
+      "title": "Michael's Birthday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e20_drug_testing_summary.txt",
+      "season": 2,
+      "episode": 20,
+      "title": "Drug Testing",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e21_conflict_resolution_summary.txt",
+      "season": 2,
+      "episode": 21,
+      "title": "Conflict Resolution",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s02e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e22_casino_night_summary.txt",
+      "season": 2,
+      "episode": 22,
+      "title": "Casino Night",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e01_gay_witch_hunt_summary.txt",
+      "season": 3,
+      "episode": 1,
+      "title": "Gay Witch Hunt",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e02_the_convention_summary.txt",
+      "season": 3,
+      "episode": 2,
+      "title": "The Convention",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e03_the_coup_summary.txt",
+      "season": 3,
+      "episode": 3,
+      "title": "The Coup",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e04_grief_counseling_summary.txt",
+      "season": 3,
+      "episode": 4,
+      "title": "Grief Counseling",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e05_initiation_summary.txt",
+      "season": 3,
+      "episode": 5,
+      "title": "Initiation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e06_diwali_summary.txt",
+      "season": 3,
+      "episode": 6,
+      "title": "Diwali",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e07_branch_closing_summary.txt",
+      "season": 3,
+      "episode": 7,
+      "title": "Branch Closing",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e08_the_merger_summary.txt",
+      "season": 3,
+      "episode": 8,
+      "title": "The Merger",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e09_the_convict_summary.txt",
+      "season": 3,
+      "episode": 9,
+      "title": "The Convict",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e10_a_benihana_christmas_1_summary.txt",
+      "season": 3,
+      "episode": 10,
+      "title": "A Benihana Christmas (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e11_a_benihana_christmas_2_summary.txt",
+      "season": 3,
+      "episode": 11,
+      "title": "A Benihana Christmas (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e12_back_from_vacation_summary.txt",
+      "season": 3,
+      "episode": 12,
+      "title": "Back from Vacation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e13_traveling_salesmen_summary.txt",
+      "season": 3,
+      "episode": 13,
+      "title": "Traveling Salesmen",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e14_the_return_summary.txt",
+      "season": 3,
+      "episode": 14,
+      "title": "The Return",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e15_ben_franklin_summary.txt",
+      "season": 3,
+      "episode": 15,
+      "title": "Ben Franklin",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e16_phyllis_wedding_summary.txt",
+      "season": 3,
+      "episode": 16,
+      "title": "Phyllis' Wedding",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e17_business_school_summary.txt",
+      "season": 3,
+      "episode": 17,
+      "title": "Business School",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e18_cocktails_summary.txt",
+      "season": 3,
+      "episode": 18,
+      "title": "Cocktails",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e19_the_negotiation_summary.txt",
+      "season": 3,
+      "episode": 19,
+      "title": "The Negotiation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e20_safety_training_summary.txt",
+      "season": 3,
+      "episode": 20,
+      "title": "Safety Training",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e21_product_recall_summary.txt",
+      "season": 3,
+      "episode": 21,
+      "title": "Product Recall",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e22_women_s_appreciation_summary.txt",
+      "season": 3,
+      "episode": 22,
+      "title": "Women's Appreciation",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e23_beach_games_summary.txt",
+      "season": 3,
+      "episode": 23,
+      "title": "Beach Games",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e24_the_job_1_summary.txt",
+      "season": 3,
+      "episode": 24,
+      "title": "The Job (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s03e25_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e25_the_job_2_summary.txt",
+      "season": 3,
+      "episode": 25,
+      "title": "The Job (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e01_fun_run_1_summary.txt",
+      "season": 4,
+      "episode": 1,
+      "title": "Fun Run (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e02_fun_run_2_summary.txt",
+      "season": 4,
+      "episode": 2,
+      "title": "Fun Run (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e03_dunder_mifflin_infinity_1_summary.txt",
+      "season": 4,
+      "episode": 3,
+      "title": "Dunder Mifflin Infinity (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e04_dunder_mifflin_infinity_2_summary.txt",
+      "season": 4,
+      "episode": 4,
+      "title": "Dunder Mifflin Infinity (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e05_launch_party_1_summary.txt",
+      "season": 4,
+      "episode": 5,
+      "title": "Launch Party (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e06_launch_party_2_summary.txt",
+      "season": 4,
+      "episode": 6,
+      "title": "Launch Party (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e07_money_1_summary.txt",
+      "season": 4,
+      "episode": 7,
+      "title": "Money (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e08_money_2_summary.txt",
+      "season": 4,
+      "episode": 8,
+      "title": "Money (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e09_local_ad_summary.txt",
+      "season": 4,
+      "episode": 9,
+      "title": "Local Ad",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e10_branch_wars_summary.txt",
+      "season": 4,
+      "episode": 10,
+      "title": "Branch Wars",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e11_survivor_man_summary.txt",
+      "season": 4,
+      "episode": 11,
+      "title": "Survivor Man",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e12_the_deposition_summary.txt",
+      "season": 4,
+      "episode": 12,
+      "title": "The Deposition",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e13_dinner_party_summary.txt",
+      "season": 4,
+      "episode": 13,
+      "title": "Dinner Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e14_chair_model_summary.txt",
+      "season": 4,
+      "episode": 14,
+      "title": "Chair Model",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e15_night_out_summary.txt",
+      "season": 4,
+      "episode": 15,
+      "title": "Night Out",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e16_did_i_stutter_summary.txt",
+      "season": 4,
+      "episode": 16,
+      "title": "Did I Stutter?",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e17_job_fair_summary.txt",
+      "season": 4,
+      "episode": 17,
+      "title": "Job Fair",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e18_goodbye_toby_1_summary.txt",
+      "season": 4,
+      "episode": 18,
+      "title": "Goodbye, Toby (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s04e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e19_goodbye_toby_2_summary.txt",
+      "season": 4,
+      "episode": 19,
+      "title": "Goodbye, Toby (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e01_weight_loss_1_summary.txt",
+      "season": 5,
+      "episode": 1,
+      "title": "Weight Loss (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e02_weight_loss_2_summary.txt",
+      "season": 5,
+      "episode": 2,
+      "title": "Weight Loss (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e03_business_ethics_summary.txt",
+      "season": 5,
+      "episode": 3,
+      "title": "Business Ethics",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e04_baby_shower_summary.txt",
+      "season": 5,
+      "episode": 4,
+      "title": "Baby Shower",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e05_crime_aid_summary.txt",
+      "season": 5,
+      "episode": 5,
+      "title": "Crime Aid",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e06_employee_transfer_summary.txt",
+      "season": 5,
+      "episode": 6,
+      "title": "Employee Transfer",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e07_customer_survey_summary.txt",
+      "season": 5,
+      "episode": 7,
+      "title": "Customer Survey",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e08_business_trip_summary.txt",
+      "season": 5,
+      "episode": 8,
+      "title": "Business Trip",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e09_frame_toby_summary.txt",
+      "season": 5,
+      "episode": 9,
+      "title": "Frame Toby",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e10_the_surplus_summary.txt",
+      "season": 5,
+      "episode": 10,
+      "title": "The Surplus",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e11_moroccan_christmas_summary.txt",
+      "season": 5,
+      "episode": 11,
+      "title": "Moroccan Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e12_the_duel_summary.txt",
+      "season": 5,
+      "episode": 12,
+      "title": "The Duel",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e13_prince_family_paper_summary.txt",
+      "season": 5,
+      "episode": 13,
+      "title": "Prince Family Paper",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e14_stress_relief_1_summary.txt",
+      "season": 5,
+      "episode": 14,
+      "title": "Stress Relief (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e15_stress_relief_2_summary.txt",
+      "season": 5,
+      "episode": 15,
+      "title": "Stress Relief (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e16_lecture_circuit_1_summary.txt",
+      "season": 5,
+      "episode": 16,
+      "title": "Lecture Circuit (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e17_lecture_circuit_2_summary.txt",
+      "season": 5,
+      "episode": 17,
+      "title": "Lecture Circuit (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e18_blood_drive_summary.txt",
+      "season": 5,
+      "episode": 18,
+      "title": "Blood Drive",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e19_golden_ticket_summary.txt",
+      "season": 5,
+      "episode": 19,
+      "title": "Golden Ticket",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e20_new_boss_summary.txt",
+      "season": 5,
+      "episode": 20,
+      "title": "New Boss",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e21_two_weeks_summary.txt",
+      "season": 5,
+      "episode": 21,
+      "title": "Two Weeks",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e22_dream_team_summary.txt",
+      "season": 5,
+      "episode": 22,
+      "title": "Dream Team",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e23_the_michael_scott_paper_company_summary.txt",
+      "season": 5,
+      "episode": 23,
+      "title": "The Michael Scott Paper Company",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e24_heavy_competition_summary.txt",
+      "season": 5,
+      "episode": 24,
+      "title": "Heavy Competition",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e25_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e25_broke_summary.txt",
+      "season": 5,
+      "episode": 25,
+      "title": "Broke",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e26_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e26_casual_friday_summary.txt",
+      "season": 5,
+      "episode": 26,
+      "title": "Casual Friday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e27_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e27_cafe_disco_summary.txt",
+      "season": 5,
+      "episode": 27,
+      "title": "Cafe Disco",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s05e28_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_05/s05e28_company_picnic_summary.txt",
+      "season": 5,
+      "episode": 28,
+      "title": "Company Picnic",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e01_gossip_summary.txt",
+      "season": 6,
+      "episode": 1,
+      "title": "Gossip",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e02_the_meeting_summary.txt",
+      "season": 6,
+      "episode": 2,
+      "title": "The Meeting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e03_the_promotion_summary.txt",
+      "season": 6,
+      "episode": 3,
+      "title": "The Promotion",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e04_niagara_1_summary.txt",
+      "season": 6,
+      "episode": 4,
+      "title": "Niagara (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e05_niagara_2_summary.txt",
+      "season": 6,
+      "episode": 5,
+      "title": "Niagara (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e06_mafia_summary.txt",
+      "season": 6,
+      "episode": 6,
+      "title": "Mafia",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e07_the_lover_summary.txt",
+      "season": 6,
+      "episode": 7,
+      "title": "The Lover",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e08_koi_pond_summary.txt",
+      "season": 6,
+      "episode": 8,
+      "title": "Koi Pond",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e09_double_date_summary.txt",
+      "season": 6,
+      "episode": 9,
+      "title": "Double Date",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e10_murder_summary.txt",
+      "season": 6,
+      "episode": 10,
+      "title": "Murder",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e11_shareholder_meeting_summary.txt",
+      "season": 6,
+      "episode": 11,
+      "title": "Shareholder Meeting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e12_scott_s_tots_summary.txt",
+      "season": 6,
+      "episode": 12,
+      "title": "Scott's Tots",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e13_secret_santa_summary.txt",
+      "season": 6,
+      "episode": 13,
+      "title": "Secret Santa",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e14_the_banker_summary.txt",
+      "season": 6,
+      "episode": 14,
+      "title": "The Banker",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e15_sabre_summary.txt",
+      "season": 6,
+      "episode": 15,
+      "title": "Sabre",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e16_the_manager_and_the_salesman_summary.txt",
+      "season": 6,
+      "episode": 16,
+      "title": "The Manager and the Salesman",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e17_the_delivery_1_summary.txt",
+      "season": 6,
+      "episode": 17,
+      "title": "The Delivery (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e18_the_delivery_2_summary.txt",
+      "season": 6,
+      "episode": 18,
+      "title": "The Delivery (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e19_st_patrick_s_day_summary.txt",
+      "season": 6,
+      "episode": 19,
+      "title": "St. Patrick's Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e20_new_leads_summary.txt",
+      "season": 6,
+      "episode": 20,
+      "title": "New Leads",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e21_happy_hour_summary.txt",
+      "season": 6,
+      "episode": 21,
+      "title": "Happy Hour",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e22_secretary_s_day_summary.txt",
+      "season": 6,
+      "episode": 22,
+      "title": "Secretary's Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e23_body_language_summary.txt",
+      "season": 6,
+      "episode": 23,
+      "title": "Body Language",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e24_the_cover_up_summary.txt",
+      "season": 6,
+      "episode": 24,
+      "title": "The Cover-Up",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e25_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e25_the_chump_summary.txt",
+      "season": 6,
+      "episode": 25,
+      "title": "The Chump",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s06e26_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_06/s06e26_whistleblower_summary.txt",
+      "season": 6,
+      "episode": 26,
+      "title": "Whistleblower",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e01_nepotism_summary.txt",
+      "season": 7,
+      "episode": 1,
+      "title": "Nepotism",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e02_counseling_summary.txt",
+      "season": 7,
+      "episode": 2,
+      "title": "Counseling",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e03_andy_s_play_summary.txt",
+      "season": 7,
+      "episode": 3,
+      "title": "Andy's Play",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e04_sex_ed_summary.txt",
+      "season": 7,
+      "episode": 4,
+      "title": "Sex Ed",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e05_the_sting_summary.txt",
+      "season": 7,
+      "episode": 5,
+      "title": "The Sting",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e06_costume_contest_summary.txt",
+      "season": 7,
+      "episode": 6,
+      "title": "Costume Contest",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e07_christening_summary.txt",
+      "season": 7,
+      "episode": 7,
+      "title": "Christening",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e08_viewing_party_summary.txt",
+      "season": 7,
+      "episode": 8,
+      "title": "Viewing Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e09_wuphf_com_summary.txt",
+      "season": 7,
+      "episode": 9,
+      "title": "WUPHF.com",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e10_china_summary.txt",
+      "season": 7,
+      "episode": 10,
+      "title": "China",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e11_classy_christmas_1_summary.txt",
+      "season": 7,
+      "episode": 11,
+      "title": "Classy Christmas (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e12_classy_christmas_2_summary.txt",
+      "season": 7,
+      "episode": 12,
+      "title": "Classy Christmas (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e13_ultimatum_summary.txt",
+      "season": 7,
+      "episode": 13,
+      "title": "Ultimatum",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e14_the_seminar_summary.txt",
+      "season": 7,
+      "episode": 14,
+      "title": "The Seminar",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e15_the_search_summary.txt",
+      "season": 7,
+      "episode": 15,
+      "title": "The Search",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e16_pda_summary.txt",
+      "season": 7,
+      "episode": 16,
+      "title": "PDA",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e17_threat_level_midnight_summary.txt",
+      "season": 7,
+      "episode": 17,
+      "title": "Threat Level Midnight",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e18_todd_packer_summary.txt",
+      "season": 7,
+      "episode": 18,
+      "title": "Todd Packer",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e19_garage_sale_summary.txt",
+      "season": 7,
+      "episode": 19,
+      "title": "Garage Sale",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e20_training_day_summary.txt",
+      "season": 7,
+      "episode": 20,
+      "title": "Training Day",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e21_michael_s_last_dundies_summary.txt",
+      "season": 7,
+      "episode": 21,
+      "title": "Michael's Last Dundies",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e22_goodbye_michael_1_summary.txt",
+      "season": 7,
+      "episode": 22,
+      "title": "Goodbye, Michael (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e23_goodbye_michael_2_summary.txt",
+      "season": 7,
+      "episode": 23,
+      "title": "Goodbye, Michael (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e24_the_inner_circle_summary.txt",
+      "season": 7,
+      "episode": 24,
+      "title": "The Inner Circle",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e25_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e25_dwight_k_schrute_acting_manager_summary.txt",
+      "season": 7,
+      "episode": 25,
+      "title": "Dwight K. Schrute, (Acting) Manager",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e26_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e26_search_committee_1_summary.txt",
+      "season": 7,
+      "episode": 26,
+      "title": "Search Committee (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s07e27_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e27_search_committee_2_summary.txt",
+      "season": 7,
+      "episode": 27,
+      "title": "Search Committee (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e01_the_list_summary.txt",
+      "season": 8,
+      "episode": 1,
+      "title": "The List",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e02_the_incentive_summary.txt",
+      "season": 8,
+      "episode": 2,
+      "title": "The Incentive",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e03_lotto_summary.txt",
+      "season": 8,
+      "episode": 3,
+      "title": "Lotto",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e04_garden_party_summary.txt",
+      "season": 8,
+      "episode": 4,
+      "title": "Garden Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e05_spooked_summary.txt",
+      "season": 8,
+      "episode": 5,
+      "title": "Spooked",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e06_doomsday_summary.txt",
+      "season": 8,
+      "episode": 6,
+      "title": "Doomsday",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e07_pam_s_replacement_summary.txt",
+      "season": 8,
+      "episode": 7,
+      "title": "Pam's Replacement",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e08_gettysburg_summary.txt",
+      "season": 8,
+      "episode": 8,
+      "title": "Gettysburg",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e09_mrs_california_summary.txt",
+      "season": 8,
+      "episode": 9,
+      "title": "Mrs. California",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e10_christmas_wishes_summary.txt",
+      "season": 8,
+      "episode": 10,
+      "title": "Christmas Wishes",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e11_trivia_summary.txt",
+      "season": 8,
+      "episode": 11,
+      "title": "Trivia",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e12_pool_party_summary.txt",
+      "season": 8,
+      "episode": 12,
+      "title": "Pool Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e13_jury_duty_summary.txt",
+      "season": 8,
+      "episode": 13,
+      "title": "Jury Duty",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e14_special_project_summary.txt",
+      "season": 8,
+      "episode": 14,
+      "title": "Special Project",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e15_tallahassee_summary.txt",
+      "season": 8,
+      "episode": 15,
+      "title": "Tallahassee",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e16_after_hours_summary.txt",
+      "season": 8,
+      "episode": 16,
+      "title": "After Hours",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e17_test_the_store_summary.txt",
+      "season": 8,
+      "episode": 17,
+      "title": "Test the Store",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e18_last_day_in_florida_summary.txt",
+      "season": 8,
+      "episode": 18,
+      "title": "Last Day in Florida",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e19_get_the_girl_summary.txt",
+      "season": 8,
+      "episode": 19,
+      "title": "Get the Girl",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e20_welcome_party_summary.txt",
+      "season": 8,
+      "episode": 20,
+      "title": "Welcome Party",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e21_angry_andy_summary.txt",
+      "season": 8,
+      "episode": 21,
+      "title": "Angry Andy",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e22_fundraiser_summary.txt",
+      "season": 8,
+      "episode": 22,
+      "title": "Fundraiser",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e23_turf_war_summary.txt",
+      "season": 8,
+      "episode": 23,
+      "title": "Turf War",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s08e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_08/s08e24_free_family_portrait_studio_summary.txt",
+      "season": 8,
+      "episode": 24,
+      "title": "Free Family Portrait Studio",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e01_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e01_the_new_guys_summary.txt",
+      "season": 9,
+      "episode": 1,
+      "title": "The New Guys",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e02_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e02_roy_s_wedding_summary.txt",
+      "season": 9,
+      "episode": 2,
+      "title": "Roy's Wedding",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e03_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e03_andy_s_ancestry_summary.txt",
+      "season": 9,
+      "episode": 3,
+      "title": "Andy's Ancestry",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e04_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e04_work_bus_summary.txt",
+      "season": 9,
+      "episode": 4,
+      "title": "Work Bus",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e05_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e05_here_comes_treble_summary.txt",
+      "season": 9,
+      "episode": 5,
+      "title": "Here Comes Treble",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e06_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e06_the_boat_summary.txt",
+      "season": 9,
+      "episode": 6,
+      "title": "The Boat",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e07_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e07_the_whale_summary.txt",
+      "season": 9,
+      "episode": 7,
+      "title": "The Whale",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e08_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e08_the_target_summary.txt",
+      "season": 9,
+      "episode": 8,
+      "title": "The Target",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e09_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e09_dwight_christmas_summary.txt",
+      "season": 9,
+      "episode": 9,
+      "title": "Dwight Christmas",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e10_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e10_lice_summary.txt",
+      "season": 9,
+      "episode": 10,
+      "title": "Lice",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e11_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e11_suit_warehouse_summary.txt",
+      "season": 9,
+      "episode": 11,
+      "title": "Suit Warehouse",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e12_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e12_customer_loyalty_summary.txt",
+      "season": 9,
+      "episode": 12,
+      "title": "Customer Loyalty",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e13_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e13_junior_salesman_summary.txt",
+      "season": 9,
+      "episode": 13,
+      "title": "Junior Salesman",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e14_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e14_vandalism_summary.txt",
+      "season": 9,
+      "episode": 14,
+      "title": "Vandalism",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e15_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e15_couples_discount_summary.txt",
+      "season": 9,
+      "episode": 15,
+      "title": "Couples Discount",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e16_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e16_moving_on_summary.txt",
+      "season": 9,
+      "episode": 16,
+      "title": "Moving On",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e17_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e17_the_farm_summary.txt",
+      "season": 9,
+      "episode": 17,
+      "title": "The Farm",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e18_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e18_promos_summary.txt",
+      "season": 9,
+      "episode": 18,
+      "title": "Promos",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e19_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e19_stairmageddon_summary.txt",
+      "season": 9,
+      "episode": 19,
+      "title": "Stairmageddon",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e20_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e20_paper_airplane_summary.txt",
+      "season": 9,
+      "episode": 20,
+      "title": "Paper Airplane",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e21_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e21_livin_the_dream_summary.txt",
+      "season": 9,
+      "episode": 21,
+      "title": "Livin' the Dream",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e22_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e22_a_a_r_m_1_summary.txt",
+      "season": 9,
+      "episode": 22,
+      "title": "A.A.R.M. (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e23_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e23_a_a_r_m_2_summary.txt",
+      "season": 9,
+      "episode": 23,
+      "title": "A.A.R.M. (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e24_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e24_finale_1_summary.txt",
+      "season": 9,
+      "episode": 24,
+      "title": "Finale (1)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    },
+    {
+      "doc_id": "summaries_s09e25_summary",
+      "doc_type": "summary_episode_txt",
+      "out_path": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e25_finale_2_summary.txt",
+      "season": 9,
+      "episode": 25,
+      "title": "Finale (2)",
+      "source_path": "/Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json"
+    }
+  ]
+}
