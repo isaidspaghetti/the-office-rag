@@ -1,0 +1,312 @@
+{
+  "run": {
+    "run_id": "2026-03-02T20-01-46Z_t2_mmr_k12_fetch40_l07",
+    "run_name": "t2_mmr_k12_fetch40_l07",
+    "created_at_utc": "2026-03-02T20:01:46Z",
+    "notes": "Tuning: MMR k=12 fetch_k=40 lambda=0.7"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know.",
+        "latency_ms": 635,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 4,
+          "total_tokens": 104
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 13
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know.",
+        "latency_ms": 692,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 82,
+          "completion_tokens": 4,
+          "total_tokens": 86
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 13
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know.",
+        "latency_ms": 512,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 83,
+          "completion_tokens": 4,
+          "total_tokens": 87
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 13
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about why Dwight dislikes Jim or examples of their interactions.",
+        "latency_ms": 922,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 86,
+          "completion_tokens": 22,
+          "total_tokens": 108
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 128
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about Michael Scott’s serious girlfriends or how those relationships ended.",
+        "latency_ms": 1123,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 85,
+          "completion_tokens": 23,
+          "total_tokens": 108
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 139
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the teapot letter or its importance.",
+        "latency_ms": 819,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 85,
+          "completion_tokens": 20,
+          "total_tokens": 105
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 106
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 0,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": []
+      },
+      "answer": {
+        "text": "I don't know.",
+        "latency_ms": 668,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 82,
+          "completion_tokens": 4,
+          "total_tokens": 86
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 13
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 0,
+    "avg_context_docs": 0.0,
+    "avg_context_chars": 0.0,
+    "avg_answer_latency_ms": 767,
+    "avg_prompt_tokens": 86,
+    "avg_completion_tokens": 11,
+    "avg_total_tokens": 97,
+    "idk_rate": 1.0,
+    "episode_citation_rate": 0.0,
+    "retrieval_empty_rate": 1.0,
+    "errors_count": 7,
+    "errors_sample": [
+      "q1: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q2: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q3: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q4: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q5: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q6: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'",
+      "q7: retrieval_error: AttributeError: 'Chroma' object has no attribute 'max_marginal_relevance_search_with_relevance_scores'"
+    ]
+  }
+}

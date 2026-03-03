@@ -1,0 +1,899 @@
+{
+  "run": {
+    "run_id": "2026-03-02T19-45-31Z_t1_similarity_k12",
+    "run_name": "t1_similarity_k12",
+    "created_at_utc": "2026-03-02T19:45:31Z",
+    "notes": "Tuning: increase k to 12 (same similarity)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1142,
+        "stats": {
+          "min": 0.5593902468681335,
+          "max": 0.6614269018173218,
+          "mean": 0.5779588768879572
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 20\nTITLE: Product Recall\nEPISODE_ID: 03-20\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Angela, Barbara, Chad Lite, Creed, Denise, Dwight, Jamie, Jim, Karen, Kelly, Kevin, Michael, Oscar, Pam, Phyllis, Ryan, School Official, Spanish Teacher, Stanley\n\n----\n\n\n=== SCENE 000 ===\n\nJim (Dressed as Dwight): It's kind of blurry. That's better. Question. What kind of bear is best?\n[STAGE] puts on his glasses\n[STAGE] exhales\nDwight: That's a ridiculous question.\nJim: False. Black bear.\nDwight: Well that's debatable. There are basically two schools of thought—\nJim: Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\nDwight: Bears do not— What is going on— What are you doing?!\n\n=== SCENE 001 ===",
+            "score": 0.6614269018173218
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 045 ===",
+            "preview": "=== SCENE 045 ===\n\nAndy: Hey, what's goin' on over here? Some sort of singing competition for the young'uns?\nCasey: You're back!\nAndy: No, it's me, Andy!\nCasey: No, I know.\nAndy: No, no, no. I'm wearing makeup.\nCasey: You did a really great job. You even look shorter.\nAndy: Oh, I took out my lifts.\nCasey: Oh.\nAndy: Yeah, unlike Andy Bernard, this character is my real height.\nCasey: Oh.\n\n=== SCENE 046 ===\n\nEsther: All day long, it's moo the cows and cluck the hens. Get the sheep baa-ed. Oink the pigs.\nDwight: Oink the pigs, that is very important.\n[STAGE] watching Phillip\nEsther: Dwight, I'm telling you about all the things that ma said after the horse kicked her in the head. Where are you? Dwight?\n\n=== SCENE 047 ===\n\nDwight: The way that boy looks at the Galactica is precisely the way I look at the Galactica. And he eats the same kind of paper I do. Hmm.\n\n=== SCENE 048 ===",
+            "score": 0.6128706336021423
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt",
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nDwight: Jim, could you please inform Andy Bernard that he is being shunned.\nJim: Andy, Dwight says welcome back, and he could use a hug.\nDwight: Ok, tell him that's not true.\nJim: Dwight says that he actually doesn't know one single fact about bear attacks.\nAndy: You guys…\nDwight: Ok, no. Jim, tell him that bears can climb faster than they can run. Jim! Tell him!\nJim (half-heartedly): Andy! Nah, that's too far.\nDwight: Damn you.\n\n=== SCENE 005 ===\n\nMichael: Today is Safety Training Day. Toby is leading ours upstairs. Yeauck. But, I am giving everyone a little bit of a treat. We are going to listen in on Darryl's presentation to the warehouse. And if I know Darryl, it gonna be zoppity.\n\n=== SCENE 006 ===",
+            "score": 0.577123761177063
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt",
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nDarryl: What do we have here?\n\n=== SCENE 006 ===\n\nDarryl: Val knit me a beanie. But I can't if it's a \"we're just friends\" beanie or a \"I'm hot, you're hot, let's get it poppin'\" beanie. So I'm gonna up the ante, give her a clearly romantic gift, and we'll get to the meaning of the beanie.\n\n=== SCENE 007 ===\n\nDwight: Pam, pack up your post-natal swimwear, make it a one piece or this offer is rescinded, and join me on a fantastic barbeque one week from today in Tallahassee, Florida where I'm going to be living for the next three weeks.\nPam: Really?\nDwight: Mm hm.\nPam: I'll fly anywhere for some good barbeque.\nJim: Ooh, me three.\nDwight: Eh! No plus one's. This is for competent workers only. And don't worry about the cost, Sabre is footing the bill.\nPam: Does this have anything to do with what you were talking to Andy about?\nDwight: God, you're such a spy.\n\n=== SCENE 008 ===",
+            "score": 0.5714687705039978
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+            "first_line": "=== SCENE 009 ===",
+            "preview": "=== SCENE 009 ===\n\nJim: Hey, Andy.\nAndy: Yo.\nJim: By any chance, did you see Battlestar Galactica last night?\nAndy: No, I did not. Was that any good?\nJim: Actually not. It was really so-so.\nDwight: Ok.\n[STAGE] Dwight turns around, but Jim holds up the stopwatch, threatening to start it\nJim: I mean I like all the crazy monsters and stuff. You know, like klingons and wookies and all that but… Sorry, was there something you wanted to add, Dwight?\n[STAGE] Dwight begins to turn around again, Jim holds up the watch\nAndy: Is that anything like the original Battlestar Galactica?\nJim: You know, it's weird. It's practically a shot for shot remake.\nAndy: Really? Huh, that's cool.\n[STAGE] Dwight closes his eyes, clutches the paper in his hands\nJim: Story's kinda bland. It's about this guy named Dumbledore Calrissian who needs to return the ring back to Mordor.\nAndy: Really? That doesn't sound right.\n\n=== SCENE 010 ===",
+            "score": 0.5696790218353271
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+            "first_line": "Dwight: Listen up. Let's start… from the ground",
+            "preview": "Dwight: Listen up. Let's start… from the ground\nKevin (at the same time as Dwight): Trees.\nDwight: Trees! And where do trees grow?\nKevin (at the same time as Dwight): Forest.\nDwight: Soil. Right. We have, in front of you here, seven different types of Pennsylvania top soil. Now, what would you say… is the most important element in the production of above ground leafy growth? Probably phosphorus, right? Wrong! It's nitrogen! Absorb this information. Good! Now, let us discuss precipitation. Stanley! When rainfall occurs, does it usually fall in a liquid, solid, or gaseous… state?\n[STAGE] Angela smiles, shakes her head \"no\"\nStanley: Liquid.\nDwight: Very good! You have earned one Schrute Buck.\nStanley: I don't want it.\nDwight: Then you have been deducted 50 Schrute Bucks!\nStanley: Make it 100.\nDwight: We— Don't you wanna earn Schrute Bucks?\nStanley: No. In fact, I'll give you a billion Stanley Nickels if you never talk to me again.\nDwight: What's the ratio of Stanley Nickels to Schrute Buc…",
+            "score": 0.5669748187065125
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 7\nEPISODE: 23\nTITLE: Dwight K. Schrute, (Acting) Manager\nEPISODE_ID: 07-23\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, All but Oscar, Andy, Angela, Creed, Darryl, Darryl & Angela, Dwight, Erin, Gabe, Jim, Jo, Jordan, Kelly, Kevin, Meredith, Mose, Oscar, Pam, Phyllis, Ryan, Stanley, Toby\n\n----\n\n\n=== SCENE 000 ===\n\nPam: We could get Deangelo flowers.\nDwight: No, you can't get flowers for someone who's in a coma. They'll wilt before he wakes up.\nPhyllis: That's true.\nJim: All in favor of the baskets full of chocolates, teddy bears, and balloons?\n[STAGE] all but Dwight raise their hands\nDwight: Wait, wait. All in favor of the knapsack filled with canned goods, chainsaw, gasoline, and emergency radio in case he wakes up post-apocalypse?\n[STAGE] Dwight raises his hand\nJim: Nope. Baskets have it.\n\n=== SCENE 001 ===",
+            "score": 0.5654438734054565
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 22\nTITLE: Beach Games\nEPISODE_ID: 03-22\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Andy, Angela, Creed, David, Dwight, Everyone, Group, Jim, Karen, Kelly, Kevin, Meredith, Michael, Oscar, Pam, Phyllis, Ryan, Stanley, Toby\n\n----\n\n\n=== SCENE 000 ===\n\nMichael: Ughh… Blech.\nDwight: OK, where does it hurt?\nMichael: Just… all over. I don't want to do anything… I'm dying…\nDwight: No, that's not how it works. You have to point to a specific part of the body.\nMichael: Right there.\n[STAGE] Michael points to computer screen.\nDwight (reading from screen): \"Abdomen. Menses.\"\nMichael: Maybe.\nDwight: \"The uterus contracts after your egg passes through it.\"\nMichael: Not it. I don't have eggs.\n\n=== SCENE 001 ===\n\nPam: About 40 times a year, Michael gets really sick, but has no symptoms. Dwight is always gravely concerned.\n\n=== SCENE 002 ===",
+            "score": 0.5649771094322205
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+            "first_line": "=== SCENE 037 ===",
+            "preview": "=== SCENE 037 ===\n\nErin (Kevin comes around corner with a pan, ready to strike Dwight, Pam shakes her head): Oh, Pam. You got something on your shirt.\nPam: Oh, haha. Oh well. Pobody's nerfect, right?\nDwight: Did you just have a stroke, Pam? It's \"Nobody's perfect.\" Nice stroke, Pam.\nPam: No. It's a jokey saying. Pobody's nerfect, like I can't even say those words right. Ha.\nDwight: I hadn't heard that before, that's, that's funny.\nAndy: Dwight, there's just a small matter of a-\nPam: You know what would go so great with this cabbage pie? Milk.\nDwight: Any specific animal?\nPam: I'm thinking cow-\nDwight: Don't say cow- Ugh.\nAndy: What are you doing? It's 5 to 5.\nPam: Just don't talk about the email, okay? He's gonna cancel it on his own, I really think he will.\nAndy: That's insane!\nPam: Just trust me.\nAndy: Trust you, like I trusted Dwight this morning.\nPam: I got this.\nAndy: Enngh-\n\n=== SCENE 038 ===",
+            "score": 0.5639656782150269
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e23_turf_war_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 8\nEPISODE: 23\nTITLE: Turf War\nEPISODE_ID: 08-23\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Andy, Angela, Creed, David, Dwight, Erin, Gabe, Harry, Jim, Kevin, Mr. Ramish, Nellie, Oscar, Pam, Phone, Phyllis, Receptionist, Robert, Stanley, Toby\n\n----\n\n\n=== SCENE 000 ===\n\nGabe: Ugh, man. My delts are blasted. I wish they had a chart for how much protein powder to scoop for a 180 pound man with no fat.\nDwight: Protein powder, huh? You cut it with water? Why don't you just take estrogen? There you go boys. See how papa takes care of you? Mwah.\n[STAGE] swallows powder\n[STAGE] coughs\n[STAGE] kisses bicep\n\n=== SCENE 001 ===",
+            "score": 0.5621376633644104
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt",
+            "first_line": "=== SCENE 026 ===",
+            "preview": "=== SCENE 026 ===\n\nAndy: Take that down.\n[STAGE] Dwight has hung a large red Cornell banner from the ceiling\nDwight: Excuse me?\nAndy: Take. That down.\nMeredith: You know I once dated a couple of guys from Cornell. They were really nice. They gave me a ride home.\nAndy: I seriously doubt that anyone from Cornell dated you.\nCreed: It's pronounced Ker-nell. It's the highest rank in the military.\nAndy: It's pronounced \"Corn-ell!\" It's the highest rank in the Ivy League!\nDwight: Andy, let's just talk about this man-to-man, after work.\nAndy: Fine.\nDwight: What do you say?\nAndy: Yeah, good. Can we— Grr. Heh heh heh. That's Big Red Bear! That's a bobble Big Red Bear! God!!\n[STAGE] Dwight pulls out Cornell mascot bobble-head\n\n=== SCENE 027 ===",
+            "score": 0.5600480437278748
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e11_back_from_vacation_script.txt",
+            "first_line": "Jim: All right, let's get started. Umm… Oh, first off, we're supposed to be pushing cardstock this week. So… let's push cardstock this week. Uh, also… what is this?",
+            "preview": "Jim: All right, let's get started. Umm… Oh, first off, we're supposed to be pushing cardstock this week. So… let's push cardstock this week. Uh, also… what is this?\n[STAGE] to Dwight\nDwight: Tape recorder.\nJim: For what?\nDwight: For recording. Michael is on vacation and he's asked me to record all meetings and to type up the transcripts.\nJim: OK. Uh, Karen, any news from that law firm?\nKaren: Yeah, the deal closed yesterday, it's the six month commitment.\nJim: Oh my God, Dwight, what're you doing?\nDwight: What?\nJim: You're not allowed to take off your pants in the middle of the office.\nDwight: I'm not.\nJim: Dwight, you know what, just back up, okay, that's making me uncomfortable. This is sexual harassment, by the way. Oh my God! He's got a knife!\nDwight: I do not have a knife!\nJim: No, let the record show that Dwight K. Schrute is now completely nude and is holding a plastic knife to Stanley's neck?!\nDwight (leans into tape recorder): Let the record show that Jim Halpert is a liar!\nJi…",
+            "score": 0.5593902468681335
+          }
+        ]
+      },
+      "answer": {
+        "text": "The episode where Dwight says \"Bears. Beets. Battlestar Galactica.\" is Season 3, Episode 20, titled \"Product Recall.\" In this episode, the context is a prank Jim plays on Dwight, where Jim, dressed as Dwight, asks Dwight what kind of bear is best, and Jim responds with \"Bears. Beets. Battlestar Galactica,\" highlighting a humorous imitation of Dwight's mannerisms and interests.",
+        "latency_ms": 1406,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3245,
+          "completion_tokens": 93,
+          "total_tokens": 3338
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 11414,
+          "answer_chars": 379
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1185,
+        "stats": {
+          "min": 0.5463414788246155,
+          "max": 0.6777202486991882,
+          "mean": 0.5815529723962148
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 12\nTITLE: The Injury\nAIRDATE: 2006-01-12\nTVMAZE_ID: 47657\nTVMAZE_URL: https://www.tvmaze.com/episodes/47657/the-office-2x12-the-injury\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael accidentally burns his foot on his George Foreman Grill, but insists on coming to work anyway. When none of his employees, except for Dwight , help him, Michael feels under-appreciated. Meanwhile, Dwight starts acting strangely nice to everyone, especially Pam.",
+            "score": 0.6777202486991882
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nMichael: Morning everyone. Don't freak out. I forbid anybody to freak out. Clearly, I have had a very serious accident, but I will recover, God willing. I just want to be treated normally today. Normal would actually be good, considEring the trauma that I've been through.\nPam: You missed two big conference calls today, one with corporate.\nMichael: Did you explain why?\nPam: No, I didn't mention that you cooked your foot.\nMichael: Burned my foot, Pam.\n\n=== SCENE 005 ===\n\nMichael: Please stop popping my cast. Thank you.\nJim: So, where are you shipping your foot?\nMichael: Ha ha ha. So where are you shipping…\nDwight: Your foot?\n\n=== SCENE 006 ===",
+            "score": 0.6173837184906006
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nDwight: Ahhh. Mweehaa\nMichael: Doctor, what is more serious, a head injury or a foot injury?\nDoctor: A head injury.\nMichael: Well, you don't have all the information. The foot as been fairly severely burned and healed quickly, very quickly, actually like suspiciously quickly.\nDoctor (to Dwight): So, I'm ordEring a CAT scan.\nDwight: What is that?\nMichael: Look since you have the machine up and running, can I just stick my foot, we take a look?\nDoctor: Well, for a burn, you really just need to look at the outside of the foot.\nMichael: Ok, what kinda machine is that?\nDoctor: Does the skin look red and swollen?\nDwight: That's what she said.\nMichael: That's my joke, damnit Dwight.\n\n=== SCENE 033 ===",
+            "score": 0.6129324436187744
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.",
+            "preview": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.\n\n=== SCENE 021 ===\n\nBilly: What's wrong with that guy?\nJim: You mean today? He stepped on a George Foremen grill and he burned his foot.\nBilly: No, not Michael. The moon-faced kid who crashed into the pole. He looks like he has a concussion.\n\n=== SCENE 022 ===\n\nMichael (popping his bubble wrap cast): Hey!\nRyan: I found the pudding cups you wanted in a gas station in Carbondale!\nMichael: You did it! Look at you, and with the plate and the napkin. Very nice. Thank you, Ryan.\nRyan: You are very welcome.\nMichael: Did you get the yams?\nRyan: No, the gas station in Carbondale did not have fresh yams!\nMichael (sigh): Ok, I'll just have the pudding.\nRyan: You sure?\nMichael: Yeh.\nRyan: Ok.\n\n=== SCENE 023 ===\n\nMichael: You know what? I feel better. Ryan brought me some chocolate pudding and his kindness healed my foot.\n\n=== SCENE 024 ===",
+            "score": 0.585890531539917
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 19\nTITLE: Michael's Birthday\nAIRDATE: 2006-03-30\nTVMAZE_ID: 47664\nTVMAZE_URL: https://www.tvmaze.com/episodes/47664/the-office-2x19-michaels-birthday\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael's birthday coincides with Kevin awaiting the news to see if he has skin cancer.",
+            "score": 0.5838422179222107
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 001 ===",
+            "preview": "=== SCENE 001 ===\n\nPam: Dunder Mifflin, this is Pam.\nMichael: Pam! It's Michael. Help me! I need help right now.\nPam: Michael, what's wrong?\nMichael: I'm hurt, I have hurt myself. Oh my God!\nPam: Ok, wait wait wait wait…\nMichael: Ungh, this is not looking good Pam!\nPam: Michael, do you need me to call an ambulance?!\nMichael: No, I want you to pick me up.\nJim: What?\nPam: Ok…\nJim: What's going on?\nPam: Wait a second, I thought you said that you were hurt.\nMichael: I am hurt. I hurt my foot.\nJim: I'm sorry? Pam.\nPam (exasperated):\nJim: What is going on?\nMichael: I want to come to work. But I need you to come and pick me up.\n[STAGE] Jim lunges across Pam's desk and puts Michael on speakerphone\nMichael: OH GOD!\nJim: Hey, whoa, Michael…\nMichael: Oh God!\nJim: It's, okay, it's Jim. Just say again, uh, really loudly what happened.\nMichael: OK, buhhhh, I burned my foot very badly on my Foreman Grill and I now need someone to come and bring me into work.\nJim: You burned\n\n=== SCENE 002 ===",
+            "score": 0.568710446357727
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/summaries/season_04/s04e02_fun_run_2_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 4\nEPISODE: 2\nTITLE: Fun Run (2)\nAIRDATE: 2007-09-27\nTVMAZE_ID: 47694\nTVMAZE_URL: https://www.tvmaze.com/episodes/47694/the-office-4x02-fun-run-2\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael accidentally runs over Meredith in the parking lot which results in Michael arranging a 5K fun run for her",
+            "score": 0.5684434175491333
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/summaries/season_04/s04e01_fun_run_1_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 4\nEPISODE: 1\nTITLE: Fun Run (1)\nAIRDATE: 2007-09-27\nTVMAZE_ID: 47693\nTVMAZE_URL: https://www.tvmaze.com/episodes/47693/the-office-4x01-fun-run-1\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael accidentally runs over Meredith in the parking lot which results in Michael arranging a 5K fun run for her.",
+            "score": 0.563970685005188
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+            "first_line": "Michael: It's okay guys… I can handle this. Everybody can go home.",
+            "preview": "Michael: It's okay guys… I can handle this. Everybody can go home.\nKevin: We're here for the show, Michael.\nMichael: You're just a bunch of voyeurs. Are you eating popcorn?\nKelly: It has almost no calories.\nPam: Are you ready?\nMichael: Yes.\nPam (goes to punch Michael; he flinches): You have to keep your hands down, Michael.\nMichael: I know. Okay. Alright. Oh– God!\n[STAGE] sighs\n[STAGE] Pam goes to punch him again\nPam: Michael, you have to put your hands down.\nAngela: Put your hands in your pockets.\nMichael: Okay! Pam, Pam– I'm really sorry. I'm sorry.\n[STAGE] braces himself\nPam: What are you sorry for?\nMichael: So many things. I don't know. It's hard to choose.\nPam: How about for dating my mom?\nMichael: Maybe that–\nPam: And dumping her on her birthday.\nMichael: Yes.\nPam: Okay– just– don't ever date a member of my family again.\nMichael: Okay. I promise. For the record your mom came on to me.\n[STAGE] Pam starts to walk away\n[STAGE] Pam turns around and slaps him; he gasps\nPhyllis: Holy c…",
+            "score": 0.5558509230613708
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "first_line": "Kevin: Why don't you go Michael?",
+            "preview": "Kevin: Why don't you go Michael?\nMichael: Because I already did. Remember? I burned my foot on a George Foreman grill.\nJim: And that is not the same at all. If you're going to ask other people to do it, you should do it yourself.\nMichael: Alright. Okay. Alright. Fine. 'kay. The mind has to wrap around the foot. Okay.\n[STAGE] clears throat, breathes noisily\n[STAGE] exhales\nPam: Do you want us to count to three?\nMichael: Yes. Count to three, please.\nGroup: Three. Two. One.\nMichael: Count the other way. Count… no, no, count one, two, three, not three, two, one.\nGroup: One. Two. Three! Go! Do it! Go, Michael.\nMichael: Wait! Am I going on go? Or am I going on three?\nCreed: On the go that's after three.\nMichael: Okay.\nGroup: One, two, three, go!\nDwight: No! It's okay. I will do this Michael.\nMichael: Don't, don't.\nDwight (walking on coals): I will walk and stand on these coals until you award me the position of regional manager!\nGroup: Wow. Go, Dwight. Keep moving.\nDwight (standing still, on…",
+            "score": 0.5492643117904663
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 4\nTITLE: The Fire\nAIRDATE: 2005-10-11\nTVMAZE_ID: 47649\nTVMAZE_URL: https://www.tvmaze.com/episodes/47649/the-office-2x04-the-fire\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nA fire starts in the office kitchen.",
+            "score": 0.5482852458953857
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nMichael: Who among you has the guts to replace me? Let him walk across these coals.\nKevin: Are you going to try it?\nAngela: I'm not going to talk through the fire after your disgusting feet have gone through.\nKevin: Angela, it is a million degrees.\nPam: I'm gonna do it. And I fully expect to burn my feet and go to the hospital. That's the right spirit when doing a coal walk, right?\nMichael: No. No, not you, Pam. You have to keep score.\nPam: I'd like to try it.\nMichael: Pointless.\nPam: But I'm not kidding. I really want to do it.\nMichael: Blah, blah, blee blup, blup, okay? This is about guts. It takes guts to be a regional manager. Jim, you're up.\nJim: Nope.\nMichael: Ji… why not? C'mon.\nJim: Oh, 'cause I don't want my feet to get burned.\nMichael: You do not have what it takes to be a regional manager.\nJim: That's harsh.\nMichael: Who's next? Andy? Where's Andy? Andy is never here today.\n\n=== SCENE 050 ===",
+            "score": 0.5463414788246155
+          }
+        ]
+      },
+      "answer": {
+        "text": "Michael burns his foot in the episode titled \"The Injury\" (Season 2, Episode 12).",
+        "latency_ms": 1773,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2533,
+          "completion_tokens": 21,
+          "total_tokens": 2554
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 8842,
+          "answer_chars": 81
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 149,
+        "stats": {
+          "min": 0.6160557270050049,
+          "max": 0.6394933462142944,
+          "mean": 0.6259860098361969
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nAIRDATE: 2005-09-20\nTVMAZE_ID: 47646\nTVMAZE_URL: https://www.tvmaze.com/episodes/47646/the-office-2x01-the-dundies\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael hosts the annual Dundies awards.",
+            "score": 0.6394933462142944
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nAIRDATE: 2005-10-04\nTVMAZE_ID: 47648\nTVMAZE_URL: https://www.tvmaze.com/episodes/47648/the-office-2x03-office-olympics\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nWith Michael and Dwight out of the house, Jim organizes an office Olympics.",
+            "score": 0.6382237672805786
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nEPISODE_ID: 02-01\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Chili’s Employee, Darryl, Dwight, Employee, Everybody, Guy at bar, Jan, Jim, Kelly, Kevin, Michael, Oscar, Other Guy at Bar, Pam, Pam & Jim, Phyllis, Roy, Ryan, Stanley\n\n----\n\n\n=== SCENE 000 ===",
+            "score": 0.6363751292228699
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 13\nTITLE: The Secret\nAIRDATE: 2006-01-19\nTVMAZE_ID: 47658\nTVMAZE_URL: https://www.tvmaze.com/episodes/47658/the-office-2x13-the-secret\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nJim is forced into spending time with Michael so that he will not reveal Jim's feelings for Pam. Meanwhile, Oscar takes a \"sick day\" and Dwight investigates whether he is actually sick.",
+            "score": 0.6358036398887634
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 12\nTITLE: The Injury\nEPISODE_ID: 02-12\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Billy, Creed, Doctor, Dwight, Jim, Jim & Pam, Kevin, Lab Tech, Meredith, Michael, Oscar, Pam, Phyllis, Ryan, Stanley, Toby\n\n----\n\n\n=== SCENE 000 ===\n\nOscar: …Lord of the Rings trilogy, if you see it back to back, it's really long. But it's good.\nJim (off camera): Yeah, that's right.\n\n=== SCENE 001 ===",
+            "score": 0.6287551522254944
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e15_boys_and_girls_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 15\nTITLE: Boys and Girls\nEPISODE_ID: 02-15\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All the Men, Angela, Darryl, Dwight, Group chant, Guy, Jan, Jim, Kelly, Kevin, Lonny, Madge, Men, Meredith, Michael, Pam, Phyllis, Roy, Ryan, Stanley, Women\n\n----\n\n\n=== SCENE 000 ===\n\nJan: So, I'm happy to be here. It's very nice to see all of you. You're all looking well.\n\n=== SCENE 001 ===\n\nPam: Today's a 'women in the workplace' thing. Jan's coming in from Corporate to talk to all the women about… um… I don't really know what. But Michael's not allowed in. She said that about five times.\n\n=== SCENE 002 ===",
+            "score": 0.6260958909988403
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e02_sexual_harassment_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 2\nTITLE: Sexual Harassment\nEPISODE_ID: 02-02\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Albiny, Angela, Darryl, Dwight, Jan, Jim, Kevin, Kevin’s computer, Man in video, Meredith, Michael, Mr. O’Malley, Pam, Pam’s Mom, Phyllis, Roy, Ryan, Stanley, Toby, Todd Packer, Video, Warehouse Guy, Warehouse Guys\n\n----\n\n\n=== SCENE 000 ===\n\nMichael (clears throat): Hey, what's up?\nJim: Hey.\nMichael: Any emails today?\nJim: Um… I don't think so.\nMichael: No? Um… Check your spam folder.\nJim: Oh! There it is!\nMichael: What?\nJim: Um… 'Fifty signs your priest might be Michael Jackson.'\nMichael (laughs uncontrollably):\nJim: Well done.\nMichael: Kay.\nJim: Topical.\n\n=== SCENE 001 ===\n\nMichael: I am king of forwards. It's how I like to do business, everybody joking around. We're like 'Friends'. I am Chandler and Joey and, uh, Pam is Rachel. And Dwight is Kramer.\n\n=== SCENE 002 ===",
+            "score": 0.6207200288772583
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 10\nTITLE: Christmas Party\nEPISODE_ID: 02-10\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Angela, Bob Vance, Creed, Darryl, Dwight, Jim, Kelly, Kevin, Kevin & Oscar, Liquor Store Clerk, Meredith, Michael, Oscar, Pam, Phyllis, Phyllis, Meredith, Michael, Kevin, Roy, Ryan, Stanley, Toby, Todd Packer\n\n----\n\n\n=== SCENE 000 ===",
+            "score": 0.6201379299163818
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/summaries/season_05/s05e21_two_weeks_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 5\nEPISODE: 21\nTITLE: Two Weeks\nAIRDATE: 2009-03-26\nTVMAZE_ID: 47732\nTVMAZE_URL: https://www.tvmaze.com/episodes/47732/the-office-5x21-two-weeks\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael decides to start his own paper company after giving his two week's notice.",
+            "score": 0.6169629096984863
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e15_boys_and_girls_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 15\nTITLE: Boys and Girls\nAIRDATE: 2006-02-02\nTVMAZE_ID: 47660\nTVMAZE_URL: https://www.tvmaze.com/episodes/47660/the-office-2x15-boys-and-girls\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nWhen Jan comes to the office for a women in the office session, Michael stages a men's only session.",
+            "score": 0.6167268753051758
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nEPISODE_ID: 02-03\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Bill, Carol, Crowd, Dwight, Everyone, Jim, Kevin, Meredith, Michael, Oscar, Pam, Phyllis, Ryan, Stanley\n\n----\n\n\n=== SCENE 000 ===\n\nMichael: I'm an early bird, and I'm a night owl. So I'm wise, and I have worms. Oh, breakfast.\nRyan: I got your sausage, egg and cheese biscuit.\nMichael: Yummy, yummy. Thank you, Ryan.\nRyan: What was the thing, ah, you needed me to come in early for?\nMichael: Um. The sausage, egg, and cheese biscuit. But thank you. And why don't you take a couple hours. The office is yours. \"Home Alone,\" \"Risky Business.\" Take your pants off, run around. Whatever you gotta do.\nRyan: I'm just going to take a nap in my car until work starts.\nMichael: Ok. Healthier. Gotta watch those carbs.\n[STAGE] Removes biscuit, leaving only sausage, egg and cheese.\n\n=== SCENE 001 ===",
+            "score": 0.6164817214012146
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e02_sexual_harassment_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 2\nTITLE: Sexual Harassment\nAIRDATE: 2005-09-27\nTVMAZE_ID: 47647\nTVMAZE_URL: https://www.tvmaze.com/episodes/47647/the-office-2x02-sexual-harassment\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.json\n\n----\n\nMichael's continual sending of explicit e-mail forwards forces Dunder Mifflin to review it's sexual harassment policy; Pam's mom makes a visit to the office.",
+            "score": 0.6160557270050049
+          }
+        ]
+      },
+      "answer": {
+        "text": "Season 2 of The Office features various episodes that explore office dynamics, humor, and character relationships. The season begins with Michael hosting the annual Dundies awards (S02E01), and includes episodes like \"Office Olympics\" (S02E03), where Jim organizes office games in Michael and Dwight's absence. The season also covers themes such as sexual harassment (S02E02), Christmas celebrations (S02E10), and gender-related discussions during \"Boys and Girls\" (S02E15). Other notable episodes involve Jim's interactions with Pam, Michael's antics, and office events that develop the characters' stories.",
+        "latency_ms": 2567,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1951,
+          "completion_tokens": 127,
+          "total_tokens": 2078
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 6062,
+          "answer_chars": 608
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 166,
+        "stats": {
+          "min": 0.5736476182937622,
+          "max": 0.6049391031265259,
+          "mean": 0.5833994845549265
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "Dwight (straightens tie in mirror): Showtime.",
+            "preview": "Dwight (straightens tie in mirror): Showtime.\nJim (enters abruptly): Dwight.\nDwight: You again? Gosh, I keep throwing you away, you keep flying back here. You're like an Amish return stick.\nJim: OK, great, listen to me. Listen to me. No, no, I know. Will you just let me tell you one thing, please?\n[STAGE] Dwight makes funny gesture\nDwight: Yes, you may tell me one thing. Wait, you want to borrow money?\nJim: Listen to me. Robert is going to veto the Sabre store.\nDwight (rolls eyes): Jim, come on.\nJim: Dwight, he's gonna kill the store.\nDwight: Uh-huh.\nJim: And then, I'm pretty sure he's gonna fire you for it.\nDwight: Wait. He's gonna kill the store? And he's gonna fire me?\n[STAGE] holds up fingers\nJim: Yes.\nDwight (smiles): That's two things.\nJim: Dwight, please.\nDwight: Nice try, Jim. Your pranks have never worked in the past and they're not going to work today.\nJim: OK, first of all, they've mostly worked, so-\nDwight: You know what? You might want to get to the airport. It's gonna tak…",
+            "score": 0.6049391031265259
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt",
+            "first_line": "Jim (to Pam): Hey.",
+            "preview": "Jim (to Pam): Hey.\nJim (Dwight hands Jim a piece of paper): Oh, what's this?\nDwight: That is a demerit.\nJim (reads demerit): \"Jim Halpert, tardiness.\" Ugh. I love it already.\nDwight: You've gotta learn, Jim. You are second in command, but that does not put you above the law.\nJim: Oh, I understand. And I also have lots of questions, like, what does a demerit mean?\nDwight (scoffs): Let's put it this way. You do not want to receive three of those.\nJim: Lay it on me.\nDwight: Three demerits and you'll receive a citation.\nJim: Now that sounds serious.\nDwight: Oh, it is serious. Five citations and you're looking at a violation. Four of those and you'll receive a verbal warning. Keep it up, and you're looking at a written warning. Two of those, that'll land you in a world of hurt… in the form of a disciplinary review written up by me and placed on the desk of my immediate superior.\nJim: Which would be me.\nDwight: That is correct.\nJim: OK, I want a copy on my desk by the end of the day or you w…",
+            "score": 0.6014190912246704
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "first_line": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.",
+            "preview": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.\nDwight: Ah, Jim, Jim, Jim. The gun is a Beaumont-Adams. Jo collects them. I thought we could have some nice small talk about it. And the piranha's a rescue.\nJim: And the desk.\nDwight: The desk is a replica of Uday Hussein's desk. I saw a picture in Newsweek. Listen, I'm a very busy man. Let's get right down to business.\nJim: Okay.\nDwight: Jo is coming later today. I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior.\nJim: I promise…d other people that I would be on my worst behavior. And I gave them my word, so…\nDwight: Don't make me fire you.\nJim: You can't fire me. You're acting manager. Not office manager. So you have no firing powers.\nDwight: Don't make me pre-fire you.\nJim: You wouldn't dare.\nDwight: Watch this. You're pre-fired. And when I'm promoted, you'll be full fired.\nJim (quietly): If you get promoted, and if you haven't fallen in love…",
+            "score": 0.5994021892547607
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "=== SCENE 021 ===",
+            "preview": "=== SCENE 021 ===\n\nPam (on phone with Jim): He said, 'I did like Dwight'? He's gonna fire him.\nJim: No, no, I think it was more like, 'you know, I liked him, but I don't anymore because he did a bad job, so I'm definitely gonna yell at him'.\nPam: Robert doesn't talk like that. You have to stop Dwight from doing this.\nJim: I tried. He will not listen.\nPam: Did you actually try your hardest?\nJim: Yes… my pretty hardest. Look, you haven't dealt with him in awhile, all right. He's like super Dwight. It's like he's been bitten by a radioactive Dwight, or som- Stanley, back me up.\nStanley: Don't talk to me.\nJim: Stanley's very upset that we're leaving Florida. But he would back me up.\nPam: If Dwight's about to get fired, you have to tell him. Just get the words out. That's all you can do.\nJim: OK. All right.\n\n=== SCENE 022 ===",
+            "score": 0.58474200963974
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nDwight: I know what Jim is trying to do. He's trying to get big bad Dwight to shell out for a huge repair job while lucky Jimbo gets a paid vacation. Well sorry, lucky Jimbo, I can live very happily in a magnetic field. Most of my childhood heroes got their power that way.\n\n=== SCENE 011 ===\n\nJim (reading from computer): \"Side effects of EMF include: headaches…\"\nDwight: Had 'em all my life.\nJim: \"…breast pain…\"\nDwight: No nobbies, no probbies. Nice try Jim.\nJim: Oof. \"Infertility.\"\nDwight (scoffs): Yeah right.\n[STAGE] Dwight moves mouse pad over his crotch\nJim: Ah! There's my popcorn. Can you just grab that for me?\nDwight: Psh. Keep your snacks on your side, Jim. Idiot. What the?\n[STAGE] notices popped kernels in the bag\nJim: What?\nDwight: Some of these kernels have crowned.\nJim: That's impossible, cause that's a brand new bag… Oh my god.\n[STAGE] looks up to ceiling where there is a red tape X over Dwight's chair\nDwight: Andy!\n[STAGE] Jim mimes basketball shot",
+            "score": 0.5804775953292847
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "Jim: Well, he's Florida's problem now.",
+            "preview": "Jim: Well, he's Florida's problem now.\nRobert California: I'll let Dwight have his fun. Today will not be his day.\nJim: What's that?\nRobert California: I'm gonna tank the Sabre store at the presentation to the board.\nJim: I thought you liked the store?\nRobert California: Well, the store is lovely. You created a wonderful space to showcase our product line. Great job. Cheers.\nJim: Thank you.\nRobert California: But, there's a reason we sell our products online and over-the-phone. Have you ever used Sabre electronics, Jim? They're cheap. They're unintuitive. The Sabre store would work if we adopted the carnival model of leaving town once everyone's wives do us.\n[STAGE] Jim shakes head\nJim: Wow. When you put it that way, I guess it does sound pretty terrible.\nRobert California: I couldn't just kill the project from the start. Jo Bennett endorsed it. Shame though, I did like Dwight.\nDwight (from distanced golf cart): Robert! I'm gonna win, ha ha, I'm the gentleman! Suck it!\nRobert Californi…",
+            "score": 0.5788758993148804
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "=== SCENE 008 ===",
+            "preview": "=== SCENE 008 ===\n\nJim: Dwight is… special. But, I don't believe that his talents are being used in this office. So Pam and I have put his resume on Monster.com, Google, Craig's List. We're really interested most in jobs that take Dwight out of state. Um, preferably Alaska… or India.\n\n=== SCENE 009 ===\n\nPam: He's a gun nut.\nJim: Um. He sticks to his guns.\n\n=== SCENE 010 ===\n\nAngela: Well, I looked through all the budgets. And there is one department…\nOscar: Yes?\nAngela: … that has three people…\nOscar: Yeah?\nAngela: … doing the work that could be done by two.\nOscar: This is great. Oh.\n[STAGE] Angela shakes her head\nKevin: Yeah. Oh.\n\n=== SCENE 011 ===\n\nMichael: Who do you think it should be?\nDwight: Jim. Definitely.\nMichael: No, Jim brings in money.\nDwight: Phyllis.\nMichael: Eh.\nDwight: Stanley. Pam. Oscar. Meredith. Kevin. Angela.\n\n=== SCENE 012 ===\n\nMichael: It's not a popularity contest. Although it does make sense to fire the least popular because it has the least effect on morale.",
+            "score": 0.5787655711174011
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "first_line": "=== SCENE 017 ===",
+            "preview": "=== SCENE 017 ===\n\nJim: If I had thought that there was a real chance that Dwight would be permanent manager, I would have pre-quit. And you might be saying to yourself, \"Well that's pretty premature to think,\" but I always say, it's better to be pre-pre-preprepared.\n\n=== SCENE 018 ===\n\nDwight: How you doing, Jordan?\nJordan: I'm good.\nDwight: Everyone here thinks that you're a joke. They think that you were hired because of your good looks, which won't last long anyway. As your pale skin and severe bone structure imply, you'll age swiftly and poorly.\nJordan: Why are you telling me this?\nDwight: Now I want you to find out what people are saying about me, things they don't want me to know abou- Ohh… it's a holster.\n[STAGE] Dwight opens a box and sits down in shock\n\n=== SCENE 019 ===",
+            "score": 0.5759716629981995
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e07_koi_pond_script.txt",
+            "first_line": "=== SCENE 034 ===",
+            "preview": "=== SCENE 034 ===\n\nDwight: Jim is my enemy. But it turns out that Jim is also his own worst enemy. And the enemy of my enemy is my friend. So, Jim is actually my friend. But… because he is his own worst enemy, the enemy of my friend is my enemy. So, actually Jim is my enemy. But-\n\n=== SCENE 035 ===\n\nJim: I should've grabbed you. I'm sorry. Look, I thought I could've done today's sales call alone. I mean, I may never be as good a salesman as you are, but I at least need the chance to do the job.\n\n=== SCENE 036 ===\n\nMichael: Jim is jealous of me? Jim is jealous of me.\n\n=== SCENE 037 ===\n\nMeredith (as Jim enters the kitchen): Hey, what's up lifeguard?\nOscar: Jim, I think I'm in your way.\n[STAGE] leans back – they both exit\nMichael: Oscar's a douche.\nJim (laughing): He's alright.\nMichael: No. He's a- yeah, he's alright. Ok.\n[STAGE] holds door open as they exit\nJim: Thanks Michael.\nMichael: You're welcome. Whoa! Almost fell.\n[STAGE] leans back\n[STAGE] they both laugh\n\n=== SCENE 038 ===",
+            "score": 0.5745180249214172
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "first_line": "=== SCENE 003 ===",
+            "preview": "=== SCENE 003 ===\n\nDwight (in Jim's office): I'd like to lodge a complaint.\nJim: I'm sorry to hear about that. Who is this about?\nDwight: You!\nJim: Okay. Just want to let you know I take complaints very seriously. So… When did this happen?\nDwight: One minute ago.\nJim: Okay. And how do you feel?\nDwight: Angry.\nJim: All right. Did he hit you?\nDwight: No.\nJim: Did you cry?\nDwight: No.\nJim: Did you feel like crying?\nDwight: No.\nJim: I'm just gonna write \"held back tears.\"\nDwight: Wait, stop writing that. That is not true.\nJim: If you stop crying, I'll stop writing it.\nDwight: I'm not cr– uhh!\n\n=== SCENE 004 ===",
+            "score": 0.5743305683135986
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nDwight: I like Karen. She's pretty and appears intelligent.\nJim: Well, I like pretty women who have the appearance of intelligence.\nDwight: My girlfriend is also beautiful and smart. She could be a model or a college professor which is intimidating to a lot of guys.\nJim: We should go on a double date.\nDwight: No thank you.\n\n=== SCENE 037 ===\n\nJan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== SCENE 038 ===\n\nKaren: Hey, do you want to grab a coffee?\nJim: Sure. Look at you!\nKaren: Yeah.\n\n=== SCENE 039 ===",
+            "score": 0.5737044811248779
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nDwight (in Michael's office): I have a complaint about Jim.\nMichael: That is not big picture.\nDwight: I would like to file a huge, enormous, massive complaint about the tallest guy in our office.\nMichael: … Okay.\nDwight: Jim won't sign my expense report.\nMichael: That is not– okay– that is day-to-day.\nDwight: No, that is huge.\nMichael: You're trying to trick me.\nDwight: This has to do–\nMichael: Get out, get out, get out, get out, get out.\n\n=== SCENE 003 ===",
+            "score": 0.5736476182937622
+          }
+        ]
+      },
+      "answer": {
+        "text": "Dwight dislikes Jim for several reasons, including:\n\n1. Jim's pranks and attempts to make Dwight look stupid, which Dwight perceives as a personal attack. For example, Dwight dismisses Jim's pranks by saying, \"Your pranks have never worked in the past and they're not going to work today,\" indicating he sees Jim's behavior as annoying and disruptive.\n\n2. Jim's tendency to challenge Dwight's authority and position, such as Jim's efforts to get Dwight fired or undermine his role. For instance, Jim tries to prevent Dwight from being fired by warning him about Robert California's plans (S02E06), showing Jim's interference in Dwight's job security.\n\n3. Jim's general attitude and behavior that Dwight finds disrespectful or mocking, like Jim calling Dwight \"special\" or making sarcastic comments about Dwight's appearance and interests, which Dwight perceives as belittling. For example, Dwight's comment about Jim's pranks \"never working\" and Jim's sarcastic remarks about Dwight's appearance and hobbies contribute to Dwight's dislike.\n\nThese reasons highlight the ongoing rivalry and tension between Dwight and Jim in the office.",
+        "latency_ms": 2439,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2999,
+          "completion_tokens": 230,
+          "total_tokens": 3229
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 11097,
+          "answer_chars": 1134
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 238,
+        "stats": {
+          "min": 0.5387166738510132,
+          "max": 0.5872372388839722,
+          "mean": 0.5511549065510432
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "first_line": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"",
+            "preview": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"\nMichael: Not a woman, just a cool, great looking, best friend.\nLester: Aren't we trying to determine whether Michael or Jan were engaged in a romantic affair? Not Michael and this Ryan person.\nToby (laughs out loud): Excuse me.\nMichael: Alright, alright. This is the way I see it. Yes, I had sex with Jan, and yes, I did consider Jan to be my girlfriend. However, Jan clearly didn't consider me to be her boyfriend. So her actions are completely rightful.\nDiane Kelly: OK Mr. Scott, it's, it's admirable the way you defend a woman who is so obviously ambivalent about her relationship with you.\nMichael: Thank you very much. You didn't have to say that.\nDiane Kelly: ConsidEring she consistently gave you such poor performance reviews.\nMichael: That was before our relationship. She was going through a divorce, and she was drinking a l…",
+            "score": 0.5872372388839722
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "first_line": "=== SCENE 044 ===",
+            "preview": "=== SCENE 044 ===\n\nKelly: Hi, Michael.\nMichael (sitting at her desk): Hey, Kelly.\nKelly: Yeah, what are you doing here?\nMichael: Nothing. Just hangin'. Chillin'. No agenda. Would you consider hookin' me up with one of your friends?\nKelly: Oh, all my friends are crazy. My one friend, Brianna…\nMichael: Yeah?\nKelly: Oh, my God…\nMichael: That's hilarious. What's her number?\nKelly: She's 23.\nMichael: Mmm… nah, that's too young.\nKelly: Actually, I know a ton of people that I can set you up with!\nMichael: Oh.\nKelly: Some of my friends' parents, they're getting divorced now. So I think some of those, like, older ladies, they're really looking for a guy to go on a date with.\n[STAGE] Michael gets up and starts walking away\n\n=== SCENE 045 ===\n\nMichael ('Rita Klondike 507' is written on an index card): All right, time's up! Pencils down. Please pass your future Mrs. Michael Scotts forward.\n\n=== SCENE 046 ===",
+            "score": 0.5769184827804565
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt",
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nMichael: Is somebody there?\nJim: What happened to you?\nMichael: Captain Jack has a problem with authority.\nJim: Oh, right, because you announced that his ship was sinking?\nMichael: He just totally lost it. If you ask me, he caused the panic.\nJim: What a night.\nMichael: Well, it's nice for you. Your friend got engaged.\nJim: She was always engaged.\nMichael: Roy said the first one didn't count.\nJim: That's… great. You know, to tell the truth, I used to have a big thing for Pam, so…\nMichael: Really? You're kidding me. You and Pam? Wow. I would have never have put you two together. You really hid it well. God! I usually have a radar for stuff like that. You know, I made out with Jan…\nJim: Yeah, I know.\nMichael: Yeah? Yep. Well, Pam is cute.\nJim: Yeah. She's really funny, and she's warm. And she's just… well, anyway.\nMichael: Well, if you like her so much, don't give up.\nJim: She's engaged.\nMichael: BFD. Engaged ain't married.\nJim: Huh.\nMichael: Never, ever, ever give up.",
+            "score": 0.5663042664527893
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+            "first_line": "Michael (watching Dwight eat breakfast): How can you eat like that?",
+            "preview": "Michael (watching Dwight eat breakfast): How can you eat like that?\nDwight: I'm ravenous after a night of love making. You?\nMichael: Yeah, I'm hungry, but I'm not going to make a pig out of myself.\nDwight: Hey, what was she like?\nMichael: She was cute. You know? She was hot. She was very hot. She made love like a tiger.\nDwight: Brides side or grooms side? Or townie?\nMichael: She was from Europe.\nDwight: No kidding.\nMichael: Uh-huh.\nDwight: I bet she had hairy armpits.\nMichael: No.\nDwight: Isabel was nice, but I hope she doesn't think this is going anywhere.\nMichael: Wait a second. You're not into her? Are you kidding me?\nDwight: No.\nMichael: She's Pam's best friend. You guys could double date. Swap maybe?\nDwight: Oh please. Put a gun in my mouth.\nMichael: No… you're crazy.\nDwight: Look. She's a dental hygienist from Carbondale and she makes love like one. She's a bumpkin. Pass.\nMichael: She's– okay. Do you know how hard it is to be a hygienist? You have to take x-rays. You have to scra…",
+            "score": 0.5501981973648071
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e04_sex_ed_script.txt",
+            "first_line": "Michael: Oh wow another living room!",
+            "preview": "Michael: Oh wow another living room!\nCarol: It's a family room.\nMichael: You put the TV here, you put the family over here.\nCarol: Michael why are you here?\nMichael: Someone told me that I romanticize relationships\nCarol: You know, we all do that.\nMichael: I have herpes.\nCarol: What? Did you have that while we were together?\nMichael: I just found out today. It's, uh, right there.\nCarol: Oh! Oh, that's what you're talking about?\nMichael: Mmhmm, I'm sorry.\nCarol: Did the doctor check it out?\nMichael: I'm between specialists right now.\nCarol: Yes, yes Michael. Actually you do make a bigger deal out of things than you need to. You proposed to me on our fourth date.\nMichael: Well I believe in love at first sight.\nCarol: Well so do I, but we didn't love each other at first either. I don't know what you were thinking!\nMichael: I knew what I was thinking at the time, but right now it just seems ridiculous.\nDwight (walking downstairs): Excuse me, someone died in the upstairs bathroom didn't the…",
+            "score": 0.5472220182418823
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+            "first_line": "=== SCENE 069 ===",
+            "preview": "=== SCENE 069 ===\n\nErin: Do you think they canceled the wedding?\nAngela: Relax. You'll get your shot at Jim. Those two treat the whole office like a 1970's key party.\n\n=== SCENE 070 ===\n\nMichael: my weekend was bad so far.\nPam’s Mom: Oh–\nMichael: I came here hoping to meet somebody. You know, as you do at weddings. End up going to sleep by the vending machine. It was loud, but it was warm.\nPam’s Mom: Oh that sounds awful.\nMichael: And… and the love of my life is dating somebody else.\nPam’s Mom: Oh–\nMichael: It is a terrible year for love.\nPam’s Mom: Yeah. Guess it is.\nMichael: I'm thinking about having my sperm frozen.\nTom: Excuse me, are you Michael Scott?\nMichael: Um, yeah.\nTom: Heard you might have a whoopee cushion on you.\nPete: Sisters in the can and we totally want to get her when she comes back.\nMichael: Oh, wow. That sounds hilarious. I do actually. There you go. Use it in good health.\n[STAGE] pulls whoopee cushion out of pocket and hands it to them\nTom & Pete (laughing): Yes!",
+            "score": 0.5450924038887024
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt",
+            "first_line": "Michael: I have recently taken a lover.",
+            "preview": "Michael: I have recently taken a lover.\nJim: Well, that's great. Congratulations. Who's the lucky lady?\nMichael: Pam's mom.\nJim: What?\nMichael: Pam's mom, Helene. Remember from your wedding?\nJim: You're messing with me.\nMichael: About what?\nJim: You did not have sex with Pam's mom.\nMichael: Oh, big time.\nJim: What kind of car does she drive?\nMichael: She drives a green camry.\nJim (expletive):\nMichael: And the seats go all the way down. All the way down.\nJim: Oh my God. Oh my God.\n[STAGE] Michael bangs the table\nMichael (laughs): What?\nJim: Okay, never tell Pam, and secondly-\nMichael: Okay, good, a pact. A pact. Although I may have to break it tonight when Helene and I tell Pam over dinner. You alright?\nJim: Oh my God.\nToby (walks in): Hey, Jim.\nJim: Not now, Toby, my God!\nToby: Oh, Jesus!\nMichael: Get the hell out of here, idiot.\nToby: What did I do?\nJim: Okay, as far as dinner tonight, cancel that, and please, for both our sakes, never, ever, ever see her again.\nMichael: I think you'r…",
+            "score": 0.542587161064148
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e02_sexual_harassment_script.txt",
+            "first_line": "Pam: She's coming in today and maybe just don't joke around about that stuff in front of her.",
+            "preview": "Pam: She's coming in today and maybe just don't joke around about that stuff in front of her.\nToby: Great point.\nPam: Thank you.\nToby: Um… in fact, basic rule of thumb, let's just act everyday like Pam's Mom's coming in. All right. That's it. Um… if anybody has any questions about anything, you know where I sit in the back.\nMichael: Hi, is it over?\nToby: Uh, yes!\nMichael: No.\nToby: I can go over it with you.\nMichael: I know, I know. It's good. It is not over. It is not over til it's over.\nToby: It's over.\nMichael: Did he tell you everything? Obviously, he didn't because you all still look relatively happy. Albeit bored. Do you realize what we're losing? Seriously?\nAngela: Email forwards.\nMichael: Exactly! Mmwwah ! Can we afford to lose email forwards? Do we want that?\n[STAGE] blows kiss to Angela\nAngela: I hate them. You send me these filthy emails and you say forward them to ten people or you'll have bad luck.\nMichael: Give me a break. Umm… Stanley, how about that hot picture you have…",
+            "score": 0.54127037525177
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+            "first_line": "=== SCENE 012 ===",
+            "preview": "=== SCENE 012 ===\n\nMichael: Would you have sex with Meredith?\nJim: What?\nMichael: Do you think she'd keep it quiet?\nJim: I'm gonna go to my desk.\nMichael: Jim, it's not the horniness, ok it's the loneliness that…\nJim: I know.\nMichael: Let's go to New York. We'll go clubbing with Ryan.\nJim: I can't.\nMichael: Yes you can, you're single, I'm single. It'll be awesome.\nJim: I'm not single.\nMichael: Who you dating?\nJim: Pam.\nMichael: That's still going on?\n\n=== SCENE 013 ===",
+            "score": 0.5400678515434265
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+            "first_line": "Holly: You guys, this has to stop. Someone could have really gotten hurt.",
+            "preview": "Holly: You guys, this has to stop. Someone could have really gotten hurt.\nMichael: What if Meredith was taking her smoking break below that window? You know what would have happened? The shards of glass would have shaved her face right off. And, yes, it might have been funny. But it also would have been incredibly tragic.\nDwight: I could not agree more. And just want to state for the record that I am intending to sue Jim for acute psychological distress.\nJim: What are you talking about? You're the one terrorizing me.\nDwight: With snowballs, Jim? With fluffy little snowballs? No. I thought we were just playing.\nHolly: Dwight's right. What you did was dangerous and inappropriate. I'm really surprised at you guys. Last time I was here, you were both best friends.\nMichael: All this arguing reminds me of a very funny story. You see this on my desk? Know who gave me this? My girlfriend Tara, who lives in New York City.\n[STAGE] he holds up a toy taxi cab\nDwight: Wait, what girlfriend?\nMichael…",
+            "score": 0.5394084453582764
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+            "first_line": "Phyllis: He's always been terrible with money.",
+            "preview": "Phyllis: He's always been terrible with money.\nStanley: I bet it's Jan spending him straight to the poor house.\nKevin: Yeah, women be shoppin'.\nMeredith: I can't believe he has a second job.\nOscar: He's not even good at his first one.\nMichael: Hey guys.\nKevin: Shh.\nMichael: What'cha talking about? Okay, I know what's going on. You're talking about Jim and Pam, if they're having sex, what it looks like, I know, I think—\n[STAGE] camera pans to each face in the break room\nPam: Michael.\nMichael: Hey, hey, hey.\nOscar: Michael, are you having money problems?\nMichael: Monkey problem? No, I'm not having monkey problems. Why would I have monkey problems?\nOscar: You heard me correctly.\nMichael: Oh, I hate monkeys.\nPam: What's going on, why do you have a second job?\nMichael: I don't have a second job. Maybe I'm having an affair with Suzanne Summers.\nPam: Doesn't Jan have money?\nMichael: I don't talk to my girlfriend about money. It is rude, and unsexual.\nKevin: True, it's best to hide our money p…",
+            "score": 0.5388357639312744
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nMichael: No, I gotta go. Text me later.\nJim: I'm really too tired to do this.\nPam: Me too!\nJim: Then let's just not do this. Do you have any idea the risks involved?\nPam: Hey Michael.\nMichael: Hey.\nPam: We were wondEring if you would like to have dinner with us tonight, in our home, and play with our baby.\nJim: We can order in from Hooters.\nMichael: Oh, Hooters to go. Nice.\nPam: We can watch a movie and play Rock Band.\nJim: Billy Joel Rock Band.\nMichael: That… exists?\nPam: Yes.\nMichael: Okay, well, I'll have to take a rain check, but thanks for the offer.\nPam (shouts): Michael Scott, are you still seeing Donna?\nMichael: Okay, Pam… she's not invisible so stop asking silly questions.\nPhyllis: Oh Michael.\nMichael: Since when is this an office where we delve into each other's personal lives?\n\n=== SCENE 011 ===\n\nMichael: I like Donna. Is it wrong to keep seeing her? Depends on who you ask. I mean, if you ask her husband… or you took a random poll, yeah, it's wrong.",
+            "score": 0.5387166738510132
+          }
+        ]
+      },
+      "answer": {
+        "text": "Michael Scott’s serious girlfriends included Jan Levinson and Pam’s mom, Helene. His relationship with Jan ended after she gave him a negative performance review and was going through a divorce, which made her ambivalent about their relationship. His relationship with Pam’s mom, Helene, was kept secret and was considered inappropriate, especially since Pam was engaged to Jim at the time.",
+        "latency_ms": 1810,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3901,
+          "completion_tokens": 75,
+          "total_tokens": 3976
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 15053,
+          "answer_chars": 390
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 310,
+        "stats": {
+          "min": 0.24429476261138916,
+          "max": 0.2754267454147339,
+          "mean": 0.25478988885879517
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMark: This is not an office so much as it is a uh, rec room with a bunch of computers in it. Frankly, if I had my way, I'd toss the computers in the gar-bage. But unfortunately we use them for practically everything we do. So. That ain't gonna happen. He's a temp, don't worry about him. Alice! Alright, stay awake ok?\n\n=== SCENE 025 ===\n\nToby: Hey Nellie. Mmm. I am so sick of February. It's the shortest month but it sure doesn't feel that way. We should catch up.\nNellie: Um.\nToby: Y'know I've been going over my notes from the trial…\nNellie: Oh no.\nToby: …feel like I may have glossed over a few…\nNellie: No no no no.\nToby: …minor points.\nNellie: No. Toby, you cannot keep blathEring on about this Scranton Strangler. Do something about it. Get it out of your system, whatever it takes.\nToby: I've been drafting a letter.\nNellie: For two years! Then what? Another year picking out a stamp? Another six months before you decide to lick it? Just- I don't want to hear it!",
+            "score": 0.2754267454147339
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nAngela: Was Dwight rooting for me? Hmm. I hadn't noticed.\n\n=== SCENE 025 ===\n\nKevin: I'm not giving up. I'm going to keep making planes until one of them flies. Like Wilbur and Orville Redenbacher.\n\n=== SCENE 026 ===\n\nJim: An Earl Grey tea for the lady.\nPam: Oh, thank you. I acknowledge and appreciate that you went out of your way to get me tea.\nJim: Thank you. I like being appreciated. But, to speak my truth, it wasn't out of the way because I felt like a tea anyway. So, one trip.\nPam: Well, to speak my truth, I switched to coffee in March. There's a new espresso machine. But I still acknowledge and appreciate the gesture.\n\n=== SCENE 027 ===",
+            "score": 0.2727011442184448
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "first_line": "=== SCENE 054 ===",
+            "preview": "=== SCENE 054 ===\n\nWoman 1: Uh, Jim, that DVD in the last episode was so romantic. And, um, I think we'd all love to know, Pam, what romantic thing did you do to pay Jim back for leaving Athlead?\nPam: Well, I mean, How do you pay back someone for something like that? But, uh, I don't know. I'm working on something.\nJim: She pays me back every day just by being my wife so that's fine.\nAll: Awww.\nJim: O-Kay.\n\n=== SCENE 055 ===\n\nWoman 2: All I can say is, if I had Jim, he would have a free pass to do anything. I mean if I lucked into that… he could do anything. Anything.\nPam (pause): I'm sorry. Is there a question?\nWoman 2: Uh, no.\n\n=== SCENE 056 ===\n\nMan 2: Pam, what was in that teapot letter?\nPam: Oh, um, well, you know, I… I just… I just think I would rather keep that private. You know, if you'd been filmed for nine years of your life, there'd be some things that you just wanna keep to yourself.\nMan 2: I hear ya. What did it say?\nModerator: We're gonna move on. Next question please.",
+            "score": 0.2680925130844116
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "Erin: The tea in Nepal is very hot.",
+            "preview": "Erin: The tea in Nepal is very hot.\nKevin: But the coffee in Peru is much hotter.\n[STAGE] Erin buzzes him into the office\n\n=== SCENE 001 ===\n\nDwight: Last week I finally became permanent manager of Dunder Mifflin Scranton. My first project: increase security. I got these doors from a jewelry store that had recently gone out of business. Now they're protecting America's real treasure, paper. Every morning I email the day's security codes. Something that's been really missing from my life has been writing secret codes. It's not the KGB, but it's a start.\n\n=== SCENE 002 ===",
+            "score": 0.2587195634841919
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt",
+            "first_line": "=== SCENE 031 ===",
+            "preview": "=== SCENE 031 ===\n\nNellie: I just wanted to take the man's job, not his manhood.\n\n=== SCENE 032 ===\n\nNellie: Okay, I would like to invite everyone into the conference room.\nAndy: You can't call a meeting. But I would like to have a meeting in the conference room right now! So let's get in the conference room. Thank you. Good. Thank you for coming to my meeting.\n[STAGE] laughs\nNellie: Okay, if you would like to take a seat we can get started.\nAndy: Oh! Can't do it 'cause I gotta run a meeting. So.\nNellie: No.\nAndy: Wanted to talk to all of you guys about importance… and know that each and every one of you is vitally important.\n[STAGE] reads whiteboard\nRobert: Andrew, not everyone here is important. And the word is \"impotence.\"\nNellie: Which is important in its own way. So if you'd just like to take a seat, Andy.\n\n=== SCENE 033 ===\n\nNellie: \"Take a man's job, but leave him his balls.\" Margaret Thatcher said that… probably. Don't know. Don't read. Didn't see the movie.\n\n=== SCENE 034 ===",
+            "score": 0.25434553623199463
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nErin: The tea in Nepal is very hot.\nDwight: But the coffee in Peru is far hotter.\nErin: Close.\nDwight: This is Tuesday, right? The coffee in Paraguay is far hotter?\nErin: Colder.\nDwight: The coffee in Paraguay is colder?\nErin: No, I meant you're getting colder. The correct response is, \"the coffee in Peru is much hotter.\"\nDwight: Ah, much, ok.\nErin: But, that's three wrong, so I gotta give you the steam. Unless you want me to break protocol?\n[STAGE] Dwight begins to protest\nDwight: No, no. Give me the steam.\n\n=== SCENE 003 ===\n\nDwight: It's just harmless steam to panic intruders. I'd like to get harmful steam, but the prices are absurd.\n\n=== SCENE 004 ===\n\nDwight (while getting steamed): Break protocol! Break protocol! Break protocol!\nCreed (carrying in clothes on hangers): Oh, I'm saving a fortune on dry cleaning.\n\n=== SCENE 005 ===\n\nPhilip: Mama!\nOscar: Angela, someone wants you.\nAngela: Ok, coming. Hi, baby.\n\n=== SCENE 006 ===",
+            "score": 0.25123775005340576
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nMichael (approaching Kelly's desk, whispEring): Stanley is having an affir.\nKelly: WHAT?\n\n=== SCENE 011 ===\n\nMichael: I am very happy right now. Thrilled perhaps, to be part of the office, to be part of the conversation. When you have somebody's attenton, and their eyes are lighting up because they are very interested in what you have to say, that is a great feeling, and I experienced that firsthand today. It is wonderful to be the center of attention.\n[STAGE] Michael is seen whispEring to Jim, then Pam\n\n=== SCENE 012 ===\n\nMichael (motioning to pad of paper with hangman game, spelling out \"S_an_ey is chea_in_ _n _eri): That and that are the same letter.\nKevin: Q.\nMichael: No… no. He's holding a pencil. He could be doing a crossword puzzle with that pencil. What's that letter, right there? Same letter here and here. What haven't you guessed?\nKevin: T.\nMichael: T! Yes! Yes! That is a \"T\", and there's another one right there. Just sound that out. You're almost there.",
+            "score": 0.24735218286514282
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nJim: So this year, for the first time ever, I got Pam in Secret Santa. And I got her this teapot, which I know she really wants, so she can make tea at her desk. But I'm also going to stuff it with some inside jokes. Like, this is my high school yearbook photo. She saw it at the party, and it really makes her laugh. Not sure why. What else … ooh. This is a hot sauce packet. She put this on a hot dog a couple years ago because she thought it was ketchup. And it was really funny, so I kept the other two. This would take a little too long to explain, so I won't. And this is the card. Because Christmas is the time to tell people how you feel.\n[STAGE] holds up a miniature pencil\n\n=== SCENE 003 ===\n\nAngela: Is there anything we're missing? Phyllis, you got the lights?\nPhyllis: Yes, I got those cute little ones. Do you think I should have gotten the big ones?\n[STAGE] Angela looks at her disapprovingly\nAngela: We'll see.\n\n=== SCENE 004 ===",
+            "score": 0.2470914125442505
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "first_line": "=== SCENE 039 ===",
+            "preview": "=== SCENE 039 ===\n\nLiquor Store Clerk: It comes to $166.41.\nMichael: All right, now, you're the expert. Is this enough to get 20 people plastered?\nLiquor Store Clerk: Fifteen bottles of vodka? Yeah, that should do it.\nMichael: Cool, cool. Box it up.\n\n=== SCENE 040 ===\n\nJim: I bought this teapot for Pam, and I know she really wants it. So, can I trade you for it?\nDwight: No trades.\nJim: Come on, it's a shamrock keychain. Good luck.\nDwight: \"A real man makes his own luck.\" Billy Zane.\nJim: Look, it has sentimental value, Dwight. Can I buy it from you?\nDwight: No. I want it. I'm going to use it.\nJim: You don't even drink tea.\nDwight: True. But I get sinus infections, and sinus infections can be cured by making your tea from green tea leaf stems …\nJim: Okay …\nDwight: … and pouring it directly into your nose, like so.\n[STAGE] demonstrates\n\n=== SCENE 041 ===\n\nJim: To think that my gift for Pam will be used for that, it's a little too much to handle.\n\n=== SCENE 042 ===",
+            "score": 0.2469359040260315
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+            "first_line": "=== SCENE 041 ===",
+            "preview": "=== SCENE 041 ===\n\nMeredith (slurping her from her big cup): I don't know why I'm not in The Finer Arts Club . It's bullcrap. You clean it up.\n[STAGE] slurring\n[STAGE] throws her cup on the floor, something splashes on the camera\n\n=== SCENE 042 ===\n\nAndy (opens envelope Toby has handed him): Dear Andrew Bernard, after carefully examining your application to The Finer Things Club, we are unable to offer you a position at this place and time. We would, however, like to place you on a list in case an opportunity arises when your inclusion can be tolerated. Your position as an ongoing financial patron, however, is yours to cherish. Sincerely, The Finer Things Club. Yeees! I got waitlisted.\n[STAGE] pauses to consider\n[STAGE] to Phyllis\n\n=== SCENE 043 ===",
+            "score": 0.24622106552124023
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "first_line": "=== SCENE 008 ===",
+            "preview": "=== SCENE 008 ===\n\nToby: Well, I was in the Seminary for a year and dropped out 'cause I wanted to have sex with this girl, Cathy. Followed her to Scranton. Took the first job I could find in H.R. Later she divorced me. So no, I wouldn't say I have a passion for H.R.\n\n=== SCENE 009 ===\n\nMichael (hands Ryan a soda): There you are, my friend.\nRyan: Oh, thanks, man.\nMichael: Pamela.\nPam: Thank, Michael.\nMichael: Yep.\n\n=== SCENE 010 ===\n\nDwight: Fresh hot ink.\nStanley: \"New File System\".\nDwight: Trust me, Stanley, you're going to want to read this memo very carefully.\nStanley: I am not changing the way I do my files.\nDwight: No, no. This goes for all of you. Believe me, you are going to want to heat my words.\n\n=== SCENE 011 ===\n\nDwight: When held over heat the invisible ink will reveal that everyone should meet at the warehouse immediately. Do not ask me where I got the invisible ink. Urine. It was urine.\n\n=== SCENE 012 ===",
+            "score": 0.24506008625030518
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt",
+            "first_line": "=== SCENE 018 ===",
+            "preview": "=== SCENE 018 ===\n\nStanley: If your woman is like mine, I bet you come home to hear the same thing all the time. This paper is so hard. It scratches. Why can't there be a paper just for me? Well now there is. 'Papyr.' Paper for women. It's pink, scented and silky soft. Now, you can watch the game and she can write a letter to her sister.\nRobert: The situation you described, returning home to a wife complaining about her paper being too masculine, is not one I'm familiar with.\nStanley: In the African-American community-\nRobert: No.\nStanley (murmurs): Thought it was worth a try.\n\n=== SCENE 019 ===",
+            "score": 0.24429476261138916
+          }
+        ]
+      },
+      "answer": {
+        "text": "The teapot letter is a private message or note that Pam received, which she prefers to keep to herself. Its importance lies in the fact that it is a personal and private communication, and Pam chooses not to disclose its contents to others, emphasizing her desire for privacy after being filmed for nine years of her life (as mentioned in S02E06).",
+        "latency_ms": 1222,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2841,
+          "completion_tokens": 71,
+          "total_tokens": 2912
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 10504,
+          "answer_chars": 347
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 210,
+        "stats": {
+          "min": 0.4355943202972412,
+          "max": 0.5216677188873291,
+          "mean": 0.4724295238653819
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "first_line": "=== SCENE 028 ===",
+            "preview": "=== SCENE 028 ===\n\nOscar: Creed?\nCreed: Yes, sir.\nOscar: Everything OK?\n[STAGE] Creed has made his hair jet black\nCreed: Everything's cool, dude.\n\n=== SCENE 029 ===\n\nCreed: I'm thirty. Well, in November I'll be thirty.\n\n=== SCENE 030 ===",
+            "score": 0.5216677188873291
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.",
+            "preview": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.\nCreed: What are you telling me?\nMichael: I… we're gonna have to… You… you want something better.\nCreed: No, I don't. I wanna stay right here.\nMichael: No, you wanna leave.\nCreed: No, I wanna stay here.\nMichael: Why… why are you making this so hard?\nCreed: Um, I think there's a misunderstanding, Michael.\nMichael: I think you're right.\nCreed: Can I go?\nMichael: No, of course you can't go. We haven't even started this horrible process of… okay, Creed. I need to let somebody go today. They told me I need to let somebody go. And as much as I think you're a great guy, and I like you, you're… you're, goodbye.\nCreed: Let's fight it.\nMichael: Hmm?\nCreed: Let's call Jan and fight this thing together like the old days.\nMichael: What old days? What are you talking about?\nCreed: Did you start the paperwork yet?\nMichae…",
+            "score": 0.502597451210022
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "first_line": "=== SCENE 014 ===",
+            "preview": "=== SCENE 014 ===\n\nCreed: We're screwed.\nMichael: Who is?\nCreed: Us? You and me. The old timers.\nMichael: I am not old. You are old. You are like a hundred.\nCreed: You're over 40, that's the cut off. Are you listening to what he's saying? Re-training. New system. Youth. I'm telling you this kid is the grim reaper. You deal with this or you, me, Sammy, Phyllis, the chick you hit with the car, we're goners.\n\n=== SCENE 015 ===",
+            "score": 0.49442410469055176
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt",
+            "first_line": "=== SCENE 043 ===",
+            "preview": "=== SCENE 043 ===\n\nMichael: Do you remember Ed Truck?\nCreed: Sure. He hired me. How's he doing?\nMichael: How would I know?\nCreed: I thought you might.\nMichael: My biggest fear is turning into him.\nCreed: Michael, you should have much bigger fears than that.\nMichael (sighs): I wasn't talking literally, Creed. Yeah, being buried alive would be worse. Happy? Why am I talking to you?\n\n=== SCENE 044 ===",
+            "score": 0.49234211444854736
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "first_line": "=== SCENE 056 ===",
+            "preview": "=== SCENE 056 ===\n\nCreed (to Jordan): Get me our biggest client on the phone, right this instant.\n[STAGE] closes his office door\nJordan: Who is our biggest client?\nPam: Uh, just put him through to me.\nJordan (laughs): Okay.\nPam: Hello! This is… the client.\nCreed: It's Creed. FYI, I'm starting my own paper company, looking to poach some chumps, you in?\nPam: Yes.\nCreed: Hehehe, cool. Let's keep this on the QT, okay? I uh, I don't want you to be a dead mamma jamma.\nPam: Great.\nCreed: All right, thank you, bye-bye.\nPam: Thank you, bye-bye.\n\n=== SCENE 057 ===",
+            "score": 0.48956817388534546
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nMichael: Yeah, I went hunting once. Shot the deer in the leg, had to kill it with a shovel. Took about an hour. Why do you ask?\n\n=== SCENE 033 ===\n\nMichael: I have to fire someone today, okay?\nCreed: Fine. Fire someone else. Fire Devon. He's terrible. I am so much better at my job than Devon.\nMichael: Okay, well… I already picked you. And you know that. So, unless I just go through with this, you're always gonna look at me as the guy who almost fired you.\nCreed: No, no, no, no, no, no. I will forget so fast. You will be my savior. You're they guy who gave me my life back. Thank you. I knew you'd see it my way Michael. God Bless you. You're a fine man.\nMichael: Don't…\nCreed: Listen, you will not regret this either. Devon is terrible; No one's gonna miss him. Good, good, good.\n\n=== SCENE 034 ===\n\nMichael: Devon, could I talk to you for a sec?\n\n=== SCENE 035 ===",
+            "score": 0.4729795455932617
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+            "first_line": "=== SCENE 067 ===",
+            "preview": "=== SCENE 067 ===\n\nCreed (Angela hands Creed a pack of deodorant): For me?\nAngela: Yes.\nCreed: Thank you very much.\nAngela: Mmhmm.\n\n=== SCENE 068 ===",
+            "score": 0.46630656719207764
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "first_line": "=== SCENE 017 ===",
+            "preview": "=== SCENE 017 ===\n\nMichael: Six weeks ago, none of these people wanted to come with me. You two were the only ones with the stones to follow.\nPam: Mm-hmmm.\nMichael: That was us, right there.\nPam: We were something else.\nRyan: What you gotta do is you gotta go down to that warehouse and you gotta crack some skulls.\nMichael: Mm-hmm.\nRyan: Chiklis style.\nMichael: Yeah, the Commish.\nRyan: Yes, but Chiklis Shield style. Not Commish style.\nMichael: Yeah, yeah. The Shield.\n\n=== SCENE 018 ===\n\nCreed: It's crazy what's going on out there today, huh?\nJim: I know. Yeah, it's…kinda–\nCreed: Sometimes it's best just to say out of it.\nJim: That's true. That's right. Yeah.\nCreed: Want to play a game?\n\n=== SCENE 019 ===",
+            "score": 0.4540103077888489
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "=== SCENE 029 ===",
+            "preview": "=== SCENE 029 ===\n\nPam: What happened?\nJim: It wasn't me.\nPam: Oh. That was like crazy. 'Cause I was…\nJim: Yeah, I know.\n\n=== SCENE 030 ===\n\nMichael: Uh, hey… Creed?\nCreed: Huh?\nMichael: Could I talk to you for a second?\n\n=== SCENE 031 ===",
+            "score": 0.44977259635925293
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nCreed (to Jordan): Find out what language this is.\n[STAGE] speaking in strange language\n\n=== SCENE 003 ===\n\nCreed (running a meeting in the conference room): Okay, team building! On this side of the room, Stanley, Phyllis, Jim, Ted, Elroy, and this side of the room, Pam, Meredith, Phyllis, Creed…\n[STAGE] camera switches to show only Meredith and Kevin have attended the meeting, Jim walks by and sees this\n\n=== SCENE 004 ===\n\nJim: He never called a meeting.\n\n=== SCENE 005 ===\n\nCreed (pointing at a whiteboard with BOBODDY written on the left side, vertically): BO-BODDY! BO-BODDY. What does the first \"B\" stand for?\nPam: What are we doing?\nCreed: We're making acronyms. Okay! What does the first \"B\" stand for?\nKevin: Um… Business!\nCreed: I like it! Business! Good, Kevin! All right! The \"O\"…\n[STAGE] writes after the first B, I, Z, N, U…\n\n=== SCENE 006 ===\n\nPam: We need a new manager.\n\n=== SCENE 007 ===",
+            "score": 0.44873690605163574
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "first_line": "=== SCENE 022 ===",
+            "preview": "=== SCENE 022 ===\n\nJim: I'm just hiding out until all this stuff blows over. With Creed. Playing chess. At work. He's winning. I feel like I'm describing a dream I had.\n\n=== SCENE 023 ===",
+            "score": 0.44115447998046875
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e01_weight_loss_script.txt",
+            "first_line": "Kevin (spreading peanut butter on a bagel): What?",
+            "preview": "Kevin (spreading peanut butter on a bagel): What?\nCreed: Oh nothing.\nKelly: It's just some of us are taking this really seriously.\n\n=== SCENE 059 ===\n\nKelly: I swallowed a tapeworm last night. It's going to grow up to three feet inside of me and then it eats all my food so that I don't get fat. And then after three months I take some medicine and then I pass it. Creed sold it to me. It's from Mexico.\n\n=== SCENE 060 ===\n\nCreed: That wasn't a tapeworm.\n\n=== SCENE 061 ===\n\nRyan (walks in the office): How's my favorite branch doing? All right .\n[STAGE] no one talks, everyone stares at Ryan\n[STAGE] sits at reception\n\n=== SCENE 062 ===\n\nMichael: Ronnie was bleh. Things were at an all time sad here. But then I got an e-mail from Ryan, that he was coming back to town. And I called the temp agency and I told them I will pay you any amount, just give me Ryan Howard. Give him to me. I want him. I need him.\n\n=== SCENE 063 ===",
+            "score": 0.4355943202972412
+          }
+        ]
+      },
+      "answer": {
+        "text": "Creed is a character in the show who works at Dunder Mifflin. He is portrayed as ambitious, quirky, and somewhat eccentric. Throughout the episodes, Creed shows a range of behaviors, from trying to start his own paper company to making humorous or bizarre comments. He also has a history with the company, having been hired by Ed Truck, and he often provides comic relief with his odd remarks and actions. Creed's deal seems to be that he is a somewhat mysterious and unpredictable employee who is always looking out for his own interests, sometimes trying to poach clients or start new ventures, and he has a close, if sometimes confusing, relationship with Michael and the rest of the staff.",
+        "latency_ms": 1632,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2017,
+          "completion_tokens": 141,
+          "total_tokens": 2158
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 7027,
+          "answer_chars": 693
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 485,
+    "avg_context_docs": 12.0,
+    "avg_context_chars": 9999.857142857143,
+    "avg_answer_latency_ms": 1835,
+    "avg_prompt_tokens": 2783,
+    "avg_completion_tokens": 108,
+    "avg_total_tokens": 2892,
+    "idk_rate": 0.0,
+    "episode_citation_rate": 0.42857142857142855,
+    "retrieval_empty_rate": 0.0,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

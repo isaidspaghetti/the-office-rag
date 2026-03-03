@@ -1,0 +1,2314 @@
+{
+  "run": {
+    "run_id": "2026-03-03T05-40-45Z_qe_rrf_similarity_k12",
+    "run_name": "qe_rrf_similarity_k12",
+    "created_at_utc": "2026-03-03T05:40:45Z",
+    "notes": "Query expansion + RRF fusion (retrieval-only)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 2960,
+        "stats": {
+          "min": 0.015384615384615385,
+          "max": 0.09652657114317612,
+          "mean": 0.04349043185720208
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 045 ===",
+            "preview": "=== SCENE 045 ===\n\nAndy: Hey, what's goin' on over here? Some sort of singing competition for the young'uns?\nCasey: You're back!\nAndy: No, it's me, Andy!\nCasey: No, I know.\nAndy: No, no, no. I'm wearing makeup.\nCasey: You did a really great…",
+            "score": 0.09652657114317612
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 20\nTITLE: Product Recall\nEPISODE_ID: 03-20\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Angela, Barbara, Chad Lite, Creed, Denise, Dwight, Jamie, Jim, Karen, Kelly…",
+            "score": 0.06505334374186833
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e06_customer_survey_script.txt",
+            "first_line": "Jim: So, as it turns out, Dwight is right. How bizarre.",
+            "preview": "Jim: So, as it turns out, Dwight is right. How bizarre.\nPam (in Jim's ear): I wonder what else Dwight's been right about…\n\n=== SCENE 050 ===\n\nDwight: Major pharmaceuticals do not want you to know that beet juice has medicinal value both as …",
+            "score": 0.06402049075403121
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+            "first_line": "=== SCENE 009 ===",
+            "preview": "=== SCENE 009 ===\n\nJim: Hey, Andy.\nAndy: Yo.\nJim: By any chance, did you see Battlestar Galactica last night?\nAndy: No, I did not. Was that any good?\nJim: Actually not. It was really so-so.\nDwight: Ok.\n[STAGE] Dwight turns around, but Jim h…",
+            "score": 0.06301166351569577
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt",
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nDwight: Jim, could you please inform Andy Bernard that he is being shunned.\nJim: Andy, Dwight says welcome back, and he could use a hug.\nDwight: Ok, tell him that's not true.\nJim: Dwight says that he actually doesn't know…",
+            "score": 0.04640914640914641
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+            "first_line": "=== SCENE 040 ===",
+            "preview": "=== SCENE 040 ===\n\nPam: I made something for our closing ceremonies.\nJim: What? Oh my god. Where did you have time to make that?\n[STAGE] looks in box\nPam: Automatic voicemail.\nJim: Alright Pam, alright . Nice work!\n[STAGE] gives her hi-five…",
+            "score": 0.04616113053613054
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e02_the_incentive_script.txt",
+            "first_line": "=== SCENE 016 ===",
+            "preview": "=== SCENE 016 ===\n\nAndy: D-Bone. There you are.\nDwight: Let me guess, somebody needs a brownie…? Lick the spoon?\nAndy: No, that's ok. Just, I want, I wanted to ask you about…\nDwight: Is this about the profits? Because if it is I just don't …",
+            "score": 0.04616113053613054
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt",
+            "first_line": "=== SCENE 041 ===",
+            "preview": "=== SCENE 041 ===\n\nAndy (Whistling, enters office in farmer overalls): I thought I'd come in casual today. Man, I'm hungry. Anyone else feel like a beet?\nDwight: Where did you get those?\nAndy: What, these? Bernard Farms. Best beets in the s…",
+            "score": 0.03177805800756621
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nRyan: Dwight Schrute man. How's Schrute Farms?\nDwight: Good.\nRyan: This guy owns his own beet farm.\nTroy: Insane.\nDwight: Well it's weevil season but we were prepared.\nRyan: Weevils, what a crazy word man. What? I don't e…",
+            "score": 0.016129032258064516
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt",
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nDarryl: What do we have here?\n\n=== SCENE 006 ===\n\nDarryl: Val knit me a beanie. But I can't if it's a \"we're just friends\" beanie or a \"I'm hot, you're hot, let's get it poppin'\" beanie. So I'm gonna up the ante, give her…",
+            "score": 0.015625
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "Dwight: Not now! Private time!",
+            "preview": "Dwight: Not now! Private time!\nJim: I love Star Wars as much as the next guy—\nDwight: Hey, hey! Seriously?\n[STAGE] holds up Battlestar Galactica model box\nJim: My god, I'm so sorry. Well this might make up for it: I think I have found an en…",
+            "score": 0.015625
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nOscar (holding Phillip): Listen, listen. Shh, buddy. Stanley's sleeping. You don't want to wake up the grumpy old walrus, do you?\nStanley: I heard that.\nPhilip: Mama.\nDwight: Hey, you want me to take the little diaper bla…",
+            "score": 0.015384615384615385
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+            "Dwight says bears beets Battlestar Galactica episode",
+            "Dwight quote bears beets Battlestar Galactica",
+            "Dwight Schrute bears beets Battlestar Galactica scene",
+            "Episode with Dwight's bears beets Galactica line",
+            "Dwight's famous bears beets Battlestar Galactica moment"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 15,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Dwight quote bears beets Battlestar Galactica",
+                "Dwight Schrute bears beets Battlestar Galactica scene",
+                "Episode with Dwight's bears beets Galactica line",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?": 2,
+                "Dwight says bears beets Battlestar Galactica episode": 3,
+                "Dwight quote bears beets Battlestar Galactica": 2,
+                "Dwight Schrute bears beets Battlestar Galactica scene": 3,
+                "Episode with Dwight's bears beets Galactica line": 2,
+                "Dwight's famous bears beets Battlestar Galactica moment": 1
+              },
+              "best_base_score": 0.6380502581596375,
+              "fused_score": 0.09652657114317612,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Episode with Dwight's bears beets Galactica line",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?": 1,
+                "Dwight says bears beets Battlestar Galactica episode": 1,
+                "Episode with Dwight's bears beets Galactica line": 1,
+                "Dwight's famous bears beets Battlestar Galactica moment": 3
+              },
+              "best_base_score": 0.6614269018173218,
+              "fused_score": 0.06505334374186833,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Dwight quote bears beets Battlestar Galactica",
+                "Episode with Dwight's bears beets Galactica line",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Dwight says bears beets Battlestar Galactica episode": 2,
+                "Dwight quote bears beets Battlestar Galactica": 1,
+                "Episode with Dwight's bears beets Galactica line": 3,
+                "Dwight's famous bears beets Battlestar Galactica moment": 4
+              },
+              "best_base_score": 0.6005755066871643,
+              "fused_score": 0.06402049075403121,
+              "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e06_customer_survey_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Dwight quote bears beets Battlestar Galactica",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?": 5,
+                "Dwight says bears beets Battlestar Galactica episode": 4,
+                "Dwight quote bears beets Battlestar Galactica": 3,
+                "Dwight's famous bears beets Battlestar Galactica moment": 2
+              },
+              "best_base_score": 0.5696790218353271,
+              "fused_score": 0.06301166351569577,
+              "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Episode with Dwight's bears beets Galactica line"
+              ],
+              "ranks_by_query": {
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?": 3,
+                "Dwight says bears beets Battlestar Galactica episode": 6,
+                "Episode with Dwight's bears beets Galactica line": 5
+              },
+              "best_base_score": 0.579319179058075,
+              "fused_score": 0.04640914640914641,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "Dwight Schrute bears beets Battlestar Galactica scene",
+                "Episode with Dwight's bears beets Galactica line",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Dwight Schrute bears beets Battlestar Galactica scene": 6,
+                "Episode with Dwight's bears beets Galactica line": 4,
+                "Dwight's famous bears beets Battlestar Galactica moment": 5
+              },
+              "best_base_score": 0.5831698775291443,
+              "fused_score": 0.04616113053613054,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "Dwight quote bears beets Battlestar Galactica",
+                "Dwight Schrute bears beets Battlestar Galactica scene",
+                "Dwight's famous bears beets Battlestar Galactica moment"
+              ],
+              "ranks_by_query": {
+                "Dwight quote bears beets Battlestar Galactica": 5,
+                "Dwight Schrute bears beets Battlestar Galactica scene": 4,
+                "Dwight's famous bears beets Battlestar Galactica moment": 6
+              },
+              "best_base_score": 0.5822787880897522,
+              "fused_score": 0.04616113053613054,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e02_the_incentive_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "Dwight says bears beets Battlestar Galactica episode",
+                "Dwight Schrute bears beets Battlestar Galactica scene"
+              ],
+              "ranks_by_query": {
+                "Dwight says bears beets Battlestar Galactica episode": 5,
+                "Dwight Schrute bears beets Battlestar Galactica scene": 1
+              },
+              "best_base_score": 0.6287923455238342,
+              "fused_score": 0.03177805800756621,
+              "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Dwight Schrute bears beets Battlestar Galactica scene"
+              ],
+              "ranks_by_query": {
+                "Dwight Schrute bears beets Battlestar Galactica scene": 2
+              },
+              "best_base_score": 0.621040940284729,
+              "fused_score": 0.016129032258064516,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+              ],
+              "ranks_by_query": {
+                "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?": 4
+              },
+              "best_base_score": 0.5714687705039978,
+              "fused_score": 0.015625,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Dwight quote bears beets Battlestar Galactica"
+              ],
+              "ranks_by_query": {
+                "Dwight quote bears beets Battlestar Galactica": 4
+              },
+              "best_base_score": 0.5058368444442749,
+              "fused_score": 0.015625,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Dwight Schrute bears beets Battlestar Galactica scene"
+              ],
+              "ranks_by_query": {
+                "Dwight Schrute bears beets Battlestar Galactica scene": 5
+              },
+              "best_base_score": 0.5812883377075195,
+              "fused_score": 0.015384615384615385,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "The episode where Dwight says \"Bears. Beets. Battlestar Galactica.\" is Season 3, Episode 20, titled \"Product Recall\" (03-20). The context is a scene where Jim is dressed as Dwight and mimics him. Jim asks, \"What kind of bear is best?\" Dwight calls it a ridiculous question. Jim answers \"Black bear,\" and Dwight debates it. Then Jim states the fact: \"Bears eat beets. Bears. Beets. Battlestar Galactica.\" Dwight reacts with confusion and asks, \"What is going on— What are you doing?!\" This is part of Jim's prank impersonating Dwight. (S03E20, SCENE 000)",
+        "latency_ms": 2247,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2857,
+          "completion_tokens": 149,
+          "total_tokens": 3006
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 10309,
+          "answer_chars": 553
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 2178,
+        "stats": {
+          "min": 0.015151515151515152,
+          "max": 0.09730301427815971,
+          "mean": 0.04727831064508087
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nMichael: Morning everyone. Don't freak out. I forbid anybody to freak out. Clearly, I have had a very serious accident, but I will recover, God willing. I just want to be treated normally today. Normal would actually be g…",
+            "score": 0.09730301427815971
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nDwight: Ahhh. Mweehaa\nMichael: Doctor, what is more serious, a head injury or a foot injury?\nDoctor: A head injury.\nMichael: Well, you don't have all the information. The foot as been fairly severely burned and healed qui…",
+            "score": 0.09503702126652946
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 12\nTITLE: The Injury\nAIRDATE: 2006-01-12\nTVMAZE_ID: 47657\nTVMAZE_URL: https://www.tvmaze.com/episodes/47657/the-office-2x12-the-injury\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summarie…",
+            "score": 0.08143839238498149
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.",
+            "preview": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.\n\n=== SCENE 021 ===\n\nBilly: What's wrong with that guy?\nJim: You mean today? He stepped on a George Foremen grill and he burn…",
+            "score": 0.07764423076923077
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "=== SCENE 001 ===",
+            "preview": "=== SCENE 001 ===\n\nPam: Dunder Mifflin, this is Pam.\nMichael: Pam! It's Michael. Help me! I need help right now.\nPam: Michael, what's wrong?\nMichael: I'm hurt, I have hurt myself. Oh my God!\nPam: Ok, wait wait wait wait…\nMichael: Ungh, this…",
+            "score": 0.046649531024531024
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nMichael: Who among you has the guts to replace me? Let him walk across these coals.\nKevin: Are you going to try it?\nAngela: I'm not going to talk through the fire after your disgusting feet have gone through.\nKevin: Angel…",
+            "score": 0.04639423076923077
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 19\nTITLE: Michael's Birthday\nAIRDATE: 2006-03-30\nTVMAZE_ID: 47664\nTVMAZE_URL: https://www.tvmaze.com/episodes/47664/the-office-2x19-michaels-birthday\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/e…",
+            "score": 0.03076923076923077
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "first_line": "Kevin: Why don't you go Michael?",
+            "preview": "Kevin: Why don't you go Michael?\nMichael: Because I already did. Remember? I burned my foot on a George Foreman grill.\nJim: And that is not the same at all. If you're going to ask other people to do it, you should do it yourself.\nMichael: A…",
+            "score": 0.030303030303030304
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+            "first_line": "Michael: It's okay guys… I can handle this. Everybody can go home.",
+            "preview": "Michael: It's okay guys… I can handle this. Everybody can go home.\nKevin: We're here for the show, Michael.\nMichael: You're just a bunch of voyeurs. Are you eating popcorn?\nKelly: It has almost no calories.\nPam: Are you ready?\nMichael: Yes.…",
+            "score": 0.015873015873015872
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "Michael: Thank you. Pam, messages please?",
+            "preview": "Michael: Thank you. Pam, messages please?\nPam: You didn't have any.\nMichael: Really, well, it, uh, seemed very important to you earlier that you needed to stay and…\nPam: And do my job?\nMichael: No, your job is being my friend, Pam. OW! God!…",
+            "score": 0.015625
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt",
+            "first_line": "=== SCENE 007 ===",
+            "preview": "=== SCENE 007 ===\n\nKevin: It smelled\n\n=== SCENE 008 ===\n\nPam & others (after going in to check out the smell): Phew. Oh! No, mm-mm.\n[STAGE] leaving quickly\nMichael: I cannot believe a pipe burst and left that in there.\nToby: That's no burst…",
+            "score": 0.015151515151515152
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 4\nTITLE: The Fire\nAIRDATE: 2005-10-11\nTVMAZE_ID: 47649\nTVMAZE_URL: https://www.tvmaze.com/episodes/47649/the-office-2x04-the-fire\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.jso…",
+            "score": 0.015151515151515152
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "In what episode does Michael burn his foot?",
+            "Michael burns his foot episode",
+            "TV episode where Michael burns foot",
+            "Michael foot injury episode",
+            "Episode with Michael burning foot",
+            "Michael burns foot scene"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 12,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "Michael burns his foot episode",
+                "TV episode where Michael burns foot",
+                "Michael foot injury episode",
+                "Episode with Michael burning foot",
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 2,
+                "Michael burns his foot episode": 2,
+                "TV episode where Michael burns foot": 2,
+                "Michael foot injury episode": 1,
+                "Episode with Michael burning foot": 1,
+                "Michael burns foot scene": 2
+              },
+              "best_base_score": 0.6265427470207214,
+              "fused_score": 0.09730301427815971,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "Michael burns his foot episode",
+                "TV episode where Michael burns foot",
+                "Michael foot injury episode",
+                "Episode with Michael burning foot",
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 3,
+                "Michael burns his foot episode": 3,
+                "TV episode where Michael burns foot": 3,
+                "Michael foot injury episode": 6,
+                "Episode with Michael burning foot": 3,
+                "Michael burns foot scene": 1
+              },
+              "best_base_score": 0.6129324436187744,
+              "fused_score": 0.09503702126652946,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "Michael burns his foot episode",
+                "TV episode where Michael burns foot",
+                "Michael foot injury episode",
+                "Episode with Michael burning foot"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 1,
+                "Michael burns his foot episode": 1,
+                "TV episode where Michael burns foot": 1,
+                "Michael foot injury episode": 2,
+                "Episode with Michael burning foot": 2
+              },
+              "best_base_score": 0.6777202486991882,
+              "fused_score": 0.08143839238498149,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "TV episode where Michael burns foot",
+                "Michael foot injury episode",
+                "Episode with Michael burning foot",
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 4,
+                "TV episode where Michael burns foot": 4,
+                "Michael foot injury episode": 5,
+                "Episode with Michael burning foot": 4,
+                "Michael burns foot scene": 5
+              },
+              "best_base_score": 0.585890531539917,
+              "fused_score": 0.07764423076923077,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "Michael burns his foot episode",
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 6,
+                "Michael burns his foot episode": 4,
+                "Michael burns foot scene": 3
+              },
+              "best_base_score": 0.568710446357727,
+              "fused_score": 0.046649531024531024,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "Michael burns his foot episode",
+                "Episode with Michael burning foot",
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "Michael burns his foot episode": 5,
+                "Episode with Michael burning foot": 5,
+                "Michael burns foot scene": 4
+              },
+              "best_base_score": 0.5667779445648193,
+              "fused_score": 0.04639423076923077,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "In what episode does Michael burn his foot?",
+                "TV episode where Michael burns foot"
+              ],
+              "ranks_by_query": {
+                "In what episode does Michael burn his foot?": 5,
+                "TV episode where Michael burns foot": 5
+              },
+              "best_base_score": 0.5838422179222107,
+              "fused_score": 0.03076923076923077,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "TV episode where Michael burns foot",
+                "Episode with Michael burning foot"
+              ],
+              "ranks_by_query": {
+                "TV episode where Michael burns foot": 6,
+                "Episode with Michael burning foot": 6
+              },
+              "best_base_score": 0.5615372061729431,
+              "fused_score": 0.030303030303030304,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Michael foot injury episode"
+              ],
+              "ranks_by_query": {
+                "Michael foot injury episode": 3
+              },
+              "best_base_score": 0.5988789200782776,
+              "fused_score": 0.015873015873015872,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Michael foot injury episode"
+              ],
+              "ranks_by_query": {
+                "Michael foot injury episode": 4
+              },
+              "best_base_score": 0.5854511260986328,
+              "fused_score": 0.015625,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Michael burns foot scene"
+              ],
+              "ranks_by_query": {
+                "Michael burns foot scene": 6
+              },
+              "best_base_score": 0.4885265827178955,
+              "fused_score": 0.015151515151515152,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Michael burns his foot episode"
+              ],
+              "ranks_by_query": {
+                "Michael burns his foot episode": 6
+              },
+              "best_base_score": 0.4749743938446045,
+              "fused_score": 0.015151515151515152,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "Michael burns his foot in Season 2, Episode 12, titled \"The Injury.\" He accidentally burns his foot on his George Foreman Grill but insists on coming to work anyway. (S02E12)",
+        "latency_ms": 1096,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2827,
+          "completion_tokens": 43,
+          "total_tokens": 2870
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 10108,
+          "answer_chars": 174
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1994,
+        "stats": {
+          "min": 0.015384615384615385,
+          "max": 0.09784022898776999,
+          "mean": 0.04727831064508089
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nEPISODE_ID: 02-01\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Chili’s Employee, Darryl, Dwight, Employee, Everybody, Guy at bar, Jan, Jim, …",
+            "score": 0.09784022898776999
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nAIRDATE: 2005-09-20\nTVMAZE_ID: 47646\nTVMAZE_URL: https://www.tvmaze.com/episodes/47646/the-office-2x01-the-dundies\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summari…",
+            "score": 0.08065355527016024
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 12\nTITLE: The Injury\nEPISODE_ID: 02-12\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Billy, Creed, Doctor, Dwight, Jim, Jim & Pam, Kevin, Lab Tech, Meredith, Mich…",
+            "score": 0.06275564713064713
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nAIRDATE: 2005-10-04\nTVMAZE_ID: 47648\nTVMAZE_URL: https://www.tvmaze.com/episodes/47648/the-office-2x03-office-olympics\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode…",
+            "score": 0.06229016279419505
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nEPISODE_ID: 02-03\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Bill, Carol, Crowd, Dwight, Everyone, Jim, Kevin, Meredith, Michael, Osca…",
+            "score": 0.06131264568764569
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 13\nTITLE: The Secret\nAIRDATE: 2006-01-19\nTVMAZE_ID: 47658\nTVMAZE_URL: https://www.tvmaze.com/episodes/47658/the-office-2x13-the-secret\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summarie…",
+            "score": 0.046649531024531024
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e19_michael_s_birthday_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 19\nTITLE: Michael’s Birthday\nEPISODE_ID: 02-19\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Carol, Delivery Boy, Delivery Woman, Dwight, Jan, Jim, Kelly, Kevin, …",
+            "score": 0.0315136476426799
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 10\nTITLE: Christmas Party\nEPISODE_ID: 02-10\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Angela, Bob Vance, Creed, Darryl, Dwight, Jim, Kelly, Kevin, Kevin & Oscar,…",
+            "score": 0.03149801587301587
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e15_boys_and_girls_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 15\nTITLE: Boys and Girls\nEPISODE_ID: 02-15\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All the Men, Angela, Darryl, Dwight, Group chant, Guy, Jan, Jim, Kelly, Kevin, Lo…",
+            "score": 0.03128054740957967
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e02_sexual_harassment_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 2\nTITLE: Sexual Harassment\nEPISODE_ID: 02-02\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Albiny, Angela, Darryl, Dwight, Jan, Jim, Kevin, Kevin’s computer, Man in video…",
+            "score": 0.030536130536130537
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e02_the_meeting_script.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 6\nEPISODE: 2\nTITLE: The Meeting\nEPISODE_ID: 06-02\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Angela, Creed, Darryl, David, David Wallace, Dwight, Erin, Gwenneth, Jim, Kelly…",
+            "score": 0.015625
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt",
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 4\nTITLE: The Fire\nAIRDATE: 2005-10-11\nTVMAZE_ID: 47649\nTVMAZE_URL: https://www.tvmaze.com/episodes/47649/the-office-2x04-the-fire\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.jso…",
+            "score": 0.015384615384615385
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "Summarize season 2 of The Office.",
+            "Season 2 The Office episode summaries",
+            "The Office season 2 key events",
+            "Plot overview of The Office season 2",
+            "Main characters in The Office season 2",
+            "The Office season 2 highlights"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 12,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Season 2 The Office episode summaries",
+                "The Office season 2 key events",
+                "Plot overview of The Office season 2",
+                "Main characters in The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 3,
+                "Season 2 The Office episode summaries": 1,
+                "The Office season 2 key events": 1,
+                "Plot overview of The Office season 2": 1,
+                "Main characters in The Office season 2": 1,
+                "The Office season 2 highlights": 1
+              },
+              "best_base_score": 0.6697652339935303,
+              "fused_score": 0.09784022898776999,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Season 2 The Office episode summaries",
+                "The Office season 2 key events",
+                "Plot overview of The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 1,
+                "Season 2 The Office episode summaries": 2,
+                "The Office season 2 key events": 3,
+                "Plot overview of The Office season 2": 2,
+                "The Office season 2 highlights": 2
+              },
+              "best_base_score": 0.6660858392715454,
+              "fused_score": 0.08065355527016024,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Season 2 The Office episode summaries",
+                "Plot overview of The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 5,
+                "Season 2 The Office episode summaries": 4,
+                "Plot overview of The Office season 2": 3,
+                "The Office season 2 highlights": 3
+              },
+              "best_base_score": 0.6574883460998535,
+              "fused_score": 0.06275564713064713,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Season 2 The Office episode summaries",
+                "Plot overview of The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 2,
+                "Season 2 The Office episode summaries": 5,
+                "Plot overview of The Office season 2": 4,
+                "The Office season 2 highlights": 6
+              },
+              "best_base_score": 0.6568245887756348,
+              "fused_score": 0.06229016279419505,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Season 2 The Office episode summaries",
+                "The Office season 2 key events",
+                "Plot overview of The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Season 2 The Office episode summaries": 6,
+                "The Office season 2 key events": 5,
+                "Plot overview of The Office season 2": 6,
+                "The Office season 2 highlights": 4
+              },
+              "best_base_score": 0.6466140747070312,
+              "fused_score": 0.06131264568764569,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Season 2 The Office episode summaries",
+                "The Office season 2 key events"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 4,
+                "Season 2 The Office episode summaries": 3,
+                "The Office season 2 key events": 6
+              },
+              "best_base_score": 0.661918044090271,
+              "fused_score": 0.046649531024531024,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "The Office season 2 key events",
+                "Main characters in The Office season 2"
+              ],
+              "ranks_by_query": {
+                "The Office season 2 key events": 2,
+                "Main characters in The Office season 2": 5
+              },
+              "best_base_score": 0.6261060237884521,
+              "fused_score": 0.0315136476426799,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e19_michael_s_birthday_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "The Office season 2 key events",
+                "Main characters in The Office season 2"
+              ],
+              "ranks_by_query": {
+                "The Office season 2 key events": 4,
+                "Main characters in The Office season 2": 3
+              },
+              "best_base_score": 0.6317734122276306,
+              "fused_score": 0.03149801587301587,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Summarize season 2 of The Office.",
+                "Main characters in The Office season 2"
+              ],
+              "ranks_by_query": {
+                "Summarize season 2 of The Office.": 6,
+                "Main characters in The Office season 2": 2
+              },
+              "best_base_score": 0.640537440776825,
+              "fused_score": 0.03128054740957967,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e15_boys_and_girls_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Main characters in The Office season 2",
+                "The Office season 2 highlights"
+              ],
+              "ranks_by_query": {
+                "Main characters in The Office season 2": 6,
+                "The Office season 2 highlights": 5
+              },
+              "best_base_score": 0.6331427097320557,
+              "fused_score": 0.030536130536130537,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e02_sexual_harassment_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Main characters in The Office season 2"
+              ],
+              "ranks_by_query": {
+                "Main characters in The Office season 2": 4
+              },
+              "best_base_score": 0.6186923980712891,
+              "fused_score": 0.015625,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e02_the_meeting_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Plot overview of The Office season 2"
+              ],
+              "ranks_by_query": {
+                "Plot overview of The Office season 2": 5
+              },
+              "best_base_score": 0.6017487049102783,
+              "fused_score": 0.015384615384615385,
+              "source": "ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "Season 2 of The Office includes a variety of episodes that develop the characters and workplace dynamics at Dunder Mifflin. Key events include:\n\n- \"The Dundies\" (S02E01): Michael hosts the annual Dundies awards.\n- \"Sexual Harassment\" (S02E02): The office deals with issues around sexual harassment.\n- \"Office Olympics\" (S02E03): With Michael and Dwight out, Jim organizes an office Olympics.\n- \"The Fire\" (S02E04): A fire starts in the office kitchen.\n- \"Christmas Party\" (S02E10): The office holds a Christmas party.\n- \"The Injury\" (S02E12): Michael suffers an injury, leading to unusual office events.\n- \"The Secret\" (S02E13): Jim spends time with Michael to keep his feelings for Pam secret, while Dwight investigates Oscar's sick day.\n- \"Boys and Girls\" (S02E15): Jan visits to talk to the women in the office, with Michael excluded.\n- \"Michael’s Birthday\" (S02E19): The office celebrates Michael's birthday.\n\nThroughout the season, the show explores office relationships, humor, and the quirks of the employees, with a focus on Michael's management style and Jim's feelings for Pam.",
+        "latency_ms": 3756,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1929,
+          "completion_tokens": 268,
+          "total_tokens": 2197
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 5916,
+          "answer_chars": 1087
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 2679,
+        "stats": {
+          "min": 0.015873015873015872,
+          "max": 0.08066994976203067,
+          "mean": 0.03569732797034819
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "Dwight (straightens tie in mirror): Showtime.",
+            "preview": "Dwight (straightens tie in mirror): Showtime.\nJim (enters abruptly): Dwight.\nDwight: You again? Gosh, I keep throwing you away, you keep flying back here. You're like an Amish return stick.\nJim: OK, great, listen to me. Listen to me. No, no…",
+            "score": 0.08066994976203067
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nDwight: I know what Jim is trying to do. He's trying to get big bad Dwight to shell out for a huge repair job while lucky Jimbo gets a paid vacation. Well sorry, lucky Jimbo, I can live very happily in a magnetic field. M…",
+            "score": 0.06254728877679698
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "first_line": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.",
+            "preview": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.\nDwight: Ah, Jim, Jim, Jim. The gun is a Beaumont-Adams. Jo collects them. I thought we could have some nice small talk about it. And the piranha's a rescue.\nJim: And the des…",
+            "score": 0.04839549075403121
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "=== SCENE 021 ===",
+            "preview": "=== SCENE 021 ===\n\nPam (on phone with Jim): He said, 'I did like Dwight'? He's gonna fire him.\nJim: No, no, I think it was more like, 'you know, I liked him, but I don't anymore because he did a bad job, so I'm definitely gonna yell at him'…",
+            "score": 0.047371031746031744
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+            "first_line": "=== SCENE 074 ===",
+            "preview": "=== SCENE 074 ===\n\nJim: I surrender.\nDwight: I do not accept your surrender. There's only one way that I would ever relent.\nJim: Anything. You got it.\nDwight: You hit Pam in the face with a snowball while I watch.\nJim: You're a psychopath.\n…",
+            "score": 0.032266458495966696
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt",
+            "first_line": "Jim (to Pam): Hey.",
+            "preview": "Jim (to Pam): Hey.\nJim (Dwight hands Jim a piece of paper): Oh, what's this?\nDwight: That is a demerit.\nJim (reads demerit): \"Jim Halpert, tardiness.\" Ugh. I love it already.\nDwight: You've gotta learn, Jim. You are second in command, but t…",
+            "score": 0.03128054740957967
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "Jim: Well, he's Florida's problem now.",
+            "preview": "Jim: Well, he's Florida's problem now.\nRobert California: I'll let Dwight have his fun. Today will not be his day.\nJim: What's that?\nRobert California: I'm gonna tank the Sabre store at the presentation to the board.\nJim: I thought you like…",
+            "score": 0.030776515151515152
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e11_scott_s_tots_script.txt",
+            "first_line": "=== SCENE 033 ===",
+            "preview": "=== SCENE 033 ===\n\nDwight: I know how it happened.\n\n=== SCENE 034 ===\n\nDavid: Jim, I bumped you up because I thought you could make my life easier. If you can't do that, we're going to have a separate discussion.\nJim: All right, it will not…",
+            "score": 0.030536130536130537
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 061 ===",
+            "preview": "=== SCENE 061 ===\n\nJim: I don't know what you want me to tell you, man. All I know is that every time I've been faced with a tough decision, there's only one thing that outweighs every other concern. One thing that will make you give up on …",
+            "score": 0.01639344262295082
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+            "first_line": "=== SCENE 047 ===",
+            "preview": "=== SCENE 047 ===\n\nDwight: Do I feel bad about betraying Jim? Not at all. That's the game. Convince him we're in an alliance, get some information, throw him to the wolves.\nDwight (With blonde hair): That's politics baby. Get what you can o…",
+            "score": 0.016129032258064516
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "first_line": "=== SCENE 031 ===",
+            "preview": "=== SCENE 031 ===\n\nDwight (trying to get around Jim): Huh, huh, huh!\n[STAGE] slides between Jim's legs\nJim: What are you doing?\nDwight: I was trying to go-\nJim: Get up.\nDwight: Ok, ok.\nJim: Get up. All right? I'm not gonna let you by.\nDwigh…",
+            "score": 0.016129032258064516
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "first_line": "=== SCENE 003 ===",
+            "preview": "=== SCENE 003 ===\n\nDwight (in Jim's office): I'd like to lodge a complaint.\nJim: I'm sorry to hear about that. Who is this about?\nDwight: You!\nJim: Okay. Just want to let you know I take complaints very seriously. So… When did this happen?\n…",
+            "score": 0.015873015873015872
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "Why does Dwight dislike Jim? Give 3 reasons with examples",
+            "Reasons Dwight dislikes Jim",
+            "Dwight Jim conflict examples",
+            "Dwight Jim rivalry causes",
+            "Why does Dwight dislike Jim in The Office",
+            "Dwight Jim disagreements episodes"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 21,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim",
+                "Dwight Jim conflict examples",
+                "Why does Dwight dislike Jim in The Office",
+                "Dwight Jim disagreements episodes"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 1,
+                "Reasons Dwight dislikes Jim": 1,
+                "Dwight Jim conflict examples": 4,
+                "Why does Dwight dislike Jim in The Office": 2,
+                "Dwight Jim disagreements episodes": 2
+              },
+              "best_base_score": 0.6284723877906799,
+              "fused_score": 0.08066994976203067,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim",
+                "Dwight Jim conflict examples",
+                "Dwight Jim rivalry causes"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 5,
+                "Reasons Dwight dislikes Jim": 5,
+                "Dwight Jim conflict examples": 5,
+                "Dwight Jim rivalry causes": 1
+              },
+              "best_base_score": 0.6073340773582458,
+              "fused_score": 0.06254728877679698,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim",
+                "Why does Dwight dislike Jim in The Office"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 3,
+                "Reasons Dwight dislikes Jim": 2,
+                "Why does Dwight dislike Jim in The Office": 1
+              },
+              "best_base_score": 0.6346657276153564,
+              "fused_score": 0.04839549075403121,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim",
+                "Why does Dwight dislike Jim in The Office"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 4,
+                "Reasons Dwight dislikes Jim": 3,
+                "Why does Dwight dislike Jim in The Office": 3
+              },
+              "best_base_score": 0.6221454739570618,
+              "fused_score": 0.047371031746031744,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Dwight Jim conflict examples",
+                "Dwight Jim disagreements episodes"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim conflict examples": 1,
+                "Dwight Jim disagreements episodes": 3
+              },
+              "best_base_score": 0.6035327315330505,
+              "fused_score": 0.032266458495966696,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 2,
+                "Reasons Dwight dislikes Jim": 6
+              },
+              "best_base_score": 0.6062158942222595,
+              "fused_score": 0.03128054740957967,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "Why does Dwight dislike Jim? Give 3 reasons with examples",
+                "Reasons Dwight dislikes Jim"
+              ],
+              "ranks_by_query": {
+                "Why does Dwight dislike Jim? Give 3 reasons with examples": 6,
+                "Reasons Dwight dislikes Jim": 4
+              },
+              "best_base_score": 0.6160087585449219,
+              "fused_score": 0.030776515151515152,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "Dwight Jim conflict examples",
+                "Dwight Jim rivalry causes"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim conflict examples": 6,
+                "Dwight Jim rivalry causes": 5
+              },
+              "best_base_score": 0.57113116979599,
+              "fused_score": 0.030536130536130537,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e11_scott_s_tots_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Dwight Jim disagreements episodes"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim disagreements episodes": 1
+              },
+              "best_base_score": 0.6103637218475342,
+              "fused_score": 0.01639344262295082,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Dwight Jim conflict examples"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim conflict examples": 2
+              },
+              "best_base_score": 0.5867314338684082,
+              "fused_score": 0.016129032258064516,
+              "source": "ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Dwight Jim rivalry causes"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim rivalry causes": 2
+              },
+              "best_base_score": 0.558862566947937,
+              "fused_score": 0.016129032258064516,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Dwight Jim conflict examples"
+              ],
+              "ranks_by_query": {
+                "Dwight Jim conflict examples": 3
+              },
+              "best_base_score": 0.5853477716445923,
+              "fused_score": 0.015873015873015872,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "Dwight dislikes Jim for several reasons, illustrated by their interactions:\n\n1. Jim constantly pranks Dwight, which Dwight finds annoying and tries to resist. For example, Dwight says, \"Your pranks have never worked in the past and they're not going to work today\" (Scene 009). This shows Dwight's frustration with Jim's ongoing attempts to mess with him.\n\n2. Dwight sees Jim as a threat to his authority and position. When Dwight is acting manager, he warns Jim, \"Don't make me fire you\" and \"You're pre-fired. And when I'm promoted, you'll be full fired\" (Scene 020). This indicates Dwight's competitive nature and dislike of Jim's presence as a subordinate who challenges him.\n\n3. Dwight feels that Jim tries to make him look bad or undermine him. For instance, Dwight says, \"I cannot have a subordinate trying to make me look stupid\" (Scene 019), showing that Dwight dislikes Jim's behavior when it threatens his reputation.\n\nOverall, Dwight's dislike stems from Jim's pranks, his challenge to Dwight's authority, and attempts to undermine him.",
+        "latency_ms": 3068,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2653,
+          "completion_tokens": 223,
+          "total_tokens": 2876
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 9738,
+          "answer_chars": 1048
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 2123,
+        "stats": {
+          "min": 0.015384615384615385,
+          "max": 0.09756742464304602,
+          "mean": 0.042208380575150806
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "first_line": "=== SCENE 044 ===",
+            "preview": "=== SCENE 044 ===\n\nKelly: Hi, Michael.\nMichael (sitting at her desk): Hey, Kelly.\nKelly: Yeah, what are you doing here?\nMichael: Nothing. Just hangin'. Chillin'. No agenda. Would you consider hookin' me up with one of your friends?\nKelly: O…",
+            "score": 0.09756742464304602
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "first_line": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"",
+            "preview": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"\nMichael: Not a woman, just a cool, great looking, best friend.\nLester: Aren'…",
+            "score": 0.0814383923849815
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+            "first_line": "=== SCENE 012 ===",
+            "preview": "=== SCENE 012 ===\n\nMichael: Would you have sex with Meredith?\nJim: What?\nMichael: Do you think she'd keep it quiet?\nJim: I'm gonna go to my desk.\nMichael: Jim, it's not the horniness, ok it's the loneliness that…\nJim: I know.\nMichael: Let's…",
+            "score": 0.06325204813108039
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nMichael: No, I gotta go. Text me later.\nJim: I'm really too tired to do this.\nPam: Me too!\nJim: Then let's just not do this. Do you have any idea the risks involved?\nPam: Hey Michael.\nMichael: Hey.\nPam: We were wondEring …",
+            "score": 0.06202686202686203
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMichael: So, what do you do?\nJulie: I am an ESL teacher.\nMichael: Really?\nJulie: Yeah.\nMichael: See, I didn't think you could teach that. I thought that was something you were born with. What am I thinking right now?\nJuli…",
+            "score": 0.047371031746031744
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+            "first_line": "Michael (watching Dwight eat breakfast): How can you eat like that?",
+            "preview": "Michael (watching Dwight eat breakfast): How can you eat like that?\nDwight: I'm ravenous after a night of love making. You?\nMichael: Yeah, I'm hungry, but I'm not going to make a pig out of myself.\nDwight: Hey, what was she like?\nMichael: S…",
+            "score": 0.03125
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt",
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nMichael: Is somebody there?\nJim: What happened to you?\nMichael: Captain Jack has a problem with authority.\nJim: Oh, right, because you announced that his ship was sinking?\nMichael: He just totally lost it. If you ask me, …",
+            "score": 0.031024531024531024
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+            "first_line": "=== SCENE 001 ===",
+            "preview": "=== SCENE 001 ===\n\nMichael: Today, I, Michael Scott, am becoming a homeowner. Investing in real estate.\nDwight: Diversifying. Smart.\nMichael: Yes it is. Yes it is. It is very important to own property. Back in olden days, they would not eve…",
+            "score": 0.030303030303030304
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "first_line": "Dwight: I would like to give the rest of my belongings to Michael Scott. Just take them. Except this.",
+            "preview": "Dwight: I would like to give the rest of my belongings to Michael Scott. Just take them. Except this.\nMichael: Good luck.\n\n=== SCENE 046 ===\n\nRyan: Dwight will be missed. Not by me so much, but, he will be missed.\n\n=== SCENE 047 ===\n\nAngela…",
+            "score": 0.015873015873015872
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "Michael: I know why she's calling. It's the end of the month, and I was supposed to let somebody go by the end of the month. And somehow I'm supposed to put on a costume and smile. Okay.",
+            "preview": "Michael: I know why she's calling. It's the end of the month, and I was supposed to let somebody go by the end of the month. And somehow I'm supposed to put on a costume and smile. Okay.\n[STAGE] dials a number on his speaker phone\nSherry (o…",
+            "score": 0.015625
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt",
+            "first_line": "Stanley: Yes, what is this about?",
+            "preview": "Stanley: Yes, what is this about?\nMichael: What is this meeting about?\nStanley: Mmhmmm.\nMichael: Okay, here we are in the conference room. Once again. And I just wanted to call you all here, together, because I have something important. Wel…",
+            "score": 0.015384615384615385
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e16_blood_drive_script.txt",
+            "first_line": "Michael: Pam, really, they're back?",
+            "preview": "Michael: Pam, really, they're back?\nPam: I can't see them when they're on the floor\nJim: They're for her to look at, Michael.\nMichael: Can I have a word with you, Jim?\nJim: Yes, let's have a word.\nMichael: Yes, um, Jim. Today is a very diff…",
+            "score": 0.015384615384615385
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "List Michael Scott’s serious girlfriends and how the relationships ended.",
+            "Michael Scott serious girlfriends",
+            "Michael Scott relationships ending",
+            "Michael Scott romantic partners",
+            "Michael Scott dating history",
+            "Michael Scott love life"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 16,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends",
+                "Michael Scott relationships ending",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 2,
+                "Michael Scott serious girlfriends": 1,
+                "Michael Scott relationships ending": 2,
+                "Michael Scott romantic partners": 1,
+                "Michael Scott dating history": 1,
+                "Michael Scott love life": 2
+              },
+              "best_base_score": 0.6081318259239197,
+              "fused_score": 0.09756742464304602,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends",
+                "Michael Scott relationships ending",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 1,
+                "Michael Scott serious girlfriends": 2,
+                "Michael Scott relationships ending": 1,
+                "Michael Scott dating history": 2,
+                "Michael Scott love life": 1
+              },
+              "best_base_score": 0.6025359630584717,
+              "fused_score": 0.0814383923849815,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Michael Scott serious girlfriends",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott serious girlfriends": 3,
+                "Michael Scott romantic partners": 2,
+                "Michael Scott dating history": 4,
+                "Michael Scott love life": 4
+              },
+              "best_base_score": 0.5789560675621033,
+              "fused_score": 0.06325204813108039,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Michael Scott serious girlfriends",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott serious girlfriends": 5,
+                "Michael Scott romantic partners": 3,
+                "Michael Scott dating history": 5,
+                "Michael Scott love life": 5
+              },
+              "best_base_score": 0.5723170638084412,
+              "fused_score": 0.06202686202686203,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott romantic partners": 4,
+                "Michael Scott dating history": 3,
+                "Michael Scott love life": 3
+              },
+              "best_base_score": 0.5776046514511108,
+              "fused_score": 0.047371031746031744,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 4,
+                "Michael Scott serious girlfriends": 4
+              },
+              "best_base_score": 0.5614174008369446,
+              "fused_score": 0.03125,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott dating history"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 3,
+                "Michael Scott dating history": 6
+              },
+              "best_base_score": 0.5662662982940674,
+              "fused_score": 0.031024531024531024,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "Michael Scott romantic partners",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott romantic partners": 6,
+                "Michael Scott love life": 6
+              },
+              "best_base_score": 0.5668995976448059,
+              "fused_score": 0.030303030303030304,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 3
+              },
+              "best_base_score": 0.5725859999656677,
+              "fused_score": 0.015873015873015872,
+              "source": "ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 4
+              },
+              "best_base_score": 0.5717132687568665,
+              "fused_score": 0.015625,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 5
+              },
+              "best_base_score": 0.5706338882446289,
+              "fused_score": 0.015384615384615385,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Michael Scott romantic partners"
+              ],
+              "ranks_by_query": {
+                "Michael Scott romantic partners": 5
+              },
+              "best_base_score": 0.566217303276062,
+              "fused_score": 0.015384615384615385,
+              "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e16_blood_drive_script.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "Based on the provided context, the serious girlfriends of Michael Scott and how the relationships ended are:\n\n1. Jan Levinson:\n   - Michael had sex with Jan and considered her his girlfriend.\n   - Jan did not consider Michael her boyfriend.\n   - Their relationship was complicated, with Jan giving Michael poor performance reviews even after their relationship became official.\n   - The relationship ended with ambivalence, as Jan was going through a divorce and had issues such as drinking water excessively.\n   - Michael acknowledges that Jan's actions were rightful given her ambivalence about the relationship.\n\n2. Donna:\n   - Michael was seeing Donna, who was married.\n   - Michael acknowledges that it might be wrong to keep seeing her, especially from her husband's perspective.\n   - The context does not specify how this relationship ended.\n\n3. Julie:\n   - Michael dated Julie, an ESL teacher.\n   - They hit it off and went on dates.\n   - The context does not specify how this relationship ended.\n\n4. European girlfriend (Isabel):\n   - Michael mentions having a European girlfriend who was a dental hygienist from Carbondale.\n   - The context does not specify how this relationship ended.\n\nNo other serious girlfriends or details about the ends of relationships are provided in the context.",
+        "latency_ms": 3761,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3882,
+          "completion_tokens": 252,
+          "total_tokens": 4134
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 14721,
+          "answer_chars": 1298
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1872,
+        "stats": {
+          "min": 0.015151515151515152,
+          "max": 0.09783183500793233,
+          "mean": 0.05157633888554276
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nAngela: Was Dwight rooting for me? Hmm. I hadn't noticed.\n\n=== SCENE 025 ===\n\nKevin: I'm not giving up. I'm going to keep making planes until one of them flies. Like Wilbur and Orville Redenbacher.\n\n=== SCENE 026 ===\n\nJim…",
+            "score": 0.09783183500793233
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "first_line": "=== SCENE 039 ===",
+            "preview": "=== SCENE 039 ===\n\nLiquor Store Clerk: It comes to $166.41.\nMichael: All right, now, you're the expert. Is this enough to get 20 people plastered?\nLiquor Store Clerk: Fifteen bottles of vodka? Yeah, that should do it.\nMichael: Cool, cool. B…",
+            "score": 0.07941162779872457
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "first_line": "=== SCENE 054 ===",
+            "preview": "=== SCENE 054 ===\n\nWoman 1: Uh, Jim, that DVD in the last episode was so romantic. And, um, I think we'd all love to know, Pam, what romantic thing did you do to pay Jim back for leaving Athlead?\nPam: Well, I mean, How do you pay back someo…",
+            "score": 0.07838064713064713
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nErin: The tea in Nepal is very hot.\nDwight: But the coffee in Peru is far hotter.\nErin: Close.\nDwight: This is Tuesday, right? The coffee in Paraguay is far hotter?\nErin: Colder.\nDwight: The coffee in Paraguay is colder?\n…",
+            "score": 0.07669726107226107
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt",
+            "first_line": "=== SCENE 018 ===",
+            "preview": "=== SCENE 018 ===\n\nStanley: If your woman is like mine, I bet you come home to hear the same thing all the time. This paper is so hard. It scratches. Why can't there be a paper just for me? Well now there is. 'Papyr.' Paper for women. It's …",
+            "score": 0.06325204813108039
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMark: This is not an office so much as it is a uh, rec room with a bunch of computers in it. Frankly, if I had my way, I'd toss the computers in the gar-bage. But unfortunately we use them for practically everything we do…",
+            "score": 0.048171500630517027
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "Erin: The tea in Nepal is very hot.",
+            "preview": "Erin: The tea in Nepal is very hot.\nKevin: But the coffee in Peru is much hotter.\n[STAGE] Erin buzzes him into the office\n\n=== SCENE 001 ===\n\nDwight: Last week I finally became permanent manager of Dunder Mifflin Scranton. My first project:…",
+            "score": 0.046649531024531024
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt",
+            "first_line": "=== SCENE 031 ===",
+            "preview": "=== SCENE 031 ===\n\nNellie: I just wanted to take the man's job, not his manhood.\n\n=== SCENE 032 ===\n\nNellie: Okay, I would like to invite everyone into the conference room.\nAndy: You can't call a meeting. But I would like to have a meeting …",
+            "score": 0.030536130536130537
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "first_line": "=== SCENE 023 ===",
+            "preview": "=== SCENE 023 ===\n\nDwight: People are starting to notice how terrible Jim is. It's great. Eventually, they'll rise up and revolt. My only hope is that they do it sooner rather than later. If the people here were our founding fathers, the Re…",
+            "score": 0.015873015873015872
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+            "first_line": "=== SCENE 041 ===",
+            "preview": "=== SCENE 041 ===\n\nMeredith (slurping her from her big cup): I don't know why I'm not in The Finer Arts Club . It's bullcrap. You clean it up.\n[STAGE] slurring\n[STAGE] throws her cup on the floor, something splashes on the camera\n\n=== SCENE…",
+            "score": 0.015384615384615385
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e04_garden_party_script.txt",
+            "first_line": "=== SCENE 033 ===",
+            "preview": "=== SCENE 033 ===\n\nGabe: I can't believe I didn't think of toasting Robert. Get in the game, Gabriel! Why are you talking to Stanley's mistress?\n\n=== SCENE 034 ===\n\nAngela: I would like to toast someone who isn't here but who will be in jus…",
+            "score": 0.015151515151515152
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "What is the teapot letter and why is it important?",
+            "Teapot letter significance",
+            "What is the teapot letter",
+            "Importance of teapot letter",
+            "Teapot letter meaning",
+            "Teapot letter in context"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 11,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "Teapot letter significance",
+                "What is the teapot letter",
+                "Importance of teapot letter",
+                "Teapot letter meaning",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 2,
+                "Teapot letter significance": 1,
+                "What is the teapot letter": 2,
+                "Importance of teapot letter": 1,
+                "Teapot letter meaning": 1,
+                "Teapot letter in context": 1
+              },
+              "best_base_score": 0.3539700508117676,
+              "fused_score": 0.09783183500793233,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "Teapot letter significance",
+                "What is the teapot letter",
+                "Importance of teapot letter",
+                "Teapot letter meaning",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "Teapot letter significance": 2,
+                "What is the teapot letter": 6,
+                "Importance of teapot letter": 2,
+                "Teapot letter meaning": 2,
+                "Teapot letter in context": 3
+              },
+              "best_base_score": 0.32905733585357666,
+              "fused_score": 0.07941162779872457,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "Teapot letter significance",
+                "What is the teapot letter",
+                "Teapot letter meaning",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 3,
+                "Teapot letter significance": 5,
+                "What is the teapot letter": 3,
+                "Teapot letter meaning": 4,
+                "Teapot letter in context": 4
+              },
+              "best_base_score": 0.3271540403366089,
+              "fused_score": 0.07838064713064713,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "Teapot letter significance",
+                "Importance of teapot letter",
+                "Teapot letter meaning",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 6,
+                "Teapot letter significance": 4,
+                "Importance of teapot letter": 5,
+                "Teapot letter meaning": 5,
+                "Teapot letter in context": 6
+              },
+              "best_base_score": 0.3147010803222656,
+              "fused_score": 0.07669726107226107,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "What is the teapot letter",
+                "Importance of teapot letter",
+                "Teapot letter meaning",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter": 4,
+                "Importance of teapot letter": 4,
+                "Teapot letter meaning": 3,
+                "Teapot letter in context": 2
+              },
+              "best_base_score": 0.3432408571243286,
+              "fused_score": 0.06325204813108039,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "What is the teapot letter",
+                "Teapot letter in context"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 1,
+                "What is the teapot letter": 1,
+                "Teapot letter in context": 5
+              },
+              "best_base_score": 0.3248201608657837,
+              "fused_score": 0.048171500630517027,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "Importance of teapot letter",
+                "Teapot letter meaning"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 4,
+                "Importance of teapot letter": 3,
+                "Teapot letter meaning": 6
+              },
+              "best_base_score": 0.3003113269805908,
+              "fused_score": 0.046649531024531024,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "What is the teapot letter and why is it important?",
+                "Importance of teapot letter"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter and why is it important?": 5,
+                "Importance of teapot letter": 6
+              },
+              "best_base_score": 0.28369057178497314,
+              "fused_score": 0.030536130536130537,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Teapot letter significance"
+              ],
+              "ranks_by_query": {
+                "Teapot letter significance": 3
+              },
+              "best_base_score": 0.2865307331085205,
+              "fused_score": 0.015873015873015872,
+              "source": "ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "What is the teapot letter"
+              ],
+              "ranks_by_query": {
+                "What is the teapot letter": 5
+              },
+              "best_base_score": 0.2994856834411621,
+              "fused_score": 0.015384615384615385,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Teapot letter significance"
+              ],
+              "ranks_by_query": {
+                "Teapot letter significance": 6
+              },
+              "best_base_score": 0.27807486057281494,
+              "fused_score": 0.015151515151515152,
+              "source": "ingestion/normalized_docs_txt/scripts/season_08/s08e04_garden_party_script.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "The teapot letter is a private letter that Jim gave to Pam inside a teapot as a gift. It is important because it holds sentimental value for Pam and Jim, representing a meaningful and romantic gesture in their relationship. However, Pam prefers to keep the contents of the teapot letter private, as she mentions in a Q&A session that after being filmed for nine years, there are some things she wants to keep to herself (SCENE 056).",
+        "latency_ms": 1018,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2433,
+          "completion_tokens": 91,
+          "total_tokens": 2524
+        },
+        "stats": {
+          "context_docs": 11,
+          "context_chars": 9038,
+          "answer_chars": 432
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1688,
+        "stats": {
+          "min": 0.015873015873015872,
+          "max": 0.0819672131147541,
+          "mean": 0.04218895555572579
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "first_line": "=== SCENE 028 ===",
+            "preview": "=== SCENE 028 ===\n\nOscar: Creed?\nCreed: Yes, sir.\nOscar: Everything OK?\n[STAGE] Creed has made his hair jet black\nCreed: Everything's cool, dude.\n\n=== SCENE 029 ===\n\nCreed: I'm thirty. Well, in November I'll be thirty.\n\n=== SCENE 030 ===",
+            "score": 0.0819672131147541
+          },
+          {
+            "rank": 2,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt",
+            "first_line": "=== SCENE 043 ===",
+            "preview": "=== SCENE 043 ===\n\nMichael: Do you remember Ed Truck?\nCreed: Sure. He hired me. How's he doing?\nMichael: How would I know?\nCreed: I thought you might.\nMichael: My biggest fear is turning into him.\nCreed: Michael, you should have much bigger…",
+            "score": 0.07887704813108039
+          },
+          {
+            "rank": 3,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "first_line": "=== SCENE 056 ===",
+            "preview": "=== SCENE 056 ===\n\nCreed (to Jordan): Get me our biggest client on the phone, right this instant.\n[STAGE] closes his office door\nJordan: Who is our biggest client?\nPam: Uh, just put him through to me.\nJordan (laughs): Okay.\nPam: Hello! This…",
+            "score": 0.06226724664224664
+          },
+          {
+            "rank": 4,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+            "first_line": "=== SCENE 067 ===",
+            "preview": "=== SCENE 067 ===\n\nCreed (Angela hands Creed a pack of deodorant): For me?\nAngela: Yes.\nCreed: Thank you very much.\nAngela: Mmhmm.\n\n=== SCENE 068 ===",
+            "score": 0.04788306451612903
+          },
+          {
+            "rank": 5,
+            "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "first_line": "=== SCENE 014 ===",
+            "preview": "=== SCENE 014 ===\n\nCreed: We're screwed.\nMichael: Who is?\nCreed: Us? You and me. The old timers.\nMichael: I am not old. You are old. You are like a hundred.\nCreed: You're over 40, that's the cut off. Are you listening to what he's saying? R…",
+            "score": 0.04787506400409626
+          },
+          {
+            "rank": 6,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nCreed (to Jordan): Find out what language this is.\n[STAGE] speaking in strange language\n\n=== SCENE 003 ===\n\nCreed (running a meeting in the conference room): Okay, team building! On this side of the room, Stanley, Phyllis…",
+            "score": 0.04669647292598113
+          },
+          {
+            "rank": 7,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "first_line": "=== SCENE 103 ===",
+            "preview": "=== SCENE 103 ===\n\nCreed (walking out of the bathroom discovered by all): Uh…ohh!\n\n=== SCENE 104 ===\n\nCreed (playing guitar and singing): I saw a friend today. It had been a while. And we forgot each others names. But it didn't matter. 'Cau…",
+            "score": 0.03125763125763126
+          },
+          {
+            "rank": 8,
+            "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e10_china_script.txt",
+            "first_line": "=== SCENE 021 ===",
+            "preview": "=== SCENE 021 ===\n\nDwight: Parley, my office, five minutes.\nPam: Parley?\nCreed: Pirate code, he wants to meet.\nPam: So everyone here knows pirate code?\nCreed: I understand it, I can't speak it.\n\n=== SCENE 022 ===",
+            "score": 0.031009615384615385
+          },
+          {
+            "rank": 9,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nMichael: Yeah, I went hunting once. Shot the deer in the leg, had to kill it with a shovel. Took about an hour. Why do you ask?\n\n=== SCENE 033 ===\n\nMichael: I have to fire someone today, okay?\nCreed: Fine. Fire someone el…",
+            "score": 0.030303030303030304
+          },
+          {
+            "rank": 10,
+            "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "first_line": "Creed: Hey, grab a seat. We have that table and that table, but not that table or that table or that table. Floor's up for grabs. Meredith has been hogging the can. Oh!",
+            "preview": "Creed: Hey, grab a seat. We have that table and that table, but not that table or that table or that table. Floor's up for grabs. Meredith has been hogging the can. Oh!\n[STAGE] Dwight kisses Creed's head\nErin: You have to change the channel…",
+            "score": 0.016129032258064516
+          },
+          {
+            "rank": 11,
+            "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "first_line": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.",
+            "preview": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.\nCreed: What are you telling me?\nMichael: I… we're gonna …",
+            "score": 0.016129032258064516
+          },
+          {
+            "rank": 12,
+            "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "first_line": "=== SCENE 017 ===",
+            "preview": "=== SCENE 017 ===\n\nMichael: Six weeks ago, none of these people wanted to come with me. You two were the only ones with the stones to follow.\nPam: Mm-hmmm.\nMichael: That was us, right there.\nPam: We were something else.\nRyan: What you gotta…",
+            "score": 0.015873015873015872
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "Who is Creed and what is his deal?",
+            "Creed character description",
+            "Creed's role in the office",
+            "Creed's background information",
+            "Creed's personality traits",
+            "Creed's storyline in the series"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 16,
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?",
+                "Creed character description",
+                "Creed's background information",
+                "Creed's personality traits",
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 1,
+                "Creed character description": 1,
+                "Creed's background information": 1,
+                "Creed's personality traits": 1,
+                "Creed's storyline in the series": 1
+              },
+              "best_base_score": 0.5635124444961548,
+              "fused_score": 0.0819672131147541,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?",
+                "Creed character description",
+                "Creed's background information",
+                "Creed's personality traits",
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 4,
+                "Creed character description": 4,
+                "Creed's background information": 2,
+                "Creed's personality traits": 3,
+                "Creed's storyline in the series": 4
+              },
+              "best_base_score": 0.49234211444854736,
+              "fused_score": 0.07887704813108039,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?",
+                "Creed character description",
+                "Creed's role in the office",
+                "Creed's background information"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 5,
+                "Creed character description": 5,
+                "Creed's role in the office": 4,
+                "Creed's background information": 3
+              },
+              "best_base_score": 0.5401694774627686,
+              "fused_score": 0.06226724664224664,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Creed character description",
+                "Creed's background information",
+                "Creed's personality traits"
+              ],
+              "ranks_by_query": {
+                "Creed character description": 2,
+                "Creed's background information": 4,
+                "Creed's personality traits": 2
+              },
+              "best_base_score": 0.5274991393089294,
+              "fused_score": 0.04788306451612903,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?",
+                "Creed character description",
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 3,
+                "Creed character description": 3,
+                "Creed's storyline in the series": 2
+              },
+              "best_base_score": 0.5048225522041321,
+              "fused_score": 0.04787506400409626,
+              "source": "ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "Creed's role in the office",
+                "Creed's background information",
+                "Creed's personality traits"
+              ],
+              "ranks_by_query": {
+                "Creed's role in the office": 1,
+                "Creed's background information": 6,
+                "Creed's personality traits": 6
+              },
+              "best_base_score": 0.5641703605651855,
+              "fused_score": 0.04669647292598113,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "Creed's role in the office",
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Creed's role in the office": 3,
+                "Creed's storyline in the series": 5
+              },
+              "best_base_score": 0.5437253713607788,
+              "fused_score": 0.03125763125763126,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "Creed's background information",
+                "Creed's personality traits"
+              ],
+              "ranks_by_query": {
+                "Creed's background information": 5,
+                "Creed's personality traits": 4
+              },
+              "best_base_score": 0.44200217723846436,
+              "fused_score": 0.031009615384615385,
+              "source": "ingestion/normalized_docs_txt/scripts/season_07/s07e10_china_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?",
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 6,
+                "Creed's storyline in the series": 6
+              },
+              "best_base_score": 0.4837613105773926,
+              "fused_score": 0.030303030303030304,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "Creed's role in the office"
+              ],
+              "ranks_by_query": {
+                "Creed's role in the office": 2
+              },
+              "best_base_score": 0.5453892946243286,
+              "fused_score": 0.016129032258064516,
+              "source": "ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Who is Creed and what is his deal?"
+              ],
+              "ranks_by_query": {
+                "Who is Creed and what is his deal?": 2
+              },
+              "best_base_score": 0.502597451210022,
+              "fused_score": 0.016129032258064516,
+              "source": "ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Creed's storyline in the series"
+              ],
+              "ranks_by_query": {
+                "Creed's storyline in the series": 3
+              },
+              "best_base_score": 0.5044876933097839,
+              "fused_score": 0.015873015873015872,
+              "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt"
+            }
+          ]
+        }
+      },
+      "answer": {
+        "text": "Creed is a quirky and somewhat mysterious character in the office. He has a laid-back attitude and often makes cryptic or humorous remarks. For example, he once said, \"I'm thirty. Well, in November I'll be thirty,\" and he has a habit of speaking in strange languages or using odd phrases like \"BO-BODDY\" for acronyms. He seems to have a history with the company, as he mentions being hired by Ed Truck and talks about \"the old timers\" including Michael and himself. Creed also shows some cunning, as he tries to start his own paper company and poach clients quietly. He is involved in various office antics, such as running ineffective meetings and making strange comments about the office environment. Overall, Creed is portrayed as an eccentric and somewhat enigmatic employee who adds a unique flavor to the office dynamics (Scenes 002, 003, 004, 005, 014, 028, 029, 043, 056, 067).",
+        "latency_ms": 3734,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2239,
+          "completion_tokens": 199,
+          "total_tokens": 2438
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 7908,
+          "answer_chars": 885
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 2213,
+    "avg_context_docs": 11.857142857142858,
+    "avg_context_chars": 9676.857142857143,
+    "avg_answer_latency_ms": 2668,
+    "avg_prompt_tokens": 2688,
+    "avg_completion_tokens": 175,
+    "avg_total_tokens": 2863,
+    "idk_rate": 0.0,
+    "episode_citation_rate": 0.42857142857142855,
+    "retrieval_empty_rate": 0.0,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}
