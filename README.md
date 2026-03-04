@@ -33,6 +33,18 @@ Notes:
 - `--reset` deletes the target persist dir (dev-only).
 - Metadata writes canonical `episode_id` like `S02E11`, plus chunk identity (`chunk_type`, `chunk_index`).
 
+### 2b) Build a separate derived corpus index (summaries + derived cards)
+
+This creates a *separate* Chroma index intended for broad/aggregation questions and routing.
+
+- Build a summaries-only derived index:
+
+  `python derived/build_derived_index.py --persist-dir db/chroma_db_derived --reset`
+
+- Optionally add a few LLM-generated reference cards (character bios + relationship timelines):
+
+  `python derived/build_derived_index.py --persist-dir db/chroma_db_derived --reset --generate-character-bios --generate-relationship-timelines`
+
 ### 3) Run evals (writes JSON logs)
 
 Eval reads `experiments/test_queries.json` and writes one JSON file per run to `experiments/runs/`.
@@ -92,6 +104,12 @@ The eval harness logs:
 - Aggregation readiness score: heuristic 0..100 indicating whether the retrieved context supports “list/timeline/summary” questions
 
 For more detail, see `experiments/tuning steps.md`.
+
+## Docs
+
+- `docs/RESUME.md`: snapshot for starting a new ChatGPT thread
+- `docs/GLOSSARY.md`: terminology handout for lunch-and-learn
+- `docs/DERIVED_CHECKLIST_AND_SCHEMAS.md`: derived-corpus build checklist, schemas, provenance contract
 
 ## Known gotchas / lessons learned
 

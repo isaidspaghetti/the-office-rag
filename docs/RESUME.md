@@ -22,6 +22,11 @@ A RAG engineering sandbox focused on building a trustworthy â€œProject Copilotâ€
 - Default index: `db/chroma_db`
 - Metadata-enabled index: `db/chroma_db_meta`
 
+### Derived corpus index (separate)
+
+- Derived index: `db/chroma_db_derived`
+- Builder: `python derived/build_derived_index.py --persist-dir db/chroma_db_derived --reset`
+
 Most experiments should explicitly use:
 - `--persist-dir db/chroma_db_meta`
 
