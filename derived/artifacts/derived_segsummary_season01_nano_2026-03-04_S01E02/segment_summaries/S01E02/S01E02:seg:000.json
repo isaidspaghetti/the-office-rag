@@ -1,0 +1,152 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E02",
+  "created_at_utc": "2026-03-04T20:53:54Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E02",
+  "segment_id": "S01E02:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6722,
+  "people": [
+    "Michael",
+    "Mr. Brown",
+    "Jim",
+    "Dwight",
+    "Oscar",
+    "Pam",
+    "Kevin"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael introduces diversity day at the office, expressing excitement about the event.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 186,
+          "char_end": 280,
+          "snippet": "Michael: Today is diversity day and someone's going to come in and talk to us about diversity."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Tension arises during the diversity training session, especially around sensitive topics and comments.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 3888,
+          "char_end": 3925,
+          "snippet": "Dwight: I have two. White and Indian."
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 3926,
+          "char_end": 4047,
+          "snippet": "Mr. Brown: Actually, I'd prefer not to start that way. Michael, I would love to have your permission to run this session."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael plans to reenact a Chris Rock routine, leading to a discussion about race and comedy.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 5216,
+          "char_end": 5422,
+          "snippet": "Michael: How come Chris Rock can do a routine and everybody finds it hilarious and ground-breaking and then I go and do the exact same routine, same comedic timing, and people file a complaint to Corporate?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The segment includes humorous exchanges and attempts at sensitive topics during the diversity training.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 4754,
+          "char_end": 4797,
+          "snippet": "Michael: OK. Why don't we just defer to Mr…"
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 5559,
+          "char_end": 5647,
+          "snippet": "Michael: I will play the Chris Rock guy. I would like to see someone else pull this off."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Today is diversity day and someone's going to come in and talk to us about diversity.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 186,
+          "char_end": 280,
+          "snippet": "Michael: Today is diversity day and someone's going to come in and talk to us about diversity."
+        }
+      ]
+    },
+    {
+      "quote": "How come Chris Rock can do a routine and everybody finds it hilarious and ground-breaking and then I go and do the exact same routine, same comedic timing, and people file a complaint to Corporate?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 5216,
+          "char_end": 5422,
+          "snippet": "Michael: How come Chris Rock can do a routine and everybody finds it hilarious and ground-breaking and then I go and do the exact same routine, same comedic timing, and people file a complaint to Corporate?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the diversity training session?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the diversity training session?",
+      "why_uncertain": "The segment ends before showing the conclusion or reactions to the reenactment.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 4168,
+          "char_end": 4180,
+          "snippet": "Michael: OK."
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 5559,
+          "char_end": 5647,
+          "snippet": "Michael: I will play the Chris Rock guy. I would like to see someone else pull this off."
+        }
+      ]
+    }
+  ]
+}

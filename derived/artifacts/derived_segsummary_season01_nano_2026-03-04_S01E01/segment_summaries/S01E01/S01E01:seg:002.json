@@ -1,0 +1,172 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E01",
+  "created_at_utc": "2026-03-04T20:53:22Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E01",
+  "segment_id": "S01E01:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13998,
+  "segment_char_end": 17883,
+  "people": [
+    "Pam",
+    "Roy",
+    "Jim",
+    "Michael",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Pam discusses her engagement to Roy and their wedding plans.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13998,
+          "char_end": 14057,
+          "snippet": "Pam: Roy's my fiance. We've been engaged about three years."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 14058,
+          "char_end": 14153,
+          "snippet": "We were supposed to get married in September but I think we're gonna get married in the spring."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Pam plans to go out for a drink with colleagues and mentions her work.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 14174,
+          "char_end": 14231,
+          "snippet": "Pam: Do you mind if I go out for a drink with these guys?"
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 14289,
+          "char_end": 14385,
+          "snippet": "Pam: OK. I'm gonna be a few minutes. So it's only twenty past five. I still have to do my faxes."
+        }
+      ]
+    },
+    {
+      "type": "conflict|joke",
+      "summary": "Michael jokes about firing Pam over theft as a morale booster.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13998,
+          "char_end": 17883,
+          "snippet": "Pam: Roy's my fiance. We've been engaged about three years. We were supposed to get married in September but I think we're gonna get married in the spring.\n\n=== SCENE 034 ===\n\nPam: Do you mind if I go out for a drink with these guys?\nRoy: N"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael reveals the theft joke was a prank to boost morale.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 16751,
+          "char_end": 16770,
+          "snippet": "Pam: You're a jerk."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 16771,
+          "char_end": 16804,
+          "snippet": "Michael: I don't know about that."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Pam and Jim decide to leave work early and share a moment.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 17747,
+          "char_end": 17786,
+          "snippet": "Pam: Yeah. Listen, have a nice weekend."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Roy's my fiance. We've been engaged about three years.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13998,
+          "char_end": 14057,
+          "snippet": "Pam: Roy's my fiance. We've been engaged about three years."
+        }
+      ]
+    },
+    {
+      "quote": "You been X'd punk! Surprise! It's a joke.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 16442,
+          "char_end": 16512,
+          "snippet": "Michael (Pam starts crying): You been X'd punk! Surprise! It's a joke."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Pam and Jim's decision to leave early?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Pam and Jim's decision to leave early?",
+      "why_uncertain": "The segment ends with them deciding to leave, but the outcome or subsequent events are not shown.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 17548,
+          "char_end": 17558,
+          "snippet": "Pam: Yeah."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 17689,
+          "char_end": 17713,
+          "snippet": "Jim: Great. Let me just…"
+        }
+      ]
+    }
+  ]
+}

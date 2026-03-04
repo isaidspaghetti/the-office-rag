@@ -1,0 +1,173 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E04",
+  "created_at_utc": "2026-03-04T20:54:45Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E04",
+  "segment_id": "S01E04:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13626,
+  "segment_char_end": 19204,
+  "people": [
+    "Michael",
+    "Jim",
+    "Oscar",
+    "Pam",
+    "Meredith",
+    "Stanley",
+    "Angela",
+    "Phyllis",
+    "Roy",
+    "Dwight",
+    "In a low voice",
+    "Toby",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael discusses his donation to Oscar’s charity and the walkathon details.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 14246,
+          "char_end": 14332,
+          "snippet": "Michael: I just thought it was kind of a flat, you know… 25 dollar, one-time donation."
+        },
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 14390,
+          "char_end": 14432,
+          "snippet": "Oscar: Well, that's what a walk-a-thon is."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael reveals he made a donation to Oscar's nephew's walkathon, specifying it was per mile.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 16973,
+          "char_end": 16989,
+          "snippet": "Oscar: Per mile."
+        },
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 16990,
+          "char_end": 17013,
+          "snippet": "Michael: Per mile, yes."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael gives humorous birthday cards and jokes about Meredith's age.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 15083,
+          "char_end": 15168,
+          "snippet": "Michael: Read it out loud. And say who wrote everything so we know whose is the best."
+        },
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 15169,
+          "char_end": 15303,
+          "snippet": "Meredith: \"Happy Bird-day\" Um… \"Meredith, good news. You're not actually a year older because you work here, where time stands still.\""
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim shares a prank plan involving Dwight and an office alliance.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 13626,
+          "char_end": 19204,
+          "snippet": "Michael: Jim, good party, huh? Just a little something I whipped up. You know, a little morale boost. No big deal.\nJim: Speaking of which, I meant to tell you. Very impressive, the uh, donation you gave to Oscar's charity. What was it? 25 b"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael: I have made a very sizable donation to Oscar's nephew's… walkathon. $25.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 13626,
+          "char_end": 19204,
+          "snippet": "Michael: Jim, good party, huh? Just a little something I whipped up. You know, a little morale boost. No big deal.\nJim: Speaking of which, I meant to tell you. Very impressive, the uh, donation you gave to Oscar's charity. What was it? 25 b"
+        }
+      ]
+    },
+    {
+      "quote": "Oscar: Per mile.",
+      "speaker": "Oscar",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 14390,
+          "char_end": 14432,
+          "snippet": "Oscar: Well, that's what a walk-a-thon is."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the nature of the alliance Jim mentions?",
+    "What are Dwight's feelings about the alliance?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the nature of the alliance Jim mentions?",
+      "why_uncertain": "Jim explains he convinced Dwight to go to Stamford and spy, but the full context of the alliance is not detailed.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 13626,
+          "char_end": 19204,
+          "snippet": "Michael: Jim, good party, huh? Just a little something I whipped up. You know, a little morale boost. No big deal.\nJim: Speaking of which, I meant to tell you. Very impressive, the uh, donation you gave to Oscar's charity. What was it? 25 b"
+        }
+      ]
+    },
+    {
+      "question": "What are Dwight's feelings about the alliance?",
+      "why_uncertain": "Dwight states he has no idea about the alliance and describes his actions as politics, but his true feelings are not explicitly detailed.",
+      "evidence": [
+        {
+          "episode_id": "S01E04",
+          "segment_id": "S01E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e04_the_alliance_script.txt",
+          "char_start": 18828,
+          "char_end": 18862,
+          "snippet": "Dwight: I have absolutely no idea."
+        }
+      ]
+    }
+  ]
+}

@@ -216,8 +216,23 @@ python experiments/run_eval.py \
   ### MMR is a bad match for “list all X” questions. For aggregation questions, the “right” evidence chunks are often semantically similar (relationship/breakup dialogue). MMR will often pick one relevant cluster and  and then “diversify” into unrelated-but-different chunks, tanking recall.
 
 
+# Add A Derived Corpus:
 # Context enrichment and distillation (aka document augmentation)
-## compress many raw chunks into fewer, semantically-dense artifacts.
+#
+
+## Step: build a separate derived corpus index (summaries-only to start)
+
+python derived/build_derived_index.py \
+  --persist-dir db/chroma_db_derived \
+  --reset
+
+### optional: add LLM-generated reference cards (character bios + relationship timelines)
+python derived/build_derived_index.py \
+  --persist-dir db/chroma_db_derived \
+  --reset \
+  --generate-character-bios \
+  --generate-relationship-timelines
+## We 
 
 
 

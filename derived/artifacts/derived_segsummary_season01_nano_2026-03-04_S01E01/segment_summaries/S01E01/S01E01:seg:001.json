@@ -1,0 +1,175 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E01",
+  "created_at_utc": "2026-03-04T20:53:22Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E01",
+  "segment_id": "S01E01:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6981,
+  "segment_char_end": 13998,
+  "people": [
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Michael",
+    "Stanley",
+    "Oscar",
+    "Phyllis",
+    "Ryan",
+    "Jim",
+    "Roy"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Jim and Dwight have a conversation about Dwight's desk and safety violations.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 7060,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 7162,
+          "char_end": 7213,
+          "snippet": "Dwight: Just clearing my desk. I can't concentrate."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight begins smashing pencils with his phone, indicating frustration.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 7545,
+          "char_end": 7590,
+          "snippet": "Dwight begins smashing pencils with his phone"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael discusses his salary and hints at a raise, imitating the Six-Million Dollar Man.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 8076,
+          "char_end": 8194,
+          "snippet": "Michael: Come on. Six-Million Dollar Man! Steve Austin! Actually, that would be a good salary for me, don't you think?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael calls for a meeting and talks about respect and heroes.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 13998,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up. Two minutes. Thank you very much. Dwight, what are you doing?\nDwight: What?\nJim: What are you doing?\nDwight: Just clearing my desk. I can't concentrate.\nJim: It"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael attempts to clarify rumors about downsizing and branch closures.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 9602,
+          "char_end": 9759,
+          "snippet": "Michael: Corporate has deemed it appropriate to enforce an ultimatum upon me. And Jan is thinking about downsizing either the Stamford branch or this branch."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Pam mentions the possibility of the branch being downsized, causing concern among employees.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 10511,
+          "char_end": 10609,
+          "snippet": "Pam: I was in the meeting with Jan and she did say that it could be this branch that gets the axe."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam discuss their plans to go out for drinks at the end of the week.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13692,
+          "char_end": 13754,
+          "snippet": "Jim: Do you like going out at the end of the week for a drink?"
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13755,
+          "char_end": 13765,
+          "snippet": "Pam: Yeah."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Corporate has deemed it appropriate to enforce an ultimatum upon me. And Jan is thinking about downsizing either the Stamford branch or this branch.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 9277,
+          "char_end": 9348,
+          "snippet": "Michael: I'm about to tell everybody. I'm just about to tell everybody."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific event or decision will be made regarding the branch downsizing?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific event or decision will be made regarding the branch downsizing?",
+      "why_uncertain": "The segment discusses rumors and possibilities but does not specify the final decision.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 10511,
+          "char_end": 10609,
+          "snippet": "Pam: I was in the meeting with Jan and she did say that it could be this branch that gets the axe."
+        }
+      ]
+    }
+  ]
+}
