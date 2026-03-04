@@ -2,9 +2,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 import time
+from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -102,6 +104,74 @@ def compute_score_stats(scores: List[float]) -> Dict[str, Optional[float]]:
         "max": float(max(scores)),
         "mean": float(sum(scores) / len(scores)),
     }
+
+
+def _counter_to_sorted_dict(counter: Counter[str]) -> Dict[str, int]:
+    return {k: int(v) for k, v in sorted(counter.items(), key=lambda kv: (-kv[1], kv[0]))}
+
+
+def _top_share(counter: Counter[str], *, total: int) -> Optional[float]:
+    if total <= 0 or not counter:
+        return None
+    return float(max(counter.values()) / total)
+
+
+def _normalized_entropy(counter: Counter[str], *, total: int) -> Optional[float]:
+    """Entropy normalized to [0, 1] (1.0 means perfectly uniform).
+
+    Returns None if undefined (e.g., 0 or 1 unique values).
+    """
+    if total <= 0 or not counter:
+        return None
+    n = len(counter)
+    if n <= 1:
+        return None
+    h = 0.0
+    for v in counter.values():
+        p = v / total
+        if p > 0:
+            h -= p * math.log(p)
+    return float(h / math.log(n))
+
+
+def _clamp01(x: float) -> float:
+    return 0.0 if x < 0.0 else 1.0 if x > 1.0 else x
+
+
+_AGG_QUESTION_RE = re.compile(
+    r"\b(list|summari[sz]e|overview|timeline|chronolog|relationships?|girlfriends?|boyfriends?|romantic|dating|all\b|reasons?|compare|across|throughout)\b",
+    re.IGNORECASE,
+)
+
+
+def is_aggregation_question(question: str) -> bool:
+    return bool(_AGG_QUESTION_RE.search(question or ""))
+
+
+def aggregation_readiness_score(
+    *,
+    context_docs: int,
+    distinct_episode_count: int,
+    top_episode_share: Optional[float],
+    episode_entropy_norm: Optional[float],
+) -> Optional[float]:
+    """Heuristic [0, 100] score estimating whether context supports multi-episode aggregation.
+
+    Higher is better for tasks like "list all", "summarize season", timelines, etc.
+    This is intentionally simple and presentation-friendly.
+    """
+    if context_docs <= 0:
+        return None
+
+    diversity = float(episode_entropy_norm) if episode_entropy_norm is not None else 0.0
+    concentration = float(top_episode_share) if top_episode_share is not None else 1.0
+    anti_concentration = 1.0 - concentration
+
+    # Coverage: what fraction of the context docs come from distinct episodes.
+    coverage = float(distinct_episode_count / context_docs) if context_docs > 0 else 0.0
+
+    score01 = 0.45 * _clamp01(diversity) + 0.35 * _clamp01(anti_concentration) + 0.20 * _clamp01(coverage)
+    return float(round(100.0 * _clamp01(score01), 2))
 
 
 def said_idk(answer: Optional[str]) -> bool:
@@ -490,6 +560,14 @@ def run_eval(
     total_context_chars: List[int] = []
     total_context_docs: List[int] = []
 
+    distinct_episode_counts: List[int] = []
+    distinct_source_counts: List[int] = []
+    top_episode_shares: List[float] = []
+    episode_entropy_norms: List[float] = []
+    cited_not_in_context_counts: List[int] = []
+    agg_readiness_scores: List[float] = []
+    agg_readiness_scores_agg_questions: List[float] = []
+
     prompt_tokens: List[int] = []
     completion_tokens: List[int] = []
     total_tokens: List[int] = []
@@ -698,6 +776,66 @@ def run_eval(
         cited_episode_ids = extract_episode_ids(answer_text)
         expected_episode_ids = list(case.expected_episode_ids)
 
+        # Context diversity / redundancy (use raw docs to preserve multiplicity)
+        episode_vals: List[str] = []
+        source_vals: List[str] = []
+        doc_type_vals: List[str] = []
+        chunk_type_vals: List[str] = []
+        for (doc, _score) in retrieved:
+            meta = getattr(doc, "metadata", None) or {}
+            eid = meta.get("episode_id")
+            if not isinstance(eid, str) or not eid.strip():
+                # Fall back to parsing from source if metadata isn't present.
+                src0 = meta.get("source")
+                if isinstance(src0, str) and src0:
+                    m = _EP_IN_SOURCE_RE.search(src0)
+                    if m:
+                        eid = f"S{m.group(1)}E{m.group(2)}"
+            if isinstance(eid, str) and eid.strip():
+                episode_vals.append(eid.strip().upper())
+
+            src = meta.get("source")
+            if isinstance(src, str) and src.strip():
+                source_vals.append(src.strip())
+
+            dt = meta.get("doc_type")
+            if isinstance(dt, str) and dt.strip():
+                doc_type_vals.append(dt.strip())
+
+            ct = meta.get("chunk_type")
+            if isinstance(ct, str) and ct.strip():
+                chunk_type_vals.append(ct.strip())
+
+        episode_counter: Counter[str] = Counter(episode_vals)
+        source_counter: Counter[str] = Counter(source_vals)
+        doc_type_counter: Counter[str] = Counter(doc_type_vals)
+        chunk_type_counter: Counter[str] = Counter(chunk_type_vals)
+
+        distinct_episode_count = len(episode_counter)
+        distinct_source_count = len(source_counter)
+        distinct_episode_counts.append(distinct_episode_count)
+        distinct_source_counts.append(distinct_source_count)
+
+        top_ep_share = _top_share(episode_counter, total=context_docs)
+        if top_ep_share is not None:
+            top_episode_shares.append(top_ep_share)
+
+        ep_entropy = _normalized_entropy(episode_counter, total=context_docs)
+        if ep_entropy is not None:
+            episode_entropy_norms.append(ep_entropy)
+
+        agg_like = is_aggregation_question(case.question)
+        agg_score = aggregation_readiness_score(
+            context_docs=context_docs,
+            distinct_episode_count=distinct_episode_count,
+            top_episode_share=top_ep_share,
+            episode_entropy_norm=ep_entropy,
+        )
+        if agg_score is not None:
+            agg_readiness_scores.append(float(agg_score))
+            if agg_like:
+                agg_readiness_scores_agg_questions.append(float(agg_score))
+
         correct_episode_retrieved: Optional[bool] = None
         correct_episode_cited: Optional[bool] = None
         if expected_episode_ids:
@@ -709,6 +847,7 @@ def run_eval(
         quote_match_rates.append(quoted_context if quotes else False)
 
         cited_not_in_context = [e for e in cited_episode_ids if e not in context_episode_ids]
+        cited_not_in_context_counts.append(len(cited_not_in_context))
 
         retrieval_failure: Optional[bool] = None
         if expected_episode_ids:
@@ -732,8 +871,29 @@ def run_eval(
             "context_episode_ids": context_episode_ids,
             "cited_episode_ids": cited_episode_ids,
             "cited_episode_ids_not_in_context": cited_not_in_context,
+            "cited_episode_ids_not_in_context_count": len(cited_not_in_context),
             "correct_episode_retrieved_in_top_k": correct_episode_retrieved,
             "correct_episode_cited": correct_episode_cited,
+            "aggregation": {
+                "is_aggregation_like_question": agg_like,
+                "readiness_score_0_100": agg_score,
+            },
+            "context_diversity": {
+                "distinct_episode_count": distinct_episode_count,
+                "distinct_source_count": distinct_source_count,
+                "top_episode_share": top_ep_share,
+                "episode_entropy_norm": ep_entropy,
+                "episode_counts": _counter_to_sorted_dict(episode_counter),
+                "source_counts": _counter_to_sorted_dict(source_counter),
+                "doc_type_counts": _counter_to_sorted_dict(doc_type_counter),
+                "chunk_type_counts": _counter_to_sorted_dict(chunk_type_counter),
+                "source_dup_rate": (
+                    float(1.0 - (distinct_source_count / context_docs)) if context_docs > 0 else None
+                ),
+                "episode_dup_rate": (
+                    float(1.0 - (distinct_episode_count / context_docs)) if context_docs > 0 else None
+                ),
+            },
             "answer_quotes": {
                 "count": len(quotes),
                 "any_quote_in_context": quoted_context if quotes else None,
@@ -761,6 +921,23 @@ def run_eval(
         "avg_retrieval_latency_ms": safe_mean_int(retrieval_latencies),
         "avg_context_docs": safe_mean_float([float(x) for x in total_context_docs]) if total_context_docs else None,
         "avg_context_chars": safe_mean_float([float(x) for x in total_context_chars]) if total_context_chars else None,
+        "avg_distinct_episodes_in_context": safe_mean_float([float(x) for x in distinct_episode_counts])
+        if distinct_episode_counts
+        else None,
+        "avg_distinct_sources_in_context": safe_mean_float([float(x) for x in distinct_source_counts])
+        if distinct_source_counts
+        else None,
+        "avg_top_episode_share_in_context": safe_mean_float(top_episode_shares) if top_episode_shares else None,
+        "avg_episode_entropy_norm_in_context": safe_mean_float(episode_entropy_norms)
+        if episode_entropy_norms
+        else None,
+        "avg_cited_episode_ids_not_in_context": safe_mean_float([float(x) for x in cited_not_in_context_counts])
+        if cited_not_in_context_counts
+        else None,
+        "avg_aggregation_readiness_score": safe_mean_float(agg_readiness_scores) if agg_readiness_scores else None,
+        "avg_aggregation_readiness_score_agg_questions": (
+            safe_mean_float(agg_readiness_scores_agg_questions) if agg_readiness_scores_agg_questions else None
+        ),
         "avg_answer_latency_ms": safe_mean_int(answer_latencies) if answer_latencies else None,
         "avg_prompt_tokens": safe_mean_int(prompt_tokens) if prompt_tokens else None,
         "avg_completion_tokens": safe_mean_int(completion_tokens) if completion_tokens else None,
