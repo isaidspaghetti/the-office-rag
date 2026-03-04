@@ -84,9 +84,14 @@ def enrich_documents_with_metadata(docs: List[Document]) -> List[Document]:
         if title:
             meta["title"] = title
 
+        # Canonical episode_id used throughout retrieval/eval for grouping and citations.
+        # We store any raw header episode_id (e.g., "02-11") separately.
+        if season is not None and episode is not None:
+            meta["episode_id"] = f"S{season:02d}E{episode:02d}"
+
         if doc_type == "script":
             if header.get("episode_id"):
-                meta["episode_id"] = header["episode_id"]
+                meta["episode_id_raw"] = header["episode_id"]
             if header.get("speakers"):
                 meta["speakers"] = [s.strip() for s in header["speakers"].split(",") if s.strip()]
 

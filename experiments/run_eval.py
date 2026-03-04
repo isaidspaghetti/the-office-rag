@@ -114,6 +114,85 @@ def said_idk(answer: Optional[str]) -> bool:
 _EP_CITE_RE = re.compile(r"\bS\d{2}E\d{2}\b")
 
 
+def extract_episode_ids(text: Optional[str]) -> List[str]:
+    if not text:
+        return []
+    return sorted({m.group(0).upper() for m in _EP_CITE_RE.finditer(text)})
+
+
+# Source paths look like: .../s02e12_the_injury_script.txt (underscore is a \w char)
+# so word-boundary matching can fail. Keep this permissive.
+_EP_IN_SOURCE_RE = re.compile(r"s(\d{2})e(\d{2})", re.IGNORECASE)
+
+
+def extract_episode_ids_from_sources(sources: List[Optional[str]]) -> List[str]:
+    out: set[str] = set()
+    for src in sources:
+        if not src:
+            continue
+        for m in _EP_IN_SOURCE_RE.finditer(src):
+            out.add(f"S{m.group(1)}E{m.group(2)}")
+    return sorted(out)
+
+
+def extract_episode_ids_from_docs(docs: List[Any]) -> List[str]:
+    """Extract canonical episode IDs from retrieved Document metadata.
+
+    Falls back to parsing `source` when episode_id isn't present.
+    """
+    out: set[str] = set()
+    sources: List[Optional[str]] = []
+
+    for doc in docs:
+        meta = getattr(doc, "metadata", None) or {}
+        eid = meta.get("episode_id")
+        if isinstance(eid, str) and eid.strip():
+            out.add(eid.strip().upper())
+        sources.append(meta.get("source"))
+
+    if not out:
+        return extract_episode_ids_from_sources(sources)
+    return sorted(out)
+
+
+_QUOTE_RE = re.compile(r"[\"\u201C\u201D]([^\"\u201C\u201D]{8,240})[\"\u201C\u201D]")
+
+
+def normalize_for_match(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "").strip().casefold())
+
+
+def extract_answer_quotes(answer: Optional[str]) -> List[str]:
+    if not answer:
+        return []
+    quotes = [m.group(1).strip() for m in _QUOTE_RE.finditer(answer or "")]
+    # De-dupe while keeping order.
+    seen: set[str] = set()
+    out: List[str] = []
+    for q in quotes:
+        k = normalize_for_match(q)
+        if not k or k in seen:
+            continue
+        seen.add(k)
+        out.append(q)
+    return out
+
+
+def any_quote_in_context(quotes: List[str], context_text: str) -> bool:
+    if not quotes:
+        return False
+    ctx = normalize_for_match(context_text or "")
+    for q in quotes:
+        qn = normalize_for_match(q)
+        if qn in ctx:
+            return True
+        # Tolerate trailing punctuation differences (e.g., "The Injury." vs "The Injury")
+        q2 = (q or "").strip().rstrip(" .,!?:;\"")
+        if q2 and normalize_for_match(q2) in ctx:
+            return True
+    return False
+
+
 def cited_episode(answer: Optional[str]) -> bool:
     if not answer:
         return False
@@ -181,6 +260,7 @@ class Case:
     case_id: str
     question: str
     expected_notes: str = ""
+    expected_episode_ids: Tuple[str, ...] = ()
 
 
 def load_cases(test_file: Path) -> List[Case]:
@@ -199,7 +279,21 @@ def load_cases(test_file: Path) -> List[Case]:
             raise ValueError(f"Case {case_id} is missing a question")
 
         expected_notes = str(item.get("expected_notes") or "")
-        cases.append(Case(case_id=case_id, question=question, expected_notes=expected_notes))
+        expected_episode_ids_raw = item.get("expected_episode_ids")
+        expected_episode_ids: List[str] = []
+        if isinstance(expected_episode_ids_raw, list):
+            for e in expected_episode_ids_raw:
+                s = str(e or "").strip().upper()
+                if _EP_CITE_RE.fullmatch(s):
+                    expected_episode_ids.append(s)
+        cases.append(
+            Case(
+                case_id=case_id,
+                question=question,
+                expected_notes=expected_notes,
+                expected_episode_ids=tuple(expected_episode_ids),
+            )
+        )
     return cases
 
 
@@ -265,7 +359,8 @@ def answer_with_llm(llm: ChatOpenAI, question: str, docs_text: str) -> Any:
         "You are a QA assistant for questions about the TV show The Office.\n"
         "Answer the user's question using ONLY the provided context.\n"
         "If the context does not contain the answer, say you don't know.\n"
-        "When possible, cite episode identifiers present in the context (e.g., 'S02E06')."
+        "When possible, cite episode identifiers present in the context (e.g., 'S02E06').\n"
+        "When you make a specific claim, include at least one short exact quote from the context in double quotes."
     )
     user = f"Question: {question}\n\nContext:\n{docs_text}"
     return llm.invoke([("system", system), ("human", user)])
@@ -401,6 +496,10 @@ def run_eval(
 
     errors: List[str] = []
 
+    retrieval_failures: List[bool] = []
+    grounding_failures: List[bool] = []
+    quote_match_rates: List[bool] = []
+
     def retrieve_docs_with_scores(question: str, *, k_override: Optional[int] = None) -> List[Tuple[Any, Optional[float]]]:
         """Return a uniform (doc, score) shape across retrieval modes.
 
@@ -505,15 +604,22 @@ def run_eval(
         context_parts = []
         scores: List[float] = []
 
+        result_sources: List[Optional[str]] = []
+
         for rank, (doc, score) in enumerate(retrieved, start=1):
             src = doc.metadata.get("source")
             txt = doc.page_content or ""
+            result_sources.append(src)
             if score is not None:
                 scores.append(float(score))
             results.append(
                 {
                     "rank": rank,
                     "source": src,
+                    "episode_id": doc.metadata.get("episode_id"),
+                    "doc_type": doc.metadata.get("doc_type"),
+                    "chunk_type": doc.metadata.get("chunk_type"),
+                    "chunk_index": doc.metadata.get("chunk_index"),
                     "first_line": first_line(txt),
                     "preview": preview_text(txt, n=240),
                     "score": (float(score) if score is not None else None),
@@ -559,6 +665,9 @@ def run_eval(
             "case_id": case.case_id,
             "question": case.question,
             "expected_notes": case.expected_notes,
+            "expected": {
+                "episode_ids": list(case.expected_episode_ids) if case.expected_episode_ids else None,
+            },
             "retrieval": {
                 "top_k": k,
                 "latency_ms": retrieval_ms,
@@ -583,6 +692,66 @@ def run_eval(
                 "retrieved_any": context_docs > 0,
             },
         }
+
+        # --- Diagnostics / labels ---
+        context_episode_ids = extract_episode_ids_from_docs([d for (d, _s) in retrieved])
+        cited_episode_ids = extract_episode_ids(answer_text)
+        expected_episode_ids = list(case.expected_episode_ids)
+
+        correct_episode_retrieved: Optional[bool] = None
+        correct_episode_cited: Optional[bool] = None
+        if expected_episode_ids:
+            correct_episode_retrieved = any(e in context_episode_ids for e in expected_episode_ids)
+            correct_episode_cited = any(e in cited_episode_ids for e in expected_episode_ids) if cited_episode_ids else False
+
+        quotes = extract_answer_quotes(answer_text)
+        quoted_context = any_quote_in_context(quotes, context_text)
+        quote_match_rates.append(quoted_context if quotes else False)
+
+        cited_not_in_context = [e for e in cited_episode_ids if e not in context_episode_ids]
+
+        retrieval_failure: Optional[bool] = None
+        if expected_episode_ids:
+            retrieval_failure = not bool(correct_episode_retrieved)
+
+        grounding_failure: Optional[bool] = None
+        # Only meaningful when an answer was generated.
+        if llm_enabled and answer_text is not None and not said_idk(answer_text) and context_docs > 0:
+            grounding_failure = False
+            # If the answer cites episodes that aren't in the retrieved context, it's very likely ungrounded.
+            if cited_not_in_context:
+                grounding_failure = True
+            # If it provided quotes but none appear in context, that's also likely ungrounded.
+            if quotes and not quoted_context:
+                grounding_failure = True
+            # If we have ground truth and the answer cites an episode, but not the expected one, flag grounding.
+            if expected_episode_ids and cited_episode_ids and not bool(correct_episode_cited):
+                grounding_failure = True
+
+        out_case["diagnostics"] = {
+            "context_episode_ids": context_episode_ids,
+            "cited_episode_ids": cited_episode_ids,
+            "cited_episode_ids_not_in_context": cited_not_in_context,
+            "correct_episode_retrieved_in_top_k": correct_episode_retrieved,
+            "correct_episode_cited": correct_episode_cited,
+            "answer_quotes": {
+                "count": len(quotes),
+                "any_quote_in_context": quoted_context if quotes else None,
+                "examples": [q[:120] for q in quotes[:2]] if quotes else [],
+            },
+        }
+
+        out_case["labels"] = {
+            "retrieval_failure": retrieval_failure,
+            "grounding_failure": grounding_failure,
+            # Reasoning correctness requires gold answers or human labels.
+            "reasoning_failure": None,
+        }
+
+        if retrieval_failure is not None:
+            retrieval_failures.append(bool(retrieval_failure))
+        if grounding_failure is not None:
+            grounding_failures.append(bool(grounding_failure))
 
         out["cases"].append(out_case)
 
@@ -610,6 +779,15 @@ def run_eval(
             float(sum(1 for c in out["cases"] if not c["heuristics"]["retrieved_any"]) / len(out["cases"]))
             if out["cases"]
             else None
+        ),
+        "retrieval_failure_rate": (
+            float(sum(1 for x in retrieval_failures if x) / len(retrieval_failures)) if retrieval_failures else None
+        ),
+        "grounding_failure_rate": (
+            float(sum(1 for x in grounding_failures if x) / len(grounding_failures)) if grounding_failures else None
+        ),
+        "quote_in_context_rate": (
+            float(sum(1 for x in quote_match_rates if x) / len(quote_match_rates)) if quote_match_rates else None
         ),
         "errors_count": len(errors),
         "errors_sample": errors[:10],
