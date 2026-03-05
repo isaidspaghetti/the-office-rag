@@ -1,0 +1,183 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E04",
+  "created_at_utc": "2026-03-04T22:54:21Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E04",
+  "segment_id": "S04E04:seg:005",
+  "segment_index": 5,
+  "segment_char_start": 34277,
+  "segment_char_end": 37771,
+  "people": [
+    "Jan",
+    "Michael",
+    "Andy",
+    "Dwight",
+    "Jim",
+    "Pam",
+    "Kevin",
+    "Oscar",
+    "Phyllis",
+    "Mose"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael expresses his inability to return to a previous situation, indicating a personal conflict.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34301,
+          "char_end": 34318,
+          "snippet": "Michael: I can't."
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34329,
+          "char_end": 34362,
+          "snippet": "Michael: I can't go back to that."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Andy discusses his feelings for Angela and seeks advice or support from colleagues.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 35151,
+          "char_end": 35203,
+          "snippet": "Andy: I am dying of lovesickness and horny-sickness."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Various office interactions occur, including Mose performing on a trampoline and Jim and Pam discussing office supplies.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 37326,
+          "char_end": 37357,
+          "snippet": "Jim: You're doin' great, buddy!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I can't.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34301,
+          "char_end": 34318,
+          "snippet": "Michael: I can't."
+        }
+      ]
+    },
+    {
+      "quote": "I am dying of lovesickness and horny-sickness.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 35151,
+          "char_end": 35203,
+          "snippet": "Andy: I am dying of lovesickness and horny-sickness."
+        }
+      ]
+    },
+    {
+      "quote": "Angela, you like lacrosse?",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 36041,
+          "char_end": 36073,
+          "snippet": "Andy: Angela, you like lacrosse?"
+        }
+      ]
+    },
+    {
+      "quote": "Everybody poops.",
+      "speaker": "Mose",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34277,
+          "char_end": 37771,
+          "snippet": "Jan: I just think that…\nMichael: I can't.\nJan: Why?\nMichael: I can't go back to that.\nJan: I think you can. I… what?\nMichael: I don't know if I can do that. I can't see myself spending the next six years digging myself out of that kind of h"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific situation Michael cannot return to?",
+    "What are Andy's exact feelings for Angela?",
+    "What is Mose's performance about?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific situation Michael cannot return to?",
+      "why_uncertain": "The segment only shows Michael's statement but does not specify the situation.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34277,
+          "char_end": 37771,
+          "snippet": "Jan: I just think that…\nMichael: I can't.\nJan: Why?\nMichael: I can't go back to that.\nJan: I think you can. I… what?\nMichael: I don't know if I can do that. I can't see myself spending the next six years digging myself out of that kind of h"
+        }
+      ]
+    },
+    {
+      "question": "What are Andy's exact feelings for Angela?",
+      "why_uncertain": "The segment shows Andy's feelings but not his specific motivations or relationship status.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 35151,
+          "char_end": 35203,
+          "snippet": "Andy: I am dying of lovesickness and horny-sickness."
+        }
+      ]
+    },
+    {
+      "question": "What is Mose's performance about?",
+      "why_uncertain": "The segment shows Mose performing but does not explain the context or purpose.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 34277,
+          "char_end": 37771,
+          "snippet": "Jan: I just think that…\nMichael: I can't.\nJan: Why?\nMichael: I can't go back to that.\nJan: I think you can. I… what?\nMichael: I don't know if I can do that. I can't see myself spending the next six years digging myself out of that kind of h"
+        }
+      ]
+    }
+  ]
+}

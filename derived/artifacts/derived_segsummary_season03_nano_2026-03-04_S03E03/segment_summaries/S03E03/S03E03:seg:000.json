@@ -1,0 +1,219 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_nano_2026-03-04_S03E03",
+  "created_at_utc": "2026-03-04T22:31:47Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S03E03",
+  "segment_id": "S03E03:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6984,
+  "people": [
+    "Michael",
+    "Pam",
+    "Dwight",
+    "Jan",
+    "Angela",
+    "Kevin",
+    "Kelly",
+    "Andy",
+    "Jim",
+    "Karen"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The office hosts Movie Monday with various movies and discussions.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 145,
+          "char_end": 228,
+          "snippet": "Michael: Movie Monday! The only cure I know for the Monday blues is… Varsity Blues!"
+        },
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 617,
+          "char_end": 703,
+          "snippet": "Pam: Movie Monday started with training videos, but we went through those pretty fast."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Angela and Jan express disapproval of Movie Monday, fearing it will cost jobs.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 1489,
+          "char_end": 1522,
+          "snippet": "Angela: I don't approve. I don't."
+        },
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 2043,
+          "char_end": 2199,
+          "snippet": "Angela: Michael is going to get us all fired. You sat back and let him play that dumb movie, and now Jan is peeved off and we're all going to lose our jobs."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight discusses his desire to take over the branch and his disloyalty to Michael.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 6350,
+          "char_end": 6443,
+          "snippet": "Dwight: The decision to turn on Michael was difficult. But once I did it, I didn't look back."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight mentions his past with Jan and his feelings about Michael.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 2359,
+          "char_end": 2439,
+          "snippet": "Dwight: Ever since Michael dumped Jan for Carol, Jan's been bitching out on him."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The office members engage in casual conversations about movies, video games, and shopping.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 3604,
+          "char_end": 3643,
+          "snippet": "Pam: Kelly really likes to online shop."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "People work faster after…",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 1816,
+          "char_end": 1850,
+          "snippet": "Michael: People work faster after…"
+        }
+      ]
+    },
+    {
+      "quote": "I can save the branch.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 5914,
+          "char_end": 5944,
+          "snippet": "Dwight: I can save the branch."
+        }
+      ]
+    },
+    {
+      "quote": "The decision to turn on Michael was difficult.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 6350,
+          "char_end": 6404,
+          "snippet": "Dwight: The decision to turn on Michael was difficult."
+        }
+      ]
+    },
+    {
+      "quote": "Michael is going to get us all fired.",
+      "speaker": "Angela",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 2043,
+          "char_end": 2088,
+          "snippet": "Angela: Michael is going to get us all fired."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is Dwight's ultimate plan for the branch?",
+    "Will Jan agree to Dwight's proposal?",
+    "What will be the outcome of the office's conflict over Movie Monday?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is Dwight's ultimate plan for the branch?",
+      "why_uncertain": "The segment shows Dwight's desire to run the branch but does not specify his exact plan.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 0,
+          "char_end": 6984,
+          "snippet": "=== SCENE 000 ===\n\nMichael (waiting on Pam to be done with the microwave): Ahhhhhhhhh. I'm hungry.\n[STAGE] whispEring loudly\n\n=== SCENE 001 ===\n\nMichael: Movie Monday! The only cure I know for the Monday blues is… Varsity Blues!\n\n=== SCENE "
+        }
+      ]
+    },
+    {
+      "question": "Will Jan agree to Dwight's proposal?",
+      "why_uncertain": "The segment ends with Jan considering Dwight's offer, but no decision is shown.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 0,
+          "char_end": 6984,
+          "snippet": "=== SCENE 000 ===\n\nMichael (waiting on Pam to be done with the microwave): Ahhhhhhhhh. I'm hungry.\n[STAGE] whispEring loudly\n\n=== SCENE 001 ===\n\nMichael: Movie Monday! The only cure I know for the Monday blues is… Varsity Blues!\n\n=== SCENE "
+        }
+      ]
+    },
+    {
+      "question": "What will be the outcome of the office's conflict over Movie Monday?",
+      "why_uncertain": "The segment does not include the resolution or consequences of the conflict.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 0,
+          "char_end": 6984,
+          "snippet": "=== SCENE 000 ===\n\nMichael (waiting on Pam to be done with the microwave): Ahhhhhhhhh. I'm hungry.\n[STAGE] whispEring loudly\n\n=== SCENE 001 ===\n\nMichael: Movie Monday! The only cure I know for the Monday blues is… Varsity Blues!\n\n=== SCENE "
+        }
+      ]
+    }
+  ]
+}

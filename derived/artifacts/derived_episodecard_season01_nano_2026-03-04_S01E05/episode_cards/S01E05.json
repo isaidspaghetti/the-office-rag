@@ -1,0 +1,152 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season01_nano_2026-03-04_S01E05",
+  "created_at_utc": "2026-03-04T21:07:31Z",
+  "llm_model": "gpt-4.1-nano",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S01E05",
+  "title": "Basketball",
+  "one_paragraph_synopsis": "In this episode, the office engages in a friendly basketball game organized by Michael, who emphasizes stress relief and character lessons through sports. The episode features team organization, playful banter, disputes over fouls, and Michael's reflections on the importance of character and life lessons learned from the game.",
+  "main_threads": [
+    {
+      "thread": "Michael organizes and participates in a basketball game with office staff, emphasizing stress relief and character lessons.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 210,
+          "char_end": 324,
+          "snippet": "Michael: Today at lunchtime we're going to be playing the warehouse staff at a friendly little game of basketball."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 0,
+          "char_end": 6320,
+          "snippet": "=== SCENE 000 ===\n\nMichael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.\n[STAGE] Ryan holds up his bag\nDwig..."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11388,
+          "char_end": 11489,
+          "snippet": "Michael: When I am playing hoops all of the stress and responsibility of my job here just melts away."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 16746,
+          "char_end": 16878,
+          "snippet": "Michael: The great thing about sports is that it is all about character. And you can learn lessons about life even if you don't win."
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Michael",
+      "what_changes": "Expresses his enjoyment of playing basketball as a way to forget work stress and emphasizes lessons about character and life.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11388,
+          "char_end": 11489,
+          "snippet": "Michael: When I am playing hoops all of the stress and responsibility of my job here just melts away."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 16746,
+          "char_end": 16878,
+          "snippet": "Michael: The great thing about sports is that it is all about character. And you can learn lessons about life even if you don't win."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "tags": [
+    "sports",
+    "office",
+    "humor",
+    "teamwork"
+  ],
+  "source_segments": [
+    "S01E05:seg:000",
+    "S01E05:seg:001",
+    "S01E05:seg:002"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season01_nano_2026-03-04_S01E05",
+  "uncertainties": [
+    "Who actually won the game?",
+    "What are the final team lineups and specific roles?",
+    "What is the outcome of the game or the reactions afterward?",
+    "What are the details of the foul calls and disputes?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who actually won the game?",
+      "why_uncertain": "Michael claims whoever was ahead won, but the actual outcome is not explicitly confirmed.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 15328,
+          "char_end": 15380,
+          "snippet": "Michael: Well, let's just say whoever was ahead won."
+        }
+      ]
+    },
+    {
+      "question": "What are the final team lineups and specific roles?",
+      "why_uncertain": "The segment discusses some players and roles but does not specify the final team lineup.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 5815,
+          "char_end": 5885,
+          "snippet": "Michael: Close. All right, uh… Me, Stan the man, Jim, Ryan and Dwight."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the game or the reactions afterward?",
+      "why_uncertain": "The segment ends with the team being organized but does not describe the game or its result.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 4694,
+          "char_end": 4759,
+          "snippet": "Michael: OK, so, let's put together a starting line-up, shall we?"
+        }
+      ]
+    },
+    {
+      "question": "What are the details of the foul calls and disputes?",
+      "why_uncertain": "The segment shows disputes and calls but does not specify the rules or correctness of the calls.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14648,
+          "char_end": 14721,
+          "snippet": "Michael: No, no, no, no. That was a flagrant, personal, intentional foul."
+        }
+      ]
+    }
+  ]
+}

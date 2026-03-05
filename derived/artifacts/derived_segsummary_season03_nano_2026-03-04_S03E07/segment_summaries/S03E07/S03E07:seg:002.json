@@ -1,0 +1,199 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_nano_2026-03-04_S03E07",
+  "created_at_utc": "2026-03-04T22:33:50Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S03E07",
+  "segment_id": "S03E07:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14171,
+  "segment_char_end": 17839,
+  "people": [
+    "Karen",
+    "Jim",
+    "Josh",
+    "Andy",
+    "Michael",
+    "Dwight",
+    "Kevin",
+    "Pam",
+    "Phyllis",
+    "Ryan",
+    "Roy",
+    "Toby"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "The characters discuss potential job changes and the office's uncertain future.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 16848,
+          "char_end": 16912,
+          "snippet": "Michael: What are we still doing here? It's over. Let's go home."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael and Dwight realize the office's branch closures are confirmed, leading to celebration.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17198,
+          "char_end": 17273,
+          "snippet": "Dwight: Stranford is closed! Michael, we're not closed. Stamford is closed."
+        },
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17344,
+          "char_end": 17383,
+          "snippet": "Michael & Dwight: We did it! We did it!"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Karen discuss their feelings and potential future together.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 16699,
+          "char_end": 16810,
+          "snippet": "Karen: Yeah, I'm happy he said that. I mean, I don't think he's into me or anything, but, I'm kind of into him."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Toby reflects on a hypothetical future involving moving to Costa Rica.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17684,
+          "char_end": 17789,
+          "snippet": "Toby: Well for a minute there, I saw myself selling my house, moving to Costa Rica, learning how to surf."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "We did it!",
+      "speaker": "Michael & Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17344,
+          "char_end": 17383,
+          "snippet": "Michael & Dwight: We did it! We did it!"
+        }
+      ]
+    },
+    {
+      "quote": "What if this doesn't work? What is the office actually goes under?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 14932,
+          "char_end": 15007,
+          "snippet": "Michael: What if this doesn't work? What is the office actually goes under?"
+        }
+      ]
+    },
+    {
+      "quote": "I loved them all. Every single one.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 15533,
+          "char_end": 15599,
+          "snippet": "Michael: Oh, hmm, all of them. I loved them all. Every single one."
+        }
+      ]
+    },
+    {
+      "quote": "In your face!",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17517,
+          "char_end": 17538,
+          "snippet": "Dwight: In your face!"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the ultimate outcome for the characters' jobs and the office?",
+    "Are Jim and Karen planning to pursue a relationship?",
+    "Will Toby actually move to Costa Rica?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the ultimate outcome for the characters' jobs and the office?",
+      "why_uncertain": "The segment shows celebration but does not confirm the final outcome.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 16848,
+          "char_end": 16912,
+          "snippet": "Michael: What are we still doing here? It's over. Let's go home."
+        }
+      ]
+    },
+    {
+      "question": "Are Jim and Karen planning to pursue a relationship?",
+      "why_uncertain": "They discuss feelings but do not confirm any concrete plans.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 14171,
+          "char_end": 17839,
+          "snippet": "=== SCENE 041 ===\n\nKaren: What you gonna do?\nJim: I really don't know. How you doing with all this?\nKaren: You know, I'm fine. I'll be better when I know if I have a job.\nJim: You'd actually move to Scranton?\nKaren: Yeah, if they let me, I "
+        }
+      ]
+    },
+    {
+      "question": "Will Toby actually move to Costa Rica?",
+      "why_uncertain": "He only mentions it as a hypothetical scenario.",
+      "evidence": [
+        {
+          "episode_id": "S03E07",
+          "segment_id": "S03E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e07_branch_closing_script.txt",
+          "char_start": 17684,
+          "char_end": 17789,
+          "snippet": "Toby: Well for a minute there, I saw myself selling my house, moving to Costa Rica, learning how to surf."
+        }
+      ]
+    }
+  ]
+}

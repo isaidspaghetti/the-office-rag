@@ -1,0 +1,83 @@
+{
+  "schema": "SegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_nano_2026-03-04_S05E11",
+  "created_at_utc": "2026-03-05T00:33:35Z",
+  "episode": {
+    "episode_id": "S05E11",
+    "title": "The Duel",
+    "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+    "body_char_count": 17393
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "max_segments": null,
+    "segment_index": null,
+    "force": true,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_segments": [
+      {
+        "segment_id": "S05E11:seg:000",
+        "segment_index": 0,
+        "segment_char_start": 0,
+        "segment_char_end": 6652,
+        "approx_tokens": 1672,
+        "out_file": "segment_summaries/S05E11/S05E11:seg:000.json"
+      },
+      {
+        "segment_id": "S05E11:seg:001",
+        "segment_index": 1,
+        "segment_char_start": 6652,
+        "segment_char_end": 13611,
+        "approx_tokens": 1748,
+        "out_file": "segment_summaries/S05E11/S05E11:seg:001.json"
+      },
+      {
+        "segment_id": "S05E11:seg:002",
+        "segment_index": 2,
+        "segment_char_start": 13611,
+        "segment_char_end": 17393,
+        "approx_tokens": 950,
+        "out_file": "segment_summaries/S05E11/S05E11:seg:002.json"
+      }
+    ],
+    "planned_llm_calls": 3
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T00:33:35Z",
+    "ended_at_utc": "2026-03-05T00:33:54Z",
+    "llm_calls_planned": 3,
+    "llm_calls_made": 3,
+    "skipped_existing": 0,
+    "written": 3,
+    "errors": 0,
+    "segments": [
+      {
+        "segment_id": "S05E11:seg:000",
+        "status": "written",
+        "out_file": "segment_summaries/S05E11/S05E11:seg:000.json",
+        "call_started_at_utc": "2026-03-05T00:33:35Z",
+        "call_duration_ms": 4421
+      },
+      {
+        "segment_id": "S05E11:seg:001",
+        "status": "written",
+        "out_file": "segment_summaries/S05E11/S05E11:seg:001.json",
+        "call_started_at_utc": "2026-03-05T00:33:40Z",
+        "call_duration_ms": 6403
+      },
+      {
+        "segment_id": "S05E11:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S05E11/S05E11:seg:002.json",
+        "call_started_at_utc": "2026-03-05T00:33:46Z",
+        "call_duration_ms": 7585
+      }
+    ]
+  }
+}

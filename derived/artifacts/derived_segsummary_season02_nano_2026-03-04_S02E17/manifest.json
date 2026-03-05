@@ -1,0 +1,83 @@
+{
+  "schema": "SegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E17",
+  "created_at_utc": "2026-03-04T21:41:00Z",
+  "episode": {
+    "episode_id": "S02E17",
+    "title": "Dwight’s Speech",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e17_dwight_s_speech_script.txt",
+    "body_char_count": 16780
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "max_segments": null,
+    "segment_index": null,
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_segments": [
+      {
+        "segment_id": "S02E17:seg:000",
+        "segment_index": 0,
+        "segment_char_start": 0,
+        "segment_char_end": 6262,
+        "approx_tokens": 1576,
+        "out_file": "segment_summaries/S02E17/S02E17:seg:000.json"
+      },
+      {
+        "segment_id": "S02E17:seg:001",
+        "segment_index": 1,
+        "segment_char_start": 6262,
+        "segment_char_end": 13184,
+        "approx_tokens": 1742,
+        "out_file": "segment_summaries/S02E17/S02E17:seg:001.json"
+      },
+      {
+        "segment_id": "S02E17:seg:002",
+        "segment_index": 2,
+        "segment_char_start": 13184,
+        "segment_char_end": 16780,
+        "approx_tokens": 903,
+        "out_file": "segment_summaries/S02E17/S02E17:seg:002.json"
+      }
+    ],
+    "planned_llm_calls": 3
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T21:41:00Z",
+    "ended_at_utc": "2026-03-04T21:41:43Z",
+    "llm_calls_planned": 3,
+    "llm_calls_made": 3,
+    "skipped_existing": 0,
+    "written": 3,
+    "errors": 0,
+    "segments": [
+      {
+        "segment_id": "S02E17:seg:000",
+        "status": "written",
+        "out_file": "segment_summaries/S02E17/S02E17:seg:000.json",
+        "call_started_at_utc": "2026-03-04T21:41:00Z",
+        "call_duration_ms": 19949
+      },
+      {
+        "segment_id": "S02E17:seg:001",
+        "status": "written",
+        "out_file": "segment_summaries/S02E17/S02E17:seg:001.json",
+        "call_started_at_utc": "2026-03-04T21:41:20Z",
+        "call_duration_ms": 14338
+      },
+      {
+        "segment_id": "S02E17:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S02E17/S02E17:seg:002.json",
+        "call_started_at_utc": "2026-03-04T21:41:34Z",
+        "call_duration_ms": 9008
+      }
+    ]
+  }
+}

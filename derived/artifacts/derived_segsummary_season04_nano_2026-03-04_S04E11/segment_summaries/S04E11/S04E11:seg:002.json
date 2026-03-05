@@ -1,0 +1,232 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E11",
+  "created_at_utc": "2026-03-04T22:59:18Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E11",
+  "segment_id": "S04E11:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13888,
+  "segment_char_end": 20654,
+  "people": [
+    "Dwight",
+    "Michael",
+    "Ryan",
+    "Troy",
+    "Jim",
+    "Hank",
+    "Oscar",
+    "Pam",
+    "Toby"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight receives a drink he didn't order and suspects it might be unsafe.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13913,
+          "char_end": 13975,
+          "snippet": "Dwight: Wait, wait a minute, what's this, I didn't order this?"
+        },
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 14130,
+          "char_end": 14197,
+          "snippet": "Dwight: It's not safe. Anything could have been in there. Nice try."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael interacts with women at a club and takes a picture of Dwight with a girl.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 14382,
+          "char_end": 14410,
+          "snippet": "Michael: I am a bank teller."
+        },
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 14539,
+          "char_end": 14559,
+          "snippet": "Michael: I think so."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael and others discuss Ryan's experience with girls and his potential drug problem.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 14431,
+          "char_end": 14494,
+          "snippet": "Michael: Ryan told me to always tell women you work in finance."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Toby announces he's moving to Costa Rica, causing some reactions.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13888,
+          "char_end": 20654,
+          "snippet": "Bartender: There you go.\nDwight: Wait, wait a minute, what's this, I didn't order this?\nBartender: It's for you. From them.\n[STAGE] points to Jersey State girls across the bar\nDwight: Oh.\n[STAGE] dumps drink out\nTroy: What are you doing man"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The office co-workers' phones go off, revealing a shared moment of embarrassment.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 14949,
+          "char_end": 14990,
+          "snippet": "All Office co-workers cell phones go off."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael and Dwight help Ryan after he gets sick at the club.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 20235,
+          "char_end": 20253,
+          "snippet": "Ryan: Dehydration."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I think I want her to meet my mom.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 15119,
+          "char_end": 15209,
+          "snippet": "Michael: I know. I don't wanna get ahead of myself, but I think I want her to meet my mom."
+        }
+      ]
+    },
+    {
+      "quote": "It's dehydration.",
+      "speaker": "Ryan",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 20235,
+          "char_end": 20253,
+          "snippet": "Ryan: Dehydration."
+        }
+      ]
+    },
+    {
+      "quote": "Friends are there to help you have a good time.",
+      "speaker": "Troy",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13888,
+          "char_end": 20654,
+          "snippet": "Bartender: There you go.\nDwight: Wait, wait a minute, what's this, I didn't order this?\nBartender: It's for you. From them.\n[STAGE] points to Jersey State girls across the bar\nDwight: Oh.\n[STAGE] dumps drink out\nTroy: What are you doing man"
+        }
+      ]
+    },
+    {
+      "quote": "Best night ever.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 19523,
+          "char_end": 19539,
+          "snippet": "Best night ever."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly happened to Ryan at the club?",
+    "What is the outcome of Toby's move to Costa Rica?",
+    "What is the significance of the picture Michael took?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly happened to Ryan at the club?",
+      "why_uncertain": "The segment shows Ryan getting sick and being helped out, but details are not specified.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13888,
+          "char_end": 20654,
+          "snippet": "Bartender: There you go.\nDwight: Wait, wait a minute, what's this, I didn't order this?\nBartender: It's for you. From them.\n[STAGE] points to Jersey State girls across the bar\nDwight: Oh.\n[STAGE] dumps drink out\nTroy: What are you doing man"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Toby's move to Costa Rica?",
+      "why_uncertain": "The segment only states his intention, not the outcome.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13888,
+          "char_end": 20654,
+          "snippet": "Bartender: There you go.\nDwight: Wait, wait a minute, what's this, I didn't order this?\nBartender: It's for you. From them.\n[STAGE] points to Jersey State girls across the bar\nDwight: Oh.\n[STAGE] dumps drink out\nTroy: What are you doing man"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the picture Michael took?",
+      "why_uncertain": "The segment shows the picture being shared and groans from colleagues, but its content and impact are not detailed.",
+      "evidence": [
+        {
+          "episode_id": "S04E11",
+          "segment_id": "S04E11:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+          "char_start": 13888,
+          "char_end": 20654,
+          "snippet": "Bartender: There you go.\nDwight: Wait, wait a minute, what's this, I didn't order this?\nBartender: It's for you. From them.\n[STAGE] points to Jersey State girls across the bar\nDwight: Oh.\n[STAGE] dumps drink out\nTroy: What are you doing man"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_nano_2026-03-04_S06E01",
+  "created_at_utc": "2026-03-04T23:19:43Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S06E01",
+  "segment_id": "S06E01:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 12956,
+  "segment_char_end": 18302,
+  "people": [
+    "Andy",
+    "Oscar",
+    "Phyllis",
+    "Michael",
+    "Dwight",
+    "Jim",
+    "Pam",
+    "Angela",
+    "Creed",
+    "Erin",
+    "Kelly",
+    "Kevin",
+    "Stanley",
+    "Toby"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Andy discusses a hypothetical scenario about being attracted to a man, revealing his confusion.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 13526,
+          "char_end": 13607,
+          "snippet": "Andy: Would I push him away? How hard? Like, what if he's like really aggressive?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Multiple rumors are being discussed and traced among the office staff.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 17320,
+          "char_end": 17426,
+          "snippet": "Pam: Sure, but we should get to the bottom of this. Let's pick a rumor and trace it back to the beginning."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael tries to prevent himself from getting on the elevator after being questioned about rumors.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 18068,
+          "char_end": 18089,
+          "snippet": "Pam: Don't get on it."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Jim makes a humorous comment about Andy and Jim's advice on having sex with both genders.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 15869,
+          "char_end": 15906,
+          "snippet": "Jim: You gotta have sex with a woman."
+        },
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 15922,
+          "char_end": 15937,
+          "snippet": "Jim: And a man."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I wish I could help you. I don't… you might be gay.",
+      "speaker": "Oscar",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 13818,
+          "char_end": 13907,
+          "snippet": "Oscar: Wow. I wish… I wish I could help you. I don't… you might be gay. You might be gay."
+        }
+      ]
+    },
+    {
+      "quote": "Let's discredit these rumors.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 12956,
+          "char_end": 18302,
+          "snippet": "Andy (to Oscar in break room): Did you hear the rumor about me? That I'm gay?\nOscar (nodding): I did. Yes.\nAndy: And?\nOscar: What?\nAndy: Do you think it's true? Do you think that I'm… gay?\nOscar: Are you attracted to other men?\nAndy (scoffs"
+        }
+      ]
+    },
+    {
+      "quote": "You gotta have sex with a woman. And a man.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 15869,
+          "char_end": 15906,
+          "snippet": "Jim: You gotta have sex with a woman."
+        },
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 15922,
+          "char_end": 15937,
+          "snippet": "Jim: And a man."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the actual rumor about Andy?",
+    "What is Andy's true sexual orientation?",
+    "What will happen after the elevator scene?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the actual rumor about Andy?",
+      "why_uncertain": "The segment discusses a hypothetical scenario and rumors but does not specify which rumor is true or false.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 12956,
+          "char_end": 18302,
+          "snippet": "Andy (to Oscar in break room): Did you hear the rumor about me? That I'm gay?\nOscar (nodding): I did. Yes.\nAndy: And?\nOscar: What?\nAndy: Do you think it's true? Do you think that I'm… gay?\nOscar: Are you attracted to other men?\nAndy (scoffs"
+        }
+      ]
+    },
+    {
+      "question": "What is Andy's true sexual orientation?",
+      "why_uncertain": "The segment shows Andy contemplating his feelings but does not confirm his orientation.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 12956,
+          "char_end": 18302,
+          "snippet": "Andy (to Oscar in break room): Did you hear the rumor about me? That I'm gay?\nOscar (nodding): I did. Yes.\nAndy: And?\nOscar: What?\nAndy: Do you think it's true? Do you think that I'm… gay?\nOscar: Are you attracted to other men?\nAndy (scoffs"
+        }
+      ]
+    },
+    {
+      "question": "What will happen after the elevator scene?",
+      "why_uncertain": "The segment ends with Michael leaving the elevator, no outcome is provided.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 12956,
+          "char_end": 18302,
+          "snippet": "Andy (to Oscar in break room): Did you hear the rumor about me? That I'm gay?\nOscar (nodding): I did. Yes.\nAndy: And?\nOscar: What?\nAndy: Do you think it's true? Do you think that I'm… gay?\nOscar: Are you attracted to other men?\nAndy (scoffs"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S07E04",
+  "title": "Sex Ed",
+  "one_paragraph_synopsis": "In this episode, the office discusses health issues, relationships, and sexual mores, with characters revealing personal experiences and engaging in humorous debates about safe sex and STDs, including Michael discovering he has herpes and navigating the implications.",
+  "main_threads": [
+    {
+      "thread": "Discussion of health issues and STDs, including Michael discovering he has herpes.",
+      "evidence_ids": [
+        "E0026",
+        "E0027",
+        "E0028",
+        "E0029",
+        "E0033",
+        "E0034",
+        "E0038",
+        "E0039",
+        "E0040"
+      ]
+    },
+    {
+      "thread": "Humorous debates and interactions about relationships, sexual mores, and office treatment of colleagues.",
+      "evidence_ids": [
+        "E0013",
+        "E0014",
+        "E0015",
+        "E0016",
+        "E0017",
+        "E0018",
+        "E0022",
+        "E0023"
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Michael",
+      "what_changes": "Discovers he has herpes and discusses his past relationship with Carol.",
+      "evidence_ids": [
+        "E0026",
+        "E0027",
+        "E0028"
+      }
+    },
+    {
+      "character": "Andy",
+      "what_changes": "Leads discussions on safe sex and sexual mores, promoting open dialogue and humor.",
+      "evidence_ids": [
+        "E0013",
+        "E0017",
+        "E0018",
+        "E0024",
+        "E0025"
+      ]
+    },
+    {
+      "character": "Holly",
+      "what_changes": "Engages in conversations with Michael about their relationship and health issues.",
+      "evidence_ids": [
+        "E0014",
+        "E0015",
+        "E0038"
+      ]
+    },
+    {
+      "character": "Oscar",
+      "what_changes": "Discusses his relationship with Michael and denies being lovers, indicating discomfort.",
+      "evidence_ids": [
+        "E0039",
+        "E0040"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": ["Michael", "Holly"],
+      "status": "Discussed past relationship and current feelings, with some uncertainty about current status.",
+      "evidence_ids": [
+        "E0014",
+        "E0015",
+        "E0028",
+        "E0038"
+      ]
+    },
+    {
+      "pair": ["Michael", "Carol"],
+      "status": "Discussed as past relationship, current status uncertain.",
+      "evidence_ids": [
+        "E0028"
+      ]
+    },
+    {
+      "pair": ["Michael", "Donna"],
+      "status": "Mentioned in context of herpes transmission, no confirmed relationship status.",
+      "evidence_ids": [
+        "E0011"
+      ]
+    }
+  ],
+  "tags": [
+    "health",
+    "relationships",
+    "sexual_mores",
+    "STDs",
+    "humor"
+  ],
+  "uncertainties": [
+    {
+      "question": "Does Michael actually have herpes?",
+      "why_uncertain": "The segment shows Michael's concern and discussion but does not confirm diagnosis.",
+      "evidence_ids": [
+        "E0011"
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's herpes diagnosis?",
+      "why_uncertain": "The segment does not show any resolution or consequences of the diagnosis.",
+      "evidence_ids": [
+        "E0028"
+      ]
+    },
+    {
+      "question": "What is the current status of Michael and Holly's relationship?",
+      "why_uncertain": "The segment discusses past interactions and feelings but no definitive current status.",
+      "evidence_ids": [
+        "E0014",
+        "E0015",
+        "E0038"
+      ]
+    },
+    {
+      "question": "Did Oscar have a sexual encounter with Michael?",
+      "why_uncertain": "Oscar denies being lovers, and the segment does not clarify their relationship.",
+      "evidence_ids": [
+        "E0039"
+      ]
+    }
+  ],
+  "build_notes": "Summarizes key themes of health, relationships, and humor, supported by evidence from multiple segments."
+}

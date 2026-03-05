@@ -1,0 +1,167 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E08",
+  "created_at_utc": "2026-03-04T21:12:10Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E08",
+  "segment_id": "S02E08:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6868,
+  "people": [
+    "Dwight",
+    "Jim",
+    "Michael",
+    "Pam",
+    "Jan",
+    "Stanley",
+    "Angela",
+    "Kevin",
+    "Oscar"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight demonstrates a fitness orb to Jim, claiming health benefits.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 19,
+          "char_end": 86,
+          "snippet": "Dwight (bouncing on an exercise ball): You should get one of these."
+        },
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 406,
+          "char_end": 512,
+          "snippet": "Dwight: Numerous health benefits, strengthens your back, better performance in sports, more enjoyable sex."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael discusses Jan's upcoming visit and their past relationship.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 1599,
+          "char_end": 1687,
+          "snippet": "Michael: My boss is coming in today, the lovely Jan Levinson-Gould will, well, no Gould."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael and Jan's relationship is discussed, hinting at unresolved feelings and professionalism concerns.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 2600,
+          "char_end": 2661,
+          "snippet": "Pam: Well I don't think you're gonna be very happy with this."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Dwight gives Jim a false tip about office supplies to influence his performance review.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 3251,
+          "char_end": 3345,
+          "snippet": "Dwight: Tell Michael that we should be stocking more of the double-tabbed manila file folders."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jan calls Michael, and their conversation hints at a past romantic encounter and professional boundaries.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 5553,
+          "char_end": 5589,
+          "snippet": "Jan: I am returning your many calls."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "It's only twenty-five bucks.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 686,
+          "char_end": 722,
+          "snippet": "Dwight: It's only twenty-five bucks."
+        }
+      ]
+    },
+    {
+      "quote": "I guess I missed you.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 2279,
+          "char_end": 2335,
+          "snippet": "Michael (playing Jan's message): \"I guess I missed you.\""
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly happened between Michael and Jan in the parking lot of Chili's?",
+    "What are the true feelings Jan has for Michael?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly happened between Michael and Jan in the parking lot of Chili's?",
+      "why_uncertain": "The segment only mentions Michael's belief that it was nothing and Jan's statement that they won't discuss it, providing no details.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 5774,
+          "char_end": 5824,
+          "snippet": "Jan: No. No, we won't be discussing that, Michael."
+        }
+      ]
+    },
+    {
+      "question": "What are the true feelings Jan has for Michael?",
+      "why_uncertain": "The segment only indicates Jan misses Michael and that she has to be professional, but does not clarify her true feelings.",
+      "evidence": [
+        {
+          "episode_id": "S02E08",
+          "segment_id": "S02E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+          "char_start": 2600,
+          "char_end": 2661,
+          "snippet": "Pam: Well I don't think you're gonna be very happy with this."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E13",
+  "created_at_utc": "2026-03-04T23:00:30Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E13",
+  "segment_id": "S04E13:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14133,
+  "segment_char_end": 20496,
+  "people": [
+    "Jim",
+    "Pam",
+    "Michael",
+    "Kevin",
+    "Andy",
+    "Brad",
+    "Justin",
+    "Graphics guy",
+    "Phil",
+    "Air Force recruiter"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Jim and Pam share a kiss at the party.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14442,
+          "char_end": 14477,
+          "snippet": "[STAGE] pulls Pam into a big smooch"
+        },
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14955,
+          "char_end": 14979,
+          "snippet": "Jim and Pam stop kissing"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael attempts to promote Justin and discusses his own self-doubt.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14577,
+          "char_end": 14636,
+          "snippet": "Michael: Today I did something stupid. I questioned myself."
+        },
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 20369,
+          "char_end": 20431,
+          "snippet": "Michael: I think you are smart, and capable, and you aim high."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Pam inquires about graphic design jobs, showing her interest in a new career.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 15030,
+          "char_end": 15092,
+          "snippet": "Pam: I was just wondEring, what kind of jobs do you guys have?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael interacts with various characters, including Brad and Justin, in different contexts.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 16691,
+          "char_end": 16792,
+          "snippet": "Michael: So, what is your poison? You like uh, sales, accounting, customer service, what do you like…"
+        },
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 19684,
+          "char_end": 19705,
+          "snippet": "Michael: Hey, Justin!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Jim and Pam stop kissing",
+      "speaker": null,
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14947,
+          "char_end": 14979,
+          "snippet": "[STAGE] Jim and Pam stop kissing"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: Today I did something stupid. I questioned myself.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14577,
+          "char_end": 14636,
+          "snippet": "Michael: Today I did something stupid. I questioned myself."
+        }
+      ]
+    },
+    {
+      "quote": "Pam: I was just wondEring, what kind of jobs do you guys have?",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 15030,
+          "char_end": 15092,
+          "snippet": "Pam: I was just wondEring, what kind of jobs do you guys have?"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: I think you are smart, and capable, and you aim high.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 20369,
+          "char_end": 20431,
+          "snippet": "Michael: I think you are smart, and capable, and you aim high."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Jim and Pam's interaction?",
+    "What is Justin's future at Dunder Mifflin?",
+    "Will Pam pursue graphic design?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Jim and Pam's interaction?",
+      "why_uncertain": "The segment only shows the kiss and the stop, but not the aftermath or their feelings.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14133,
+          "char_end": 20496,
+          "snippet": "Pam (clink of beer bottles): Beers? You closed it?\nJim: I closed it!\nPam: Yes! Oh! Um, congratulations to you, sir.\n[STAGE] runs into his arms, kisses him\n[STAGE] they shake hands business-like\nJim: Thank you. Oh, thank you very much. Appre"
+        }
+      ]
+    },
+    {
+      "question": "What is Justin's future at Dunder Mifflin?",
+      "why_uncertain": "The segment ends with Michael praising Justin, but no final decision or outcome is shown.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 20369,
+          "char_end": 20431,
+          "snippet": "Michael: I think you are smart, and capable, and you aim high."
+        }
+      ]
+    },
+    {
+      "question": "Will Pam pursue graphic design?",
+      "why_uncertain": "Pam expresses interest but no follow-up or decision is shown.",
+      "evidence": [
+        {
+          "episode_id": "S04E13",
+          "segment_id": "S04E13:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e13_job_fair_script.txt",
+          "char_start": 14133,
+          "char_end": 20496,
+          "snippet": "Pam (clink of beer bottles): Beers? You closed it?\nJim: I closed it!\nPam: Yes! Oh! Um, congratulations to you, sir.\n[STAGE] runs into his arms, kisses him\n[STAGE] they shake hands business-like\nJim: Thank you. Oh, thank you very much. Appre"
+        }
+      ]
+    }
+  ]
+}

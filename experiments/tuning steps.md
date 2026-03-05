@@ -216,25 +216,67 @@ python experiments/run_eval.py \
   ### MMR is a bad match for “list all X” questions. For aggregation questions, the “right” evidence chunks are often semantically similar (relationship/breakup dialogue). MMR will often pick one relevant cluster and  and then “diversify” into unrelated-but-different chunks, tanking recall.
 
 
-# Add A Derived Corpus:
-# Context enrichment and distillation (aka document augmentation)
-#
+# Add A Derived Corpus (index-time enrichment)
+- Our db is sufficiently answering simple questions, quotes, pinpoint facts, and specific episode questions. It struggles with broader or more complex questions require aggregation (list all, timeline, how does x change), because evidence is scattered and semantically repetitive. 
+
+
 
 ## Step: build a separate derived corpus index (summaries-only to start)
+Used a map-reduce (pyramid) pattern to chunk episodes for summary requets, forcing temp 0, flagging uncertainties to be carried into next reducer level for resolution.
+Provenance was difficult here - had to add more indexes to retain evidence
+
 
 python derived/build_derived_index.py \
   --persist-dir db/chroma_db_derived \
   --reset
 
-### optional: add LLM-generated reference cards (character bios + relationship timelines)
-python derived/build_derived_index.py \
-  --persist-dir db/chroma_db_derived \
-  --reset \
-  --generate-character-bios \
-  --generate-relationship-timelines
-## We 
+Season 5 example (update season/episode counts as needed):
+
+1. Generate *segments*for a season
+cd /Users/tg/Developer/RAG-1
+source venv/bin/activate
+export OPENAI_API_KEY="..."   # if not already in your shell/.env
+
+for i in $(seq -w 1 22); do \
+  ep="S09E${i}"; \
+  python -m derived.segment_episode \
+    --docs-dir ingestion/normalized_docs_txt \
+    --episode-id "$ep" \
+    --target-tokens 1800 \
+    --min-tokens 400 \
+    --print-n 0 \
+    --out "derived/artifacts/segments/${ep}.json"; \
+done
+
+2. Run segment *summaries(map)* of a season (LLM)
+
+python -m derived.summarize_season \
+  --season 9 \
+  --docs-dir ingestion/normalized_docs_txt \
+  --segments-root derived/segments \
+  --out-root derived/artifacts \
+  --build-prefix derived_segsummary_season09_nano_2026-03-04 \
+  --llm-model gpt-4.1-nano
+
+3.  *reduce* season 
+python -m derived.reduce_season \
+  --season 9 \
+  --docs-dir ingestion/normalized_docs_txt \
+  --out-root derived/artifacts \
+  --segments-root derived/artifacts/segments \
+  --segment-summaries-root derived/artifacts \
+  --segments-build-prefix derived_segsummary_season09_nano_2026-03-04 \
+  --llm-model gpt-4.1-nano \
+  --build-prefix derived_episodecard_season09_nano_2026-03-04
+
+4. Create card
+
+python -m derived.reduce_season_card --season 9 --episode-cards-build-prefix derived_episodecard_season09_nano_2026-03-04 --build-prefix derived_seasoncard_season09_nano_2026-03-04 --llm-model gpt-4.1-nano
 
 
+The total cost to create the derived data was about $.90 using 4.1 nano
+
+## Index the derived data
 
 Episode summary (already have, but can enrich)
 Character bios (per character)
@@ -242,10 +284,12 @@ Relationship timelines (per pair / per character)
 Character arc summaries (season-by-season)
 Running gags / motifs / “facts” with citations
 
+
+# Routing
 Two-stage retrieval at answer time:
 Retrieve derived docs first to get the “map” (names, timelines, which episodes matter).
 Retrieve raw script chunks second for quotes / grounding and to avoid “LLM-made-up” details.
 
-Hallucination risk shifts earlier: you can accidentally “bake in” wrong facts at index time; you need spot checks + evals.
-
+Tier 1: derived data
+Tier 2: dialogue level grounding
 

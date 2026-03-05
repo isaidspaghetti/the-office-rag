@@ -1,0 +1,240 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_nano_2026-03-04_S03E12",
+  "created_at_utc": "2026-03-04T22:37:14Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S03E12",
+  "segment_id": "S03E12:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13739,
+  "segment_char_end": 17907,
+  "people": [
+    "Jan",
+    "Michael",
+    "Dwight",
+    "Andy",
+    "Karen",
+    "Jim",
+    "Pam",
+    "Angela",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Jan notes Dwight's name on the security sign-in sheet and questions his meeting details.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 13825,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight is questioned by Michael about his whereabouts and honesty.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 14843,
+          "char_end": 14934,
+          "snippet": "Michael: I know that you went to corporate this morning, and I know that you lied about it."
+        },
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 15019,
+          "char_end": 15077,
+          "snippet": "Dwight: Michael, I cannot tell you what I was doing there."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight discusses his relationship with Angela and his willingness to reveal it.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 15540,
+          "char_end": 15656,
+          "snippet": "Dwight: That's not the worst thing in the world. I'll just stand up in front of the office and reveal our true love."
+        },
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 15703,
+          "char_end": 15774,
+          "snippet": "Angela: I hate those two people more than anything in the entire world."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight announces his resignation from the company.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 17907,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== S"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim and Karen discuss Jim's past feelings for Pam and her current presence.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 15887,
+          "char_end": 15928,
+          "snippet": "Karen: Did you ever have a thing for Pam?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Dwight prepares to leave his belongings for Michael and reflects on his career.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 17065,
+          "char_end": 17137,
+          "snippet": "Dwight: I would like to give the rest of my belongings to Michael Scott."
+        },
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 17428,
+          "char_end": 17496,
+          "snippet": "Dwight: One of my life goals was to die right here in my desk chair."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight's name is on the security sign-in sheet, but I don't know who he met with.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 13825,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with."
+        }
+      ]
+    },
+    {
+      "quote": "I have decided to step down from my post and spend more time with my family.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 17907,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== S"
+        }
+      ]
+    },
+    {
+      "quote": "In other words, I am quitting.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 16809,
+          "char_end": 16839,
+          "snippet": "In other words, I am quitting."
+        }
+      ]
+    },
+    {
+      "quote": "Dwight, from sales, was one of the most honorable and efficient employees this company has ever had.",
+      "speaker": "Angela",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 17307,
+          "char_end": 17407,
+          "snippet": "Dwight, from sales, was one of the most honorable and efficient employees this company has ever had."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly Dwight was doing at corporate?",
+    "What Dwight's future plans are after quitting?",
+    "How the office will react to Dwight's resignation?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly Dwight was doing at corporate?",
+      "why_uncertain": "Michael asks Dwight to trust him about his activities, but Dwight refuses to specify.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 17907,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== S"
+        }
+      ]
+    },
+    {
+      "question": "What Dwight's future plans are after quitting?",
+      "why_uncertain": "Dwight states he is stepping down and spending time with family, but details are not provided.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 17907,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== S"
+        }
+      ]
+    },
+    {
+      "question": "How the office will react to Dwight's resignation?",
+      "why_uncertain": "The segment does not show the office's response beyond Dwight's announcement.",
+      "evidence": [
+        {
+          "episode_id": "S03E12",
+          "segment_id": "S03E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+          "char_start": 13739,
+          "char_end": 17907,
+          "snippet": "Jan: Dwight's name is on the security sign-in sheet, but I don't know who he met with. And where it asks to state your business, he wrote \"Beeswax. Not yours, Inc.\"\nMichael: I knew it.\n[STAGE] Dwight and Jim walk in\nAndy: Oh, doggie.\n\n=== S"
+        }
+      ]
+    }
+  ]
+}

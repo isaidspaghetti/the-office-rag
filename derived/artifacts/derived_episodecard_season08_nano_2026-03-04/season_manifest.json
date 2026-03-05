@@ -1,0 +1,463 @@
+{
+  "schema": "SeasonEpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_episodecard_season08_nano_2026-03-04",
+  "created_at_utc": "2026-03-05T00:06:29Z",
+  "season": 8,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "segment_summaries_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "llm_model": "gpt-4.1-nano",
+    "segments_build_prefix": "derived_segsummary_season08_nano_2026-03-04",
+    "force": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S08E01",
+        "title": "The List",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E01",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E01",
+        "out_file": "episode_cards/S08E01.json"
+      },
+      {
+        "episode_id": "S08E02",
+        "title": "The Incentive",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E02",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E02",
+        "out_file": "episode_cards/S08E02.json"
+      },
+      {
+        "episode_id": "S08E03",
+        "title": "Lotto",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E03",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E03",
+        "out_file": "episode_cards/S08E03.json"
+      },
+      {
+        "episode_id": "S08E04",
+        "title": "Garden Party",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E04",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E04",
+        "out_file": "episode_cards/S08E04.json"
+      },
+      {
+        "episode_id": "S08E05",
+        "title": "Spooked",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E05",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E05",
+        "out_file": "episode_cards/S08E05.json"
+      },
+      {
+        "episode_id": "S08E06",
+        "title": "Doomsday",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E06",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E06",
+        "out_file": "episode_cards/S08E06.json"
+      },
+      {
+        "episode_id": "S08E07",
+        "title": "Pam’s Replacement",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E07",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E07",
+        "out_file": "episode_cards/S08E07.json"
+      },
+      {
+        "episode_id": "S08E08",
+        "title": "Gettysburg",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E08",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E08",
+        "out_file": "episode_cards/S08E08.json"
+      },
+      {
+        "episode_id": "S08E09",
+        "title": "Mrs. California",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E09",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E09",
+        "out_file": "episode_cards/S08E09.json"
+      },
+      {
+        "episode_id": "S08E10",
+        "title": "Christmas Wishes",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E10",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E10",
+        "out_file": "episode_cards/S08E10.json"
+      },
+      {
+        "episode_id": "S08E11",
+        "title": "Trivia",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E11",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E11",
+        "out_file": "episode_cards/S08E11.json"
+      },
+      {
+        "episode_id": "S08E12",
+        "title": "Pool Party",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E12",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E12",
+        "out_file": "episode_cards/S08E12.json"
+      },
+      {
+        "episode_id": "S08E13",
+        "title": "Jury Duty",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E13",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E13",
+        "out_file": "episode_cards/S08E13.json"
+      },
+      {
+        "episode_id": "S08E14",
+        "title": "Special Project",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E14",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E14",
+        "out_file": "episode_cards/S08E14.json"
+      },
+      {
+        "episode_id": "S08E15",
+        "title": "Tallahasse",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E15",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E15",
+        "out_file": "episode_cards/S08E15.json"
+      },
+      {
+        "episode_id": "S08E16",
+        "title": "After Hours",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E16",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E16",
+        "out_file": "episode_cards/S08E16.json"
+      },
+      {
+        "episode_id": "S08E17",
+        "title": "Test the Store",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E17",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E17",
+        "out_file": "episode_cards/S08E17.json"
+      },
+      {
+        "episode_id": "S08E18",
+        "title": "Last Day In Florida",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E18",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E18",
+        "out_file": "episode_cards/S08E18.json"
+      },
+      {
+        "episode_id": "S08E19",
+        "title": "Get The Girl",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E19",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E19",
+        "out_file": "episode_cards/S08E19.json"
+      },
+      {
+        "episode_id": "S08E20",
+        "title": "Welcome Party",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E20",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E20",
+        "out_file": "episode_cards/S08E20.json"
+      },
+      {
+        "episode_id": "S08E21",
+        "title": "Angry Andy",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E21",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E21",
+        "out_file": "episode_cards/S08E21.json"
+      },
+      {
+        "episode_id": "S08E22",
+        "title": "Fundraiser",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E22",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E22",
+        "out_file": "episode_cards/S08E22.json"
+      },
+      {
+        "episode_id": "S08E23",
+        "title": "Turf War",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E23",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E23",
+        "out_file": "episode_cards/S08E23.json"
+      },
+      {
+        "episode_id": "S08E24",
+        "title": "Free Family Portrait Studio",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E24",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E24",
+        "out_file": "episode_cards/S08E24.json"
+      }
+    ],
+    "planned_total_llm_calls": 24
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T00:06:29Z",
+    "ended_at_utc": "2026-03-05T00:10:45Z",
+    "episodes_done": 24,
+    "episode_cards_written": 24,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S08E01",
+        "title": "The List",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E01",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E01",
+        "started_at_utc": "2026-03-05T00:06:29Z",
+        "ended_at_utc": "2026-03-05T00:06:40Z",
+        "duration_ms": 11112,
+        "error": null
+      },
+      {
+        "episode_id": "S08E02",
+        "title": "The Incentive",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E02",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E02",
+        "started_at_utc": "2026-03-05T00:06:40Z",
+        "ended_at_utc": "2026-03-05T00:06:46Z",
+        "duration_ms": 6567,
+        "error": null
+      },
+      {
+        "episode_id": "S08E03",
+        "title": "Lotto",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E03",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E03",
+        "started_at_utc": "2026-03-05T00:06:46Z",
+        "ended_at_utc": "2026-03-05T00:06:57Z",
+        "duration_ms": 10653,
+        "error": null
+      },
+      {
+        "episode_id": "S08E04",
+        "title": "Garden Party",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E04",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E04",
+        "started_at_utc": "2026-03-05T00:06:57Z",
+        "ended_at_utc": "2026-03-05T00:07:05Z",
+        "duration_ms": 8294,
+        "error": null
+      },
+      {
+        "episode_id": "S08E05",
+        "title": "Spooked",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E05",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E05",
+        "started_at_utc": "2026-03-05T00:07:05Z",
+        "ended_at_utc": "2026-03-05T00:07:11Z",
+        "duration_ms": 5938,
+        "error": null
+      },
+      {
+        "episode_id": "S08E06",
+        "title": "Doomsday",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E06",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E06",
+        "started_at_utc": "2026-03-05T00:07:11Z",
+        "ended_at_utc": "2026-03-05T00:07:27Z",
+        "duration_ms": 15501,
+        "error": null
+      },
+      {
+        "episode_id": "S08E07",
+        "title": "Pam’s Replacement",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E07",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E07",
+        "started_at_utc": "2026-03-05T00:07:27Z",
+        "ended_at_utc": "2026-03-05T00:07:34Z",
+        "duration_ms": 7537,
+        "error": null
+      },
+      {
+        "episode_id": "S08E08",
+        "title": "Gettysburg",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E08",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E08",
+        "started_at_utc": "2026-03-05T00:07:34Z",
+        "ended_at_utc": "2026-03-05T00:07:46Z",
+        "duration_ms": 12179,
+        "error": null
+      },
+      {
+        "episode_id": "S08E09",
+        "title": "Mrs. California",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E09",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E09",
+        "started_at_utc": "2026-03-05T00:07:46Z",
+        "ended_at_utc": "2026-03-05T00:08:03Z",
+        "duration_ms": 16221,
+        "error": null
+      },
+      {
+        "episode_id": "S08E10",
+        "title": "Christmas Wishes",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E10",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E10",
+        "started_at_utc": "2026-03-05T00:08:03Z",
+        "ended_at_utc": "2026-03-05T00:08:17Z",
+        "duration_ms": 13988,
+        "error": null
+      },
+      {
+        "episode_id": "S08E11",
+        "title": "Trivia",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E11",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E11",
+        "started_at_utc": "2026-03-05T00:08:17Z",
+        "ended_at_utc": "2026-03-05T00:08:27Z",
+        "duration_ms": 10284,
+        "error": null
+      },
+      {
+        "episode_id": "S08E12",
+        "title": "Pool Party",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E12",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E12",
+        "started_at_utc": "2026-03-05T00:08:27Z",
+        "ended_at_utc": "2026-03-05T00:08:38Z",
+        "duration_ms": 11502,
+        "error": null
+      },
+      {
+        "episode_id": "S08E13",
+        "title": "Jury Duty",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E13",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E13",
+        "started_at_utc": "2026-03-05T00:08:38Z",
+        "ended_at_utc": "2026-03-05T00:08:46Z",
+        "duration_ms": 7186,
+        "error": null
+      },
+      {
+        "episode_id": "S08E14",
+        "title": "Special Project",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E14",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E14",
+        "started_at_utc": "2026-03-05T00:08:46Z",
+        "ended_at_utc": "2026-03-05T00:09:00Z",
+        "duration_ms": 14349,
+        "error": null
+      },
+      {
+        "episode_id": "S08E15",
+        "title": "Tallahasse",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E15",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E15",
+        "started_at_utc": "2026-03-05T00:09:00Z",
+        "ended_at_utc": "2026-03-05T00:09:11Z",
+        "duration_ms": 11049,
+        "error": null
+      },
+      {
+        "episode_id": "S08E16",
+        "title": "After Hours",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E16",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E16",
+        "started_at_utc": "2026-03-05T00:09:11Z",
+        "ended_at_utc": "2026-03-05T00:09:19Z",
+        "duration_ms": 8495,
+        "error": null
+      },
+      {
+        "episode_id": "S08E17",
+        "title": "Test the Store",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E17",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E17",
+        "started_at_utc": "2026-03-05T00:09:19Z",
+        "ended_at_utc": "2026-03-05T00:09:32Z",
+        "duration_ms": 12800,
+        "error": null
+      },
+      {
+        "episode_id": "S08E18",
+        "title": "Last Day In Florida",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E18",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E18",
+        "started_at_utc": "2026-03-05T00:09:32Z",
+        "ended_at_utc": "2026-03-05T00:09:45Z",
+        "duration_ms": 12488,
+        "error": null
+      },
+      {
+        "episode_id": "S08E19",
+        "title": "Get The Girl",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E19",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E19",
+        "started_at_utc": "2026-03-05T00:09:45Z",
+        "ended_at_utc": "2026-03-05T00:09:57Z",
+        "duration_ms": 12393,
+        "error": null
+      },
+      {
+        "episode_id": "S08E20",
+        "title": "Welcome Party",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E20",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E20",
+        "started_at_utc": "2026-03-05T00:09:57Z",
+        "ended_at_utc": "2026-03-05T00:10:04Z",
+        "duration_ms": 6861,
+        "error": null
+      },
+      {
+        "episode_id": "S08E21",
+        "title": "Angry Andy",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E21",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E21",
+        "started_at_utc": "2026-03-05T00:10:04Z",
+        "ended_at_utc": "2026-03-05T00:10:11Z",
+        "duration_ms": 7368,
+        "error": null
+      },
+      {
+        "episode_id": "S08E22",
+        "title": "Fundraiser",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E22",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E22",
+        "started_at_utc": "2026-03-05T00:10:11Z",
+        "ended_at_utc": "2026-03-05T00:10:21Z",
+        "duration_ms": 10032,
+        "error": null
+      },
+      {
+        "episode_id": "S08E23",
+        "title": "Turf War",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E23",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E23",
+        "started_at_utc": "2026-03-05T00:10:21Z",
+        "ended_at_utc": "2026-03-05T00:10:37Z",
+        "duration_ms": 15747,
+        "error": null
+      },
+      {
+        "episode_id": "S08E24",
+        "title": "Free Family Portrait Studio",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season08_nano_2026-03-04_S08E24",
+        "episode_card_build_id": "derived_episodecard_season08_nano_2026-03-04_S08E24",
+        "started_at_utc": "2026-03-05T00:10:37Z",
+        "ended_at_utc": "2026-03-05T00:10:45Z",
+        "duration_ms": 7459,
+        "error": null
+      }
+    ]
+  }
+}

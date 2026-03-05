@@ -14,6 +14,12 @@ from typing import Any, Dict, List, Optional, Tuple
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
+try:
+    # Raised when OpenAI blocks a response for policy reasons.
+    from openai import ContentFilterFinishReasonError  # type: ignore
+except Exception:  # pragma: no cover
+    ContentFilterFinishReasonError = None  # type: ignore
+
 # Local imports
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
@@ -25,6 +31,16 @@ DEFAULT_DOCS_DIR = "ingestion/normalized_docs_txt"
 DEFAULT_OUT_ROOT = "derived/artifacts"
 # Default to nano to keep per-segment map costs down.
 DEFAULT_LLM_MODEL = "gpt-4.1-nano"
+
+# Prompt/normalization caps to avoid giant outputs (which can truncate or produce invalid JSON).
+MAX_BEATS = 6
+MAX_SUPPORTING_QUOTES_PER_BEAT = 2
+MAX_NOTABLE_QUOTES = 4
+MAX_SUPPORTING_QUOTES_PER_NOTABLE = 2
+MAX_UNCERTAINTIES = 3
+MAX_SUPPORTING_QUOTES_PER_UNCERTAINTY = 1
+MAX_TOTAL_SUPPORTING_QUOTES = 14
+MAX_QUOTE_CHARS = 220
 
 
 def utc_now_iso() -> str:
@@ -57,7 +73,10 @@ def _make_prompt(*, episode: EpisodeScript, segment: EpisodeSegment, segment_tex
         "If a detail is not explicitly supported by the segment text, omit it or mark it as unknown/uncertain. "
         "Do not guess. If unsure, record it under uncertainties. "
         "Output MUST be valid JSON only (no markdown, no code fences). "
-        "Any supporting_quote you output must be an exact substring of the segment text."
+        "Any supporting_quote you output must be an exact substring of the segment text. "
+        "Hard limits: beats <= 6; per-beat supporting_quotes <= 2; notable_quotes <= 4; "
+        "uncertainties <= 3; keep quotes short. "
+        "Never include raw newline characters inside JSON strings (replace with a space)."
     )
 
     user = {
@@ -97,7 +116,15 @@ def _make_prompt(*, episode: EpisodeScript, segment: EpisodeSegment, segment_tex
             "Do NOT invent names, events, intent, or outcomes.",
             "supporting_quotes must be exact substrings from the segment text.",
             "uncertainties.supporting_quotes must also be exact substrings from the segment text.",
-            "Keep supporting_quotes short (<= 200 chars) and selective.",
+            f"Beats: at most {MAX_BEATS}.",
+            f"Each beat.supporting_quotes: at most {MAX_SUPPORTING_QUOTES_PER_BEAT} items.",
+            f"notable_quotes: at most {MAX_NOTABLE_QUOTES} items.",
+            f"Each notable_quotes[*].supporting_quotes: at most {MAX_SUPPORTING_QUOTES_PER_NOTABLE} items.",
+            f"uncertainties: at most {MAX_UNCERTAINTIES} items.",
+            f"Each uncertainties[*].supporting_quotes: at most {MAX_SUPPORTING_QUOTES_PER_UNCERTAINTY} item.",
+            f"Total count of all supporting_quotes across the whole JSON: <= {MAX_TOTAL_SUPPORTING_QUOTES}.",
+            f"Keep every quote string <= {MAX_QUOTE_CHARS} characters.",
+            "Do not put newline characters inside any JSON string values.",
             "If the segment is mostly filler, keep beats small and say so.",
         ],
         "context": {
@@ -135,14 +162,24 @@ def _locate_evidence_spans(
         if not q:
             continue
 
+        found_text = q
         rel = segment_text.find(q)
+        if rel < 0:
+            # Best-effort: tolerate whitespace differences (e.g., model replaces newlines with spaces).
+            parts = [p for p in re.split(r"\s+", q) if p]
+            if len(parts) >= 2:
+                pattern = r"\s+".join(re.escape(p) for p in parts)
+                m = re.search(pattern, segment_text, flags=re.DOTALL)
+                if m is not None:
+                    rel = m.start()
+                    found_text = m.group(0)
         if rel < 0:
             continue
 
         abs_start = int(segment.segment_char_start + rel)
-        abs_end = int(abs_start + len(q))
+        abs_end = int(abs_start + len(found_text))
 
-        snippet = q
+        snippet = found_text
         if len(snippet) > max_snippet_chars:
             snippet = snippet[: max_snippet_chars - 3] + "..."
 
@@ -191,6 +228,57 @@ def _strip_code_fences(s: str) -> str:
     return s.strip()
 
 
+def _escape_control_chars_in_json_strings(s: str) -> str:
+    """Escape control characters that appear inside JSON string literals.
+
+    Some model outputs contain literal newlines (or other control chars) inside quoted strings,
+    which is invalid JSON. This function makes a best-effort pass converting those to escaped
+    sequences so that `json.loads` can succeed.
+    """
+
+    out: List[str] = []
+    in_string = False
+    escaping = False
+
+    for ch in s:
+        if in_string:
+            if escaping:
+                out.append(ch)
+                escaping = False
+                continue
+
+            if ch == "\\":
+                out.append(ch)
+                escaping = True
+                continue
+
+            if ch == '"':
+                out.append(ch)
+                in_string = False
+                continue
+
+            if ch == "\n":
+                out.append("\\n")
+                continue
+            if ch == "\r":
+                out.append("\\r")
+                continue
+            if ch == "\t":
+                out.append("\\t")
+                continue
+            if ord(ch) < 32:
+                out.append(f"\\u{ord(ch):04x}")
+                continue
+
+            out.append(ch)
+        else:
+            out.append(ch)
+            if ch == '"':
+                in_string = True
+
+    return "".join(out)
+
+
 def _try_parse_json(content: str) -> Dict[str, Any]:
     """Best-effort JSON parser for LLM output.
 
@@ -216,7 +304,8 @@ def _try_parse_json(content: str) -> Dict[str, Any]:
         pass
 
     # Attempt 3: common repairs
-    repaired = s2.replace('\\"', '"')
+    repaired = _escape_control_chars_in_json_strings(s2)
+    repaired = repaired.replace('\\"', '"')
     repaired = _TRAILING_COMMA_RE.sub(r"\1", repaired)
     # Some models prepend text; try extracting first {...} block.
     if "{" in repaired and "}" in repaired:
@@ -236,7 +325,24 @@ def _normalize_segment_summary(
 ) -> Dict[str, Any]:
     """Normalize the model output into a concrete SegmentSummaryV1 with evidence spans."""
 
-    people = [str(p).strip() for p in _coerce_list(raw.get("people")) if str(p).strip()]
+    def _clean_text(x: Any) -> str:
+        s = str(x or "").replace("\r", " ").replace("\n", " ").replace("\t", " ")
+        s = re.sub(r"\s+", " ", s).strip()
+        if len(s) > MAX_QUOTE_CHARS:
+            s = s[: MAX_QUOTE_CHARS - 1].rstrip() + "…"
+        return s
+
+    # De-dupe people while preserving order.
+    people: List[str] = []
+    seen_people = set()
+    for p in _coerce_list(raw.get("people")):
+        sp = str(p).strip()
+        if not sp or sp in seen_people:
+            continue
+        seen_people.add(sp)
+        people.append(sp)
+
+    remaining_quotes_budget = MAX_TOTAL_SUPPORTING_QUOTES
 
     beats_out: List[Dict[str, Any]] = []
     for b in _coerce_list(raw.get("beats")):
@@ -246,7 +352,13 @@ def _normalize_segment_summary(
         if not summary:
             continue
         btype = str(b.get("type") or "other").strip()
-        supporting_quotes = [str(q).strip() for q in _coerce_list(b.get("supporting_quotes")) if str(q).strip()]
+        supporting_quotes: List[str] = []
+        for q in _coerce_list(b.get("supporting_quotes")):
+            sq = _clean_text(q)
+            if sq:
+                supporting_quotes.append(sq)
+        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_BEAT, remaining_quotes_budget)]
+        remaining_quotes_budget -= len(supporting_quotes)
         evidence = _locate_evidence_spans(
             episode=episode,
             segment=segment,
@@ -261,11 +373,14 @@ def _normalize_segment_summary(
             }
         )
 
+        if len(beats_out) >= MAX_BEATS:
+            break
+
     quotes_out: List[Dict[str, Any]] = []
     for q in _coerce_list(raw.get("notable_quotes")):
         if not isinstance(q, dict):
             continue
-        quote = str(q.get("quote") or "").strip()
+        quote = _clean_text(q.get("quote"))
         if not quote:
             continue
         speaker = q.get("speaker")
@@ -274,7 +389,13 @@ def _normalize_segment_summary(
         else:
             speaker_out = str(speaker).strip() or None
 
-        supporting_quotes = [str(x).strip() for x in _coerce_list(q.get("supporting_quotes")) if str(x).strip()]
+        supporting_quotes: List[str] = []
+        for x in _coerce_list(q.get("supporting_quotes")):
+            sx = _clean_text(x)
+            if sx:
+                supporting_quotes.append(sx)
+        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_NOTABLE, remaining_quotes_budget)]
+        remaining_quotes_budget -= len(supporting_quotes)
         evidence = _locate_evidence_spans(
             episode=episode,
             segment=segment,
@@ -290,10 +411,15 @@ def _normalize_segment_summary(
             }
         )
 
+        if len(quotes_out) >= MAX_NOTABLE_QUOTES:
+            break
+
     uncertainty_items: List[Dict[str, Any]] = []
     uncertainties_text: List[str] = []
 
     for u in _coerce_list(raw.get("uncertainties")):
+        if len(uncertainty_items) >= MAX_UNCERTAINTIES:
+            break
         # Back-compat: allow a simple string uncertainty.
         if isinstance(u, str):
             text = u.strip()
@@ -319,9 +445,13 @@ def _normalize_segment_summary(
 
         question = str(u.get("question") or "").strip()
         why_uncertain = str(u.get("why_uncertain") or "").strip()
-        supporting_quotes = [
-            str(q).strip() for q in _coerce_list(u.get("supporting_quotes")) if str(q).strip()
-        ]
+        supporting_quotes: List[str] = []
+        for q in _coerce_list(u.get("supporting_quotes")):
+            sq = _clean_text(q)
+            if sq:
+                supporting_quotes.append(sq)
+        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_UNCERTAINTY, remaining_quotes_budget)]
+        remaining_quotes_budget -= len(supporting_quotes)
         if not question:
             continue
 
@@ -485,7 +615,16 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
     if not os.environ.get("OPENAI_API_KEY"):
         raise EnvironmentError("OPENAI_API_KEY is not set. Add it to .env or your environment.")
 
-    llm = ChatOpenAI(model=cfg.llm_model, temperature=0.0)
+    # Prefer JSON-mode to reduce invalid / truncated JSON outputs.
+    try:
+        llm = ChatOpenAI(
+            model=cfg.llm_model,
+            temperature=0.0,
+            model_kwargs={"response_format": {"type": "json_object"}},
+        )
+    except TypeError:
+        # Older langchain_openai versions may not accept model_kwargs here.
+        llm = ChatOpenAI(model=cfg.llm_model, temperature=0.0)
 
     n_total = len(segments)
     for i, s in enumerate(segments):
@@ -508,14 +647,44 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
 
         t0 = time.time()
         call_started = utc_now_iso()
-        msg = llm.invoke(
-            [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ]
-        )
+        filtered = False
+        try:
+            msg = llm.invoke(
+                [
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ]
+            )
+            content = (getattr(msg, "content", None) or "").strip()
+        except Exception as e:
+            if ContentFilterFinishReasonError is not None and isinstance(e, ContentFilterFinishReasonError):
+                # Graceful degradation: produce a minimal JSON that avoids quoting
+                # any potentially sensitive text, but still preserves segment provenance.
+                filtered = True
+                content = _safe_json(
+                    {
+                        "people": [],
+                        "beats": [
+                            {
+                                "type": "other",
+                                "summary": "(Omitted: model response blocked by content filter for this segment.)",
+                                "supporting_quotes": [],
+                            }
+                        ],
+                        "notable_quotes": [],
+                        "uncertainties": [
+                            {
+                                "question": "Model response blocked by content filter for this segment.",
+                                "why_uncertain": "The LLM response was rejected; summary omitted.",
+                                "supporting_quotes": [],
+                            }
+                        ],
+                    }
+                )
+            else:
+                raise
+
         manifest["execution"]["llm_calls_made"] += 1
-        content = (getattr(msg, "content", None) or "").strip()
 
         try:
             raw = _try_parse_json(content)
@@ -539,7 +708,9 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
             raw=raw,
             episode=ep,
             segment=s,
-            segment_text=s_text,
+            # If the model response was filtered, avoid storing raw segment text
+            # in fallback evidence snippets.
+            segment_text=("" if filtered else s_text),
             build_id=build_id,
             created_at_utc=created_at,
             llm_model=cfg.llm_model,

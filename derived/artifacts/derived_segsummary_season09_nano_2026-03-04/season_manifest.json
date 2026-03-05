@@ -1,0 +1,771 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season09_nano_2026-03-04",
+  "created_at_utc": "2026-03-04T23:21:49Z",
+  "season": 9,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/segments",
+    "llm_model": "gpt-4.1-nano",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S09E01",
+        "title": "New Guys",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E01"
+      },
+      {
+        "episode_id": "S09E02",
+        "title": "Roy’s Wedding",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S09E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E02"
+      },
+      {
+        "episode_id": "S09E03",
+        "title": "Andy’s Ancestry",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E03"
+      },
+      {
+        "episode_id": "S09E04",
+        "title": "Work Bus",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E04"
+      },
+      {
+        "episode_id": "S09E05",
+        "title": "Here Comes Treble",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E05"
+      },
+      {
+        "episode_id": "S09E06",
+        "title": "The Boat",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S09E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E06"
+      },
+      {
+        "episode_id": "S09E07",
+        "title": "The Whale",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E07"
+      },
+      {
+        "episode_id": "S09E08",
+        "title": "The Target",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E08"
+      },
+      {
+        "episode_id": "S09E09",
+        "title": "Dwight Christmas",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S09E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E09"
+      },
+      {
+        "episode_id": "S09E10",
+        "title": "Lice",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E10"
+      },
+      {
+        "episode_id": "S09E11",
+        "title": "Suit Warehouse",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S09E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E11"
+      },
+      {
+        "episode_id": "S09E12",
+        "title": "Customer Loyalty",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E12"
+      },
+      {
+        "episode_id": "S09E13",
+        "title": "Junior Salesman",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E13"
+      },
+      {
+        "episode_id": "S09E14",
+        "title": "Vandalism",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E14"
+      },
+      {
+        "episode_id": "S09E15",
+        "title": "Couples Discount",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E15"
+      },
+      {
+        "episode_id": "S09E16",
+        "title": "Moving On",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S09E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E16"
+      },
+      {
+        "episode_id": "S09E17",
+        "title": "The Farm",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E17"
+      },
+      {
+        "episode_id": "S09E18",
+        "title": "Promos",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E18"
+      },
+      {
+        "episode_id": "S09E19",
+        "title": "Stairmageddon",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E19"
+      },
+      {
+        "episode_id": "S09E20",
+        "title": "Paper Airplane",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S09E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E20"
+      },
+      {
+        "episode_id": "S09E21",
+        "title": "Livin’ The Dream",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S09E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E21"
+      },
+      {
+        "episode_id": "S09E22",
+        "title": "A.A.R.M",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S09E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E22"
+      },
+      {
+        "episode_id": "S09E23",
+        "title": "Finale",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S09E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E23"
+      }
+    ],
+    "planned_total_llm_calls": 82
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T23:21:49Z",
+    "ended_at_utc": "2026-03-05T00:07:12Z",
+    "episodes_done": 23,
+    "segment_summaries_written": 80,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S09E01",
+        "title": "New Guys",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E01",
+        "started_at_utc": "2026-03-04T23:21:49Z",
+        "ended_at_utc": "2026-03-04T23:22:17Z",
+        "duration_ms": 28289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E01/segment_summaries/S09E01"
+      },
+      {
+        "episode_id": "S09E02",
+        "title": "Roy’s Wedding",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E02",
+        "started_at_utc": "2026-03-04T23:22:17Z",
+        "ended_at_utc": "2026-03-04T23:22:56Z",
+        "duration_ms": 39115,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E02/segment_summaries/S09E02"
+      },
+      {
+        "episode_id": "S09E03",
+        "title": "Andy’s Ancestry",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E03",
+        "started_at_utc": "2026-03-04T23:22:56Z",
+        "ended_at_utc": "2026-03-04T23:23:36Z",
+        "duration_ms": 40119,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E03/segment_summaries/S09E03"
+      },
+      {
+        "episode_id": "S09E04",
+        "title": "Work Bus",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E04",
+        "started_at_utc": "2026-03-04T23:23:36Z",
+        "ended_at_utc": "2026-03-04T23:24:26Z",
+        "duration_ms": 49384,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E04/segment_summaries/S09E04"
+      },
+      {
+        "episode_id": "S09E05",
+        "title": "Here Comes Treble",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E05",
+        "started_at_utc": "2026-03-04T23:24:26Z",
+        "ended_at_utc": "2026-03-04T23:25:16Z",
+        "duration_ms": 50669,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E05/segment_summaries/S09E05"
+      },
+      {
+        "episode_id": "S09E06",
+        "title": "The Boat",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E06",
+        "started_at_utc": "2026-03-04T23:25:16Z",
+        "ended_at_utc": "2026-03-04T23:26:12Z",
+        "duration_ms": 55913,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E06/segment_summaries/S09E06"
+      },
+      {
+        "episode_id": "S09E07",
+        "title": "The Whale",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E07",
+        "started_at_utc": "2026-03-04T23:26:12Z",
+        "ended_at_utc": "2026-03-04T23:26:56Z",
+        "duration_ms": 43967,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E07/segment_summaries/S09E07"
+      },
+      {
+        "episode_id": "S09E08",
+        "title": "The Target",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E08",
+        "started_at_utc": "2026-03-04T23:26:56Z",
+        "ended_at_utc": "2026-03-04T23:27:35Z",
+        "duration_ms": 39129,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E08/segment_summaries/S09E08"
+      },
+      {
+        "episode_id": "S09E09",
+        "title": "Dwight Christmas",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E09",
+        "started_at_utc": "2026-03-04T23:27:35Z",
+        "ended_at_utc": "2026-03-04T23:28:28Z",
+        "duration_ms": 52419,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E09/segment_summaries/S09E09"
+      },
+      {
+        "episode_id": "S09E10",
+        "title": "Lice",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E10",
+        "started_at_utc": "2026-03-04T23:28:28Z",
+        "ended_at_utc": "2026-03-04T23:29:06Z",
+        "duration_ms": 37996,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E10/segment_summaries/S09E10"
+      },
+      {
+        "episode_id": "S09E11",
+        "title": "Suit Warehouse",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E11",
+        "started_at_utc": "2026-03-04T23:29:06Z",
+        "ended_at_utc": "2026-03-04T23:30:14Z",
+        "duration_ms": 68794,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E11/segment_summaries/S09E11"
+      },
+      {
+        "episode_id": "S09E12",
+        "title": "Customer Loyalty",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E12",
+        "started_at_utc": "2026-03-04T23:30:14Z",
+        "ended_at_utc": "2026-03-04T23:31:18Z",
+        "duration_ms": 63926,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E12/segment_summaries/S09E12"
+      },
+      {
+        "episode_id": "S09E13",
+        "title": "Junior Salesman",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E13",
+        "started_at_utc": "2026-03-04T23:31:18Z",
+        "ended_at_utc": "2026-03-04T23:31:55Z",
+        "duration_ms": 36576,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E13/segment_summaries/S09E13"
+      },
+      {
+        "episode_id": "S09E14",
+        "title": "Vandalism",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E14",
+        "started_at_utc": "2026-03-04T23:31:55Z",
+        "ended_at_utc": "2026-03-04T23:32:40Z",
+        "duration_ms": 45052,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E14/segment_summaries/S09E14"
+      },
+      {
+        "episode_id": "S09E15",
+        "title": "Couples Discount",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E15",
+        "started_at_utc": "2026-03-04T23:32:40Z",
+        "ended_at_utc": "2026-03-04T23:33:19Z",
+        "duration_ms": 39382,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E15/segment_summaries/S09E15"
+      },
+      {
+        "episode_id": "S09E16",
+        "title": "Moving On",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E16",
+        "started_at_utc": "2026-03-04T23:33:19Z",
+        "ended_at_utc": "2026-03-04T23:34:23Z",
+        "duration_ms": 63920,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E16/segment_summaries/S09E16"
+      },
+      {
+        "episode_id": "S09E17",
+        "title": "The Farm",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E17",
+        "started_at_utc": "2026-03-04T23:34:23Z",
+        "ended_at_utc": "2026-03-04T23:34:53Z",
+        "duration_ms": 29296,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E17/segment_summaries/S09E17"
+      },
+      {
+        "episode_id": "S09E18",
+        "title": "Promos",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E18",
+        "started_at_utc": "2026-03-04T23:34:53Z",
+        "ended_at_utc": "2026-03-04T23:35:32Z",
+        "duration_ms": 39406,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E18/segment_summaries/S09E18"
+      },
+      {
+        "episode_id": "S09E19",
+        "title": "Stairmageddon",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E19",
+        "started_at_utc": "2026-03-04T23:35:32Z",
+        "ended_at_utc": "2026-03-04T23:36:18Z",
+        "duration_ms": 46387,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E19/segment_summaries/S09E19"
+      },
+      {
+        "episode_id": "S09E20",
+        "title": "Paper Airplane",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E20",
+        "started_at_utc": "2026-03-04T23:36:18Z",
+        "ended_at_utc": "2026-03-04T23:36:48Z",
+        "duration_ms": 29796,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E20/segment_summaries/S09E20"
+      },
+      {
+        "episode_id": "S09E21",
+        "title": "Livin’ The Dream",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E21",
+        "started_at_utc": "2026-03-04T23:36:48Z",
+        "ended_at_utc": "2026-03-04T23:37:45Z",
+        "duration_ms": 57036,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E21/segment_summaries/S09E21"
+      },
+      {
+        "episode_id": "S09E22",
+        "title": "A.A.R.M",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E22",
+        "started_at_utc": "2026-03-04T23:37:45Z",
+        "ended_at_utc": "2026-03-04T23:38:48Z",
+        "duration_ms": 62771,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E22/segment_summaries/S09E22"
+      },
+      {
+        "episode_id": "S09E23",
+        "title": "Finale",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E23",
+        "started_at_utc": "2026-03-05T00:06:33Z",
+        "ended_at_utc": "2026-03-05T00:07:12Z",
+        "duration_ms": 38584,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E23/segment_summaries/S09E23"
+      }
+    ],
+    "latest_episodes": [
+      {
+        "episode_id": "S09E01",
+        "title": "New Guys",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E01",
+        "started_at_utc": "2026-03-04T23:21:49Z",
+        "ended_at_utc": "2026-03-04T23:22:17Z",
+        "duration_ms": 28289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E01/segment_summaries/S09E01"
+      },
+      {
+        "episode_id": "S09E02",
+        "title": "Roy’s Wedding",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E02",
+        "started_at_utc": "2026-03-04T23:22:17Z",
+        "ended_at_utc": "2026-03-04T23:22:56Z",
+        "duration_ms": 39115,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E02/segment_summaries/S09E02"
+      },
+      {
+        "episode_id": "S09E03",
+        "title": "Andy’s Ancestry",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E03",
+        "started_at_utc": "2026-03-04T23:22:56Z",
+        "ended_at_utc": "2026-03-04T23:23:36Z",
+        "duration_ms": 40119,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E03/segment_summaries/S09E03"
+      },
+      {
+        "episode_id": "S09E04",
+        "title": "Work Bus",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E04",
+        "started_at_utc": "2026-03-04T23:23:36Z",
+        "ended_at_utc": "2026-03-04T23:24:26Z",
+        "duration_ms": 49384,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E04/segment_summaries/S09E04"
+      },
+      {
+        "episode_id": "S09E05",
+        "title": "Here Comes Treble",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E05",
+        "started_at_utc": "2026-03-04T23:24:26Z",
+        "ended_at_utc": "2026-03-04T23:25:16Z",
+        "duration_ms": 50669,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E05/segment_summaries/S09E05"
+      },
+      {
+        "episode_id": "S09E06",
+        "title": "The Boat",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E06",
+        "started_at_utc": "2026-03-04T23:25:16Z",
+        "ended_at_utc": "2026-03-04T23:26:12Z",
+        "duration_ms": 55913,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E06/segment_summaries/S09E06"
+      },
+      {
+        "episode_id": "S09E07",
+        "title": "The Whale",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E07",
+        "started_at_utc": "2026-03-04T23:26:12Z",
+        "ended_at_utc": "2026-03-04T23:26:56Z",
+        "duration_ms": 43967,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E07/segment_summaries/S09E07"
+      },
+      {
+        "episode_id": "S09E08",
+        "title": "The Target",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E08",
+        "started_at_utc": "2026-03-04T23:26:56Z",
+        "ended_at_utc": "2026-03-04T23:27:35Z",
+        "duration_ms": 39129,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E08/segment_summaries/S09E08"
+      },
+      {
+        "episode_id": "S09E09",
+        "title": "Dwight Christmas",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E09",
+        "started_at_utc": "2026-03-04T23:27:35Z",
+        "ended_at_utc": "2026-03-04T23:28:28Z",
+        "duration_ms": 52419,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E09/segment_summaries/S09E09"
+      },
+      {
+        "episode_id": "S09E10",
+        "title": "Lice",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E10",
+        "started_at_utc": "2026-03-04T23:28:28Z",
+        "ended_at_utc": "2026-03-04T23:29:06Z",
+        "duration_ms": 37996,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E10/segment_summaries/S09E10"
+      },
+      {
+        "episode_id": "S09E11",
+        "title": "Suit Warehouse",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E11",
+        "started_at_utc": "2026-03-04T23:29:06Z",
+        "ended_at_utc": "2026-03-04T23:30:14Z",
+        "duration_ms": 68794,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E11/segment_summaries/S09E11"
+      },
+      {
+        "episode_id": "S09E12",
+        "title": "Customer Loyalty",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E12",
+        "started_at_utc": "2026-03-04T23:30:14Z",
+        "ended_at_utc": "2026-03-04T23:31:18Z",
+        "duration_ms": 63926,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E12/segment_summaries/S09E12"
+      },
+      {
+        "episode_id": "S09E13",
+        "title": "Junior Salesman",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E13",
+        "started_at_utc": "2026-03-04T23:31:18Z",
+        "ended_at_utc": "2026-03-04T23:31:55Z",
+        "duration_ms": 36576,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E13/segment_summaries/S09E13"
+      },
+      {
+        "episode_id": "S09E14",
+        "title": "Vandalism",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E14",
+        "started_at_utc": "2026-03-04T23:31:55Z",
+        "ended_at_utc": "2026-03-04T23:32:40Z",
+        "duration_ms": 45052,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E14/segment_summaries/S09E14"
+      },
+      {
+        "episode_id": "S09E15",
+        "title": "Couples Discount",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E15",
+        "started_at_utc": "2026-03-04T23:32:40Z",
+        "ended_at_utc": "2026-03-04T23:33:19Z",
+        "duration_ms": 39382,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E15/segment_summaries/S09E15"
+      },
+      {
+        "episode_id": "S09E16",
+        "title": "Moving On",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E16",
+        "started_at_utc": "2026-03-04T23:33:19Z",
+        "ended_at_utc": "2026-03-04T23:34:23Z",
+        "duration_ms": 63920,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E16/segment_summaries/S09E16"
+      },
+      {
+        "episode_id": "S09E17",
+        "title": "The Farm",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E17",
+        "started_at_utc": "2026-03-04T23:34:23Z",
+        "ended_at_utc": "2026-03-04T23:34:53Z",
+        "duration_ms": 29296,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E17/segment_summaries/S09E17"
+      },
+      {
+        "episode_id": "S09E18",
+        "title": "Promos",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E18",
+        "started_at_utc": "2026-03-04T23:34:53Z",
+        "ended_at_utc": "2026-03-04T23:35:32Z",
+        "duration_ms": 39406,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E18/segment_summaries/S09E18"
+      },
+      {
+        "episode_id": "S09E19",
+        "title": "Stairmageddon",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E19",
+        "started_at_utc": "2026-03-04T23:35:32Z",
+        "ended_at_utc": "2026-03-04T23:36:18Z",
+        "duration_ms": 46387,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E19/segment_summaries/S09E19"
+      },
+      {
+        "episode_id": "S09E20",
+        "title": "Paper Airplane",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E20",
+        "started_at_utc": "2026-03-04T23:36:18Z",
+        "ended_at_utc": "2026-03-04T23:36:48Z",
+        "duration_ms": 29796,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E20/segment_summaries/S09E20"
+      },
+      {
+        "episode_id": "S09E21",
+        "title": "Livin’ The Dream",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E21",
+        "started_at_utc": "2026-03-04T23:36:48Z",
+        "ended_at_utc": "2026-03-04T23:37:45Z",
+        "duration_ms": 57036,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E21/segment_summaries/S09E21"
+      },
+      {
+        "episode_id": "S09E22",
+        "title": "A.A.R.M",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E22",
+        "started_at_utc": "2026-03-04T23:37:45Z",
+        "ended_at_utc": "2026-03-04T23:38:48Z",
+        "duration_ms": 62771,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E22/segment_summaries/S09E22"
+      },
+      {
+        "episode_id": "S09E23",
+        "title": "Finale",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S09E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season09_nano_2026-03-04_S09E23",
+        "started_at_utc": "2026-03-05T00:06:33Z",
+        "ended_at_utc": "2026-03-05T00:07:12Z",
+        "duration_ms": 38584,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season09_nano_2026-03-04_S09E23/segment_summaries/S09E23"
+      }
+    ]
+  },
+  "resumed_at_utc": "2026-03-05T00:06:33Z"
+}

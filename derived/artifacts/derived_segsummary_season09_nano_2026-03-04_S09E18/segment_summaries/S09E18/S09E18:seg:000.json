@@ -1,0 +1,242 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_nano_2026-03-04_S09E18",
+  "created_at_utc": "2026-03-04T23:34:53Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S09E18",
+  "segment_id": "S09E18:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7140,
+  "people": [
+    "Kevin",
+    "Pam",
+    "Clark",
+    "Dwight",
+    "Phyllis",
+    "Andy",
+    "Angela",
+    "Darryl",
+    "Meredith",
+    "Jim",
+    "Ryan Howard",
+    "Oscar",
+    "Stanley",
+    "Erin",
+    "Mr. Ruger",
+    "Esther",
+    "Michael Scott"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Phyllis is shown listening to 50 Shades of Grey and appears to be aroused in the office.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 278,
+          "char_end": 376,
+          "snippet": "Dwight (Phyllis rocks her chair into his provocatively): Seriously. Ugh. Ok, this is unacceptable."
+        },
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 1067,
+          "char_end": 1132,
+          "snippet": "Andy: Whoa, whoa, whoa, wait a minute. Why is Phyllis so aroused?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight dumps water on Phyllis to stop her from being aroused.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 1222,
+          "char_end": 1274,
+          "snippet": "Dwight: OK, you are useless. I'll take care of this."
+        },
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 1275,
+          "char_end": 1336,
+          "snippet": "[STAGE] walks out of Andy's office and dumps water on Phyllis"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "The promo for the documentary is shown, featuring various characters including Jim and Pam.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 3533,
+          "char_end": 3687,
+          "snippet": "Promo Voice (Music begins, Michael Scott is shown): The boss. The workers. The lives. The loves. The people. The paper. The Office: An American Workplace."
+        },
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 3709,
+          "char_end": 3758,
+          "snippet": "[STAGE] Pam and Dwight are shown in episodes past"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight discusses his relationship with Esther Ruger and her father.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 1900,
+          "char_end": 2063,
+          "snippet": "Dwight: Well, we've been out three times, there has been physicality but the thing is we were hanging out with her father the other night looking at a farm catalog"
+        },
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 1821,
+          "char_end": 1869,
+          "snippet": "Dwight: Lives on the neighboring farm. 85 acres."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim and Pam discuss their past appearance in promos and Jim's upcoming pitch meeting.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 5794,
+          "char_end": 5848,
+          "snippet": "Pam: Weird to see how we used to look in those promos."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "She's doing it again.",
+      "speaker": "Kevin",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 19,
+          "char_end": 54,
+          "snippet": "Kevin: Uh oh. She's doing it again."
+        }
+      ]
+    },
+    {
+      "quote": "It's officially a hostile work environment.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 278,
+          "char_end": 376,
+          "snippet": "Dwight (Phyllis rocks her chair into his provocatively): Seriously. Ugh. Ok, this is unacceptable."
+        }
+      ]
+    },
+    {
+      "quote": "The Office: An American Workplace.",
+      "speaker": "Promo Voice",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 3533,
+          "char_end": 3687,
+          "snippet": "Promo Voice (Music begins, Michael Scott is shown): The boss. The workers. The lives. The loves. The people. The paper. The Office: An American Workplace."
+        }
+      ]
+    },
+    {
+      "quote": "Eat Fresh.",
+      "speaker": "Ryan Howard",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 4843,
+          "char_end": 4884,
+          "snippet": "Ryan Howard: Nice to meet you. Eat Fresh."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Dwight's relationship with Esther?",
+    "What happens after Phyllis is stopped from arousing?",
+    "What is the full content of the promo?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Dwight's relationship with Esther?",
+      "why_uncertain": "The segment does not show the conclusion of Dwight's relationship.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nKevin: Uh oh. She's doing it again.\n\n=== SCENE 001 ===\n\nPam: Phyllis has gotten into audio books and lately she's been listening to 50 Shades of Grey. Which, if you don't know what it is, it's a book about um…\nClark: It's"
+        }
+      ]
+    },
+    {
+      "question": "What happens after Phyllis is stopped from arousing?",
+      "why_uncertain": "The segment does not show the aftermath of Dwight dumping water on Phyllis.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nKevin: Uh oh. She's doing it again.\n\n=== SCENE 001 ===\n\nPam: Phyllis has gotten into audio books and lately she's been listening to 50 Shades of Grey. Which, if you don't know what it is, it's a book about um…\nClark: It's"
+        }
+      ]
+    },
+    {
+      "question": "What is the full content of the promo?",
+      "why_uncertain": "Only a brief excerpt of the promo is shown, not the full content.",
+      "evidence": [
+        {
+          "episode_id": "S09E18",
+          "segment_id": "S09E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nKevin: Uh oh. She's doing it again.\n\n=== SCENE 001 ===\n\nPam: Phyllis has gotten into audio books and lately she's been listening to 50 Shades of Grey. Which, if you don't know what it is, it's a book about um…\nClark: It's"
+        }
+      ]
+    }
+  ]
+}

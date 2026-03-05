@@ -1,0 +1,230 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E04",
+  "created_at_utc": "2026-03-04T22:54:21Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E04",
+  "segment_id": "S04E04:seg:004",
+  "segment_index": 4,
+  "segment_char_start": 27767,
+  "segment_char_end": 34277,
+  "people": [
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Oscar",
+    "Jan",
+    "Michael",
+    "Angela"
+  ],
+  "beats": [
+    {
+      "type": "other",
+      "summary": "Jim and Dwight discuss the hotel business and Trip Advisor.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 27805,
+          "snippet": "Jim: Dwight, how's the hotel business?"
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27806,
+          "char_end": 27821,
+          "snippet": "Dwight: Stupid."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Pam and Jim share positive reviews about their stay at a hotel.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27958,
+          "char_end": 27986,
+          "snippet": "Pam: We wrote a good review."
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 28106,
+          "char_end": 28161,
+          "snippet": "Jim: The dawn goose walk will tug at your heartstrings."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Oscar explains Michael is in debt due to financial mismanagement.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 28427,
+          "char_end": 28522,
+          "snippet": "Oscar: So due to Michael's clever financial maneuvEring, he finds himself tremendously in debt."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael decides to run away from his responsibilities, feeling good about it.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 29117,
+          "char_end": 29187,
+          "snippet": "Michael: What am I doing? I am blowing dodge. I'm getting out of town."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim shares his reason for leaving Scranton, involving Pam.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 29594,
+          "char_end": 29654,
+          "snippet": "Jim: Yeah, I didn't think I had. Well, it was all about Pam."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim and Pam plan dinner at a new Italian place.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 30282,
+          "char_end": 30292,
+          "snippet": "Pam: Okay."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I'm very passionate about Italian food.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 30420,
+          "char_end": 30513,
+          "snippet": "Jim: Yep, I'm very passionate about Italian food. In fact, um, I'm in love with Italian food."
+        }
+      ]
+    },
+    {
+      "quote": "Running away from your problems won't solve anything.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 34277,
+          "snippet": "Jim: Dwight, how's the hotel business?\nDwight: Stupid.\nJim: Have you checked Trip Advisor recently?\nDwight: No.\nJim: Maybe you should.\nDwight: Maybe you should. Whatever.\n\n=== SCENE 069 ===\n\nPam: We wrote a good review. Under comments, we w"
+        }
+      ]
+    },
+    {
+      "quote": "You are there for me.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 34277,
+          "snippet": "Jim: Dwight, how's the hotel business?\nDwight: Stupid.\nJim: Have you checked Trip Advisor recently?\nDwight: No.\nJim: Maybe you should.\nDwight: Maybe you should. Whatever.\n\n=== SCENE 069 ===\n\nPam: We wrote a good review. Under comments, we w"
+        }
+      ]
+    },
+    {
+      "quote": "I think the engineer left.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 32100,
+          "char_end": 32126,
+          "snippet": "I think the engineer left."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific event caused Michael to go into debt?",
+    "What is the outcome of Michael's decision to run away?",
+    "What is the exact nature of the hotel review?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific event caused Michael to go into debt?",
+      "why_uncertain": "The segment mentions Oscar's statement but does not specify the event.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 34277,
+          "snippet": "Jim: Dwight, how's the hotel business?\nDwight: Stupid.\nJim: Have you checked Trip Advisor recently?\nDwight: No.\nJim: Maybe you should.\nDwight: Maybe you should. Whatever.\n\n=== SCENE 069 ===\n\nPam: We wrote a good review. Under comments, we w"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's decision to run away?",
+      "why_uncertain": "The segment ends with Michael on a train, no resolution provided.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 34277,
+          "snippet": "Jim: Dwight, how's the hotel business?\nDwight: Stupid.\nJim: Have you checked Trip Advisor recently?\nDwight: No.\nJim: Maybe you should.\nDwight: Maybe you should. Whatever.\n\n=== SCENE 069 ===\n\nPam: We wrote a good review. Under comments, we w"
+        }
+      ]
+    },
+    {
+      "question": "What is the exact nature of the hotel review?",
+      "why_uncertain": "The segment only provides snippets of the review, not the full content or its impact.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 27767,
+          "char_end": 34277,
+          "snippet": "Jim: Dwight, how's the hotel business?\nDwight: Stupid.\nJim: Have you checked Trip Advisor recently?\nDwight: No.\nJim: Maybe you should.\nDwight: Maybe you should. Whatever.\n\n=== SCENE 069 ===\n\nPam: We wrote a good review. Under comments, we w"
+        }
+      ]
+    }
+  ]
+}

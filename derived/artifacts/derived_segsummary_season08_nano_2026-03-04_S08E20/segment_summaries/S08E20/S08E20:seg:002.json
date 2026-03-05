@@ -1,0 +1,230 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_nano_2026-03-04_S08E20",
+  "created_at_utc": "2026-03-04T23:36:45Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S08E20",
+  "segment_id": "S08E20:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13122,
+  "segment_char_end": 19915,
+  "people": [
+    "Pam",
+    "Darryl",
+    "Ryan",
+    "Oscar",
+    "Kevin",
+    "Angela",
+    "Creed",
+    "Erin",
+    "Andy",
+    "Jessica",
+    "Kenny",
+    "Robert",
+    "Nellie",
+    "Jim",
+    "Magician",
+    "Dwight",
+    "Phyllis",
+    "Megan",
+    "Lauren"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The party begins with Pam commenting on the guests' behavior and a stage performance.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 13122,
+          "char_end": 13229,
+          "snippet": "Pam: Okay, they're almost here- What? Come on. If you guys are gonna be mean, could you at least be subtle?"
+        },
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 13865,
+          "char_end": 13937,
+          "snippet": "Creed: Everybody get comfy now. This first song's over a half hour long."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Andy reveals to Jessica that he is gay, causing emotional tension.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 14907,
+          "char_end": 14940,
+          "snippet": "Andy: I am gay, and I prefer men."
+        },
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 15123,
+          "char_end": 15180,
+          "snippet": "Jessica: Andy, you're not gay. I mean, we were… together."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Andy confesses his sexuality to Jessica, explaining he faked his previous relationship.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 15214,
+          "char_end": 15271,
+          "snippet": "Andy: Well, I was faking it. I had to fake it every time."
+        },
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 15334,
+          "char_end": 15377,
+          "snippet": "Jessica: I can't say it doesn't make sense…"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim volunteers to participate in a magic trick, leading to humorous interactions.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 17268,
+          "char_end": 17306,
+          "snippet": "Jim: Oh, I'll do it. I will volunteer."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy and Erin leave the party after a confrontation with Jessica and others.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 19111,
+          "char_end": 19209,
+          "snippet": "Andy: Hi. Super-duper honesty time. I'm not gay. In fact, I'm so not gay, I'm in love with a girl."
+        },
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 19564,
+          "char_end": 19592,
+          "snippet": "Andy and Erin run to the car"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am gay, and I prefer men.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 14907,
+          "char_end": 14940,
+          "snippet": "Andy: I am gay, and I prefer men."
+        }
+      ]
+    },
+    {
+      "quote": "You're done!",
+      "speaker": "Lauren",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 19430,
+          "char_end": 19450,
+          "snippet": "Lauren: You're done!"
+        }
+      ]
+    },
+    {
+      "quote": "In fact, I think they're brilliant employees, in their own way.",
+      "speaker": "Nellie",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 18566,
+          "char_end": 18671,
+          "snippet": "Nellie: Well, I thought it was quite fun. In fact, I think they're brilliant employees, in their own way."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the full context of Andy's confession and its impact?",
+    "What are the motivations of the characters involved?",
+    "What is the outcome of the party and the characters' relationships afterward?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the full context of Andy's confession and its impact?",
+      "why_uncertain": "The segment only shows the moment of confession and immediate reactions, not the long-term impact.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 14907,
+          "char_end": 14940,
+          "snippet": "Andy: I am gay, and I prefer men."
+        }
+      ]
+    },
+    {
+      "question": "What are the motivations of the characters involved?",
+      "why_uncertain": "The segment does not explicitly state motivations, only actions and dialogue.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 13122,
+          "char_end": 19915,
+          "snippet": "Pam: Okay, they're almost here- What? Come on. If you guys are gonna be mean, could you at least be subtle?\n[STAGE] rips down ugly photo of Nellie\nDarryl: Oh, in the warehouse we use code names for people we want to talk about. Andy was Jel"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the party and the characters' relationships afterward?",
+      "why_uncertain": "The segment ends with the characters leaving or in emotional tension, no resolution provided.",
+      "evidence": [
+        {
+          "episode_id": "S08E20",
+          "segment_id": "S08E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e20_welcome_party_script.txt",
+          "char_start": 13122,
+          "char_end": 19915,
+          "snippet": "Pam: Okay, they're almost here- What? Come on. If you guys are gonna be mean, could you at least be subtle?\n[STAGE] rips down ugly photo of Nellie\nDarryl: Oh, in the warehouse we use code names for people we want to talk about. Andy was Jel"
+        }
+      ]
+    }
+  ]
+}
