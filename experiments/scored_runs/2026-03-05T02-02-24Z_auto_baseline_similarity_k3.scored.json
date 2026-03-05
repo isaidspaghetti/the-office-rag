@@ -1,0 +1,269 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-02-24Z_auto_baseline_similarity_k3",
+    "run_name": "auto_baseline_similarity_k3",
+    "created_at_utc": "2026-03-05T02:02:24Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "auto",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 61,
+    "overall_scores": [
+      62,
+      93,
+      44,
+      40,
+      38,
+      92,
+      56
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 2,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 62,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The detailed dialogue between Jim and Dwight",
+          "Dwight's exact reactions and lines"
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context, matching the gold answer. However, the retrieved context does not contain the specific dialogue or detailed scene description, so the detailed quotes and reactions are unsupported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 93,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer correctly identifies the episode and the cause of injury. Retrieved context confirms Season 2, Episode 12 titled 'The Injury' and mentions Michael's foot injury from a burn, but does not explicitly mention the George Foreman grill, so minor grounding deduction."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 2,
+        "hallucination": 5,
+        "overall": 44,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "The candidate answer correctly references episodes from season 2 and their general themes, which are supported by the retrieved context. However, it misses key plot points and character developments highlighted in the gold answer."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 40,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight is intimidated or uncomfortable with Jim's social interactions",
+          "Dwight's dislike stems from personal annoyance, professional frustration, and social discomfort"
+        ],
+        "missing_points": [
+          "Jim constantly pranks and undermines Dwight",
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "Dwight is competitive and threatened by Jim's social ease and influence",
+          "Examples from distinct situations/episodes",
+          "Nuance of deep respect underneath rivalry"
+        ],
+        "notes": "The candidate answer uses some retrieved context quotes showing Dwight's complaints about Jim, which supports some frustration and annoyance. However, it misses key reasons from the gold answer such as pranks, authority conflict, and competition. The social discomfort claim is not clearly supported by the context. Overall, the answer is partially grounded but incomplete and lacks key nuances."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Other serious girlfriends besides Helene Beesly",
+          "How the relationships ended",
+          "Jan Levinson, Carol Stills, Holly Flax, Donna Newton not mentioned"
+        ],
+        "notes": "The candidate answer correctly identifies Helene Beesly as a serious girlfriend from the retrieved context and does not hallucinate. However, it misses all other serious girlfriends and relationship outcomes listed in the gold answer, resulting in low completeness and correctness."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 92,
+        "verdict": "correct",
+        "unsupported_claims": [
+          "The letter includes a hot sauce packet and a high school yearbook photo"
+        ],
+        "missing_points": [],
+        "notes": "Candidate answer closely matches the gold answer and is well supported by the retrieved context, except for minor unsupported details about specific items inside the teapot."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is arrested in the series finale",
+          "Creed implies shady or criminal behavior and a questionable identity"
+        ],
+        "missing_points": [
+          "Creed's role as comic relief and unpredictable presence",
+          "His bizarre and evasive nature",
+          "His arrest in the series finale"
+        ],
+        "notes": "The candidate answer is grounded in the retrieved context regarding Creed's age, personality, and concerns about changes at work. However, it lacks key details about Creed's job role, his bizarre and evasive nature, and his arrest, which are in the gold answer but unsupported by the retrieved context. The answer is somewhat incomplete and partially hallucinated."
+      }
+    }
+  ]
+}

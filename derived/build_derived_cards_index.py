@@ -138,6 +138,43 @@ def _render_season_card(card: Dict[str, Any]) -> str:
     return "\n".join(lines).strip() + "\n"
 
 
+def _render_topic_card(card: Dict[str, Any]) -> str:
+    topic_id = str(card.get("topic_id") or "").strip()
+    topic_type = str(card.get("topic_type") or "").strip()
+    entities = [str(x).strip() for x in (card.get("entity_names") or []) if str(x).strip()]
+    episode_ids = [str(x).strip().upper() for x in (card.get("episode_ids") or []) if str(x).strip()]
+
+    lines: List[str] = []
+    header = "Topic card"
+    if topic_type:
+        header += f" ({topic_type})"
+    if topic_id:
+        header += f": {topic_id}"
+    lines.append(header)
+    if entities:
+        lines.append("Entities: " + ", ".join(entities))
+    if episode_ids:
+        lines.append("Episode IDs: " + ", ".join(episode_ids[:80]))
+
+    facts = list(card.get("bullet_facts") or [])
+    if facts:
+        lines.append("Facts:")
+        for f in facts[:30]:
+            if not isinstance(f, dict):
+                continue
+            fact = str(f.get("fact") or "").strip()
+            if fact:
+                lines.append(f"- {fact}")
+
+    missing = [str(x).strip() for x in (card.get("missing") or []) if str(x).strip()]
+    if missing:
+        lines.append("Missing:")
+        for m in missing[:20]:
+            lines.append(f"- {m}")
+
+    return "\n".join(lines).strip() + "\n"
+
+
 def _iter_episode_card_files(out_root: Path, build_prefix: str) -> Iterable[Path]:
     # Layout: {prefix}_SxxEyy/episode_cards/SxxEyy.json
     pattern = f"{build_prefix}_S??E??/episode_cards/S??E??.json"
@@ -147,6 +184,11 @@ def _iter_episode_card_files(out_root: Path, build_prefix: str) -> Iterable[Path
 def _iter_season_card_files(out_root: Path, build_prefix: str) -> Iterable[Path]:
     # Layout: {prefix}/season_cards/seasonXX.json
     yield from sorted((out_root / build_prefix).glob("season_cards/season*.json"))
+
+
+def _iter_topic_card_files(out_root: Path, build_prefix: str) -> Iterable[Path]:
+    # Layout: {build_prefix}/topic_cards/<topic_id>.json
+    yield from sorted((out_root / build_prefix).glob("topic_cards/*.json"))
 
 
 def _auto_detect_episode_card_prefixes(out_root: Path) -> List[str]:
@@ -172,6 +214,18 @@ def _auto_detect_season_card_prefixes(out_root: Path) -> List[str]:
     return prefixes
 
 
+def _auto_detect_topic_card_prefixes(out_root: Path) -> List[str]:
+    prefixes: List[str] = []
+    for p in sorted(out_root.glob("topiccards_*")):
+        if not p.is_dir():
+            continue
+        if (p / "topic_cards").exists():
+            # Require at least one card.
+            if list((p / "topic_cards").glob("*.json")):
+                prefixes.append(p.name)
+    return prefixes
+
+
 @dataclass(frozen=True)
 class BuildConfig:
     out_root: Path
@@ -180,8 +234,10 @@ class BuildConfig:
     embed_model: str
     episode_cards_build_prefixes: List[str]
     season_cards_build_prefixes: List[str]
+    topic_cards_build_prefixes: List[str]
     include_episode_cards: bool
     include_season_cards: bool
+    include_topic_cards: bool
     seasons_filter: Optional[List[int]]
     reset: bool
     dry_run: bool
@@ -276,6 +332,41 @@ def build_derived_cards_index(cfg: BuildConfig) -> Dict[str, Any]:
                     }
                 )
 
+    if cfg.include_topic_cards:
+        for pref in cfg.topic_cards_build_prefixes:
+            paths = list(_iter_topic_card_files(cfg.out_root, pref))
+            if not paths:
+                continue
+            for p in paths:
+                card = json.loads(p.read_text(encoding="utf-8"))
+                if str(card.get("schema") or "") != "TopicCardV1":
+                    continue
+
+                topic_id = str(card.get("topic_id") or "").strip()
+                topic_type = str(card.get("topic_type") or "").strip()
+                entities = [str(x).strip() for x in (card.get("entity_names") or []) if str(x).strip()]
+                episode_ids = [str(x).strip().upper() for x in (card.get("episode_ids") or []) if str(x).strip()]
+                build_id = str(card.get("build_id") or "").strip()
+                stable_build_tag = build_id or pref
+
+                docs.append(
+                    {
+                        "page_content": _render_topic_card(card),
+                        "metadata": {
+                            "doc_type": "derived",
+                            "derived_type": "topic_card",
+                            "topic_id": topic_id,
+                            "topic_type": topic_type,
+                            "entity_names": entities,
+                            "episode_ids": episode_ids,
+                            "build_id": build_id,
+                            "source_file": str(p),
+                            "topic_cards_build_prefix": pref,
+                            "stable_doc_id": f"topic_card:{topic_id}:{stable_build_tag}",
+                        },
+                    }
+                )
+
     summary: Dict[str, Any] = {
         "created_at_utc": utc_now_iso(),
         "out_root": str(cfg.out_root),
@@ -284,8 +375,10 @@ def build_derived_cards_index(cfg: BuildConfig) -> Dict[str, Any]:
         "embed_model": str(cfg.embed_model),
         "include_episode_cards": bool(cfg.include_episode_cards),
         "include_season_cards": bool(cfg.include_season_cards),
+        "include_topic_cards": bool(cfg.include_topic_cards),
         "episode_cards_build_prefixes": cfg.episode_cards_build_prefixes,
         "season_cards_build_prefixes": cfg.season_cards_build_prefixes,
+        "topic_cards_build_prefixes": cfg.topic_cards_build_prefixes,
         "seasons_filter": cfg.seasons_filter,
         "docs_planned": len(docs),
         "dry_run": bool(cfg.dry_run),
@@ -343,8 +436,15 @@ def main() -> None:
         help="Comma-separated season-card build prefixes. If omitted, auto-detect under out-root.",
     )
 
+    p.add_argument(
+        "--topic-cards-build-prefixes",
+        default="",
+        help="Comma-separated topic-card build prefixes. If omitted, auto-detect under out-root.",
+    )
+
     p.add_argument("--no-episode-cards", action="store_true", help="Do not index EpisodeDerivedCardV1")
     p.add_argument("--no-season-cards", action="store_true", help="Do not index SeasonDerivedCardV1")
+    p.add_argument("--no-topic-cards", action="store_true", help="Do not index TopicCardV1")
 
     p.add_argument(
         "--seasons",
@@ -362,15 +462,20 @@ def main() -> None:
 
     episode_prefixes = parse_csv_list(str(args.episode_cards_build_prefixes))
     season_prefixes = parse_csv_list(str(args.season_cards_build_prefixes))
+    topic_prefixes = parse_csv_list(str(args.topic_cards_build_prefixes))
 
     include_episode_cards = not bool(args.no_episode_cards)
     include_season_cards = not bool(args.no_season_cards)
+    include_topic_cards = not bool(args.no_topic_cards)
 
     if include_episode_cards and not episode_prefixes:
         episode_prefixes = _auto_detect_episode_card_prefixes(out_root)
 
     if include_season_cards and not season_prefixes:
         season_prefixes = _auto_detect_season_card_prefixes(out_root)
+
+    if include_topic_cards and not topic_prefixes:
+        topic_prefixes = _auto_detect_topic_card_prefixes(out_root)
 
     seasons_filter: Optional[List[int]] = None
     seasons_s = parse_csv_list(str(args.seasons))
@@ -385,8 +490,10 @@ def main() -> None:
             embed_model=str(args.embed_model),
             episode_cards_build_prefixes=episode_prefixes,
             season_cards_build_prefixes=season_prefixes,
+            topic_cards_build_prefixes=topic_prefixes,
             include_episode_cards=include_episode_cards,
             include_season_cards=include_season_cards,
+            include_topic_cards=include_topic_cards,
             seasons_filter=seasons_filter,
             reset=bool(args.reset),
             dry_run=bool(args.dry_run),

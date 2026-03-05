@@ -1,0 +1,265 @@
+{
+  "run": {
+    "run_id": "2026-03-02T20-06-06Z_baseline_similarity_k3",
+    "run_name": "baseline_similarity_k3",
+    "created_at_utc": "2026-03-02T20:06:06Z",
+    "notes": "Baseline: similarity k=3, episode-level docs, no metadata routing"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 44,
+    "overall_scores": [
+      62,
+      95,
+      38,
+      30,
+      30,
+      18,
+      38
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 2,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 62,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Exact quotes of the line and dialogue",
+          "Dwight's reaction quotes",
+          "Jim asking 'What kind of bear is best?'"
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context matching the gold answer. However, the retrieved context does not contain any dialogue or details to verify the quotes or the described interaction, so these claims are unsupported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Does not mention that Michael burns his foot on a George Foreman grill"
+        ],
+        "notes": "Answer correctly identifies the episode and title; however, it omits the detail about the George Foreman grill, which is in the gold answer but not explicitly confirmed in the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 5,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The season continues to explore the dynamics and relationships among the office employees through these and other episodes"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "The candidate answer correctly mentions two episodes from season 2 but does not cover the key plot points described in the gold answer. It makes a general claim about exploring relationships that is not explicitly supported by the retrieved context. No hallucinations detected."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim constantly pranks Dwight",
+          "Dwight sees Jim as a subordinate who challenges his authority",
+          "Dwight is competitive and threatened by Jim's position and influence",
+          "Dwight issues Jim demerits for tardiness",
+          "Dwight threatens to 'pre-fire' and 'full fire' Jim"
+        ],
+        "missing_points": [
+          "Underneath the rivalry, there is deep respect",
+          "Dwight naming Jim best man at his wedding",
+          "Examples from distinct situations/episodes"
+        ],
+        "notes": "The candidate answer aligns with the gold answer's key reasons but the retrieved context does not provide sufficient evidence to support these claims. The retrieved context contains only brief dialogue snippets without clear examples of pranks, authority challenges, or competition. The answer includes details not found in the context, leading to low groundedness and hallucination scores."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "No other serious girlfriends of Michael Scott or details about how those relationships ended are mentioned in the provided context"
+        ],
+        "missing_points": [
+          "List of Michael Scott's serious girlfriends beyond Jan Levinson",
+          "How the relationships ended for girlfriends other than Jan Levinson"
+        ],
+        "notes": "The candidate answer correctly states the information about Jan Levinson from the retrieved context and does not hallucinate about her relationship. However, it fails to provide information on other serious girlfriends or how those relationships ended, which is not supported by the retrieved context. The candidate appropriately refrains from making unsupported claims about other girlfriends, but the answer is incomplete given the question."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 0,
+        "completeness": 1,
+        "hallucination": 1,
+        "overall": 18,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a private letter that Pam wrote",
+          "Pam prefers to keep it private especially after being filmed for nine years",
+          "The exact contents of the letter are not revealed"
+        ],
+        "missing_points": [
+          "Jim gives Pam the teapot filled with meaningful items including the letter",
+          "The letter represents Jim’s feelings and their relationship",
+          "It is introduced in Season 2’s Christmas episode (\"Christmas Party\")",
+          "It remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The retrieved context does not contain any information about the teapot letter or its significance. The candidate answer contradicts the gold answer by attributing the letter to Pam rather than Jim and adds unsupported details about privacy and filming. The answer is incomplete and unsupported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed has made his hair jet black",
+          "Creed claims to be thirty years old, turning thirty in November",
+          "Creed has a complicated relationship with Michael",
+          "Creed tries to convince Michael not to let him go",
+          "Creed refers to himself and Michael as 'the old timers'",
+          "Creed is concerned about being replaced by younger employees"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer includes some details about Creed's age and relationship with Michael that are not supported by the retrieved context. The retrieved context only shows Creed saying he is thirty in November and calling Michael 'old', but does not support claims about fighting to keep his job or complicated relationship. The answer misses key character traits and Creed's role as comic relief and his arrest."
+      }
+    }
+  ]
+}

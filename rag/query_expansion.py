@@ -21,7 +21,7 @@ class QueryExpansionConfig:
     max_retries: Optional[int] = None
     seed: Optional[int] = None
     cache_path: Optional[Path] = Path("experiments/cache/query_expansion_cache.json")
-    prompt_version: str = "v1"
+    prompt_version: str = "v2"
 
 
 def _extract_json(text: str) -> Dict[str, Any]:
@@ -143,6 +143,8 @@ def expand_queries(
         "You generate search queries for retrieving evidence from a corpus of TV scripts and episode summaries.\n"
         "Do NOT answer the user. Do NOT add facts not present in the question.\n"
         "Keep each query short (<= 12 words) and entity-preserving.\n"
+        "Preserve important constraints/qualifiers from the original question (e.g., 'serious', 'how it ended', 'in which episode').\n"
+        "Do NOT broaden the scope (e.g., don't turn 'serious girlfriends' into 'dating history') unless the original question is broad.\n"
         "Return ONLY valid JSON: {\"queries\": [..]}."
     )
 

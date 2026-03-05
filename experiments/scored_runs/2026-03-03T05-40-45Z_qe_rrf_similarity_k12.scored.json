@@ -1,0 +1,289 @@
+{
+  "run": {
+    "run_id": "2026-03-03T05-40-45Z_qe_rrf_similarity_k12",
+    "run_name": "qe_rrf_similarity_k12",
+    "created_at_utc": "2026-03-03T05:40:45Z",
+    "notes": "Query expansion + RRF fusion (retrieval-only)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 52,
+    "overall_scores": [
+      82,
+      95,
+      56,
+      30,
+      26,
+      18,
+      56
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 82,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Detailed dialogue lines and Dwight's reactions are not present in the retrieved context"
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context matching the gold answer. However, the retrieved context does not contain the specific dialogue or detailed scene description to fully support the candidate's detailed recounting of the prank scene."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E10",
+          "S02E12",
+          "S02E13",
+          "S02E15",
+          "S02E19"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "The season builds to major emotional beats including 'Casino Night' where Jim confesses his feelings and kisses Pam"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Major emotional beats like 'Casino Night' with Jim's confession and kiss",
+          "Dwight's rivalry and ambition explicitly described",
+          "Michael and Jan's relationship development"
+        ],
+        "notes": "The candidate answer lists several episode events supported by the retrieved context but lacks key emotional and relational developments highlighted in the gold answer. Some claims about character relationships and season arcs are not supported by the retrieved documents."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says 'Your pranks have never worked in the past and they're not going to work today' (Scene 009)",
+          "Dwight warns Jim 'Don't make me fire you' and 'You're pre-fired. And when I'm promoted, you'll be full fired' (Scene 020)",
+          "Dwight says 'I cannot have a subordinate trying to make me look stupid' (Scene 019)",
+          "Dwight dislikes Jim because of pranks, challenge to authority, and attempts to undermine him"
+        ],
+        "missing_points": [
+          "Explicit mention of Dwight's value of hierarchy, rules, and authority",
+          "Jim's sarcastic and dismissive attitude toward Dwight's self-appointed authority",
+          "Dwight's feeling threatened by Jim's social ease and influence",
+          "Examples from distinct episodes/scenes supporting each reason",
+          "Mention of underlying respect and final season event (best man at wedding)"
+        ],
+        "notes": "The candidate answer provides plausible reasons aligned with the gold answer but does not have supporting evidence in the retrieved context. The retrieved context contains only brief, unrelated script excerpts without the quoted lines or clear examples. Therefore, the answer is only partially correct and poorly grounded."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 26,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Donna relationship ending",
+          "Julie relationship ending",
+          "European girlfriend Isabel",
+          "Details about Jan giving poor performance reviews",
+          "Michael acknowledging Jan's ambivalence",
+          "Michael acknowledging Donna relationship might be wrong"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup reasons",
+          "Holly Flax relationship and ending",
+          "Helene Beesly relationship and ending"
+        ],
+        "notes": "The candidate answer provides some named girlfriends and some relationship details but most claims are not supported by the retrieved context, which contains very limited information. The gold answer includes more complete and specific information about serious girlfriends and how relationships ended, which is missing or contradicted in the candidate. The retrieved context is insufficient to fully answer the question, so a more grounded answer would be 'I don't know'."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 0,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 18,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a private letter that Jim gave to Pam inside a teapot as a gift",
+          "It holds sentimental value for Pam and Jim, representing a meaningful and romantic gesture",
+          "Pam prefers to keep the contents of the teapot letter private, as she mentions in a Q&A session"
+        ],
+        "missing_points": [
+          "The teapot letter is introduced in Season 2's Christmas episode (\"Christmas Party\")",
+          "It remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer provides a reasonable explanation of the teapot letter's significance but none of these claims are supported by the retrieved context, which contains no relevant information about the teapot letter or its importance. The gold answer is more complete and specific, including the episode and symbolic meaning. The candidate's mention of a Q&A session and Pam's preference to keep the letter private is unsupported and likely hallucinated."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed tries to start his own paper company and poach clients quietly",
+          "Creed runs ineffective meetings",
+          "Creed has a laid-back attitude"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer is mostly grounded in the retrieved context, citing Creed's cryptic remarks, strange language, and history with the company. However, it misses key character traits such as his bizarre and evasive nature, shady implications, and his role as comic relief. Some claims about starting a paper company and running ineffective meetings are not supported by the retrieved context. Overall, the answer is partially correct but incomplete and slightly hallucinated."
+      }
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "run": {
+    "run_id": "2026-03-03T05-46-17Z_qe_rrf_mmr_k12",
+    "run_name": "qe_rrf_mmr_k12",
+    "created_at_utc": "2026-03-03T05:46:17Z",
+    "notes": "Query expansion + RRF fusion + MMR"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 56,
+    "overall_scores": [
+      79,
+      100,
+      79,
+      48,
+      25,
+      26,
+      38
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 79,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Detailed dialogue of the scene with Jim and Dwight is not present in the retrieved context",
+          "Explicit mention that Jim dresses as Dwight and the exact quotes are not found in the retrieved context"
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context matching the gold answer. However, the retrieved context does not contain the actual dialogue or detailed description of the scene, so the detailed quotes and interaction are unsupported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E08",
+          "S02E10",
+          "S02E12",
+          "S02E13",
+          "S02E15",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 4,
+        "completeness": 3,
+        "hallucination": 5,
+        "overall": 79,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "Pam remains engaged to Roy",
+          "Jim confesses his feelings and kisses Pam at Casino Night"
+        ],
+        "missing_points": [
+          "Tension in Jim/Pam relationship",
+          "Pam’s engagement to Roy",
+          "Dwight’s rivalry with Jim",
+          "Emotional beats including Jim’s confession and kiss at Casino Night"
+        ],
+        "notes": "The candidate answer provides a detailed episode list and some character dynamics but does not explicitly mention key emotional and relational developments highlighted in the gold answer. Some claims about character relationships are not directly supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 3,
+        "overall": 48,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim puts red tape over Dwight's chair as a prank",
+          "Jim tries to convince Dwight that electromagnetic fields are harmful",
+          "Dwight is upset about unreported malfeasance and says he cannot work with Jim anymore",
+          "Dwight gives Jim a demerit for tardiness"
+        ],
+        "missing_points": [
+          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "The competitive and threatened nature of Dwight by Jim's social ease and influence",
+          "Examples from distinct episodes supporting each reason",
+          "The nuance of deep respect underneath the rivalry"
+        ],
+        "notes": "The candidate answer correctly identifies three main reasons for Dwight's dislike of Jim: pranks, undermining, and rivalry for authority. However, many specific examples cited are not supported by the retrieved context, which only contains limited dialogue snippets without clear evidence of these claims. The answer also misses the nuance of underlying respect and some key motivations described in the gold answer. Overall, the answer is partially correct but lacks strong grounding and completeness."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson considered Michael her boyfriend",
+          "Jan gave Michael poor performance reviews after relationship became official",
+          "Relationship ended with ambivalence from Jan's side",
+          "Details about Holly's relationship and ending",
+          "Details about Donna's relationship ending",
+          "Michael refers to having a 'European girlfriend'"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup details",
+          "Helene Beesly relationship and ending",
+          "Explicit mention of how relationships ended for Jan, Holly, Donna",
+          "Michael proposing to Holly and leaving to be with her"
+        ],
+        "notes": "The candidate answer provides some details about Jan, Donna, and Holly but these are not supported by the retrieved context, which is mostly unrelated or insufficient. The retrieved context does not contain enough information to answer the question fully or accurately. The candidate answer includes many claims not found in the context, leading to low groundedness and hallucination scores. The gold answer contains more comprehensive and specific relationship details that are missing here."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 26,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a letter that Pam wrote and placed inside a teapot that Jim gave her as a gift",
+          "It is important because it holds a private and personal message from Pam to Jim",
+          "Pam said she would rather keep it private, especially after being filmed for nine years of her life"
+        ],
+        "missing_points": [
+          "Jim gives Pam the teapot, not Pam writing the letter",
+          "The letter represents Jim’s feelings and their relationship",
+          "The teapot and letter are introduced in Season 2’s Christmas episode",
+          "The teapot letter is a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer contradicts the gold by reversing who wrote the letter and misattributes the letter's origin and significance. The retrieved context does not support any claims about the teapot letter, so groundedness is low. The answer partially addresses the question but misses key details about the teapot's origin and importance."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed works at the office (not specified as Quality Assurance or Dunder Mifflin explicitly)",
+          "Creed runs meetings that no one attends",
+          "Creed speaks in strange languages",
+          "Creed makes acronyms",
+          "Creed talks about starting his own paper company and trying to poach clients",
+          "Creed has a casual attitude about being let go",
+          "Creed tries to fight being fired",
+          "Creed changes his hair color to jet black",
+          "Creed credited for solving Watermark-gate scandal",
+          "Creed's playful and rebellious personality"
+        ],
+        "missing_points": [
+          "Creed's official role as Quality Assurance at Dunder Mifflin",
+          "Creed's implication of shady or criminal behavior and questionable identity",
+          "Creed as comic relief and unpredictable mysterious presence",
+          "Creed's arrest in the series finale"
+        ],
+        "notes": "The candidate answer captures Creed as mysterious and eccentric but lacks grounding in the retrieved context and misses key facts from the gold answer, including his official role and the notable plot point of his arrest. Many claims are unsupported by the provided context."
+      }
+    }
+  ]
+}

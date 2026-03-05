@@ -1,0 +1,271 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-34-37Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09",
+    "run_name": "meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09",
+    "created_at_utc": "2026-03-05T02:34:37Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 0
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 80,
+      "lambda_mult": 0.9,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 53,
+    "overall_scores": [
+      100,
+      50,
+      30,
+      50,
+      50,
+      40,
+      50
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer correctly states lack of information in retrieved context and does not hallucinate."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 50,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "episode identification",
+          "details of the injury"
+        ],
+        "notes": "Candidate correctly refrains from answering due to lack of context, avoiding hallucination; however, no information is provided to confirm the answer."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension",
+          "Pam's engagement to Roy",
+          "Michael and Jan's relationship",
+          "Dwight's ambition and rivalry with Jim",
+          "Casino Night emotional climax"
+        ],
+        "notes": "Candidate answer is 'I don't know' which is fully grounded given no retrieved context, but provides no information or coverage of the question."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 50,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Reasons why Dwight dislikes Jim",
+          "Examples supporting the reasons"
+        ],
+        "notes": "Candidate answer correctly refrains from guessing due to lack of context, which is appropriate."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 50,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jan Levinson relationship and breakup",
+          "Carol Stills relationship and breakup",
+          "Holly Flax relationship and outcome",
+          "Donna Newton relationship and breakup",
+          "Helene Beesly relationship and breakup"
+        ],
+        "notes": "Candidate answer correctly states lack of information in retrieved context, which is empty. No hallucinations present."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim gives Pam a teapot filled with meaningful items including a letter",
+          "The letter represents Jim’s feelings and their relationship",
+          "Introduced in Season 2 Christmas episode (\"Christmas Party\")",
+          "Remains a meaningful symbol referenced later"
+        ],
+        "notes": "Candidate answer is fully grounded given no retrieved context but provides no information; 'I don't know' is appropriate here."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 50,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Creed's role at Dunder Mifflin",
+          "His bizarre and evasive nature",
+          "Implications of shady or criminal behavior",
+          "His comic relief role and arrest in series finale"
+        ],
+        "notes": "Candidate answer correctly refrains from making unsupported claims given no retrieved context."
+      }
+    }
+  ]
+}

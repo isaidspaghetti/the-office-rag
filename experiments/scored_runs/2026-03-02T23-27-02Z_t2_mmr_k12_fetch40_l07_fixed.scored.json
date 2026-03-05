@@ -1,0 +1,287 @@
+{
+  "run": {
+    "run_id": "2026-03-02T23-27-02Z_t2_mmr_k12_fetch40_l07_fixed",
+    "run_name": "t2_mmr_k12_fetch40_l07_fixed",
+    "created_at_utc": "2026-03-02T23:27:02Z",
+    "notes": "Tuning: MMR k=12 fetch_k=40 lambda=0.7 (fixed mmr impl)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 54,
+    "overall_scores": [
+      92,
+      94,
+      65,
+      48,
+      25,
+      25,
+      30
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 92,
+        "verdict": "correct",
+        "unsupported_claims": [
+          "Exact dialogue lines quoted are not fully present in retrieved context"
+        ],
+        "missing_points": [],
+        "notes": "Candidate answer correctly identifies the episode (S03E20 \"Product Recall\") and the context of Jim impersonating Dwight with the quote. The retrieved context confirms the episode and characters but does not provide the exact quoted dialogue, so minor penalty on groundedness."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 94,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "The candidate answer does not mention that Michael burns his foot on a George Foreman grill."
+        ],
+        "notes": "The candidate answer correctly identifies the episode as Season 2, Episode 12, titled 'The Injury', which is fully supported by the retrieved context. However, it omits the detail about the George Foreman grill, which is part of the gold answer and supported by the context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E08",
+          "S02E13",
+          "S02E15",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 65,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam remains engaged to Roy",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "Jim confesses his feelings and kisses Pam at Casino Night",
+          "Michael’s relationship with Jan becomes more involved"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension",
+          "Pam's engagement to Roy",
+          "Dwight's rivalry with Jim",
+          "Emotional beats including Casino Night kiss"
+        ],
+        "notes": "The candidate answer provides a decent overview of season 2 with episode examples supported by the retrieved context. However, it lacks mention of key emotional and relational developments such as Jim and Pam's tension, Pam's engagement to Roy, and the Casino Night kiss. Some claims about character relationships and events are not supported by the retrieved context, leading to moderate penalties in groundedness and correctness."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 48,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says 'Your pranks have never worked in the past and they're not going to work today' (SCENE 001) - not found in retrieved context",
+          "Dwight calls Jim his enemy with the detailed quote (SCENE 034) - not found in retrieved context",
+          "Dwight's underlying respect and naming Jim best man at his wedding - not supported by retrieved context"
+        ],
+        "missing_points": [
+          "Explicit mention that Jim is sarcastic and dismissive of Dwight’s self-appointed authority",
+          "Examples from distinct episodes showing pranks and rivalry",
+          "The nuance of deep respect beneath rivalry"
+        ],
+        "notes": "The candidate answer correctly identifies three main reasons Dwight dislikes Jim: pranks, authority challenges, and rivalry. However, the retrieved context does not contain the specific quotes or detailed examples cited, limiting groundedness. The answer misses the nuance of underlying respect and the example of Jim as best man. Some claims appear hallucinated or unsupported."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan gave Michael poor performance reviews after relationship became official",
+          "Jan was ambivalent and did not consider Michael her boyfriend",
+          "Donna's relationship status unclear; no end specified",
+          "Helene ended because Michael wanted children and to consider Pam's feelings",
+          "Carol relationship ended after Michael disclosed he had herpes",
+          "Holly relationship struggled due to distance; Michael reluctant to end it",
+          "Michael proposed to Carol on their fourth date",
+          "Michael proposed to Holly and left to be with her"
+        ],
+        "missing_points": [
+          "No retrieved context explicitly mentions Jan Levinson as a serious girlfriend or details of their breakup",
+          "No retrieved context mentions Donna Newton or her being married",
+          "No retrieved context mentions Helene Beesly or reasons for breakup",
+          "No retrieved context mentions Carol Stills or herpes disclosure",
+          "No retrieved context mentions Holly Flax or relationship details",
+          "No retrieved context supports the claim that Michael proposed to Carol or Holly",
+          "No retrieved context supports the claim that Michael ended relationship with Helene due to wanting children",
+          "No retrieved context supports the claim that Michael ended relationship with Donna after learning she was married"
+        ],
+        "notes": "The candidate answer provides detailed relationship information not supported by the retrieved context, which is mostly script excerpts with no relevant relationship details. The gold answer is more complete and accurate but also not supported by the retrieved context. The candidate answer is partially correct in naming known girlfriends but fails groundedness and completeness due to lack of supporting evidence."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a personal letter that Pam wrote to Jim",
+          "It is important because it holds private and meaningful sentiments between Pam and Jim",
+          "Pam chose to keep it private, indicating it contains something special and personal"
+        ],
+        "missing_points": [
+          "Jim gives Pam the teapot, not the other way around",
+          "The teapot contains meaningful items including the letter",
+          "The teapot letter represents Jim’s feelings and their relationship",
+          "It was introduced in Season 2’s Christmas episode (\"Christmas Party\")",
+          "It remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The retrieved context does not contain any information about the teapot letter or its significance. The candidate answer contains claims about the letter being from Pam to Jim and its private nature, which are not supported by the retrieved context. The gold answer states the letter is from Jim to Pam and its importance in their relationship, introduced in Season 2, which is missing from the candidate answer and unsupported by the context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed plays chess with Jim and is winning",
+          "Creed sold Kelly a tapeworm from Mexico",
+          "Creed mentioned a close acquaintance who backed a truck into the office",
+          "Creed insists on peach pie for his birthday",
+          "Creed tries to fight being let go by Michael"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some characterization of Creed as quirky and mysterious, supported by a single quote from the retrieved context. However, many specific claims about Creed's behavior and actions are not supported by the retrieved context. The retrieved context is limited and does not contain enough information to fully answer the question, especially about Creed's job, his shady behavior, or his arrest. The candidate answer partially aligns with the gold answer in tone but lacks grounding and completeness."
+      }
+    }
+  ]
+}

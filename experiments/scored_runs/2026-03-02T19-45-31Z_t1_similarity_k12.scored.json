@@ -1,0 +1,274 @@
+{
+  "run": {
+    "run_id": "2026-03-02T19-45-31Z_t1_similarity_k12",
+    "run_name": "t1_similarity_k12",
+    "created_at_utc": "2026-03-02T19:45:31Z",
+    "notes": "Tuning: increase k to 12 (same similarity)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 64,
+    "overall_scores": [
+      95,
+      92,
+      56,
+      77,
+      30,
+      38,
+      60
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode (S03E20 Product Recall) and the context of Jim impersonating Dwight and saying the line. All claims are supported by the retrieved script excerpt."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 92,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "The candidate answer does not mention that Michael burns his foot on a George Foreman grill."
+        ],
+        "notes": "The candidate answer correctly identifies the episode title and season/episode number, fully supported by the retrieved context. However, it omits the detail about the George Foreman grill, which is a key fact in the gold answer and supported by the context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E10",
+          "S02E15"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Season covers themes such as sexual harassment, Christmas celebrations, and gender-related discussions",
+          "Jim organizes office games in Michael and Dwight's absence",
+          "Jim's interactions with Pam develop characters' stories"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension and Jim's confession/kiss at Casino Night",
+          "Pam's engagement to Roy",
+          "Michael's relationship with Jan becoming more involved",
+          "Dwight's ambition and rivalry with Jim through workplace conflicts and pranks",
+          "Major emotional beats including Casino Night"
+        ],
+        "notes": "The candidate answer mentions some episodes and themes that are partially supported by the retrieved context (e.g., Dundies, Office Olympics, Boys and Girls), but it lacks key plot points about Jim and Pam's relationship tension, Michael and Jan's relationship, and Dwight's rivalry with Jim. The retrieved context does not explicitly confirm many of the candidate's claims about themes or character development, so groundedness is moderate. The answer is incomplete compared to the gold answer, missing major emotional beats and character arcs."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E06"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 4,
+        "overall": 77,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim tries to prevent Dwight from being fired by warning him about Robert California's plans (S02E06)",
+          "Jim calling Dwight 'special' or making sarcastic comments about Dwight's appearance and interests"
+        ],
+        "missing_points": [
+          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "The nuance that underneath the rivalry there is deep respect, e.g., Dwight naming Jim best man at his wedding"
+        ],
+        "notes": "The candidate answer correctly identifies three main reasons for Dwight's dislike of Jim: pranks, challenging authority, and disrespectful behavior, supported by examples from the retrieved context. However, some specific claims (e.g., Jim warning Dwight about Robert California in S02E06) are not supported by the retrieved context, which only shows a later interaction about Robert California's plans without episode identifiers. The answer misses the nuance about Dwight's respect for hierarchy and the eventual respect between them. Overall, the answer is mostly grounded but includes some unsupported details and lacks completeness on the nuanced relationship."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Relationship with Jan ended after she gave him a negative performance review and was going through a divorce, which made her ambivalent about their relationship",
+          "Relationship with Pam’s mom, Helene, was kept secret and considered inappropriate"
+        ],
+        "missing_points": [
+          "Carol Stills as a serious girlfriend and how relationship ended",
+          "Holly Flax as serious girlfriend and how relationship ended",
+          "Donna Newton as serious girlfriend and how relationship ended",
+          "Details on how Jan relationship ended (escalating dysfunction)",
+          "Details on how Carol relationship ended (Michael moving too fast, proposal on fourth date, photoshopping face)",
+          "Details on how Helene relationship ended (too old for him)",
+          "Holly Flax relationship ending with Michael proposing and leaving to be with her"
+        ],
+        "notes": "The candidate answer mentions Jan and Helene but does not provide full details on how relationships ended as per gold. It omits other serious girlfriends like Carol, Holly, and Donna. The retrieved context only partially supports the claims about Jan and Helene, but does not confirm all details. The candidate answer is incomplete and partially unsupported."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E06"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a private message or note that Pam received, which she prefers to keep to herself.",
+          "Its importance lies in the fact that it is a personal and private communication.",
+          "Pam chooses not to disclose its contents to others, emphasizing her desire for privacy after being filmed for nine years of her life (as mentioned in S02E06)."
+        ],
+        "missing_points": [
+          "Jim gives Pam a teapot filled with meaningful items including the letter.",
+          "The letter represents Jim’s feelings and their relationship.",
+          "It is introduced in Season 2’s Christmas episode (\"Christmas Party\").",
+          "The teapot and letter remain a meaningful symbol referenced later as their relationship progresses."
+        ],
+        "notes": "The retrieved context includes a scene where Pam declines to reveal the contents of the teapot letter, citing privacy after being filmed for nine years, which supports the candidate's claim about privacy. However, the context does not mention the origin of the teapot or letter, nor its symbolic importance or introduction in Season 2. The candidate answer misses key facts from the gold answer and adds some claims not fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 3,
+        "overall": 60,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is portrayed as ambitious",
+          "Creed has a history with the company, having been hired by Ed Truck",
+          "Creed tries to start his own paper company",
+          "Creed has a close relationship with Michael and the rest of the staff"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some relevant details about Creed's personality and behavior, which are partially supported by the retrieved context (e.g., Creed's odd remarks and attempts to poach clients). However, key facts from the gold answer such as Creed's role in Quality Assurance, his bizarre and evasive nature implying shady behavior, and his arrest in the finale are missing or unsupported. Some claims about his ambition and history with Ed Truck are not clearly supported by the retrieved context. Overall, the answer is partially correct but incomplete and partially unsupported."
+      }
+    }
+  ]
+}

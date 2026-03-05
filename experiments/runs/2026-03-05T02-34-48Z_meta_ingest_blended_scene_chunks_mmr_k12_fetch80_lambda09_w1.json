@@ -1,0 +1,947 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-34-48Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1",
+    "run_name": "meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1",
+    "created_at_utc": "2026-03-05T02:34:48Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene_w1",
+      "collection_name": null,
+      "num_vectors": 0
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 80,
+      "lambda_mult": 0.9,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "expected": {
+        "episode_ids": [
+          "S03E20"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 477,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the episode where Dwight says \"Bears. Beets. Battlestar Galactica.\" or its context.",
+        "latency_ms": 828,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 121,
+          "completion_tokens": 35,
+          "total_tokens": 156
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 153
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": false,
+          "examples": [
+            "Bears. Beets. Battlestar Galactica."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "expected": {
+        "episode_ids": [
+          "S02E12"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 525,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the episode in which Michael burns his foot.",
+        "latency_ms": 612,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 103,
+          "completion_tokens": 21,
+          "total_tokens": 124
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 114
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 975,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S02E01",
+                "season": 2,
+                "title": "The Dundies",
+                "score": 0.5854229927062988
+              },
+              {
+                "rank": 2,
+                "episode_id": "S02E13",
+                "season": 2,
+                "title": "The Secret",
+                "score": 0.5712631940841675
+              },
+              {
+                "rank": 3,
+                "episode_id": "S02E03",
+                "season": 2,
+                "title": "Office Olympics",
+                "score": 0.5688169598579407
+              },
+              {
+                "rank": 4,
+                "episode_id": "S03E08",
+                "season": 3,
+                "title": "The Merger",
+                "score": 0.5465918779373169
+              },
+              {
+                "rank": 5,
+                "episode_id": "S06E20",
+                "season": 6,
+                "title": "Secretary’s Day",
+                "score": 0.5356955528259277
+              },
+              {
+                "rank": 6,
+                "episode_id": "S01E02",
+                "season": 1,
+                "title": "Diversity Day",
+                "score": 0.533721387386322
+              },
+              {
+                "rank": 7,
+                "episode_id": "S02E10",
+                "season": 2,
+                "title": "Christmas Party",
+                "score": 0.5303843021392822
+              },
+              {
+                "rank": 8,
+                "episode_id": "S02E11",
+                "season": 2,
+                "title": "Booze Cruise",
+                "score": 0.5289146900177002
+              },
+              {
+                "rank": 9,
+                "episode_id": "S06E17",
+                "season": 6,
+                "title": "St. Patrick’s Day",
+                "score": 0.5283663868904114
+              },
+              {
+                "rank": 10,
+                "episode_id": "S02E22",
+                "season": 2,
+                "title": "Casino Night",
+                "score": 0.5280770659446716
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S02E01",
+            "S02E13",
+            "S02E03",
+            "S03E08",
+            "S06E20",
+            "S01E02"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 0
+          }
+        }
+      },
+      "answer": {
+        "text": "I don't know.",
+        "latency_ms": 376,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 104,
+          "completion_tokens": 4,
+          "total_tokens": 108
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 13
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 786,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S03E23",
+                "season": 3,
+                "title": "The Job",
+                "score": 0.49321526288986206
+              },
+              {
+                "rank": 2,
+                "episode_id": "S03E18",
+                "season": 3,
+                "title": "The Negotiation",
+                "score": 0.4825540781021118
+              },
+              {
+                "rank": 3,
+                "episode_id": "S03E12",
+                "season": 3,
+                "title": "Traveling Salesmen",
+                "score": 0.47610336542129517
+              },
+              {
+                "rank": 4,
+                "episode_id": "S06E03",
+                "season": 6,
+                "title": "The Promotion",
+                "score": 0.4756969213485718
+              },
+              {
+                "rank": 5,
+                "episode_id": "S09E09",
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.46669262647628784
+              },
+              {
+                "rank": 6,
+                "episode_id": "S02E08",
+                "season": 2,
+                "title": "Performance Review",
+                "score": 0.45378053188323975
+              },
+              {
+                "rank": 7,
+                "episode_id": "S02E06",
+                "season": 2,
+                "title": "The Fight",
+                "score": 0.45071089267730713
+              },
+              {
+                "rank": 8,
+                "episode_id": "S08E13",
+                "season": 8,
+                "title": "Jury Duty",
+                "score": 0.4440021514892578
+              },
+              {
+                "rank": 9,
+                "episode_id": "S03E13",
+                "season": 3,
+                "title": "The Return",
+                "score": 0.44324588775634766
+              },
+              {
+                "rank": 10,
+                "episode_id": "S03E03",
+                "season": 3,
+                "title": "The Coup",
+                "score": 0.4416224956512451
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S03E23",
+            "S03E18",
+            "S03E12",
+            "S06E03",
+            "S09E09",
+            "S02E08"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 0
+          }
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about why Dwight dislikes Jim or any examples.",
+        "latency_ms": 803,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 107,
+          "completion_tokens": 20,
+          "total_tokens": 127
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 110
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 728,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S07E21",
+                "season": 7,
+                "title": "Goodbye Michael",
+                "score": 0.5169597268104553
+              },
+              {
+                "rank": 2,
+                "episode_id": "S07E14",
+                "season": 7,
+                "title": "The Search",
+                "score": 0.5166726112365723
+              },
+              {
+                "rank": 3,
+                "episode_id": "S04E10",
+                "season": 4,
+                "title": "Chair Model",
+                "score": 0.5009281635284424
+              },
+              {
+                "rank": 4,
+                "episode_id": "S06E06",
+                "season": 6,
+                "title": "The Lover",
+                "score": 0.49041229486465454
+              },
+              {
+                "rank": 5,
+                "episode_id": "S06E11",
+                "season": 6,
+                "title": "Scott’s Tots",
+                "score": 0.4779156446456909
+              },
+              {
+                "rank": 6,
+                "episode_id": "S03E11",
+                "season": 3,
+                "title": "Back From Vacation",
+                "score": 0.47637373208999634
+              },
+              {
+                "rank": 7,
+                "episode_id": "S05E23",
+                "season": 5,
+                "title": "Broke",
+                "score": 0.4720679521560669
+              },
+              {
+                "rank": 8,
+                "episode_id": "S07E04",
+                "season": 7,
+                "title": "Sex Ed",
+                "score": 0.47064363956451416
+              },
+              {
+                "rank": 9,
+                "episode_id": "S07E20",
+                "season": 7,
+                "title": "Michael’s Last Dundies",
+                "score": 0.46925151348114014
+              },
+              {
+                "rank": 10,
+                "episode_id": "S06E21",
+                "season": 6,
+                "title": "Body Language",
+                "score": 0.4646492004394531
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S07E21",
+            "S07E14",
+            "S04E10",
+            "S06E06",
+            "S06E11",
+            "S03E11"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 0
+          }
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about Michael Scott's serious girlfriends or how those relationships ended.",
+        "latency_ms": 735,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 106,
+          "completion_tokens": 23,
+          "total_tokens": 129
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 139
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "expected": {
+        "episode_ids": [
+          "S02E10"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 408,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the teapot letter or its importance.",
+        "latency_ms": 655,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 106,
+          "completion_tokens": 20,
+          "total_tokens": 126
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 106
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 336,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about who Creed is or what his deal is.",
+        "latency_ms": 557,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 103,
+          "completion_tokens": 21,
+          "total_tokens": 124
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 103
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 605,
+    "avg_context_docs": 0.0,
+    "avg_context_chars": 0.0,
+    "avg_distinct_episodes_in_context": 0.0,
+    "avg_distinct_sources_in_context": 0.0,
+    "avg_top_episode_share_in_context": null,
+    "avg_episode_entropy_norm_in_context": null,
+    "avg_cited_episode_ids_not_in_context": 0.0,
+    "avg_aggregation_readiness_score": null,
+    "avg_aggregation_readiness_score_agg_questions": null,
+    "avg_answer_latency_ms": 652,
+    "avg_prompt_tokens": 107,
+    "avg_completion_tokens": 20,
+    "avg_total_tokens": 127,
+    "idk_rate": 1.0,
+    "episode_citation_rate": 0.0,
+    "retrieval_empty_rate": 1.0,
+    "retrieval_failure_rate": 1.0,
+    "grounding_failure_rate": null,
+    "quote_in_context_rate": 0.0,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

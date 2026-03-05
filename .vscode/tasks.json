@@ -1,0 +1,44 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "score topiccards blended runs",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--run-name-prefix",
+				"topiccards_blended_"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "score topiccards blended runs (robust)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--run-name-prefix",
+				"topiccards_blended_"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "routing sweep (gen gpt-4.1-mini)",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"experiments/run_routing_sweep.sh"
+			],
+			"isBackground": false
+		}
+	]
+}

@@ -86,3 +86,42 @@ If you want a single collection that contains both EpisodeDerivedCardV1 and Seas
   - `python derived/build_derived_cards_index.py --dry-run`
 - Build (reset + rebuild):
   - `python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
+
+---
+
+## Entity-focused corpora (characters / relationships / plot objects)
+
+These are **cross-episode** derived artifacts built by aggregating EpisodeDerivedCardV1 files.
+
+- Build (auto-pick top characters + relationship pairs; plot objects come from config):
+  - `python derived/build_entity_corpora.py --config derived/entity_corpora/config.example.json`
+
+Outputs are written under `derived/artifacts/<build-prefix>/`:
+- `character_cards/`
+- `relationship_cards/`
+- `plot_object_cards/`
+
+See schema notes in `docs/DERIVED_CHECKLIST_AND_SCHEMAS.md`.
+
+---
+
+## Topic cards (2-pass: retrieval → one-call synthesis)
+
+This is a more chatbot-friendly way to build cards at scale:
+
+1) **Pass 1: Candidate episode discovery (cheap)**
+   - For each topic, run retrieval against the script index.
+   - Log: top episode IDs + top chunks per episode.
+
+2) **Pass 2: Card synthesis (one LLM call per card)**
+   - Feed only the selected evidence chunks.
+   - Require: bullet facts + citations + 1–3 exact quotes.
+   - If missing, say missing.
+
+Commands:
+- Discover only:
+  - `python derived/build_topic_cards.py --pass discover --topics derived/topic_cards/topics.example.json --build-prefix topiccards_v1_YYYY-MM-DD`
+- Synthesize (after discovery):
+  - `python derived/build_topic_cards.py --pass synthesize --topics derived/topic_cards/topics.example.json --build-prefix topiccards_v1_YYYY-MM-DD`
+- Both in one go:
+  - `python derived/build_topic_cards.py --pass both --topics derived/topic_cards/topics.example.json --build-prefix topiccards_v1_YYYY-MM-DD`

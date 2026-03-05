@@ -1,0 +1,518 @@
+ "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 7172,
+        "stats": {
+          "min": 0.015151515151515152,
+          "max": 0.09756742464304602,
+          "mean": 0.04349043185720208
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": "S04E10",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 27,
+            "first_line": "=== SCENE 044 ===",
+            "preview": "=== SCENE 044 ===\n\nKelly: Hi, Michael.\nMichael (sitting at her desk): Hey, Kelly.\nKelly: Yeah, what are you doing here?\nMichael: Nothing. Just hangin'. Chillin'. No agenda. Would you consider hookin' me up with one of your friends?\nKelly: O…",
+            "score": 0.09756742464304602
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "episode_id": "S04E08",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 14,
+            "first_line": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"",
+            "preview": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"\nMichael: Not a woman, just a cool, great looking, best friend.\nLester: Aren'…",
+            "score": 0.09756742464304602
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt",
+            "episode_id": "S04E11",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 7,
+            "first_line": "=== SCENE 012 ===",
+            "preview": "=== SCENE 012 ===\n\nMichael: Would you have sex with Meredith?\nJim: What?\nMichael: Do you think she'd keep it quiet?\nJim: I'm gonna go to my desk.\nMichael: Jim, it's not the horniness, ok it's the loneliness that…\nJim: I know.\nMichael: Let's…",
+            "score": 0.06299603174603174
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+            "episode_id": "S06E23",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 7,
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nMichael: No, I gotta go. Text me later.\nJim: I'm really too tired to do this.\nPam: Me too!\nJim: Then let's just not do this. Do you have any idea the risks involved?\nPam: Hey Michael.\nMichael: Hey.\nPam: We were wondEring …",
+            "score": 0.061778846153846156
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt",
+            "episode_id": "S06E19",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 9,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMichael: So, what do you do?\nJulie: I am an ESL teacher.\nMichael: Really?\nJulie: Yeah.\nMichael: See, I didn't think you could teach that. I thought that was something you were born with. What am I thinking right now?\nJuli…",
+            "score": 0.04713064713064713
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt",
+            "episode_id": "S02E11",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nMichael: Is somebody there?\nJim: What happened to you?\nMichael: Captain Jack has a problem with authority.\nJim: Oh, right, because you announced that his ship was sinking?\nMichael: He just totally lost it. If you ask me, …",
+            "score": 0.046176046176046176
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+            "episode_id": "S06E04",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 30,
+            "first_line": "Michael (watching Dwight eat breakfast): How can you eat like that?",
+            "preview": "Michael (watching Dwight eat breakfast): How can you eat like that?\nDwight: I'm ravenous after a night of love making. You?\nMichael: Yeah, I'm hungry, but I'm not going to make a pig out of myself.\nDwight: Hey, what was she like?\nMichael: S…",
+            "score": 0.031009615384615385
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "episode_id": "S03E12",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 22,
+            "first_line": "Dwight: I would like to give the rest of my belongings to Michael Scott. Just take them. Except this.",
+            "preview": "Dwight: I would like to give the rest of my belongings to Michael Scott. Just take them. Except this.\nMichael: Good luck.\n\n=== SCENE 046 ===\n\nRyan: Dwight will be missed. Not by me so much, but, he will be missed.\n\n=== SCENE 047 ===\n\nAngela…",
+            "score": 0.015873015873015872
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "episode_id": "S02E05",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 1,
+            "first_line": "Michael: I know why she's calling. It's the end of the month, and I was supposed to let somebody go by the end of the month. And somehow I'm supposed to put on a costume and smile. Okay.",
+            "preview": "Michael: I know why she's calling. It's the end of the month, and I was supposed to let somebody go by the end of the month. And somehow I'm supposed to put on a costume and smile. Okay.\n[STAGE] dials a number on his speaker phone\nSherry (o…",
+            "score": 0.015625
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e04_sex_ed_summary.txt",
+            "episode_id": "S07E04",
+            "doc_type": "summary",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S07E04 — Sex Ed",
+            "preview": "The Office — S07E04 — Sex Ed\n\nMichael contacts all of his former girlfriends thinking he has herpes.",
+            "score": 0.015625
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt",
+            "episode_id": "S07E21",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 30,
+            "first_line": "Stanley: Yes, what is this about?",
+            "preview": "Stanley: Yes, what is this about?\nMichael: What is this meeting about?\nStanley: Mmhmmm.\nMichael: Okay, here we are in the conference room. Once again. And I just wanted to call you all here, together, because I have something important. Wel…",
+            "score": 0.015384615384615385
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e18_garage_sale_script.txt",
+            "episode_id": "S07E18",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 15,
+            "first_line": "=== SCENE 025 ===",
+            "preview": "=== SCENE 025 ===\n\nMichael: Get this… Kevin thought I was gonna sell my Bowflex for 200 dollars and I told him 'Dude this was a prop in my movie.'\nHolly: Look I need to talk to you.\nMichael: Ok it's because we haven't sold anything. You kno…",
+            "score": 0.015151515151515152
+          }
+        ],
+        "multi_query": {
+          "expanded_queries": [
+            "List Michael Scott’s serious girlfriends and how the relationships ended.",
+            "Michael Scott serious girlfriends",
+            "Michael Scott relationships ending",
+            "Michael Scott romantic partners",
+            "Michael Scott dating history",
+            "Michael Scott love life"
+          ],
+          "k_per_query": 6,
+          "fusion": "rrf",
+          "rrf_k0": 60,
+          "candidates": 36,
+          "deduped": 15,
+          "routing": {
+            "List Michael Scott’s serious girlfriends and how the relationships ended.": {
+              "policy": "blended",
+              "episode_shortlist": [
+                "S03E02",
+                "S03E10",
+                "S06E06",
+                "S02E11",
+                "S06E02",
+                "S04E07"
+              ]
+            },
+            "Michael Scott serious girlfriends": {
+              "policy": "blended",
+              "episode_shortlist": [
+                "S03E02",
+                "S03E10",
+                "S06E06",
+                "S02E11",
+                "S06E02",
+                "S04E07"
+              ]
+            },
+            "Michael Scott relationships ending": {
+              "policy": "blended",
+              "episode_shortlist": [
+                "S07E21",
+                "S03E02",
+                "S03E10",
+                "S06E06",
+                "S02E11",
+                "S06E02"
+              ]
+            },
+            "Michael Scott romantic partners": {
+              "policy": "blended",
+              "episode_shortlist": [
+                "S03E02",
+                "S03E10",
+                "S06E06",
+                "S02E11",
+                "S06E02",
+                "S04E07"
+              ]
+            },
+            "Michael Scott dating history": {
+              "policy": "blended",
+              "episode_shortlist": [
+                "S03E02",
+                "S03E10",
+                "S06E06",
+                "S02E11",
+                "S06E02",
+                "S04E07"
+              ]
+            },
+            "Michael Scott love life": {
+              "policy": "blended",
+              "episode_shortlist": null
+            }
+          },
+          "provenance": [
+            {
+              "rank": 1,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends",
+                "Michael Scott relationships ending",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 2,
+                "Michael Scott serious girlfriends": 1,
+                "Michael Scott relationships ending": 2,
+                "Michael Scott romantic partners": 1,
+                "Michael Scott dating history": 1,
+                "Michael Scott love life": 2
+              },
+              "best_base_score": 0.6081318259239197,
+              "fused_score": 0.09756742464304602,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt"
+            },
+            {
+              "rank": 2,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends",
+                "Michael Scott relationships ending",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 1,
+                "Michael Scott serious girlfriends": 2,
+                "Michael Scott relationships ending": 1,
+                "Michael Scott romantic partners": 2,
+                "Michael Scott dating history": 2,
+                "Michael Scott love life": 1
+              },
+              "best_base_score": 0.6025359630584717,
+              "fused_score": 0.09756742464304602,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt"
+            },
+            {
+              "rank": 3,
+              "retrieved_by": [
+                "Michael Scott serious girlfriends",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott serious girlfriends": 3,
+                "Michael Scott romantic partners": 3,
+                "Michael Scott dating history": 4,
+                "Michael Scott love life": 4
+              },
+              "best_base_score": 0.5789638161659241,
+              "fused_score": 0.06299603174603174,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt"
+            },
+            {
+              "rank": 4,
+              "retrieved_by": [
+                "Michael Scott serious girlfriends",
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott serious girlfriends": 5,
+                "Michael Scott romantic partners": 4,
+                "Michael Scott dating history": 5,
+                "Michael Scott love life": 5
+              },
+              "best_base_score": 0.5723170638084412,
+              "fused_score": 0.061778846153846156,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt"
+            },
+            {
+              "rank": 5,
+              "retrieved_by": [
+                "Michael Scott romantic partners",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "Michael Scott romantic partners": 5,
+                "Michael Scott dating history": 3,
+                "Michael Scott love life": 3
+              },
+              "best_base_score": 0.5776046514511108,
+              "fused_score": 0.04713064713064713,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt"
+            },
+            {
+              "rank": 6,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott dating history",
+                "Michael Scott love life"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 3,
+                "Michael Scott dating history": 6,
+                "Michael Scott love life": 6
+              },
+              "best_base_score": 0.5662662982940674,
+              "fused_score": 0.046176046176046176,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt"
+            },
+            {
+              "rank": 7,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended.",
+                "Michael Scott serious girlfriends"
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 5,
+                "Michael Scott serious girlfriends": 4
+              },
+              "best_base_score": 0.5614174008369446,
+              "fused_score": 0.031009615384615385,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt"
+            },
+            {
+              "rank": 8,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 3
+              },
+              "best_base_score": 0.5725859999656677,
+              "fused_score": 0.015873015873015872,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt"
+            },
+            {
+              "rank": 9,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 4
+              },
+              "best_base_score": 0.5717360377311707,
+              "fused_score": 0.015625,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt"
+            },
+            {
+              "rank": 10,
+              "retrieved_by": [
+                "List Michael Scott’s serious girlfriends and how the relationships ended."
+              ],
+              "ranks_by_query": {
+                "List Michael Scott’s serious girlfriends and how the relationships ended.": 4
+              },
+              "best_base_score": 0.563389003276825,
+              "fused_score": 0.015625,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e04_sex_ed_summary.txt"
+            },
+            {
+              "rank": 11,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 5
+              },
+              "best_base_score": 0.5706338882446289,
+              "fused_score": 0.015384615384615385,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt"
+            },
+            {
+              "rank": 12,
+              "retrieved_by": [
+                "Michael Scott relationships ending"
+              ],
+              "ranks_by_query": {
+                "Michael Scott relationships ending": 6
+              },
+              "best_base_score": 0.5692103505134583,
+              "fused_score": 0.015151515151515152,
+              "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e18_garage_sale_script.txt"
+            }
+          ]
+        },
+        "routing": null
+      },
+      "answer": {
+        "text": "Based on the provided context, Michael Scott's serious girlfriends and how the relationships ended include:\n\n1. Jan Levinson:\n- Michael admits to having sex with Jan and considering her his girlfriend, but Jan did not consider him her boyfriend.\n- Their relationship was complicated, with Jan giving Michael poor performance reviews at work even after their relationship became official.\n- Michael defends Jan despite her ambivalence and negative reviews.\n- The relationship ended with tension and ambivalence, as Jan did not fully commit to Michael (S07E04 Sex Ed).\n\n2. Donna:\n- Michael was seeing Donna, but it is implied that she was married (\"I like Donna. Is it wrong to keep seeing her? Depends on who you ask. I mean, if you ask her husband… or you took a random poll, yeah, it's wrong\").\n- The context does not specify how the relationship ended, but it suggests it was not serious or long-lasting (SCENE 010, 011).\n\n3. Julie:\n- Michael went on a date with Julie, an ESL teacher.\n- They hit it off, and Michael liked her.\n- The context does not provide details on how the relationship ended (SCENE 024-028).\n\n4. Holly:\n- Holly and Michael had a serious relationship.\n- Holly needed to go home to Colorado because her dad was ill.\n- She asked Michael to come with her and implied they were ready for a serious step.\n- Michael's response was hesitant and negative (\"Michael Scott will you… No, no, shhhhut it. Mhmm. Oh God. Nope, nope, nope\"), indicating the relationship did not progress further (SCENE 025).\n\nOther mentions:\n- Michael made a comment about making out with Jan and having a European girlfriend, but no further details are given.\n- There is no detailed information about other serious girlfriends or how those relationships ended.\n\nIn summary, the most serious girlfriends mentioned are Jan Levinson (relationship ended with ambivalence and poor work relations), Donna (relationship questionable due to her being married), Julie (no ending details), and Holly (relationship ended with Michael's refusal to take the next step).",
+        "latency_ms": 7032,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3693,
+          "completion_tokens": 433,
+          "total_tokens": 4126
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 13861,
+          "answer_chars": 2048
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E05",
+          "S02E11",
+          "S03E12",
+          "S04E08",
+          "S04E10",
+          "S04E11",
+          "S06E04",
+          "S06E19",
+          "S06E23",
+          "S07E04",
+          "S07E18",
+          "S07E21"
+        ],
+        "cited_episode_ids": [
+          "S07E04"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 97.08
+        },
+        "context_diversity": {
+          "distinct_episode_count": 12,
+          "distinct_source_count": 12,
+          "top_episode_share": 0.08333333333333333,
+          "episode_entropy_norm": 1.0000000000000004,
+          "episode_counts": {
+            "S02E05": 1,
+            "S02E11": 1,
+            "S03E12": 1,
+            "S04E08": 1,
+            "S04E10": 1,
+            "S04E11": 1,
+            "S06E04": 1,
+            "S06E19": 1,
+            "S06E23": 1,
+            "S07E04": 1,
+            "S07E18": 1,
+            "S07E21": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e11_night_out_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e18_garage_sale_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e04_sex_ed_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 11,
+            "summary": 1
+          },
+          "chunk_type_counts": {
+            "char": 12
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "I like Donna. Is it wrong to keep seeing her? Depends on who you ask. I mean, if you ask her husband… or you took a rand",
+            "Michael Scott will you… No, no, shhhhut it. Mhmm. Oh God. Nope, nope, nope"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },

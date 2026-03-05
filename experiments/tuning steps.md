@@ -293,3 +293,138 @@ Retrieve raw script chunks second for quotes / grounding and to avoid “LLM-mad
 Tier 1: derived data
 Tier 2: dialogue level grounding
 
+
+# Routing sweep (re-run tuning with derived routing)
+experiments/run_routing_sweep.sh
+
+This reruns the same tuning configurations you already tested, but with the new `derived_then_script` routing mode:
+- Stage 1: query derived cards in `db/chroma_db_derived_cards` (collection `derived_cards`) to shortlist episode IDs
+- Stage 2: retrieve from your chosen script index (e.g., `db/chroma_db`, `db/chroma_db_scene`, etc.) constrained to that episode shortlist
+
+Run the sweep:
+
+```bash
+chmod +x experiments/run_routing_sweep.sh
+./experiments/run_routing_sweep.sh
+```
+
+Outputs: new JSON logs under `experiments/runs/` with run names prefixed `topiccards_blended_` (see `RUN_TAG` in `experiments/run_routing_sweep.sh`).
+
+## Routing results
+The first attempt used hard filtering for routing with a regex to try and udnersatnd questions, then run everything through distilled -> scripts and we had minimal to worse answers.
+A couple new girlfriends showed up, but we lost others in everything. 
+
+Next approach was a blended retreival policy + intent detector + reingesting main script index ith metadata. 
+
+## Next routing steps:
+### fix metadata 
+Fixed a couple metadata errors lost in ingestion. Mild improvement.
+### Blended routing strategy
+notable improvmeent [text](runs/2026-03-05T02-33-16Z_meta_ingest_blended_t1_similarity_k12.json)
+best so far: /Users/tg/Developer/RAG-1/experiments/runs/2026-03-05T02-36-31Z_meta_ingest_blended_meta_qe_rrf_mmr_k12.json
+
+still misisng carol in this
+
+### More data required.
+Here is some analysis:
+# More analysis of answwers:
+Seasn 2 summary pulled in eps outside s2
+
+Root cause: routing / query expansion produced broad queries (“key events”, “main characters”) and your blended retrieval didn’t enforce season == 2.
+
+solution: for queries that mention a season explicitly, hard-filter by metadata (season=2) before vector search (or as a post-filter with a backfill that still respects the season).
+
+## Jim & dwight conflict:
+Why it happened
+
+The retrieval top sources for q4 were mostly late seasons (S07–S09, S08E18, etc.), so the generator can only synthesize from what it sees. It’s not “wrong” in isolation, but it’s not representative.
+
+Root cause: with open-ended “why” questions, MMR + QE tends to bring in diverse but recent or high-salience conflict scenes, not the foundational early-series dynamic.
+
+Next step: treat this as a multi-episode pattern question:
+
+retrieve by time slice (force some early seasons into the evidence set), or
+
+retrieve by reason buckets (generate 3 sub-queries: pranks, authority/roles, rivalry) and then fuse.
+
+
+
+# Next, I derived better data cards with different features like relationship cards, timelines, and themes
+
+ran a sweep there. hit issues again with Julie being a girlfriend.
+
+
+score
+python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json
+
+dashboard
+streamlit run apps/rag_runs_dashboard.py
+
+
+interesting error:
+ Julie:\n- Michael went on a date with Julie, an ESL teacher.\n- They hit it off, and Michael liked her
+ false
+ evidence:
+     {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e19_happy_hour_script.txt",
+            "episode_id": "S06E19",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 9,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMichael: So, what do you do?\nJulie: I am an ESL teacher.\nMichael: Really?\nJulie: Yeah.\nMichael: See, I didn't think you could teach that. I thought that was something you were born with. What am I thinking right now?\nJuli…",
+            "score": 0.04713064713064713
+          },
+ 
+ This could be:
+ summarization bias?
+  or in another quote michael says:
+        "summary": "Michael shares a childhood story about a mistaken birthday date with a girl named Julie.",
+
+which could confuse the context retrieval, but 
+
+ This looks like a summarization bias, not a retrieval error:
+
+
+The retrieved chunk shows friendly banter → model infers positive chemistry
+
+But unless your retrieved evidence includes the later part where Julie leaves / Michael pivots to Donna, the model will write the “happy path” version
+
+## REsolution: 
+implement three targeted fixes in code: stricter “serious girlfriends” answer rules + a small pre-filter step, include derived summaries/cards directly in aggregation context (not just for routing), and tighten query expansion so it doesn’t broaden “serious” into “dating history”.
+
+Essentially tells the LLM what qualifies as a romantic relationship
+/Users/tg/Developer/RAG-1/experiments/runs/2026-03-05T05-19-16Z_topiccards_blended_q5_fix_julie.json
+fixes the julie issue, but adds michaels fake girlfriend from new yourk, and misses Holly and Donna both.
+
+
+Retrieval gives evidence. The model determines how well that evidence is interpreted.
+
+
+# Frontend:
+added ai as judge here : python experiments/score_runs.py --help
+usage: score_runs.py [-h] [--runs-dir RUNS_DIR] [--gold GOLD] [--out-dir OUT_DIR]
+                     [--judge-model JUDGE_MODEL] [--temperature TEMPERATURE]
+                     [--run-name-prefix RUN_NAME_PREFIX]
+                     [--run-id-prefix RUN_ID_PREFIX]
+
+Score RAG run logs using gold answers + OpenAI judge.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --runs-dir RUNS_DIR   Directory containing run JSON logs
+  --gold GOLD           Gold answers JSON file
+  --out-dir OUT_DIR     Where to write scored JSON files
+  --judge-model JUDGE_MODEL
+                        OpenAI model to use as judge
+  --temperature TEMPERATURE
+  --run-name-prefix RUN_NAME_PREFIX
+                        Only score runs whose run.run_name starts with this prefix. Can
+                        be provided multiple times. If omitted, scores all runs found.
+  --run-id-prefix RUN_ID_PREFIX
+                        Only score runs whose run.run_id starts with this prefix. Can
+                        be provided multiple times. If omitted, no run_id filtering is
+
+
+
