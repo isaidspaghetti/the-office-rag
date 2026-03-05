@@ -132,63 +132,96 @@ def summarize_season(cfg: SeasonRunConfig) -> Path:
     if not episodes:
         raise FileNotFoundError(f"No episodes found for season {cfg.season} under {cfg.docs_dir}")
 
-    # Plan
-    plan_eps: List[Dict[str, Any]] = []
-    planned_calls = 0
-    for ep in episodes:
-        segs = segment_episode_text(
-            episode_id=ep.episode_id,
-            body_text=ep.body_text,
-            target_tokens=int(cfg.target_tokens),
-            min_tokens=int(cfg.min_tokens),
-        )
-        planned_calls += len(segs)
-        plan_eps.append(
+    # Resume if manifest exists; otherwise create a fresh plan.
+    if season_manifest_path.exists():
+        manifest = json.loads(season_manifest_path.read_text(encoding="utf-8"))
+        # Ensure we keep going rather than overwriting history.
+        manifest.setdefault("execution", {})
+        manifest["execution"]["status"] = "running"
+        manifest["execution"].setdefault("started_at_utc", utc_now_iso())
+        manifest["execution"]["ended_at_utc"] = None
+        manifest.setdefault("config", {})
+        manifest["config"].update(
             {
-                "episode_id": ep.episode_id,
-                "title": ep.title,
-                "planned_segments": len(segs),
-                "planned_llm_calls": len(segs),
-                "segment_file": f"segments/{ep.episode_id}.json",
-                "segment_summaries_build_id": f"{build_prefix}_{ep.episode_id}",
+                "docs_dir": str(cfg.docs_dir.as_posix()),
+                "out_root": str(cfg.out_root.as_posix()),
+                "segments_root": str(cfg.segments_root.as_posix()),
+                "llm_model": cfg.llm_model,
+                "target_tokens": int(cfg.target_tokens),
+                "min_tokens": int(cfg.min_tokens),
+                "force_segments": bool(cfg.force_segments),
+                "force_summaries": bool(cfg.force_summaries),
             }
         )
+        manifest["resumed_at_utc"] = utc_now_iso()
+    else:
+        # Plan
+        plan_eps: List[Dict[str, Any]] = []
+        planned_calls = 0
+        for ep in episodes:
+            segs = segment_episode_text(
+                episode_id=ep.episode_id,
+                body_text=ep.body_text,
+                target_tokens=int(cfg.target_tokens),
+                min_tokens=int(cfg.min_tokens),
+            )
+            planned_calls += len(segs)
+            plan_eps.append(
+                {
+                    "episode_id": ep.episode_id,
+                    "title": ep.title,
+                    "planned_segments": len(segs),
+                    "planned_llm_calls": len(segs),
+                    "segment_file": f"segments/{ep.episode_id}.json",
+                    "segment_summaries_build_id": f"{build_prefix}_{ep.episode_id}",
+                }
+            )
 
-    manifest: Dict[str, Any] = {
-        "schema": "SeasonSegmentSummaryRunManifestV1",
-        "schema_version": 1,
-        "build_prefix": build_prefix,
-        "created_at_utc": created_at,
-        "season": int(cfg.season),
-        "config": {
-            "docs_dir": str(cfg.docs_dir.as_posix()),
-            "out_root": str(cfg.out_root.as_posix()),
-            "segments_root": str(cfg.segments_root.as_posix()),
-            "llm_model": cfg.llm_model,
-            "target_tokens": int(cfg.target_tokens),
-            "min_tokens": int(cfg.min_tokens),
-            "force_segments": bool(cfg.force_segments),
-            "force_summaries": bool(cfg.force_summaries),
-        },
-        "plan": {
-            "planned_episodes": plan_eps,
-            "planned_total_llm_calls": planned_calls,
-        },
-        "execution": {
-            "status": "running",
-            "started_at_utc": utc_now_iso(),
-            "ended_at_utc": None,
-            "episodes_done": 0,
-            "segment_summaries_written": 0,
-            "errors": 0,
-            "episodes": [],
-        },
-    }
+        manifest = {
+            "schema": "SeasonSegmentSummaryRunManifestV1",
+            "schema_version": 1,
+            "build_prefix": build_prefix,
+            "created_at_utc": created_at,
+            "season": int(cfg.season),
+            "config": {
+                "docs_dir": str(cfg.docs_dir.as_posix()),
+                "out_root": str(cfg.out_root.as_posix()),
+                "segments_root": str(cfg.segments_root.as_posix()),
+                "llm_model": cfg.llm_model,
+                "target_tokens": int(cfg.target_tokens),
+                "min_tokens": int(cfg.min_tokens),
+                "force_segments": bool(cfg.force_segments),
+                "force_summaries": bool(cfg.force_summaries),
+            },
+            "plan": {
+                "planned_episodes": plan_eps,
+                "planned_total_llm_calls": planned_calls,
+            },
+            "execution": {
+                "status": "running",
+                "started_at_utc": utc_now_iso(),
+                "ended_at_utc": None,
+                "episodes_done": 0,
+                "segment_summaries_written": 0,
+                "errors": 0,
+                "episodes": [],
+            },
+        }
 
     season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
 
+    # Build a quick lookup so we can skip episodes already done.
+    prior_status: Dict[str, str] = {}
+    for e in manifest.get("execution", {}).get("episodes", []) or []:
+        if isinstance(e, dict) and e.get("episode_id"):
+            prior_status[str(e["episode_id"]).strip().upper()] = str(e.get("status") or "")
+
     # Execute
     for idx, ep in enumerate(episodes, start=1):
+        # Skip fully completed episodes on resume unless forcing summaries.
+        if prior_status.get(ep.episode_id) == "done" and not cfg.force_summaries:
+            print(f"[{idx}/{len(episodes)}] {ep.episode_id} skip (already done)")
+            continue
         t0 = time.time()
         ep_status: Dict[str, Any] = {
             "episode_id": ep.episode_id,
@@ -254,7 +287,36 @@ def summarize_season(cfg: SeasonRunConfig) -> Path:
         season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
         print(f"[{idx}/{len(episodes)}] {ep.episode_id} {ep_status['status']} ({ep_status['duration_ms']}ms)")
 
-    manifest["execution"]["status"] = "done" if manifest["execution"]["errors"] == 0 else "done_with_errors"
+    # Recompute aggregate counters based on the latest status per episode.
+    latest_by_episode: Dict[str, Dict[str, Any]] = {}
+    for e in manifest.get("execution", {}).get("episodes", []) or []:
+        if isinstance(e, dict) and e.get("episode_id"):
+            latest_by_episode[str(e["episode_id"]).strip().upper()] = e
+
+    done_count = sum(1 for e in latest_by_episode.values() if e.get("status") == "done")
+    error_count = sum(1 for e in latest_by_episode.values() if e.get("status") == "error")
+
+    written_sum = 0
+    for episode_id in sorted(latest_by_episode.keys()):
+        ep_build_id = f"{build_prefix}_{episode_id}"
+        ep_manifest_path = cfg.out_root / ep_build_id / "manifest.json"
+        if ep_manifest_path.exists():
+            try:
+                ep_manifest = json.loads(ep_manifest_path.read_text(encoding="utf-8"))
+                written_sum += int(ep_manifest.get("execution", {}).get("written", 0) or 0)
+            except Exception:
+                pass
+
+    manifest["execution"]["episodes_done"] = done_count
+    manifest["execution"]["errors"] = error_count
+    manifest["execution"]["segment_summaries_written"] = written_sum
+
+    # Convenience view: latest status per episode (useful after resume/retries).
+    manifest["execution"]["latest_episodes"] = [
+        latest_by_episode[episode_id] for episode_id in sorted(latest_by_episode.keys())
+    ]
+
+    manifest["execution"]["status"] = "done" if error_count == 0 else "done_with_errors"
     manifest["execution"]["ended_at_utc"] = utc_now_iso()
     season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
 
