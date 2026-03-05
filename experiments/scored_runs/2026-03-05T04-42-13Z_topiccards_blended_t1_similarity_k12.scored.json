@@ -1,0 +1,305 @@
+{
+  "run": {
+    "run_id": "2026-03-05T04-42-13Z_topiccards_blended_t1_similarity_k12",
+    "run_name": "topiccards_blended_t1_similarity_k12",
+    "created_at_utc": "2026-03-05T04:42:13Z",
+    "notes": "Routing: blended (base + intent-conditioned derived-guided add-on) + similarity k=12"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 60,
+    "overall_scores": [
+      100,
+      100,
+      56,
+      30,
+      38,
+      38,
+      55
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight, including the exact dialogue) fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches gold answer and is fully supported by retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E08",
+          "S02E13"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam's mom makes a visit to the office (mentioned in retrieved context but not in candidate answer)",
+          "Michael's relationship with Jan becomes more involved",
+          "Jim/Pam relationship tension and emotional beats like 'Casino Night' are not mentioned"
+        ],
+        "missing_points": [
+          "Jim and Pam's relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan becoming more involved",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "Candidate answer accurately summarizes some episode events supported by retrieved context but misses key season-wide relationship developments and emotional arcs present in gold answer. No major hallucinations but incomplete coverage."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
+          "Jim sets a red tape X over Dwight's chair",
+          "Dwight tells Jim, 'I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior,'",
+          "Dwight explicitly states, 'Jim is my enemy,' and the extended quote about their relationship"
+        ],
+        "missing_points": [
+          "The nuance that underneath the rivalry there is deep respect",
+          "Example of Dwight naming Jim best man at his wedding",
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive"
+        ],
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim that align with the gold answer, but none of the specific quotes or examples are supported by the retrieved context. The retrieved context contains only brief, unrelated script excerpts without direct evidence for the claims. Therefore, the answer is only partially correct and poorly grounded."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Carol proposed to on fourth date and photoshopped face",
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship ending due to age",
+          "Michael defending Jan despite flaws",
+          "Michael having herpes and telling Carol",
+          "Relationship with Tara mentioned but no ending"
+        ],
+        "missing_points": [
+          "No mention of Holly Flax, Donna Newton, or detailed endings for some girlfriends",
+          "No mention of how Jan and Carol relationships ended as per gold answer",
+          "No mention of Michael proposing to Holly or leaving to be with her"
+        ],
+        "notes": "The candidate answer provides some details about Jan, Carol, Helene, and Tara but most claims are not supported by the retrieved context, which is sparse and does not contain explicit relationship endings or details. The gold answer includes more comprehensive and specific information not found in the retrieved context. The candidate answer avoids hallucinating some details but still includes unsupported claims. Overall, the answer is partially correct but lacks grounding and completeness."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E02",
+          "S02E49"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 2,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot included Jim's high school yearbook photo and a hot sauce packet",
+          "Jim included a card with the message 'because Christmas is the time to tell people how you feel'",
+          "Pam appreciates the gift and the bonus items inside, showing emotional significance (S02E49)"
+        ],
+        "missing_points": [
+          "The teapot letter specifically representing Jim's feelings and their relationship",
+          "The teapot letter as a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer correctly identifies the teapot as a Secret Santa gift from Jim to Pam in Season 2 and its symbolic importance. However, the retrieved context only confirms Jim giving Pam a teapot with inside jokes in S02E10 but does not support details about the letter, specific items inside, or later references. Some claims are unsupported by the retrieved context, leading to lower groundedness and hallucination scores."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 55,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed tries to convince Michael not to fire him and suggests fighting the decision",
+          "Creed starts his own paper company and tries to poach clients secretly",
+          "Creed is around thirty years old",
+          "Creed sells questionable items like a tapeworm to Kelly",
+          "Creed has a complicated relationship with Michael"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some supported details about Creed's personality and some quotes from the retrieved context, but it includes several claims not supported by the retrieved context. It also misses key aspects of Creed's role and characterization as per the gold answer."
+      }
+    }
+  ]
+}

@@ -237,6 +237,89 @@ These are “JSON Schema–like” contracts (kept human-readable). We can forma
 
 ---
 
+## Entity-focused corpora (v1)
+
+These are **cross-episode** cards built by aggregating EpisodeDerivedCardV1 artifacts.
+
+Goals:
+- Make entity-specific questions (relationships, character traits, recurring objects) retrievable without hard episode routing.
+- Keep every card grounded via a small set of verbatim supporting quotes (sourced evidence spans).
+
+### CharacterCardV1
+
+```json
+{
+  "schema": "CharacterCardV1",
+  "schema_version": 1,
+  "build_id": "entitycards_v1_2026-03-05",
+  "created_at_utc": "2026-03-05T00:00:00Z",
+
+  "doc_type": "derived",
+  "derived_type": "character_card",
+
+  "entity_names": ["Dwight"],
+  "character": {"name": "Dwight", "aliases": ["Dwight Schrute"]},
+
+  "episode_ids": ["S02E10", "S03E01"],
+  "key_facts": ["..."],
+  "supporting_quotes": [
+    {
+      "episode_id": "S02E10",
+      "segment_id": "S02E10:seg:001",
+      "source": "scripts/...",
+      "char_start": 123,
+      "char_end": 200,
+      "snippet": "Dwight: ...",
+      "quote": "Dwight: ..."
+    }
+  ]
+}
+```
+
+### RelationshipCardV1
+
+```json
+{
+  "schema": "RelationshipCardV1",
+  "schema_version": 1,
+  "build_id": "entitycards_v1_2026-03-05",
+  "created_at_utc": "2026-03-05T00:00:00Z",
+
+  "doc_type": "derived",
+  "derived_type": "relationship_card",
+
+  "entity_names": ["Michael", "Jan"],
+  "relationship": {"entities": ["Michael", "Jan"], "label": "Michael–Jan", "aliases": []},
+
+  "episode_ids": ["S03E01"],
+  "key_facts": ["..."],
+  "supporting_quotes": [{"episode_id": "S03E01", "segment_id": "S03E01:seg:002", "source": "scripts/...", "char_start": 0, "char_end": 10, "snippet": "...", "quote": "..."}]
+}
+```
+
+### PlotObjectCardV1
+
+```json
+{
+  "schema": "PlotObjectCardV1",
+  "schema_version": 1,
+  "build_id": "entitycards_v1_2026-03-05",
+  "created_at_utc": "2026-03-05T00:00:00Z",
+
+  "doc_type": "derived",
+  "derived_type": "plot_object_card",
+
+  "entity_names": ["Dundie"],
+  "plot_object": {"name": "Dundie", "aliases": ["Dundies", "Dundie Award"]},
+
+  "episode_ids": ["S02E01"],
+  "key_facts": ["..."],
+  "supporting_quotes": [{"episode_id": "S02E01", "segment_id": "S02E01:seg:000", "source": "scripts/...", "char_start": 0, "char_end": 10, "snippet": "...", "quote": "..."}]
+}
+```
+
+---
+
 ## Token limit: practical guidance
 
 ### What *won’t* work

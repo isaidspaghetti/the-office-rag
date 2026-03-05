@@ -1,0 +1,297 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-28-05Z_meta_ingest_auto_t1_similarity_k12",
+    "run_name": "meta_ingest_auto_t1_similarity_k12",
+    "created_at_utc": "2026-03-05T02:28:05Z",
+    "notes": "Routing: auto (derived_then_script for agg questions) + similarity k=12"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "auto",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 56,
+    "overall_scores": [
+      95,
+      100,
+      38,
+      60,
+      40,
+      26,
+      30
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context from S03E20 script."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E03",
+          "S02E13"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 2,
+        "hallucination": 5,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim and Pam's relationship tension and emotional beats like 'Casino Night'",
+          "Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim"
+        ],
+        "notes": "The candidate answer accurately describes some episodes from season 2 supported by the retrieved context, but it lacks key plot points and character developments highlighted in the gold answer. No unsupported claims were made."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 5,
+        "overall": 60,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim mocks Dwight by writing 'held back tears' in SCENE 003 (not explicitly in retrieved context)",
+          "Jim cleverly responds about pay decrease in SCENE 006 (not fully supported)",
+          "Dwight declines double date suggestion in SCENE 036 (not in retrieved context)",
+          "Dwight expresses frustration about Jim leaving party early in SCENE 034 (not in retrieved context)"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Examples from distinct episodes showing deep respect or final season friendship"
+        ],
+        "notes": "The candidate answer provides three reasons with examples but some claims are not fully supported by the retrieved context. The answer misses key nuances from the gold answer about hierarchy, authority, and underlying respect."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 40,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan and Michael had a baby carriage",
+          "Michael is completely over Jan",
+          "Michael mentions looking to be set up with new women",
+          "Michael was probably going to break up with Helene"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup",
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Details on how Jan and Michael's relationship ended"
+        ],
+        "notes": "The candidate answer correctly identifies Jan Levinson and Helene Beesly as serious girlfriends mentioned in the context, but lacks mention of other serious girlfriends from the gold answer. Several claims about the nature and ending of relationships are not supported by the retrieved context. The retrieved context is limited and does not provide full details on relationship endings, so the candidate answer is only partially grounded and incomplete."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E02",
+          "S02E49"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 26,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The letter was Jim's way of expressing his feelings to Pam",
+          "The teapot included inside jokes such as high school yearbook photo and hot sauce packet",
+          "Pam's emotional reaction and quotes from episodes S02E49-50"
+        ],
+        "missing_points": [
+          "The teapot letter represents Jim’s feelings and their relationship",
+          "It is introduced in Season 2’s Christmas episode (S02E10)",
+          "It remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer provides some correct context about the teapot being a Secret Santa gift from Jim to Pam and containing inside jokes, but most specific claims about the letter's content, Jim's feelings, and Pam's reactions are not supported by the retrieved context. The retrieved context only confirms Jim gave Pam a teapot as a Secret Santa gift in S02E10 but does not mention the letter or its importance. The candidate answer also references episodes not in the retrieved context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed sold Kelly a tapeworm from Mexico",
+          "Creed talks about starting his own paper company to poach clients",
+          "Creed recognized for earnest and diligent sleuthing in Watermark-gate scandal",
+          "Creed is portrayed as an older employee aware of office dynamics",
+          "Creed tries to convince Michael not to fire him"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed's deal is that he is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides a general sense of Creed's mysterious and quirky nature but includes several unsupported specific claims not found in the retrieved context. The retrieved context is limited and does not confirm many details, so the answer is only partially grounded and incomplete compared to the gold answer."
+      }
+    }
+  ]
+}

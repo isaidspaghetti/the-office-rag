@@ -1,0 +1,278 @@
+{
+  "run": {
+    "run_id": "2026-03-03T04-35-41Z_scene_chunks_mmr_k12",
+    "run_name": "scene_chunks_mmr_k12",
+    "created_at_utc": "2026-03-03T04:35:41Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 8993
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 53,
+    "overall_scores": [
+      30,
+      100,
+      81,
+      30,
+      25,
+      30,
+      77
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Episode identified as Season 2, Episode 17 instead of Season 3, Episode 20",
+          "Claim that Dwight says the line instead of Jim impersonating Dwight"
+        ],
+        "missing_points": [
+          "Correct episode number (S03E20)",
+          "Clarification that Jim says the line impersonating Dwight"
+        ],
+        "notes": "Candidate answer correctly describes the scene where Jim impersonates Dwight and uses the line, but misidentifies the episode as S02E17 instead of S03E20. Retrieved context supports the scene but does not confirm the episode number explicitly. Candidate also incorrectly states Dwight says the line, while it is Jim impersonating Dwight."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E08",
+          "S02E13",
+          "S02E15",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 4,
+        "completeness": 3,
+        "hallucination": 5,
+        "overall": 81,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "Jim confesses his feelings and kisses Pam at Casino Night"
+        ],
+        "missing_points": [
+          "Pam's engagement to Roy and the tension in Jim/Pam relationship",
+          "Dwight's rivalry and ambition",
+          "Emotional beats including Jim's confession and kiss at Casino Night"
+        ],
+        "notes": "The candidate answer accurately references several episode events supported by the retrieved context, such as The Dundies, Office Olympics, Performance Review, Boys and Girls, and Casino Night. However, it omits key relationship dynamics and emotional developments highlighted in the gold answer and not supported by the retrieved context. No hallucinations detected as unsupported claims are mostly omissions or inferred but not contradicted."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim admits that everything Dwight does annoys him (SCENE 009) - not in retrieved context",
+          "Dwight calls Jim his enemy (SCENE 034) - retrieved context shows Dwight says 'Jim is my enemy' but also 'Jim is actually my friend', ambiguous",
+          "Dwight complains about Jim not signing his expense report (SCENE 002) - not in retrieved context",
+          "Dwight imitates Stanley saying 'Jim Halpert is a menace' (SCENE 029) - not in retrieved context",
+          "Dwight criticizes Jim for 'kissing the boss man's butt' (SCENE 023) - retrieved context does not contain this quote",
+          "Dwight talks about betraying Jim as part of 'the game' and politics (SCENE 047) - not in retrieved context"
+        ],
+        "missing_points": [
+          "Jim constantly pranks and undermines Dwight",
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "Dwight is competitive and threatened by Jim's social ease and influence",
+          "Examples from distinct situations/episodes",
+          "Mention of underlying respect and final season best man detail"
+        ],
+        "notes": "The candidate answer attempts to provide reasons but mostly cites scenes not present or supported in the retrieved context. The retrieved context is sparse and does not provide sufficient evidence to support the claims. The gold answer's key points about pranks, hierarchy, competition, and respect are missing or unsupported."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Carol's herpes diagnosis and breakup reasons",
+          "Holly Flax relationship details and breakup reasons",
+          "Michael proposed to Carol on fourth date",
+          "Michael proposed to Holly and left to be with her",
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship and ending"
+        ],
+        "missing_points": [
+          "No clear evidence in retrieved context about serious girlfriends or how relationships ended",
+          "No mention of relationship endings or reasons in retrieved context"
+        ],
+        "notes": "The candidate answer provides detailed relationship information and endings that are not supported by the retrieved context, which mostly contains unrelated or incomplete script excerpts. The gold answer lists serious girlfriends and how relationships ended, but the retrieved context does not provide sufficient evidence to confirm or deny these facts. The candidate answer is more detailed but largely unsupported, leading to low groundedness and hallucination scores."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate and avoids hallucination. However, it does not provide any information beyond that."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 4,
+        "overall": 77,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed was in the band 'The Grass Roots' in the 1960s",
+          "Creed allegedly involved in selling drugs, trafficking endangered species meat, stealing weapons-grade LSD",
+          "Creed warns that nobody steals from him and the last person who did disappeared",
+          "Creed has a quirky and surreal sense of humor describing the Loch Ness Monster"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer captures Creed's mysterious and evasive nature well and references the faked death in the baler, which is supported by the retrieved context. However, many colorful details about Creed's past and criminal activities are not supported by the retrieved context. Also, the retrieved context does not explicitly confirm Creed's job title or his arrest in the finale, which are key points in the gold answer."
+      }
+    }
+  ]
+}

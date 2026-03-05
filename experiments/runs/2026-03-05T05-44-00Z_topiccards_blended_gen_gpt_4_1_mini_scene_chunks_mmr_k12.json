@@ -1,0 +1,1413 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-44-00Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12",
+    "run_name": "topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12",
+    "created_at_utc": "2026-03-05T05:44:00Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 0
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 90.0,
+      "max_retries": 2,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "expected": {
+        "episode_ids": [
+          "S03E20"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 505,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the episode where Dwight says \"Bears. Beets. Battlestar Galactica.\" or its context.",
+        "latency_ms": 714,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 121,
+          "completion_tokens": 35,
+          "total_tokens": 156
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 153
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": false,
+          "examples": [
+            "Bears. Beets. Battlestar Galactica."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "expected": {
+        "episode_ids": [
+          "S02E12"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 343,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the episode in which Michael burns his foot.",
+        "latency_ms": 595,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 103,
+          "completion_tokens": 21,
+          "total_tokens": 124
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 114
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1114,
+        "stats": {
+          "min": 0.6143109202384949,
+          "max": 0.6568024754524231,
+          "mean": 0.6358181118965149
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 02",
+            "preview": "Season card: Season 02\nOverview:\nSeason 2 features key events such as the Dundies awards, Michael and Jan's complex relationship, office conflicts, and romantic developments, culminating in Jim's confession to Pam at Casino Night.\nMajor arc…",
+            "score": 0.6568024754524231
+          },
+          {
+            "rank": 2,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 03",
+            "preview": "Season card: Season 03\nOverview:\nSeason 3 of The Office features major story arcs including office management conflicts, personal relationships, and workplace crises, with character development and humorous interactions across episodes.\nMaj…",
+            "score": 0.6473786234855652
+          },
+          {
+            "rank": 3,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 01",
+            "preview": "Season card: Season 01\nOverview:\nSeason 1 of The Office introduces the main characters and office dynamics, focusing on themes of diversity, office politics, health care, and social interactions.\nMajor arcs:\n- Office diversity and training:…",
+            "score": 0.6418198347091675
+          },
+          {
+            "rank": 4,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 09",
+            "preview": "Season card: Season 09\nOverview:\nSeason 9 of The Office features character updates, office conflicts, romantic developments, and humorous events, culminating in weddings, proposals, and character reflections on their futures.\nMajor arcs:\n- …",
+            "score": 0.6187787055969238
+          },
+          {
+            "rank": 5,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 06",
+            "preview": "Season card: Season 06\nOverview:\nSeason 6 of The Office features office conflicts, romantic developments, corporate changes, and humorous misadventures, culminating in significant character arcs and ongoing office dynamics.\nMajor arcs:\n- Mi…",
+            "score": 0.6143109202384949
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": null,
+                "score": 0.6568024754524231
+              },
+              {
+                "rank": 2,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": null,
+                "score": 0.6473786234855652
+              },
+              {
+                "rank": 3,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 1,
+                "title": null,
+                "score": 0.6418198347091675
+              },
+              {
+                "rank": 4,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 9,
+                "title": null,
+                "score": 0.6187787055969238
+              },
+              {
+                "rank": 5,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 6,
+                "title": null,
+                "score": 0.6143109202384949
+              },
+              {
+                "rank": 6,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 4,
+                "title": null,
+                "score": 0.6079651713371277
+              },
+              {
+                "rank": 7,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 5,
+                "title": null,
+                "score": 0.6061190962791443
+              },
+              {
+                "rank": 8,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": null,
+                "score": 0.6003997921943665
+              },
+              {
+                "rank": 9,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 8,
+                "title": null,
+                "score": 0.5897117257118225
+              },
+              {
+                "rank": 10,
+                "episode_id": "S02E01",
+                "episode_ids": [
+                  "S02E01"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "The Dundies",
+                "score": 0.5854229927062988
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S02E01",
+            "S02E13",
+            "S02E03"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 5
+          }
+        }
+      },
+      "answer": {
+        "text": "Season 2 of The Office centers around key office events and evolving relationships. The season features celebrations like the Dundies, Halloween, Christmas, and Casino Night, which highlight camaraderie, conflicts, and romantic tensions. A major focus is on Michael and Jan's complex relationship, including romantic tension and Jan's declaration of not being in a relationship, which affects office dynamics. Another pivotal arc is Jim and Pam's relationship, culminating in Jim confessing his feelings and sharing a kiss with Pam at Casino Night, marking a significant romantic moment.\n\nCharacter-wise, Michael hosts events and navigates his personal and professional life with humor, Jim reveals his feelings for Pam leading to emotional depth, and Pam expresses her feelings and shares her wedding plans. Recurring themes include Michael's humorous leadership attempts and Dwight's pride and overconfidence. The season leaves several open questions, such as the cause of the fire in \"The Fire\" episode, the future of Michael and Jan's relationship, Jim's potential transfer to Stamford, the long-term impact of Jim and Pam's kiss, and Dwight's career trajectory after passing a test and resigning his security uniform (Season 02).",
+        "latency_ms": 4843,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2117,
+          "completion_tokens": 231,
+          "total_tokens": 2348
+        },
+        "stats": {
+          "context_docs": 5,
+          "context_chars": 10672,
+          "answer_chars": 1234
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 0.0
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {
+            "derived": 5
+          },
+          "chunk_type_counts": {},
+          "source_dup_rate": 1.0,
+          "episode_dup_rate": 1.0
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": true,
+          "examples": [
+            "The Fire"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 747,
+        "stats": {
+          "min": 0.4825540781021118,
+          "max": 0.5973325371742249,
+          "mean": 0.5104749441146851
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_dwight_jim",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_dwight_jim",
+            "preview": "Topic card (relationship): relationship_dwight_jim\nEntities: Dwight, Jim\nEpisode IDs: S09E22, S04E04, S06E17, S04E01, S06E11, S01E04\nFacts:\n- Dwight was thinking of proposing to Esther, mentioning her qualities and her family's admiration.\n…",
+            "score": 0.5973325371742249
+          },
+          {
+            "rank": 2,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_dwight_jan",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_dwight_jan",
+            "preview": "Topic card (relationship): relationship_dwight_jan\nEntities: Dwight, Jan\nEpisode IDs: S03E03, S08E13, S03E02, S03E12, S03E17, S03E21\nFacts:\n- Dwight and Jan have a complex relationship that includes both professional and personal elements.\n…",
+            "score": 0.4953901767730713
+          },
+          {
+            "rank": 3,
+            "source": null,
+            "episode_id": "S03E23",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S03E23 — The Job",
+            "preview": "Episode card: S03E23 — The Job\nSynopsis:\nIn this episode, the office prepares for Jim's interview in New York, while Michael considers a new job and navigates complex relationships with Jan and others. Dwight announces he will be Jim's new …",
+            "score": 0.49321526288986206
+          },
+          {
+            "rank": 4,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_andy_dwight",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_andy_dwight",
+            "preview": "Topic card (relationship): relationship_andy_dwight\nEntities: Andy, Dwight\nEpisode IDs: S05E11, S04E03, S08E13, S04E04, S08E12, S09E21\nFacts:\n- Andy and Dwight have a contentious relationship involving a duel over Angela.\n- Angela admitted …",
+            "score": 0.4838826656341553
+          },
+          {
+            "rank": 5,
+            "source": null,
+            "episode_id": "S03E18",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S03E18 — The Negotiation",
+            "preview": "Episode card: S03E18 — The Negotiation\nSynopsis:\nIn 'The Negotiation,' tensions escalate when Roy lunges at Jim, prompting Dwight to pepper-spray Roy. Michael discusses negotiation tactics and office conflicts, including a tense raise negot…",
+            "score": 0.4825540781021118
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S01E04",
+                "episode_ids": [
+                  "S09E22",
+                  "S04E04",
+                  "S06E17",
+                  "S04E01",
+                  "S06E11",
+                  "S01E04"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_jim",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5973325371742249
+              },
+              {
+                "rank": 2,
+                "episode_id": "S03E02",
+                "episode_ids": [
+                  "S03E03",
+                  "S08E13",
+                  "S03E02",
+                  "S03E12",
+                  "S03E17",
+                  "S03E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_jan",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.4953901767730713
+              },
+              {
+                "rank": 3,
+                "episode_id": "S03E23",
+                "episode_ids": [
+                  "S03E23"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "The Job",
+                "score": 0.49321526288986206
+              },
+              {
+                "rank": 4,
+                "episode_id": "S04E03",
+                "episode_ids": [
+                  "S05E11",
+                  "S04E03",
+                  "S08E13",
+                  "S04E04",
+                  "S08E12",
+                  "S09E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_andy_dwight",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.4838826656341553
+              },
+              {
+                "rank": 5,
+                "episode_id": "S03E18",
+                "episode_ids": [
+                  "S03E18"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "The Negotiation",
+                "score": 0.4825540781021118
+              },
+              {
+                "rank": 6,
+                "episode_id": "S01E06",
+                "episode_ids": [
+                  "S01E06",
+                  "S03E03",
+                  "S06E04",
+                  "S03E10",
+                  "S07E04",
+                  "S05E12"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.48142409324645996
+              },
+              {
+                "rank": 7,
+                "episode_id": "S03E12",
+                "episode_ids": [
+                  "S03E12"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "Traveling Salesmen",
+                "score": 0.47610336542129517
+              },
+              {
+                "rank": 8,
+                "episode_id": "S06E03",
+                "episode_ids": [
+                  "S06E03"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 6,
+                "title": "The Promotion",
+                "score": 0.4756969213485718
+              },
+              {
+                "rank": 9,
+                "episode_id": "S09E09",
+                "episode_ids": [
+                  "S09E09"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.46669262647628784
+              },
+              {
+                "rank": 10,
+                "episode_id": "S02E08",
+                "episode_ids": [
+                  "S02E08"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "Performance Review",
+                "score": 0.45378053188323975
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E22",
+            "S04E04",
+            "S06E17",
+            "S04E01",
+            "S06E11",
+            "S01E04"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 5
+          }
+        }
+      },
+      "answer": {
+        "text": "The context does not provide explicit reasons why Dwight dislikes Jim, nor specific examples detailing their conflicts or reasons for dislike. It does mention a competitive and somewhat adversarial relationship, such as Dwight betraying Jim by forming an alliance and trying to get information from him, indicating competition (\"Dwight betrayed Jim by forming an alliance and trying to get information from him, indicating a competitive relationship\"). Also, Dwight announces he will be Jim's new boss in S03E23, which could imply tension or rivalry. However, no direct reasons or detailed examples of Dwight's dislike for Jim are given in the provided context.\n\nTherefore, I don't know the specific reasons why Dwight dislikes Jim based on the given information.",
+        "latency_ms": 2733,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1229,
+          "completion_tokens": 139,
+          "total_tokens": 1368
+        },
+        "stats": {
+          "context_docs": 5,
+          "context_chars": 5298,
+          "answer_chars": 763
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S03E18",
+          "S03E23"
+        ],
+        "cited_episode_ids": [
+          "S03E23"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 77.79
+        },
+        "context_diversity": {
+          "distinct_episode_count": 2,
+          "distinct_source_count": 0,
+          "top_episode_share": 0.2,
+          "episode_entropy_norm": 0.928771237954945,
+          "episode_counts": {
+            "S03E18": 1,
+            "S03E23": 1
+          },
+          "source_counts": {},
+          "doc_type_counts": {
+            "derived": 5
+          },
+          "chunk_type_counts": {},
+          "source_dup_rate": 1.0,
+          "episode_dup_rate": 0.6
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": true,
+          "examples": [
+            "Dwight betrayed Jim by forming an alliance and trying to get information from him, indicating a competitive relationship"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 1009,
+        "stats": {
+          "min": 0.5170574188232422,
+          "max": 0.5564209222793579,
+          "mean": 0.5379488468170166
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_jim_michael",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_jim_michael",
+            "preview": "Topic card (relationship): relationship_jim_michael\nEntities: Jim, Michael\nEpisode IDs: S03E02, S03E10, S06E06, S02E11, S06E02, S04E07\nFacts:\n- Jim transferred to a different office, citing a good opportunity and promotion, but also mention…",
+            "score": 0.5564209222793579
+          },
+          {
+            "rank": 2,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_michael_pam",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_michael_pam",
+            "preview": "Topic card (relationship): relationship_michael_pam\nEntities: Michael, Pam\nEpisode IDs: S04E01, S05E08, S04E10, S02E13, S06E06, S06E08\nFacts:\n- Michael and Pam have a complex relationship that includes romantic feelings and interactions acr…",
+            "score": 0.5539026856422424
+          },
+          {
+            "rank": 3,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_holly_michael",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_holly_michael",
+            "preview": "Topic card (relationship): relationship_holly_michael\nEntities: Holly, Michael\nEpisode IDs: S05E05, S05E04, S07E15, S04E14, S07E18, S07E04\nFacts:\n- Michael and Holly are in a romantic relationship and consider themselves very much in love.\n…",
+            "score": 0.5424458384513855
+          },
+          {
+            "rank": 4,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "topic_card",
+            "topic_id": "relationship_michael_stanley",
+            "topic_type": "relationship",
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Topic card (relationship): relationship_michael_stanley",
+            "preview": "Topic card (relationship): relationship_michael_stanley\nEntities: Michael, Stanley\nEpisode IDs: S06E01, S06E16, S04E06, S05E14, S04E12, S02E01\nFacts:\n- Michael and Stanley's relationship involved gossip about Stanley having an affair.\n- Sta…",
+            "score": 0.519917368888855
+          },
+          {
+            "rank": 5,
+            "source": null,
+            "episode_id": "S07E21",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S07E21 — Goodbye Michael",
+            "preview": "Episode card: S07E21 — Goodbye Michael\nSynopsis:\nIn 'Goodbye Michael,' Michael prepares to leave Dunder Mifflin for Colorado, saying emotional farewells to colleagues and reflecting on his time at the office. The episode features conflicts,…",
+            "score": 0.5170574188232422
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 12,
+            "returned": 0
+          },
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S02E11",
+                "episode_ids": [
+                  "S03E02",
+                  "S03E10",
+                  "S06E06",
+                  "S02E11",
+                  "S06E02",
+                  "S04E07"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_jim_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5564209222793579
+              },
+              {
+                "rank": 2,
+                "episode_id": "S02E13",
+                "episode_ids": [
+                  "S04E01",
+                  "S05E08",
+                  "S04E10",
+                  "S02E13",
+                  "S06E06",
+                  "S06E08"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_michael_pam",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5539026856422424
+              },
+              {
+                "rank": 3,
+                "episode_id": "S04E14",
+                "episode_ids": [
+                  "S05E05",
+                  "S05E04",
+                  "S07E15",
+                  "S04E14",
+                  "S07E18",
+                  "S07E04"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_holly_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5424458384513855
+              },
+              {
+                "rank": 4,
+                "episode_id": "S02E01",
+                "episode_ids": [
+                  "S06E01",
+                  "S06E16",
+                  "S04E06",
+                  "S05E14",
+                  "S04E12",
+                  "S02E01"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_michael_stanley",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.519917368888855
+              },
+              {
+                "rank": 5,
+                "episode_id": "S07E21",
+                "episode_ids": [
+                  "S07E21"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": "Goodbye Michael",
+                "score": 0.5170574188232422
+              },
+              {
+                "rank": 6,
+                "episode_id": "S07E14",
+                "episode_ids": [
+                  "S07E14"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": "The Search",
+                "score": 0.5166726112365723
+              },
+              {
+                "rank": 7,
+                "episode_id": "S05E05",
+                "episode_ids": [
+                  "S06E21",
+                  "S06E22",
+                  "S06E23",
+                  "S07E04",
+                  "S05E05",
+                  "S06E17"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_donna_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5148563981056213
+              },
+              {
+                "rank": 8,
+                "episode_id": null,
+                "episode_ids": [],
+                "derived_type": "season_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": null,
+                "score": 0.5072594881057739
+              },
+              {
+                "rank": 9,
+                "episode_id": "S02E08",
+                "episode_ids": [
+                  "S02E08",
+                  "S03E17",
+                  "S02E22",
+                  "S03E23",
+                  "S05E05",
+                  "S03E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_jan_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5050244331359863
+              },
+              {
+                "rank": 10,
+                "episode_id": "S04E10",
+                "episode_ids": [
+                  "S04E10"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 4,
+                "title": "Chair Model",
+                "score": 0.5009281635284424
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S03E02",
+            "S03E10",
+            "S06E06",
+            "S02E11",
+            "S06E02",
+            "S04E07"
+          ],
+          "routed": {
+            "k": 12,
+            "script_filter": null,
+            "script_filter_mode": "source_parse",
+            "returned": 0
+          },
+          "combined": {
+            "returned": 5
+          }
+        }
+      },
+      "answer": {
+        "text": "Based on the provided context, Michael Scott's serious girlfriends and how the relationships ended are as follows:\n\n1. **Pam's Mom, Helene**  \n   - Michael \"recently took a lover, who is Pam's mom, Helene.\"  \n   - No details about how this relationship ended are provided.\n\n2. **Pam**  \n   - Michael and Pam have a complex relationship with romantic feelings involved.  \n   - No explicit details about a breakup or how the relationship ended are given.\n\n3. **Holly Flax**  \n   - Michael and Holly are described as very much in love, with Michael comparing their relationship to \"Romeo and Juliet.\"  \n   - Michael proposed marriage to Holly.  \n   - They experienced a breakup, with Michael stating he needed to break up on Valentine's Day.  \n   - Specific reasons for the breakup or what happened afterward are not detailed.\n\nNo other serious girlfriends or relationship endings for Michael Scott are mentioned in the context.",
+        "latency_ms": 2729,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1223,
+          "completion_tokens": 195,
+          "total_tokens": 1418
+        },
+        "stats": {
+          "context_docs": 5,
+          "context_chars": 5319,
+          "answer_chars": 925
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S07E21"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 32.0
+        },
+        "context_diversity": {
+          "distinct_episode_count": 1,
+          "distinct_source_count": 0,
+          "top_episode_share": 0.2,
+          "episode_entropy_norm": null,
+          "episode_counts": {
+            "S07E21": 1
+          },
+          "source_counts": {},
+          "doc_type_counts": {
+            "derived": 5
+          },
+          "chunk_type_counts": {},
+          "source_dup_rate": 1.0,
+          "episode_dup_rate": 0.8
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "recently took a lover, who is Pam's mom, Helene.",
+            "Romeo and Juliet."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "expected": {
+        "episode_ids": [
+          "S02E10"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 359,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about the teapot letter or its importance.",
+        "latency_ms": 584,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 106,
+          "completion_tokens": 20,
+          "total_tokens": 126
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 106
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 399,
+        "stats": {
+          "min": null,
+          "max": null,
+          "mean": null
+        },
+        "results": [],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "I don't know. The provided context does not contain information about who Creed is or what his deal is.",
+        "latency_ms": 1270,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 103,
+          "completion_tokens": 21,
+          "total_tokens": 124
+        },
+        "stats": {
+          "context_docs": 0,
+          "context_chars": 0,
+          "answer_chars": 103
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": false
+      },
+      "diagnostics": {
+        "context_episode_ids": [],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": null
+        },
+        "context_diversity": {
+          "distinct_episode_count": 0,
+          "distinct_source_count": 0,
+          "top_episode_share": null,
+          "episode_entropy_norm": null,
+          "episode_counts": {},
+          "source_counts": {},
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": null,
+          "episode_dup_rate": null
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 639,
+    "avg_context_docs": 2.142857142857143,
+    "avg_context_chars": 3041.285714285714,
+    "avg_distinct_episodes_in_context": 0.42857142857142855,
+    "avg_distinct_sources_in_context": 0.0,
+    "avg_top_episode_share_in_context": 0.2,
+    "avg_episode_entropy_norm_in_context": 0.928771237954945,
+    "avg_cited_episode_ids_not_in_context": 0.0,
+    "avg_aggregation_readiness_score": 36.59666666666667,
+    "avg_aggregation_readiness_score_agg_questions": 36.59666666666667,
+    "avg_answer_latency_ms": 1924,
+    "avg_prompt_tokens": 714,
+    "avg_completion_tokens": 94,
+    "avg_total_tokens": 809,
+    "idk_rate": 0.7142857142857143,
+    "episode_citation_rate": 0.14285714285714285,
+    "retrieval_empty_rate": 0.5714285714285714,
+    "retrieval_failure_rate": 1.0,
+    "grounding_failure_rate": 0.0,
+    "quote_in_context_rate": 0.42857142857142855,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

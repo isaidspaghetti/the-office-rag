@@ -1,0 +1,1510 @@
+{
+  "run": {
+    "run_id": "2026-03-05T04-20-43Z_sanity_blended_with_topiccards_v2",
+    "run_name": "sanity_blended_with_topiccards_v2",
+    "created_at_utc": "2026-03-05T04:20:43Z",
+    "notes": "Sanity: blended routing with topic_card diagnostics"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 8,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "expected": {
+        "episode_ids": [
+          "S03E20"
+        ]
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 281,
+        "stats": {
+          "min": 0.5714687705039978,
+          "max": 0.6128706336021423,
+          "mean": 0.5963703592618307
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 25,
+            "first_line": "=== SCENE 045 ===",
+            "preview": "=== SCENE 045 ===\n\nAndy: Hey, what's goin' on over here? Some sort of singing competition for the young'uns?\nCasey: You're back!\nAndy: No, it's me, Andy!\nCasey: No, I know.\nAndy: No, no, no. I'm wearing makeup.\nCasey: You did a really great…",
+            "score": 0.6128706336021423
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+            "episode_id": "S03E20",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S03E20 — Product Recall",
+            "preview": "The Office — S03E20 — Product Recall\n\n=== SCENE 000 ===\n\nJim (Dressed as Dwight): It's kind of blurry. That's better. Question. What kind of bear is best?\n[STAGE] puts on his glasses\n[STAGE] exhales\nDwight: That's a ridiculous question.\nJim…",
+            "score": 0.6047716736793518
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt",
+            "episode_id": "S08E14",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 5,
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nDarryl: What do we have here?\n\n=== SCENE 006 ===\n\nDarryl: Val knit me a beanie. But I can't if it's a \"we're just friends\" beanie or a \"I'm hot, you're hot, let's get it poppin'\" beanie. So I'm gonna up the ante, give her…",
+            "score": 0.5714687705039978
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "The quote \"Bears. Beets. Battlestar Galactica.\" is from The Office, Season 3, Episode 20 (\"Product Recall\"). The context is that Jim is dressed as Dwight and mimicking him. Jim asks, \"What kind of bear is best?\" and Dwight responds, \"That's a ridiculous question.\" Jim says, \"False. Black bear.\" Then Jim says, \"Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\" Dwight reacts with confusion, saying, \"Bears do not— What is going on— What are you doing?!\" This is a comedic moment where Jim is impersonating Dwight and referencing some of Dwight's known interests and quirks.",
+        "latency_ms": 3064,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 823,
+          "completion_tokens": 147,
+          "total_tokens": 970
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 2557,
+          "answer_chars": 584
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S03E20",
+          "S08E14",
+          "S09E22"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": true,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 88.33
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 3,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9999999999999998,
+          "episode_counts": {
+            "S03E20": 1,
+            "S08E14": 1,
+            "S09E22": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 7,
+          "any_quote_in_context": true,
+          "examples": [
+            "Bears. Beets. Battlestar Galactica.",
+            "Product Recall"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": false,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "expected": {
+        "episode_ids": [
+          "S02E12"
+        ]
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 193,
+        "stats": {
+          "min": 0.6129324436187744,
+          "max": 0.657615602016449,
+          "mean": 0.6293105880419413
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt",
+            "episode_id": "S02E12",
+            "doc_type": "summary",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S02E12 — The Injury",
+            "preview": "The Office — S02E12 — The Injury\n\nMichael accidentally burns his foot on his George Foreman Grill, but insists on coming to work anyway. When none of his employees, except for Dwight , help him, Michael feels under-appreciated. Meanwhile, D…",
+            "score": 0.657615602016449
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": "S02E12",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 4,
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nMichael: Morning everyone. Don't freak out. I forbid anybody to freak out. Clearly, I have had a very serious accident, but I will recover, God willing. I just want to be treated normally today. Normal would actually be g…",
+            "score": 0.6173837184906006
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": "S02E12",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 19,
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nDwight: Ahhh. Mweehaa\nMichael: Doctor, what is more serious, a head injury or a foot injury?\nDoctor: A head injury.\nMichael: Well, you don't have all the information. The foot as been fairly severely burned and healed qui…",
+            "score": 0.6129324436187744
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "Michael burns his foot in the episode \"The Injury,\" which is Season 2, Episode 12 (S02E12) of The Office.",
+        "latency_ms": 1133,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 514,
+          "completion_tokens": 30,
+          "total_tokens": 544
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 1707,
+          "answer_chars": 105
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E12"
+        ],
+        "cited_episode_ids": [
+          "S02E12"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": true,
+        "correct_episode_cited": true,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 6.67
+        },
+        "context_diversity": {
+          "distinct_episode_count": 1,
+          "distinct_source_count": 2,
+          "top_episode_share": 1.0,
+          "episode_entropy_norm": null,
+          "episode_counts": {
+            "S02E12": 3
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 2,
+            "summary": 1
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.33333333333333337,
+          "episode_dup_rate": 0.6666666666666667
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": true,
+          "examples": [
+            "The Injury,"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": false,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 1207,
+        "stats": {
+          "min": 0.5889512896537781,
+          "max": 0.5989809632301331,
+          "mean": 0.5930790901184082
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt",
+            "episode_id": "S02E01",
+            "doc_type": "summary",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S02E01 — The Dundies",
+            "preview": "The Office — S02E01 — The Dundies\n\nMichael hosts the annual Dundies awards.",
+            "score": 0.5989809632301331
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt",
+            "episode_id": "S02E03",
+            "doc_type": "summary",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S02E03 — Office Olympics",
+            "preview": "The Office — S02E03 — Office Olympics\n\nWith Michael and Dwight out of the house, Jim organizes an office Olympics.",
+            "score": 0.5913050174713135
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e23_goodbye_michael_2_summary.txt",
+            "episode_id": "S07E23",
+            "doc_type": "summary",
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S07E23 — Goodbye, Michael (2)",
+            "preview": "The Office — S07E23 — Goodbye, Michael (2)\n\n(No summary available.)",
+            "score": 0.5889512896537781
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 3,
+            "returned": 3
+          },
+          "derived": {
+            "k": 8,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S02E01",
+                "episode_ids": [
+                  "S02E01"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "The Dundies",
+                "score": 0.5854229927062988
+              },
+              {
+                "rank": 2,
+                "episode_id": "S02E13",
+                "episode_ids": [
+                  "S02E13"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "The Secret",
+                "score": 0.5712631940841675
+              },
+              {
+                "rank": 3,
+                "episode_id": "S02E03",
+                "episode_ids": [
+                  "S02E03"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "Office Olympics",
+                "score": 0.5688169598579407
+              },
+              {
+                "rank": 4,
+                "episode_id": "S03E08",
+                "episode_ids": [
+                  "S03E08"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "The Merger",
+                "score": 0.5468723177909851
+              },
+              {
+                "rank": 5,
+                "episode_id": "S06E20",
+                "episode_ids": [
+                  "S06E20"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 6,
+                "title": "Secretary’s Day",
+                "score": 0.5356955528259277
+              },
+              {
+                "rank": 6,
+                "episode_id": "S01E02",
+                "episode_ids": [
+                  "S01E02"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 1,
+                "title": "Diversity Day",
+                "score": 0.533721387386322
+              },
+              {
+                "rank": 7,
+                "episode_id": "S02E10",
+                "episode_ids": [
+                  "S02E10"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "Christmas Party",
+                "score": 0.5303843021392822
+              },
+              {
+                "rank": 8,
+                "episode_id": "S02E11",
+                "episode_ids": [
+                  "S02E11"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 2,
+                "title": "Booze Cruise",
+                "score": 0.5289146900177002
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S02E01",
+            "S02E13",
+            "S02E03",
+            "S03E08",
+            "S06E20",
+            "S01E02"
+          ],
+          "routed": {
+            "k": 3,
+            "script_filter": {
+              "episode_id": {
+                "$in": [
+                  "S02E01",
+                  "S02E13",
+                  "S02E03",
+                  "S03E08",
+                  "S06E20",
+                  "S01E02"
+                ]
+              }
+            },
+            "script_filter_mode": "metadata",
+            "returned": 3
+          },
+          "combined": {
+            "returned": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Season 2 of The Office includes episodes such as \"The Dundies\" (S02E01), where Michael hosts the annual Dundies awards, and \"Office Olympics\" (S02E03), in which Jim organizes an office Olympics while Michael and Dwight are out of the office. There is no further detailed summary of the entire season in the provided context.",
+        "latency_ms": 1354,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 170,
+          "completion_tokens": 73,
+          "total_tokens": 243
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 270,
+          "answer_chars": 324
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E01",
+          "S02E03",
+          "S07E23"
+        ],
+        "cited_episode_ids": [
+          "S02E01",
+          "S02E03"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 88.33
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 3,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9999999999999998,
+          "episode_counts": {
+            "S02E01": 1,
+            "S02E03": 1,
+            "S07E23": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_07/s07e23_goodbye_michael_2_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "summary": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "The Dundies",
+            "Office Olympics"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 1774,
+        "stats": {
+          "min": 0.5994021892547607,
+          "max": 0.6049391031265259,
+          "mean": 0.601922074953715
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+            "episode_id": "S08E18",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 19,
+            "first_line": "Dwight (straightens tie in mirror): Showtime.",
+            "preview": "Dwight (straightens tie in mirror): Showtime.\nJim (enters abruptly): Dwight.\nDwight: You again? Gosh, I keep throwing you away, you keep flying back here. You're like an Amish return stick.\nJim: OK, great, listen to me. Listen to me. No, no…",
+            "score": 0.6049391031265259
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt",
+            "episode_id": "S03E21",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 1,
+            "first_line": "Jim (to Pam): Hey.",
+            "preview": "Jim (to Pam): Hey.\nJim (Dwight hands Jim a piece of paper): Oh, what's this?\nDwight: That is a demerit.\nJim (reads demerit): \"Jim Halpert, tardiness.\" Ugh. I love it already.\nDwight: You've gotta learn, Jim. You are second in command, but t…",
+            "score": 0.6014249324798584
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "episode_id": "S07E23",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.",
+            "preview": "Jim: Wow, you've really embraced the whole Bond villain aesthetic.\nDwight: Ah, Jim, Jim, Jim. The gun is a Beaumont-Adams. Jo collects them. I thought we could have some nice small talk about it. And the piranha's a rescue.\nJim: And the des…",
+            "score": 0.5994021892547607
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 3,
+            "returned": 3
+          },
+          "derived": {
+            "k": 8,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S01E04",
+                "episode_ids": [
+                  "S09E22",
+                  "S04E04",
+                  "S06E17",
+                  "S04E01",
+                  "S06E11",
+                  "S01E04"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_jim",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5973325371742249
+              },
+              {
+                "rank": 2,
+                "episode_id": "S03E02",
+                "episode_ids": [
+                  "S03E03",
+                  "S08E13",
+                  "S03E02",
+                  "S03E12",
+                  "S03E17",
+                  "S03E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_jan",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.4953901767730713
+              },
+              {
+                "rank": 3,
+                "episode_id": "S03E23",
+                "episode_ids": [
+                  "S03E23"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "The Job",
+                "score": 0.49321526288986206
+              },
+              {
+                "rank": 4,
+                "episode_id": "S04E03",
+                "episode_ids": [
+                  "S05E11",
+                  "S04E03",
+                  "S08E13",
+                  "S04E04",
+                  "S08E12",
+                  "S09E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_andy_dwight",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.4838826656341553
+              },
+              {
+                "rank": 5,
+                "episode_id": "S03E18",
+                "episode_ids": [
+                  "S03E18"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "The Negotiation",
+                "score": 0.4825540781021118
+              },
+              {
+                "rank": 6,
+                "episode_id": "S01E06",
+                "episode_ids": [
+                  "S01E06",
+                  "S03E03",
+                  "S06E04",
+                  "S03E10",
+                  "S07E04",
+                  "S05E12"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_dwight_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.48142409324645996
+              },
+              {
+                "rank": 7,
+                "episode_id": "S03E12",
+                "episode_ids": [
+                  "S03E12"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 3,
+                "title": "Traveling Salesmen",
+                "score": 0.47610336542129517
+              },
+              {
+                "rank": 8,
+                "episode_id": "S06E03",
+                "episode_ids": [
+                  "S06E03"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 6,
+                "title": "The Promotion",
+                "score": 0.4756969213485718
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E22",
+            "S04E04",
+            "S06E17",
+            "S04E01",
+            "S06E11",
+            "S01E04"
+          ],
+          "routed": {
+            "k": 3,
+            "script_filter": {
+              "episode_id": {
+                "$in": [
+                  "S09E22",
+                  "S04E04",
+                  "S06E17",
+                  "S04E01",
+                  "S06E11",
+                  "S01E04"
+                ]
+              }
+            },
+            "script_filter_mode": "metadata",
+            "returned": 3
+          },
+          "combined": {
+            "returned": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Dwight dislikes Jim for several reasons, as illustrated by their interactions:\n\n1. Jim constantly pranks Dwight, which Dwight finds annoying and tries to resist. For example, Dwight says, \"Your pranks have never worked in the past and they're not going to work today,\" showing his frustration with Jim's behavior.\n\n2. Dwight sees Jim as a subordinate who does not respect the rules or authority. Dwight issues Jim a demerit for tardiness and explains the disciplinary consequences, emphasizing that \"You are second in command, but that does not put you above the law.\"\n\n3. Dwight feels threatened by Jim's potential to undermine him, especially when Dwight is acting manager. Dwight warns Jim, \"I cannot have a subordinate trying to make me look stupid,\" and threatens to \"pre-fire\" Jim to maintain control.\n\nThese examples show Dwight's dislike stems from Jim's pranks, perceived insubordination, and threat to Dwight's authority.",
+        "latency_ms": 2523,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1036,
+          "completion_tokens": 189,
+          "total_tokens": 1225
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 3526,
+          "answer_chars": 931
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S03E21",
+          "S07E23",
+          "S08E18"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 88.33
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 3,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9999999999999998,
+          "episode_counts": {
+            "S03E21": 1,
+            "S07E23": 1,
+            "S08E18": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 4,
+          "any_quote_in_context": true,
+          "examples": [
+            "Your pranks have never worked in the past and they're not going to work today,",
+            "You are second in command, but that does not put you above the law."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 747,
+        "stats": {
+          "min": 0.5662662982940674,
+          "max": 0.5871609449386597,
+          "mean": 0.5767619013786316
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "episode_id": "S04E08",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 14,
+            "first_line": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"",
+            "preview": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"\nMichael: Not a woman, just a cool, great looking, best friend.\nLester: Aren'…",
+            "score": 0.5871609449386597
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": "S04E10",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 27,
+            "first_line": "=== SCENE 044 ===",
+            "preview": "=== SCENE 044 ===\n\nKelly: Hi, Michael.\nMichael (sitting at her desk): Hey, Kelly.\nKelly: Yeah, what are you doing here?\nMichael: Nothing. Just hangin'. Chillin'. No agenda. Would you consider hookin' me up with one of your friends?\nKelly: O…",
+            "score": 0.5768584609031677
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt",
+            "episode_id": "S02E11",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nMichael: Is somebody there?\nJim: What happened to you?\nMichael: Captain Jack has a problem with authority.\nJim: Oh, right, because you announced that his ship was sinking?\nMichael: He just totally lost it. If you ask me, …",
+            "score": 0.5662662982940674
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "blended",
+          "agg_like": true,
+          "base": {
+            "k": 3,
+            "returned": 3
+          },
+          "derived": {
+            "k": 8,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S02E11",
+                "episode_ids": [
+                  "S03E02",
+                  "S03E10",
+                  "S06E06",
+                  "S02E11",
+                  "S06E02",
+                  "S04E07"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_jim_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5564209222793579
+              },
+              {
+                "rank": 2,
+                "episode_id": "S02E13",
+                "episode_ids": [
+                  "S04E01",
+                  "S05E08",
+                  "S04E10",
+                  "S02E13",
+                  "S06E06",
+                  "S06E08"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_michael_pam",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5539026856422424
+              },
+              {
+                "rank": 3,
+                "episode_id": "S04E14",
+                "episode_ids": [
+                  "S05E05",
+                  "S05E04",
+                  "S07E15",
+                  "S04E14",
+                  "S07E18",
+                  "S07E04"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_holly_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5424458384513855
+              },
+              {
+                "rank": 4,
+                "episode_id": "S02E01",
+                "episode_ids": [
+                  "S06E01",
+                  "S06E16",
+                  "S04E06",
+                  "S05E14",
+                  "S04E12",
+                  "S02E01"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_michael_stanley",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.519917368888855
+              },
+              {
+                "rank": 5,
+                "episode_id": "S07E21",
+                "episode_ids": [
+                  "S07E21"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": "Goodbye Michael",
+                "score": 0.5170574188232422
+              },
+              {
+                "rank": 6,
+                "episode_id": "S07E14",
+                "episode_ids": [
+                  "S07E14"
+                ],
+                "derived_type": "episode_card",
+                "topic_id": null,
+                "topic_type": null,
+                "season": 7,
+                "title": "The Search",
+                "score": 0.5166726112365723
+              },
+              {
+                "rank": 7,
+                "episode_id": "S05E05",
+                "episode_ids": [
+                  "S06E21",
+                  "S06E22",
+                  "S06E23",
+                  "S07E04",
+                  "S05E05",
+                  "S06E17"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_donna_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5148563981056213
+              },
+              {
+                "rank": 8,
+                "episode_id": "S02E08",
+                "episode_ids": [
+                  "S02E08",
+                  "S03E17",
+                  "S02E22",
+                  "S03E23",
+                  "S05E05",
+                  "S03E21"
+                ],
+                "derived_type": "topic_card",
+                "topic_id": "relationship_jan_michael",
+                "topic_type": "relationship",
+                "season": null,
+                "title": null,
+                "score": 0.5050244331359863
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S03E02",
+            "S03E10",
+            "S06E06",
+            "S02E11",
+            "S06E02",
+            "S04E07"
+          ],
+          "routed": {
+            "k": 3,
+            "script_filter": {
+              "episode_id": {
+                "$in": [
+                  "S03E02",
+                  "S03E10",
+                  "S06E06",
+                  "S02E11",
+                  "S06E02",
+                  "S04E07"
+                ]
+              }
+            },
+            "script_filter_mode": "metadata",
+            "returned": 3
+          },
+          "combined": {
+            "returned": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Based on the provided context, Michael Scott had a serious relationship with Jan Levinson. Michael considered Jan to be his girlfriend, but Jan did not consider him her boyfriend. Their relationship ended with Jan giving Michael poor performance reviews at work, indicating a strained and ultimately unsuccessful relationship. Michael defends Jan despite her ambivalence and negative reviews, saying, \"Yes, I had sex with Jan, and yes, I did consider Jan to be my girlfriend. However, Jan clearly didn't consider me to be her boyfriend.\" The relationship ended with Jan's judgment being \"very seriously flawed\" as she recommended Michael be removed from his position.\n\nNo other serious girlfriends or details about how those relationships ended are mentioned in the provided context.",
+        "latency_ms": 2229,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1064,
+          "completion_tokens": 143,
+          "total_tokens": 1207
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 3838,
+          "answer_chars": 783
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E11",
+          "S04E08",
+          "S04E10"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 88.33
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 3,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9999999999999998,
+          "episode_counts": {
+            "S02E11": 1,
+            "S04E08": 1,
+            "S04E10": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e11_booze_cruise_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "Yes, I had sex with Jan, and yes, I did consider Jan to be my girlfriend. However, Jan clearly didn't consider me to be ",
+            "very seriously flawed"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "expected": {
+        "episode_ids": [
+          "S02E10"
+        ]
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 158,
+        "stats": {
+          "min": 0.24735218286514282,
+          "max": 0.2754267454147339,
+          "mean": 0.2590414881706238
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+            "episode_id": "S09E16",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 16,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMark: This is not an office so much as it is a uh, rec room with a bunch of computers in it. Frankly, if I had my way, I'd toss the computers in the gar-bage. But unfortunately we use them for practically everything we do…",
+            "score": 0.2754267454147339
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt",
+            "episode_id": "S08E21",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 12,
+            "first_line": "=== SCENE 031 ===",
+            "preview": "=== SCENE 031 ===\n\nNellie: I just wanted to take the man's job, not his manhood.\n\n=== SCENE 032 ===\n\nNellie: Okay, I would like to invite everyone into the conference room.\nAndy: You can't call a meeting. But I would like to have a meeting …",
+            "score": 0.25434553623199463
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+            "episode_id": "S06E01",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 9,
+            "first_line": "=== SCENE 010 ===",
+            "preview": "=== SCENE 010 ===\n\nMichael (approaching Kelly's desk, whispEring): Stanley is having an affir.\nKelly: WHAT?\n\n=== SCENE 011 ===\n\nMichael: I am very happy right now. Thrilled perhaps, to be part of the office, to be part of the conversation. …",
+            "score": 0.24735218286514282
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "The provided context does not contain any information about the teapot letter or its importance. Therefore, I don't know the answer based on this context.",
+        "latency_ms": 755,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 902,
+          "completion_tokens": 29,
+          "total_tokens": 931
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 3002,
+          "answer_chars": 154
+        }
+      },
+      "heuristics": {
+        "said_idk": true,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S06E01",
+          "S08E21",
+          "S09E16"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 88.33
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 3,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9999999999999998,
+          "episode_counts": {
+            "S06E01": 1,
+            "S08E21": 1,
+            "S09E16": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e21_angry_andy_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 3,
+        "latency_ms": 186,
+        "stats": {
+          "min": 0.49442410469055176,
+          "max": 0.5216677188873291,
+          "mean": 0.5062297582626343
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "episode_id": "S04E02",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 16,
+            "first_line": "=== SCENE 028 ===",
+            "preview": "=== SCENE 028 ===\n\nOscar: Creed?\nCreed: Yes, sir.\nOscar: Everything OK?\n[STAGE] Creed has made his hair jet black\nCreed: Everything's cool, dude.\n\n=== SCENE 029 ===\n\nCreed: I'm thirty. Well, in November I'll be thirty.\n\n=== SCENE 030 ===",
+            "score": 0.5216677188873291
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "episode_id": "S02E05",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.",
+            "preview": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.\nCreed: What are you telling me?\nMichael: I… we're gonna …",
+            "score": 0.502597451210022
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "episode_id": "S04E02",
+            "doc_type": "script",
+            "chunk_type": "char",
+            "chunk_index": 8,
+            "first_line": "=== SCENE 014 ===",
+            "preview": "=== SCENE 014 ===\n\nCreed: We're screwed.\nMichael: Who is?\nCreed: Us? You and me. The old timers.\nMichael: I am not old. You are old. You are like a hundred.\nCreed: You're over 40, that's the cut off. Are you listening to what he's saying? R…",
+            "score": 0.49442410469055176
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "blended",
+          "effective_policy": "script_only",
+          "agg_like": false
+        }
+      },
+      "answer": {
+        "text": "Creed is a character at the office who seems somewhat mysterious and possibly older than he appears. He mentions he is \"thirty. Well, in November I'll be thirty,\" but Michael jokes that Creed is \"like a hundred.\" Creed is concerned about changes at the office, referring to retraining and new systems, and warns Michael that \"You deal with this or you, me, Sammy, Phyllis, the chick you hit with the car, we're goners,\" indicating he feels threatened by the new youth-oriented changes (SCENE 014).\n\nIn another scene, Michael is about to let someone go and Creed tries to convince him not to, saying \"You don't have to do this, Michael\" and urging him to \"undo it!\" but Michael insists he can't change the decision (SCENE 030).\n\nCreed also appears to have a laid-back attitude, responding to Oscar's question about whether everything is okay with \"Everything's cool, dude,\" while having made his hair jet black (SCENE 028).\n\nOverall, Creed seems to be an older, somewhat quirky employee who is worried about job security and changes in the office, and tries to resist being let go.",
+        "latency_ms": 3806,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 630,
+          "completion_tokens": 238,
+          "total_tokens": 868
+        },
+        "stats": {
+          "context_docs": 3,
+          "context_chars": 1972,
+          "answer_chars": 1080
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E05",
+          "S04E02"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 66.32
+        },
+        "context_diversity": {
+          "distinct_episode_count": 2,
+          "distinct_source_count": 2,
+          "top_episode_share": 0.6666666666666666,
+          "episode_entropy_norm": 0.9182958340544894,
+          "episode_counts": {
+            "S04E02": 2,
+            "S02E05": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 3
+          },
+          "chunk_type_counts": {
+            "char": 3
+          },
+          "source_dup_rate": 0.33333333333333337,
+          "episode_dup_rate": 0.33333333333333337
+        },
+        "answer_quotes": {
+          "count": 6,
+          "any_quote_in_context": true,
+          "examples": [
+            "thirty. Well, in November I'll be thirty,",
+            "like a hundred."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 649,
+    "avg_context_docs": 3.0,
+    "avg_context_chars": 2410.285714285714,
+    "avg_distinct_episodes_in_context": 2.5714285714285716,
+    "avg_distinct_sources_in_context": 2.7142857142857144,
+    "avg_top_episode_share_in_context": 0.47619047619047616,
+    "avg_episode_entropy_norm_in_context": 0.9863826390090814,
+    "avg_cited_episode_ids_not_in_context": 0.0,
+    "avg_aggregation_readiness_score": 73.51999999999998,
+    "avg_aggregation_readiness_score_agg_questions": 88.33,
+    "avg_answer_latency_ms": 2123,
+    "avg_prompt_tokens": 734,
+    "avg_completion_tokens": 121,
+    "avg_total_tokens": 855,
+    "idk_rate": 0.14285714285714285,
+    "episode_citation_rate": 0.2857142857142857,
+    "retrieval_empty_rate": 0.0,
+    "retrieval_failure_rate": 0.3333333333333333,
+    "grounding_failure_rate": 0.0,
+    "quote_in_context_rate": 0.8571428571428571,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

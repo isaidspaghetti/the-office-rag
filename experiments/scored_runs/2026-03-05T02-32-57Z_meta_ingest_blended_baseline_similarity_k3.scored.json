@@ -1,0 +1,283 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-32-57Z_meta_ingest_blended_baseline_similarity_k3",
+    "run_name": "meta_ingest_blended_baseline_similarity_k3",
+    "created_at_utc": "2026-03-05T02:32:57Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 57,
+    "overall_scores": [
+      95,
+      100,
+      38,
+      48,
+      30,
+      30,
+      55
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer matches gold answer and is fully supported by retrieved context, including episode, quote, and context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and matches the gold answer, fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E03"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "Candidate answer only lists two episode summaries from season 2 without summarizing the season's main plotlines or character developments as in the gold answer. No unsupported claims present."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 3,
+        "overall": 48,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says 'Your pranks have never worked in the past and they're not going to work today' - not found in context",
+          "Dwight warns Jim about 'pre-fire' and 'full fire' if promoted - not found in context",
+          "Dwight feels threatened by Jim's social ease and influence - not supported by context"
+        ],
+        "missing_points": [
+          "The nuance of underlying respect between Dwight and Jim",
+          "Example of Dwight naming Jim best man at his wedding",
+          "Explicit mention of Dwight valuing hierarchy and rules as a reason for dislike"
+        ],
+        "notes": "Candidate answer correctly identifies three main reasons for Dwight's dislike of Jim and provides some supporting quotes, but many quotes and examples are not supported by the retrieved context. The retrieved context is limited and does not fully support the claims. The answer lacks the important nuance of their underlying respect and final reconciliation."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 2,
+        "completeness": 1,
+        "hallucination": 4,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Only Jan Levinson is mentioned as a serious girlfriend",
+          "Details about the end of the relationship with Jan Levinson"
+        ],
+        "missing_points": [
+          "Other serious girlfriends such as Carol Stills, Holly Flax, Donna Newton, and Helene Beesly",
+          "How those relationships ended"
+        ],
+        "notes": "The candidate answer only mentions Jan Levinson and provides some details about the relationship ending, but the retrieved context does not support these details. The candidate fails to mention other serious girlfriends listed in the gold answer. The retrieved context is insufficient to fully answer the question, so a more cautious answer would be 'I don't know'."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate answer correctly states that the retrieved context does not contain information about the teapot letter and appropriately responds with 'I don't know'. No unsupported claims are made, but the answer lacks any detail due to missing context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 55,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed implies shady or criminal behavior and a questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "missing_points": [
+          "Creed's job role (Quality Assurance)",
+          "Creed's bizarre and evasive nature implying shady or criminal behavior",
+          "Creed's role as comic relief and mysterious presence",
+          "Creed's arrest in the series finale"
+        ],
+        "notes": "The candidate answer is grounded in the retrieved context regarding Creed's age ambiguity, his concern about office changes, and his cryptic demeanor. However, it lacks key elements from the gold answer about Creed's job, his shady and mysterious nature, and his arrest. The retrieved context does not support these latter points, so the candidate answer avoids hallucination but is incomplete."
+      }
+    }
+  ]
+}
