@@ -3491,9 +3491,14 @@ def page_evolution(
 # -----------------------------
 # App scaffold
 # -----------------------------
-def main() -> None:
-    st.set_page_config(page_title=APP_TITLE, layout="wide")
-    st.title(APP_TITLE)
+def main(*, set_page_config: bool = True, show_title: bool | None = None) -> None:
+    if set_page_config:
+        st.set_page_config(page_title=APP_TITLE, layout="wide", initial_sidebar_state="collapsed")
+
+    if show_title is None:
+        show_title = bool(set_page_config)
+    if show_title:
+        st.title(APP_TITLE)
 
     # Make the top page selector sticky (exec-friendly).
     st.markdown(
