@@ -1,0 +1,267 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+  "created_at_utc": "2026-03-05T19:38:04Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E10",
+  "segment_id": "S03E10:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6327,
+  "segment_char_end": 12349,
+  "people": [
+    "Pam",
+    "Jim",
+    "Michael",
+    "Stanley",
+    "Kevin",
+    "Dwight",
+    "Phyllis",
+    "Toby",
+    "Angela",
+    "Karen",
+    "Meredith",
+    "Andy"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Pam gives Jim a Christmas gift involving secret CIA letters about Dwight.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6514,
+          "char_end": 6589,
+          "snippet": "Pam: For the past few months I've been sending Dwight letters from the CIA."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6807,
+          "char_end": 6993,
+          "snippet": "Jim (Opens folder and reads from Dwight's file): Last year, my boss, Michael Scott, took a day off because he said he had pneumonia, but really, he was leaving early to go to magic camp."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael announces Christmas is canceled due to his breakup with Carol, causing office tension.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 7607,
+          "char_end": 7670,
+          "snippet": "Michael: I'd like everybody's attention. Christmas is canceled."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 7876,
+          "char_end": 8001,
+          "snippet": "Michael: Carol and I split up. Amicably. And I just don't think it would be appropriate to celebrate under the circumstances."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael forbids guests at the Christmas party, leading to complaints from Phyllis and others.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 8139,
+          "char_end": 8186,
+          "snippet": "Michael: Fine! Have your party. Just no guests."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 8219,
+          "char_end": 8250,
+          "snippet": "Phyllis: But we invited guests."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Pam reflects on her coldness toward Karen and decides to be friendlier.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 11447,
+          "char_end": 11528,
+          "snippet": "Pam: I feel like I've been kinda cold to Karen and there's no real reason for it."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 11651,
+          "char_end": 11722,
+          "snippet": "Pam: Hey, Karen. Sorry about that meeting today, that was really crazy."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Angela rejects Karen's ideas for the Christmas party and tells her to leave.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 9863,
+          "char_end": 9988,
+          "snippet": "Angela: These are all terrible ideas and none of them are on the theme of \"A Nutcracker Christmas.\" I think you should leave."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 9989,
+          "char_end": 10011,
+          "snippet": "Karen: You're kidding."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael mourns his breakup with Carol by playing 'Goodbye My Lover' and sorting through papers.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 10493,
+          "char_end": 10508,
+          "snippet": "Michael: Carol?"
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 11144,
+          "char_end": 11199,
+          "snippet": "Michael (singing): Goodbye my lover. Goodbye my friend."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Christmas is canceled.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 7607,
+          "char_end": 7670,
+          "snippet": "Michael: I'd like everybody's attention. Christmas is canceled."
+        }
+      ]
+    },
+    {
+      "quote": "For the past few months I've been sending Dwight letters from the CIA.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6514,
+          "char_end": 6589,
+          "snippet": "Pam: For the past few months I've been sending Dwight letters from the CIA."
+        }
+      ]
+    },
+    {
+      "quote": "I feel like I've been kinda cold to Karen and there's no real reason for it.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 11452,
+          "char_end": 11528,
+          "snippet": "I feel like I've been kinda cold to Karen and there's no real reason for it."
+        }
+      ]
+    },
+    {
+      "quote": "These are all terrible ideas and none of them are on the theme of \"A Nutcracker Christmas.\" I think you should leave.",
+      "speaker": "Angela",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 9871,
+          "char_end": 9988,
+          "snippet": "These are all terrible ideas and none of them are on the theme of \"A Nutcracker Christmas.\" I think you should leave."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific top secret mission will Jim decide for Dwight?",
+    "How will the office Christmas party proceed after Michael's cancellation and guest ban?",
+    "What is the outcome of Pam and Karen's renewed friendliness?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific top secret mission will Jim decide for Dwight?",
+      "why_uncertain": "Jim is given the folder to decide Dwight's mission but expresses reluctance and returns the folder to Pam without revealing a decision.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6327,
+          "char_end": 12349,
+          "snippet": "Pam: Psst. Jim. Um, hey. I need to give you your Christmas gift now because, well, I'll just tell you.\n[STAGE] Jim turns around. Pam nods head towards her for him to come over\nJim: What?\nPam: For the past few months I've been sending Dwight"
+        }
+      ]
+    },
+    {
+      "question": "How will the office Christmas party proceed after Michael's cancellation and guest ban?",
+      "why_uncertain": "Michael cancels Christmas and forbids guests but Phyllis and others have invited guests, and the segment ends without resolution.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6327,
+          "char_end": 12349,
+          "snippet": "Pam: Psst. Jim. Um, hey. I need to give you your Christmas gift now because, well, I'll just tell you.\n[STAGE] Jim turns around. Pam nods head towards her for him to come over\nJim: What?\nPam: For the past few months I've been sending Dwight"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Pam and Karen's renewed friendliness?",
+      "why_uncertain": "Pam and Karen discuss being friendlier but the segment ends before showing any further development.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6327,
+          "char_end": 12349,
+          "snippet": "Pam: Psst. Jim. Um, hey. I need to give you your Christmas gift now because, well, I'll just tell you.\n[STAGE] Jim turns around. Pam nods head towards her for him to come over\nJim: What?\nPam: For the past few months I've been sending Dwight"
+        }
+      ]
+    }
+  ]
+}

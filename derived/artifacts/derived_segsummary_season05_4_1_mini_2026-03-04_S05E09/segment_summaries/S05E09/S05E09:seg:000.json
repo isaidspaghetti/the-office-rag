@@ -1,0 +1,236 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E09",
+  "created_at_utc": "2026-03-05T21:21:34Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E09",
+  "segment_id": "S05E09:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6950,
+  "people": [
+    "Oscar",
+    "Michael",
+    "Pam",
+    "Jim",
+    "Stanley",
+    "Toby",
+    "Andy",
+    "Dwight",
+    "Angela",
+    "Meredith",
+    "Creed"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Oscar reveals a $4300 budget surplus that must be spent by the end of the day or it will be deducted from next year's budget.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 405,
+          "char_end": 477,
+          "snippet": "Oscar: You can see clearly on this page that we have a surplus of $4300."
+        },
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 500,
+          "char_end": 602,
+          "snippet": "Oscar: But we have to spend that by the end of the day or it will be deducted from next year's budget."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Office staff debate how to spend the surplus money, with Michael initially favoring a new copier and others suggesting new chairs or air quality improvements.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 2119,
+          "char_end": 2220,
+          "snippet": "Pam: Yes, Michael, new chairs. These chairs are terrible. We were supposed to get new ones last year."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam have a disagreement over whether to spend the surplus on a copier or chairs, reflecting their differing preferences.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 3192,
+          "char_end": 3236,
+          "snippet": "Jim: Uh, actually, I'm gonna go with copier."
+        },
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 3237,
+          "char_end": 3252,
+          "snippet": "Pam: What? Jim."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy and Dwight discuss wedding plans at Schrute Farms, including directions and concerns about the venue's bathroom and slaughterhouse.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 3836,
+          "char_end": 3921,
+          "snippet": "Andy: Dwight, I'm a little concerned about some of these directions to Schrute Farms…"
+        },
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 5348,
+          "char_end": 5464,
+          "snippet": "Dwight: This is where you'll have your receiving line. Of course we'll clear out all the livestock and hay and such."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Jim go to lunch together, seemingly bonding over the budget surplus situation.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 6317,
+          "char_end": 6374,
+          "snippet": "Michael: Really? Absolutely! Yeah, that would be amazing."
+        },
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 6511,
+          "char_end": 6553,
+          "snippet": "Michael: Best lunch ever! Woo-hoo-hoo-hoo!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "We have to spend that $4300 by the end of the day or it'll be deducted from next year's budget.",
+      "speaker": "Oscar",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 1364,
+          "char_end": 1466,
+          "snippet": "Oscar: We have to spend that $4300 by the end of the day or it'll be deducted from next year's budget."
+        }
+      ]
+    },
+    {
+      "quote": "I have decided with that money I am going to buy a new, drum roll please… Can anybody guess?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 0,
+          "char_end": 6950,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Here are our final actual costs for this year.\nMichael: Mmm… okay.\nOscar: As you can see, we did pretty well, so…\nMichael: Yes. Yes, I can see… that we did indeed. Why don't you explain this to me like I am an eigh"
+        }
+      ]
+    },
+    {
+      "quote": "Yes, Michael, new chairs. These chairs are terrible. We were supposed to get new ones last year.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 2119,
+          "char_end": 2220,
+          "snippet": "Pam: Yes, Michael, new chairs. These chairs are terrible. We were supposed to get new ones last year."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: Uh, actually, I'm gonna go with copier.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 3192,
+          "char_end": 3236,
+          "snippet": "Jim: Uh, actually, I'm gonna go with copier."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What final decision is made about how to spend the $4300 surplus?",
+    "Will the concerns about the wedding venue at Schrute Farms be resolved?",
+    "How will the disagreement between Jim and Pam over the copier versus chairs affect their relationship?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What final decision is made about how to spend the $4300 surplus?",
+      "why_uncertain": "The segment ends with ongoing debate and no clear resolution on the spending choice.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 0,
+          "char_end": 6950,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Here are our final actual costs for this year.\nMichael: Mmm… okay.\nOscar: As you can see, we did pretty well, so…\nMichael: Yes. Yes, I can see… that we did indeed. Why don't you explain this to me like I am an eigh"
+        }
+      ]
+    },
+    {
+      "question": "Will the concerns about the wedding venue at Schrute Farms be resolved?",
+      "why_uncertain": "The discussion about the venue's bathroom and slaughterhouse issues is ongoing without a final solution.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 0,
+          "char_end": 6950,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Here are our final actual costs for this year.\nMichael: Mmm… okay.\nOscar: As you can see, we did pretty well, so…\nMichael: Yes. Yes, I can see… that we did indeed. Why don't you explain this to me like I am an eigh"
+        }
+      ]
+    },
+    {
+      "question": "How will the disagreement between Jim and Pam over the copier versus chairs affect their relationship?",
+      "why_uncertain": "The segment shows tension but does not reveal the outcome of their disagreement.",
+      "evidence": [
+        {
+          "episode_id": "S05E09",
+          "segment_id": "S05E09:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e09_the_surplus_script.txt",
+          "char_start": 0,
+          "char_end": 6950,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Here are our final actual costs for this year.\nMichael: Mmm… okay.\nOscar: As you can see, we did pretty well, so…\nMichael: Yes. Yes, I can see… that we did indeed. Why don't you explain this to me like I am an eigh"
+        }
+      ]
+    }
+  ]
+}

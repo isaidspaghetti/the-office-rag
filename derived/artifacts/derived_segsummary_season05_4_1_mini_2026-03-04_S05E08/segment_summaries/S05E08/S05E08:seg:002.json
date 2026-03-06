@@ -1,0 +1,256 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E08",
+  "created_at_utc": "2026-03-05T21:20:39Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E08",
+  "segment_id": "S05E08:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 12420,
+  "segment_char_end": 18597,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Toby",
+    "Police Officer 1",
+    "Police Officer 2",
+    "Ryan",
+    "Kelly",
+    "Jim",
+    "Pam"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Police officers search Toby's desk based on a tip, causing confusion and accusations of framing.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12508,
+          "char_end": 12558,
+          "snippet": "Dwight: Officers, I reveal to you the perpetrator."
+        },
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12611,
+          "char_end": 12674,
+          "snippet": "Police Officer 2: Sir, can you step away from your desk please?"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "The police find no drugs, only Michael's salad, revealing the tip was fake.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 13987,
+          "char_end": 14041,
+          "snippet": "Police Officer 2: Some basil. Salad dressing, I think."
+        },
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 14350,
+          "char_end": 14386,
+          "snippet": "Police Officer 1: We got a fake tip."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael accuses Toby of being worried about the police's time rather than the framing.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 14933,
+          "char_end": 15014,
+          "snippet": "Michael: Are you kidding me? Are you kidding me, that's who you're worried about?"
+        },
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 14807,
+          "char_end": 14932,
+          "snippet": "Toby: You know but the police could have been out there you know, catching real criminals instead of here searching my stuff."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael sarcastically calls Toby his best friend after accusing him of lying about leaving.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 15457,
+          "char_end": 15510,
+          "snippet": "Michael: I think you're great. You're my best friend."
+        },
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 15184,
+          "char_end": 15255,
+          "snippet": "Michael: You said you were leaving and you made liars out of all of us."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Ryan breaks up with Kelly, explaining he is going on a trip to Thailand and wants to be fair to both of them.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12420,
+          "char_end": 18597,
+          "snippet": "Michael: Those are real cops, real guns. I wonder what's going on.\n[STAGE] follows them\nDwight: Officers, I reveal to you the perpetrator.\nToby: Hey, what is this?\nDwight: Search his things.\nPolice Officer 2: Sir, can you step away from you"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Jim surprises Pam by buying a house for them, which she loves despite some quirks.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 16611,
+          "char_end": 16639,
+          "snippet": "Jim: I bought it. It's ours."
+        },
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 17616,
+          "char_end": 17631,
+          "snippet": "Pam: I love it."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Save your whining for the jury there, Flenderson.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 13135,
+          "char_end": 13192,
+          "snippet": "Dwight: Save your whining for the jury there, Flenderson."
+        }
+      ]
+    },
+    {
+      "quote": "Are you kidding me? Are you kidding me, that's who you're worried about?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 14933,
+          "char_end": 15014,
+          "snippet": "Michael: Are you kidding me? Are you kidding me, that's who you're worried about?"
+        }
+      ]
+    },
+    {
+      "quote": "I think you're great. You're my best friend.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 15466,
+          "char_end": 15510,
+          "snippet": "I think you're great. You're my best friend."
+        }
+      ]
+    },
+    {
+      "quote": "I can't do this.",
+      "speaker": "Ryan",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 15559,
+          "char_end": 15575,
+          "snippet": "I can't do this."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What was the exact reason for the police search of Toby's desk?",
+    "What will happen to Toby's relationship with Michael after the framing incident?",
+    "What is the significance of Dwight's perfect crime story at the end?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What was the exact reason for the police search of Toby's desk?",
+      "why_uncertain": "The segment only shows a fake tip and no drugs found but does not explain the origin or motive of the tip.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12420,
+          "char_end": 18597,
+          "snippet": "Michael: Those are real cops, real guns. I wonder what's going on.\n[STAGE] follows them\nDwight: Officers, I reveal to you the perpetrator.\nToby: Hey, what is this?\nDwight: Search his things.\nPolice Officer 2: Sir, can you step away from you"
+        }
+      ]
+    },
+    {
+      "question": "What will happen to Toby's relationship with Michael after the framing incident?",
+      "why_uncertain": "The segment ends with Michael sarcastically calling Toby his best friend but does not clarify their future relationship.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12420,
+          "char_end": 18597,
+          "snippet": "Michael: Those are real cops, real guns. I wonder what's going on.\n[STAGE] follows them\nDwight: Officers, I reveal to you the perpetrator.\nToby: Hey, what is this?\nDwight: Search his things.\nPolice Officer 2: Sir, can you step away from you"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of Dwight's perfect crime story at the end?",
+      "why_uncertain": "The segment ends with Dwight starting a story but does not provide further details or context.",
+      "evidence": [
+        {
+          "episode_id": "S05E08",
+          "segment_id": "S05E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+          "char_start": 12420,
+          "char_end": 18597,
+          "snippet": "Michael: Those are real cops, real guns. I wonder what's going on.\n[STAGE] follows them\nDwight: Officers, I reveal to you the perpetrator.\nToby: Hey, what is this?\nDwight: Search his things.\nPolice Officer 2: Sir, can you step away from you"
+        }
+      ]
+    }
+  ]
+}

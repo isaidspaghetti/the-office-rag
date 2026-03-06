@@ -1,0 +1,211 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23",
+  "created_at_utc": "2026-03-05T19:53:56Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E23",
+  "segment_id": "S03E23:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13661,
+  "segment_char_end": 20110,
+  "people": [
+    "Dwight",
+    "Andy",
+    "Karen",
+    "Jim",
+    "Michael",
+    "Jan",
+    "Pam",
+    "Hunter"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight tests Andy's intelligence and dismisses his answers during an interview.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 13661,
+          "char_end": 13758,
+          "snippet": "Dwight: I am going to begin this process with a simple test of intelligence and mental dexterity."
+        },
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 13834,
+          "char_end": 13880,
+          "snippet": "Dwight: Wrong. Black. It is the most dominant."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight ends the interview with Andy after an arm-wrestling contest.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 14655,
+          "char_end": 14736,
+          "snippet": "Dwight (Andy and Dwight arm-wrestle, Andy is about to win): Time! No, you failed."
+        },
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 14752,
+          "char_end": 14802,
+          "snippet": "Dwight: This interview is over. I'll let you know."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Karen and Jim discuss Karen's upcoming job interview and their relationship.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 15000,
+          "char_end": 15105,
+          "snippet": "Karen: Oh, you know I'm gonna have a congratulations Karen party um, tomorrow night at my friend's house."
+        },
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 15269,
+          "char_end": 15308,
+          "snippet": "Karen: 'Cause I'm going to get the job."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael announces he is leaving for corporate and Dwight will run the branch.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 16683,
+          "char_end": 16743,
+          "snippet": "Dwight (Dwight clicks off tape player): Who's ready to work?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight appoints Andy as his number two and secretly makes Pam Assistant Regional Manager.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 18249,
+          "char_end": 18319,
+          "snippet": "Dwight: My first order of business: make Andrew Bernard my number two."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am a great interviewee. Why? Because I have something no one else has: my brain.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 14498,
+          "char_end": 14586,
+          "snippet": "Andy: I am a great interviewee. Why? Because I have something no one else has: my brain."
+        }
+      ]
+    },
+    {
+      "quote": "Love is a mystery.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 13661,
+          "char_end": 20110,
+          "snippet": "Dwight: I am going to begin this process with a simple test of intelligence and mental dexterity. What is the best color?\nAndy: White, because it contains all other colors.\nDwight: Wrong. Black. It is the most dominant. How do you make a ta"
+        }
+      ]
+    },
+    {
+      "quote": "Absolutely, I do.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 19939,
+          "char_end": 19961,
+          "snippet": "Pam: Absolutely, I do."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Andy's interview?",
+    "What will happen to Karen and Jim's relationship after Karen gets the job?",
+    "What is the nature of Michael's relationship with Jan after his comment?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Andy's interview?",
+      "why_uncertain": "Dwight says he will let Andy know but the segment does not reveal the result.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 14752,
+          "char_end": 14802,
+          "snippet": "Dwight: This interview is over. I'll let you know."
+        }
+      ]
+    },
+    {
+      "question": "What will happen to Karen and Jim's relationship after Karen gets the job?",
+      "why_uncertain": "They discuss the job and relationship but no resolution is provided in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 13661,
+          "char_end": 20110,
+          "snippet": "Dwight: I am going to begin this process with a simple test of intelligence and mental dexterity. What is the best color?\nAndy: White, because it contains all other colors.\nDwight: Wrong. Black. It is the most dominant. How do you make a ta"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Michael's relationship with Jan after his comment?",
+      "why_uncertain": "Michael makes a cryptic comment but the segment does not clarify their relationship status.",
+      "evidence": [
+        {
+          "episode_id": "S03E23",
+          "segment_id": "S03E23:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+          "char_start": 13661,
+          "char_end": 20110,
+          "snippet": "Dwight: I am going to begin this process with a simple test of intelligence and mental dexterity. What is the best color?\nAndy: White, because it contains all other colors.\nDwight: Wrong. Black. It is the most dominant. How do you make a ta"
+        }
+      ]
+    }
+  ]
+}

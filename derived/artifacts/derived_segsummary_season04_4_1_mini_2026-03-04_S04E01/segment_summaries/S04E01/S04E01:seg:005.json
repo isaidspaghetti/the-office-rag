@@ -1,0 +1,263 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E01",
+  "created_at_utc": "2026-03-05T20:07:05Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E01",
+  "segment_id": "S04E01:seg:005",
+  "segment_index": 5,
+  "segment_char_start": 34570,
+  "segment_char_end": 40963,
+  "people": [
+    "Meredith",
+    "Michael",
+    "Andy",
+    "Jim",
+    "Phyllis",
+    "Pam",
+    "Oscar",
+    "Kevin",
+    "Angela",
+    "Toby",
+    "Kelly",
+    "Creed",
+    "Dwight",
+    "Stanley",
+    "Bob Vance",
+    "Pediatrician"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Meredith and Michael reconcile after the car accident, with Meredith forgiving Michael.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34793,
+          "char_end": 34932,
+          "snippet": "Meredith: I'm in because you hit me with your car. But I wanted to say, I heard you were trying really hard, so I'm not mad at you anymore."
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34933,
+          "char_end": 34977,
+          "snippet": "Michael: Thanks, I'm not mad at you anymore."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael suggests Meredith might have been drunk when hit by his car, causing discomfort among coworkers.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 35173,
+          "char_end": 35254,
+          "snippet": "Michael: Did you ever think of this? Would a sober person walk in front of a car?"
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 35267,
+          "char_end": 35330,
+          "snippet": "Jim: I'm sorry, are you saying that Meredith was drunk at 9 AM?"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Meredith denies being drunk, explaining Kahlua is just a kind of coffee.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 35600,
+          "char_end": 35680,
+          "snippet": "Meredith: Drunk? No! You can't get drunk off Kahlua. It's just a kind of coffee."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and coworkers share memories and say goodbye to Meredith during her hospital stay.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 36602,
+          "char_end": 36686,
+          "snippet": "Michael: You know what, why don't go around the room and say one memory of Meredith."
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 37194,
+          "char_end": 37255,
+          "snippet": "Angela: Bye, Meredith. Here you go. We got you some balloons."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael believes the office is cursed after Meredith's accident and discusses possible causes with coworkers.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 37934,
+          "char_end": 38003,
+          "snippet": "Michael: This office is cursed. And we need to do something about it."
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 38555,
+          "char_end": 38642,
+          "snippet": "Michael: That was the curse, Stanley, and we are trying to find the cause of the curse."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael receives medical care for dehydration and reflects on his hospital stay and insurance coverage.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 40282,
+          "char_end": 40362,
+          "snippet": "Pediatrician: You're gonna be just fine, Michael! You're gonna have a good life."
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 40657,
+          "char_end": 40769,
+          "snippet": "Michael: Well, apparently, my insurance will not be covEring this hospital stay. I will be paying out-of-pocket."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I'm in because you hit me with your car. But I wanted to say, I heard you were trying really hard, so I'm not mad at you anymore.",
+      "speaker": "Meredith",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34793,
+          "char_end": 34932,
+          "snippet": "Meredith: I'm in because you hit me with your car. But I wanted to say, I heard you were trying really hard, so I'm not mad at you anymore."
+        }
+      ]
+    },
+    {
+      "quote": "Did you ever think of this? Would a sober person walk in front of a car?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 35173,
+          "char_end": 35254,
+          "snippet": "Michael: Did you ever think of this? Would a sober person walk in front of a car?"
+        }
+      ]
+    },
+    {
+      "quote": "Drunk? No! You can't get drunk off Kahlua. It's just a kind of coffee.",
+      "speaker": "Meredith",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 35600,
+          "char_end": 35680,
+          "snippet": "Meredith: Drunk? No! You can't get drunk off Kahlua. It's just a kind of coffee."
+        }
+      ]
+    },
+    {
+      "quote": "This office is cursed. And we need to do something about it.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 37943,
+          "char_end": 38003,
+          "snippet": "This office is cursed. And we need to do something about it."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Who was actually at fault for the car accident between Michael and Meredith?",
+    "What is the exact nature of the office curse Michael refers to?",
+    "What is the outcome of Meredith's hospital stay and her condition after discharge?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who was actually at fault for the car accident between Michael and Meredith?",
+      "why_uncertain": "Michael says he wasn't looking at the road and suggests Meredith might have hit him, but no definitive conclusion is given.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34570,
+          "char_end": 40963,
+          "snippet": "Meredith: Hey Michael.\nMichael: Hey Mer. How ya doing?\nMeredith: Better.\nMichael: It's ironic isn't it? I mean I'm in the hospital for not getting enough water, and you're in it for a disease that causes the fear of water.\nMeredith: I'm in "
+        }
+      ]
+    },
+    {
+      "question": "What is the exact nature of the office curse Michael refers to?",
+      "why_uncertain": "Michael mentions the office is cursed and they need to find the cause, but no specific explanation is provided.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34570,
+          "char_end": 40963,
+          "snippet": "Meredith: Hey Michael.\nMichael: Hey Mer. How ya doing?\nMeredith: Better.\nMichael: It's ironic isn't it? I mean I'm in the hospital for not getting enough water, and you're in it for a disease that causes the fear of water.\nMeredith: I'm in "
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Meredith's hospital stay and her condition after discharge?",
+      "why_uncertain": "The segment ends with Meredith requesting water and pills, but no further information about her recovery is given.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:005",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34570,
+          "char_end": 40963,
+          "snippet": "Meredith: Hey Michael.\nMichael: Hey Mer. How ya doing?\nMeredith: Better.\nMichael: It's ironic isn't it? I mean I'm in the hospital for not getting enough water, and you're in it for a disease that causes the fear of water.\nMeredith: I'm in "
+        }
+      ]
+    }
+  ]
+}

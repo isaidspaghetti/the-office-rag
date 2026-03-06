@@ -1,0 +1,34 @@
+{
+  "schema": "EpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season05_4_1_mini_2026-03-04_S05E04",
+  "created_at_utc": "2026-03-06T01:31:50Z",
+  "episode": {
+    "episode_id": "S05E04",
+    "title": "Crime Aid",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt"
+  },
+  "inputs": {
+    "segments_build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E04",
+    "segment_summaries_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season05_4_1_mini_2026-03-04_S05E04/segment_summaries/S05E04",
+    "segment_count": 3,
+    "evidence_pool_size": 28
+  },
+  "config": {
+    "llm_model": "gpt-4.1-mini",
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_llm_calls": 1,
+    "out_file": "episode_cards/S05E04.json"
+  },
+  "execution": {
+    "status": "skipped_existing",
+    "started_at_utc": "2026-03-06T01:31:50Z",
+    "ended_at_utc": "2026-03-06T01:31:50Z",
+    "llm_calls_made": 0,
+    "written": 0,
+    "errors": 0
+  }
+}

@@ -505,6 +505,8 @@ class SummarizeConfig:
     build_id: Optional[str]
     force: bool
     prompt_only: bool
+    timeout: Optional[float] = None
+    max_retries: Optional[int] = None
 
 
 def _write_manifest(path: Path, manifest: Dict[str, Any]) -> None:
@@ -560,6 +562,8 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
         },
         "config": {
             "llm_model": cfg.llm_model,
+            "timeout": cfg.timeout,
+            "max_retries": cfg.max_retries,
             "target_tokens": int(cfg.target_tokens),
             "min_tokens": int(cfg.min_tokens),
             "max_segments": cfg.max_segments,
@@ -617,14 +621,27 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
 
     # Prefer JSON-mode to reduce invalid / truncated JSON outputs.
     try:
-        llm = ChatOpenAI(
-            model=cfg.llm_model,
-            temperature=0.0,
-            model_kwargs={"response_format": {"type": "json_object"}},
-        )
+        llm_kwargs: Dict[str, Any] = {
+            "model": cfg.llm_model,
+            "temperature": 0.0,
+            "model_kwargs": {"response_format": {"type": "json_object"}},
+        }
+        if cfg.timeout is not None:
+            llm_kwargs["timeout"] = float(cfg.timeout)
+        if cfg.max_retries is not None:
+            llm_kwargs["max_retries"] = int(cfg.max_retries)
+        llm = ChatOpenAI(**llm_kwargs)
     except TypeError:
         # Older langchain_openai versions may not accept model_kwargs here.
-        llm = ChatOpenAI(model=cfg.llm_model, temperature=0.0)
+        llm_kwargs = {
+            "model": cfg.llm_model,
+            "temperature": 0.0,
+        }
+        if cfg.timeout is not None:
+            llm_kwargs["timeout"] = float(cfg.timeout)
+        if cfg.max_retries is not None:
+            llm_kwargs["max_retries"] = int(cfg.max_retries)
+        llm = ChatOpenAI(**llm_kwargs)
 
     n_total = len(segments)
     for i, s in enumerate(segments):
@@ -750,6 +767,8 @@ def main() -> None:
         help="Optional build/run ID. If omitted, uses a timestamped ID. Useful for resumable runs.",
     )
     p.add_argument("--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model")
+    p.add_argument("--timeout", type=float, default=None, help="Optional request timeout seconds")
+    p.add_argument("--max-retries", type=int, default=None, help="Optional max retries for transient errors")
     p.add_argument("--target-tokens", type=int, default=1800, help="Approx target tokens per segment")
     p.add_argument("--min-tokens", type=int, default=400, help="Approx min tokens before splitting")
     p.add_argument("--max-segments", type=int, default=None, help="Only summarize the first N segments")
@@ -770,6 +789,8 @@ def main() -> None:
             episode_id=str(args.episode_id),
             build_id=(str(args.build_id) if args.build_id else None),
             llm_model=str(args.llm_model),
+            timeout=(float(args.timeout) if args.timeout is not None else None),
+            max_retries=(int(args.max_retries) if args.max_retries is not None else None),
             target_tokens=int(args.target_tokens),
             min_tokens=int(args.min_tokens),
             max_segments=(int(args.max_segments) if args.max_segments is not None else None),

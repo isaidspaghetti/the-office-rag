@@ -1,0 +1,260 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_4_1_mini_2026-03-04_S07E02",
+  "created_at_utc": "2026-03-06T01:38:26Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S07E02",
+  "segment_id": "S07E02:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6859,
+  "people": [
+    "Dwight",
+    "Pam",
+    "Jim",
+    "Mose",
+    "Toby",
+    "Michael",
+    "Phyllis",
+    "Ryan",
+    "Andy",
+    "Stanley",
+    "Kelly",
+    "Creed",
+    "Erin"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight reveals a daycare center in his building and gives Jim and Pam a tour.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 144,
+          "char_end": 267,
+          "snippet": "Dwight: Why didn't I think of this before? Did you know that there is a daycare center opening right here in this building?"
+        },
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 575,
+          "char_end": 652,
+          "snippet": "Dwight: Welcome to the Sesame Avenue Daycare Center for infants and toddlers."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim tests the daycare center door lock by closing it and trying to get out, challenging Dwight's claim.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 1692,
+          "char_end": 1774,
+          "snippet": "Jim: Were going to head outside, give it a whirl. I just want to see how it works."
+        },
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 1879,
+          "char_end": 1918,
+          "snippet": "Dwight: I promise you, that door locks!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight calls for a boycott of the Steamtown Mall and cancels Andy's clients there using offensive language.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 2878,
+          "char_end": 2990,
+          "snippet": "Dwight: Boycott the Steamtown Mall! Everyone, you heard me! Cancel all of your business with the Steamtown Mall!"
+        },
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 4299,
+          "char_end": 4400,
+          "snippet": "Andy: Did you call all of my clients at the mall and cancel all my business while using the \"F\" word?"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight explains he was snubbed at a fancy store in the mall, which motivated his boycott.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 5051,
+          "char_end": 5160,
+          "snippet": "Dwight: I went to the store and I pressed the buzzer, and they looked right at me, and then they looked away."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim suggests teaming up with Dwight to confront the snobby store owners instead of boycotting.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 5675,
+          "char_end": 5804,
+          "snippet": "Jim: Dwight, how about this? Instead of boycotting, you and I, together, go down to that store and we teach those snobs a lesson."
+        },
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 5861,
+          "char_end": 5871,
+          "snippet": "Dwight: Ok"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael resists counseling with Toby, showing anger and reluctance to participate.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 2000,
+          "char_end": 2093,
+          "snippet": "Michael: This is the worst! You are the worst! I hate looking at your face! I wanna smash it!"
+        },
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 6215,
+          "char_end": 6300,
+          "snippet": "Michael: One hour. We've done one hour. Let's just speed this up, ok? Keep it moving."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I promise you, that door locks!",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 1879,
+          "char_end": 1918,
+          "snippet": "Dwight: I promise you, that door locks!"
+        }
+      ]
+    },
+    {
+      "quote": "Boycott the Steamtown Mall! Everyone, you heard me! Cancel all of your business with the Steamtown Mall!",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 2878,
+          "char_end": 2990,
+          "snippet": "Dwight: Boycott the Steamtown Mall! Everyone, you heard me! Cancel all of your business with the Steamtown Mall!"
+        }
+      ]
+    },
+    {
+      "quote": "I guess I'm not the kind of guy that's good enough for precious heirlooms.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 5261,
+          "char_end": 5335,
+          "snippet": "I guess I'm not the kind of guy that's good enough for precious heirlooms."
+        }
+      ]
+    },
+    {
+      "quote": "This is the worst! You are the worst! I hate looking at your face! I wanna smash it!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 2009,
+          "char_end": 2093,
+          "snippet": "This is the worst! You are the worst! I hate looking at your face! I wanna smash it!"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Who will actually watch the children at Dwight's daycare center?",
+    "What is the outcome of Jim and Dwight's plan to confront the snobby store owners?",
+    "Will Michael engage meaningfully in the counseling sessions with Toby?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who will actually watch the children at Dwight's daycare center?",
+      "why_uncertain": "Dwight says no one watches the children and the door locks from outside, but no further details are given.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 0,
+          "char_end": 6859,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Wow. Late every day this week.\nPam: We signed Cici up for this daycare. It's on the other side of town. The traffic…\nDwight: Why didn't I think of this before? Did you know that there is a daycare center opening r"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Jim and Dwight's plan to confront the snobby store owners?",
+      "why_uncertain": "The segment ends with agreement to go, but no further action or results are shown.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 0,
+          "char_end": 6859,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Wow. Late every day this week.\nPam: We signed Cici up for this daycare. It's on the other side of town. The traffic…\nDwight: Why didn't I think of this before? Did you know that there is a daycare center opening r"
+        }
+      ]
+    },
+    {
+      "question": "Will Michael engage meaningfully in the counseling sessions with Toby?",
+      "why_uncertain": "Michael expresses anger and reluctance, but the segment ends before any resolution.",
+      "evidence": [
+        {
+          "episode_id": "S07E02",
+          "segment_id": "S07E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e02_counseling_script.txt",
+          "char_start": 0,
+          "char_end": 6859,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Wow. Late every day this week.\nPam: We signed Cici up for this daycare. It's on the other side of town. The traffic…\nDwight: Why didn't I think of this before? Did you know that there is a daycare center opening r"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E26",
+  "created_at_utc": "2026-03-05T23:51:35Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E26",
+  "segment_id": "S05E26:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13878,
+  "segment_char_end": 18837,
+  "people": [
+    "Meredith",
+    "Dwight",
+    "Pam",
+    "Oscar",
+    "Andy",
+    "Jim",
+    "Charles",
+    "Kevin",
+    "Angela",
+    "Rolf",
+    "Erin",
+    "David",
+    "Michael",
+    "Holly",
+    "Nurse",
+    "AJ"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Pam gets injured playing volleyball and there is disagreement about whether she should continue playing.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 14721,
+          "char_end": 14738,
+          "snippet": "Pam (falls): Oof!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 15389,
+          "char_end": 15453,
+          "snippet": "Charles: Yeah, I don't think we can let you play with that foot."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Pam is taken off the volleyball court and Dwight plans to stall the opposing team.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 15686,
+          "char_end": 15736,
+          "snippet": "[STAGE] picks Pam up and carries her off the court"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 15454,
+          "char_end": 15598,
+          "snippet": "Dwight (whispEring): Tell you what. I spotted a small hospital a few kilometers south of here. Get her back as soon as possible. I'll stall 'em."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Pam undergoes an x-ray while eager to return to the game.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16721,
+          "char_end": 16762,
+          "snippet": "Nurse: To be safe, we should do an x-ray."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16921,
+          "char_end": 16995,
+          "snippet": "Pam: I'm sorry, can we just hurry this up? I've got a game to get back to."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight resists putting in substitute players despite Pam's injury.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 17879,
+          "char_end": 17936,
+          "snippet": "David: Dwight, come on now, it's time to put in the subs."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Jim coordinates with Dwight to delay the substitution while Pam is examined.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16548,
+          "char_end": 16646,
+          "snippet": "Jim (on the phone): Yeah, she's with the nurse right now, so you'll have to stall a little longer…"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 18547,
+          "char_end": 18712,
+          "snippet": "[STAGE] goes into a private room where Pam and the doctor are, the voices are inaudible, but the camera can see through a window, Pam and Jim look in shock, they hug"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael and Holly discuss their performance and future plans.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16103,
+          "char_end": 16154,
+          "snippet": "Michael: I think it went well. I think it was good."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16383,
+          "char_end": 16415,
+          "snippet": "Holly: Well, I'm glad we did it."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: Because if we don't play, then the other team wins.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 14018,
+          "char_end": 14077,
+          "snippet": "Dwight: Because if we don't play, then the other team wins."
+        }
+      ]
+    },
+    {
+      "quote": "Pam: I'm sorry, can we just hurry this up? I've got a game to get back to.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16921,
+          "char_end": 16995,
+          "snippet": "Pam: I'm sorry, can we just hurry this up? I've got a game to get back to."
+        }
+      ]
+    },
+    {
+      "quote": "Dwight: Tell you what. I spotted a small hospital a few kilometers south of here. Get her back as soon as possible. I'll stall 'em.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, then the other team wins.\nOscar: Dwight's right. Corporate deserve"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: I think it went well. I think it was good.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16103,
+          "char_end": 16154,
+          "snippet": "Michael: I think it went well. I think it was good."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the extent of Pam's injury?",
+    "Does Pam return to play in the volleyball game?",
+    "What is the outcome of the volleyball game?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the extent of Pam's injury?",
+      "why_uncertain": "The segment shows Pam getting an x-ray and being examined but does not reveal the diagnosis or severity.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, then the other team wins.\nOscar: Dwight's right. Corporate deserve"
+        }
+      ]
+    },
+    {
+      "question": "Does Pam return to play in the volleyball game?",
+      "why_uncertain": "Pam expresses eagerness to return and is carried off, but the segment ends before showing if she actually plays again.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, then the other team wins.\nOscar: Dwight's right. Corporate deserve"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the volleyball game?",
+      "why_uncertain": "The segment focuses on the injury and substitution conflict but does not show the final result of the game.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, then the other team wins.\nOscar: Dwight's right. Corporate deserve"
+        }
+      ]
+    }
+  ]
+}

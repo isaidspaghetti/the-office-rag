@@ -1,0 +1,226 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E07",
+  "created_at_utc": "2026-03-05T21:19:55Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E07",
+  "segment_id": "S05E07:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13929,
+  "segment_char_end": 19353,
+  "people": [
+    "Andy",
+    "Oscar",
+    "Michael",
+    "Kelly",
+    "Ryan",
+    "Client",
+    "David Wallace",
+    "Kevin",
+    "Jim",
+    "Pam",
+    "Dwight"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Andy and Oscar reflect on calling Angela and their weekend together.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 14344,
+          "char_end": 14421,
+          "snippet": "Oscar: I'm talking about Angela. I can't believe we called her up last night."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Kelly and Ryan discuss breaking up with Darryl and then reconcile.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 15274,
+          "char_end": 15325,
+          "snippet": "Kelly: Oh! He says it's cool. He said, \"It's cool\"."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael complains to David Wallace about his disappointing business trip experience.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 16885,
+          "char_end": 16969,
+          "snippet": "Michael: The trip sucked, David. It blew chunks. It was terrible. It was a bad trip."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael explains why he has stayed at Dunder Mifflin despite low pay.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 13929,
+          "char_end": 19353,
+          "snippet": "Andy: Oscar\nOscar: Hey.\nAndy: That was fun last night.\nOscar: Yeah, it was.\nAndy: You know, it's true what they say— Long Island iced teas are way stronger in Canada.\nOscar: Hey, um… thanks for trying to hook me up.\nAndy: You kidding me? It"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Pam returns to Scranton and reunites with Jim.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 18807,
+          "char_end": 18825,
+          "snippet": "Jim: I missed you."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Kelly and Ryan confirm they are back together.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 19104,
+          "char_end": 19142,
+          "snippet": "Kelly: We're back together again baby."
+        },
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 19236,
+          "char_end": 19319,
+          "snippet": "Ryan: I— I realized that for whatever reason I… just couldn't do better than kelly."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "The trip sucked, David. It blew chunks. It was terrible. It was a bad trip.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 16885,
+          "char_end": 16969,
+          "snippet": "Michael: The trip sucked, David. It blew chunks. It was terrible. It was a bad trip."
+        }
+      ]
+    },
+    {
+      "quote": "I think it's because they respect me.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 13929,
+          "char_end": 19353,
+          "snippet": "Andy: Oscar\nOscar: Hey.\nAndy: That was fun last night.\nOscar: Yeah, it was.\nAndy: You know, it's true what they say— Long Island iced teas are way stronger in Canada.\nOscar: Hey, um… thanks for trying to hook me up.\nAndy: You kidding me? It"
+        }
+      ]
+    },
+    {
+      "quote": "We're back together again baby.",
+      "speaker": "Kelly",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 19111,
+          "char_end": 19142,
+          "snippet": "We're back together again baby."
+        }
+      ]
+    },
+    {
+      "quote": "I missed you.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 18608,
+          "char_end": 18621,
+          "snippet": "I missed you."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Michael's complaint to David Wallace?",
+    "What is Angela's reaction to being called by Andy and Oscar?",
+    "What happens after Kelly and Ryan get back together?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Michael's complaint to David Wallace?",
+      "why_uncertain": "The segment ends with Michael hanging up the phone without resolution.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 13929,
+          "char_end": 19353,
+          "snippet": "Andy: Oscar\nOscar: Hey.\nAndy: That was fun last night.\nOscar: Yeah, it was.\nAndy: You know, it's true what they say— Long Island iced teas are way stronger in Canada.\nOscar: Hey, um… thanks for trying to hook me up.\nAndy: You kidding me? It"
+        }
+      ]
+    },
+    {
+      "question": "What is Angela's reaction to being called by Andy and Oscar?",
+      "why_uncertain": "The segment only shows Andy and Oscar's perspective and does not include Angela's response.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 13929,
+          "char_end": 19353,
+          "snippet": "Andy: Oscar\nOscar: Hey.\nAndy: That was fun last night.\nOscar: Yeah, it was.\nAndy: You know, it's true what they say— Long Island iced teas are way stronger in Canada.\nOscar: Hey, um… thanks for trying to hook me up.\nAndy: You kidding me? It"
+        }
+      ]
+    },
+    {
+      "question": "What happens after Kelly and Ryan get back together?",
+      "why_uncertain": "The segment ends with their reconciliation and does not show subsequent events.",
+      "evidence": [
+        {
+          "episode_id": "S05E07",
+          "segment_id": "S05E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e07_business_trip_script.txt",
+          "char_start": 13929,
+          "char_end": 19353,
+          "snippet": "Andy: Oscar\nOscar: Hey.\nAndy: That was fun last night.\nOscar: Yeah, it was.\nAndy: You know, it's true what they say— Long Island iced teas are way stronger in Canada.\nOscar: Hey, um… thanks for trying to hook me up.\nAndy: You kidding me? It"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E05",
+  "created_at_utc": "2026-03-05T20:14:48Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E05",
+  "segment_id": "S04E05:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 21236,
+  "segment_char_end": 22118,
+  "people": [
+    "Michael",
+    "David Wallace",
+    "Dwight",
+    "Pam",
+    "Darryl",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael announces that David Wallace approved making the first Dunder Mifflin television commercial.",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21236,
+          "char_end": 21399,
+          "snippet": "Michael: Hey, everybody, I just got off the phone with David Wallace, and he has given us the go-ahead to make the first ever Dunder Mifflin television commercial."
+        },
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21405,
+          "char_end": 21425,
+          "snippet": "Everyone (applause):"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael expresses concern about having Darryl do the music due to potential racial stereotyping.",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21598,
+          "char_end": 21620,
+          "snippet": "Pam: How about Darryl?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim comments on Michael's mission to prove his creativity and notes Michael's unique way of thinking.",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21876,
+          "char_end": 21933,
+          "snippet": "Jim: Michael is on a mission to prove that he's creative."
+        },
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21964,
+          "char_end": 22118,
+          "snippet": "Michael actually might be the most creative person I've ever known. Every day, Michael says and thinks things that no one has ever said or thought before."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Actually, I'm a little concerned about having a black person do the music, because that could create a positive stereotype that could then become a… celestine prophesy, and keep the next Bon Jovi from ever picking up a…",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21236,
+          "char_end": 22118,
+          "snippet": "Michael: Hey, everybody, I just got off the phone with David Wallace, and he has given us the go-ahead to make the first ever Dunder Mifflin television commercial. Huh?\nEveryone (applause):\nMichael: I can't hear you! Heard you a little bit "
+        }
+      ]
+    },
+    {
+      "quote": "Michael is on a mission to prove that he's creative.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21876,
+          "char_end": 21933,
+          "snippet": "Jim: Michael is on a mission to prove that he's creative."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Who will ultimately do the music for the commercial?",
+    "What is the meaning or implication of 'celestine prophesy' in Michael's statement?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who will ultimately do the music for the commercial?",
+      "why_uncertain": "The segment only shows Michael's concern about Darryl doing the music but does not reveal the final decision.",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21236,
+          "char_end": 22118,
+          "snippet": "Michael: Hey, everybody, I just got off the phone with David Wallace, and he has given us the go-ahead to make the first ever Dunder Mifflin television commercial. Huh?\nEveryone (applause):\nMichael: I can't hear you! Heard you a little bit "
+        }
+      ]
+    },
+    {
+      "question": "What is the meaning or implication of 'celestine prophesy' in Michael's statement?",
+      "why_uncertain": "Michael uses the term in a confusing or unclear way without further explanation.",
+      "evidence": [
+        {
+          "episode_id": "S04E05",
+          "segment_id": "S04E05:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e05_local_ad_script.txt",
+          "char_start": 21236,
+          "char_end": 22118,
+          "snippet": "Michael: Hey, everybody, I just got off the phone with David Wallace, and he has given us the go-ahead to make the first ever Dunder Mifflin television commercial. Huh?\nEveryone (applause):\nMichael: I can't hear you! Heard you a little bit "
+        }
+      ]
+    }
+  ]
+}

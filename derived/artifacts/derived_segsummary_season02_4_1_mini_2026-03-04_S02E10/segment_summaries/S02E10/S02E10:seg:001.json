@@ -1,0 +1,239 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E10",
+  "created_at_utc": "2026-03-05T07:01:45Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S02E10",
+  "segment_id": "S02E10:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 7041,
+  "segment_char_end": 14059,
+  "people": [
+    "Dwight",
+    "Pam",
+    "Jim",
+    "Michael",
+    "Ryan",
+    "Phyllis",
+    "Kevin",
+    "Stanley",
+    "Kelly",
+    "Angela",
+    "Meredith",
+    "Oscar",
+    "Toby",
+    "Liquor Store Clerk"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The office gift exchange begins with Michael introducing a Yankee Swap game instead of traditional Secret Santa.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 8262,
+          "char_end": 8332,
+          "snippet": "Michael: I got it! We are going to turn Secret Santa into Yankee Swap."
+        },
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 8359,
+          "char_end": 8464,
+          "snippet": "Michael: One person chooses a gift. The next person can either choose a gift or steal that person's gift."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael breaks the $20 gift limit by buying Ryan an expensive iPod, causing tension.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7436,
+          "char_end": 7498,
+          "snippet": "Ryan: Wasn't there a $20 limit on the gift? This is 400 bucks."
+        },
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7499,
+          "char_end": 7528,
+          "snippet": "Michael: You don't know that."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Participants steal and exchange gifts during the Yankee Swap, with the iPod being the most desired item.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 10006,
+          "char_end": 10056,
+          "snippet": "Michael: Everyone wants the iPod. It's a huge hit."
+        },
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 11792,
+          "char_end": 11813,
+          "snippet": "Pam: I want the iPod."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Phyllis becomes upset after Michael dismisses her handmade oven mitt gift.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7933,
+          "char_end": 8094,
+          "snippet": "Michael: So Phyllis is basically saying, \"Hey Michael, I know you did a lot to help the office this year but I only care about you a homemade oven mitt's worth.\""
+        },
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 12214,
+          "char_end": 12282,
+          "snippet": "Michael (after Phyllis leaves suddenly): What is she so upset about?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight demonstrates his unique use of the teapot gift, which Jim originally bought for Pam.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 13947,
+          "char_end": 14038,
+          "snippet": "Jim: To think that my gift for Pam will be used for that, it's a little too much to handle."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael: I got it! We are going to turn Secret Santa into Yankee Swap.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 8262,
+          "char_end": 8332,
+          "snippet": "Michael: I got it! We are going to turn Secret Santa into Yankee Swap."
+        }
+      ]
+    },
+    {
+      "quote": "Ryan: Wasn't there a $20 limit on the gift? This is 400 bucks.",
+      "speaker": "Ryan",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7436,
+          "char_end": 7498,
+          "snippet": "Ryan: Wasn't there a $20 limit on the gift? This is 400 bucks."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: So Phyllis is basically saying, \"Hey Michael, I know you did a lot to help the office this year but I only care about you a homemade oven mitt's worth.\"",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7933,
+          "char_end": 8094,
+          "snippet": "Michael: So Phyllis is basically saying, \"Hey Michael, I know you did a lot to help the office this year but I only care about you a homemade oven mitt's worth.\""
+        }
+      ]
+    },
+    {
+      "quote": "Dwight: \"A real man makes his own luck.\" Billy Zane.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 13516,
+          "char_end": 13568,
+          "snippet": "Dwight: \"A real man makes his own luck.\" Billy Zane."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Why did Phyllis leave the party upset?",
+    "How do other office members feel about the Yankee Swap game overall?",
+    "What is the final outcome of the gift exchange?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Why did Phyllis leave the party upset?",
+      "why_uncertain": "The segment only shows Michael wondering about Phyllis's upset and Pam suggesting it might be because Michael disliked her gift, but no explicit confirmation is given.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7041,
+          "char_end": 14059,
+          "snippet": "Dwight: Pam.\nPam (opens up her present): Oh, my god! Thank you very much, Santa, whoever you are. It's awesome.\nJim: There's a little more to it.\nDwight: All right, next. Ryan.\n[STAGE] tosses present\nMichael: No, don't!\nRyan (unwraps presen"
+        }
+      ]
+    },
+    {
+      "question": "How do other office members feel about the Yankee Swap game overall?",
+      "why_uncertain": "The segment includes some objections and comments but does not provide a full consensus or detailed reactions from all members.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7041,
+          "char_end": 14059,
+          "snippet": "Dwight: Pam.\nPam (opens up her present): Oh, my god! Thank you very much, Santa, whoever you are. It's awesome.\nJim: There's a little more to it.\nDwight: All right, next. Ryan.\n[STAGE] tosses present\nMichael: No, don't!\nRyan (unwraps presen"
+        }
+      ]
+    },
+    {
+      "question": "What is the final outcome of the gift exchange?",
+      "why_uncertain": "The segment ends with ongoing exchanges and no clear resolution or final distribution of gifts.",
+      "evidence": [
+        {
+          "episode_id": "S02E10",
+          "segment_id": "S02E10:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+          "char_start": 7041,
+          "char_end": 14059,
+          "snippet": "Dwight: Pam.\nPam (opens up her present): Oh, my god! Thank you very much, Santa, whoever you are. It's awesome.\nJim: There's a little more to it.\nDwight: All right, next. Ryan.\n[STAGE] tosses present\nMichael: No, don't!\nRyan (unwraps presen"
+        }
+      ]
+    }
+  ]
+}

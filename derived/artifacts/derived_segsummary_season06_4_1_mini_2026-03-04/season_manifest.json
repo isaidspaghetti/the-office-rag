@@ -1,0 +1,417 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season06_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-06T00:08:00Z",
+  "season": 6,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "llm_model": "gpt-4.1-mini",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S06E01",
+        "title": "Gossip",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E01"
+      },
+      {
+        "episode_id": "S06E02",
+        "title": "The Meeting",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E02"
+      },
+      {
+        "episode_id": "S06E03",
+        "title": "The Promotion",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E03"
+      },
+      {
+        "episode_id": "S06E04",
+        "title": "Niagara",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S06E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E04"
+      },
+      {
+        "episode_id": "S06E05",
+        "title": "Mafia",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E05"
+      },
+      {
+        "episode_id": "S06E06",
+        "title": "The Lover",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E06"
+      },
+      {
+        "episode_id": "S06E07",
+        "title": "Koi Pond",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E07"
+      },
+      {
+        "episode_id": "S06E08",
+        "title": "Double Date",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E08"
+      },
+      {
+        "episode_id": "S06E09",
+        "title": "Murder",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E09"
+      },
+      {
+        "episode_id": "S06E10",
+        "title": "Shareholder Meeting",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E10"
+      },
+      {
+        "episode_id": "S06E11",
+        "title": "Scott’s Tots",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E11"
+      },
+      {
+        "episode_id": "S06E12",
+        "title": "Secret Santa",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E12"
+      },
+      {
+        "episode_id": "S06E13",
+        "title": "The Banker",
+        "planned_segments": 2,
+        "planned_llm_calls": 2,
+        "segment_file": "segments/S06E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E13"
+      },
+      {
+        "episode_id": "S06E14",
+        "title": "Sabre",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E14"
+      },
+      {
+        "episode_id": "S06E15",
+        "title": "Manager and Salesman",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E15"
+      },
+      {
+        "episode_id": "S06E16",
+        "title": "The Delivery",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S06E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E16"
+      },
+      {
+        "episode_id": "S06E17",
+        "title": "St. Patrick’s Day",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E17"
+      },
+      {
+        "episode_id": "S06E18",
+        "title": "New Leads",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E18"
+      },
+      {
+        "episode_id": "S06E19",
+        "title": "Happy Hour",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E19"
+      },
+      {
+        "episode_id": "S06E20",
+        "title": "Secretary’s Day",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E20"
+      },
+      {
+        "episode_id": "S06E21",
+        "title": "Body Language",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E21"
+      },
+      {
+        "episode_id": "S06E22",
+        "title": "The Cover-Up",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E22"
+      },
+      {
+        "episode_id": "S06E23",
+        "title": "The Chump",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E23"
+      },
+      {
+        "episode_id": "S06E24",
+        "title": "Whistleblower",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E24.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E24"
+      }
+    ],
+    "planned_total_llm_calls": 88
+  },
+  "execution": {
+    "status": "running",
+    "started_at_utc": "2026-03-06T00:08:00Z",
+    "ended_at_utc": null,
+    "episodes_done": 16,
+    "segment_summaries_written": 57,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S06E01",
+        "title": "Gossip",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E01",
+        "started_at_utc": "2026-03-06T00:08:00Z",
+        "ended_at_utc": "2026-03-06T00:10:42Z",
+        "duration_ms": 162606,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E01/segment_summaries/S06E01"
+      },
+      {
+        "episode_id": "S06E02",
+        "title": "The Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E02",
+        "started_at_utc": "2026-03-06T01:08:44Z",
+        "ended_at_utc": "2026-03-06T01:09:06Z",
+        "duration_ms": 21951,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E02/segment_summaries/S06E02"
+      },
+      {
+        "episode_id": "S06E03",
+        "title": "The Promotion",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E03",
+        "started_at_utc": "2026-03-06T01:09:06Z",
+        "ended_at_utc": "2026-03-06T01:10:26Z",
+        "duration_ms": 79729,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E03/segment_summaries/S06E03"
+      },
+      {
+        "episode_id": "S06E04",
+        "title": "Niagara",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E04",
+        "started_at_utc": "2026-03-06T01:10:26Z",
+        "ended_at_utc": "2026-03-06T01:12:51Z",
+        "duration_ms": 145408,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E04/segment_summaries/S06E04"
+      },
+      {
+        "episode_id": "S06E05",
+        "title": "Mafia",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E05",
+        "started_at_utc": "2026-03-06T01:12:51Z",
+        "ended_at_utc": "2026-03-06T01:14:28Z",
+        "duration_ms": 97175,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E05/segment_summaries/S06E05"
+      },
+      {
+        "episode_id": "S06E06",
+        "title": "The Lover",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E06",
+        "started_at_utc": "2026-03-06T01:14:28Z",
+        "ended_at_utc": "2026-03-06T01:15:19Z",
+        "duration_ms": 51099,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E06/segment_summaries/S06E06"
+      },
+      {
+        "episode_id": "S06E07",
+        "title": "Koi Pond",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E07",
+        "started_at_utc": "2026-03-06T01:15:19Z",
+        "ended_at_utc": "2026-03-06T01:16:14Z",
+        "duration_ms": 54475,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E07/segment_summaries/S06E07"
+      },
+      {
+        "episode_id": "S06E08",
+        "title": "Double Date",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E08",
+        "started_at_utc": "2026-03-06T01:16:14Z",
+        "ended_at_utc": "2026-03-06T01:17:25Z",
+        "duration_ms": 71478,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E08/segment_summaries/S06E08"
+      },
+      {
+        "episode_id": "S06E09",
+        "title": "Murder",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E09",
+        "started_at_utc": "2026-03-06T01:17:25Z",
+        "ended_at_utc": "2026-03-06T01:18:25Z",
+        "duration_ms": 59581,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E09/segment_summaries/S06E09"
+      },
+      {
+        "episode_id": "S06E10",
+        "title": "Shareholder Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E10",
+        "started_at_utc": "2026-03-06T01:31:51Z",
+        "ended_at_utc": "2026-03-06T01:32:40Z",
+        "duration_ms": 49015,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E10/segment_summaries/S06E10"
+      },
+      {
+        "episode_id": "S06E11",
+        "title": "Scott’s Tots",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E11",
+        "started_at_utc": "2026-03-06T01:32:40Z",
+        "ended_at_utc": "2026-03-06T01:33:47Z",
+        "duration_ms": 66140,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E11/segment_summaries/S06E11"
+      },
+      {
+        "episode_id": "S06E12",
+        "title": "Secret Santa",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E12",
+        "started_at_utc": "2026-03-06T01:33:47Z",
+        "ended_at_utc": "2026-03-06T01:34:47Z",
+        "duration_ms": 60500,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E12/segment_summaries/S06E12"
+      },
+      {
+        "episode_id": "S06E13",
+        "title": "The Banker",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E13",
+        "started_at_utc": "2026-03-06T01:34:47Z",
+        "ended_at_utc": "2026-03-06T01:35:14Z",
+        "duration_ms": 27051,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E13/segment_summaries/S06E13"
+      },
+      {
+        "episode_id": "S06E14",
+        "title": "Sabre",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E14",
+        "started_at_utc": "2026-03-06T01:35:14Z",
+        "ended_at_utc": "2026-03-06T01:36:13Z",
+        "duration_ms": 58676,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E14/segment_summaries/S06E14"
+      },
+      {
+        "episode_id": "S06E15",
+        "title": "Manager and Salesman",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E15",
+        "started_at_utc": "2026-03-06T01:36:13Z",
+        "ended_at_utc": "2026-03-06T01:38:20Z",
+        "duration_ms": 126765,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E15/segment_summaries/S06E15"
+      },
+      {
+        "episode_id": "S06E16",
+        "title": "The Delivery",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S06E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E16",
+        "started_at_utc": "2026-03-06T01:38:20Z",
+        "ended_at_utc": "2026-03-06T01:39:59Z",
+        "duration_ms": 99858,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_4_1_mini_2026-03-04_S06E16/segment_summaries/S06E16"
+      }
+    ]
+  },
+  "resumed_at_utc": "2026-03-06T01:31:51Z"
+}
