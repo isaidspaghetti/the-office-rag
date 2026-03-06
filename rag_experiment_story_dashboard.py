@@ -2122,7 +2122,7 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
     default_page = st.session_state.get("story_page") or pages[0]
     st.markdown('<div class="sticky-nav">', unsafe_allow_html=True)
     if hasattr(st, "segmented_control"):
-        page = st.segmented_control("Page", options=pages, default=default_page)
+        page = st.segmented_control("", options=pages, default=default_page)
     else:
         page = st.radio(
             "Page",
