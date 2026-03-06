@@ -39,6 +39,49 @@
 				"experiments/run_routing_sweep.sh"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "sanity check run coverage",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"import csv, json\nfrom pathlib import Path\nruns_dir=Path('experiments/runs')\nrun_files=sorted(runs_dir.glob('*.json'))\nprint('run_files:', len(run_files))\n# load run_metrics.csv\nrm=Path('experiments/run_metrics.csv')\nrows=[]\nif rm.exists():\n  with rm.open(newline='',encoding='utf-8') as f:\n    rows=list(csv.DictReader(f))\nprint('run_metrics_rows:', len(rows))\nrun_metrics_files=set(r['run_file'] for r in rows if r.get('run_file'))\n# normalize paths to posix relative\nrun_file_posix=set(str(p.as_posix()) for p in run_files)\nmissing_in_metrics=sorted(run_file_posix - run_metrics_files)\nextra_in_metrics=sorted(run_metrics_files - run_file_posix)\nprint('missing_in_metrics:', len(missing_in_metrics))\nprint('extra_in_metrics:', len(extra_in_metrics))\nif missing_in_metrics:\n  print('\\nSample missing:')\n  for x in missing_in_metrics[:10]:\n    print(' -', x)\n# detect malformed/unreadable runs the summarizer would skip\nbad=[]\nfor p in run_files:\n  try:\n    obj=json.loads(p.read_text(encoding='utf-8'))\n    if not isinstance(obj, dict):\n      bad.append((p.name,'not_a_dict'))\n      continue\n    if 'run' not in obj or 'cases' not in obj:\n      bad.append((p.name,'missing_run_or_cases'))\n  except Exception as e:\n    bad.append((p.name, type(e).__name__))\nprint('bad_or_unexpected_run_json:', len(bad))\nif bad:\n  print('\\nSample bad:')\n  for n,why in bad[:10]:\n    print(' -', n, why)\n"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "regenerate metrics tables (strict run logs)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/summarize_runs.py"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "sanity run_eval provenance fields",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/run_eval.py",
+				"--test-file",
+				"experiments/test_queries.json",
+				"--runs-dir",
+				"experiments/runs",
+				"--persist-dir",
+				"db/chroma_db_meta",
+				"--retrieval-policy",
+				"script_only",
+				"--search-type",
+				"similarity",
+				"--k",
+				"3",
+				"--no-llm",
+				"--run-name",
+				"sanity_provenance_fields"
+			],
+			"isBackground": false
 		}
 	]
 }

@@ -23,7 +23,12 @@ def _safe_get(d: Any, path: List[str]) -> Any:
 
 
 def _iter_run_files(runs_dir: Path) -> Iterable[Path]:
-    yield from sorted(runs_dir.glob("*.json"))
+    # Use rglob so we don't silently miss runs if we later nest folders by date/tag.
+    yield from sorted(runs_dir.rglob("*.json"))
+
+
+def _is_run_log(obj: Any) -> bool:
+    return isinstance(obj, dict) and "run" in obj and "cases" in obj
 
 
 def _flatten_run_row(run_obj: Dict[str, Any], *, run_file: Path) -> Dict[str, Any]:
@@ -31,10 +36,22 @@ def _flatten_run_row(run_obj: Dict[str, Any], *, run_file: Path) -> Dict[str, An
     cfg = run_obj.get("config", {}) if isinstance(run_obj, dict) else {}
     summary = run_obj.get("summary", {}) if isinstance(run_obj, dict) else {}
 
+    # Prefer explicit provenance block when present; fall back to legacy fields.
+    data_version = cfg.get("data_version", {}) if isinstance(cfg, dict) else {}
+    script_dv = data_version.get("script", {}) if isinstance(data_version, dict) else {}
+    derived_dv = data_version.get("derived", {}) if isinstance(data_version, dict) else {}
+
+    script_fp = (script_dv.get("fingerprint", {}) if isinstance(script_dv, dict) else {})
+    script_sqlite_fp = (script_fp.get("chroma_sqlite") if isinstance(script_fp, dict) else None) or {}
+
+    derived_fp = (derived_dv.get("fingerprint", {}) if isinstance(derived_dv, dict) else {})
+    derived_sqlite_fp = (derived_fp.get("chroma_sqlite") if isinstance(derived_fp, dict) else None) or {}
+
     retrieval = cfg.get("retrieval", {}) if isinstance(cfg, dict) else {}
     qe = retrieval.get("query_expansion", {}) if isinstance(retrieval, dict) else {}
 
     vectorstore = cfg.get("vectorstore", {}) if isinstance(cfg, dict) else {}
+    derived_vectorstore = cfg.get("derived_vectorstore", {}) if isinstance(cfg, dict) else {}
 
     return {
         "run_file": str(run_file.as_posix()),
@@ -42,6 +59,36 @@ def _flatten_run_row(run_obj: Dict[str, Any], *, run_file: Path) -> Dict[str, An
         "run_name": run.get("run_name"),
         "created_at_utc": run.get("created_at_utc"),
         "notes": run.get("notes"),
+
+        # --- Auditability / provenance (added in run schema v4) ---
+        "run_schema_version": cfg.get("run_schema_version"),
+        "git_sha": _safe_get(cfg, ["code_version", "git_sha"]),
+
+        "script_persist_directory": (
+            (script_dv.get("persist_directory") if isinstance(script_dv, dict) else None)
+            or _safe_get(cfg, ["vectorstore", "persist_directory"])
+        ),
+        "script_collection_name": (
+            (script_dv.get("collection_name") if isinstance(script_dv, dict) else None)
+            or _safe_get(cfg, ["vectorstore", "collection_name"])
+        ),
+        "script_chroma_sqlite_size_bytes": (script_sqlite_fp.get("size_bytes") if isinstance(script_sqlite_fp, dict) else None),
+        "script_chroma_sqlite_mtime_utc": (script_sqlite_fp.get("mtime_utc") if isinstance(script_sqlite_fp, dict) else None),
+        "script_chroma_sqlite_sha256": (script_sqlite_fp.get("sha256") if isinstance(script_sqlite_fp, dict) else None),
+
+        "derived_persist_directory": (
+            (derived_dv.get("persist_directory") if isinstance(derived_dv, dict) else None)
+            or (derived_vectorstore.get("persist_directory") if isinstance(derived_vectorstore, dict) else None)
+        ),
+        "derived_collection_name": (
+            (derived_dv.get("collection_name") if isinstance(derived_dv, dict) else None)
+            or (derived_vectorstore.get("collection_name") if isinstance(derived_vectorstore, dict) else None)
+        ),
+        "derived_build_tag": (derived_dv.get("build_tag") if isinstance(derived_dv, dict) else None),
+        "derived_chroma_sqlite_size_bytes": (derived_sqlite_fp.get("size_bytes") if isinstance(derived_sqlite_fp, dict) else None),
+        "derived_chroma_sqlite_mtime_utc": (derived_sqlite_fp.get("mtime_utc") if isinstance(derived_sqlite_fp, dict) else None),
+        "derived_chroma_sqlite_sha256": (derived_sqlite_fp.get("sha256") if isinstance(derived_sqlite_fp, dict) else None),
+
         "persist_directory": _safe_get(cfg, ["vectorstore", "persist_directory"]),
         "collection_name": _safe_get(cfg, ["vectorstore", "collection_name"]),
         "doc_count": vectorstore.get("doc_count"),
@@ -84,6 +131,16 @@ def _flatten_case_rows(run_obj: Dict[str, Any], *, run_file: Path) -> List[Dict[
     cfg = run_obj.get("config", {}) if isinstance(run_obj, dict) else {}
     retrieval_cfg = cfg.get("retrieval", {}) if isinstance(cfg, dict) else {}
 
+    data_version = cfg.get("data_version", {}) if isinstance(cfg, dict) else {}
+    script_dv = data_version.get("script", {}) if isinstance(data_version, dict) else {}
+    derived_dv = data_version.get("derived", {}) if isinstance(data_version, dict) else {}
+
+    script_fp = (script_dv.get("fingerprint", {}) if isinstance(script_dv, dict) else {})
+    script_sqlite_fp = (script_fp.get("chroma_sqlite") if isinstance(script_fp, dict) else None) or {}
+
+    derived_fp = (derived_dv.get("fingerprint", {}) if isinstance(derived_dv, dict) else {})
+    derived_sqlite_fp = (derived_fp.get("chroma_sqlite") if isinstance(derived_fp, dict) else None) or {}
+
     rows: List[Dict[str, Any]] = []
     cases = run_obj.get("cases", []) if isinstance(run_obj, dict) else []
     if not isinstance(cases, list):
@@ -103,6 +160,30 @@ def _flatten_case_rows(run_obj: Dict[str, Any], *, run_file: Path) -> List[Dict[
                 "run_id": run.get("run_id"),
                 "run_name": run.get("run_name"),
                 "created_at_utc": run.get("created_at_utc"),
+
+                # --- Auditability / provenance (added in run schema v4) ---
+                "run_schema_version": cfg.get("run_schema_version"),
+                "git_sha": _safe_get(cfg, ["code_version", "git_sha"]),
+
+                "script_persist_directory": (
+                    (script_dv.get("persist_directory") if isinstance(script_dv, dict) else None)
+                    or _safe_get(cfg, ["vectorstore", "persist_directory"])
+                ),
+                "script_collection_name": (
+                    (script_dv.get("collection_name") if isinstance(script_dv, dict) else None)
+                    or _safe_get(cfg, ["vectorstore", "collection_name"])
+                ),
+                "script_chroma_sqlite_sha256": (
+                    script_sqlite_fp.get("sha256") if isinstance(script_sqlite_fp, dict) else None
+                ),
+
+                "derived_persist_directory": (derived_dv.get("persist_directory") if isinstance(derived_dv, dict) else None),
+                "derived_collection_name": (derived_dv.get("collection_name") if isinstance(derived_dv, dict) else None),
+                "derived_build_tag": (derived_dv.get("build_tag") if isinstance(derived_dv, dict) else None),
+                "derived_chroma_sqlite_sha256": (
+                    derived_sqlite_fp.get("sha256") if isinstance(derived_sqlite_fp, dict) else None
+                ),
+
                 "persist_directory": _safe_get(cfg, ["vectorstore", "persist_directory"]),
                 "search_type": retrieval_cfg.get("search_type"),
                 "k": retrieval_cfg.get("k"),
@@ -172,16 +253,24 @@ def main() -> None:
     runs_dir = Path(args.runs_dir)
     run_rows: List[Dict[str, Any]] = []
     case_rows: List[Dict[str, Any]] = []
+    skipped: List[Dict[str, str]] = []
 
     for run_file in _iter_run_files(runs_dir):
         try:
             obj = _read_json(run_file)
-            if not isinstance(obj, dict):
+            if not _is_run_log(obj):
+                skipped.append({"run_file": str(run_file.as_posix()), "reason": "not_a_run_log"})
                 continue
             run_rows.append(_flatten_run_row(obj, run_file=run_file))
             case_rows.extend(_flatten_case_rows(obj, run_file=run_file))
-        except Exception:
-            # Keep going even if a run file is malformed.
+        except Exception as e:
+            # Keep going even if a run file is malformed, but record it.
+            skipped.append(
+                {
+                    "run_file": str(run_file.as_posix()),
+                    "reason": f"error:{type(e).__name__}",
+                }
+            )
             continue
 
     _write_csv(Path(args.out_run_csv), run_rows)
@@ -191,6 +280,10 @@ def main() -> None:
 
     print(f"Wrote run-level rows: {len(run_rows)}")
     print(f"Wrote case-level rows: {len(case_rows)}")
+    if skipped:
+        print(f"Skipped files: {len(skipped)}")
+        for row in skipped[:10]:
+            print(" -", row["reason"], row["run_file"])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,327 @@
+.
+├── README.md
+├── apps
+│   └── rag_runs_dashboard.py
+├── db
+│   ├── chroma_db
+│   │   └── chroma.sqlite3
+│   ├── chroma_db_derived_cards
+│   │   ├── _build_meta.json
+│   │   ├── chroma.sqlite3
+│   ├── chroma_db_meta
+│   │   └── chroma.sqlite3
+│   ├── chroma_db_scene
+│   │   └── chroma.sqlite3
+│   ├── chroma_db_scene_w1
+│   │   ├── chroma.sqlite3
+│   └── chroma_db_scene_w1_eid
+│       ├── chroma.sqlite3
+│  
+├── derived
+│   ├── README.md
+│   ├── RERUN_REPORT_2026-03-04.md
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-39.pyc
+│   │   ├── estimate_llm_calls.cpython-39.pyc
+│   │   ├── reduce_episode.cpython-39.pyc
+│   │   ├── reduce_season.cpython-39.pyc
+│   │   ├── reduce_season_card.cpython-39.pyc
+│   │   ├── segment_episode.cpython-39.pyc
+│   │   ├── summarize_season.cpython-39.pyc
+│   │   └── summarize_segments.cpython-39.pyc
+│   ├── analyze_episode_sizes.py
+│   ├── artifacts
+│   │   ├── derived_episodecard_season01_4_1_mini_2026-03-04
+│   │   │   └── season_manifest.json
+│   │   ├── derived_episodecard_season01_nano_2026-03-04
+│   │   │   └── season_manifest.json
+│   │   ├── derived_segsummary_season01_4_1_mini_2026-03-04
+│   │   │   └── season_manifest.json
+│   │   ├── derived_segsummary_season01_nano_2026-03-04
+│   │   │   └── season_manifest.json
+│   │   ├── derived_segsummary_season01_nano_2026-03-04_S01E01
+│   │   │   ├── manifest.json
+│   │   │   └── segment_summaries
+│   │   ├── entitycards_v1_2026-03-05
+│   │   │   ├── character_cards
+│   │   │   ├── manifest.json
+│   │   │   ├── plot_object_cards
+│   │   │   └── relationship_cards
+│   │   ├── episode_script_sizes.csv
+│   │   ├── llm_call_estimates.csv
+│   │   ├── segments
+│   │   │   ├── S01E01.json
+│   │   │   ├── S01E02.json
+│   │   ├── topiccards_major_relationships_v1_2026-03-05
+│   │   │   ├── candidate_episode_discovery
+│   │   │   ├── manifest.json
+│   │   │   └── topic_cards
+│   │   ├── topiccards_v1_both_2026-03-05
+│   │   │   ├── candidate_episode_discovery
+│   │   │   ├── manifest.json
+│   │   │   └── topic_cards
+│   │   └── topiccards_v1_discovery_2026-03-05
+│   │       ├── candidate_episode_discovery
+│   │       ├── manifest.json
+│   │       └── topic_cards
+│   ├── audit_derived_coverage.py
+│   ├── build_derived_cards_index.py
+│   ├── build_derived_index.py
+│   ├── build_entity_corpora.py
+│   ├── build_episode_cards_index.py
+│   ├── build_season_cards_index.py
+│   ├── build_topic_cards.py
+│   ├── entity_corpora
+│   │   ├── config.example.json
+│   │   └── config.major_relationships.json
+│   ├── estimate_llm_calls.py
+│   ├── reduce_episode.py
+│   ├── reduce_season.py
+│   ├── reduce_season_card.py
+│   ├── runbooks
+│   │   ├── rebuild_season01_2026-03-04.sh
+│   │   ├── rebuild_season02_2026-03-04.sh
+│   │   ├── rebuild_season03_2026-03-04.sh
+│   │   ├── rebuild_season04_2026-03-04.sh
+│   │   ├── rebuild_season_TEMPLATE.sh
+│   │   └── rebuild_seasons_param.sh
+│   ├── segment_episode.py
+│   ├── segments
+│   │   ├── S02E02.json
+│   ├── summarize_season.py
+│   ├── summarize_segments.py
+│   └── topic_cards
+│       ├── generate_relationship_topics.py
+│       ├── topics.example.json
+│       ├── topics.major_relationships.generated.json
+│       └── topics.major_relationships.generated_min2_top40.json
+├── docs
+│   ├── DERIVED_CHECKLIST_AND_SCHEMAS.md
+│   ├── DERIVED_COVERAGE_AUDIT.json
+│   ├── DERIVED_COVERAGE_AUDIT.md
+│   ├── DERIVED_RAG_WEEKLATER_NOTES.md
+│   ├── GLOSSARY.md
+│   └── RESUME.md
+├── experiments
+│   ├── Answer Analysis part way.md
+│   ├── Syllabus.md
+│   ├── cache
+│   │   └── query_expansion_cache.json
+│   ├── case_metrics.csv
+│   ├── case_metrics.jsonl
+│   ├── compare_routed_vs_baseline.py
+│   ├── compare_three_way.py
+│   ├── example_report.json
+│   ├── gold_answers.json
+│   ├── inspect_routing_case.py
+│   ├── peek_chroma.py
+│   ├── run_eval.py
+│   ├── run_metrics.csv
+│   ├── run_metrics.jsonl
+│   ├── run_routing_sweep.sh
+│   ├── runs
+│   │   ├── 2026-03-02T19-41-43Z_baseline_similarity_k3.json
+│   │   ├── 2026-03-02T19-45-31Z_t1_similarity_k12.json
+│   │   ├── 2026-03-02T20-01-46Z_t2_mmr_k12_fetch40_l07.json
+│   │   ├── 2026-03-02T20-06-06Z_baseline_similarity_k3.json
+│   │   ├── 2026-03-02T23-27-02Z_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-03T04-35-41Z_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-03T04-50-43Z_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-03T05-01-53Z_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-03T05-40-45Z_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-03T05-46-17Z_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-04T04-37-56Z_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-02-24Z_auto_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T02-02-46Z_auto_t1_similarity_k12.json
+│   │   ├── 2026-03-05T02-03-15Z_auto_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T02-03-46Z_auto_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T02-03-57Z_auto_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T02-04-06Z_auto_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T02-04-16Z_auto_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T02-04-25Z_auto_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T02-05-01Z_auto_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-05-51Z_auto_meta_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-23-28Z_sanity_blended_similarity_k3.json
+│   │   ├── 2026-03-05T02-24-45Z_meta_ingest_auto_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T02-25-03Z_meta_ingest_auto_t1_similarity_k12.json
+│   │   ├── 2026-03-05T02-27-45Z_meta_ingest_auto_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T02-28-05Z_meta_ingest_auto_t1_similarity_k12.json
+│   │   ├── 2026-03-05T02-28-34Z_meta_ingest_auto_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T02-29-02Z_meta_ingest_auto_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T02-29-12Z_meta_ingest_auto_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T02-29-21Z_meta_ingest_auto_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T02-29-29Z_meta_ingest_auto_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T02-29-38Z_meta_ingest_auto_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T02-30-15Z_meta_ingest_auto_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-31-08Z_meta_ingest_auto_meta_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-32-57Z_meta_ingest_blended_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T02-33-16Z_meta_ingest_blended_t1_similarity_k12.json
+│   │   ├── 2026-03-05T02-33-46Z_meta_ingest_blended_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T02-34-16Z_meta_ingest_blended_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T02-34-28Z_meta_ingest_blended_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T02-34-37Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T02-34-48Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T02-34-58Z_meta_ingest_blended_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T02-35-35Z_meta_ingest_blended_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T02-36-31Z_meta_ingest_blended_meta_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T04-04-46Z_sanity_blended_with_topiccards.json
+│   │   ├── 2026-03-05T04-20-43Z_sanity_blended_with_topiccards_v2.json
+│   │   ├── 2026-03-05T04-30-10Z_sanity_blended_with_topiccards_v3.json
+│   │   ├── 2026-03-05T04-31-48Z_sanity_blended_with_topiccards_v4.json
+│   │   ├── 2026-03-05T04-36-33Z_topiccards_blended_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T04-37-02Z_topiccards_blended_t1_similarity_k12.json
+│   │   ├── 2026-03-05T04-37-31Z_topiccards_blended_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T04-38-01Z_topiccards_blended_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T04-38-14Z_topiccards_blended_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T04-38-25Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T04-38-37Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T04-38-50Z_topiccards_blended_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T04-39-32Z_topiccards_blended_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T04-41-53Z_topiccards_blended_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T04-42-13Z_topiccards_blended_t1_similarity_k12.json
+│   │   ├── 2026-03-05T04-42-44Z_topiccards_blended_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T04-43-14Z_topiccards_blended_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T04-43-27Z_topiccards_blended_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T04-43-36Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T04-43-47Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T04-43-57Z_topiccards_blended_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T04-44-37Z_topiccards_blended_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T04-45-34Z_topiccards_blended_meta_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T05-19-16Z_topiccards_blended_q5_fix_julie.json
+│   │   ├── 2026-03-05T05-21-28Z_topiccards_blended_q5_fix_julie_v2.json
+│   │   ├── 2026-03-05T05-25-19Z_topiccards_blended_q5_fix_holly_donna.json
+│   │   ├── 2026-03-05T05-42-39Z_topiccards_blended_gen_gpt_4_1_mini_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T05-42-59Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12.json
+│   │   ├── 2026-03-05T05-43-28Z_topiccards_blended_gen_gpt_4_1_mini_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T05-44-00Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12.json
+│   │   ├── 2026-03-05T05-44-19Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_similarity_k12.json
+│   │   ├── 2026-03-05T05-44-34Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12_fetch80_lambda09.json
+│   │   ├── 2026-03-05T05-44-52Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12_fetch80_lambda09_w1.json
+│   │   ├── 2026-03-05T05-45-11Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12.json
+│   │   ├── 2026-03-05T05-45-52Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T05-46-48Z_topiccards_blended_gen_gpt_4_1_mini_meta_qe_rrf_mmr_k12.json
+│   │   ├── 2026-03-05T05-49-49Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1_romancefix.json
+│   │   ├── 2026-03-05T05-51-17Z_topiccards_blended_gen_gpt_4_1_mini_scene_chunks_mmr_k12_fetch80_lambda09_w1_romancefix.json
+│   │   ├── 2026-03-05T05-53-08Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1_romancefix2.json
+│   │   ├── 2026-03-05T06-16-14Z_sanity_episodeid_metadata.json
+│   │   ├── 2026-03-05T06-20-32Z_sanity_episodeid_metadata_main_db.json
+│   │   ├── 2026-03-05T06-21-28Z_topiccards_blended_gen_gpt_4_1_mini_baseline_similarity_k3.json
+│   │   ├── 2026-03-05T06-21-50Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12.json
+│   │   ├── 2026-03-05T06-22-22Z_topiccards_blended_gen_gpt_4_1_mini_t2_mmr_k12_fetch40_l07_fixed.json
+│   │   ├── 2026-03-05T06-23-02Z_script_only_qe_rrf_allsteps_4_1_nano.json
+│   │   └── case.json
+│   ├── score_runs.py
+│   ├── scored_runs
+│   │   ├── 2026-03-02T19-41-43Z_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-02T19-45-31Z_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-02T20-01-46Z_t2_mmr_k12_fetch40_l07.scored.json
+│   │   ├── 2026-03-02T20-06-06Z_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-02T23-27-02Z_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-03T04-35-41Z_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-03T04-50-43Z_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-03T05-01-53Z_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-03T05-40-45Z_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-03T05-46-17Z_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-04T04-37-56Z_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-02-24Z_auto_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T02-02-46Z_auto_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-03-15Z_auto_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-05T02-03-46Z_auto_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-03-57Z_auto_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-04-06Z_auto_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-05T02-04-16Z_auto_scene_chunks_mmr_k12_fetch80_lambda09_w1.scored.json
+│   │   ├── 2026-03-05T02-04-25Z_auto_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-05-01Z_auto_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-05-51Z_auto_meta_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-23-28Z_sanity_blended_similarity_k3.scored.json
+│   │   ├── 2026-03-05T02-24-45Z_meta_ingest_auto_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T02-25-03Z_meta_ingest_auto_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-27-45Z_meta_ingest_auto_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T02-28-05Z_meta_ingest_auto_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-28-34Z_meta_ingest_auto_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-05T02-29-02Z_meta_ingest_auto_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-29-12Z_meta_ingest_auto_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-29-21Z_meta_ingest_auto_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-05T02-29-29Z_meta_ingest_auto_scene_chunks_mmr_k12_fetch80_lambda09_w1.scored.json
+│   │   ├── 2026-03-05T02-29-38Z_meta_ingest_auto_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-30-15Z_meta_ingest_auto_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-31-08Z_meta_ingest_auto_meta_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-32-57Z_meta_ingest_blended_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T02-33-16Z_meta_ingest_blended_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-33-46Z_meta_ingest_blended_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-05T02-34-16Z_meta_ingest_blended_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-34-28Z_meta_ingest_blended_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-34-37Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-05T02-34-48Z_meta_ingest_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.scored.json
+│   │   ├── 2026-03-05T02-34-58Z_meta_ingest_blended_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-05T02-35-35Z_meta_ingest_blended_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T02-36-31Z_meta_ingest_blended_meta_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T04-04-46Z_sanity_blended_with_topiccards.scored.json
+│   │   ├── 2026-03-05T04-20-43Z_sanity_blended_with_topiccards_v2.scored.json
+│   │   ├── 2026-03-05T04-30-10Z_sanity_blended_with_topiccards_v3.scored.json
+│   │   ├── 2026-03-05T04-31-48Z_sanity_blended_with_topiccards_v4.scored.json
+│   │   ├── 2026-03-05T04-36-33Z_topiccards_blended_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T04-37-02Z_topiccards_blended_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-37-31Z_topiccards_blended_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-05T04-38-01Z_topiccards_blended_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-05T04-38-14Z_topiccards_blended_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-38-25Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-05T04-38-37Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.scored.json
+│   │   ├── 2026-03-05T04-38-50Z_topiccards_blended_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-39-32Z_topiccards_blended_qe_rrf_mmr_k12.scored.json
+│   │   ├── 2026-03-05T04-41-53Z_topiccards_blended_baseline_similarity_k3.scored.json
+│   │   ├── 2026-03-05T04-42-13Z_topiccards_blended_t1_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-42-44Z_topiccards_blended_t2_mmr_k12_fetch40_l07_fixed.scored.json
+│   │   ├── 2026-03-05T04-43-14Z_topiccards_blended_scene_chunks_mmr_k12.scored.json
+│   │   ├── 2026-03-05T04-43-27Z_topiccards_blended_scene_chunks_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-43-36Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09.scored.json
+│   │   ├── 2026-03-05T04-43-47Z_topiccards_blended_scene_chunks_mmr_k12_fetch80_lambda09_w1.scored.json
+│   │   ├── 2026-03-05T04-43-57Z_topiccards_blended_qe_rrf_similarity_k12.scored.json
+│   │   ├── 2026-03-05T04-44-37Z_topiccards_blended_qe_rrf_mmr_k12.scored.json
+│   │   └── 2026-03-05T04-45-34Z_topiccards_blended_meta_qe_rrf_mmr_k12.scored.json
+│   ├── summarize_runs.py
+│   ├── test_queries.json
+│   └── tuning steps.md
+├── ingestion
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-39.pyc
+│   │   ├── chunk_documents.cpython-39.pyc
+│   │   └── load_documents.cpython-39.pyc
+│   ├── chunk_documents.py
+│   ├── ingestion_pipeline.py
+│   ├── load_documents.py
+│   ├── normalize_docs.py
+│   ├── normalized_docs_txt
+│   │   ├── manifest.json
+│   │   ├── scripts
+│   │   │   ├── season_01
+│   │   │   ├── season_02
+│   │   │   ├── season_03
+│   │   │   ├── season_04
+│   │   │   ├── season_05
+│   │   │   ├── season_06
+│   │   │   ├── season_07
+│   │   │   ├── season_08
+│   │   │   └── season_09
+│   │   └── summaries
+│   │       ├── season_01
+│   │       ├── season_02
+│   │       ├── season_03
+│   │       ├── season_04
+│   │       ├── season_05
+│   │       ├── season_06
+│   │       ├── season_07
+│   │       ├── season_08
+│   │       └── season_09
+│   └── raw_docs
+│       ├── episode_summaries.json
+│       └── scripts.min.json
+├── rag
+│   ├── __init__.py
+│   ├── fusion.py
+│   └── query_expansion.py
+└── retrieval_pipeline.py
+
+852 directories, 1037 files

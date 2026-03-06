@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
+import subprocess
 import sys
 import time
 from collections import Counter
@@ -76,6 +78,38 @@ DEFAULT_BLENDED_BASE_K_MULT = 1.0
 DEFAULT_BLENDED_ROUTED_K_MULT = 1.0
 DEFAULT_BLENDED_INCLUDE_DERIVED_FOR_NON_AGG = False
 
+# Run log schema version (bump when you change log structure/semantics).
+RUN_SCHEMA_VERSION = "v4"
+
+
+def _file_fingerprint(path: Path) -> Optional[Dict[str, Any]]:
+    """Best-effort fingerprint for auditability.
+
+    Returns a dict with size/mtime/sha256 when the file exists and can be read.
+    """
+    try:
+        p = Path(path)
+        if not p.exists() or not p.is_file():
+            return None
+
+        st = p.stat()
+        size_bytes = int(st.st_size)
+        mtime_utc = datetime.fromtimestamp(st.st_mtime, tz=timezone.utc).replace(microsecond=0)
+
+        h = hashlib.sha256()
+        with p.open("rb") as f:
+            for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                h.update(chunk)
+
+        return {
+            "path": str(p),
+            "size_bytes": size_bytes,
+            "mtime_utc": mtime_utc.isoformat().replace("+00:00", "Z"),
+            "sha256": h.hexdigest(),
+        }
+    except Exception:
+        return None
+
 
 def _dedupe_doc_pairs(pairs: List[Tuple[Any, Optional[float]]]) -> List[Tuple[Any, Optional[float]]]:
     """De-dupe by (source, page_content), keeping max score when available."""
@@ -105,6 +139,85 @@ def _sort_pairs_best_first(pairs: List[Tuple[Any, Optional[float]]]) -> List[Tup
 # -----------------------------
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def _git_sha(repo_root: Path) -> Optional[str]:
+    """Best-effort git SHA for auditability.
+
+    Returns None when git isn't available or repo_root isn't a git repo.
+    """
+    try:
+        res = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=str(repo_root),
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        sha = (res.stdout or "").strip()
+        if res.returncode == 0 and sha:
+            return sha
+    except Exception:
+        return None
+    return None
+
+
+def _load_derived_build_meta(derived_persist_directory: str) -> Optional[Dict[str, Any]]:
+    """Load derived index build metadata if present.
+
+    build_derived_cards_index.py writes a _build_meta.json into the persist dir.
+    """
+    try:
+        p = Path(derived_persist_directory).expanduser().resolve() / "_build_meta.json"
+        if not p.exists():
+            return None
+        obj = json.loads(p.read_text(encoding="utf-8"))
+        return obj if isinstance(obj, dict) else None
+    except Exception:
+        return None
+
+
+def _data_version_block(
+    *,
+    script_persist_directory: str,
+    script_collection_name: Optional[str],
+    derived_persist_directory: str,
+    derived_collection_name: Optional[str],
+) -> Dict[str, Any]:
+    derived_meta = _load_derived_build_meta(derived_persist_directory)
+
+    # Fingerprint sqlite files when present. This gives a stable, defensible data-version
+    # signal even if persist dir names are reused.
+    script_sqlite_fp = _file_fingerprint(Path(script_persist_directory).expanduser().resolve() / "chroma.sqlite3")
+    derived_sqlite_fp = _file_fingerprint(Path(derived_persist_directory).expanduser().resolve() / "chroma.sqlite3")
+
+    # "build_id/tag" is best-effort: prefer explicit build_id/tag fields when present,
+    # else fall back to persist-dir basename.
+    derived_tag = None
+    if isinstance(derived_meta, dict):
+        # build_derived_cards_index.py writes created_at_utc and includes build prefixes.
+        derived_tag = derived_meta.get("created_at_utc") or derived_meta.get("persist_dir")
+    if not derived_tag:
+        derived_tag = Path(derived_persist_directory).name
+
+    return {
+        "script": {
+            "persist_directory": script_persist_directory,
+            "collection_name": script_collection_name,
+            "fingerprint": {
+                "chroma_sqlite": script_sqlite_fp,
+            },
+        },
+        "derived": {
+            "persist_directory": derived_persist_directory,
+            "collection_name": derived_collection_name,
+            "build_tag": derived_tag,
+            "build_meta": derived_meta,
+            "fingerprint": {
+                "chroma_sqlite": derived_sqlite_fp,
+            },
+        },
+    }
 
 
 def slug(s: str) -> str:
@@ -846,6 +959,17 @@ def run_eval(
     created_at = utc_now_iso()
     run_id = f"{created_at.replace(':', '-')}_{slug(run_name)}"
 
+    code_version = {
+        "git_sha": _git_sha(_REPO_ROOT),
+    }
+
+    data_version = _data_version_block(
+        script_persist_directory=str(persist_directory),
+        script_collection_name=collection_name,
+        derived_persist_directory=str(derived_persist_directory),
+        derived_collection_name=derived_collection_name,
+    )
+
     out: Dict[str, Any] = {
         "run": {
             "run_id": run_id,
@@ -854,6 +978,9 @@ def run_eval(
             "notes": notes,
         },
         "config": {
+            "run_schema_version": RUN_SCHEMA_VERSION,
+            "code_version": code_version,
+            "data_version": data_version,
             "vectorstore": {
                 "kind": "chroma",
                 "persist_directory": persist_directory,

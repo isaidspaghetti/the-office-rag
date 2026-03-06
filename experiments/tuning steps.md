@@ -398,8 +398,23 @@ Essentially tells the LLM what qualifies as a romantic relationship
 /Users/tg/Developer/RAG-1/experiments/runs/2026-03-05T05-19-16Z_topiccards_blended_q5_fix_julie.json
 fixes the julie issue, but adds michaels fake girlfriend from new yourk, and misses Holly and Donna both.
 
-
+Next attempt: improve the anaswering model: 
 Retrieval gives evidence. The model determines how well that evidence is interpreted.
+Correclty understands that the interaciton with julie is not sufficient evidence of dating.
+We get better xplanations answers, quotes, and anecdotes.
+We get no false positives, but we miss Donna. 
+
+But we have a relationship card for donna michael. so the next thing I'm wondering is if we need to upgrade to iterative querying in RAG. So if our Rag sees a card related, it picks up key data to investigate.
+
+After drilling down into the derived data, the card for donna was missing episode numbers, so it was not finding that
+
+Fixing the data did not bring donna back.
+
+without chunk-level episode_id, routing couldn’t actually push down episode filters into Chroma, so “routed” retrieval still drifted across episodes.
+
+
+Given the improvemnet we saw in answering questions from 4.1 nano -> Mini : The next thing I will try is re-writing derieved summaries and map reduce step to get higher quality summaries. 
+
 
 
 # Frontend:
