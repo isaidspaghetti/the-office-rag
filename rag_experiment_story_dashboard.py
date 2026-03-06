@@ -2059,10 +2059,14 @@ def _global_failure_counts(
     return counts
 
 
-def main() -> None:
-    st.set_page_config(page_title=APP_TITLE, layout="wide")
+def main(*, set_page_config: bool = True, show_title: bool | None = None) -> None:
+    if set_page_config:
+        st.set_page_config(page_title=APP_TITLE, layout="wide", initial_sidebar_state="collapsed")
 
-    st.title(APP_TITLE)
+    if show_title is None:
+        show_title = bool(set_page_config)
+    if show_title:
+        st.title(APP_TITLE)
 
     # Make the top page selector sticky (storytelling-friendly).
     st.markdown(
