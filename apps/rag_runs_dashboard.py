@@ -181,6 +181,28 @@ def safe_float(x: Any) -> Optional[float]:
         return None
 
 
+_BLENDED_UI_RE = re.compile(r"\bblended\b", re.IGNORECASE)
+
+
+def _sanitize_for_ui(obj: Any) -> Any:
+    """Sanitize objects before rendering so UI never shows forbidden terms.
+
+    Policy naming constraint: never display 'blended' in the UI; use 'Hybrid'.
+    """
+    if isinstance(obj, str):
+        return _BLENDED_UI_RE.sub("Hybrid", obj)
+    if isinstance(obj, dict):
+        return {
+            (_sanitize_for_ui(k) if isinstance(k, str) else k): _sanitize_for_ui(v)
+            for k, v in obj.items()
+        }
+    if isinstance(obj, list):
+        return [_sanitize_for_ui(x) for x in obj]
+    if isinstance(obj, tuple):
+        return [_sanitize_for_ui(x) for x in obj]
+    return obj
+
+
 def truncate(s: Any, n: int = 140) -> str:
     t = str(s or "")
     t = t.replace("\r\n", "\n").replace("\r", "\n")
@@ -3473,6 +3495,48 @@ def main() -> None:
     st.set_page_config(page_title=APP_TITLE, layout="wide")
     st.title(APP_TITLE)
 
+    # Make the top page selector sticky (exec-friendly).
+    st.markdown(
+        """
+<style>
+    .sticky-nav {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: var(--background-color, white);
+        padding: 0.4rem 0 0.2rem 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(49, 51, 63, 0.2);
+        backdrop-filter: blur(6px);
+    }
+
+    /* Keep widget spacing tight inside the sticky bar */
+    .sticky-nav [data-testid="stSegmentedControl"],
+    .sticky-nav [data-testid="stRadio"] {
+        margin-top: 0.2rem;
+        margin-bottom: 0.0rem;
+    }
+</style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Ensure debug views (st.json/st.write) don't leak "blended".
+    _orig_json = st.json
+
+    def _json_sanitized(obj: Any, *args: Any, **kwargs: Any) -> Any:
+        return _orig_json(_sanitize_for_ui(obj), *args, **kwargs)
+
+    st.json = _json_sanitized  # type: ignore[assignment]
+
+    _orig_write = st.write
+
+    def _write_sanitized(*args: Any, **kwargs: Any) -> Any:
+        args2 = tuple(_sanitize_for_ui(a) for a in args)
+        return _orig_write(*args2, **kwargs)
+
+    st.write = _write_sanitized  # type: ignore[assignment]
+
     PAGES = [
         "Chat Playground",
         "Run Explorer",
@@ -3485,6 +3549,7 @@ def main() -> None:
 
     # Top navigation: segmented control feels more like a navbar than radio buttons.
     default_page = st.session_state.get("nav_page") or PAGES[1]
+    st.markdown('<div class="sticky-nav">', unsafe_allow_html=True)
     if hasattr(st, "segmented_control"):
         page = st.segmented_control("Page", options=PAGES, default=default_page)
     else:  # Back-compat for older Streamlit
@@ -3495,6 +3560,7 @@ def main() -> None:
             horizontal=True,
             label_visibility="collapsed",
         )
+    st.markdown("</div>", unsafe_allow_html=True)
     if not page:
         page = PAGES[1]
     st.session_state["nav_page"] = page
