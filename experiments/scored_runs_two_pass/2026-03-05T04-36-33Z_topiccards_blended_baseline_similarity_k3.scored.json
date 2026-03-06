@@ -1,0 +1,665 @@
+{
+  "run": {
+    "run_id": "2026-03-05T04-36-33Z_topiccards_blended_baseline_similarity_k3",
+    "run_name": "topiccards_blended_baseline_similarity_k3",
+    "created_at_utc": "2026-03-05T04:36:33Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-06T07:17:28Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 63,
+    "overall_scores": [
+      84,
+      100,
+      60,
+      68,
+      36,
+      40,
+      56
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 0.2857142857142857,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 6,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 5,
+        "hallucination": 3,
+        "overall": 84,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The quote is from Season 3, Episode 20 (\"Product Recall\")",
+          "Jim is dressed as Dwight and impersonates him",
+          "Jim asks Dwight, \"What kind of bear is best?\" and Dwight responds, \"That's a ridiculous question.\"",
+          "Jim says, \"False. Black bear.\"",
+          "Jim says, \"Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\"",
+          "Dwight reacts with confusion and says, \"Bears do not— What is going on— What are you doing?!\"",
+          "This is a comedic moment mocking Dwight by mimicking his mannerisms and interests"
+        ],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes a script snippet from Season 3, Episode 20 with Jim dressed as Dwight and the question about bears, but it does not contain the full quote or the detailed context provided in the candidate answer. Therefore, the answer contains many unsupported claims beyond the partial context. | correctness: Candidate answer matches the gold answer in episode identification and context, providing additional relevant details without contradiction.",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 3,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "The quote is from Season 3, Episode 20 (\"Product Recall\")",
+            "Jim is dressed as Dwight and impersonates him",
+            "Jim asks Dwight, \"What kind of bear is best?\" and Dwight responds, \"That's a ridiculous question.\"",
+            "Jim says, \"False. Black bear.\"",
+            "Jim says, \"Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\"",
+            "Dwight reacts with confusion and says, \"Bears do not— What is going on— What are you doing?!\"",
+            "This is a comedic moment mocking Dwight by mimicking his mannerisms and interests"
+          ],
+          "notes": "The retrieved context includes a script snippet from Season 3, Episode 20 with Jim dressed as Dwight and the question about bears, but it does not contain the full quote or the detailed context provided in the candidate answer. Therefore, the answer contains many unsupported claims beyond the partial context."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "Candidate answer matches the gold answer in episode identification and context, providing additional relevant details without contradiction."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 3,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"The quote is from Season 3, Episode 20 (\\\"Product Recall\\\")\",\n    \"Jim is dressed as Dwight and impersonates him\",\n    \"Jim asks Dwight, \\\"What kind of bear is best?\\\" and Dwight responds, \\\"That's a ridiculous question.\\\"\",\n    \"Jim says, \\\"False. Black bear.\\\"\",\n    \"Jim says, \\\"Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\\\"\",\n    \"Dwight reacts with confusion and says, \\\"Bears do not— What is going on— What are you doing?!\\\"\",\n    \"This is a comedic moment mocking Dwight by mimicking his mannerisms and interests\"\n  ],\n  \"notes\": \"The retrieved context includes a script snippet from Season 3, Episode 20 with Jim dressed as Dwight and the question about bears, but it does not contain the full quote or the detailed context provided in the candidate answer. Therefore, the answer contains many unsupported claims beyond the partial context.\"\n}",
+          "correctness": "{\"correctness\":5,\"completeness\":5,\"missing_points\":[],\"notes\":\"Candidate answer matches the gold answer in episode identification and context, providing additional relevant details without contradiction.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The retrieved context clearly states Michael burns his foot on his George Foreman Grill in episode S02E12, The Injury, fully supporting the candidate answer. | correctness: Candidate answer correctly identifies the episode title, season, and episode number, matching the gold answer.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The retrieved context clearly states Michael burns his foot on his George Foreman Grill in episode S02E12, The Injury, fully supporting the candidate answer."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "Candidate answer correctly identifies the episode title, season, and episode number, matching the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The retrieved context clearly states Michael burns his foot on his George Foreman Grill in episode S02E12, The Injury, fully supporting the candidate answer.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"Candidate answer correctly identifies the episode title, season, and episode number, matching the gold answer.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E03"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 60,
+        "verdict": "incorrect",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats like 'Casino Night' with Jim's confession and kiss"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The candidate answer only summarizes the two episodes present in the context and correctly states that no further detailed summary is available. | correctness: Candidate answer mentions specific episodes but lacks key plot points and emotional developments from the gold answer.",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer only summarizes the two episodes present in the context and correctly states that no further detailed summary is available."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 1,
+          "missing_points": [
+            "Jim/Pam relationship tension and Pam's engagement to Roy",
+            "Michael's relationship with Jan",
+            "Dwight's ambition and rivalry with Jim",
+            "Major emotional beats like 'Casino Night' with Jim's confession and kiss"
+          ],
+          "notes": "Candidate answer mentions specific episodes but lacks key plot points and emotional developments from the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate answer only summarizes the two episodes present in the context and correctly states that no further detailed summary is available.\"\n}",
+          "correctness": "{\n  \"correctness\": 2,\n  \"completeness\": 1,\n  \"missing_points\": [\n    \"Jim/Pam relationship tension and Pam's engagement to Roy\",\n    \"Michael's relationship with Jan\",\n    \"Dwight's ambition and rivalry with Jim\",\n    \"Major emotional beats like 'Casino Night' with Jim's confession and kiss\"\n  ],\n  \"notes\": \"Candidate answer mentions specific episodes but lacks key plot points and emotional developments from the gold answer.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 3,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 1,
+        "completeness": 5,
+        "hallucination": 1,
+        "overall": 68,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
+          "Dwight issues demerits to Jim for tardiness and enforces disciplinary actions with specific warnings",
+          "Dwight warns Jim, 'I cannot have a subordinate trying to make me look stupid,' and threatens to 'pre-fire' Jim"
+        ],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains only brief, unrelated dialogue snippets without explicit reasons for Dwight's dislike of Jim or examples of pranks, disciplinary actions, or threats. The candidate answer's claims are not supported by the provided context. | correctness: The candidate answer accurately identifies the three main reasons Dwight dislikes Jim, provides relevant examples and quotes, and aligns well with the gold answer's key points and nuance.",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
+            "Dwight issues demerits to Jim for tardiness and enforces disciplinary actions with specific warnings",
+            "Dwight warns Jim, 'I cannot have a subordinate trying to make me look stupid,' and threatens to 'pre-fire' Jim"
+          ],
+          "notes": "The retrieved context contains only brief, unrelated dialogue snippets without explicit reasons for Dwight's dislike of Jim or examples of pranks, disciplinary actions, or threats. The candidate answer's claims are not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer accurately identifies the three main reasons Dwight dislikes Jim, provides relevant examples and quotes, and aligns well with the gold answer's key points and nuance."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'\",\n    \"Dwight issues demerits to Jim for tardiness and enforces disciplinary actions with specific warnings\",\n    \"Dwight warns Jim, 'I cannot have a subordinate trying to make me look stupid,' and threatens to 'pre-fire' Jim\"\n  ],\n  \"notes\": \"The retrieved context contains only brief, unrelated dialogue snippets without explicit reasons for Dwight's dislike of Jim or examples of pranks, disciplinary actions, or threats. The candidate answer's claims are not supported by the provided context.\"\n}",
+          "correctness": "{\"correctness\":5,\"completeness\":5,\"missing_points\":[],\"notes\":\"The candidate answer accurately identifies the three main reasons Dwight dislikes Jim, provides relevant examples and quotes, and aligns well with the gold answer's key points and nuance.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 1,
+        "overall": 36,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Michael Scott had a serious relationship with Jan Levinson",
+          "Michael considered Jan to be his girlfriend",
+          "Jan did not consider him her boyfriend",
+          "Their relationship ended with Jan giving Michael poor performance reviews at work",
+          "Michael defended Jan despite the negative reviews",
+          "No other serious girlfriends or details about how those relationships ended are mentioned"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup",
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship and ending"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context does not mention any of Michael Scott's serious girlfriends or details about their relationships. The candidate answer is mostly unsupported and appears to be based on prior knowledge rather than the provided context. | correctness: Answer correctly describes Jan Levinson relationship but omits other serious girlfriends and how those relationships ended.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Michael Scott had a serious relationship with Jan Levinson",
+            "Michael considered Jan to be his girlfriend",
+            "Jan did not consider him her boyfriend",
+            "Their relationship ended with Jan giving Michael poor performance reviews at work",
+            "Michael defended Jan despite the negative reviews",
+            "No other serious girlfriends or details about how those relationships ended are mentioned"
+          ],
+          "notes": "The retrieved context does not mention any of Michael Scott's serious girlfriends or details about their relationships. The candidate answer is mostly unsupported and appears to be based on prior knowledge rather than the provided context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 1,
+          "missing_points": [
+            "Carol Stills relationship and breakup",
+            "Holly Flax relationship and ending",
+            "Donna Newton relationship and ending",
+            "Helene Beesly relationship and ending"
+          ],
+          "notes": "Answer correctly describes Jan Levinson relationship but omits other serious girlfriends and how those relationships ended."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Michael Scott had a serious relationship with Jan Levinson\",\n    \"Michael considered Jan to be his girlfriend\",\n    \"Jan did not consider him her boyfriend\",\n    \"Their relationship ended with Jan giving Michael poor performance reviews at work\",\n    \"Michael defended Jan despite the negative reviews\",\n    \"No other serious girlfriends or details about how those relationships ended are mentioned\"\n  ],\n  \"notes\": \"The retrieved context does not mention any of Michael Scott's serious girlfriends or details about their relationships. The candidate answer is mostly unsupported and appears to be based on prior knowledge rather than the provided context.\"\n}",
+          "correctness": "{\"correctness\":3,\"completeness\":1,\"missing_points\":[\"Carol Stills relationship and breakup\",\"Holly Flax relationship and ending\",\"Donna Newton relationship and ending\",\"Helene Beesly relationship and ending\"],\"notes\":\"Answer correctly describes Jan Levinson relationship but omits other serious girlfriends and how those relationships ended.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Importance of the teapot letter",
+          "Reference to Jim and Pam's relationship",
+          "Mention of Season 2 Christmas episode"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: Candidate correctly states that the context does not contain information about the teapot letter or its importance. | correctness: Candidate answer does not provide any information about the teapot letter or its significance.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "Candidate correctly states that the context does not contain information about the teapot letter or its importance."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Explanation of what the teapot letter is",
+            "Importance of the teapot letter",
+            "Reference to Jim and Pam's relationship",
+            "Mention of Season 2 Christmas episode"
+          ],
+          "notes": "Candidate answer does not provide any information about the teapot letter or its significance."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":5,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"Candidate correctly states that the context does not contain information about the teapot letter or its importance.\"}",
+          "correctness": "{\n  \"correctness\": 0,\n  \"completeness\": 0,\n  \"missing_points\": [\n    \"Explanation of what the teapot letter is\",\n    \"Importance of the teapot letter\",\n    \"Reference to Jim and Pam's relationship\",\n    \"Mention of Season 2 Christmas episode\"\n  ],\n  \"notes\": \"Candidate answer does not provide any information about the teapot letter or its significance.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is possibly older than he lets on",
+          "Creed is concerned about changes at work mentioning 're-training', 'new system', and 'youth'",
+          "Creed warns Michael that 'you, me, Sammy, Phyllis, the chick you hit with the car, we're goners'",
+          "Creed is involved in a situation where Michael has to let someone go",
+          "Creed tries to convince Michael to 'call Jan and fight this thing together like the old days'",
+          "Creed appears to be an older, somewhat enigmatic employee worried about losing his job"
+        ],
+        "missing_points": [
+          "Works in Quality Assurance at Dunder Mifflin",
+          "Implies shady or criminal behavior",
+          "Comic relief as unpredictable, mysterious presence",
+          "Arrested in series finale"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes some dialogue indicating Creed's age and a brief exchange with Michael, but lacks details about Creed's personality, concerns about changes at work, or specific interactions about being fired. Therefore, many claims in the answer are not supported by the provided context. | correctness: Candidate captures Creed's mysterious and older persona and his concern about job security but misses key details about his role, shady behavior, and comic relief aspect.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 3,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Creed is possibly older than he lets on",
+            "Creed is concerned about changes at work mentioning 're-training', 'new system', and 'youth'",
+            "Creed warns Michael that 'you, me, Sammy, Phyllis, the chick you hit with the car, we're goners'",
+            "Creed is involved in a situation where Michael has to let someone go",
+            "Creed tries to convince Michael to 'call Jan and fight this thing together like the old days'",
+            "Creed appears to be an older, somewhat enigmatic employee worried about losing his job"
+          ],
+          "notes": "The retrieved context includes some dialogue indicating Creed's age and a brief exchange with Michael, but lacks details about Creed's personality, concerns about changes at work, or specific interactions about being fired. Therefore, many claims in the answer are not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Works in Quality Assurance at Dunder Mifflin",
+            "Implies shady or criminal behavior",
+            "Comic relief as unpredictable, mysterious presence",
+            "Arrested in series finale"
+          ],
+          "notes": "Candidate captures Creed's mysterious and older persona and his concern about job security but misses key details about his role, shady behavior, and comic relief aspect."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 3,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Creed is possibly older than he lets on\",\n    \"Creed is concerned about changes at work mentioning 're-training', 'new system', and 'youth'\",\n    \"Creed warns Michael that 'you, me, Sammy, Phyllis, the chick you hit with the car, we're goners'\",\n    \"Creed is involved in a situation where Michael has to let someone go\",\n    \"Creed tries to convince Michael to 'call Jan and fight this thing together like the old days'\",\n    \"Creed appears to be an older, somewhat enigmatic employee worried about losing his job\"\n  ],\n  \"notes\": \"The retrieved context includes some dialogue indicating Creed's age and a brief exchange with Michael, but lacks details about Creed's personality, concerns about changes at work, or specific interactions about being fired. Therefore, many claims in the answer are not supported by the provided context.\"\n}",
+          "correctness": "{\"correctness\":3,\"completeness\":2,\"missing_points\":[\"Works in Quality Assurance at Dunder Mifflin\",\"Implies shady or criminal behavior\",\"Comic relief as unpredictable, mysterious presence\",\"Arrested in series finale\"],\"notes\":\"Candidate captures Creed's mysterious and older persona and his concern about job security but misses key details about his role, shady behavior, and comic relief aspect.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}
