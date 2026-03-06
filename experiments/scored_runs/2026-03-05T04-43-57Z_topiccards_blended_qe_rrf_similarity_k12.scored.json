@@ -67,16 +67,22 @@
   },
   "score_summary": {
     "cases_scored": 7,
-    "avg_overall": 65,
+    "avg_overall": 67,
     "overall_scores": [
-      95,
       100,
-      64,
-      26,
-      25,
+      100,
+      62,
+      30,
+      20,
       92,
-      56
+      65
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -98,11 +104,11 @@
         "groundedness": 5,
         "completeness": 5,
         "hallucination": 5,
-        "overall": 95,
+        "overall": 100,
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "Candidate answer correctly identifies the episode (S03E20) and context (Jim impersonating Dwight with the line) fully supported by the retrieved script excerpt."
+        "notes": "Candidate answer matches gold answer and is fully supported by retrieved context, including episode, scene, and context of the quote."
       }
     },
     {
@@ -154,23 +160,20 @@
         "groundedness": 4,
         "completeness": 2,
         "hallucination": 4,
-        "overall": 64,
+        "overall": 62,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Pam remains engaged to Roy",
+          "A fire starts in the office kitchen in one episode (S02E04)",
+          "In \"The Fight\" (S02E06), there is a notable event though no summary is provided",
           "Michael’s relationship with Jan becomes more involved",
-          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
-          "Season builds to major emotional beats including 'Casino Night' where Jim confesses his feelings and kisses Pam",
-          "A fire starts in the office kitchen in one episode",
-          "In 'The Fight' (S02E06), there is a notable event though no summary is provided"
+          "The season builds to major emotional beats including \"Casino Night\" where Jim confesses his feelings and kisses Pam"
         ],
         "missing_points": [
-          "Jim/Pam relationship tension and emotional development",
-          "Michael and Jan's relationship involvement",
-          "Dwight and Jim rivalry and pranks",
-          "Major emotional beats like 'Casino Night' and Jim's confession"
+          "Deepening of Jim/Pam relationship tension while Pam remains engaged to Roy",
+          "Dwight’s ambition and rivalry with Jim through workplace conflicts and pranks",
+          "Major emotional beats such as \"Casino Night\""
         ],
-        "notes": "The candidate answer provides episode-level details supported by the retrieved context but lacks coverage of key emotional and relational developments central to Season 2. Some claims are unsupported by the retrieved summaries, such as Pam's engagement status and the fire incident. The answer is factual but incomplete and misses the season's main narrative arcs."
+        "notes": "The candidate answer provides episode-specific details supported by the retrieved context, but it lacks coverage of key emotional and relational developments highlighted in the gold answer. Some claims (fire in kitchen, 'The Fight' episode events, Jan's relationship with Michael) are not supported by the retrieved context. The answer is factual but incomplete and partially grounded."
       }
     },
     {
@@ -188,21 +191,20 @@
         "groundedness": 1,
         "completeness": 2,
         "hallucination": 1,
-        "overall": 26,
+        "overall": 30,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,' (SCENE 009) - not found in retrieved context",
-          "Dwight warns Jim, 'Don't make me fire you,' and 'You're pre-fired. And when I'm promoted, you'll be full fired,' (SCENE 009) - not found",
-          "Dwight says, 'Hey, Halpert, what's the big idea? First you jump ship. Now you're stealing Darryl too. When will it end?' (SCENE 019) - not found"
+          "Dwight warns Jim, 'Don't make me fire you,' and 'You're pre-fired. And when I'm promoted, you'll be full fired,' (SCENE 009) - not found in retrieved context",
+          "Dwight says, 'Hey, Halpert, what's the big idea? First you jump ship. Now you're stealing Darryl too. When will it end?' (SCENE 019) - not found in retrieved context"
         ],
         "missing_points": [
-          "No mention of Dwight's value of hierarchy, rules, and authority",
-          "No mention of Jim's sarcasm and dismissiveness toward Dwight's authority",
-          "No mention of Dwight's competitiveness and feeling threatened by Jim's social ease and influence",
-          "No examples from distinct episodes as requested",
-          "No mention of the underlying respect and final season nuance"
+          "Explicit mention of Dwight's value of hierarchy, rules, and authority",
+          "Jim's sarcastic and dismissive attitude toward Dwight's authority",
+          "Examples from distinct episodes as requested",
+          "Mention of underlying respect and final season event (best man at wedding)"
         ],
-        "notes": "Candidate answer provides plausible reasons for Dwight's dislike of Jim but the specific quotes and scenes are not supported by the retrieved context. The retrieved context contains only brief, unrelated script excerpts without the detailed examples or quotes cited. The answer partially aligns with the gold answer's themes but lacks grounding and completeness."
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not support the specific quotes or examples given. The answer lacks coverage of the nuanced reasons such as Dwight's respect for hierarchy and the underlying respect between them. The retrieved context contains some interactions but no direct support for the claims."
       }
     },
     {
@@ -220,21 +222,23 @@
         "groundedness": 1,
         "completeness": 1,
         "hallucination": 1,
-        "overall": 25,
+        "overall": 20,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Jan Levinson was Michael's girlfriend and relationship ended with tension",
           "Donna was married and Michael ended the relationship",
           "Holly invited Michael to Colorado and was ready to take next step",
-          "Michael hesitated to commit to Holly"
+          "Michael admitted to having sex with Jan",
+          "Jan gave Michael poor performance reviews after relationship"
         ],
         "missing_points": [
-          "Carol Stills relationship and breakup",
+          "Carol Stills relationship and breakup details",
+          "Holly and Michael end up together and marry",
+          "Michael proposes to Holly and leaves to be with her",
           "Helene Beesly relationship and breakup",
-          "Details on how Jan and Michael's relationship ended",
-          "Details on how Holly and Michael ended up together"
+          "Details on how relationships ended for all serious girlfriends"
         ],
-        "notes": "The candidate answer provides some information about Jan, Donna, and Holly but these claims are not supported by the retrieved context, which mostly contains unrelated or insufficient script excerpts. The gold answer includes more relationships and details not found in the context. The candidate answer is cautious but still makes claims not grounded in the retrieved context."
+        "notes": "The candidate answer includes some claims about Michael's relationships that are not supported by the retrieved context, which mainly contains unrelated or insufficient script excerpts. The gold answer provides more complete and detailed information about serious girlfriends and how relationships ended, which is missing or contradicted in the candidate. The retrieved context does not provide enough evidence to support the candidate's claims, leading to low groundedness and hallucination scores."
       }
     },
     {
@@ -258,9 +262,9 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [
-          "The answer does not explicitly mention that the teapot letter remains a meaningful symbol referenced later as their relationship progresses."
+          "The answer does not explicitly mention the episode name 'Christmas Party' or that the teapot letter remains a meaningful symbol referenced later."
         ],
-        "notes": "The candidate answer accurately describes the teapot letter and its importance, fully supported by the retrieved context from S02E10. It covers the main points about the teapot being a Secret Santa gift, containing inside jokes and personal items, and symbolizing Jim's feelings for Pam. The only minor omission is the mention of the letter's ongoing symbolic importance in later episodes."
+        "notes": "The candidate answer accurately describes the teapot letter and its importance, fully supported by the retrieved context. It slightly lacks mention of the episode title and the ongoing significance of the teapot letter."
       }
     },
     {
@@ -278,25 +282,21 @@
       "judge": {
         "correctness": 3,
         "groundedness": 4,
-        "completeness": 2,
+        "completeness": 3,
         "hallucination": 4,
-        "overall": 56,
+        "overall": 65,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Creed trying to start his own paper company to poach clients",
-          "Creed acting as manager in 'Search Committee' episode",
-          "Creed's enthusiasm for real estate, ceramics, and wrestling",
-          "Creed's laid-back attitude explicitly stated",
-          "Creed playing guitar and singing",
-          "Creed's involvement in humorous office interactions and meetings that don't go as planned"
-        ],
-        "missing_points": [
           "Creed works in Quality Assurance at Dunder Mifflin",
-          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
-          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed implies shady or criminal behavior and a questionable identity",
           "Creed is arrested in the series finale"
         ],
-        "notes": "The candidate answer provides a general sense of Creed's quirky and mysterious character with some direct quotes supported by the retrieved context. However, it misses key facts about his job role, his shady and evasive nature, and his arrest in the finale. Several claims about his actions and personality are not supported by the retrieved context, leading to partial credit."
+        "missing_points": [
+          "Creed's job title as Quality Assurance",
+          "His shady or criminal behavior implications",
+          "His arrest in the series finale"
+        ],
+        "notes": "The candidate answer provides a good description of Creed's quirky and mysterious personality with multiple script references supporting his eccentricity and office behavior. However, it does not mention his official role in Quality Assurance, nor does it address the darker, shady aspects or his arrest as stated in the gold answer. Most claims are supported by the retrieved context, but some key facts from the gold answer are missing or unsupported."
       }
     }
   ]

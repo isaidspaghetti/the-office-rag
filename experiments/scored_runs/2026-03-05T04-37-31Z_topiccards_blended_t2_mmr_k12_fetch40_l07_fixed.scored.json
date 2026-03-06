@@ -67,16 +67,22 @@
   },
   "score_summary": {
     "cases_scored": 7,
-    "avg_overall": 68,
+    "avg_overall": 61,
     "overall_scores": [
       92,
       100,
-      58,
+      56,
       38,
+      30,
       38,
-      77,
       70
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -104,7 +110,7 @@
           "Dwight reacts with confusion and frustration, saying, 'Bears do not— What is going on— What are you doing?!'"
         ],
         "missing_points": [],
-        "notes": "The candidate answer correctly identifies the episode (S03E20 'Product Recall') and the context of Jim impersonating Dwight and saying the line. The retrieved context supports the episode and the impersonation scene but does not explicitly include Dwight's quoted reaction, so that claim is slightly unsupported. Overall, the answer is accurate and complete."
+        "notes": "Candidate answer correctly identifies the episode (S03E20 'Product Recall') and context (Jim impersonating Dwight and saying the line). The retrieved context supports the episode and the impersonation scene but does not include Dwight's exact reaction quoted by the candidate, so that part is unsupported. Overall, the answer is accurate and well grounded."
       }
     },
     {
@@ -154,17 +160,20 @@
         "groundedness": 4,
         "completeness": 2,
         "hallucination": 4,
-        "overall": 58,
+        "overall": 56,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Michael's relationship with Jan becomes more involved",
-          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks"
+          "Michael's relationship with Jan discussed in Performance Review (S02E08) is not supported by retrieved context",
+          "No mention of Jim/Pam relationship tension or Casino Night episode",
+          "No mention of Dwight's rivalry with Jim"
         ],
         "missing_points": [
           "Jim/Pam relationship tension and Pam's engagement to Roy",
-          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+          "Michael's relationship with Jan becoming more involved",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including Casino Night where Jim confesses feelings and kisses Pam"
         ],
-        "notes": "Candidate answer accurately references several episode summaries from season 2 and their content, supporting some key themes like office dynamics and Michael's management style. However, it omits important relationship developments central to season 2 (Jim/Pam tension, Pam's engagement, and Casino Night) which are in the gold answer but not supported by the retrieved context. Some claims about Michael and Jan's relationship and Dwight's rivalry are not supported by the retrieved summaries."
+        "notes": "Candidate answer lists some episode summaries supported by context but misses key thematic elements and emotional arcs described in gold answer. Some claims (e.g. Performance Review episode content) are not supported by retrieved context."
       }
     },
     {
@@ -187,15 +196,14 @@
         "unsupported_claims": [
           "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,' (SCENE 001) - not found in retrieved context",
           "Dwight says, 'I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior,' (SCENE 001) - not found in retrieved context",
-          "Dwight states, 'Jim is my enemy,' and the extended quote (SCENE 034) - not found in retrieved context"
+          "Dwight states, 'Jim is my enemy,' and the extended quote about their relationship (SCENE 034) - not found in retrieved context"
         ],
         "missing_points": [
-          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
-          "Dwight is competitive and threatened by Jim’s social ease and influence",
-          "Examples from distinct episodes or situations as requested",
-          "The nuance of underlying respect and friendship"
+          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Examples from distinct episodes or situations",
+          "The nuance of deep respect underneath the rivalry"
         ],
-        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not support the specific quotes or detailed examples given. The answer lacks coverage of Dwight's values and the competitive/social dynamic, as well as the important nuance of their underlying respect. The retrieved context is limited and does not contain explicit evidence for the claims made."
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not contain the specific quotes or detailed examples cited. The answer partially aligns with the gold answer's themes but lacks grounding in the provided context and misses some key nuances and examples."
       }
     },
     {
@@ -213,26 +221,22 @@
         "groundedness": 2,
         "completeness": 2,
         "hallucination": 2,
-        "overall": 38,
+        "overall": 30,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Jan Levinson relationship details and ending",
-          "Carol proposed to on fourth date and herpes discussion",
+          "Carol proposed to on fourth date and photoshopped face",
           "Holly Flax relationship and ending",
           "Donna Newton relationship and ending",
-          "Helene Beesly relationship and ending",
-          "Tara as girlfriend",
-          "Michael's proposal to Holly",
-          "Details about relationship endings"
+          "Michael ending relationship with Helene Beesly because she is too old",
+          "Details about Tara relationship"
         ],
         "missing_points": [
-          "Explicit mention of serious girlfriends as per gold answer",
-          "How relationships ended for Jan, Carol, Holly, Donna, Helene",
-          "Michael leaving to be with Holly",
-          "Michael ending relationship with Donna after learning she is married",
-          "Michael ending relationship with Helene because she is too old"
+          "No mention of Holly Flax, Donna Newton, or relationship endings for some girlfriends",
+          "No mention of how relationships ended for Tara or Helene beyond warnings",
+          "No mention of Michael proposing to Carol or photoshopping face"
         ],
-        "notes": "The candidate answer provides some information about Michael's relationships with Jan, Carol, Helene, and Tara, but most claims are not supported by the retrieved context, which is sparse and mostly unrelated. The retrieved context does not contain sufficient information to confirm the details about serious girlfriends or how relationships ended. The candidate includes details not found in the context, leading to hallucination penalties. The answer is partially correct in naming some girlfriends but lacks grounding and completeness."
+        "notes": "The candidate answer provides some details about Michael's relationships with Jan, Carol, Helene, and Tara, but most claims are not supported by the retrieved context. The retrieved context is limited and does not contain enough information to fully answer the question. The candidate includes information not found in the context, leading to low groundedness and hallucination scores."
       }
     },
     {
@@ -251,21 +255,22 @@
       },
       "judge": {
         "correctness": 4,
-        "groundedness": 3,
+        "groundedness": 2,
         "completeness": 4,
-        "hallucination": 4,
-        "overall": 77,
+        "hallucination": 2,
+        "overall": 38,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "The letter contains inside jokes and personal memories",
-          "Jim explains the contents of the teapot including a high school yearbook photo, hot sauce packet, and card",
+          "Jim explains the contents of the teapot including a high school yearbook photo, hot sauce packet, and a card",
           "The letter symbolizes Jim's feelings for Pam and their close connection"
         ],
         "missing_points": [
-          "Explicit mention that the teapot letter represents Jim’s feelings and their relationship",
-          "Reference to the letter as a meaningful symbol referenced later in the series"
+          "The teapot letter represents Jim’s feelings and their relationship",
+          "It is introduced in Season 2’s Christmas episode (\"Christmas Party\")",
+          "It remains a meaningful symbol referenced later as their relationship progresses"
         ],
-        "notes": "The candidate answer aligns well with the gold answer in describing the teapot letter as a meaningful gift from Jim to Pam introduced in Season 2 Christmas episode. However, the retrieved context only partially supports the claims, mainly confirming the teapot gift and inside jokes but not the letter's symbolic importance or detailed contents. Some claims about the letter's contents and symbolism are not directly supported by the retrieved context, leading to moderate groundedness and hallucination penalties."
+        "notes": "The candidate answer provides a reasonable explanation of the teapot letter and its importance, aligning with the gold answer's main idea. However, the retrieved context only includes a brief mention of Jim getting Pam a teapot for Secret Santa and stuffing it with inside jokes, without explicit mention of the letter or its symbolic importance. Therefore, many claims in the candidate answer are not supported by the retrieved context, leading to low groundedness and hallucination scores."
       }
     },
     {
@@ -288,15 +293,14 @@
         "unsupported_claims": [
           "Creed sold Kelly a tapeworm from Mexico",
           "Creed talks about starting his own paper company and trying to poach clients",
-          "Creed was officially acknowledged and applauded for resolving Watermark-gate scandal"
+          "Creed recognized for earnest and diligent sleuthing in Watermark-gate scandal"
         ],
         "missing_points": [
-          "Creed's official role as Quality Assurance at Dunder Mifflin",
-          "Creed's comic relief role as bizarre and evasive",
-          "Implication of shady or criminal behavior and questionable identity",
-          "Creed's arrest in the series finale"
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
         ],
-        "notes": "The candidate answer provides a reasonable characterization of Creed as mysterious and quirky, with some supported quotes from the retrieved context. However, many specific claims (e.g., selling a tapeworm, poaching clients, official recognition) are not supported by the retrieved context. The answer also misses key points from the gold answer about Creed's official role, his comic relief nature, and his arrest. Overall, the answer is partially correct but incomplete and partially ungrounded."
+        "notes": "The candidate answer captures Creed's mysterious and quirky nature well and some dialogue references are supported by the retrieved context. However, key facts such as his role in Quality Assurance, his comic relief function, and his arrest in the finale are missing. Several specific claims about Creed's activities are not supported by the retrieved context, leading to a moderate penalty in groundedness."
       }
     }
   ]

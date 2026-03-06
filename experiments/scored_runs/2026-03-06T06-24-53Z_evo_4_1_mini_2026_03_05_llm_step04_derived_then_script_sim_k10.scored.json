@@ -1,0 +1,338 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-24-53Z_evo_4_1_mini_2026_03_05_llm_step04_derived_then_script_sim_k10",
+    "run_name": "evo_4_1_mini_2026-03-05_llm_step04_derived_then_script_sim_k10",
+    "created_at_utc": "2026-03-06T06:24:53Z",
+    "notes": "LLM-enabled sweep with gpt-4.1-mini; telemetry disabled; script=db/chroma_db_meta derived=db/chroma_db_derived_cards_4_1_mini_2026-03-04"
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:24:52Z",
+            "sha256": "e6d757f654fe31088d67bbe4dab5d148a1b9c4b2f6b831de192ca5a947f9f5b9"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-06T04:52:41Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-06T04:52:41Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": false,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season09_4_1_mini_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season09_4_1_mini_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [],
+          "seasons_filter": null,
+          "docs_planned": 24,
+          "dry_run": false,
+          "docs_indexed": 24
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04/chroma.sqlite3",
+            "size_bytes": 917504,
+            "mtime_utc": "2026-03-06T06:24:53Z",
+            "sha256": "fcf37d9d30969e66919ac82d6521b7becfb39103b111e13fd5ae86f4a77104f5"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+      "collection_name": "derived_cards",
+      "num_vectors": 24
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "derived_then_script",
+      "search_type": "similarity",
+      "k": 10,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 60.0,
+      "max_retries": 1,
+      "seed": 42
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 41,
+    "overall_scores": [
+      20,
+      40,
+      100,
+      30,
+      35,
+      30,
+      30
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.5714285714285714,
+    "must_include_ok_rate": 0.5714285714285714,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 2,
+        "overall": 20,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The phrase 'Bears. Beets. Battlestar Galactica.' is associated with Dwight",
+          "Dwight holds up a Battlestar Galactica model box and talks about hierarchy and assistants",
+          "Dwight says, 'The way that boy looks at the Galactica is precisely the way I look at the Galactica,' which ties to the Battlestar Galactica reference",
+          "The context is Dwight's obsession with Battlestar Galactica and his hierarchical view of the office roles, as seen in SCENE 034"
+        ],
+        "missing_points": [
+          "The exact quote 'Bears. Beets. Battlestar Galactica.' is said by Jim impersonating Dwight",
+          "The episode is Season 3, Episode 20 ('Product Recall')",
+          "The context is Jim mocking Dwight’s obsessions"
+        ],
+        "notes": "The candidate answer references Battlestar Galactica and Dwight but does not provide the exact quote or correct episode. The retrieved context is from Season 9 episodes and does not contain the quote or the correct episode. The candidate answer partially relates to Dwight's interests but misses key facts and the correct episode."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Episode identification (Season 2, Episode 12)",
+          "Michael burns his foot on a George Foreman grill"
+        ],
+        "notes": "Candidate answer correctly states lack of information in the retrieved context and does not hallucinate. The retrieved context does not contain any information about Michael burning his foot, so 'I don't know' is appropriate."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Summary of Season 2 of The Office"
+        ],
+        "notes": "Candidate correctly states that the retrieved context does not contain information about Season 2 and appropriately responds with 'I don't know'. This is fully grounded and avoids hallucination."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim steals people from Dwight's team",
+          "Dwight calls Jim 'Stinky' and they exchange playful insults",
+          "Dwight admits Jim is better than him"
+        ],
+        "missing_points": [
+          "Jim constantly pranks and undermines Dwight",
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "Dwight is competitive and threatened by Jim's social ease and influence",
+          "Examples from distinct episodes",
+          "Nuance of underlying respect and friendship"
+        ],
+        "notes": "The candidate answer provides some reasons for Dwight's dislike of Jim but these are not supported by the retrieved context. The retrieved context contains only brief, unrelated script excerpts without clear evidence for the claims made. The answer misses key reasons from the gold answer and lacks examples from distinct episodes. The hallucination penalty is due to unsupported claims about character interactions."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 35,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Names of Michael Scott's serious girlfriends",
+          "How each relationship ended"
+        ],
+        "notes": "Candidate correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended, which is appropriate given the context."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate and appropriate given the context. No hallucinations or unsupported claims are made."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Creed's job at Dunder Mifflin",
+          "Creed's bizarre and evasive nature",
+          "Implications of shady or criminal behavior",
+          "Creed as comic relief and mysterious presence",
+          "Creed's arrest in the series finale"
+        ],
+        "notes": "Candidate answer correctly states that the context does not provide a direct explanation of who Creed is or his deal, which is accurate given the retrieved context. It only infers Creed's quirky character from some lines but does not claim unsupported facts. The gold answer contains many details not found in the context, so the candidate's cautious 'I don't know' is appropriate."
+      }
+    }
+  ]
+}

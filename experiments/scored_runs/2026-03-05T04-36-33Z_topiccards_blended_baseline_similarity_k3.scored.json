@@ -67,16 +67,22 @@
   },
   "score_summary": {
     "cases_scored": 7,
-    "avg_overall": 54,
+    "avg_overall": 56,
     "overall_scores": [
-      95,
+      100,
       100,
       44,
       48,
-      20,
+      30,
       35,
       38
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -98,11 +104,11 @@
         "groundedness": 5,
         "completeness": 5,
         "hallucination": 5,
-        "overall": 95,
+        "overall": 100,
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "Candidate answer fully matches gold answer and is supported by retrieved context from S03E20 script."
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context from S03E20 script."
       }
     },
     {
@@ -128,7 +134,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "Candidate answer correctly identifies the episode and matches the gold answer, fully supported by the retrieved context."
+        "notes": "Candidate answer fully matches gold answer and is supported by retrieved context."
       }
     },
     {
@@ -159,7 +165,7 @@
           "Dwight's ambition and rivalry with Jim",
           "Major emotional beats like Casino Night"
         ],
-        "notes": "Candidate answer only lists two episode summaries from retrieved context and states no further summary is available; it does not contradict but misses most key season 2 plot points from gold answer."
+        "notes": "Candidate answer only lists two episode summaries from retrieved context and admits no further detail is provided; no unsupported claims but very incomplete compared to gold answer."
       }
     },
     {
@@ -180,15 +186,17 @@
         "overall": 48,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
-          "Dwight warns Jim, 'I cannot have a subordinate trying to make me look stupid,' and threatens to 'pre-fire' Jim"
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today.'",
+          "Dwight explains consequences of demerits with specific quotes.",
+          "Dwight warns Jim about 'pre-fire' and 'I cannot have a subordinate trying to make me look stupid.'"
         ],
         "missing_points": [
-          "The nuance that underneath the rivalry there is deep respect",
-          "Example of Dwight naming Jim best man at his wedding",
-          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive"
+          "The nuance that underneath the rivalry there is deep respect.",
+          "Example of Dwight naming Jim best man at his wedding.",
+          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive.",
+          "Examples from distinct episodes beyond the few script snippets."
         ],
-        "notes": "The candidate answer correctly identifies three main reasons for Dwight's dislike of Jim and provides some examples, but many quotes and specific examples are not supported by the retrieved context. The retrieved context is limited and does not contain the detailed quotes or examples cited. The answer lacks the important nuance about their underlying respect and final friendship."
+        "notes": "The candidate answer correctly identifies three main reasons for Dwight's dislike of Jim, aligning with the gold answer's themes. However, the retrieved context does not contain the specific quotes or detailed examples cited by the candidate, leading to lower groundedness. The answer also misses the important nuance of underlying respect and the final season example. Overall, the answer is partially correct but not fully supported by the provided context."
       }
     },
     {
@@ -206,17 +214,19 @@
         "groundedness": 1,
         "completeness": 1,
         "hallucination": 5,
-        "overall": 20,
+        "overall": 30,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Details about Jan Levinson relationship ending with poor performance reviews",
-          "No mention of other serious girlfriends or how those relationships ended"
+          "Michael considered Jan to be his girlfriend, but Jan did not consider him her boyfriend",
+          "Their relationship ended with Jan giving Michael poor performance reviews at work",
+          "Michael defended Jan despite the negative reviews",
+          "No other serious girlfriends or details about how those relationships ended"
         ],
         "missing_points": [
           "Other serious girlfriends besides Jan Levinson",
-          "How relationships with Carol Stills, Holly Flax, Donna Newton, and Helene Beesly ended"
+          "How the relationships with Carol Stills, Holly Flax, Donna Newton, and Helene Beesly ended"
         ],
-        "notes": "Candidate answer only mentions Jan Levinson and relationship details not supported by retrieved context. No other girlfriends or relationship endings are mentioned in the context, so candidate is limited but does not hallucinate beyond Jan. The retrieved context is insufficient to answer fully."
+        "notes": "The candidate answer only mentions Jan Levinson and provides details not supported by the retrieved context. The retrieved context is very limited and does not contain information about Michael's serious girlfriends or how the relationships ended. The candidate answer does not cover the full scope of the question and mostly speculates beyond the provided context."
       }
     },
     {
@@ -240,11 +250,11 @@
         "verdict": "idk_preferred",
         "unsupported_claims": [],
         "missing_points": [
-          "Explanation of what the teapot letter is",
+          "What the teapot letter is",
           "Why the teapot letter is important",
           "Reference to Season 2 Christmas episode"
         ],
-        "notes": "Candidate answer correctly refrains from guessing due to lack of relevant context, which is appropriate given the retrieved documents do not mention the teapot letter."
+        "notes": "Candidate correctly refrains from answering due to lack of relevant context, which is appropriate given the retrieved documents do not mention the teapot letter."
       }
     },
     {
@@ -259,19 +269,23 @@
       },
       "judge": {
         "correctness": 2,
-        "groundedness": 5,
+        "groundedness": 4,
         "completeness": 2,
-        "hallucination": 5,
+        "hallucination": 4,
         "overall": 38,
         "verdict": "partially_correct",
-        "unsupported_claims": [],
-        "missing_points": [
-          "Creed's role in Quality Assurance at Dunder Mifflin",
-          "His bizarre, evasive, and possibly criminal behavior",
-          "His comic relief role and mysterious presence",
-          "His arrest in the series finale"
+        "unsupported_claims": [
+          "Creed is concerned about changes at work mentioning 're-training', 'new system', and 'youth'",
+          "Creed warns Michael that 'you, me, Sammy, Phyllis, the chick you hit with the car, we're goners'",
+          "Creed tries to convince Michael to 'call Jan and fight this thing together like the old days'"
         ],
-        "notes": "The candidate answer is fully supported by the retrieved context and does not hallucinate, but it only partially answers the question. It describes Creed as mysterious and older, worried about job security, but misses key character traits and his role as per the gold answer."
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer is grounded in the retrieved context for Creed's age and concern about job security but misses key character traits and background from the gold answer. It also includes some claims not supported by the retrieved context."
       }
     }
   ]

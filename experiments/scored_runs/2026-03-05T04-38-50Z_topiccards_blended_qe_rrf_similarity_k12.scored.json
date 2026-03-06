@@ -71,12 +71,18 @@
     "overall_scores": [
       95,
       100,
-      64,
+      63,
       30,
-      25,
+      26,
       92,
       65
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -102,7 +108,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "The candidate answer correctly identifies the episode (S03E20 \"Product Recall\") and accurately describes the context of Jim impersonating Dwight and saying the line. The retrieved context includes the relevant script excerpt confirming the scene and dialogue."
+        "notes": "The candidate answer correctly identifies the episode (S03E20) and context of Jim impersonating Dwight with the exact quoted lines. The retrieved context includes the script from S03E20 confirming the scene. All claims are supported and complete."
       }
     },
     {
@@ -128,7 +134,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
       }
     },
     {
@@ -154,21 +160,22 @@
         "groundedness": 4,
         "completeness": 2,
         "hallucination": 4,
-        "overall": 64,
+        "overall": 63,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Pam's mom visits the office in Sexual Harassment episode is supported",
-          "Michael's relationship with Jan becoming more involved is not supported by retrieved context for season 2",
-          "Jim/Pam relationship tension and Casino Night events are not mentioned in retrieved context",
-          "Dwight’s ambition and rivalry with Jim through workplace conflicts and pranks are not mentioned"
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "Season builds to major emotional beats including 'Casino Night' where Jim confesses his feelings and kisses Pam"
         ],
         "missing_points": [
-          "Jim/Pam relationship tension and emotional beats like Casino Night",
-          "Michael’s relationship with Jan becoming more involved in season 2",
-          "Dwight’s rivalry and ambition",
-          "Major emotional beats and season arc"
+          "Jim/Pam relationship tension",
+          "Pam's engagement to Roy",
+          "Michael and Jan's relationship development",
+          "Dwight and Jim rivalry and pranks",
+          "Casino Night episode and Jim's confession"
         ],
-        "notes": "Candidate answer lists several episode summaries supported by retrieved context but misses key season 2 arcs and emotional highlights present in gold answer. Some claims about relationships and season themes are not supported by retrieved documents."
+        "notes": "The candidate answer lists several episode summaries supported by the retrieved context but lacks key emotional and relational developments central to Season 2 as described in the gold answer. Some claims about character relationships and major plot points are not supported by the retrieved context, leading to partial credit."
       }
     },
     {
@@ -197,10 +204,10 @@
         "missing_points": [
           "Explicit mention of Dwight valuing hierarchy, rules, and authority",
           "Jim being sarcastic and dismissive of Dwight’s self-appointed authority",
-          "The nuance of deep respect underneath the rivalry",
-          "Example of Dwight naming Jim best man at his wedding"
+          "The nuance of deep respect underneath the rivalry and Dwight naming Jim best man at his wedding",
+          "Examples from distinct situations/episodes as requested"
         ],
-        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not contain supporting evidence for the specific quotes or detailed examples given. The answer partially aligns with the gold answer's themes but lacks grounding and misses important nuances and examples."
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not support the specific quotes or detailed examples given. The answer misses key nuances from the gold answer and lacks grounding in the provided scripts."
       }
     },
     {
@@ -218,23 +225,24 @@
         "groundedness": 1,
         "completeness": 1,
         "hallucination": 2,
-        "overall": 25,
+        "overall": 26,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Jan Levinson relationship details and ending",
-          "Holly Flax relationship details and ending",
-          "Donna relationship details and ending",
-          "Michael proposed to Holly",
-          "Michael ended relationship with Donna after learning she was married",
-          "Michael ended relationship with Helene Beesly"
+          "Jan gave Michael poor performance reviews after relationship became official",
+          "Jan's ambivalence caused relationship to end",
+          "Holly invited Michael to Colorado because her dad was ill",
+          "Holly was ready for deeper commitment but Michael cut her off",
+          "Donna was married",
+          "No ending specified for Donna and Holly relationships"
         ],
         "missing_points": [
-          "Carol Stills relationship and breakup",
-          "Details on how Jan Levinson relationship ended",
-          "Details on Holly Flax relationship ending",
-          "Mention of Helene Beesly and Donna Newton as serious girlfriends"
+          "Carol Stills relationship and breakup details",
+          "Helene Beesly relationship and breakup details",
+          "Michael proposing to Holly and leaving to be with her",
+          "Michael ending relationship with Donna after learning she was married",
+          "Michael ending relationship with Helene because she was too old"
         ],
-        "notes": "The candidate answer provides some information about Jan, Donna, and Holly but these are not supported by the retrieved context, which contains mostly unrelated script excerpts. The retrieved context does not provide sufficient information to answer the question fully or accurately. The candidate answer includes details not found in the context, leading to low groundedness and hallucination scores. The gold answer is more complete and correct but is not supported by the retrieved context either."
+        "notes": "The candidate answer provides some details about Jan, Donna, and Holly but these are not supported by the retrieved context, which contains mostly unrelated script excerpts. The gold answer includes more relationships and specific breakup reasons not found in the context or candidate. The candidate does not mention Carol Stills or Helene Beesly at all. The retrieved context is insufficient to answer the question fully, so a more grounded answer would be 'I don't know'."
       }
     },
     {
@@ -260,7 +268,7 @@
         "missing_points": [
           "The answer does not explicitly mention that the teapot letter remains a meaningful symbol referenced later as their relationship progresses."
         ],
-        "notes": "The candidate answer accurately describes the teapot letter and its importance, fully supported by the retrieved context from S02E10. It matches the gold answer's key facts but omits the detail about the letter's ongoing symbolic significance."
+        "notes": "The candidate answer accurately describes the teapot letter and its importance, fully supported by the retrieved context from S02E10. It matches the gold answer well but omits the detail about the letter's ongoing symbolic significance in later episodes."
       }
     },
     {
@@ -291,7 +299,7 @@
           "Creed's deal includes implying shady or criminal behavior and a questionable identity",
           "Creed is comic relief as an unpredictable, mysterious presence"
         ],
-        "notes": "The candidate answer provides a good characterization of Creed's quirky and mysterious nature with supporting quotes from the retrieved context. However, it misses key facts such as Creed's role in Quality Assurance and his arrest in the series finale, which are in the gold answer but not supported by the retrieved context. The claim about starting his own paper company is not supported by the retrieved context and is penalized. Overall, the answer is partially correct and mostly grounded but incomplete."
+        "notes": "The candidate answer captures Creed's quirky and mysterious nature and some quotes from the retrieved context, supporting his eccentric personality. However, it misses key facts such as his role in Quality Assurance and the implication of shady or criminal behavior as part of his 'deal'. The claim about starting his own paper company and poaching clients is not supported by the retrieved context. The arrest in the series finale is also not supported. Overall, the answer is partially correct and mostly grounded but incomplete."
       }
     }
   ]

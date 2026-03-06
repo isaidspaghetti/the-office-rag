@@ -82,6 +82,113 @@
 				"sanity_provenance_fields"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "audit artifacts (dry-run)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/cleanup_artifacts.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--scored-dir",
+				"experiments/scored_runs"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "audit artifacts (dry-run to file)",
+			"type": "shell",
+			"command": "/bin/bash",
+			"args": [
+				"-lc",
+				"/Users/tg/Developer/RAG-1/venv/bin/python experiments/cleanup_artifacts.py --runs-dir experiments/runs --scored-dir experiments/scored_runs > experiments/_last_audit.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "cleanup artifacts (apply)",
+			"type": "shell",
+			"command": "/bin/bash",
+			"args": [
+				"-lc",
+				"/Users/tg/Developer/RAG-1/venv/bin/python experiments/cleanup_artifacts.py --runs-dir experiments/runs --scored-dir experiments/scored_runs --apply > experiments/_last_cleanup_apply.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "summarize runs",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/summarize_runs.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "audit scores",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/audit_scores.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--scored-dir",
+				"experiments/scored_runs",
+				"--out",
+				"experiments/_score_audit.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "audit scores after topiccards scoring",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/audit_scores.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--scored-dir",
+				"experiments/scored_runs",
+				"--out",
+				"experiments/_score_audit_after_topiccards.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "check topiccards scored health",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"import json; from pathlib import Path\nscored_dir=Path('experiments/scored_runs')\nfiles=sorted(scored_dir.glob('*.scored.json'))\nrows=[]\nfor p in files:\n    name=p.name\n    if 'topiccards_blended_' not in name: \n        continue\n    try:\n        obj=json.loads(p.read_text(encoding='utf-8'))\n    except Exception as e:\n        rows.append((name,'BROKEN_JSON',str(e)))\n        continue\n    summ=(obj.get('score_summary') or {}) if isinstance(obj,dict) else {}\n    cases_scored=summ.get('cases_scored')\n    avg_overall=summ.get('avg_overall')\n    scored_cases=obj.get('scored_cases') if isinstance(obj,dict) else None\n    judge_cases=0\n    judge_errors=0\n    if isinstance(scored_cases,list):\n        for r in scored_cases:\n            if not isinstance(r,dict):\n                continue\n            if isinstance(r.get('judge'),dict):\n                judge_cases+=1\n            if r.get('judge_error'):\n                judge_errors+=1\n    rows.append((name,cases_scored,avg_overall,judge_cases,judge_errors,len(scored_cases) if isinstance(scored_cases,list) else None))\n\n# summary\nok=[r for r in rows if len(r)>3 and isinstance(r[1],int) and r[1]>0 and r[4]==0]\nbad=[r for r in rows if r not in ok]\nout=Path('experiments/_topiccards_scoring_health.txt')\nwith out.open('w',encoding='utf-8') as f:\n    f.write(f'topiccards_scored_files={len(rows)}\\n')\n    f.write(f'ok={len(ok)} bad={len(bad)}\\n\\n')\n    f.write('name\\tcases_scored\\tavg_overall\\tjudge_cases\\tjudge_errors\\tscored_cases_len\\n')\n    for r in rows:\n        f.write('\\t'.join(str(x) for x in r)+'\\n')\nprint('Wrote',out.resolve())\n"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "topiccards scoring health check",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/check_topiccards_scoring_health.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
 		}
 	]
 }

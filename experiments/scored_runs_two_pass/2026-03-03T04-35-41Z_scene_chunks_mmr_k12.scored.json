@@ -1,0 +1,664 @@
+{
+  "run": {
+    "run_id": "2026-03-03T04-35-41Z_scene_chunks_mmr_k12",
+    "run_name": "scene_chunks_mmr_k12",
+    "created_at_utc": "2026-03-03T04:35:41Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 8993
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-06T07:04:02Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 61,
+    "overall_scores": [
+      36,
+      100,
+      80,
+      52,
+      44,
+      40,
+      76
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.7142857142857143,
+    "must_include_ok_rate": 0.5714285714285714,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 5,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 36,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "The episode is Season 2, Episode 17 (\"Dwight's Speech\")",
+          "Jim dresses up as Dwight and imitates him",
+          "Jim asks Dwight, \"What kind of bear is best?\" and Dwight calls it a ridiculous question",
+          "Jim says \"Bears eat beets. Bears. Beets. Battlestar Galactica.\"",
+          "Dwight is confused and asks what Jim is doing",
+          "This is a humorous moment mocking Dwight's mannerisms and interests"
+        ],
+        "missing_points": [
+          "Incorrect episode identification (should be S03E20, not S02E17)",
+          "Candidate states Dwight says the line, but it is Jim impersonating Dwight",
+          "Gold specifies episode title 'Product Recall', candidate gives 'Dwight's Speech'"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes a scene where Jim dressed as Dwight asks \"What kind of bear is best?\" and Dwight calls it a ridiculous question, but it is from Season 3, Episode 20, not Season 2, Episode 17. The exact quote \"Bears. Beets. Battlestar Galactica.\" is not present in the retrieved context, nor is the full context of the scene. Therefore, the candidate answer contains multiple unsupported claims and some inaccuracies. | correctness: Candidate correctly describes the context …",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "The episode is Season 2, Episode 17 (\"Dwight's Speech\")",
+            "Jim dresses up as Dwight and imitates him",
+            "Jim asks Dwight, \"What kind of bear is best?\" and Dwight calls it a ridiculous question",
+            "Jim says \"Bears eat beets. Bears. Beets. Battlestar Galactica.\"",
+            "Dwight is confused and asks what Jim is doing",
+            "This is a humorous moment mocking Dwight's mannerisms and interests"
+          ],
+          "notes": "The retrieved context includes a scene where Jim dressed as Dwight asks \"What kind of bear is best?\" and Dwight calls it a ridiculous question, but it is from Season 3, Episode 20, not Season 2, Episode 17. The exact quote \"Bears. Beets. Battlestar Galactica.\" is not present in the retrieved context, nor is the full context of the scene. Therefore, the candidate answer contains multiple unsupported claims and some inaccuracies."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 3,
+          "missing_points": [
+            "Incorrect episode identification (should be S03E20, not S02E17)",
+            "Candidate states Dwight says the line, but it is Jim impersonating Dwight",
+            "Gold specifies episode title 'Product Recall', candidate gives 'Dwight's Speech'"
+          ],
+          "notes": "Candidate correctly describes the context of Jim impersonating Dwight and mocking his interests, but misidentifies the episode and incorrectly states Dwight says the line."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"The episode is Season 2, Episode 17 (\\\"Dwight's Speech\\\")\",\n    \"Jim dresses up as Dwight and imitates him\",\n    \"Jim asks Dwight, \\\"What kind of bear is best?\\\" and Dwight calls it a ridiculous question\",\n    \"Jim says \\\"Bears eat beets. Bears. Beets. Battlestar Galactica.\\\"\",\n    \"Dwight is confused and asks what Jim is doing\",\n    \"This is a humorous moment mocking Dwight's mannerisms and interests\"\n  ],\n  \"notes\": \"The retrieved context includes a scene where Jim dressed as Dwight asks \\\"What kind of bear is best?\\\" and Dwight calls it a ridiculous question, but it is from Season 3, Episode 20, not Season 2, Episode 17. The exact quote \\\"Bears. Beets. Battlestar Galactica.\\\" is not present in the retrieved context, nor is the full context of the scene. Therefore, the candidate answer contains multiple unsupported claims and some inaccuracies.\"\n}",
+          "correctness": "{\"correctness\":2,\"completeness\":3,\"missing_points\":[\"Incorrect episode identification (should be S03E20, not S02E17)\",\"Candidate states Dwight says the line, but it is Jim impersonating Dwight\",\"Gold specifies episode title 'Product Recall', candidate gives 'Dwight's Speech'\"],\"notes\":\"Candidate correctly describes the context of Jim impersonating Dwight and mocking his interests, but misidentifies the episode and incorrectly states Dwight says the line.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 3,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The retrieved context clearly identifies Season 2, Episode 12, titled 'The Injury' as the episode where Michael burns his foot on a George Foreman Grill. | correctness: The candidate answer correctly identifies the episode and includes the key detail about the George Foreman grill, matching the gold answer.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The retrieved context clearly identifies Season 2, Episode 12, titled 'The Injury' as the episode where Michael burns his foot on a George Foreman Grill."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly identifies the episode and includes the key detail about the George Foreman grill, matching the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The retrieved context clearly identifies Season 2, Episode 12, titled 'The Injury' as the episode where Michael burns his foot on a George Foreman Grill.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly identifies the episode and includes the key detail about the George Foreman grill, matching the gold answer.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E08",
+          "S02E13",
+          "S02E15",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 3,
+        "overall": 80,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael dealing with sexual harassment policy after sending explicit emails (S02E02)",
+          "A fire breaks out in the office kitchen (S02E04)",
+          "Michael uses employee performance reviews to discuss his relationship with Jan (S02E08)",
+          "Jim struggles with his feelings for Pam while spending time with Michael to keep his secret (S02E13)",
+          "The season includes a women in the office session led by Jan and a men's only session staged by Michael (S02E15)",
+          "The season culminates with a casino night charity event in the warehouse (S02E22)"
+        ],
+        "missing_points": [
+          "Explicit mention of Pam's engagement to Roy",
+          "More emphasis on Dwight's ambition and rivalry with Jim",
+          "Highlighting the emotional tension between Jim and Pam"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes summaries for some episodes (S02E01, S02E03, S02E08, S02E13, S02E15) but does not provide detailed information to fully verify all claims in the candidate answer. Several claims about episodes not included in the context or specific plot details are unsupported. | correctness: Candidate answer accurately covers key events and the overall arc of Season 2, including the Casino Night climax. However, it lacks explicit mention of Pam's engagement to Roy and …",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 3,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Michael dealing with sexual harassment policy after sending explicit emails (S02E02)",
+            "A fire breaks out in the office kitchen (S02E04)",
+            "Michael uses employee performance reviews to discuss his relationship with Jan (S02E08)",
+            "Jim struggles with his feelings for Pam while spending time with Michael to keep his secret (S02E13)",
+            "The season includes a women in the office session led by Jan and a men's only session staged by Michael (S02E15)",
+            "The season culminates with a casino night charity event in the warehouse (S02E22)"
+          ],
+          "notes": "The retrieved context includes summaries for some episodes (S02E01, S02E03, S02E08, S02E13, S02E15) but does not provide detailed information to fully verify all claims in the candidate answer. Several claims about episodes not included in the context or specific plot details are unsupported."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 4,
+          "missing_points": [
+            "Explicit mention of Pam's engagement to Roy",
+            "More emphasis on Dwight's ambition and rivalry with Jim",
+            "Highlighting the emotional tension between Jim and Pam"
+          ],
+          "notes": "Candidate answer accurately covers key events and the overall arc of Season 2, including the Casino Night climax. However, it lacks explicit mention of Pam's engagement to Roy and the ongoing rivalry between Dwight and Jim, which are central to the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 3,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Michael dealing with sexual harassment policy after sending explicit emails (S02E02)\",\n    \"A fire breaks out in the office kitchen (S02E04)\",\n    \"Michael uses employee performance reviews to discuss his relationship with Jan (S02E08)\",\n    \"Jim struggles with his feelings for Pam while spending time with Michael to keep his secret (S02E13)\",\n    \"The season includes a women in the office session led by Jan and a men's only session staged by Michael (S02E15)\",\n    \"The season culminates with a casino night charity event in the warehouse (S02E22)\"\n  ],\n  \"notes\": \"The retrieved context includes summaries for some episodes (S02E01, S02E03, S02E08, S02E13, S02E15) but does not provide detailed information to fully verify all claims in the candidate answer. Several claims about episodes not included in the context or specific plot details are unsupported.\"\n}",
+          "correctness": "{\"correctness\":5,\"completeness\":4,\"missing_points\":[\"Explicit mention of Pam's engagement to Roy\",\"More emphasis on Dwight's ambition and rivalry with Jim\",\"Highlighting the emotional tension between Jim and Pam\"],\"notes\":\"Candidate answer accurately covers key events and the overall arc of Season 2, including the Casino Night climax. However, it lacks explicit mention of Pam's engagement to Roy and the ongoing rivalry between Dwight and Jim, which are central to the gold answer.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 2,
+        "overall": 52,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jim not signing Dwight's expense report (SCENE 002)",
+          "Dwight imitates Stanley saying 'Jim Halpert is a menace' (SCENE 029)",
+          "Dwight criticizes Jim for 'kissing the boss man's butt' (SCENE 023)",
+          "Dwight talks about betraying Jim as part of 'the game' and politics (SCENE 047)"
+        ],
+        "missing_points": [
+          "No mention of Jim's pranks explicitly undermining Dwight",
+          "No reference to Dwight's value of hierarchy, rules, and authority",
+          "No mention of Dwight feeling threatened by Jim's social ease and influence",
+          "No example of deep respect or final season best man detail"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context only supports that Dwight calls Jim his enemy (SCENE 034) and Jim says Dwight annoys him (SCENE 009). Other claims and examples are not found in the retrieved context. | correctness: Candidate answer provides reasons for dislike with examples but misses key gold points about pranks, hierarchy, competition, and underlying respect.",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 2,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jim not signing Dwight's expense report (SCENE 002)",
+            "Dwight imitates Stanley saying 'Jim Halpert is a menace' (SCENE 029)",
+            "Dwight criticizes Jim for 'kissing the boss man's butt' (SCENE 023)",
+            "Dwight talks about betraying Jim as part of 'the game' and politics (SCENE 047)"
+          ],
+          "notes": "The retrieved context only supports that Dwight calls Jim his enemy (SCENE 034) and Jim says Dwight annoys him (SCENE 009). Other claims and examples are not found in the retrieved context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 3,
+          "missing_points": [
+            "No mention of Jim's pranks explicitly undermining Dwight",
+            "No reference to Dwight's value of hierarchy, rules, and authority",
+            "No mention of Dwight feeling threatened by Jim's social ease and influence",
+            "No example of deep respect or final season best man detail"
+          ],
+          "notes": "Candidate answer provides reasons for dislike with examples but misses key gold points about pranks, hierarchy, competition, and underlying respect."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 2,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jim not signing Dwight's expense report (SCENE 002)\",\n    \"Dwight imitates Stanley saying 'Jim Halpert is a menace' (SCENE 029)\",\n    \"Dwight criticizes Jim for 'kissing the boss man's butt' (SCENE 023)\",\n    \"Dwight talks about betraying Jim as part of 'the game' and politics (SCENE 047)\"\n  ],\n  \"notes\": \"The retrieved context only supports that Dwight calls Jim his enemy (SCENE 034) and Jim says Dwight annoys him (SCENE 009). Other claims and examples are not found in the retrieved context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 3,\n  \"missing_points\": [\n    \"No mention of Jim's pranks explicitly undermining Dwight\",\n    \"No reference to Dwight's value of hierarchy, rules, and authority\",\n    \"No mention of Dwight feeling threatened by Jim's social ease and influence\",\n    \"No example of deep respect or final season best man detail\"\n  ],\n  \"notes\": \"Candidate answer provides reasons for dislike with examples but misses key gold points about pranks, hierarchy, competition, and underlying respect.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 44,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Carol relationship details and ending",
+          "Holly Flax relationship details and ending",
+          "Michael proposed to Carol",
+          "Michael found out he had herpes",
+          "Carol's opinion on herpes",
+          "Holly considered best HR rep",
+          "Holly said 'It's not gonna work' due to distance",
+          "Michael's fondness and belief relationship could work",
+          "Relationship endings for Jan, Carol, and Holly"
+        ],
+        "missing_points": [
+          "Did not mention Donna Newton and that Michael ended it after learning she was married",
+          "Did not mention Helene Beesly (Pam's mom) and that Michael ended it because she was too old",
+          "Did not mention that Michael proposed to Carol and photoshopped his face over her ex-husband's in a family photo",
+          "Did not mention that Holly Flax was Michael's best match and that they ended up together"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains only scene identifiers and minimal dialogue snippets without any clear information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed relationship information not supported by the context. | correctness: The candidate answer correctly identifies Jan Levinson, Carol, and Holly Flax as serious girlfriends and describes how the relationships ended, but omits Donna Newton and Helene Beesly. It als…",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jan Levinson relationship details and ending",
+            "Carol relationship details and ending",
+            "Holly Flax relationship details and ending",
+            "Michael proposed to Carol",
+            "Michael found out he had herpes",
+            "Carol's opinion on herpes",
+            "Holly considered best HR rep",
+            "Holly said 'It's not gonna work' due to distance",
+            "Michael's fondness and belief relationship could work",
+            "Relationship endings for Jan, Carol, and Holly"
+          ],
+          "notes": "The retrieved context contains only scene identifiers and minimal dialogue snippets without any clear information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed relationship information not supported by the context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 3,
+          "missing_points": [
+            "Did not mention Donna Newton and that Michael ended it after learning she was married",
+            "Did not mention Helene Beesly (Pam's mom) and that Michael ended it because she was too old",
+            "Did not mention that Michael proposed to Carol and photoshopped his face over her ex-husband's in a family photo",
+            "Did not mention that Holly Flax was Michael's best match and that they ended up together"
+          ],
+          "notes": "The candidate answer correctly identifies Jan Levinson, Carol, and Holly Flax as serious girlfriends and describes how the relationships ended, but omits Donna Newton and Helene Beesly. It also misses some key details about Carol and Holly's relationships and the ultimate outcome with Holly."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jan Levinson relationship details and ending\",\n    \"Carol relationship details and ending\",\n    \"Holly Flax relationship details and ending\",\n    \"Michael proposed to Carol\",\n    \"Michael found out he had herpes\",\n    \"Carol's opinion on herpes\",\n    \"Holly considered best HR rep\",\n    \"Holly said 'It's not gonna work' due to distance\",\n    \"Michael's fondness and belief relationship could work\",\n    \"Relationship endings for Jan, Carol, and Holly\"\n  ],\n  \"notes\": \"The retrieved context contains only scene identifiers and minimal dialogue snippets without any clear information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed relationship information not supported by the context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 3,\n  \"missing_points\": [\n    \"Did not mention Donna Newton and that Michael ended it after learning she was married\",\n    \"Did not mention Helene Beesly (Pam's mom) and that Michael ended it because she was too old\",\n    \"Did not mention that Michael proposed to Carol and photoshopped his face over her ex-husband's in a family photo\",\n    \"Did not mention that Holly Flax was Michael's best match and that they ended up together\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Jan Levinson, Carol, and Holly Flax as serious girlfriends and describes how the relationships ended, but omits Donna Newton and Helene Beesly. It also misses some key details about Carol and Holly's relationships and the ultimate outcome with Holly.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Its importance and symbolism",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: Candidate correctly states that the context does not contain information about the 'teapot letter' or its importance. | correctness: Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "Candidate correctly states that the context does not contain information about the 'teapot letter' or its importance."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Explanation of what the teapot letter is",
+            "Its importance and symbolism",
+            "Reference to Season 2 Christmas episode"
+          ],
+          "notes": "Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":5,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"Candidate correctly states that the context does not contain information about the 'teapot letter' or its importance.\"}",
+          "correctness": "{\"correctness\":0,\"completeness\":0,\"missing_points\":[\"Explanation of what the teapot letter is\",\"Its importance and symbolism\",\"Reference to Season 2 Christmas episode\"],\"notes\":\"Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 2,
+        "completeness": 5,
+        "hallucination": 2,
+        "overall": 76,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Creed was in the band 'The Grass Roots' in the 1960s",
+          "Creed allegedly involved in selling drugs, trafficking endangered species meat, and stealing weapons-grade LSD",
+          "Creed warns that nobody steals from him and the last person who did disappeared",
+          "Creed has a quirky and surreal sense of humor describing the Loch Ness Monster"
+        ],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The context confirms Creed faked his own death and that Oscar doesn't know much about him except his name and possible Irish heritage. However, most detailed claims about Creed's past, criminal activities, and personality traits are not supported by the retrieved context. | correctness: Candidate answer matches gold answer in key facts about Creed's role, mysterious and shady nature, and comic relief aspect. It provides more detail but does not contradict the gold.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 2,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Creed was in the band 'The Grass Roots' in the 1960s",
+            "Creed allegedly involved in selling drugs, trafficking endangered species meat, and stealing weapons-grade LSD",
+            "Creed warns that nobody steals from him and the last person who did disappeared",
+            "Creed has a quirky and surreal sense of humor describing the Loch Ness Monster"
+          ],
+          "notes": "The context confirms Creed faked his own death and that Oscar doesn't know much about him except his name and possible Irish heritage. However, most detailed claims about Creed's past, criminal activities, and personality traits are not supported by the retrieved context."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "Candidate answer matches gold answer in key facts about Creed's role, mysterious and shady nature, and comic relief aspect. It provides more detail but does not contradict the gold."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 2,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Creed was in the band 'The Grass Roots' in the 1960s\",\n    \"Creed allegedly involved in selling drugs, trafficking endangered species meat, and stealing weapons-grade LSD\",\n    \"Creed warns that nobody steals from him and the last person who did disappeared\",\n    \"Creed has a quirky and surreal sense of humor describing the Loch Ness Monster\"\n  ],\n  \"notes\": \"The context confirms Creed faked his own death and that Oscar doesn't know much about him except his name and possible Irish heritage. However, most detailed claims about Creed's past, criminal activities, and personality traits are not supported by the retrieved context.\"\n}",
+          "correctness": "{\"correctness\":5,\"completeness\":5,\"missing_points\":[],\"notes\":\"Candidate answer matches gold answer in key facts about Creed's role, mysterious and shady nature, and comic relief aspect. It provides more detail but does not contradict the gold.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

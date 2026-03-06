@@ -72,11 +72,17 @@
       92,
       100,
       64,
-      26,
+      27,
       25,
       90,
       56
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -102,7 +108,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "The candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight and saying the line). The retrieved context includes the script from S03E20 with the relevant dialogue, supporting the answer. Minor details like Dwight's confusion are consistent with the script. No hallucinations detected."
+        "notes": "The candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight and saying the line). The retrieved context includes the relevant script excerpt confirming the scene. Minor details like Dwight's exact lines after Jim's quote are not fully in the retrieved context but the main facts are supported."
       }
     },
     {
@@ -128,7 +134,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
       }
     },
     {
@@ -157,18 +163,19 @@
         "overall": 64,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "No mention of Jim/Pam relationship tension or Pam's engagement to Roy",
-          "No mention of Michael's relationship with Jan becoming more involved",
-          "No mention of Dwight's ambition and rivalry with Jim",
-          "No mention of major emotional beats like 'Casino Night' where Jim confesses feelings and kisses Pam"
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "The season builds to major emotional beats including 'Casino Night' where Jim confesses his feelings and kisses Pam"
         ],
         "missing_points": [
-          "Jim/Pam relationship tension and Pam's engagement to Roy",
-          "Michael's relationship with Jan",
-          "Dwight's rivalry with Jim",
-          "Emotional climax in 'Casino Night' episode"
+          "Tension in Jim/Pam relationship",
+          "Pam's engagement to Roy",
+          "Michael and Jan's relationship development",
+          "Dwight and Jim's rivalry and pranks",
+          "Casino Night episode and Jim's confession"
         ],
-        "notes": "Candidate answer lists several episode summaries supported by retrieved context but lacks key thematic elements and emotional arcs present in gold answer. Some claims are well grounded, but overall the answer is incomplete and misses major plot points."
+        "notes": "The candidate answer lists several episode summaries supported by the retrieved context but lacks coverage of key emotional and relational developments highlighted in the gold answer. Some claims about character relationships and season arcs are not supported by the retrieved context, leading to partial grounding and incompleteness."
       }
     },
     {
@@ -186,21 +193,21 @@
         "groundedness": 1,
         "completeness": 2,
         "hallucination": 1,
-        "overall": 26,
+        "overall": 27,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Dwight says 'Your pranks have never worked in the past and they're not going to work today' (SCENE 009)",
           "Dwight warns Jim 'Don't make me fire you' and 'You're pre-fired. And when I'm promoted, you'll be full fired' (SCENE 009)",
           "Dwight says on the phone 'Hey, Halpert, what's the big idea? First you jump ship. Now you're stealing Darryl too. When will it end?' (SCENE 019)",
-          "Dwight dislikes Jim because Jim betrays him by leaving or poaching others"
+          "Dwight feels betrayed by Jim's actions such as leaving the company or poaching employees"
         ],
         "missing_points": [
           "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
-          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Dwight is competitive and threatened by Jim's social ease and influence",
           "Examples from distinct situations/episodes",
           "The nuance of underlying respect and eventual friendship"
         ],
-        "notes": "The candidate answer provides three reasons for Dwight's dislike of Jim, but the retrieved context does not support the specific quotes or examples given. The answer misses key nuances from the gold answer and lacks grounding in the provided scripts. The retrieved context contains some interactions but no direct evidence for the claims made."
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not support the specific quotes or examples given. The retrieved scripts contain some interactions but no direct evidence for the claims. The answer misses key nuances and examples from the gold answer."
       }
     },
     {
@@ -224,15 +231,15 @@
           "Jan Levinson relationship details and ending",
           "Donna relationship details and ending",
           "Holly relationship details and ending",
-          "Michael's other serious girlfriends like Carol Stills, Helene Beesly, and Donna Newton"
+          "Claims about relationship seriousness and endings not supported by retrieved context"
         ],
         "missing_points": [
-          "No mention of Carol Stills and how that relationship ended",
-          "No mention of Helene Beesly (Pam's mom) relationship",
-          "No mention of Michael proposing to Holly and leaving to be with her",
-          "No mention of relationship endings for Jan and Donna as per gold answer"
+          "Carol Stills relationship and breakup",
+          "Holly Flax's eventual engagement and leaving to be with her",
+          "Helene Beesly and relationship ending",
+          "Explicit mention of how relationships ended as per gold answer"
         ],
-        "notes": "The candidate answer attempts to list serious girlfriends and how relationships ended but is mostly unsupported by the retrieved context, which contains mostly unrelated or insufficient script excerpts. The candidate includes details not found in the context, leading to low groundedness and hallucination scores. The gold answer includes more comprehensive and specific relationship details that are missing here."
+        "notes": "The candidate answer attempts to list serious girlfriends and how relationships ended but the retrieved context does not provide sufficient information to support these claims. Many details about the relationships and their endings are not found in the retrieved context, leading to low groundedness and hallucination scores. The gold answer includes more relationships and specific endings not mentioned or supported here."
       }
     },
     {
@@ -259,10 +266,11 @@
           "The letter inside the teapot is a way for Jim to express his feelings to Pam, making it an important and personal gift."
         ],
         "missing_points": [
-          "The teapot letter represents Jim’s feelings and their relationship.",
-          "It is introduced in Season 2’s Christmas episode (\"Christmas Party\") and remains a meaningful symbol referenced later as their relationship progresses."
+          "The letter represents Jim’s feelings and their relationship.",
+          "The teapot letter is introduced in Season 2’s Christmas episode (\"Christmas Party\").",
+          "It remains a meaningful symbol referenced later as their relationship progresses."
         ],
-        "notes": "The candidate answer closely matches the gold answer in essence and is mostly supported by the retrieved context, which includes Jim mentioning the teapot and inside jokes. However, the direct quote about the card and the explicit explanation that the letter is a way for Jim to express his feelings is not found in the retrieved context. The retrieved context is limited and does not fully confirm the importance and symbolism of the letter as described in the gold answer."
+        "notes": "The candidate answer correctly identifies the teapot letter as a special note inside a teapot given by Jim to Pam, and its sentimental importance. However, the retrieved context only partially supports the detailed quote and the explicit explanation of the letter's significance. The answer misses mentioning the ongoing symbolic importance of the teapot letter beyond the episode."
       }
     },
     {
@@ -283,16 +291,18 @@
         "overall": 56,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Creed works in Quality Assurance at Dunder Mifflin",
-          "He is arrested in the series finale",
-          "He is comic relief as an unpredictable, mysterious presence"
+          "Creed is portrayed as an older employee",
+          "He is involved in various odd moments, such as speaking in a strange language and running a poorly attended team-building meeting",
+          "He has a playful side, referencing 'pirate code' and wanting to play games",
+          "He talks about starting his own paper company and trying to poach clients"
         ],
         "missing_points": [
-          "Creed's official role as Quality Assurance employee",
-          "His implication of shady or criminal behavior and questionable identity",
-          "His arrest in the series finale"
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "His 'deal' is that he’s bizarre and evasive, often implying shady or criminal behavior and a questionable identity",
+          "He is comic relief as an unpredictable, mysterious presence",
+          "He is arrested in the series finale"
         ],
-        "notes": "The candidate answer captures Creed's quirky and mysterious nature and some of his odd behaviors, which are supported by the retrieved context. However, it does not explicitly state his role in Quality Assurance or mention his arrest or the more direct implications of shady or criminal behavior. Some claims about his role and arrest are not supported by the retrieved context."
+        "notes": "The candidate answer provides some supported details about Creed's personality and some quotes from the script, but it lacks key facts about his role and the nature of his character as per the gold answer. Some claims are not directly supported by the retrieved context, such as his age and certain behaviors. The answer misses the important points about his job, his shady and evasive nature, and his arrest."
       }
     }
   ]
