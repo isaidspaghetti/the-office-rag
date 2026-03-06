@@ -61,7 +61,7 @@ def main() -> None:
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: var(--background-color, white);
+      background: var(--background-color, #141414);
       padding: 0.4rem 0 0.2rem 0;
       margin: 0;
       border-bottom: 1px solid rgba(49, 51, 63, 0.2);
@@ -72,8 +72,7 @@ def main() -> None:
         unsafe_allow_html=True,
     )
 
-    st.markdown('<div class="sticky-mode">', unsafe_allow_html=True)
-    st.markdown("## RAGE & OD")
+    st.markdown("# RAGE & OD")
     st.caption("Rage Evaluation & Observability Dashboard")
     labels = [modes["summary"][0], modes["chat_debug"][0]]
     default_label = modes[mode][0]
