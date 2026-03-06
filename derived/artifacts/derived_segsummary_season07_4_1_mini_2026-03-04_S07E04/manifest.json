@@ -58,13 +58,13 @@
     "planned_llm_calls": 4
   },
   "execution": {
-    "status": "running",
+    "status": "done",
     "started_at_utc": "2026-03-06T01:40:21Z",
-    "ended_at_utc": null,
+    "ended_at_utc": "2026-03-06T01:41:41Z",
     "llm_calls_planned": 4,
-    "llm_calls_made": 2,
+    "llm_calls_made": 4,
     "skipped_existing": 0,
-    "written": 2,
+    "written": 4,
     "errors": 0,
     "segments": [
       {
@@ -80,6 +80,20 @@
         "out_file": "segment_summaries/S07E04/S07E04:seg:001.json",
         "call_started_at_utc": "2026-03-06T01:40:47Z",
         "call_duration_ms": 18804
+      },
+      {
+        "segment_id": "S07E04:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S07E04/S07E04:seg:002.json",
+        "call_started_at_utc": "2026-03-06T01:41:05Z",
+        "call_duration_ms": 19696
+      },
+      {
+        "segment_id": "S07E04:seg:003",
+        "status": "written",
+        "out_file": "segment_summaries/S07E04/S07E04:seg:003.json",
+        "call_started_at_utc": "2026-03-06T01:41:25Z",
+        "call_duration_ms": 15797
       }
     ]
   }

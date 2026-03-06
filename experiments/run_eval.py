@@ -81,6 +81,11 @@ DEFAULT_BLENDED_INCLUDE_DERIVED_FOR_NON_AGG = False
 # Run log schema version (bump when you change log structure/semantics).
 RUN_SCHEMA_VERSION = "v4"
 
+# How much of the retrieved context to store in the run log for auditability/scoring.
+# This is used by the scorer + dashboard Flight Recorder to judge answers against the
+# actual context the LLM saw, rather than only short previews.
+LOGGED_CONTEXT_TEXT_MAX_CHARS = 12000
+
 
 def _file_fingerprint(path: Path) -> Optional[Dict[str, Any]]:
     """Best-effort fingerprint for auditability.
@@ -1511,6 +1516,12 @@ def run_eval(
             if answer_latency_ms is not None:
                 answer_latencies.append(answer_latency_ms)
 
+        logged_context_text = context_text
+        context_text_truncated = False
+        if len(logged_context_text) > int(LOGGED_CONTEXT_TEXT_MAX_CHARS):
+            logged_context_text = logged_context_text[: int(LOGGED_CONTEXT_TEXT_MAX_CHARS)] + "\n… (truncated)"
+            context_text_truncated = True
+
         out_case = {
             "case_id": case.case_id,
             "question": case.question,
@@ -1531,6 +1542,8 @@ def run_eval(
                 "latency_ms": answer_latency_ms,
                 "error": answer_error,
                 "usage": usage,
+                "context_text": (logged_context_text if logged_context_text else None),
+                "context_text_truncated": (context_text_truncated if logged_context_text else None),
                 "stats": {
                     "context_docs": context_docs,
                     "context_chars": context_chars,

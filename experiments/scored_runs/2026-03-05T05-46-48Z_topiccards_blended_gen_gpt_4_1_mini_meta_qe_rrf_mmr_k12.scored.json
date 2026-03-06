@@ -1,0 +1,315 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-46-48Z_topiccards_blended_gen_gpt_4_1_mini_meta_qe_rrf_mmr_k12",
+    "run_name": "topiccards_blended_gen_gpt_4_1_mini_meta_qe_rrf_mmr_k12",
+    "created_at_utc": "2026-03-05T05:46:48Z",
+    "notes": "Routing (blended) + metadata index + query expansion + RRF + MMR"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 90.0,
+      "max_retries": 2,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 51,
+    "overall_scores": [
+      38,
+      100,
+      77,
+      27,
+      25,
+      26,
+      65
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 1,
+        "completeness": 5,
+        "hallucination": 1,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The episode is S03E20 Product Recall",
+          "Jim impersonates Dwight and says the line",
+          "The detailed dialogue between Jim and Dwight about bears and beets"
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer is factually correct and matches the gold answer perfectly, but the retrieved context does not contain any information about the quote, the episode S03E20, or the impersonation scene. Therefore, the answer is not grounded in the provided context."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E07",
+          "S02E13",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 4,
+        "overall": 77,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Office celebrations like Halloween and Christmas are mentioned but not supported by retrieved context",
+          "Fire in the kitchen is mentioned but not supported by retrieved context",
+          "Jim's potential transfer to Stamford is mentioned but not supported by retrieved context",
+          "Long-term impact of Jim and Pam's kiss is mentioned but not supported by retrieved context",
+          "Dwight's pride and overconfidence leading to recurring comedic situations is not explicitly supported"
+        ],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Dwight’s rivalry with Jim through workplace conflicts and pranks",
+          "Major emotional beats including the build-up to Casino Night"
+        ],
+        "notes": "Candidate answer covers many key events and relationships, including Michael and Jan, Jim and Pam's kiss at Casino Night, and some office events. However, several claims are not supported by the retrieved context, which only includes summaries of a few episodes and lacks details on some events and character dynamics. The gold answer is more concise and focused on key relationship tensions and emotional beats."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S09E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 27,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,' (S09E22)",
+          "Dwight warns Jim about demerits and disciplinary actions, emphasizing his authority: 'You are second in command, but that does not put you above the law' (S09E22)",
+          "Dwight threatens to fire Jim if he gets promoted",
+          "Dwight has betrayed Jim by forming alliances against him and trying to get information from him"
+        ],
+        "missing_points": [
+          "The nuance that underneath the rivalry there is deep respect",
+          "Example of Dwight naming Jim best man at his wedding",
+          "Jim mocks Dwight's seriousness and authority as a reason for dislike",
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive"
+        ],
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but mostly lacks direct support from the retrieved context. The retrieved scripts do not contain the cited quotes or detailed examples. The answer also misses the important nuance of underlying respect and the final season example. The hallucination penalty is high due to unsupported specific quotes and claims."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Carol proposed to on fourth date and herpes details",
+          "Holly Flax relationship and breakup details",
+          "Tara as a serious girlfriend",
+          "Other girlfriends like Julie and European girlfriend"
+        ],
+        "missing_points": [
+          "Michael ending relationship with Donna Newton and Helene Beesly",
+          "How relationships ended for all serious girlfriends as per gold answer"
+        ],
+        "notes": "The candidate answer provides some details about Michael's relationships but these are not supported by the retrieved context, which contains no relevant information about Michael's girlfriends or relationship endings. The retrieved context is insufficient to answer the question, so the candidate's detailed answer is mostly ungrounded and partially hallucinated. The gold answer includes more relationships and endings not mentioned or supported by the context."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 26,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a private letter that Pam received from Jim",
+          "It is important because it holds sentimental value and is a personal, intimate message between Jim and Pam",
+          "Pam said she would rather keep it private, explaining, 'if you'd been filmed for nine years of your life, there'd be some things that you just wanna keep to yourself' (SCENE 056)"
+        ],
+        "missing_points": [
+          "The teapot letter is introduced in Season 2's Christmas episode (\"Christmas Party\")",
+          "The teapot is filled with meaningful items representing Jim's feelings and their relationship",
+          "The teapot letter remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer provides a reasonable explanation of the teapot letter's sentimental value but none of these claims are supported by the retrieved context, which contains no relevant information about the teapot letter or the Christmas episode. The gold answer is more complete and specific about the episode and symbolic meaning."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 65,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed tries to start his own paper company and attempts to poach clients",
+          "Michael once tried to fire Creed but ended up not doing it, and Creed was grateful, calling Michael 'the guy who gave me my life back'",
+          "Creed has a rough past implied by his statement about being homeless"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some supported details about Creed's personality and some quotes from the retrieved context, but it misses key aspects of Creed's role and nature as described in the gold answer. Some claims about Creed's actions and relationships are not supported by the retrieved context."
+      }
+    }
+  ]
+}

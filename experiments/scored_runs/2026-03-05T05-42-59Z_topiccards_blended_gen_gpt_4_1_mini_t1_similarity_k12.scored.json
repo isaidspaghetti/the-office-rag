@@ -1,0 +1,298 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-42-59Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12",
+    "run_name": "topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12",
+    "created_at_utc": "2026-03-05T05:42:59Z",
+    "notes": "Routing: blended (base + intent-conditioned derived-guided add-on) + similarity k=12"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 90.0,
+      "max_retries": 2,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 68,
+    "overall_scores": [
+      95,
+      100,
+      90,
+      65,
+      30,
+      56,
+      38
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight with the line 'Bears. Beets. Battlestar Galactica.') fully supported by the retrieved script excerpt."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 90,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam expresses her feelings for Jim and shares her wedding plans",
+          "Running gags including Michael's humorous attempts at leadership and self-reflection",
+          "Dwight Schrute's pride and overconfidence in asserting authority",
+          "Open questions such as the cause of the fire in 'The Fire' episode, Jim's potential transfer to Stamford, and long-term impact of Jim and Pam's kiss"
+        ],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks"
+        ],
+        "notes": "The candidate answer aligns well with the retrieved context and gold answer on major arcs like Michael and Jan's relationship and Jim and Pam's confession at Casino Night. However, some details about Pam's engagement, Dwight's rivalry, and specific running gags or open questions are not supported by the retrieved context. The answer is detailed and mostly accurate but includes some unsupported specifics."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S09E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 5,
+        "overall": 65,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says 'Your pranks have never worked in the past and they're not going to work today' (S09E22) - not found in retrieved context",
+          "Dwight gives Jim demerits for tardiness and says 'You are second in command, but that does not put you above the law' (S09E22) - exact quote not found",
+          "Dwight accuses Jim of trying to get out of a repair job while Jim gets a paid vacation with quote (S09E22) - only partial paraphrase found"
+        ],
+        "missing_points": [
+          "Explicit mention that Dwight dislikes Jim because Jim undermines him with pranks",
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "The nuance of deep respect underneath rivalry and Jim being best man at Dwight's wedding"
+        ],
+        "notes": "Candidate answer covers three main reasons for Dwight's dislike of Jim with some examples, but the quotes and episode references are not fully supported by the retrieved context. The retrieved context contains some relevant dialogue but does not confirm the specific quotes or detailed examples given. The answer lacks mention of the underlying respect and final season development noted in the gold answer."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and breakup reasons",
+          "Holly Flax breakup details and proposal",
+          "Pam's mom relationship status and ending"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup",
+          "Donna Newton relationship and breakup",
+          "Helene Beesly breakup reason (too old)",
+          "Holly Flax ending together with Michael"
+        ],
+        "notes": "The candidate answer provides some details about Jan, Pam's mom, and Holly but these are not supported by the retrieved context, which lacks explicit information on relationship endings or serious girlfriend status. The gold answer includes more relationships and specific breakup reasons not found in the context. The candidate omits Carol Stills and Donna Newton entirely. Overall, the answer is only partially grounded and incomplete."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E02"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 2,
+        "completeness": 4,
+        "hallucination": 2,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The letter is important because it is a way for Jim to express his feelings to Pam during Christmas, \"Because Christmas is the time to tell people how you feel\" (S02E02).",
+          "The teapot and its contents symbolize Jim's affection and the personal connection between him and Pam."
+        ],
+        "missing_points": [
+          "The letter represents Jim’s feelings and their relationship.",
+          "The teapot letter is introduced in Season 2’s Christmas episode (\"Christmas Party\") and remains a meaningful symbol referenced later."
+        ],
+        "notes": "The candidate answer correctly identifies the teapot as a Christmas gift from Jim to Pam with inside jokes and mementos, matching the gold answer's key facts. However, the retrieved context only confirms Jim giving Pam a teapot with inside jokes in S02E10 but does not mention the letter or its emotional significance. The candidate's claim about the letter expressing Jim's feelings and the quote from S02E02 is unsupported by the retrieved context. The answer is mostly correct but lacks full grounding and some completeness."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed sold Kelly a tapeworm from Mexico",
+          "Creed talks about starting his own paper company to poach clients",
+          "Creed credited for resolving a scandal called Watermark-gate",
+          "Creed tries to convince Michael to undo firing him"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides a general characterization of Creed as mysterious and quirky, which aligns with the gold answer's description of his 'deal'. However, many specific claims are not supported by the retrieved context, which mostly contains brief script excerpts without these details. The answer misses key facts such as Creed's role in Quality Assurance and his arrest in the finale. The retrieved context is insufficient to fully support the candidate's claims."
+      }
+    }
+  ]
+}

@@ -50,13 +50,13 @@
     "planned_llm_calls": 3
   },
   "execution": {
-    "status": "running",
+    "status": "done",
     "started_at_utc": "2026-03-06T01:40:13Z",
-    "ended_at_utc": null,
+    "ended_at_utc": "2026-03-06T01:41:10Z",
     "llm_calls_planned": 3,
-    "llm_calls_made": 2,
+    "llm_calls_made": 3,
     "skipped_existing": 0,
-    "written": 2,
+    "written": 3,
     "errors": 0,
     "segments": [
       {
@@ -72,6 +72,13 @@
         "out_file": "segment_summaries/S09E03/S09E03:seg:001.json",
         "call_started_at_utc": "2026-03-06T01:40:30Z",
         "call_duration_ms": 21196
+      },
+      {
+        "segment_id": "S09E03:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S09E03/S09E03:seg:002.json",
+        "call_started_at_utc": "2026-03-06T01:40:51Z",
+        "call_duration_ms": 19312
       }
     ]
   }

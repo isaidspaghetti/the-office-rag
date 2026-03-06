@@ -67,16 +67,22 @@
   },
   "score_summary": {
     "cases_scored": 7,
-    "avg_overall": 67,
+    "avg_overall": 66,
     "overall_scores": [
       95,
       100,
-      66,
+      70,
       27,
       25,
       90,
-      65
+      56
     ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
   },
   "scored_cases": [
     {
@@ -102,7 +108,7 @@
         "verdict": "correct",
         "unsupported_claims": [],
         "missing_points": [],
-        "notes": "The candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight with the line 'Bears. Beets. Battlestar Galactica.') as supported by the retrieved context."
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context from S03E20. It correctly identifies the episode and context of Jim impersonating Dwight with the quote."
       }
     },
     {
@@ -154,7 +160,7 @@
         "groundedness": 4,
         "completeness": 3,
         "hallucination": 4,
-        "overall": 66,
+        "overall": 70,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Pam remains engaged to Roy",
@@ -168,10 +174,10 @@
           "Jim/Pam relationship tension",
           "Pam's engagement to Roy",
           "Michael and Jan's relationship development",
-          "Dwight and Jim rivalry and pranks",
+          "Dwight's rivalry with Jim",
           "Emotional climax at 'Casino Night' with Jim's confession and kiss"
         ],
-        "notes": "The candidate answer lists several episode events supported by the retrieved context but misses key thematic elements and emotional arcs described in the gold answer. Some claims about episodes and character relationships are not supported by the retrieved context, leading to partial credit."
+        "notes": "The candidate answer lists several episode events supported by the retrieved context but misses key emotional and relational developments central to season 2. Some claims about episodes and plot points are not supported by the retrieved summaries or scripts."
       }
     },
     {
@@ -198,11 +204,12 @@
           "Dwight dislikes Jim because Jim betrays him professionally"
         ],
         "missing_points": [
-          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
-          "Examples from distinct situations/episodes supporting each reason",
-          "Mention of the underlying respect and eventual friendship (e.g., Jim as best man at Dwight's wedding)"
+          "Explicit mention of Dwight valuing hierarchy, rules, and authority",
+          "Jim's sarcasm and dismissiveness toward Dwight's authority",
+          "Examples from distinct episodes supporting each reason",
+          "The nuance of underlying respect and eventual friendship"
         ],
-        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but mostly cites unsupported quotes and scenarios not found in the retrieved context. The retrieved context contains only brief, unrelated script excerpts without direct support for the candidate's claims. The answer lacks completeness and grounding, and it hallucinates specific quotes and examples."
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but mostly unsupported by the retrieved context. The retrieved scripts do not contain the quoted lines or clear evidence for the claims. The answer lacks the nuance of their complex relationship and does not cite distinct episode examples as requested."
       }
     },
     {
@@ -226,18 +233,17 @@
           "Jan Levinson considered Michael her boyfriend",
           "Jan gave Michael poor performance reviews after relationship became official",
           "Relationship with Holly ended due to Michael's hesitation",
-          "Michael proposed to Holly",
-          "Michael dated Julie seriously",
-          "Details about how relationships with Donna and Julie ended"
+          "Details about Julie and Donna relationships and their endings"
         ],
         "missing_points": [
-          "Jan Levinson relationship described as toxic/co-dependent and ended after escalating dysfunction",
-          "Carol Stills relationship and breakup reasons",
-          "Holly Flax relationship ended with Michael proposing and leaving to be with her",
-          "Donna Newton ended after Michael learned she was married",
-          "Helene Beesly relationship and ending"
+          "Carol Stills relationship and breakup",
+          "Helene Beesly relationship and breakup",
+          "Holly Flax relationship ending with marriage",
+          "Michael proposing to Holly and leaving to be with her",
+          "Michael ending relationship with Donna after learning she was married",
+          "Michael ending relationship with Helene because she was too old"
         ],
-        "notes": "The candidate answer provides some details about Michael's relationships but most claims are not supported by the retrieved context, which contains very limited information. The gold answer includes more comprehensive and specific relationship details that are missing or contradicted in the candidate answer."
+        "notes": "The candidate answer provides some details about Michael's relationships with Jan, Donna, Julie, and Holly, but these details are not supported by the retrieved context, which contains mostly unrelated or insufficient information. The candidate misses key serious girlfriends mentioned in the gold answer (Carol Stills, Helene Beesly) and the outcomes of those relationships. The retrieved context does not provide enough information to fully answer the question, so a more grounded answer would be 'I don't know'. The candidate also speculates on relationship endings not supported by the context."
       }
     },
     {
@@ -260,14 +266,14 @@
         "overall": 90,
         "verdict": "partially_correct",
         "unsupported_claims": [
-          "Jim explains, 'this is the card. Because Christmas is the time to tell people how you feel' (SCENE 002)",
-          "The letter is important because it expresses Jim's feelings for Pam in a meaningful and personal way, making the gift more than just a physical object but a symbol of their connection"
+          "Jim explains, \"this is the card. Because Christmas is the time to tell people how you feel\" (SCENE 002)",
+          "The letter is important because it expresses Jim's feelings for Pam in a meaningful and personal way, making the gift more than just a physical object but a symbol of their connection."
         ],
         "missing_points": [
-          "The letter represents Jim’s feelings and their relationship",
-          "The teapot letter is introduced in Season 2’s Christmas episode ('Christmas Party') and remains a meaningful symbol referenced later"
+          "The letter represents Jim’s feelings and their relationship explicitly",
+          "The teapot letter is introduced in Season 2’s Christmas episode (\"Christmas Party\") and remains a meaningful symbol referenced later"
         ],
-        "notes": "The candidate answer correctly identifies the teapot letter as a note inside a teapot given by Jim to Pam during Secret Santa in Season 2, episode 10. However, the retrieved context only partially supports the claim about the letter's content and importance. The quote attributed to Jim is not found in the retrieved context, and the explanation of the letter's symbolic importance is not explicitly supported. The answer is mostly correct but slightly overreaches beyond the retrieved context."
+        "notes": "The candidate answer correctly identifies the teapot letter as a note inside a teapot given by Jim to Pam during Secret Santa, and that it contains inside jokes and sentimental items. However, the retrieved context only partially supports this, with a mention of the teapot and inside jokes but no direct quote or explanation about the letter's importance or Jim's explicit statement. The gold answer includes the letter's symbolic importance and its ongoing significance, which the candidate only partially covers. The candidate's quote is not found in the retrieved context, so it is an unsupported claim."
       }
     },
     {
@@ -287,19 +293,19 @@
         "groundedness": 4,
         "completeness": 2,
         "hallucination": 4,
-        "overall": 65,
+        "overall": 56,
         "verdict": "partially_correct",
         "unsupported_claims": [
           "Creed works in Quality Assurance at Dunder Mifflin",
-          "He is arrested in the series finale",
-          "He is comic relief as an unpredictable, mysterious presence"
+          "Creed is arrested in the series finale",
+          "Creed implies shady or criminal behavior and a questionable identity"
         ],
         "missing_points": [
-          "Creed's job title as Quality Assurance",
-          "His shady or criminal behavior and questionable identity",
+          "Creed's role in Quality Assurance",
+          "His bizarre and evasive nature implying shady or criminal behavior",
           "His arrest in the series finale"
         ],
-        "notes": "The candidate answer provides a good description of Creed's quirky and mysterious personality with multiple script references supporting his odd behavior and cryptic remarks. However, it does not mention his official role in Quality Assurance or his arrest in the series finale, which are key parts of the gold answer. The retrieved context supports many personality traits and some background but does not confirm his job title or arrest, so the candidate's claims about those are unsupported. Overall, the answer is mostly grounded and correct about Creed's character but incomplete and missing some key facts."
+        "notes": "The candidate answer provides a good description of Creed's quirky and mysterious personality with multiple script references supporting his odd behavior and cryptic remarks. However, it does not mention his official role in Quality Assurance or his arrest in the series finale, which are key points in the gold answer. The retrieved context supports many personality traits but does not confirm his job title or arrest, so those claims are unsupported. Overall, the answer is partially correct and mostly grounded but incomplete."
       }
     }
   ]

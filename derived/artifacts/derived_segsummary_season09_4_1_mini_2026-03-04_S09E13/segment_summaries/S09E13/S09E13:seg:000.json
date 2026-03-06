@@ -1,0 +1,232 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E13",
+  "created_at_utc": "2026-03-06T01:51:49Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S09E13",
+  "segment_id": "S09E13:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6707,
+  "people": [
+    "Pam",
+    "Brian",
+    "Erin",
+    "Meredith",
+    "Clark",
+    "Dwight",
+    "Jim",
+    "Rolf",
+    "Trevor"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Pam and Brian discuss a recent slip up and their friendship.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 78,
+          "char_end": 96,
+          "snippet": "Pam: I feel awful."
+        },
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 97,
+          "char_end": 167,
+          "snippet": "Brian: It's fine. It was my first slip up in nine years of miking you."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight is allowed to hire a junior sales associate to sit at Jim's desk while Jim is away.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 1010,
+          "char_end": 1117,
+          "snippet": "Dwight: Wallace is letting me hire a junior sales associate to sit at Jim's desk while he's away in Philly."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Clark feels frustrated about having to compete for a promotion after 12 weeks at the company.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 1967,
+          "char_end": 2114,
+          "snippet": "Clark: This sucks, you know? You put in 12 grueling weeks at a company, and what do they do? They make you compete for a promotion, like an animal."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight interviews candidates for the junior sales associate position, including Rolf and Trevor.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim expresses concern that his absence will increase Dwight's influence over Pam.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 2459,
+          "char_end": 2519,
+          "snippet": "Jim: Things are a little delicate with me and Pam right now."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim prepares Clark for his interview by joking about his breath scent.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 6294,
+          "char_end": 6342,
+          "snippet": "Jim: I need you to breathe in my face right now."
+        },
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 6418,
+          "char_end": 6437,
+          "snippet": "Clark: Wintergreen."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I thought this was an office, not the Thunderdome.",
+      "speaker": "Clark",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    },
+    {
+      "quote": "If my working in Philly is gonna end up doubling the Dwight in her life, that's only gonna make things worse.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    },
+    {
+      "quote": "I need you to breathe in my face right now.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 6299,
+          "char_end": 6342,
+          "snippet": "I need you to breathe in my face right now."
+        }
+      ]
+    },
+    {
+      "quote": "It's fine. It was my first slip up in nine years of miking you.",
+      "speaker": "Brian",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 104,
+          "char_end": 167,
+          "snippet": "It's fine. It was my first slip up in nine years of miking you."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Who will ultimately be hired for the junior sales associate position?",
+    "How will Jim's conversation with David Wallace affect his job situation?",
+    "What is the nature of the 'slip up' Pam refers to at the start?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who will ultimately be hired for the junior sales associate position?",
+      "why_uncertain": "The segment only shows interviews and candidate interactions but does not reveal the hiring decision.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    },
+    {
+      "question": "How will Jim's conversation with David Wallace affect his job situation?",
+      "why_uncertain": "The segment mentions Jim's upcoming talk with David Wallace but does not provide the outcome.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of the 'slip up' Pam refers to at the start?",
+      "why_uncertain": "Pam mentions feeling awful and Brian refers to a slip up but no details are given.",
+      "evidence": [
+        {
+          "episode_id": "S09E13",
+          "segment_id": "S09E13:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 6707,
+          "snippet": "=== SCENE 000 ===\n\nPam: Hey Brian, you got a sec?\nBrian: Yeah, hold on a sec.\nPam: I feel awful.\nBrian: It's fine. It was my first slip up in nine years of miking you.\n[STAGE] phone rings\nErin (in background): Dunder Mifflin, this is Erin.\n"
+        }
+      ]
+    }
+  ]
+}

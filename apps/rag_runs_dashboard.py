@@ -15,6 +15,7 @@ import difflib
 import json
 import os
 import re
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -67,6 +68,32 @@ def safe_int(x: Any) -> Optional[int]:
     return None
 
 
+def scored_judge_mode(scored_obj: Optional[Dict[str, Any]]) -> Optional[str]:
+    if not scored_obj or not isinstance(scored_obj, dict):
+        return None
+    mode = safe_get(scored_obj, "scoring_meta.judge_mode", None)
+    if not isinstance(mode, str) or not mode.strip():
+        return None
+    return mode.strip().lower()
+
+
+def is_two_pass_scored(scored_obj: Optional[Dict[str, Any]]) -> bool:
+    mode = scored_judge_mode(scored_obj)
+    return mode in {"two_pass", "two-pass", "2pass"}
+
+
+def filter_scored_obj(
+    scored_obj: Optional[Dict[str, Any]],
+    *,
+    require_two_pass: bool,
+) -> Optional[Dict[str, Any]]:
+    if not scored_obj or not isinstance(scored_obj, dict) or scored_obj.get("_error"):
+        return None
+    if require_two_pass and (not is_two_pass_scored(scored_obj)):
+        return None
+    return scored_obj
+
+
 def safe_float(x: Any) -> Optional[float]:
     try:
         if x is None:
@@ -87,6 +114,14 @@ def truncate(s: Any, n: int = 140) -> str:
     if len(t) <= n:
         return t
     return t[:n] + "…"
+
+
+def preview_text(text: str, n: int = 240) -> str:
+    """Compact preview helper (mirrors experiments/run_eval.py behavior)."""
+    t = str(text or "").replace("\r\n", "\n").replace("\r", "\n")
+    if len(t) <= int(n):
+        return t
+    return t[: int(n)] + "…"
 
 
 def normalize_episode_id(s: Any) -> Optional[str]:
@@ -169,6 +204,100 @@ def load_run(path: str) -> Dict[str, Any]:
 
 def load_scored_run(path: str) -> Dict[str, Any]:
     return load_json_file(path)
+
+
+@st.cache_data(show_spinner=False)
+def list_chroma_persist_dirs(db_root: str) -> List[str]:
+    """List Chroma persist directories under db_root.
+
+    Heuristic: directory containing a chroma.sqlite3 file.
+    """
+    root = Path(db_root).expanduser()
+    if not root.exists() or not root.is_dir():
+        return []
+    out: List[str] = []
+    for p in sorted(root.iterdir()):
+        if not p.is_dir():
+            continue
+        if (p / "chroma.sqlite3").exists():
+            out.append(str(p))
+    # Also include nested matches one level deep (some users nest by tag).
+    for p in sorted(root.glob("*/*")):
+        if p.is_dir() and (p / "chroma.sqlite3").exists():
+            out.append(str(p))
+    # De-dupe while keeping stable order.
+    seen: set[str] = set()
+    uniq: List[str] = []
+    for x in out:
+        if x in seen:
+            continue
+        # Hide deprecated / experimental indexes from UI.
+        # We keep their run logs for historical analysis, but avoid selecting them for new live runs.
+        base = Path(x).name
+        if base.startswith("chroma_db_scene"):
+            continue
+        seen.add(x)
+        uniq.append(x)
+    return uniq
+
+
+@st.cache_data(show_spinner=False)
+def list_chroma_collections(persist_dir: str) -> List[str]:
+    """List collection names present in a Chroma persist dir."""
+    p = Path(persist_dir).expanduser()
+    if not p.exists() or not p.is_dir():
+        return []
+    try:
+        import chromadb  # type: ignore
+
+        client = chromadb.PersistentClient(path=str(p))
+        cols = client.list_collections()
+        names: List[str] = []
+        for c in cols:
+            name = getattr(c, "name", None)
+            if isinstance(name, str) and name.strip():
+                names.append(name.strip())
+        return sorted(set(names))
+    except Exception:
+        return []
+
+
+@st.cache_data(show_spinner=False)
+def list_llm_models_from_runs(runs_dir: str, *, limit_files: int = 200) -> List[str]:
+    """Best-effort model name discovery from historical run logs."""
+    p = Path(runs_dir).expanduser()
+    if not p.exists() or not p.is_dir():
+        return []
+    files = [x for x in p.glob("*.json") if x.is_file()]
+    files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+
+    models: set[str] = set()
+    for rf in files[: int(limit_files)]:
+        try:
+            obj = json.loads(rf.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if not isinstance(obj, dict):
+            continue
+        m = safe_get(obj, "config.llm.model", None)
+        if isinstance(m, str) and m.strip():
+            models.add(m.strip())
+        # Sometimes we only stored query expansion model.
+        m2 = safe_get(obj, "config.retrieval.query_expansion.model", None)
+        if isinstance(m2, str) and m2.strip():
+            models.add(m2.strip())
+    return sorted(models)
+
+
+def _select_index(options: List[str], current: Optional[str]) -> int:
+    if not options:
+        return 0
+    if current is None:
+        return 0
+    try:
+        return options.index(current)
+    except Exception:
+        return 0
 
 
 @st.cache_data(show_spinner=False)
@@ -360,6 +489,13 @@ def flatten_rows_for_run(
         completeness = safe_int((judge or {}).get("completeness"))
         hallucination = safe_int((judge or {}).get("hallucination"))
         verdict = (judge or {}).get("verdict") if isinstance(judge, dict) else None
+        context_sufficiency = (judge or {}).get("context_sufficiency") if isinstance(judge, dict) else None
+        if isinstance(context_sufficiency, str):
+            context_sufficiency = context_sufficiency.strip().lower() or None
+        else:
+            context_sufficiency = None
+
+        judge_error_present = bool(scoring.get("judge_error"))
 
         coverage, coverage_method = compute_retrieval_coverage(case=c, gold_by_case_id=gold_by_case_id)
         coverage_f = safe_float(coverage)
@@ -389,6 +525,8 @@ def flatten_rows_for_run(
                 "judge_completeness": completeness,
                 "judge_hallucination": hallucination,
                 "judge_verdict": verdict,
+                "judge_context_sufficiency": context_sufficiency,
+                "judge_error_present": judge_error_present,
                 "retrieval_coverage": coverage_f,
                 "coverage_method": coverage_method,
                 "max_retrieval_score": _case_max_retrieval_score(c),
@@ -413,13 +551,40 @@ def aggregate_run_rows(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
     judge_overalls = [safe_float(r.get("judge_overall")) for r in rows if r.get("judge_overall") is not None]
     judge_correctness = [safe_float(r.get("judge_correctness")) for r in rows if r.get("judge_correctness") is not None]
     judge_groundedness = [safe_float(r.get("judge_groundedness")) for r in rows if r.get("judge_groundedness") is not None]
+    judge_completeness = [safe_float(r.get("judge_completeness")) for r in rows if r.get("judge_completeness") is not None]
+    judge_hallucination = [safe_float(r.get("judge_hallucination")) for r in rows if r.get("judge_hallucination") is not None]
 
     total_tokens = [safe_float(r.get("total_tokens")) for r in rows if r.get("total_tokens") is not None]
+    context_docs = [safe_float(r.get("context_docs")) for r in rows if r.get("context_docs") is not None]
+    context_chars = [safe_float(r.get("context_chars")) for r in rows if r.get("context_chars") is not None]
+
+    retrieval_coverage = [safe_float(r.get("retrieval_coverage")) for r in rows if r.get("retrieval_coverage") is not None]
+
     latency = [
         safe_float((safe_get(r, "retrieval_latency_ms", None) or 0)) + safe_float((safe_get(r, "answer_latency_ms", None) or 0))
         for r in rows
         if (r.get("retrieval_latency_ms") is not None or r.get("answer_latency_ms") is not None)
     ]
+
+    judged_cases = sum(1 for r in rows if r.get("judge_overall") is not None)
+    judge_coverage_rate = float(judged_cases / len(rows)) if rows else None
+
+    judge_error_cases = sum(1 for r in rows if bool(r.get("judge_error_present")))
+    judge_error_rate = float(judge_error_cases / len(rows)) if rows else None
+
+    cs_vals = [str(r.get("judge_context_sufficiency") or "").strip().lower() for r in rows]
+    cs_vals = [x for x in cs_vals if x]
+    cs_total = len(cs_vals)
+    cs_counts = {
+        "sufficient": sum(1 for x in cs_vals if x == "sufficient"),
+        "insufficient": sum(1 for x in cs_vals if x == "insufficient"),
+        "unclear": sum(1 for x in cs_vals if x == "unclear"),
+    }
+    cs_rates = {
+        "sufficient": (float(cs_counts["sufficient"] / cs_total) if cs_total else None),
+        "insufficient": (float(cs_counts["insufficient"] / cs_total) if cs_total else None),
+        "unclear": (float(cs_counts["unclear"] / cs_total) if cs_total else None),
+    }
 
     idk_rate = None
     try:
@@ -438,13 +603,24 @@ def aggregate_run_rows(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
         "run_name": run_name,
         "created_at_utc": created_at,
         "cases": len(rows),
+        "cases_judged": judged_cases,
+        "judge_coverage_rate": judge_coverage_rate,
+        "judge_error_rate": judge_error_rate,
         "avg_overall": _mean([x for x in judge_overalls if x is not None]),
         "avg_correctness": _mean([x for x in judge_correctness if x is not None]),
         "avg_groundedness": _mean([x for x in judge_groundedness if x is not None]),
+        "avg_completeness": _mean([x for x in judge_completeness if x is not None]),
+        "avg_hallucination": _mean([x for x in judge_hallucination if x is not None]),
+        "context_sufficiency_sufficient_rate": cs_rates.get("sufficient"),
+        "context_sufficiency_insufficient_rate": cs_rates.get("insufficient"),
+        "context_sufficiency_unclear_rate": cs_rates.get("unclear"),
         "idk_rate": idk_rate,
         "citation_rate": citation_rate,
         "avg_total_tokens": _mean([x for x in total_tokens if x is not None]),
         "avg_latency_ms": _mean([x for x in latency if x is not None]),
+        "avg_context_docs": _mean([x for x in context_docs if x is not None]),
+        "avg_context_chars": _mean([x for x in context_chars if x is not None]),
+        "avg_retrieval_coverage": _mean([x for x in retrieval_coverage if x is not None]),
     }
 
 
@@ -611,6 +787,7 @@ def render_flight_recorder(
     *,
     docs_root: Path,
     export_dir: Path,
+    key_prefix: str = "",
 ) -> None:
     st.subheader("Flight Recorder")
 
@@ -651,6 +828,7 @@ def render_flight_recorder(
                 options=options,
                 index=0,
                 format_func=lambda x: x[1],
+                key=f"{key_prefix}chunk_viewer_select",
             )
             selected_rank = selected[0] if isinstance(selected, tuple) else None
 
@@ -673,7 +851,11 @@ def render_flight_recorder(
                     st.write(f"Could not resolve source: {src}")
                 else:
                     st.write(str(resolved))
-                    show_full = st.checkbox("Show full file (can be large)", value=False, key=f"show_full_{resolved}")
+                    show_full = st.checkbox(
+                        "Show full file (can be large)",
+                        value=False,
+                        key=f"{key_prefix}show_full_{resolved}",
+                    )
                     info = read_text_file_limited(
                         str(resolved),
                         limit_chars=(80000 if show_full else 14000),
@@ -692,7 +874,11 @@ def render_flight_recorder(
         with st.expander("Context sent to LLM (stored or reconstructed)", expanded=False):
             st.code(ctx, language="text")
 
-        diag_view = st.checkbox("Show routing/diagnostics JSON", value=False)
+        diag_view = st.checkbox(
+            "Show routing/diagnostics JSON",
+            value=False,
+            key=f"{key_prefix}show_diag_json",
+        )
         if diag_view:
             st.json({
                 "retrieval": safe_get(case_obj, "retrieval", {}),
@@ -755,7 +941,7 @@ def render_flight_recorder(
             render_attention_map(attn)
 
     st.divider()
-    if st.button("Export current view", type="secondary"):
+    if st.button("Export current view", type="secondary", key=f"{key_prefix}export_view"):
         out_path = export_view_snippet(
             export_dir=export_dir,
             run_obj=run_obj,
@@ -772,20 +958,302 @@ def render_flight_recorder(
 # -----------------------------
 # Live chat (feature flag)
 # -----------------------------
-def answer_question(question: str) -> Dict[str, Any]:
-    """Live chat hook.
+def _usage_from_msg(msg: Any) -> Dict[str, Optional[int]]:
+    """Best-effort token usage extraction (mirrors experiments/run_eval.py logic)."""
+    prompt = completion = total = None
 
-    Expected return shape (suggested):
-      {
-        "answer": "...",
-        "retrieval": {"results": [...]},
-        "answer_meta": {"usage": {...}, "latency_ms": ...},
-      }
+    usage = getattr(msg, "usage_metadata", None)
+    if isinstance(usage, dict):
+        prompt = usage.get("input_tokens") or usage.get("prompt_tokens")
+        completion = usage.get("output_tokens") or usage.get("completion_tokens")
+        total = usage.get("total_tokens")
+
+    if prompt is None and completion is None and total is None:
+        rm = getattr(msg, "response_metadata", None)
+        if isinstance(rm, dict):
+            for key in ("token_usage", "usage"):
+                u = rm.get(key)
+                if isinstance(u, dict):
+                    prompt = u.get("prompt_tokens") or u.get("input_tokens")
+                    completion = u.get("completion_tokens") or u.get("output_tokens")
+                    total = u.get("total_tokens")
+                    break
+
+    def _to_int(x: Any) -> Optional[int]:
+        try:
+            if x is None:
+                return None
+            if isinstance(x, bool):
+                return int(x)
+            if isinstance(x, int):
+                return int(x)
+            if isinstance(x, float):
+                return int(x)
+            s = str(x).strip()
+            if s.isdigit() or (s.startswith("-") and s[1:].isdigit()):
+                return int(s, 10)
+        except Exception:
+            return None
+        return None
+
+    return {
+        "prompt_tokens": _to_int(prompt),
+        "completion_tokens": _to_int(completion),
+        "total_tokens": _to_int(total),
+    }
+
+
+def _doc_to_result_row(doc: Any, *, rank: int, score: Optional[float]) -> Dict[str, Any]:
+    meta = getattr(doc, "metadata", None) or {}
+    txt = str(getattr(doc, "page_content", "") or "")
+    src = meta.get("source")
+    # Keep keys consistent with run logs where possible.
+    return {
+        "rank": int(rank),
+        "source": src,
+        "episode_id": meta.get("episode_id"),
+        "doc_type": meta.get("doc_type"),
+        "derived_type": meta.get("derived_type"),
+        "topic_id": meta.get("topic_id"),
+        "topic_type": meta.get("topic_type"),
+        "chunk_type": meta.get("chunk_type"),
+        "chunk_index": meta.get("chunk_index"),
+        "first_line": (txt.splitlines()[0].strip() if txt else ""),
+        "preview": preview_text(txt, n=280),
+        "score": (float(score) if score is not None else None),
+    }
+
+
+@st.cache_resource(show_spinner=False)
+def _live_build_chroma(
+    *,
+    persist_directory: str,
+    collection_name: Optional[str],
+    embed_model: str,
+    is_derived: bool,
+) -> Any:
+    """Build a Chroma DB client for live chat.
+
+    Lazy-imports langchain deps so the dashboard still runs without them when live chat is off.
     """
-    raise NotImplementedError(
-        "Live chat is enabled, but answer_question() is not implemented. "
-        "Wire this up to your RAG client (e.g., a function that runs retrieval + LLM) and return a dict."
+    try:
+        from dotenv import load_dotenv  # type: ignore
+        from langchain_chroma import Chroma  # type: ignore
+        from langchain_openai import OpenAIEmbeddings  # type: ignore
+    except Exception as e:
+        raise RuntimeError(
+            "Live chat requires langchain + chroma deps. "
+            "Install: pip install -U langchain-openai langchain-core langchain-chroma chromadb python-dotenv"
+        ) from e
+
+    load_dotenv()
+
+    embeddings = OpenAIEmbeddings(model=str(embed_model))
+    kwargs: Dict[str, Any] = {
+        "persist_directory": str(persist_directory),
+        "embedding_function": embeddings,
+        "collection_metadata": {"hnsw:space": "cosine"},
+    }
+    if collection_name:
+        kwargs["collection_name"] = str(collection_name)
+
+    # is_derived is currently only for future routing/tuning; keep signature stable.
+    _ = is_derived
+    return Chroma(**kwargs)
+
+
+def _live_retrieve(
+    *,
+    question: str,
+    script_db: Any,
+    derived_db: Optional[Any],
+    retrieval_policy: str,
+    k: int,
+    derived_k: int,
+) -> Tuple[List[Tuple[Any, Optional[float]]], Dict[str, Any]]:
+    """Minimal live retrieval supporting a few policies.
+
+    Returns ([(doc, score)], routing_details)
+    """
+    policy = str(retrieval_policy or "").strip().lower()
+    k = max(1, int(k))
+
+    def _sim(db: Any, q: str, top_k: int) -> List[Tuple[Any, Optional[float]]]:
+        try:
+            rows = db.similarity_search_with_relevance_scores(q, k=int(top_k))
+            return [(d, float(s) if s is not None else None) for d, s in rows]
+        except Exception:
+            # Fall back to docs without scores.
+            docs = db.similarity_search(q, k=int(top_k))
+            return [(d, None) for d in docs]
+
+    if policy in {"script_only", "script", "baseline"}:
+        pairs = _sim(script_db, question, k)
+        return pairs, {"policy": "script_only"}
+
+    if policy in {"derived_only", "derived"}:
+        if derived_db is None:
+            return [], {"policy": "derived_only", "error": "derived_db_missing"}
+        pairs = _sim(derived_db, question, k)
+        return pairs, {"policy": "derived_only"}
+
+    if policy in {"blended", "hybrid"}:
+        base = _sim(script_db, question, k)
+        der: List[Tuple[Any, Optional[float]]] = []
+        if derived_db is not None:
+            der = _sim(derived_db, question, max(1, int(derived_k)))
+
+        # Deduplicate by (source, page_content) best-effort.
+        seen: set[Tuple[Optional[str], str]] = set()
+        combined: List[Tuple[Any, Optional[float]]] = []
+        for d, s in (der + base):
+            meta = getattr(d, "metadata", None) or {}
+            key = (meta.get("source"), str(getattr(d, "page_content", "") or ""))
+            if key in seen:
+                continue
+            seen.add(key)
+            combined.append((d, s))
+            if len(combined) >= k:
+                break
+        return combined, {"policy": "blended", "base_k": k, "derived_k": int(derived_k)}
+
+    # Default: script_only
+    pairs = _sim(script_db, question, k)
+    return pairs, {"policy": "script_only", "note": f"unknown_policy:{retrieval_policy}"}
+
+
+def answer_question(question: str) -> Dict[str, Any]:
+    """Live chat implementation (feature-flagged in UI).
+
+    Reads configuration from st.session_state (set in the sidebar).
+    Returns a dict consumed by coerce_live_result_to_case().
+    """
+    q = str(question or "").strip()
+    if not q:
+        return {"answer": "", "retrieval": {"results": []}, "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}}}
+
+    # Pull config from sidebar (with safe defaults).
+    script_persist_dir = str(st.session_state.get("live_script_persist_dir") or "db/chroma_db")
+    script_collection_name = st.session_state.get("live_script_collection_name")
+    script_collection_name = str(script_collection_name).strip() if script_collection_name else None
+
+    derived_persist_dir = str(st.session_state.get("live_derived_persist_dir") or "db/chroma_db_derived_cards")
+    derived_collection_name = str(st.session_state.get("live_derived_collection_name") or "derived_cards").strip() or None
+
+    retrieval_policy = str(st.session_state.get("live_retrieval_policy") or "script_only")
+    embed_model = "text-embedding-3-small"
+    llm_model = str(st.session_state.get("live_llm_model") or "gpt-4.1-mini")
+    k = safe_int(st.session_state.get("live_k")) or 8
+    derived_k = safe_int(st.session_state.get("live_derived_k")) or 6
+    temperature = safe_float(st.session_state.get("live_temperature"))
+    if temperature is None:
+        temperature = 0.0
+
+    # Lazy import LLM deps.
+    try:
+        from dotenv import load_dotenv  # type: ignore
+        from langchain_openai import ChatOpenAI  # type: ignore
+    except Exception as e:
+        return {
+            "answer": (
+                "Live chat is enabled, but required LLM dependencies are missing. "
+                "Install: pip install -U langchain-openai langchain-core python-dotenv"
+            ),
+            "retrieval": {"results": []},
+            "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}},
+            "error": f"missing_deps:{type(e).__name__}",
+        }
+
+    load_dotenv()
+    if not os.environ.get("OPENAI_API_KEY"):
+        return {
+            "answer": "Live chat requires OPENAI_API_KEY (set it in .env or your environment).",
+            "retrieval": {"results": []},
+            "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}},
+            "error": "missing_openai_api_key",
+        }
+
+    # Build / reuse vectorstores.
+    try:
+        script_db = _live_build_chroma(
+            persist_directory=script_persist_dir,
+            collection_name=script_collection_name,
+            embed_model=embed_model,
+            is_derived=False,
+        )
+        derived_db: Optional[Any] = None
+        if retrieval_policy.lower() in {"derived_only", "derived", "blended", "hybrid"}:
+            derived_db = _live_build_chroma(
+                persist_directory=derived_persist_dir,
+                collection_name=derived_collection_name,
+                embed_model=embed_model,
+                is_derived=True,
+            )
+    except Exception as e:
+        return {
+            "answer": f"Live chat failed to initialize vectorstores: {type(e).__name__}: {e}",
+            "retrieval": {"results": []},
+            "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}},
+            "error": f"vectorstore_init_error:{type(e).__name__}",
+        }
+
+    # Retrieval
+    t0 = time.time()
+    try:
+        pairs, routing = _live_retrieve(
+            question=q,
+            script_db=script_db,
+            derived_db=derived_db,
+            retrieval_policy=retrieval_policy,
+            k=int(k),
+            derived_k=int(derived_k),
+        )
+    except Exception as e:
+        pairs, routing = [], {"policy": retrieval_policy, "error": f"{type(e).__name__}: {e}"}
+    retrieval_ms = int((time.time() - t0) * 1000)
+
+    # Build context for LLM.
+    docs_texts: List[str] = []
+    results: List[Dict[str, Any]] = []
+    for i, (doc, score) in enumerate(pairs, start=1):
+        results.append(_doc_to_result_row(doc, rank=i, score=score))
+        txt = str(getattr(doc, "page_content", "") or "")
+        if txt.strip():
+            docs_texts.append(txt)
+    context_text = "\n\n---\n\n".join(docs_texts)
+
+    system = (
+        "You are a QA assistant for questions about the TV show The Office.\n"
+        "Answer the user's question using ONLY the provided context.\n"
+        "If the context does not contain the answer, say you don't know.\n"
+        "When possible, cite episode identifiers present in the context (e.g., 'S02E06').\n"
+        "When you make a specific claim, include at least one short exact quote from the context in double quotes."
     )
+    user = f"Question: {q}\n\nContext:\n{context_text}"
+
+    llm = ChatOpenAI(model=llm_model, temperature=float(temperature))
+    t1 = time.time()
+    try:
+        msg = llm.invoke([("system", system), ("human", user)])
+        answer_text = str(getattr(msg, "content", "") or "")
+        usage = _usage_from_msg(msg)
+    except Exception as e:
+        answer_text = f"Live chat LLM error: {type(e).__name__}: {e}"
+        usage = {}
+    latency_ms = int((time.time() - t1) * 1000)
+
+    return {
+        "answer": answer_text,
+        "retrieval": {
+            "results": results,
+            "routing": routing,
+        },
+        "answer_meta": {
+            "latency_ms": latency_ms,
+            "retrieval_latency_ms": retrieval_ms,
+            "usage": usage,
+        },
+    }
 
 
 def coerce_live_result_to_case(question: str, result: Dict[str, Any]) -> Dict[str, Any]:
@@ -966,7 +1434,7 @@ def page_chat_playground(*, enable_live_chat: bool, docs_root: Path, export_dir:
         st.info("Live chat disabled; use Run Explorer for inspection.")
 
     # Render history.
-    for msg in st.session_state.chat_messages:
+    for i, msg in enumerate(st.session_state.chat_messages):
         role = msg.get("role")
         content = msg.get("content")
         with st.chat_message(role or "assistant"):
@@ -980,6 +1448,7 @@ def page_chat_playground(*, enable_live_chat: bool, docs_root: Path, export_dir:
                         scored_case=None,
                         docs_root=docs_root,
                         export_dir=export_dir,
+                        key_prefix=f"chat_hist_{i}_",
                     )
 
     prompt = st.chat_input("Ask a question about The Office…")
@@ -1014,7 +1483,14 @@ def page_chat_playground(*, enable_live_chat: bool, docs_root: Path, export_dir:
             }
 
             with st.expander("Inspect Answer", expanded=False):
-                render_flight_recorder(run, case, scored_case=None, docs_root=docs_root, export_dir=export_dir)
+                render_flight_recorder(
+                    run,
+                    case,
+                    scored_case=None,
+                    docs_root=docs_root,
+                    export_dir=export_dir,
+                    key_prefix="chat_live_",
+                )
 
             st.session_state.chat_messages.append(
                 {
@@ -1022,12 +1498,6 @@ def page_chat_playground(*, enable_live_chat: bool, docs_root: Path, export_dir:
                     "content": answer_text,
                     "flight": {"run": run, "case": case},
                 }
-            )
-        except NotImplementedError as e:
-            st.error(str(e))
-            st.caption(
-                "Implement answer_question(question: str) -> dict in apps/rag_runs_dashboard.py "
-                "and return retrieval results + answer text."
             )
         except Exception as e:
             st.error(f"Live chat error: {type(e).__name__}: {e}")
@@ -1090,6 +1560,12 @@ def page_run_explorer(
                 st.error(f"Failed to load scored run: {scored_obj.get('_error')}")
                 scored_obj = None
             else:
+                require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+                if require_two_pass and (not is_two_pass_scored(scored_obj)):
+                    st.warning("Scored file is not two-pass; ignoring due to dashboard filter.")
+                    scored_obj = None
+                
+            if scored_obj is not None:
                 scoring_idx = index_scored_cases(scored_obj)
                 st.caption(f"Loaded scores for {len(scoring_idx)} cases")
 
@@ -1153,7 +1629,15 @@ def page_run_explorer(
         return
 
     scored_case_obj = scoring_idx.get(selected_case_id) if scoring_idx else None
-    render_flight_recorder(run_obj, case_obj, scored_case_obj, docs_root=docs_root, export_dir=export_dir)
+    run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+    render_flight_recorder(
+        run_obj,
+        case_obj,
+        scored_case_obj,
+        docs_root=docs_root,
+        export_dir=export_dir,
+        key_prefix=f"run_explorer_{run_id}_{selected_case_id}_",
+    )
 
 
 def page_experiment_comparison(
@@ -1189,8 +1673,10 @@ def page_experiment_comparison(
             continue
         run_id = str(safe_get(run_obj, "run.run_id", "") or "")
         scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
-        scored_obj = load_scored_run(scored_path) if scored_path else None
-        scoring_idx = index_scored_cases(scored_obj) if scored_obj and not scored_obj.get("_error") else {}
+        scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+        require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+        scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+        scoring_idx = index_scored_cases(scored_obj) if scored_obj else {}
         loaded.append((path, run_obj, scoring_idx))
 
     if not loaded:
@@ -1296,9 +1782,23 @@ def page_experiment_comparison(
     st.write({"run_a_overall": oa, "run_b_overall": ob, "delta": (ob - oa) if (oa is not None and ob is not None) else None})
 
     with st.expander("Inspect Run A (Flight Recorder)", expanded=False):
-        render_flight_recorder(run_obj_a, case_obj_a, scored_a, docs_root=docs_root, export_dir=export_dir)
+        render_flight_recorder(
+            run_obj_a,
+            case_obj_a,
+            scored_a,
+            docs_root=docs_root,
+            export_dir=export_dir,
+            key_prefix=f"compare_a_{selected_case}_",
+        )
     with st.expander("Inspect Run B (Flight Recorder)", expanded=False):
-        render_flight_recorder(run_obj_b, case_obj_b, scored_b, docs_root=docs_root, export_dir=export_dir)
+        render_flight_recorder(
+            run_obj_b,
+            case_obj_b,
+            scored_b,
+            docs_root=docs_root,
+            export_dir=export_dir,
+            key_prefix=f"compare_b_{selected_case}_",
+        )
 
 
 def page_diagnostics(
@@ -1338,8 +1838,10 @@ def page_diagnostics(
             continue
         run_id = str(safe_get(run_obj, "run.run_id", "") or "")
         scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
-        scored_obj = load_scored_run(scored_path) if scored_path else None
-        scoring_idx = index_scored_cases(scored_obj) if scored_obj and not scored_obj.get("_error") else {}
+        scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+        require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+        scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+        scoring_idx = index_scored_cases(scored_obj) if scored_obj else {}
         scoring_by_case_id = join_scoring(run_obj, {"scored_cases": [{"case_id": k, **v} for k, v in scoring_idx.items()]})
         rows = flatten_rows_for_run(run_obj=run_obj, scoring_by_case_id=scoring_by_case_id, gold_by_case_id=gold_by_case_id)
         per_run[path] = (run_obj, rows, scoring_idx)
@@ -1488,8 +1990,10 @@ def page_executive_insights(
             continue
         run_id = str(safe_get(run_obj, "run.run_id", "") or "")
         scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
-        scored_obj = load_scored_run(scored_path) if scored_path else None
-        scoring_idx = index_scored_cases(scored_obj) if scored_obj and not scored_obj.get("_error") else {}
+        scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+        require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+        scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+        scoring_idx = index_scored_cases(scored_obj) if scored_obj else {}
         scoring_by_case_id = join_scoring(run_obj, {"scored_cases": [{"case_id": k, **v} for k, v in scoring_idx.items()]})
         rows = flatten_rows_for_run(run_obj=run_obj, scoring_by_case_id=scoring_by_case_id, gold_by_case_id=gold_by_case_id)
         agg = aggregate_run_rows(rows)
@@ -1506,6 +2010,53 @@ def page_executive_insights(
         return
 
     leaderboard.sort(key=lambda r: (safe_float(r.get("avg_overall")) or -1.0), reverse=True)
+
+    # Executive scorecard (CTO-friendly)
+    st.subheader("Executive scorecard")
+    best_row = leaderboard[0] if leaderboard else None
+    latest_row = None
+    if leaderboard:
+        latest_row = max(
+            leaderboard,
+            key=lambda r: (_parse_utc_iso(r.get("created_at_utc")) or datetime(1970, 1, 1, tzinfo=timezone.utc)),
+        )
+
+    def _fmt_rate(x: Any) -> str:
+        v = safe_float(x)
+        return "—" if v is None else f"{100.0 * float(v):.0f}%"
+
+    def _fmt_ms(x: Any) -> str:
+        v = safe_float(x)
+        return "—" if v is None else f"{float(v):.0f} ms"
+
+    def _fmt_num(x: Any) -> str:
+        v = safe_float(x)
+        return "—" if v is None else f"{float(v):.1f}"
+
+    cols = st.columns(6)
+    if best_row:
+        cols[0].metric("Best avg_overall", "—" if safe_float(best_row.get("avg_overall")) is None else f"{safe_float(best_row.get('avg_overall')):.0f}")
+        cols[1].metric("Best groundedness", _fmt_num(best_row.get("avg_groundedness")))
+        cols[2].metric("Ctx insufficient", _fmt_rate(best_row.get("context_sufficiency_insufficient_rate")))
+        cols[3].metric("IDK rate", _fmt_rate(best_row.get("idk_rate")))
+        cols[4].metric("Avg tokens", "—" if safe_float(best_row.get("avg_total_tokens")) is None else f"{safe_float(best_row.get('avg_total_tokens')):.0f}")
+        cols[5].metric("Avg latency", _fmt_ms(best_row.get("avg_latency_ms")))
+
+    if latest_row and best_row and latest_row is not best_row:
+        with st.expander("Latest run snapshot", expanded=False):
+            st.write(
+                {
+                    "run_name": latest_row.get("run_name"),
+                    "created_at_utc": latest_row.get("created_at_utc"),
+                    "avg_overall": latest_row.get("avg_overall"),
+                    "avg_groundedness": latest_row.get("avg_groundedness"),
+                    "context_insufficient_rate": latest_row.get("context_sufficiency_insufficient_rate"),
+                    "avg_total_tokens": latest_row.get("avg_total_tokens"),
+                    "avg_latency_ms": latest_row.get("avg_latency_ms"),
+                    "judge_error_rate": latest_row.get("judge_error_rate"),
+                    "judge_coverage_rate": latest_row.get("judge_coverage_rate"),
+                }
+            )
 
     # Score over time.
     st.subheader("Score over time")
@@ -1601,6 +2152,962 @@ def page_executive_insights(
 
 
 # -----------------------------
+# History page (CTO demo-friendly)
+# -----------------------------
+def _parse_utc_iso(ts: Any) -> Optional[datetime]:
+    s = str(ts or "").strip()
+    if not s:
+        return None
+    try:
+        # Handle trailing Z.
+        if s.endswith("Z"):
+            s = s[:-1] + "+00:00"
+        return datetime.fromisoformat(s)
+    except Exception:
+        return None
+
+
+@st.cache_data(show_spinner=False)
+def load_markdown_file(path: str, *, limit_chars: int = 60000) -> Dict[str, Any]:
+    """Read a markdown file and return a small info dict.
+
+    Uses a char limit to keep the UI snappy.
+    """
+    p = Path(path).expanduser()
+    try:
+        txt = p.read_text(encoding="utf-8", errors="replace")
+        truncated_txt = txt[: int(limit_chars)]
+        return {
+            "path": str(p),
+            "chars": len(txt),
+            "truncated": len(txt) > int(limit_chars),
+            "text": truncated_txt,
+        }
+    except Exception as e:
+        return {"path": str(p), "error": f"{type(e).__name__}: {e}", "text": ""}
+
+
+@st.cache_data(show_spinner=False)
+def list_evolution_report_files(evolution_dir: str) -> List[str]:
+    p = Path(evolution_dir).expanduser()
+    if not p.exists() or not p.is_dir():
+        return []
+    files = [x for x in p.glob("*.md") if x.is_file()]
+    files.sort(key=lambda x: x.stat().st_mtime, reverse=True)
+    return [str(x) for x in files]
+
+
+def _default_evolution_report_index(files: List[str]) -> int:
+    """Prefer scored reports when present; else pick the newest."""
+    if not files:
+        return 0
+    for i, f in enumerate(files):
+        name = Path(f).name.lower()
+        if "scored" in name or "llm_scored" in name:
+            return i
+    return 0
+
+
+def scored_summary(scored_obj: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    """Extract a small, stable summary from a scored run file.
+
+    The scorer schema may drift; keep this defensive.
+    """
+    if not scored_obj or not isinstance(scored_obj, dict) or scored_obj.get("_error"):
+        return {
+            "present": False,
+            "cases_scored": None,
+            "avg_overall": None,
+            "overall_scores": None,
+            "judge_cases": None,
+            "judge_error_cases": None,
+        }
+
+    cases_scored = safe_int(safe_get(scored_obj, "score_summary.cases_scored", None))
+    avg_overall = safe_int(safe_get(scored_obj, "score_summary.avg_overall", None))
+    overall_scores = safe_get(scored_obj, "score_summary.overall_scores", None)
+    if not isinstance(overall_scores, list):
+        overall_scores = None
+
+    judge_cases = 0
+    judge_error_cases = 0
+    rows = scored_obj.get("scored_cases")
+    if isinstance(rows, list):
+        for r in rows:
+            if not isinstance(r, dict):
+                continue
+            if isinstance(r.get("judge"), dict):
+                judge_cases += 1
+            if r.get("judge_error"):
+                judge_error_cases += 1
+
+    return {
+        "present": True,
+        "cases_scored": cases_scored,
+        "avg_overall": avg_overall,
+        "overall_scores": overall_scores,
+        "judge_cases": judge_cases,
+        "judge_error_cases": judge_error_cases,
+    }
+
+
+def collapse_cards_by_run_name(
+    cards: List[Dict[str, Any]],
+    *,
+    prefer: str = "best_score",
+) -> List[Dict[str, Any]]:
+    """Collapse multiple run logs with identical run_name.
+
+    prefer:
+      - best_score: keep the card with highest avg_overall; tie-breaker newest
+      - newest: keep newest by created_at_utc/mtime
+    """
+
+    def _dt(c: Dict[str, Any]) -> datetime:
+        dt = _parse_utc_iso(c.get("created_at_utc"))
+        if dt is not None:
+            return dt
+        try:
+            return datetime.fromtimestamp(Path(str(c.get("run_file") or "")).stat().st_mtime, tz=timezone.utc)
+        except Exception:
+            return datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+    by_name: Dict[str, List[Dict[str, Any]]] = {}
+    for c in cards:
+        name = str(c.get("run_name") or "").strip() or "(missing)"
+        by_name.setdefault(name, []).append(c)
+
+    out: List[Dict[str, Any]] = []
+    for name, xs in by_name.items():
+        if len(xs) == 1:
+            out.append(xs[0])
+            continue
+
+        if prefer == "newest":
+            best = max(xs, key=_dt)
+            out.append(best)
+            continue
+
+        # best_score (default): prefer scored runs; fall back to newest
+        def _score_key(c: Dict[str, Any]) -> Tuple[float, datetime]:
+            s = safe_float(c.get("avg_overall"))
+            # Treat missing score as very low.
+            s2 = float(s) if s is not None else -1.0
+            return (s2, _dt(c))
+
+        best = max(xs, key=_score_key)
+        out.append(best)
+
+    # Keep a stable, readable ordering.
+    out.sort(key=lambda c: _dt(c))
+    return out
+
+
+def _run_card(run_obj: Dict[str, Any], *, scored_obj: Optional[Dict[str, Any]], run_file: str) -> Dict[str, Any]:
+    run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+    run_name = str(safe_get(run_obj, "run.run_name", "") or "")
+    created_at = str(safe_get(run_obj, "run.created_at_utc", "") or "")
+
+    retrieval_policy = str(safe_get(run_obj, "config.retrieval.policy", "") or "")
+    search_type = str(safe_get(run_obj, "config.retrieval.search_type", "") or "")
+    k = safe_int(safe_get(run_obj, "config.retrieval.k", None))
+    qe_enabled = bool(safe_get(run_obj, "config.retrieval.query_expansion.enabled", False))
+
+    llm_model = str(safe_get(run_obj, "config.llm.model", "") or "").strip() or None
+    qe_model = str(safe_get(run_obj, "config.retrieval.query_expansion.model", "") or "").strip() or None
+    embed_model = str(safe_get(run_obj, "config.embedding.model", "") or "").strip() or None
+
+    script_persist = str(safe_get(run_obj, "config.data_version.script.persist_directory", "") or "")
+    derived_persist = str(safe_get(run_obj, "config.data_version.derived.persist_directory", "") or "")
+    derived_build_tag = str(safe_get(run_obj, "config.data_version.derived.build_tag", "") or "")
+
+    sc = scored_summary(scored_obj if isinstance(scored_obj, dict) else None)
+    avg_overall = sc.get("avg_overall")
+
+    summary = safe_get(run_obj, "summary", {})
+
+    return {
+        "run_file": run_file,
+        "scored_present": sc.get("present"),
+        "cases_scored": sc.get("cases_scored"),
+        "judge_cases": sc.get("judge_cases"),
+        "judge_error_cases": sc.get("judge_error_cases"),
+        "run_id": run_id,
+        "run_name": run_name,
+        "created_at_utc": created_at,
+        "retrieval_policy": retrieval_policy,
+        "search_type": search_type,
+        "k": k,
+        "qe_enabled": qe_enabled,
+        "llm_model": llm_model,
+        "qe_model": qe_model,
+        "embed_model": embed_model,
+        "avg_overall": avg_overall,
+        "quote_in_context_rate": safe_float((summary or {}).get("quote_in_context_rate")),
+        "grounding_failure_rate": safe_float((summary or {}).get("grounding_failure_rate")),
+        "retrieval_failure_rate": safe_float((summary or {}).get("retrieval_failure_rate")),
+        "retrieval_empty_rate": safe_float((summary or {}).get("retrieval_empty_rate")),
+        "idk_rate": safe_float((summary or {}).get("idk_rate")),
+        "avg_total_tokens": safe_float((summary or {}).get("avg_total_tokens")),
+        "avg_context_docs": safe_float((summary or {}).get("avg_context_docs")),
+        "avg_context_chars": safe_float((summary or {}).get("avg_context_chars")),
+        "avg_aggregation_readiness_score": safe_float((summary or {}).get("avg_aggregation_readiness_score")),
+        "script_persist_directory": script_persist,
+        "derived_persist_directory": derived_persist,
+        "derived_build_tag": derived_build_tag,
+    }
+
+
+def _trend_plot(
+    *,
+    points: List[Tuple[datetime, float, str]],
+    title: str,
+    y_label: str,
+) -> None:
+    if not points:
+        st.info("No data points for this metric.")
+        return
+
+    points = sorted(points, key=lambda t: t[0])
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+
+    fig, ax = plt.subplots(figsize=(8.2, 3.6))
+    ax.plot(xs, ys, marker="o", linewidth=1.6)
+    ax.set_title(title)
+    ax.set_ylabel(y_label)
+    ax.grid(alpha=0.25)
+    # Keep the x-axis readable.
+    ax.set_xticks(xs)
+    ax.set_xticklabels([x.strftime("%m-%d %H:%M") for x in xs], rotation=25, ha="right", fontsize=8)
+    st.pyplot(fig, clear_figure=True)
+
+
+def page_history(
+    *,
+    project_root: Path,
+    runs_dir: Path,
+    scored_dir: Path,
+    docs_root: Path,
+    export_dir: Path,
+) -> None:
+    st.header("History")
+    st.caption(
+        "A demo-friendly view of progress over time: what improved, what regressed, and why — grounded in logged run metrics."
+    )
+    run_files = list_run_files(str(runs_dir))
+    if not run_files:
+        st.warning(f"No run logs found under: {runs_dir}")
+        return
+
+    limit = st.slider("Max runs to load", min_value=10, max_value=min(400, len(run_files)), value=min(120, len(run_files)), step=10)
+    selected_files = run_files[: int(limit)]
+
+    # Build run cards (lightweight summaries), newest-first input but we will sort by timestamp.
+    cards: List[Dict[str, Any]] = []
+    for rf in selected_files:
+        run_obj = load_run(rf)
+        if run_obj.get("_error"):
+            continue
+        run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+        scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
+        scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+        require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+        scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+        cards.append(_run_card(run_obj, scored_obj=scored_obj, run_file=rf))
+
+    if not cards:
+        st.warning("No run logs could be loaded.")
+        return
+
+    # Time ordering.
+    def _card_dt(c: Dict[str, Any]) -> datetime:
+        dt = _parse_utc_iso(c.get("created_at_utc"))
+        if dt is not None:
+            return dt
+        # Fall back to file mtime.
+        try:
+            return datetime.fromtimestamp(Path(str(c.get("run_file") or "")).stat().st_mtime, tz=timezone.utc)
+        except Exception:
+            return datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+    cards_sorted = sorted(cards, key=_card_dt)
+
+    # --- Presentation filters (default: keep charts clean) ---
+    st.subheader("Filters")
+    c1, c2, c3 = st.columns(3)
+    hide_unscored = c1.checkbox("Hide unscored runs", value=True)
+    collapse_dupes = c2.checkbox("Collapse duplicate run_name", value=True)
+    collapse_pref = c2.selectbox("When collapsing, keep", options=["best_score", "newest"], index=0)
+
+    name_prefix = c3.text_input("Run name prefix (optional)", value="")
+    name_prefix = str(name_prefix or "").strip()
+
+    filtered = list(cards_sorted)
+    if name_prefix:
+        filtered = [c for c in filtered if str(c.get("run_name") or "").startswith(name_prefix)]
+
+    if hide_unscored:
+        filtered = [c for c in filtered if safe_float(c.get("avg_overall")) is not None and (safe_int(c.get("cases_scored")) or 0) > 0]
+
+    if collapse_dupes:
+        filtered = collapse_cards_by_run_name(filtered, prefer=str(collapse_pref))
+
+    st.caption(f"Showing {len(filtered)} / {len(cards_sorted)} runs")
+
+    # --- Executive summary (CTO / stakeholder-friendly) ---
+    st.subheader("Executive summary")
+
+    def _score(c: Dict[str, Any]) -> Optional[float]:
+        return safe_float(c.get("avg_overall"))
+
+    scored_cards = [c for c in filtered if _score(c) is not None]
+
+    if scored_cards:
+        scored_by_time = sorted(scored_cards, key=_card_dt)
+        best = max(scored_cards, key=lambda c: float(_score(c) or -1.0))
+        latest = scored_by_time[-1]
+        earliest = scored_by_time[0]
+        prev = scored_by_time[-2] if len(scored_by_time) >= 2 else None
+
+        best_s = float(_score(best) or 0.0)
+        latest_s = float(_score(latest) or 0.0)
+        earliest_s = float(_score(earliest) or 0.0)
+        prev_s = float(_score(prev) or 0.0) if prev is not None else None
+
+        col1, col2, col3, col4 = st.columns(4)
+        col1.metric("Best avg_overall", f"{best_s:.0f}")
+        col2.metric(
+            "Latest avg_overall",
+            f"{latest_s:.0f}",
+            delta=(f"{(latest_s - prev_s):+.0f}" if prev_s is not None else None),
+        )
+        col3.metric("Earliest→latest", f"{(latest_s - earliest_s):+.0f}")
+        col4.metric("Scored runs loaded", str(len(scored_cards)))
+
+        st.markdown(
+            "\n".join(
+                [
+                    f"- Current best run: {best.get('run_name')}",
+                    f"- Recommended config (best run): policy={best.get('retrieval_policy')}, search={best.get('search_type')}, k={best.get('k')}, qe={best.get('qe_enabled')}",
+                    f"- Script index: {best.get('script_persist_directory')}",
+                    f"- Derived index: {best.get('derived_persist_directory')} (tag: {best.get('derived_build_tag')})",
+                ]
+            )
+        )
+    else:
+        st.info(
+            "No scored runs found (avg_overall is empty). Run the scorer to populate judge metrics: "
+            "python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json"
+        )
+
+    # --- Tuning notes (your narrative) ---
+    tuning_path = project_root / "experiments" / "tuning steps.md"
+    notes = load_markdown_file(str(tuning_path))
+    with st.expander("Tuning notes (experiments/tuning steps.md)", expanded=False):
+        if notes.get("error"):
+            st.error(notes["error"])
+        else:
+            st.markdown(notes.get("text") or "")
+            if notes.get("truncated"):
+                st.caption("(Notes truncated for UI performance)")
+
+    st.subheader("All runs")
+
+    metric_options = {
+        "Judge avg_overall (scored)": ("avg_overall", "avg_overall", "Score (0..100)", True),
+        "Quote-in-context rate": ("quote_in_context_rate", "quote_in_context_rate", "rate", False),
+        "Grounding failure rate (heuristic)": ("grounding_failure_rate", "grounding_failure_rate", "rate", False),
+        "Retrieval failure rate": ("retrieval_failure_rate", "retrieval_failure_rate", "rate", False),
+        "IDK rate": ("idk_rate", "idk_rate", "rate", False),
+        "Avg total tokens": ("avg_total_tokens", "avg_total_tokens", "tokens", False),
+        "Avg context docs": ("avg_context_docs", "avg_context_docs", "docs", False),
+        "Avg context chars": ("avg_context_chars", "avg_context_chars", "chars", False),
+        "Avg aggregation readiness score": ("avg_aggregation_readiness_score", "avg_aggregation_readiness_score", "score (0..100)", False),
+    }
+
+    metric_label = st.selectbox("Trend metric", options=list(metric_options.keys()), index=0)
+    metric_key, _col, y_label, scored_only = metric_options[metric_label]
+
+    points: List[Tuple[datetime, float, str]] = []
+    for c in filtered:
+        dt = _card_dt(c)
+        v = safe_float(c.get(metric_key))
+        if v is None:
+            continue
+        if scored_only and c.get("avg_overall") is None:
+            continue
+        label = str(c.get("run_name") or "")
+        points.append((dt, float(v), label))
+
+    _trend_plot(points=points, title=f"{metric_label} over time", y_label=y_label)
+
+    # Table
+    with st.expander("Runs table", expanded=False):
+        table_rows = []
+        for c in filtered:
+            row = {
+                "created_at_utc": c.get("created_at_utc"),
+                "run_name": c.get("run_name"),
+                "retrieval_policy": c.get("retrieval_policy"),
+                "search_type": c.get("search_type"),
+                "k": c.get("k"),
+                "qe_enabled": c.get("qe_enabled"),
+                "avg_overall": c.get("avg_overall"),
+                "cases_scored": c.get("cases_scored"),
+                "quote_in_context_rate": c.get("quote_in_context_rate"),
+                "grounding_failure_rate": c.get("grounding_failure_rate"),
+                "retrieval_failure_rate": c.get("retrieval_failure_rate"),
+                "idk_rate": c.get("idk_rate"),
+                "avg_total_tokens": c.get("avg_total_tokens"),
+                "derived_build_tag": truncate(c.get("derived_build_tag"), 36),
+                "run_file": c.get("run_file"),
+            }
+            table_rows.append(row)
+        st.dataframe(table_rows, use_container_width=True, hide_index=True)
+
+    # Deltas (improvement/regression) in time.
+    st.subheader("What changed")
+    deltas: List[Dict[str, Any]] = []
+    prev: Optional[Tuple[datetime, float, Dict[str, Any]]] = None
+    for c in filtered:
+        dt = _card_dt(c)
+        v = safe_float(c.get(metric_key))
+        if v is None:
+            continue
+        if scored_only and c.get("avg_overall") is None:
+            continue
+        if prev is not None:
+            _dt_prev, v_prev, c_prev = prev
+            deltas.append(
+                {
+                    "created_at_utc": c.get("created_at_utc"),
+                    "run_name": c.get("run_name"),
+                    "delta": float(v) - float(v_prev),
+                    "prev_run": c_prev.get("run_name"),
+                    "policy": c.get("retrieval_policy"),
+                }
+            )
+        prev = (dt, float(v), c)
+
+    if deltas:
+        best = sorted(deltas, key=lambda r: float(r.get("delta") or 0), reverse=True)[:5]
+        worst = sorted(deltas, key=lambda r: float(r.get("delta") or 0))[:5]
+        col_a, col_b = st.columns(2)
+        with col_a:
+            st.markdown("**Biggest improvements (vs previous run)**")
+            st.dataframe(best, use_container_width=True, hide_index=True)
+        with col_b:
+            st.markdown("**Biggest regressions (vs previous run)**")
+            st.dataframe(worst, use_container_width=True, hide_index=True)
+    else:
+        st.info("Not enough points to compute deltas for this metric.")
+
+    # Configuration impact (simple grouped means)
+    st.subheader("What tends to work")
+    st.caption("Grouped averages are descriptive, not causal.")
+
+    def _group_mean(key: str) -> List[Dict[str, Any]]:
+        buckets: Dict[str, List[float]] = {}
+        for c in filtered:
+            v = safe_float(c.get(metric_key))
+            if v is None:
+                continue
+            if scored_only and c.get("avg_overall") is None:
+                continue
+            g = str(c.get(key) or "(missing)")
+            buckets.setdefault(g, []).append(float(v))
+        rows: List[Dict[str, Any]] = []
+        for g, vals in buckets.items():
+            rows.append({"group": g, "runs": len(vals), "mean": float(sum(vals) / len(vals)) if vals else None})
+        rows.sort(key=lambda r: (safe_float(r.get("mean")) or -1.0), reverse=True)
+        return rows
+
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("**By retrieval policy**")
+        st.dataframe(_group_mean("retrieval_policy"), use_container_width=True, hide_index=True)
+    with col2:
+        st.markdown("**By search type**")
+        st.dataframe(_group_mean("search_type"), use_container_width=True, hide_index=True)
+    with col3:
+        st.markdown("**By query expansion**")
+        st.dataframe(_group_mean("qe_enabled"), use_container_width=True, hide_index=True)
+
+    st.subheader("Drill down")
+    st.caption("Pick a run and a case to open the Flight Recorder.")
+    if not filtered:
+        st.info("No runs match the current filters.")
+        return
+
+    run_labels = [f"{c.get('created_at_utc')} — {c.get('run_name')}" for c in filtered]
+    idx = st.selectbox("Select run", options=list(range(len(filtered))), format_func=lambda i: run_labels[int(i)], index=max(0, len(filtered) - 1))
+    chosen = filtered[int(idx)]
+    run_path = str(chosen.get("run_file") or "")
+    run_obj = load_run(run_path)
+    if run_obj.get("_error"):
+        st.error(f"Failed to load run: {run_obj.get('_error')}")
+        return
+
+    # Optional score join for the chosen run only.
+    run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+    scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
+    scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+    require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+    scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+    scoring_idx = index_scored_cases(scored_obj) if scored_obj else {}
+
+    cases = run_obj.get("cases") if isinstance(run_obj.get("cases"), list) else []
+    case_ids = [str(c.get("case_id")) for c in cases if isinstance(c, dict) and c.get("case_id")]
+    if not case_ids:
+        st.info("Run has no cases[].")
+        return
+    selected_case_id = st.selectbox("Select case", options=case_ids, index=0)
+    case_obj = next((c for c in cases if isinstance(c, dict) and str(c.get("case_id")) == selected_case_id), None)
+    if not isinstance(case_obj, dict):
+        st.error("Could not find selected case.")
+        return
+    scored_case_obj = scoring_idx.get(selected_case_id) if scoring_idx else None
+
+    render_flight_recorder(
+        run_obj,
+        case_obj,
+        scored_case_obj,
+        docs_root=docs_root,
+        export_dir=export_dir,
+        key_prefix=f"history_{run_id}_{selected_case_id}_",
+    )
+
+
+def page_evolution(
+    *,
+    project_root: Path,
+    runs_dir: Path,
+    scored_dir: Path,
+    docs_root: Path,
+    export_dir: Path,
+) -> None:
+    st.header("Evolution")
+    st.caption("Milestone-based view of how the system improved (curated from run configs + scores).")
+
+    # --- Evolution step reports (markdown) ---
+    evo_dir = project_root / "experiments" / "evolution_reports"
+    evo_files = list_evolution_report_files(str(evo_dir))
+    if evo_files:
+        with st.expander("Evolution step report (markdown)", expanded=True):
+            idx = _default_evolution_report_index(evo_files)
+            selected = st.selectbox(
+                "Select evolution report",
+                options=evo_files,
+                index=idx,
+                format_func=lambda x: Path(str(x)).name,
+                key="evolution_report_select",
+            )
+            info = load_markdown_file(str(selected), limit_chars=120000)
+            if info.get("error"):
+                st.error(info["error"])
+            else:
+                st.caption(f"Loaded: {info.get('path')}")
+                st.markdown(info.get("text") or "")
+                if info.get("truncated"):
+                    st.caption("(Report truncated for UI performance)")
+    else:
+        st.info(f"No evolution reports found under: {evo_dir}")
+
+    run_files = list_run_files(str(runs_dir))
+    if not run_files:
+        st.warning(f"No run logs found under: {runs_dir}")
+        return
+
+    # Keep it snappy; user can widen if needed.
+    limit = st.slider(
+        "Max runs to scan",
+        min_value=20,
+        max_value=min(800, len(run_files)),
+        value=min(250, len(run_files)),
+        step=25,
+    )
+    selected_files = run_files[: int(limit)]
+
+    cards: List[Dict[str, Any]] = []
+    for rf in selected_files:
+        run_obj = load_run(rf)
+        if run_obj.get("_error"):
+            continue
+        run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+        scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
+        scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+        require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+        scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+        cards.append(_run_card(run_obj, scored_obj=scored_obj, run_file=rf))
+
+    # Default: scored runs only.
+    scored = [c for c in cards if safe_float(c.get("avg_overall")) is not None and (safe_int(c.get("cases_scored")) or 0) > 0]
+    if not scored:
+        st.info("No scored runs found in the scanned window. Run the scorer to populate judge metrics.")
+        return
+
+    def _milestone_classify(c: Dict[str, Any]) -> Tuple[str, str, str]:
+        """Return (milestone_id, human_label, rationale)."""
+        policy = str(c.get("retrieval_policy") or "").strip().lower()
+        search = str(c.get("search_type") or "").strip().lower()
+        qe = bool(c.get("qe_enabled"))
+        k = safe_int(c.get("k"))
+        script_persist = str(c.get("script_persist_directory") or "")
+        derived_persist = str(c.get("derived_persist_directory") or "")
+
+        has_derived = bool(derived_persist and "derived" in derived_persist.lower())
+        has_meta = bool("chroma_db_meta" in script_persist)
+
+        # Order matters: we want the milestone buckets to reflect how we actually evolved.
+        if has_derived and policy in {"blended", "derived_then_script", "derived_only", "auto"}:
+            if qe:
+                return (
+                    "derived_routed_qe",
+                    "Derived/routed + query expansion",
+                    "Uses a derived-cards index for episode shortlisting/routing AND query expansion + fusion for recall.",
+                )
+            return (
+                "derived_routed",
+                "Derived/routed retrieval",
+                "Uses a derived-cards index for episode shortlisting/routing to improve multi-episode context coverage.",
+            )
+
+        if qe:
+            return (
+                "query_expansion",
+                "Query expansion + fusion",
+                "Generates alternate retrieval queries and fuses results (RRF) to boost recall.",
+            )
+
+        if search == "mmr":
+            return (
+                "mmr",
+                "MMR retrieval",
+                "Uses MMR to diversify retrieved chunks and reduce redundancy.",
+            )
+
+        if has_meta:
+            return (
+                "metadata_index",
+                "Metadata-enabled script index",
+                "Uses a metadata-rich script index (episode_id/etc.) enabling tighter filtering and routing.",
+            )
+
+        if k is not None and k >= 10:
+            return (
+                "high_k",
+                f"Higher k (k={k})",
+                "Increases top-k context size to improve coverage at the cost of tokens.",
+            )
+
+        if policy:
+            return (
+                "baseline",
+                f"Baseline ({policy}, {search or 'similarity'})",
+                "Baseline retrieval setup (no derived routing, no query expansion).",
+            )
+
+        return ("baseline", "Baseline", "Baseline retrieval setup.")
+
+    scored_enriched: List[Dict[str, Any]] = []
+    for c in scored:
+        mid, label, why = _milestone_classify(c)
+        c2 = dict(c)
+        c2["milestone_id"] = mid
+        c2["milestone_label"] = label
+        c2["milestone_why"] = why
+        scored_enriched.append(c2)
+
+    buckets: Dict[str, Dict[str, Any]] = {}
+    for c in scored_enriched:
+        mid = str(c.get("milestone_id") or "baseline")
+        label = str(c.get("milestone_label") or "Baseline")
+        b = buckets.setdefault(mid, {"id": mid, "label": label, "why": str(c.get("milestone_why") or ""), "cards": []})
+        b["cards"].append(c)
+
+    # Keep a sensible milestone order.
+    order = [
+        "baseline",
+        "high_k",
+        "metadata_index",
+        "mmr",
+        "query_expansion",
+        "derived_routed",
+        "derived_routed_qe",
+    ]
+    bucket_list = sorted(buckets.values(), key=lambda b: (order.index(b["id"]) if b["id"] in order else 999, b["label"]))
+
+    def _mean(xs: List[Optional[float]]) -> Optional[float]:
+        vals = [float(x) for x in xs if x is not None]
+        return float(sum(vals) / len(vals)) if vals else None
+
+    def _median(xs: List[Optional[float]]) -> Optional[float]:
+        vals = sorted([float(x) for x in xs if x is not None])
+        if not vals:
+            return None
+        n = len(vals)
+        mid = n // 2
+        if n % 2 == 1:
+            return float(vals[mid])
+        return float((vals[mid - 1] + vals[mid]) / 2.0)
+
+    def _best(xs: List[Dict[str, Any]], key: str) -> Optional[Dict[str, Any]]:
+        if not xs:
+            return None
+        return max(xs, key=lambda c: (safe_float(c.get(key)) or -1.0, safe_int(c.get("cases_scored")) or 0))
+
+    # --- Evolution highlights (automatic: uses what we have in logs) ---
+    best_overall = _best(scored_enriched, "avg_overall")
+    baseline_bucket = buckets.get("baseline")
+    best_baseline = _best(list((baseline_bucket or {}).get("cards") or []), "avg_overall")
+
+    st.subheader("Highlights")
+    cols = st.columns(4)
+    cols[0].metric("Runs scanned", int(limit))
+    cols[1].metric("Scored runs", len(scored_enriched))
+    cols[2].metric("Best avg_overall", int(safe_float((best_overall or {}).get("avg_overall")) or 0))
+    base_best = safe_float((best_baseline or {}).get("avg_overall"))
+    overall_best = safe_float((best_overall or {}).get("avg_overall"))
+    delta = (overall_best - base_best) if (overall_best is not None and base_best is not None) else None
+    cols[3].metric("Best - baseline (Δ)", (f"{delta:+.0f}" if delta is not None else "—"))
+
+    with st.expander("Why these milestones (how we bucket runs)", expanded=False):
+        for b in bucket_list:
+            st.markdown(f"- **{b.get('label')}**: {b.get('why')}")
+
+    # --- Milestone aggregates (this is what we plot) ---
+    milestone_rows: List[Dict[str, Any]] = []
+    for b in bucket_list:
+        xs = list(b.get("cards") or [])
+        best = _best(xs, "avg_overall")
+        milestone_rows.append(
+            {
+                "milestone": b.get("label"),
+                "runs": len(xs),
+                "best_avg_overall": safe_float((best or {}).get("avg_overall")),
+                "mean_avg_overall": _mean([safe_float(c.get("avg_overall")) for c in xs]),
+                "median_avg_overall": _median([safe_float(c.get("avg_overall")) for c in xs]),
+                "mean_total_tokens": _mean([safe_float(c.get("avg_total_tokens")) for c in xs]),
+                "mean_quote_in_context_rate": _mean([safe_float(c.get("quote_in_context_rate")) for c in xs]),
+                "mean_grounding_failure_rate": _mean([safe_float(c.get("grounding_failure_rate")) for c in xs]),
+                "best_run_name": (best or {}).get("run_name"),
+                "best_llm_model": (best or {}).get("llm_model"),
+                "best_qe_model": (best or {}).get("qe_model"),
+                "rationale": b.get("why"),
+                "best_run_file": (best or {}).get("run_file"),
+            }
+        )
+
+    st.subheader("Milestones (summary)")
+    st.dataframe(milestone_rows, use_container_width=True, hide_index=True)
+
+    st.subheader("Milestone bars")
+    st.caption(
+        "We show multiple bars because evolution is multi-objective (quality, grounding, and cost). "
+        "Note: for failure rates, lower is better."
+    )
+
+    metric_choices = {
+        "Best avg_overall (higher is better)": ("best_avg_overall", "avg_overall"),
+        "Mean avg_overall (higher is better)": ("mean_avg_overall", "avg_overall"),
+        "Mean total tokens (lower is better)": ("mean_total_tokens", "tokens"),
+        "Mean quote-in-context rate (higher is better)": ("mean_quote_in_context_rate", "rate"),
+        "Mean grounding failure rate (lower is better)": ("mean_grounding_failure_rate", "rate"),
+        "Runs per milestone": ("runs", "count"),
+    }
+
+    default_metrics = [
+        "Best avg_overall (higher is better)",
+        "Mean total tokens (lower is better)",
+        "Mean grounding failure rate (lower is better)",
+    ]
+    selected_metrics = st.multiselect(
+        "Which metrics to plot",
+        options=list(metric_choices.keys()),
+        default=default_metrics,
+    )
+    selected_metrics = selected_metrics[:3]
+
+    for mlabel in selected_metrics:
+        key, unit = metric_choices[mlabel]
+        labels = [str(r.get("milestone") or "") for r in milestone_rows]
+        raw_vals: List[float] = []
+        for r in milestone_rows:
+            v = r.get(key)
+            if v is None:
+                raw_vals.append(0.0)
+            else:
+                raw_vals.append(float(v))
+
+        fig, ax = plt.subplots(figsize=(8.2, max(3.2, 0.45 * len(labels) + 1.2)))
+        ax.barh(range(len(raw_vals)), raw_vals)
+        ax.set_yticks(range(len(raw_vals)))
+        ax.set_yticklabels(labels)
+        ax.set_xlabel(unit)
+        ax.set_title(mlabel)
+        ax.grid(axis="x", alpha=0.25)
+        st.pyplot(fig, clear_figure=True)
+
+    # Representative run per milestone.
+    reps: List[Dict[str, Any]] = []
+    for b in bucket_list:
+        xs = list(b.get("cards") or [])
+        if not xs:
+            continue
+        rep = max(xs, key=lambda c: (safe_float(c.get("avg_overall")) or -1.0, safe_int(c.get("cases_scored")) or 0))
+        reps.append({
+            "milestone": b["label"],
+            "rep_run_name": rep.get("run_name"),
+            "avg_overall": safe_float(rep.get("avg_overall")),
+            "cases_scored": safe_int(rep.get("cases_scored")),
+            "retrieval_policy": rep.get("retrieval_policy"),
+            "search_type": rep.get("search_type"),
+            "k": rep.get("k"),
+            "qe_enabled": rep.get("qe_enabled"),
+            "llm_model": rep.get("llm_model"),
+            "qe_model": rep.get("qe_model"),
+            "avg_total_tokens": safe_float(rep.get("avg_total_tokens")),
+            "quote_in_context_rate": safe_float(rep.get("quote_in_context_rate")),
+            "grounding_failure_rate": safe_float(rep.get("grounding_failure_rate")),
+            "milestone_rationale": str(b.get("why") or ""),
+            "rep_selection": "Picked as representative: highest avg_overall in milestone (tie-breaker: cases_scored).",
+            "run_file": rep.get("run_file"),
+        })
+
+    st.subheader("Milestones (best representative run)")
+    st.dataframe(reps, use_container_width=True, hide_index=True)
+
+    with st.expander("Representative-run reasoning", expanded=False):
+        st.caption("This is the narrative layer you can use in a demo.")
+        for r in reps:
+            st.markdown(
+                "\n".join(
+                    [
+                        f"- **{r.get('milestone')}** → **{r.get('rep_run_name')}** (avg_overall={r.get('avg_overall')})",
+                        f"  - Why milestone: {r.get('milestone_rationale')}",
+                        f"  - Why this run: {r.get('rep_selection')}",
+                    ]
+                )
+            )
+
+    # Simple bar plot of representative scores.
+    try:
+        labels = [str(r.get("milestone") or "") for r in reps]
+        vals = [safe_float(r.get("avg_overall")) or 0.0 for r in reps]
+        fig, ax = plt.subplots(figsize=(8.2, max(3.2, 0.45 * len(labels) + 1.2)))
+        ax.barh(range(len(vals)), vals)
+        ax.set_yticks(range(len(vals)))
+        ax.set_yticklabels(labels)
+        ax.set_xlabel("avg_overall")
+        ax.set_title("Representative score by milestone")
+        ax.grid(axis="x", alpha=0.25)
+        st.pyplot(fig, clear_figure=True)
+    except Exception:
+        pass
+
+    st.subheader("Drill down")
+    milestone_options = [b["label"] for b in bucket_list]
+    chosen_label = st.selectbox("Milestone", options=milestone_options, index=0)
+    chosen_bucket = next((b for b in bucket_list if b["label"] == chosen_label), None)
+    if not chosen_bucket:
+        return
+
+    if chosen_bucket.get("why"):
+        st.info(f"Milestone rationale: {chosen_bucket.get('why')}")
+
+    # Runs within milestone.
+    xs = list(chosen_bucket.get("cards") or [])
+    xs.sort(key=lambda c: (safe_float(c.get("avg_overall")) or -1.0), reverse=True)
+    st.caption(f"Runs in milestone: {len(xs)}")
+    with st.expander("Runs in this milestone", expanded=False):
+        rows = [
+            {
+                "run_name": c.get("run_name"),
+                "created_at_utc": c.get("created_at_utc"),
+                "avg_overall": c.get("avg_overall"),
+                "cases_scored": c.get("cases_scored"),
+                "retrieval_policy": c.get("retrieval_policy"),
+                "search_type": c.get("search_type"),
+                "k": c.get("k"),
+                "qe_enabled": c.get("qe_enabled"),
+                "run_file": c.get("run_file"),
+            }
+            for c in xs
+        ]
+        st.dataframe(rows, use_container_width=True, hide_index=True)
+
+    def _run_label(c: Dict[str, Any]) -> str:
+        score = safe_float(c.get("avg_overall"))
+        score_s = f"{score:.0f}" if score is not None else "?"
+        model = str(c.get("llm_model") or "").strip() or "(model?)"
+        policy = str(c.get("retrieval_policy") or "").strip() or "policy?"
+        search = str(c.get("search_type") or "").strip() or "search?"
+        k0 = c.get("k")
+        qe = "qe" if bool(c.get("qe_enabled")) else "no-qe"
+        return f"{score_s} — {c.get('run_name')} [{model} | {policy}/{search} k={k0} | {qe}]"
+
+    run_labels = [_run_label(c) for c in xs]
+    ridx = st.selectbox("Run", options=list(range(len(xs))), format_func=lambda i: run_labels[int(i)], index=0)
+    chosen_run = xs[int(ridx)]
+
+    with st.expander("Why this run is interesting", expanded=False):
+        st.markdown("**Milestone**")
+        st.write(str(chosen_run.get("milestone_label") or chosen_bucket.get("label") or ""))
+        st.markdown("**Rationale**")
+        st.write(str(chosen_run.get("milestone_why") or chosen_bucket.get("why") or ""))
+        st.markdown("**Key config (from run log)**")
+        st.json(
+            {
+                "llm_model": chosen_run.get("llm_model"),
+                "qe_model": chosen_run.get("qe_model"),
+                "embed_model": chosen_run.get("embed_model"),
+                "retrieval_policy": chosen_run.get("retrieval_policy"),
+                "search_type": chosen_run.get("search_type"),
+                "k": chosen_run.get("k"),
+                "qe_enabled": chosen_run.get("qe_enabled"),
+                "script_persist_directory": chosen_run.get("script_persist_directory"),
+                "derived_persist_directory": chosen_run.get("derived_persist_directory"),
+                "derived_build_tag": chosen_run.get("derived_build_tag"),
+            }
+        )
+
+    run_path = str(chosen_run.get("run_file") or "")
+    run_obj = load_run(run_path)
+    if run_obj.get("_error"):
+        st.error(f"Failed to load run: {run_obj.get('_error')}")
+        return
+
+    run_id = str(safe_get(run_obj, "run.run_id", "") or "")
+    scored_path = find_scored_run_for_run_id(str(scored_dir), run_id)
+    scored_obj_raw = load_scored_run(scored_path) if scored_path else None
+    require_two_pass = bool(st.session_state.get("require_two_pass_scoring", True))
+    scored_obj = filter_scored_obj(scored_obj_raw, require_two_pass=require_two_pass)
+    scoring_idx = index_scored_cases(scored_obj) if scored_obj else {}
+
+    cases = run_obj.get("cases") if isinstance(run_obj.get("cases"), list) else []
+    case_ids = [str(c.get("case_id")) for c in cases if isinstance(c, dict) and c.get("case_id")]
+    if not case_ids:
+        st.info("Run has no cases[].")
+        return
+    selected_case_id = st.selectbox("Case", options=case_ids, index=0)
+    case_obj = next((c for c in cases if isinstance(c, dict) and str(c.get("case_id")) == selected_case_id), None)
+    if not isinstance(case_obj, dict):
+        st.error("Could not find selected case.")
+        return
+
+    scored_case_obj = scoring_idx.get(selected_case_id) if scoring_idx else None
+    render_flight_recorder(
+        run_obj,
+        case_obj,
+        scored_case_obj,
+        docs_root=docs_root,
+        export_dir=export_dir,
+        key_prefix=f"evolution_{run_id}_{selected_case_id}_",
+    )
+
+
+# -----------------------------
 # App scaffold
 # -----------------------------
 def main() -> None:
@@ -1610,20 +3117,141 @@ def main() -> None:
     # Sidebar configuration.
     st.sidebar.header("Config")
     default_root = Path.cwd()
-    project_root = Path(
-        st.sidebar.text_input("Project root", value=str(default_root))
-    ).expanduser()
 
-    runs_dir = Path(st.sidebar.text_input("Runs dir", value=str(project_root / "experiments" / "runs"))).expanduser()
-    scored_dir = Path(
-        st.sidebar.text_input("Scored runs dir", value=str(project_root / "experiments" / "scored_runs"))
-    ).expanduser()
-    docs_root = Path(
-        st.sidebar.text_input("Normalized docs root", value=str(project_root))
-    ).expanduser()
+    with st.sidebar.expander("Paths", expanded=False):
+        project_root = Path(
+            st.text_input("Project root", value=str(default_root))
+        ).expanduser()
+
+        runs_dir = Path(st.text_input("Runs dir", value=str(project_root / "experiments" / "runs"))).expanduser()
+        scored_dir = Path(
+            st.text_input("Scored runs dir", value=str(project_root / "experiments" / "scored_runs_two_pass"))
+        ).expanduser()
+        docs_root = Path(
+            st.text_input("Normalized docs root", value=str(project_root))
+        ).expanduser()
 
     enable_live_chat = st.sidebar.toggle("Enable Live Chat", value=False)
     diagnostics_mode = st.sidebar.radio("Diagnostics view", options=["Per-run", "Per-case"], index=1)
+
+    require_two_pass_scoring = st.sidebar.toggle(
+        "Require two-pass scores",
+        value=True,
+        help="When enabled, the dashboard ignores scored files unless scoring_meta.judge_mode == 'two_pass'.",
+    )
+    st.session_state["require_two_pass_scoring"] = bool(require_two_pass_scoring)
+
+    if enable_live_chat:
+        st.sidebar.subheader("Live Chat")
+        st.sidebar.caption("Uses your local Chroma indexes + OpenAI; requires OPENAI_API_KEY.")
+
+        # Discover options at runtime.
+        db_root = str(project_root / "db")
+        persist_dir_options = list_chroma_persist_dirs(db_root)
+        # Prefer common defaults when present.
+        script_default = str(project_root / "db" / "chroma_db")
+        derived_default = str(project_root / "db" / "chroma_db_derived_cards")
+
+        # Models: discovered from historical run logs (plus a couple sane defaults).
+        discovered_models = list_llm_models_from_runs(str(project_root / "experiments" / "runs"))
+        model_options = []
+        for m in (discovered_models + ["gpt-4.1-mini", "gpt-4.1-nano"]):
+            if m and m not in model_options:
+                model_options.append(m)
+
+        retrieval_policy = st.sidebar.selectbox(
+            "Retrieval policy",
+            options=["script_only", "derived_only", "blended"],
+            index=_select_index(["script_only", "derived_only", "blended"], st.session_state.get("live_retrieval_policy")),
+        )
+        st.session_state["live_retrieval_policy"] = retrieval_policy
+
+        uses_script = retrieval_policy in {"script_only", "blended"}
+        uses_derived = retrieval_policy in {"derived_only", "blended"}
+
+        if uses_script:
+            # Script persist dir dropdown.
+            script_persist_dir_options = (persist_dir_options if persist_dir_options else [script_default])
+            script_persist_current = st.session_state.get("live_script_persist_dir") or script_default
+            script_persist_dir = st.sidebar.selectbox(
+                "Script persist dir",
+                options=script_persist_dir_options,
+                index=_select_index(script_persist_dir_options, script_persist_current),
+            )
+            st.session_state["live_script_persist_dir"] = script_persist_dir
+
+            # Script collection dropdown (include default/None).
+            script_collections = list_chroma_collections(str(script_persist_dir))
+            script_collection_options = ["(default)"] + script_collections
+            script_collection_current = st.session_state.get("live_script_collection_name")
+            script_collection_current_choice = "(default)" if not script_collection_current else str(script_collection_current)
+            script_collection_choice = st.sidebar.selectbox(
+                "Script collection",
+                options=script_collection_options,
+                index=_select_index(script_collection_options, script_collection_current_choice),
+            )
+            st.session_state["live_script_collection_name"] = (
+                None if script_collection_choice == "(default)" else script_collection_choice
+            )
+        else:
+            st.sidebar.caption("Script index controls hidden (derived_only).")
+
+        if uses_derived:
+            # Derived persist dir dropdown.
+            derived_persist_dir_options = (persist_dir_options if persist_dir_options else [derived_default])
+            derived_persist_current = st.session_state.get("live_derived_persist_dir") or derived_default
+            derived_persist_dir = st.sidebar.selectbox(
+                "Derived persist dir",
+                options=derived_persist_dir_options,
+                index=_select_index(derived_persist_dir_options, derived_persist_current),
+            )
+            st.session_state["live_derived_persist_dir"] = derived_persist_dir
+
+            # Derived collection dropdown.
+            derived_collections = list_chroma_collections(str(derived_persist_dir))
+            derived_collection_options = ["derived_cards"]
+            for c in derived_collections:
+                if c not in derived_collection_options:
+                    derived_collection_options.append(c)
+            derived_collection_current = st.session_state.get("live_derived_collection_name") or "derived_cards"
+            derived_collection_choice = st.sidebar.selectbox(
+                "Derived collection",
+                options=derived_collection_options,
+                index=_select_index(derived_collection_options, str(derived_collection_current)),
+            )
+            st.session_state["live_derived_collection_name"] = derived_collection_choice
+        else:
+            st.sidebar.caption("Derived index controls hidden (script_only).")
+
+        llm_model_choice = st.sidebar.selectbox(
+            "LLM model",
+            options=(model_options if model_options else ["gpt-4.1-mini"]),
+            index=0,
+        )
+        st.session_state["live_llm_model"] = llm_model_choice
+
+        st.session_state["live_temperature"] = st.sidebar.number_input(
+            "Temperature",
+            min_value=0.0,
+            max_value=2.0,
+            value=0.0,
+            step=0.1,
+        )
+        st.session_state["live_k"] = st.sidebar.number_input(
+            "Top-k (final context)",
+            min_value=1,
+            max_value=40,
+            value=10,
+            step=1,
+        )
+        if retrieval_policy == "blended":
+            st.session_state["live_derived_k"] = st.sidebar.number_input(
+                "Top-k derived (blended)",
+                min_value=1,
+                max_value=40,
+                value=int(st.session_state.get("live_derived_k") or 6),
+                step=1,
+            )
 
     exports_dir = project_root / "experiments" / "exports"
     st.sidebar.caption(f"Exports: {exports_dir}")
@@ -1633,6 +3261,8 @@ def main() -> None:
         options=[
             "Chat Playground",
             "Run Explorer",
+            "Evolution",
+            "History",
             "Experiment Comparison",
             "Diagnostics",
             "Executive Insights",
@@ -1658,6 +3288,22 @@ def main() -> None:
             scored_dir=scored_dir,
             docs_root=docs_root,
             diagnostics_mode=diagnostics_mode,
+            export_dir=exports_dir,
+        )
+    elif page == "Evolution":
+        page_evolution(
+            project_root=project_root,
+            runs_dir=runs_dir,
+            scored_dir=scored_dir,
+            docs_root=docs_root,
+            export_dir=exports_dir,
+        )
+    elif page == "History":
+        page_history(
+            project_root=project_root,
+            runs_dir=runs_dir,
+            scored_dir=scored_dir,
+            docs_root=docs_root,
             export_dir=exports_dir,
         )
     elif page == "Experiment Comparison":

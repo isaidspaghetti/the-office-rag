@@ -1,0 +1,254 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E04",
+  "created_at_utc": "2026-03-06T01:41:10Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S09E04",
+  "segment_id": "S09E04:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6445,
+  "people": [
+    "Andy",
+    "Kevin",
+    "Oscar",
+    "Dwight",
+    "Jim",
+    "Darryl",
+    "Phyllis",
+    "Stanley",
+    "Toby",
+    "Erin",
+    "Pam",
+    "Nellie",
+    "Meredith",
+    "Clark",
+    "Creed"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Andy shows a softball highlight reel that the group critiques and chants 'fail' at.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 19,
+          "char_end": 175,
+          "snippet": "Andy: Alright everybody, great season of softball, I'm super proud of you guys and I think you're gonna like this little highlight reel that I put together."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 971,
+          "char_end": 996,
+          "snippet": "Group: Fail! Fail! Fail!…"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight and Toby investigate an EMF hotspot in the office wall, causing concern among employees.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 1615,
+          "char_end": 1641,
+          "snippet": "Toby: It's an EMF hotspot."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 1670,
+          "char_end": 1810,
+          "snippet": "Oscar: It stands for electromagnetic field. Generally cause by a concentration of wiring in one area Especially if they're poorly insulated."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Nellie asks Andy for a character reference letter to help with her baby adoption.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 3225,
+          "char_end": 3260,
+          "snippet": "Nellie: I'm trying to adopt a baby."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 3371,
+          "char_end": 3473,
+          "snippet": "Nellie: You wouldn't have to do anything. I would write the letter myself and you just simply sign it."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Andy is skeptical about signing Nellie's letter, suspecting a plagiarism entrapment scheme.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 3027,
+          "char_end": 3115,
+          "snippet": "Andy: You have one minute and your minute has begun and no time will be added at the end"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Jim tries to get Pam a week off from work by highlighting the health risks of the EMF hotspot.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 4953,
+          "char_end": 4995,
+          "snippet": "Jim: Getting my wife a week off from work."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 4524,
+          "char_end": 4555,
+          "snippet": "Pam: Week off. That'd be great."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight refuses to pay for repairs related to the EMF hotspot, claiming he can live with it and mocking health concerns.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 5450,
+          "char_end": 5599,
+          "snippet": "Dwight: I know what Jim is trying to do. He's trying to get big bad Dwight to shell out for a huge repair job while lucky Jimbo gets a paid vacation."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "That was actually a serious accident that could have resulted in severe bodily harm.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 997,
+          "char_end": 1122,
+          "snippet": "Andy (Group continues chanting \"Fail!\"): That was actually a serious accident that could have resulted in severe bodily harm."
+        }
+      ]
+    },
+    {
+      "quote": "You wouldn't have to do anything. I would write the letter myself and you just simply sign it.",
+      "speaker": "Nellie",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 3371,
+          "char_end": 3473,
+          "snippet": "Nellie: You wouldn't have to do anything. I would write the letter myself and you just simply sign it."
+        }
+      ]
+    },
+    {
+      "quote": "I know what Jim is trying to do. He's trying to get big bad Dwight to shell out for a huge repair job while lucky Jimbo gets a paid vacation.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 5458,
+          "char_end": 5599,
+          "snippet": "I know what Jim is trying to do. He's trying to get big bad Dwight to shell out for a huge repair job while lucky Jimbo gets a paid vacation."
+        }
+      ]
+    },
+    {
+      "quote": "Getting my wife a week off from work.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 4958,
+          "char_end": 4995,
+          "snippet": "Getting my wife a week off from work."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Nellie's request for a character reference letter?",
+    "What health problems will the EMF hotspot cause to the employees?",
+    "Will the office be shut down for repairs due to the EMF hotspot?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Nellie's request for a character reference letter?",
+      "why_uncertain": "The segment ends with Andy agreeing to read the letter but does not reveal if he signs it or what happens next.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 0,
+          "char_end": 6445,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Alright everybody, great season of softball, I'm super proud of you guys and I think you're gonna like this little highlight reel that I put together.\n[STAGE] Andy plays video\nKevin: That's me.\nOscar: Is this like a"
+        }
+      ]
+    },
+    {
+      "question": "What health problems will the EMF hotspot cause to the employees?",
+      "why_uncertain": "The segment shows concern and discussion but no definitive health effects or outcomes are presented.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 0,
+          "char_end": 6445,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Alright everybody, great season of softball, I'm super proud of you guys and I think you're gonna like this little highlight reel that I put together.\n[STAGE] Andy plays video\nKevin: That's me.\nOscar: Is this like a"
+        }
+      ]
+    },
+    {
+      "question": "Will the office be shut down for repairs due to the EMF hotspot?",
+      "why_uncertain": "Dwight mentions the need to rip open walls and shut down the office but no decision or action is shown.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 0,
+          "char_end": 6445,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Alright everybody, great season of softball, I'm super proud of you guys and I think you're gonna like this little highlight reel that I put together.\n[STAGE] Andy plays video\nKevin: That's me.\nOscar: Is this like a"
+        }
+      ]
+    }
+  ]
+}
