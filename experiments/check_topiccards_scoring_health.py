@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -10,7 +11,20 @@ def _read_json(path: Path) -> Dict[str, Any]:
 
 
 def main() -> None:
-    scored_dir = Path("experiments/scored_runs")
+    p = argparse.ArgumentParser(description="Health check for topiccards scored runs")
+    p.add_argument(
+        "--scored-dir",
+        default="experiments/scored_runs_two_pass",
+        help="Directory containing *.scored.json outputs",
+    )
+    p.add_argument(
+        "--out",
+        default="experiments/_topiccards_scoring_health_two_pass.txt",
+        help="Output TSV report path",
+    )
+    args = p.parse_args()
+
+    scored_dir = Path(str(args.scored_dir))
     rows: List[Tuple[str, Any, Any, int, int, Any]] = []
 
     for p in sorted(scored_dir.glob("*.scored.json")):
@@ -58,7 +72,7 @@ def main() -> None:
     ]
     bad = [r for r in rows if r not in ok]
 
-    out = Path("experiments/_topiccards_scoring_health.txt")
+    out = Path(str(args.out))
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", encoding="utf-8") as f:
         f.write(f"topiccards_scored_files={len(rows)}\n")

@@ -443,3 +443,12 @@ optional arguments:
 
 
 
+Found my AI judge answers were favoring results improperly. Implemented 2 step judging: 
+We currently give the judge both gold_answer and retrieved_context. This can bias correctness upward even when retrieval is weak; the rubric tries to counterbalance via groundedness, but it’s still a common failure mode. A more robust pattern is 2-pass judging: (1) context-only groundedness, (2) gold-only correctness, then combine.
+
+
+
+
+
+3. remove the toggle for enable live chat. lieave it enabled. 
+4. only show th elive chat knobs when on the live chat page
