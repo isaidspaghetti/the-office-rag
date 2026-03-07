@@ -1,45 +1,33 @@
 # Copilot instructions (RAG-1)
 
-## Big picture
-- This repo is a RAG sandbox over The Office scripts/summaries. The core loop is: **ingest → run evals (JSON logs) → summarize metrics → (optionally) LLM-judge score runs**.
-- There are two corpora:
-  - **Script index** (raw scripts + episode summaries) built by [ingestion/ingestion_pipeline.py](../ingestion/ingestion_pipeline.py) into `db/chroma_db*`.
-  - **Derived-cards index** (episode/season/topic cards) built from `derived/artifacts/` by [derived/build_derived_cards_index.py](../derived/build_derived_cards_index.py) into `db/chroma_db_derived_cards*`.
+## What this repo is
+- A RAG sandbox over **The Office** scripts + episode summaries.
+- Primary workflow: **ingest/index → run evals (JSON logs) → summarize metrics → score runs (two-pass judge)**.
 
-## Key entrypoints
-- Ingest/Index: [ingestion/ingestion_pipeline.py](../ingestion/ingestion_pipeline.py)
-  - Supports `--chunking character|scene|scene_window` and `--use-metadata`.
-  - Writes stable metadata per chunk: `episode_id` like `S02E11`, plus `doc_type`, `chunk_type`, `chunk_index`.
-- Eval harness: [experiments/run_eval.py](../experiments/run_eval.py)
-  - Writes one JSON file per run under `experiments/runs/` (run_id includes UTC timestamp + slugified run_name).
-  - Retrieval policies: `script_only`, `derived_only`, `derived_then_script`, `auto`, `blended` (shown as “Hybrid” in the dashboards).
-  - Query expansion + fusion lives in [rag/query_expansion.py](../rag/query_expansion.py) and [rag/fusion.py](../rag/fusion.py) (cache default: `experiments/cache/query_expansion_cache.json`).
-- Debug helpers: [retrieval_pipeline.py](../retrieval_pipeline.py) (single-query retrieval + optional query-expansion/RRF) and [experiments/inspect_routing_case.py](../experiments/inspect_routing_case.py) (print routing shortlist + top sources for one case).
-- Run summarization: [experiments/summarize_runs.py](../experiments/summarize_runs.py) → `experiments/run_metrics.*` and `experiments/case_metrics.*`.
-- Run scoring (LLM judge): [experiments/score_runs.py](../experiments/score_runs.py) (gold: `experiments/gold_answers.json`, output: `experiments/scored_runs_two_pass/`).
-  - Note: [apps/rag_runs_dashboard.py](../apps/rag_runs_dashboard.py) is currently a scoring script (not a Streamlit UI).
+## Core components (read these first)
+- Script index (Chroma): [ingestion/ingestion_pipeline.py](../ingestion/ingestion_pipeline.py) builds `db/chroma_db*` from `ingestion/normalized_docs_txt/`.
+- Derived-cards index (Chroma): [derived/build_derived_cards_index.py](../derived/build_derived_cards_index.py) embeds `derived/artifacts/**` into `db/chroma_db_derived_cards*` (metadata `derived_type` distinguishes card kinds).
+- Eval harness + run logs: [experiments/run_eval.py](../experiments/run_eval.py) writes one run JSON per invocation to `experiments/runs/`.
+- Run summarization: [experiments/summarize_runs.py](../experiments/summarize_runs.py) → `experiments/run_metrics.{csv,jsonl}` + `experiments/case_metrics.{csv,jsonl}`.
+- Run scoring (canonical): [experiments/score_runs.py](../experiments/score_runs.py) + `experiments/gold_answers.json` → `experiments/scored_runs_two_pass/`.
 
-## Derived-corpus workflow (map/reduce → index)
-- Pipeline order and artifact layout are documented in [derived/README.md](../derived/README.md).
-- Preferred driver script: [derived/runbooks/rebuild_seasons_param.sh](../derived/runbooks/rebuild_seasons_param.sh)
-  - Runs `derived.summarize_season` → `derived.reduce_season` → `derived.reduce_season_card`.
-  - Build prefixes are important (new folders per build); examples: `derived_episodecard_season02_<tag>`.
-  - Can optionally build a NEW derived-cards DB (persist dir auto-named like `db/chroma_db_derived_cards_<tag>`).
+## Repo conventions that matter
+- **Canonical episode IDs are `SxxEyy`**. Ingestion metadata + eval routing/grouping assume this (see `episode_id` in [ingestion/load_documents.py](../ingestion/load_documents.py)).
+- Prefer **metadata-enabled ingestion** (`--use-metadata`) so eval routing can filter by `{"episode_id": {"$in": [...]}}`; otherwise eval falls back to parsing `source` paths.
+- Keep Chroma persist dirs **separate per experiment** (don’t mix chunking strategies in one persist dir).
+- Derived artifacts are build-prefixed folders under `derived/artifacts/`; the driver is [derived/runbooks/rebuild_seasons_param.sh](../derived/runbooks/rebuild_seasons_param.sh).
 
-## Conventions that matter when editing
-- **Episode IDs are canonical**: use `SxxEyy` everywhere (ingestion metadata, routing, eval heuristics).
-- Prefer **metadata-enabled** script indexes (`python ingestion/ingestion_pipeline.py --use-metadata ...`) so routing can push down `{"episode_id": {"$in": [...]}}` filters; otherwise run_eval falls back to parsing `source` paths.
-- Keep Chroma persist dirs separate per experiment/chunking strategy (see `db/chroma_db_scene*`, `db/chroma_db_meta`, etc.).
-- Derived cards rely on `metadata.derived_type` in `{episode_card, season_card, topic_card}`; routing filters derived stage-1 to those.
-
-## Common commands (copy/paste)
-- Build script index: `python ingestion/ingestion_pipeline.py --persist-dir db/chroma_db_meta --use-metadata --reset`
-- Run a routed eval (Hybrid in dashboards): `python experiments/run_eval.py --retrieval-policy blended --derived-persist-dir db/chroma_db_derived_cards --derived-collection-name derived_cards --run-name my_run --search-type similarity --k 12`
-- Run the preset routing sweep: `bash experiments/run_routing_sweep.sh` (also available as a VS Code task in `.vscode/tasks.json`)
+## Commands agents should reach for
+- Build script index (dev reset): `python ingestion/ingestion_pipeline.py --persist-dir db/chroma_db_meta --use-metadata --reset`
+- Build derived-cards index: `python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
+- Run eval (current policies: `script_only|derived_only|derived_then_script`): `python experiments/run_eval.py --persist-dir db/chroma_db_meta --retrieval-policy derived_then_script --k 12 --run-name routed_k12`
+- Run eval with query expansion + RRF fusion: `python experiments/run_eval.py --query-expansion --expand-n 5 --fusion rrf --rrf-k0 60` (cache: `experiments/cache/query_expansion_cache.json`)
 - Summarize runs: `python experiments/summarize_runs.py`
-- Score runs: `python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json`
+- Score runs (two-pass): `python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json`
+- Debug retrieval quickly: [retrieval_pipeline.py](../retrieval_pipeline.py) and [experiments/inspect_routing_case.py](../experiments/inspect_routing_case.py)
 
-## Safety / gotchas
-- Most CLIs call `load_dotenv()` and expect `OPENAI_API_KEY` in the repo-root `.env` (do not commit secrets).
-- `--reset` deletes the target persist dir (dev-only); don’t run it on a persist dir you care about.
-- `auto` routing only uses derived routing for aggregation-like questions (regex in run_eval); for pinpoint questions it stays script-only.
+## Gotchas / current repo state
+- There is currently no pinned `requirements.txt`; typical deps are `langchain-openai`, `langchain-core`, `langchain-chroma`, `chromadb`, `python-dotenv`.
+- Most CLIs call `load_dotenv()`; set `OPENAI_API_KEY` in repo-root `.env`.
+- `--reset` deletes the persist dir.
+- Some “dashboard/deploy” docs referenced in README are not present, and `app.py` / `qdrant_index.py` are currently empty stubs—treat the CLI + `experiments/` artifacts as the source of truth.

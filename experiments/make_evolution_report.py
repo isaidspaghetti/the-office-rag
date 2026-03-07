@@ -323,7 +323,7 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
 def main() -> None:
     p = argparse.ArgumentParser(description="Generate a markdown evolution report from run logs")
     p.add_argument("--runs-dir", default="experiments/runs")
-    ap.add_argument(
+    p.add_argument(
         "--scored-dir",
         default="experiments/scored_runs_two_pass",
         help=(
@@ -331,9 +331,9 @@ def main() -> None:
             "Set to empty string to omit judge metrics."
         ),
     )
-    ap.add_argument("--run-name-prefix", required=True)
-    ap.add_argument("--out", default="")
-    ap.add_argument("--notes", default="")
+    p.add_argument("--run-name-prefix", required=True)
+    p.add_argument("--out", default="")
+    p.add_argument("--notes", default="")
     args = p.parse_args()
 
     runs_dir = Path(args.runs_dir).expanduser().resolve()

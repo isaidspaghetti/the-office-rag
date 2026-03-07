@@ -1,12 +1,12 @@
-streamlit>=1.35.0
-matplotlib>=3.7.0
-plotly>=5.20.0
-python-dotenv>=1.0.0
-qdrant-client>=1.9.0
+# Minimal requirements for Streamlit Cloud + local dashboards
+streamlit>=1.31
+python-dotenv>=1.0
+
+# Core RAG deps (used by ingestion/evals/scoring)
 langchain-openai>=0.3.0
 langchain-core>=0.3.0
+langchain-chroma>=0.2.0
+chromadb>=0.5.0
 
-# Optional (dev/local only). Kept light so Streamlit Cloud deploys reliably.
-# chromadb
-# langchain-chroma
-# langchain-community
+# Optional: plotting support for experiments/plot_phase_scores.py
+matplotlib>=3.8

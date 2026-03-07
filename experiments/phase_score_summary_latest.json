@@ -1,0 +1,139 @@
+{
+  "group_by": "phase",
+  "run_name_prefix": "",
+  "require_llm": true,
+  "rows": [
+    {
+      "group": "step01",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 63,
+      "best_run_id": "2026-03-06T06-22-20Z_evo_4_1_mini_2026_03_05_llm_step01_script_only_sim_k8",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step01_script_only_sim_k8",
+      "worst_avg_overall": 63,
+      "worst_run_id": "2026-03-06T06-22-20Z_evo_4_1_mini_2026_03_05_llm_step01_script_only_sim_k8",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step01_script_only_sim_k8"
+    },
+    {
+      "group": "step02",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 66,
+      "best_run_id": "2026-03-06T06-23-14Z_evo_4_1_mini_2026_03_05_llm_step02_script_only_mmr_k8",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step02_script_only_mmr_k8",
+      "worst_avg_overall": 66,
+      "worst_run_id": "2026-03-06T06-23-14Z_evo_4_1_mini_2026_03_05_llm_step02_script_only_mmr_k8",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step02_script_only_mmr_k8"
+    },
+    {
+      "group": "step03",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 81,
+      "best_run_id": "2026-03-06T06-24-31Z_evo_4_1_mini_2026_03_05_llm_step03_derived_only_sim_k8",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step03_derived_only_sim_k8",
+      "worst_avg_overall": 81,
+      "worst_run_id": "2026-03-06T06-24-31Z_evo_4_1_mini_2026_03_05_llm_step03_derived_only_sim_k8",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step03_derived_only_sim_k8"
+    },
+    {
+      "group": "step04",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 49,
+      "best_run_id": "2026-03-06T06-24-53Z_evo_4_1_mini_2026_03_05_llm_step04_derived_then_script_sim_k10",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step04_derived_then_script_sim_k10",
+      "worst_avg_overall": 49,
+      "worst_run_id": "2026-03-06T06-24-53Z_evo_4_1_mini_2026_03_05_llm_step04_derived_then_script_sim_k10",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step04_derived_then_script_sim_k10"
+    },
+    {
+      "group": "step05",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 58,
+      "best_run_id": "2026-03-06T06-25-22Z_evo_4_1_mini_2026_03_05_llm_step05_blended_sim_k12",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step05_blended_sim_k12",
+      "worst_avg_overall": 58,
+      "worst_run_id": "2026-03-06T06-25-22Z_evo_4_1_mini_2026_03_05_llm_step05_blended_sim_k12",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step05_blended_sim_k12"
+    },
+    {
+      "group": "step06",
+      "runs_total": 1,
+      "runs_with_overall": 1,
+      "best_avg_overall": 60,
+      "best_run_id": "2026-03-06T06-25-58Z_evo_4_1_mini_2026_03_05_llm_step06_blended_sim_k16",
+      "best_run_name": "evo_4_1_mini_2026-03-05_llm_step06_blended_sim_k16",
+      "worst_avg_overall": 60,
+      "worst_run_id": "2026-03-06T06-25-58Z_evo_4_1_mini_2026_03_05_llm_step06_blended_sim_k16",
+      "worst_run_name": "evo_4_1_mini_2026-03-05_llm_step06_blended_sim_k16"
+    },
+    {
+      "group": "baseline",
+      "runs_total": 11,
+      "runs_with_overall": 11,
+      "best_avg_overall": 68,
+      "best_run_id": "2026-03-05T04-41-53Z_topiccards_blended_baseline_similarity_k3",
+      "best_run_name": "topiccards_blended_baseline_similarity_k3",
+      "worst_avg_overall": 57,
+      "worst_run_id": "2026-03-02T19-41-43Z_baseline_similarity_k3",
+      "worst_run_name": "baseline_similarity_k3"
+    },
+    {
+      "group": "mmr",
+      "runs_total": 11,
+      "runs_with_overall": 11,
+      "best_avg_overall": 85,
+      "best_run_id": "2026-03-06T23-27-05Z_topiccards_blended_gen_gpt_4_1_mini_t2_mmr_k12_fetch40_l07_fixed",
+      "best_run_name": "topiccards_blended_gen_gpt_4_1_mini_t2_mmr_k12_fetch40_l07_fixed",
+      "worst_avg_overall": 62,
+      "worst_run_id": "2026-03-05T02-03-15Z_auto_t2_mmr_k12_fetch40_l07_fixed",
+      "worst_run_name": "auto_t2_mmr_k12_fetch40_l07_fixed"
+    },
+    {
+      "group": "other",
+      "runs_total": 5,
+      "runs_with_overall": 5,
+      "best_avg_overall": 71,
+      "best_run_id": "2026-03-03T04-50-43Z_scene_chunks_similarity_k12",
+      "best_run_name": "scene_chunks_similarity_k12",
+      "worst_avg_overall": 66,
+      "worst_run_id": "2026-03-05T02-28-05Z_meta_ingest_auto_t1_similarity_k12",
+      "worst_run_name": "meta_ingest_auto_t1_similarity_k12"
+    },
+    {
+      "group": "qe+fusion",
+      "runs_total": 9,
+      "runs_with_overall": 9,
+      "best_avg_overall": 75,
+      "best_run_id": "2026-03-06T23-27-38Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12",
+      "best_run_name": "topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12",
+      "worst_avg_overall": 52,
+      "worst_run_id": "2026-03-05T06-23-02Z_script_only_qe_rrf_allsteps_4_1_nano",
+      "worst_run_name": "script_only_qe_rrf_allsteps_4.1-nano"
+    },
+    {
+      "group": "qe+fusion+mmr",
+      "runs_total": 14,
+      "runs_with_overall": 14,
+      "best_avg_overall": 77,
+      "best_run_id": "2026-03-06T23-28-20Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_mmr_k12",
+      "best_run_name": "topiccards_blended_gen_gpt_4_1_mini_qe_rrf_mmr_k12",
+      "worst_avg_overall": 64,
+      "worst_run_id": "2026-03-03T05-46-17Z_qe_rrf_mmr_k12",
+      "worst_run_name": "qe_rrf_mmr_k12"
+    },
+    {
+      "group": "routing_blended",
+      "runs_total": 9,
+      "runs_with_overall": 9,
+      "best_avg_overall": 75,
+      "best_run_id": "2026-03-06T23-26-34Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12",
+      "best_run_name": "topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12",
+      "worst_avg_overall": 46,
+      "worst_run_id": "2026-03-05T05-19-16Z_topiccards_blended_q5_fix_julie",
+      "worst_run_name": "topiccards_blended_q5_fix_julie"
+    }
+  ]
+}
