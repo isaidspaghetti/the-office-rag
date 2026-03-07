@@ -74,8 +74,8 @@ def main() -> None:
 
     st.markdown('<div class="sticky-mode">', unsafe_allow_html=True)
 
-    st.markdown("# RAGE & OD")
-    st.caption("Rage Evaluation & Observability Dashboard")
+    st.markdown("# RAG Eval")
+    st.caption("RAG Evaluation & Observability Dashboard")
     labels = [modes["summary"][0], modes["chat_debug"][0]]
     default_label = modes[mode][0]
 
@@ -87,6 +87,10 @@ def main() -> None:
 
     selected_mode = "summary" if selected_label == modes["summary"][0] else "chat_debug"
     if selected_mode != mode:
+        # When a user explicitly switches into the Chat & Debug suite,
+        # default the inner dashboard to the Chat Playground.
+        if selected_mode == "chat_debug":
+            st.session_state["nav_page"] = "Chat Playground"
         _set_query_mode(selected_mode)
         st.rerun()
 
