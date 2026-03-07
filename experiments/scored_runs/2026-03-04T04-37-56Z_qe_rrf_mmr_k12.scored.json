@@ -1,0 +1,285 @@
+{
+  "run": {
+    "run_id": "2026-03-04T04-37-56Z_qe_rrf_mmr_k12",
+    "run_name": "qe_rrf_mmr_k12",
+    "created_at_utc": "2026-03-04T04:37:56Z",
+    "notes": "Query expansion + RRF fusion + MMR + metadata check"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 53,
+    "overall_scores": [
+      56,
+      100,
+      56,
+      85,
+      27,
+      20,
+      25
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 1,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The candidate answer states the episode is S03E20 and describes the scene with Jim impersonating Dwight, but the retrieved context does not contain any information about this episode or scene."
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context per the gold answer, but the retrieved context does not support or mention this information at all, leading to low groundedness."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode as Season 2, Episode 12 (\"The Injury\") and states that Michael burns his foot on a George Foreman grill, which is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E04",
+          "S02E13",
+          "S02E15",
+          "S02E20",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael joking around and comparing the office to Friends in S02E02",
+          "Fire starting in the office kitchen in S02E04",
+          "Jan coming for a women in the office session in S02E15",
+          "Michael staging a men's only session in S02E15",
+          "Dwight finding a joint and conducting an investigation in S02E20",
+          "Jim's feelings for Pam developing beyond secrecy"
+        ],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "Jim confesses his feelings and kisses Pam in Casino Night"
+        ],
+        "notes": "The candidate answer lists several episode events, some supported by retrieved context (e.g., The Dundies, The Secret, Casino Night), but many claims are unsupported by the retrieved summaries. The answer lacks key emotional and relationship developments emphasized in the gold answer, such as Pam's engagement, Michael and Jan's relationship, and the Jim-Pam kiss. Overall, the answer is partially correct but incomplete and partially ungrounded."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 4,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 85,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim tackles Dwight abruptly (no direct support in retrieved context)",
+          "Dwight issues Jim a demerit for tardiness and explains disciplinary consequences (partial support but no full explanation)",
+          "Dwight sees Jim as 'second in command' (implied but not explicitly stated as a dislike reason)"
+        ],
+        "missing_points": [
+          "Explicit mention that Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "The nuance of deep respect underneath the rivalry",
+          "Example of Dwight naming Jim best man at his wedding"
+        ],
+        "notes": "The candidate answer is mostly supported by the retrieved context, especially the quotes from SCENE 047 showing Dwight's strategic betrayal and rivalry with Jim. The demerit example is partially supported but lacks full context. The candidate adds some claims (like physical tackling) not found in the retrieved context. The answer covers three reasons but misses the nuance of respect and some key thematic points from the gold answer."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 4,
+        "overall": 27,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael admits having sex with Jan and considering her his girlfriend",
+          "Details about how the relationship with Jan ended"
+        ],
+        "missing_points": [
+          "Other serious girlfriends besides Jan Levinson",
+          "How other relationships ended"
+        ],
+        "notes": "The candidate answer only mentions Jan Levinson and provides some details about their relationship, but these details are not supported by the retrieved context. The retrieved context does not contain sufficient information about Michael's serious girlfriends or how those relationships ended. The candidate correctly refrains from adding unsupported information about other girlfriends, but overall the answer is incomplete and mostly ungrounded."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 0,
+        "completeness": 1,
+        "hallucination": 1,
+        "overall": 20,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "The teapot letter is a private letter that Pam wrote to Jim",
+          "Pam said she would rather keep it private",
+          "The letter's significance as a cherished and private expression of their relationship"
+        ],
+        "missing_points": [
+          "Jim gives Pam the teapot, not the other way around",
+          "The teapot contains meaningful items including a letter representing Jim's feelings",
+          "It was introduced in Season 2's Christmas episode (S02E10)",
+          "The teapot letter is a meaningful symbol referenced later in their relationship"
+        ],
+        "notes": "The candidate answer contradicts the gold answer by reversing who wrote the letter and who gave the teapot. The retrieved context does not contain any information about the teapot letter or its importance, so the candidate answer is not grounded. The answer misses key facts about the teapot letter's origin, contents, and significance."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is arrested in the series finale",
+          "Creed implies shady or criminal behavior and a questionable identity",
+          "Creed starting his own paper company secretly",
+          "Creed speaking in strange languages or cryptic ways",
+          "Creed trying to avoid being laid off by Michael"
+        ],
+        "missing_points": [
+          "Creed's role as comic relief and unpredictable presence",
+          "Creed's bizarre and evasive nature",
+          "Creed's arrest in the series finale"
+        ],
+        "notes": "The candidate answer provides a general characterization of Creed as quirky and mysterious with some examples of his odd behavior, but none of these claims are supported by the retrieved context, which contains only sparse and unrelated script excerpts mentioning Creed without details on his role or personality. The gold answer is more precise and includes key facts not found in the context. Therefore, the candidate answer is only partially correct and poorly grounded."
+      }
+    }
+  ]
+}

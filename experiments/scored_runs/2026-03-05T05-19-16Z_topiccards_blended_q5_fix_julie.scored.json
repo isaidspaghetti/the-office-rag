@@ -1,0 +1,116 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-19-16Z_topiccards_blended_q5_fix_julie",
+    "run_name": "topiccards_blended_q5_fix_julie",
+    "created_at_utc": "2026-03-05T05:19:16Z",
+    "notes": "strict serious girlfriends + derived context evidence + qe v2"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 1,
+    "avg_overall": 25,
+    "overall_scores": [
+      25
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 1,
+    "episode_ok_rate": 1.0,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael proposed to Carol on their fourth date",
+          "Michael had a girlfriend named Tara",
+          "Michael had a European girlfriend who was a dental hygienist from Carbondale",
+          "Details on how Jan and Carol relationships ended"
+        ],
+        "missing_points": [
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship and ending",
+          "Holly Flax relationship and ending"
+        ],
+        "notes": "The candidate answer lists girlfriends and relationship details not supported by the retrieved context, which contains mostly unrelated script excerpts. The gold answer includes more complete and accurate information about serious girlfriends and how relationships ended, which is missing or contradicted in the candidate answer. The retrieved context does not provide sufficient information to fully answer the question."
+      }
+    }
+  ]
+}

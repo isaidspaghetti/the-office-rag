@@ -1,0 +1,287 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-42-39Z_topiccards_blended_gen_gpt_4_1_mini_baseline_similarity_k3",
+    "run_name": "topiccards_blended_gen_gpt_4_1_mini_baseline_similarity_k3",
+    "created_at_utc": "2026-03-05T05:42:39Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 90.0,
+      "max_retries": 2,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 59,
+    "overall_scores": [
+      95,
+      100,
+      73,
+      38,
+      20,
+      30,
+      56
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.7142857142857143,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer fully matches the gold answer and is supported by the retrieved context, which includes the script from S03E20 showing the impersonation scene."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and matches the gold answer, fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 73,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan's declaration of not being in a relationship",
+          "Michael humorously navigates leadership challenges and personal life",
+          "Dwight's pride and overconfidence provide recurring comedic elements",
+          "Open questions about Dwight's career trajectory"
+        ],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Dwight’s rivalry with Jim through workplace conflicts and pranks",
+          "The season builds to major emotional beats beyond Casino Night"
+        ],
+        "notes": "The candidate answer covers many key events and arcs mentioned in the retrieved context, including Michael and Jan's complex relationship and Jim's confession at Casino Night. However, it introduces some details not supported by the retrieved context, such as Jan's declaration and Dwight's character traits. It also omits some important elements from the gold answer, like Pam's engagement to Roy and the ongoing rivalry between Dwight and Jim."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 2,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
+          "Dwight says, 'I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior,'",
+          "Dwight's dislike stems from Jim's pranks, challenges to his authority, and competition for power"
+        ],
+        "missing_points": [
+          "Underneath the rivalry, there’s deep respect",
+          "By the final season, Dwight names Jim best man at his wedding",
+          "Examples from distinct situations/episodes explicitly linking to the reasons"
+        ],
+        "notes": "The candidate answer correctly identifies three main reasons for Dwight's dislike of Jim, aligning with the gold answer. However, the retrieved context does not contain the specific quotes or detailed examples cited by the candidate, leading to low groundedness and hallucination scores. The answer lacks mention of the nuanced respect and final season development. Overall, the answer is partially correct but insufficiently supported by the provided context."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 20,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael acknowledges that he 'did consider Jan to be my girlfriend,' but Jan did not consider him her boyfriend",
+          "Their relationship ended with Jan giving Michael poor performance reviews at work"
+        ],
+        "missing_points": [
+          "Other serious girlfriends besides Jan Levinson",
+          "How the relationships with Carol Stills, Holly Flax, Donna Newton, and Helene Beesly ended"
+        ],
+        "notes": "The candidate answer only mentions Jan Levinson as a serious girlfriend and provides details not supported by the retrieved context. The retrieved context does not contain sufficient information to answer the question fully, so the candidate's additional claims are unsupported. The candidate correctly refrains from mentioning other girlfriends due to lack of context, but overall the answer is incomplete and only partially grounded."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "What the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate correctly states lack of information in retrieved context and refrains from guessing."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is possibly older than he claims",
+          "Creed is trying to hold on to his job amid changes favoring younger workers",
+          "Creed is an older employee"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer correctly identifies Creed as mysterious and somewhat evasive, supported by the retrieved context. However, it lacks mention of his role in Quality Assurance, his bizarre and shady nature, and the fact that he is comic relief and arrested in the finale. Some claims about his age and job security are not clearly supported by the retrieved context. Overall, the answer is partially correct but incomplete and partially unsupported."
+      }
+    }
+  ]
+}

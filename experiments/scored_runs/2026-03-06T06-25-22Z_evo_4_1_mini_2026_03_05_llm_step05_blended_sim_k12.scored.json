@@ -1,0 +1,363 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-25-22Z_evo_4_1_mini_2026_03_05_llm_step05_blended_sim_k12",
+    "run_name": "evo_4_1_mini_2026-03-05_llm_step05_blended_sim_k12",
+    "created_at_utc": "2026-03-06T06:25:22Z",
+    "notes": "LLM-enabled sweep with gpt-4.1-mini; telemetry disabled; script=db/chroma_db_meta derived=db/chroma_db_derived_cards_4_1_mini_2026-03-04"
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:25:22Z",
+            "sha256": "e90b88630e11fefa1c19e8f0a0beef8566e5756eaf39ca8cd7fda64ab6ed2cf8"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-06T04:52:41Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-06T04:52:41Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": false,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season09_4_1_mini_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season09_4_1_mini_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [],
+          "seasons_filter": null,
+          "docs_planned": 24,
+          "dry_run": false,
+          "docs_indexed": 24
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04/chroma.sqlite3",
+            "size_bytes": 917504,
+            "mtime_utc": "2026-03-06T06:25:22Z",
+            "sha256": "ef8f1b36bca3876f54065099ea2a390f135d20173d082ed47de32cc0e86607c5"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+      "collection_name": "derived_cards",
+      "num_vectors": 24
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 60.0,
+      "max_retries": 1,
+      "seed": 42
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 54,
+    "overall_scores": [
+      30,
+      100,
+      100,
+      38,
+      25,
+      26,
+      60
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.7142857142857143,
+    "must_include_ok_rate": 0.8571428571428571,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The quote is said by Dwight in SCENE 050",
+          "The exact phrase 'Bears. Beets. Battlestar Galactica.' is said by Dwight"
+        ],
+        "missing_points": [
+          "The quote is actually said by Jim impersonating Dwight",
+          "The episode is Season 3, Episode 20 ('Product Recall')",
+          "The context of the quote as a mockery of Dwight's obsessions"
+        ],
+        "notes": "The candidate answer discusses Dwight's interests in beets and Battlestar Galactica with some supporting quotes but does not identify the exact episode or that Jim says the phrase while impersonating Dwight. The retrieved context does not contain the exact quote or the correct episode, so the candidate's claims about the phrase being said by Dwight are unsupported. The answer partially addresses the context but misses key facts from the gold answer."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E13"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "No overall season summary provided in context",
+          "No mention of Jim/Pam relationship tension",
+          "No mention of Michael and Jan's relationship",
+          "No mention of Dwight's ambition and rivalry with Jim",
+          "No mention of major emotional beats like Casino Night"
+        ],
+        "notes": "Candidate correctly states that no overall summary of Season 2 is present in the retrieved context and only episode summaries are given. This is a good grounded and complete response given the context."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,' (SCENE 001) - not found in retrieved context",
+          "Dwight says, 'I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior,' (SCENE 001) - not found in retrieved context",
+          "Dwight states, 'Jim is my enemy,' and the extended quote (SCENE 034) - not found in retrieved context"
+        ],
+        "missing_points": [
+          "Explicit mention of Dwight's respect for Jim underneath rivalry",
+          "Example of Dwight naming Jim best man at his wedding",
+          "Dwight's value of hierarchy, rules, and authority contrasted with Jim's sarcasm"
+        ],
+        "notes": "The candidate answer provides three reasons for Dwight's dislike of Jim with example quotes, but these quotes are not supported by the retrieved context. The retrieved context contains some interactions but no direct quotes or clear examples supporting the candidate's claims. The answer partially matches the gold answer in theme but lacks grounding and completeness."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson gave Michael poor performance reviews after their relationship became official",
+          "Michael found out he had herpes which complicated things with Carol",
+          "Michael proposed to Carol on their fourth date",
+          "Michael had a girlfriend named Tara who lives in New York City",
+          "Michael talked about a European girlfriend",
+          "Michael ended relationship with Helene because of Pam's feelings"
+        ],
+        "missing_points": [
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Michael ending relationship with Helene because she was too old",
+          "Carol breaking up because Michael moved too fast and was inappropriate",
+          "Michael proposing to Carol and photoshopping his face over her ex-husband's in a family photo"
+        ],
+        "notes": "The candidate answer includes some details about Jan, Carol, and Helene but many claims are not supported by the retrieved context. The retrieved context is sparse and does not provide enough information to fully answer the question. The candidate also mentions Tara and other girlfriends not supported by the context. The gold answer includes more complete and accurate information about serious girlfriends and how relationships ended, which is missing or contradicted in the candidate answer."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E02",
+          "S09E56"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 26,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is introduced as a Christmas gift from Jim to Pam with inside jokes and meaningful items",
+          "The letter symbolizes Jim's affection and deep connection",
+          "Pam prefers to keep the letter private",
+          "Quotes from S03E02 and S09E56 about the letter and privacy"
+        ],
+        "missing_points": [
+          "The teapot letter is introduced in Season 2's Christmas episode (S02E10)",
+          "The letter remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The retrieved context does not contain any information about the teapot letter or its significance. The candidate answer provides details and quotes not supported by the retrieved context, leading to low groundedness and hallucination scores. The answer partially matches the gold answer in content but lacks grounding."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 60,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed sold Kelly a tapeworm from Mexico",
+          "Creed talks about starting his own paper company to poach clients",
+          "Creed helped resolve a scandal called Watermark-gate",
+          "Creed is portrayed as diligent in some situations"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides a reasonable characterization of Creed as mysterious and quirky, with some references to his interactions and attitude. However, many specific claims are not supported by the retrieved context, which mainly contains brief script excerpts without those details. The gold answer includes key facts about Creed's role, personality, and fate that are missing here."
+      }
+    }
+  ]
+}

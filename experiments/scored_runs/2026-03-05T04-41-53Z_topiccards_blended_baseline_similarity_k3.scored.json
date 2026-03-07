@@ -1,0 +1,303 @@
+{
+  "run": {
+    "run_id": "2026-03-05T04-41-53Z_topiccards_blended_baseline_similarity_k3",
+    "run_name": "topiccards_blended_baseline_similarity_k3",
+    "created_at_utc": "2026-03-05T04:41:53Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 51,
+    "overall_scores": [
+      78,
+      100,
+      44,
+      38,
+      25,
+      35,
+      38
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 78,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight responds 'That's a ridiculous question.'",
+          "Jim says 'False. Black bear.'",
+          "Dwight reacts with confusion saying 'Bears do not— What is going on— What are you doing?!'"
+        ],
+        "missing_points": [
+          "Explicitly mention that Jim is mocking Dwight's obsessions (bears, beets, Battlestar Galactica)",
+          "Mention the episode title 'Product Recall'"
+        ],
+        "notes": "The candidate answer correctly identifies the episode and context of Jim impersonating Dwight and the quote. However, the retrieved context only partially supports the dialogue details and does not confirm Dwight's exact responses or the full comedic exchange. The candidate answer adds dialogue lines not fully supported by the retrieved context, leading to a moderate groundedness score."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and matches the gold answer, fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E03"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 5,
+        "overall": 44,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension",
+          "Pam engaged to Roy",
+          "Michael and Jan relationship",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats like Casino Night"
+        ],
+        "notes": "Candidate answer only lists two episode summaries from retrieved context without summarizing the whole season or key plot points from gold answer. No unsupported claims, but very incomplete."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,'",
+          "Dwight threatens Jim with firing and pre-firing, 'Don't make me fire you,' and 'You're pre-fired. And when I'm promoted, you'll be full fired.'",
+          "Dwight feels threatened by Jim's potential to make him look bad or undermine his position, with quote 'I cannot have a subordinate trying to make me look stupid. Okay? I need you to promise me that you'll be on your best behavior.'"
+        ],
+        "missing_points": [
+          "Explicit mention that Jim constantly pranks and undermines Dwight as a main reason",
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Examples from distinct situations/episodes",
+          "The nuance of underlying respect and final season best man mention"
+        ],
+        "notes": "The candidate answer provides some relevant reasons and examples but many claims and quotes are not supported by the retrieved context. The retrieved context is limited and does not contain explicit evidence for most claims. The answer partially aligns with the gold answer but lacks completeness and grounding."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E16"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 1,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 4,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael considered Jan to be his girlfriend",
+          "Jan did not consider him her boyfriend",
+          "Relationship ended with Jan giving Michael poor performance reviews",
+          "Michael defends Jan despite her ambivalence and negative reviews"
+        ],
+        "missing_points": [
+          "Other serious girlfriends besides Jan Levinson",
+          "How other relationships ended",
+          "Details about Carol Stills, Holly Flax, Donna Newton, Helene Beesly"
+        ],
+        "notes": "The candidate answer only mentions Jan Levinson and provides details not supported by the retrieved context. The retrieved context does not contain enough information to answer the question fully, so a more grounded answer would be 'I don't know'. The candidate answer partially addresses the question but lacks completeness and grounding."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 35,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "What the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate correctly states lack of information in retrieved context and refrains from guessing, which is appropriate given no relevant info."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is possibly older than he appears",
+          "Creed refers to himself and Michael as 'the old timers' expressing concern about new systems and youth taking over",
+          "Creed tries to convince Michael to undo a decision about letting someone go"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer includes some dialogue and scenes from the retrieved context that show Creed's age and some interactions, but it does not clearly state his role or his 'deal' as described in the gold answer. Some claims about Creed's personality and actions are not supported by the retrieved context. The answer is partially grounded but incomplete and somewhat vague."
+      }
+    }
+  ]
+}

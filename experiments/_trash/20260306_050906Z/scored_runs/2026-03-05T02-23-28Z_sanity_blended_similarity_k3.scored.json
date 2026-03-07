@@ -1,0 +1,282 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-23-28Z_sanity_blended_similarity_k3",
+    "run_name": "sanity_blended_similarity_k3",
+    "created_at_utc": "2026-03-05T02:23:28Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 3,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": false,
+      "provider": null,
+      "model": null,
+      "temperature": null,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 11,
+    "overall_scores": [
+      15,
+      15,
+      15,
+      10,
+      10,
+      0,
+      15
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 15,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [
+          "Candidate answer is 'None' which does not answer the question"
+        ],
+        "missing_points": [
+          "Episode identification (S03E20)",
+          "Context of Jim impersonating Dwight",
+          "The quote 'Bears. Beets. Battlestar Galactica.'"
+        ],
+        "notes": "The retrieved context contains the relevant episode S03E20 and the scene where Jim impersonates Dwight, but the candidate answer provides no information. The best answer given the context would be the gold answer or 'I don't know'."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 15,
+        "verdict": "incorrect",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Episode identification (S02E12)",
+          "Michael burns his foot on a George Foreman grill"
+        ],
+        "notes": "Candidate answer is 'None', which does not answer the question. Retrieved context clearly supports the gold answer. No hallucinations since no claims made, but answer is incomplete and incorrect."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 15,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension",
+          "Pam engaged to Roy",
+          "Michael and Jan relationship",
+          "Dwight's ambition and rivalry with Jim",
+          "Casino Night emotional climax"
+        ],
+        "notes": "Candidate answer is 'None' which is fully supported by the retrieved context that contains only sparse episode summaries without season overview. No unsupported claims, but no information provided either."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 1,
+        "completeness": 0,
+        "hallucination": 1,
+        "overall": 10,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [
+          "No answer provided"
+        ],
+        "missing_points": [
+          "Reasons why Dwight dislikes Jim",
+          "Examples from episodes",
+          "Mention of rivalry and respect"
+        ],
+        "notes": "Candidate answer is 'None', providing no information. Retrieved context contains some dialogue but no explicit reasons or examples explaining Dwight's dislike of Jim."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 1,
+        "completeness": 0,
+        "hallucination": 0,
+        "overall": 10,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [
+          "Answer 'None' contradicts the gold answer listing multiple serious girlfriends and relationship details"
+        ],
+        "missing_points": [
+          "Names of serious girlfriends",
+          "How relationships ended"
+        ],
+        "notes": "The retrieved context contains no relevant information about Michael Scott's serious girlfriends or relationship endings. The candidate answer 'None' is unsupported and contradicts the gold answer. The best answer given the context would be 'I don't know'."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 0,
+        "completeness": 0,
+        "hallucination": 0,
+        "overall": 0,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "What the teapot letter is",
+          "Why it is important",
+          "Reference to Season 2 Christmas episode",
+          "Meaning of the teapot and letter"
+        ],
+        "notes": "Candidate answer is 'None' and retrieved context does not contain any information about the teapot letter or its significance."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 15,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [
+          "Candidate answer is 'None' which provides no information"
+        ],
+        "missing_points": [
+          "Creed's role at Dunder Mifflin (Quality Assurance)",
+          "His bizarre and evasive nature",
+          "Implications of shady or criminal behavior",
+          "His comic relief role and mysterious presence",
+          "His arrest in the series finale"
+        ],
+        "notes": "The candidate answer provides no information. The retrieved context contains only minimal dialogue snippets with no clear explanation of who Creed is or his 'deal'. The best answer given the context is 'I don't know'."
+      }
+    }
+  ]
+}

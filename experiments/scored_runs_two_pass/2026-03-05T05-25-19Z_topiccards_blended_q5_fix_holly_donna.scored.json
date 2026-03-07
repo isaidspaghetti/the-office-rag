@@ -1,0 +1,190 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-25-19Z_topiccards_blended_q5_fix_holly_donna",
+    "run_name": "topiccards_blended_q5_fix_holly_donna",
+    "created_at_utc": "2026-03-05T05:25:19Z",
+    "notes": "deterministic michael romance topic_cards + strict serious girlfriends"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-06T07:22:53Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 1,
+    "avg_overall": 40,
+    "overall_scores": [
+      40
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 1,
+    "episode_ok_rate": 1.0,
+    "must_include_ok_rate": 0.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 40,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jan Levinson was Michael's girlfriend and they had a sexual relationship",
+          "Jan gave Michael poor performance reviews after their relationship became official",
+          "Tara is Michael's girlfriend who lives in New York City and gave him a toy taxi cab",
+          "Michael was engaged to Carol and proposed on their fourth date",
+          "Relationship with Carol ended after Michael found out he had herpes",
+          "Michael has a European girlfriend who is a dental hygienist from Carbondale"
+        ],
+        "missing_points": [
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship and ending",
+          "Carol breakup reason related to Michael moving too fast and inappropriate behavior",
+          "Jan relationship described as toxic/co-dependent and ending after escalating dysfunction"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context does not contain any information about Michael Scott's serious girlfriends or details about their relationships or how they ended. The candidate answer's claims are not supported by the provided context. | correctness: Candidate lists some girlfriends but misses key serious relationships and their endings as per gold answer; also includes unsupported girlfriends like Tara and European girlfriend.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jan Levinson was Michael's girlfriend and they had a sexual relationship",
+            "Jan gave Michael poor performance reviews after their relationship became official",
+            "Tara is Michael's girlfriend who lives in New York City and gave him a toy taxi cab",
+            "Michael was engaged to Carol and proposed on their fourth date",
+            "Relationship with Carol ended after Michael found out he had herpes",
+            "Michael has a European girlfriend who is a dental hygienist from Carbondale"
+          ],
+          "notes": "The retrieved context does not contain any information about Michael Scott's serious girlfriends or details about their relationships or how they ended. The candidate answer's claims are not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Holly Flax relationship and ending",
+            "Donna Newton relationship and ending",
+            "Helene Beesly relationship and ending",
+            "Carol breakup reason related to Michael moving too fast and inappropriate behavior",
+            "Jan relationship described as toxic/co-dependent and ending after escalating dysfunction"
+          ],
+          "notes": "Candidate lists some girlfriends but misses key serious relationships and their endings as per gold answer; also includes unsupported girlfriends like Tara and European girlfriend."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jan Levinson was Michael's girlfriend and they had a sexual relationship\",\n    \"Jan gave Michael poor performance reviews after their relationship became official\",\n    \"Tara is Michael's girlfriend who lives in New York City and gave him a toy taxi cab\",\n    \"Michael was engaged to Carol and proposed on their fourth date\",\n    \"Relationship with Carol ended after Michael found out he had herpes\",\n    \"Michael has a European girlfriend who is a dental hygienist from Carbondale\"\n  ],\n  \"notes\": \"The retrieved context does not contain any information about Michael Scott's serious girlfriends or details about their relationships or how they ended. The candidate answer's claims are not supported by the provided context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Holly Flax relationship and ending\",\n    \"Donna Newton relationship and ending\",\n    \"Helene Beesly relationship and ending\",\n    \"Carol breakup reason related to Michael moving too fast and inappropriate behavior\",\n    \"Jan relationship described as toxic/co-dependent and ending after escalating dysfunction\"\n  ],\n  \"notes\": \"Candidate lists some girlfriends but misses key serious relationships and their endings as per gold answer; also includes unsupported girlfriends like Tara and European girlfriend.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

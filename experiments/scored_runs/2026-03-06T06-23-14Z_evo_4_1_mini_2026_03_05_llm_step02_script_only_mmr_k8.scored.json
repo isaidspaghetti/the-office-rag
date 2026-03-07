@@ -1,0 +1,371 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-23-14Z_evo_4_1_mini_2026_03_05_llm_step02_script_only_mmr_k8",
+    "run_name": "evo_4_1_mini_2026-03-05_llm_step02_script_only_mmr_k8",
+    "created_at_utc": "2026-03-06T06:23:14Z",
+    "notes": "LLM-enabled sweep with gpt-4.1-mini; telemetry disabled; script=db/chroma_db_meta derived=db/chroma_db_derived_cards_4_1_mini_2026-03-04"
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:23:13Z",
+            "sha256": "e2fe3d725c9151895b828557c6d8d698eedcf4547edb5d94ad13b380311782e8"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-05T03:25:17Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-05T03:25:17Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": true,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season01_nano_2026-03-04",
+            "derived_episodecard_season02_nano_2026-03-04",
+            "derived_episodecard_season03_nano_2026-03-04",
+            "derived_episodecard_season04_nano_2026-03-04",
+            "derived_episodecard_season05_nano_2026-03-04",
+            "derived_episodecard_season06_nano_2026-03-04",
+            "derived_episodecard_season07_nano_2026-03-04",
+            "derived_episodecard_season08_nano_2026-03-04",
+            "derived_episodecard_season09_nano_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season01_nano_2026-03-04",
+            "derived_seasoncard_season02_nano_2026-03-04",
+            "derived_seasoncard_season03_nano_2026-03-04",
+            "derived_seasoncard_season04_nano_2026-03-04",
+            "derived_seasoncard_season05_nano_2026-03-04",
+            "derived_seasoncard_season06_nano_2026-03-04",
+            "derived_seasoncard_season07_nano_2026-03-04",
+            "derived_seasoncard_season08_nano_2026-03-04",
+            "derived_seasoncard_season09_nano_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [
+            "topiccards_major_relationships_v1_2026-03-05"
+          ],
+          "seasons_filter": null,
+          "docs_planned": 225,
+          "dry_run": false,
+          "docs_indexed": 225
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards/chroma.sqlite3",
+            "size_bytes": 4374528,
+            "mtime_utc": "2026-03-06T03:58:01Z",
+            "sha256": "23acfe942b4efab356d40cee08bb0623f74c853ac4e630778750832accbe9a14"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": null,
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "script_only",
+      "search_type": "mmr",
+      "k": 8,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "routing": null,
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 60.0,
+      "max_retries": 1,
+      "seed": 42
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 57,
+    "overall_scores": [
+      95,
+      100,
+      56,
+      48,
+      20,
+      25,
+      56
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context from S03E20 script."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E08",
+          "S02E13"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Season 2 focuses on developing relationships among the staff",
+          "Michael's antics",
+          "Jim organizes office games while Michael and Dwight are away",
+          "Michael's relationship with Jan discussed during employee reviews"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael and Jan's relationship becoming more involved",
+          "Dwight's ambition and rivalry with Jim through workplace conflicts and pranks",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "The candidate answer lists some episode summaries that are supported by the retrieved context but misses key thematic elements and major plot points highlighted in the gold answer. Some claims about relationship developments and character dynamics are not supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 3,
+        "overall": 48,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says, 'Your pranks have never worked in the past and they're not going to work today,' (SCENE 001) - not found in retrieved context",
+          "Dwight tells Jim, 'I cannot have a subordinate trying to make me look stupid,' and warns him not to make him fire Jim (SCENE 003) - not found in retrieved context",
+          "Examples explicitly linking Jim's pranks to Dwight's dislike are not clearly supported"
+        ],
+        "missing_points": [
+          "The nuance of underlying respect and eventual friendship is missing",
+          "Examples from distinct episodes/scenes are limited and not fully supported",
+          "No mention of Dwight's competitiveness and feeling threatened by Jim's social ease"
+        ],
+        "notes": "The candidate answer identifies three plausible reasons for Dwight's dislike of Jim consistent with the gold answer, but the retrieved context does not provide direct quotes or clear examples supporting these claims. Some cited scenes are not present in the retrieved context. The answer lacks the important nuance of their underlying respect and eventual friendship. Overall, the answer is partially correct but insufficiently grounded."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 1,
+        "overall": 20,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan did not consider Michael to be her boyfriend",
+          "Jan gave Michael poor performance reviews after relationship became official",
+          "Relationship ended with Jan being ambivalent and critical",
+          "Michael defended Jan despite her flaws",
+          "Michael proposed to Carol on their fourth date",
+          "Carol pointed out they did not love each other at first",
+          "Relationship ended or was strained with Carol",
+          "Michael reflects on proposal as ridiculous",
+          "Michael mentions having a European girlfriend who was cute and hot"
+        ],
+        "missing_points": [
+          "Holly Flax as serious girlfriend and how relationship ended",
+          "Donna Newton as serious girlfriend and how relationship ended",
+          "Helene Beesly as serious girlfriend and how relationship ended",
+          "Details on how Jan Levinson relationship ended (escalating dysfunction)",
+          "Details on Carol Stills breakup reasons (Michael moving too fast, inappropriate behavior)",
+          "Michael proposing to Carol and photoshopping face over ex-husband in family photo",
+          "Michael ending relationship with Donna Newton after learning she is married",
+          "Michael ending relationship with Helene Beesly because she is too old"
+        ],
+        "notes": "The candidate answer provides some information about Jan and Carol but mostly unsupported by the retrieved context, which is sparse and does not contain these relationship details. The candidate misses key girlfriends and relationship endings from the gold answer. The retrieved context is insufficient to fully answer the question."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot letter is a Christmas gift from Season 2's Christmas episode",
+          "Jim filled the teapot with inside jokes and meaningful items",
+          "The letter represents Jim's feelings for Pam and their relationship",
+          "Pam chooses to keep the contents private with a specific quote"
+        ],
+        "missing_points": [
+          "The retrieved context does not mention the teapot letter or its significance",
+          "No evidence that the letter is introduced in Season 2 or the Christmas episode",
+          "No support for the emotional importance or symbolism of the teapot letter"
+        ],
+        "notes": "The candidate answer provides a detailed explanation consistent with the gold answer, but none of these facts are supported by the retrieved context, which contains no relevant information about the teapot letter or the episode it appears in. The answer is mostly correct per the gold but is not grounded in the provided context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed tries to start his own paper company and attempts to poach clients quietly",
+          "He has made his hair jet black and claims to be thirty years old (SCENE 028, SCENE 029) - partially supported but not fully explained",
+          "He is involved in some office drama where Michael has to fire someone and Creed tries to convince Michael not to fire him"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "His 'deal' is that he’s bizarre and evasive, often implying shady or criminal behavior and a questionable identity",
+          "He is comic relief as an unpredictable, mysterious presence",
+          "He is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some supported details about Creed's personality and some scenes but lacks key facts about his job, his bizarre and shady nature, and the series finale arrest. Some claims about starting a paper company and poaching clients are not supported by the retrieved context."
+      }
+    }
+  ]
+}

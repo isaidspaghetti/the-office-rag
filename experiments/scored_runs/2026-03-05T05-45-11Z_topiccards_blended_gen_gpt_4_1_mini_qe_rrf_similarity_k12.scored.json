@@ -1,0 +1,306 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-45-11Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12",
+    "run_name": "topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12",
+    "created_at_utc": "2026-03-05T05:45:11Z",
+    "notes": "Routing (blended) + query expansion + RRF fusion"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 90.0,
+      "max_retries": 2,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 59,
+    "overall_scores": [
+      95,
+      100,
+      77,
+      30,
+      25,
+      30,
+      55
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 95,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode (S03E20 \"Product Recall\") and context where Jim impersonates Dwight and says the line. The retrieved context fully supports the answer."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E13",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 4,
+        "hallucination": 4,
+        "overall": 77,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam remains engaged to Roy",
+          "Open questions about Jim's potential transfer",
+          "Open questions about the long-term impact of Jim and Pam's kiss",
+          "Recurring humor through Michael's leadership attempts and Dwight's pride and overconfidence"
+        ],
+        "missing_points": [
+          "Pam's engagement to Roy explicitly mentioned",
+          "Dwight's rivalry and pranks with Jim",
+          "Major emotional beats beyond Casino Night",
+          "More detail on Michael and Jan's relationship involvement"
+        ],
+        "notes": "The candidate answer covers many key events and the Jim/Pam relationship well, including the pivotal Casino Night kiss. However, some claims such as Pam's engagement to Roy and open questions about future events are not supported by the retrieved context. The retrieved context is limited and does not fully cover all season 2 plot points, leading to partial grounding. Overall, a good summary but with some unsupported details and missing elements from the gold answer."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S09E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim constantly pranks and undermines Dwight with specific examples",
+          "Dwight tries to pre-fire Jim and forms alliances against him",
+          "Jim leaves the company and takes others with him, betraying Dwight"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is dismissive",
+          "Dwight is threatened by Jim’s social ease and influence",
+          "The nuance of deep respect underneath rivalry and Jim as best man at Dwight’s wedding"
+        ],
+        "notes": "The candidate answer provides plausible reasons and examples for Dwight's dislike of Jim, but none of these claims are supported by the retrieved context, which contains only minimal dialogue without relevant details. The gold answer's nuanced points and examples are missing. The candidate's examples are from S09E22, but the retrieved context does not include that episode or support these facts."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Carol's herpes diagnosis and proposal details",
+          "Holly's relationship details and breakup",
+          "Details about Tara, European girlfriend, Julie",
+          "Michael's other serious girlfriends like Donna Newton and Helene Beesly"
+        ],
+        "missing_points": [
+          "No clear evidence in retrieved context about serious girlfriends or how relationships ended",
+          "No mention of Donna Newton or Helene Beesly in retrieved context",
+          "No mention of relationship endings or proposals in retrieved context"
+        ],
+        "notes": "The candidate answer provides detailed information about Michael Scott's serious girlfriends and how the relationships ended, closely matching the gold answer. However, the retrieved context contains no relevant information to support these claims. Therefore, the answer is largely ungrounded and contains hallucinated details. The best answer based on the retrieved context would be 'I don't know'."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "What the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Season 2 Christmas episode"
+        ],
+        "notes": "Candidate correctly states lack of information in retrieved context and does not hallucinate. No answer content is provided, so correctness and completeness are zero. Groundedness and hallucination scores are high due to no unsupported claims."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 55,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is considered one of the 'old timers' along with Michael",
+          "Creed is concerned about being replaced by younger employees",
+          "Creed started his own paper company and tried to poach clients",
+          "Creed has a laid-back and cool attitude",
+          "Creed tries to convince Michael not to fire him by comparing himself to Devon",
+          "Creed's character is known for being eccentric and unpredictable with a hint of a mysterious past"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed implies shady or criminal behavior and a questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some character traits and quotes from the retrieved context but lacks key facts about Creed's role and 'deal' as per the gold answer. Several claims are not supported by the retrieved context, which mainly contains isolated quotes without explicit context about Creed's job or criminal implications."
+      }
+    }
+  ]
+}

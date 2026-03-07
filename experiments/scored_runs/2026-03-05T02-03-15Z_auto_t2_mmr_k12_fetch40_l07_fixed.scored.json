@@ -1,0 +1,289 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-03-15Z_auto_t2_mmr_k12_fetch40_l07_fixed",
+    "run_name": "auto_t2_mmr_k12_fetch40_l07_fixed",
+    "created_at_utc": "2026-03-05T02:03:15Z",
+    "notes": "Routing: auto (derived_then_script for agg questions) + MMR k=12 fetch_k=40 lambda=0.7"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "auto",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 54,
+    "overall_scores": [
+      80,
+      100,
+      38,
+      56,
+      30,
+      33,
+      38
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 3,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 80,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The detailed dialogue lines and exact scene description are not found in the retrieved context."
+        ],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode and context of the quote, matching the gold answer. However, the retrieved context does not contain the detailed dialogue or scene description provided by the candidate, so those specific claims are unsupported. The answer is otherwise complete and correct."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 2,
+        "hallucination": 5,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan",
+          "Dwight's ambition and rivalry with Jim",
+          "Major emotional beats including 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "The candidate answer accurately references episodes and events supported by the retrieved context but lacks coverage of key season-wide plot points and emotional arcs present in the gold answer."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 5,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight calls Jim 'stupid' after Jim jokes about pay decrease",
+          "Dwight tells Jim to 'zone you out for the rest of today' because he needs to stay focused"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Examples from distinct situations/episodes",
+          "The nuance of deep respect underneath the rivalry"
+        ],
+        "notes": "The candidate answer identifies Dwight's dislike due to annoyance, pranks, and undermining by Jim, which is partially supported by the retrieved context. However, some specific claims are not found in the context. The answer misses key reasons such as Dwight's respect for hierarchy and competitiveness, and the nuanced respect between them. The answer is somewhat grounded but incomplete."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and breakup",
+          "Carol Stills relationship and breakup",
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and breakup",
+          "Michael proposing to Holly Flax",
+          "Michael photoshopping face over ex-husband's photo"
+        ],
+        "missing_points": [
+          "Jan Levinson as serious girlfriend and breakup details",
+          "Carol Stills serious relationship and breakup",
+          "Holly Flax serious relationship and ending together",
+          "Donna Newton relationship and breakup",
+          "Michael proposing to Holly Flax",
+          "Details on how relationships ended for serious girlfriends"
+        ],
+        "notes": "The candidate answer only partially covers the question based on the retrieved context. It mentions Michael's relationship with Pam's mom Helene and an unnamed woman, but does not mention Jan Levinson, Carol Stills, Holly Flax, or Donna Newton, which are in the gold answer. The retrieved context does not provide enough information to fully answer the question, so the candidate's answer is limited but does not hallucinate major facts. Some claims in the gold answer are unsupported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 1,
+        "overall": 33,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The teapot included a card because 'Christmas is the time to tell people how you feel.'",
+          "The teapot contained Jim's high school yearbook photo and a hot sauce packet.",
+          "The letter symbolizes Jim's feelings for Pam and their close relationship."
+        ],
+        "missing_points": [
+          "The teapot letter is introduced in Season 2's Christmas episode ('Christmas Party').",
+          "The teapot letter remains a meaningful symbol referenced later as their relationship progresses."
+        ],
+        "notes": "The candidate answer provides a reasonable description of the teapot gift and its symbolic meaning, aligning with the gold answer. However, the retrieved context does not support any details about the teapot letter or its contents, nor the importance of the letter. The retrieved context only briefly mentions Jim giving Pam a teapot during Secret Santa but lacks details. Therefore, groundedness and hallucination scores are low. Completeness is moderate as the candidate covers the main idea but misses the episode reference and ongoing significance."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 38,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed sold Kelly a tapeworm from Mexico",
+          "Creed admitted 'That wasn't a tapeworm'",
+          "Creed talks about starting his own paper company and trying to poach clients",
+          "Creed is older than most staff and refers to himself as one of the 'old timers' along with Michael",
+          "Creed tries to avoid being fired by Michael and insists he wants to stay"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed's deal is that he is bizarre and evasive, implying shady or criminal behavior and questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides a general characterization of Creed as quirky and mysterious, which aligns with the gold answer. However, the retrieved context does not support many specific claims made, such as selling a tapeworm or starting a paper company. The retrieved context is sparse and does not confirm Creed's job role or his arrest. The answer partially matches the gold answer in tone but lacks grounding and completeness."
+      }
+    }
+  ]
+}

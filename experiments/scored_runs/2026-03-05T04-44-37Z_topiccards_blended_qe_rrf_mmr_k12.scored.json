@@ -1,0 +1,309 @@
+{
+  "run": {
+    "run_id": "2026-03-05T04-44-37Z_topiccards_blended_qe_rrf_mmr_k12",
+    "run_name": "topiccards_blended_qe_rrf_mmr_k12",
+    "created_at_utc": "2026-03-05T04:44:37Z",
+    "notes": "Routing (blended) + query expansion + RRF fusion + MMR"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 40,
+      "lambda_mult": 0.7,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 65,
+    "overall_scores": [
+      92,
+      100,
+      64,
+      27,
+      25,
+      90,
+      56
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.8571428571428571,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E20"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 92,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode (S03E20 Product Recall) and context (Jim impersonating Dwight and saying the line). The retrieved context includes the relevant script excerpt confirming the scene. Minor details like Dwight's exact lines after Jim's quote are not fully in the retrieved context but the main facts are supported."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E06",
+          "S02E07",
+          "S02E13"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 64,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks",
+          "The season builds to major emotional beats including 'Casino Night' where Jim confesses his feelings and kisses Pam"
+        ],
+        "missing_points": [
+          "Tension in Jim/Pam relationship",
+          "Pam's engagement to Roy",
+          "Michael and Jan's relationship development",
+          "Dwight and Jim's rivalry and pranks",
+          "Casino Night episode and Jim's confession"
+        ],
+        "notes": "The candidate answer lists several episode summaries supported by the retrieved context but lacks coverage of key emotional and relational developments highlighted in the gold answer. Some claims about character relationships and season arcs are not supported by the retrieved context, leading to partial grounding and incompleteness."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 27,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight says 'Your pranks have never worked in the past and they're not going to work today' (SCENE 009)",
+          "Dwight warns Jim 'Don't make me fire you' and 'You're pre-fired. And when I'm promoted, you'll be full fired' (SCENE 009)",
+          "Dwight says on the phone 'Hey, Halpert, what's the big idea? First you jump ship. Now you're stealing Darryl too. When will it end?' (SCENE 019)",
+          "Dwight feels betrayed by Jim's actions such as leaving the company or poaching employees"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Dwight is competitive and threatened by Jim's social ease and influence",
+          "Examples from distinct situations/episodes",
+          "The nuance of underlying respect and eventual friendship"
+        ],
+        "notes": "The candidate answer provides plausible reasons for Dwight's dislike of Jim but the retrieved context does not support the specific quotes or examples given. The retrieved scripts contain some interactions but no direct evidence for the claims. The answer misses key nuances and examples from the gold answer."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 1,
+        "hallucination": 1,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Donna relationship details and ending",
+          "Holly relationship details and ending",
+          "Claims about relationship seriousness and endings not supported by retrieved context"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup",
+          "Holly Flax's eventual engagement and leaving to be with her",
+          "Helene Beesly and relationship ending",
+          "Explicit mention of how relationships ended as per gold answer"
+        ],
+        "notes": "The candidate answer attempts to list serious girlfriends and how relationships ended but the retrieved context does not provide sufficient information to support these claims. Many details about the relationships and their endings are not found in the retrieved context, leading to low groundedness and hallucination scores. The gold answer includes more relationships and specific endings not mentioned or supported here."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 4,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 90,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim explains, \"I got her this teapot, which I know she really wants, so she can make tea at her desk. But I'm also going to stuff it with some inside jokes... And this is the card. Because Christmas is the time to tell people how you feel\" (SCENE 002).",
+          "The letter inside the teapot is a way for Jim to express his feelings to Pam, making it an important and personal gift."
+        ],
+        "missing_points": [
+          "The letter represents Jim’s feelings and their relationship.",
+          "The teapot letter is introduced in Season 2’s Christmas episode (\"Christmas Party\").",
+          "It remains a meaningful symbol referenced later as their relationship progresses."
+        ],
+        "notes": "The candidate answer correctly identifies the teapot letter as a special note inside a teapot given by Jim to Pam, and its sentimental importance. However, the retrieved context only partially supports the detailed quote and the explicit explanation of the letter's significance. The answer misses mentioning the ongoing symbolic importance of the teapot letter beyond the episode."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 56,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed is portrayed as an older employee",
+          "He is involved in various odd moments, such as speaking in a strange language and running a poorly attended team-building meeting",
+          "He has a playful side, referencing 'pirate code' and wanting to play games",
+          "He talks about starting his own paper company and trying to poach clients"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "His 'deal' is that he’s bizarre and evasive, often implying shady or criminal behavior and a questionable identity",
+          "He is comic relief as an unpredictable, mysterious presence",
+          "He is arrested in the series finale"
+        ],
+        "notes": "The candidate answer provides some supported details about Creed's personality and some quotes from the script, but it lacks key facts about his role and the nature of his character as per the gold answer. Some claims are not directly supported by the retrieved context, such as his age and certain behaviors. The answer misses the important points about his job, his shady and evasive nature, and his arrest."
+      }
+    }
+  ]
+}
