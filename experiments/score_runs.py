@@ -716,7 +716,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Score RAG run logs using gold answers + OpenAI judge.")
     parser.add_argument("--runs-dir", default="experiments/runs", help="Directory containing run JSON logs")
     parser.add_argument("--gold", default="experiments/gold_answers.json", help="Gold answers JSON file")
-    parser.add_argument("--out-dir", default="experiments/scored_runs", help="Where to write scored JSON files")
+    parser.add_argument(
+        "--out-dir",
+        default="experiments/scored_runs_two_pass",
+        help="Where to write scored JSON files (two-pass outputs are canonical for dashboards)",
+    )
     parser.add_argument(
         "--skip-existing",
         action="store_true",
@@ -734,11 +738,11 @@ def main() -> None:
 
     parser.add_argument(
         "--judge-mode",
-        default="single",
+        default="two_pass",
         choices=["single", "two_pass"],
         help=(
-            "Judge mode. 'single' uses gold+context in one call. "
-            "'two_pass' runs context-only groundedness + gold-only correctness and merges results."
+            "Judge mode. 'two_pass' (default) runs context-only groundedness + gold-only correctness and merges results. "
+            "'single' uses gold+context in one call."
         ),
     )
 

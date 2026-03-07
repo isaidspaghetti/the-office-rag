@@ -449,6 +449,3 @@ We currently give the judge both gold_answer and retrieved_context. This can bia
 
 
 
-
-3. remove the toggle for enable live chat. lieave it enabled. 
-4. only show th elive chat knobs when on the live chat page

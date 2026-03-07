@@ -72,6 +72,8 @@ def main() -> None:
         unsafe_allow_html=True,
     )
 
+    st.markdown('<div class="sticky-mode">', unsafe_allow_html=True)
+
     st.markdown("# RAGE & OD")
     st.caption("Rage Evaluation & Observability Dashboard")
     labels = [modes["summary"][0], modes["chat_debug"][0]]

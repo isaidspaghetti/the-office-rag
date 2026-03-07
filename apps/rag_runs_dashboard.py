@@ -1276,6 +1276,169 @@ def _doc_to_result_row(doc: Any, *, rank: int, score: Optional[float]) -> Dict[s
 
 
 @st.cache_resource(show_spinner=False)
+def _live_build_openai_embedder(*, embed_model: str) -> Any:
+    """Build an embedder for query-time embeddings.
+
+    We keep this separate from the vectorstore backends (Chroma/Qdrant) so the
+    dashboard can switch retrieval backends without changing embedding setup.
+    """
+    try:
+        from dotenv import load_dotenv  # type: ignore
+        from langchain_openai import OpenAIEmbeddings  # type: ignore
+    except Exception as e:
+        raise RuntimeError(
+            "Live chat requires langchain-openai + python-dotenv. "
+            "Install: pip install -U langchain-openai langchain-core python-dotenv"
+        ) from e
+
+    load_dotenv()
+    return OpenAIEmbeddings(model=str(embed_model))
+
+
+@st.cache_resource(show_spinner=False)
+def _live_build_qdrant_client(*, url: str, api_key: Optional[str]) -> Any:
+    """Build a Qdrant client for live chat (cached)."""
+    try:
+        from qdrant_client import QdrantClient  # type: ignore
+    except Exception as e:
+        raise RuntimeError(
+            "Live chat Qdrant backend requires qdrant-client. "
+            "Install: pip install -U qdrant-client"
+        ) from e
+
+    kwargs: Dict[str, Any] = {"url": str(url)}
+    if api_key:
+        kwargs["api_key"] = str(api_key)
+    # Keep timeouts reasonable for Streamlit.
+    kwargs["timeout"] = 20.0
+    return QdrantClient(**kwargs)
+
+
+def _qdrant_hit_to_result_row(hit: Any, *, rank: int) -> Dict[str, Any]:
+    """Convert a Qdrant search hit into a run-log-like result row."""
+    payload = getattr(hit, "payload", None) or {}
+    score = getattr(hit, "score", None)
+    pid = getattr(hit, "id", None)
+
+    txt = str(payload.get("text") or payload.get("page_content") or "")
+    src = payload.get("source") or payload.get("source_relpath") or payload.get("source_file")
+
+    return {
+        "rank": int(rank),
+        "source": src,
+        "episode_id": payload.get("episode_id"),
+        "doc_type": payload.get("doc_type"),
+        "derived_type": payload.get("derived_type"),
+        "topic_id": payload.get("topic_id"),
+        "topic_type": payload.get("topic_type"),
+        "chunk_type": payload.get("chunk_type"),
+        "chunk_index": payload.get("chunk_index"),
+        "first_line": (txt.splitlines()[0].strip() if txt else ""),
+        "preview": preview_text(txt, n=280),
+        "score": (float(score) if score is not None else None),
+        # Extra fields (ignored by older consumers) but useful for debugging.
+        "text": txt,
+        "qdrant_id": pid,
+        "payload": payload,
+    }
+
+
+def _qdrant_search(
+    client: Any,
+    *,
+    collection_name: str,
+    query_vector: List[float],
+    limit: int,
+) -> List[Any]:
+    """Best-effort Qdrant vector search returning raw hits."""
+    if not collection_name:
+        return []
+    try:
+        # qdrant-client stable API.
+        return list(
+            client.search(
+                collection_name=str(collection_name),
+                query_vector=query_vector,
+                limit=int(limit),
+                with_payload=True,
+            )
+        )
+    except Exception:
+        return []
+
+
+def _live_retrieve_qdrant(
+    *,
+    question: str,
+    qdrant_client: Any,
+    scripts_collection: str,
+    derived_collection: str,
+    embedder: Any,
+    retrieval_policy: str,
+    k: int,
+    derived_k: int,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """Minimal live retrieval against Qdrant (two collections).
+
+    Returns (results_rows, routing_details).
+    """
+    policy = str(retrieval_policy or "").strip().lower()
+    k = max(1, int(k))
+
+    qvec = embedder.embed_query(str(question))
+    qvec = [float(x) for x in (qvec or [])]
+
+    if policy in {"script_only", "script", "baseline"}:
+        hits = _qdrant_search(qdrant_client, collection_name=scripts_collection, query_vector=qvec, limit=k)
+        rows = [_qdrant_hit_to_result_row(h, rank=i) for i, h in enumerate(hits, start=1)]
+        return rows, {"policy": "script_only", "backend": "qdrant", "collection": scripts_collection}
+
+    if policy in {"derived_only", "derived"}:
+        hits = _qdrant_search(qdrant_client, collection_name=derived_collection, query_vector=qvec, limit=k)
+        rows = [_qdrant_hit_to_result_row(h, rank=i) for i, h in enumerate(hits, start=1)]
+        return rows, {"policy": "derived_only", "backend": "qdrant", "collection": derived_collection}
+
+    # Hybrid: search both collections, then de-dupe.
+    if policy in {"hybrid", "blended"}:
+        script_hits = _qdrant_search(qdrant_client, collection_name=scripts_collection, query_vector=qvec, limit=k)
+        der_hits = _qdrant_search(
+            qdrant_client,
+            collection_name=derived_collection,
+            query_vector=qvec,
+            limit=max(1, int(derived_k)),
+        )
+
+        seen: set[Tuple[Optional[str], str]] = set()
+        combined_rows: List[Dict[str, Any]] = []
+        for h in (der_hits + script_hits):
+            payload = getattr(h, "payload", None) or {}
+            txt = str(payload.get("text") or payload.get("page_content") or "")
+            src = payload.get("source") or payload.get("source_relpath") or payload.get("source_file")
+            key = (str(src) if src is not None else None, txt)
+            if key in seen:
+                continue
+            seen.add(key)
+            combined_rows.append(_qdrant_hit_to_result_row(h, rank=len(combined_rows) + 1))
+            if len(combined_rows) >= int(k):
+                break
+
+        return combined_rows, {
+            "policy": "hybrid",
+            "backend": "qdrant",
+            "scripts_collection": scripts_collection,
+            "derived_collection": derived_collection,
+            "scripts_returned": len(script_hits),
+            "derived_returned": len(der_hits),
+            "combined_returned": len(combined_rows),
+        }
+
+    # Default: script_only
+    hits = _qdrant_search(qdrant_client, collection_name=scripts_collection, query_vector=qvec, limit=k)
+    rows = [_qdrant_hit_to_result_row(h, rank=i) for i, h in enumerate(hits, start=1)]
+    return rows, {"policy": "script_only", "backend": "qdrant", "note": f"unknown_policy:{retrieval_policy}"}
+
+
+@st.cache_resource(show_spinner=False)
 def _live_build_chroma(
     *,
     persist_directory: str,
@@ -1384,6 +1547,39 @@ def answer_question(question: str) -> Dict[str, Any]:
         return {"answer": "", "retrieval": {"results": []}, "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}}}
 
     # Pull config from sidebar (with safe defaults).
+    live_backend = str(st.session_state.get("live_backend") or "qdrant").strip().lower()
+
+    def _secret(name: str) -> str:
+        """Best-effort secret lookup for Streamlit Cloud.
+
+        Order:
+          1) st.secrets (when configured)
+          2) environment variables
+        """
+        v: Any = None
+        try:
+            v = st.secrets.get(name)  # type: ignore[attr-defined]
+        except Exception:
+            v = None
+        if v is None:
+            v = os.environ.get(name)
+        return str(v or "").strip()
+
+    # Qdrant config (cloud-friendly defaults).
+    qdrant_url = str(st.session_state.get("qdrant_url") or _secret("QDRANT_URL") or "").strip()
+    qdrant_api_key = str(st.session_state.get("qdrant_api_key") or _secret("QDRANT_API_KEY") or "").strip() or None
+    qdrant_scripts_collection = str(
+        st.session_state.get("qdrant_scripts_collection")
+        or _secret("QDRANT_SCRIPTS_COLLECTION")
+        or "office_scripts"
+    ).strip()
+    qdrant_derived_collection = str(
+        st.session_state.get("qdrant_derived_collection")
+        or _secret("QDRANT_DERIVED_COLLECTION")
+        or "office_derived_cards"
+    ).strip()
+
+    # Local Chroma config (dev-only fallback).
     script_persist_dir = str(st.session_state.get("live_script_persist_dir") or "db/chroma_db")
     script_collection_name = st.session_state.get("live_script_collection_name")
     script_collection_name = str(script_collection_name).strip() if script_collection_name else None
@@ -1392,6 +1588,7 @@ def answer_question(question: str) -> Dict[str, Any]:
     derived_collection_name = str(st.session_state.get("live_derived_collection_name") or "derived_cards").strip() or None
 
     retrieval_policy = str(st.session_state.get("live_retrieval_policy") or "script_only")
+
     embed_model = "text-embedding-3-small"
     llm_model = str(st.session_state.get("live_llm_model") or "gpt-4.1-mini")
     k = safe_int(st.session_state.get("live_k")) or 8
@@ -1416,6 +1613,14 @@ def answer_question(question: str) -> Dict[str, Any]:
         }
 
     load_dotenv()
+
+    # Streamlit Cloud secrets are not guaranteed to be exported as env vars.
+    # Mirror them into os.environ so downstream OpenAI clients can read them.
+    if not os.environ.get("OPENAI_API_KEY"):
+        sk = _secret("OPENAI_API_KEY")
+        if sk:
+            os.environ["OPENAI_API_KEY"] = sk
+
     if not os.environ.get("OPENAI_API_KEY"):
         return {
             "answer": "Live chat requires OPENAI_API_KEY (set it in .env or your environment).",
@@ -1424,54 +1629,78 @@ def answer_question(question: str) -> Dict[str, Any]:
             "error": "missing_openai_api_key",
         }
 
-    # Build / reuse vectorstores.
-    try:
-        script_db = _live_build_chroma(
-            persist_directory=script_persist_dir,
-            collection_name=script_collection_name,
-            embed_model=embed_model,
-            is_derived=False,
-        )
-        derived_db: Optional[Any] = None
-        if retrieval_policy.lower() in {"derived_only", "derived", "blended", "hybrid"}:
-            derived_db = _live_build_chroma(
-                persist_directory=derived_persist_dir,
-                collection_name=derived_collection_name,
-                embed_model=embed_model,
-                is_derived=True,
-            )
-    except Exception as e:
-        return {
-            "answer": f"Live chat failed to initialize vectorstores: {type(e).__name__}: {e}",
-            "retrieval": {"results": []},
-            "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}},
-            "error": f"vectorstore_init_error:{type(e).__name__}",
-        }
-
-    # Retrieval
+    # Retrieval + context build.
     t0 = time.time()
-    try:
-        pairs, routing = _live_retrieve(
-            question=q,
-            script_db=script_db,
-            derived_db=derived_db,
-            retrieval_policy=retrieval_policy,
-            k=int(k),
-            derived_k=int(derived_k),
-        )
-    except Exception as e:
-        pairs, routing = [], {"policy": retrieval_policy, "error": f"{type(e).__name__}: {e}"}
-    retrieval_ms = int((time.time() - t0) * 1000)
-
-    # Build context for LLM.
-    docs_texts: List[str] = []
     results: List[Dict[str, Any]] = []
-    for i, (doc, score) in enumerate(pairs, start=1):
-        results.append(_doc_to_result_row(doc, rank=i, score=score))
-        txt = str(getattr(doc, "page_content", "") or "")
-        if txt.strip():
-            docs_texts.append(txt)
-    context_text = "\n\n---\n\n".join(docs_texts)
+    routing: Dict[str, Any] = {}
+    context_text = ""
+
+    if live_backend in {"qdrant", "cloud"}:
+        if not qdrant_url:
+            return {
+                "answer": "Qdrant backend selected but QDRANT_URL is missing (set it in Streamlit secrets or env).",
+                "retrieval": {"results": []},
+                "answer_meta": {"latency_ms": 0, "retrieval_latency_ms": 0, "usage": {}},
+                "error": "missing_qdrant_url",
+            }
+        try:
+            embedder = _live_build_openai_embedder(embed_model=embed_model)
+            qc = _live_build_qdrant_client(url=qdrant_url, api_key=qdrant_api_key)
+            results, routing = _live_retrieve_qdrant(
+                question=q,
+                qdrant_client=qc,
+                scripts_collection=qdrant_scripts_collection,
+                derived_collection=qdrant_derived_collection,
+                embedder=embedder,
+                retrieval_policy=retrieval_policy,
+                k=int(k),
+                derived_k=int(derived_k),
+            )
+        except Exception as e:
+            results, routing = [], {"policy": retrieval_policy, "backend": "qdrant", "error": f"{type(e).__name__}: {e}"}
+
+        docs_texts = [str(r.get("text") or "") for r in results if str(r.get("text") or "").strip()]
+        context_text = "\n\n---\n\n".join(docs_texts)
+
+    else:
+        # Local Chroma fallback (dev-only).
+        try:
+            script_db = _live_build_chroma(
+                persist_directory=script_persist_dir,
+                collection_name=script_collection_name,
+                embed_model=embed_model,
+                is_derived=False,
+            )
+            derived_db: Optional[Any] = None
+            if retrieval_policy.lower() in {"derived_only", "derived", "hybrid", "blended"}:
+                derived_db = _live_build_chroma(
+                    persist_directory=derived_persist_dir,
+                    collection_name=derived_collection_name,
+                    embed_model=embed_model,
+                    is_derived=True,
+                )
+
+            pairs, routing2 = _live_retrieve(
+                question=q,
+                script_db=script_db,
+                derived_db=derived_db,
+                retrieval_policy=retrieval_policy,
+                k=int(k),
+                derived_k=int(derived_k),
+            )
+            routing = routing2
+
+            docs_texts: List[str] = []
+            for i, (doc, score) in enumerate(pairs, start=1):
+                results.append(_doc_to_result_row(doc, rank=i, score=score))
+                txt = str(getattr(doc, "page_content", "") or "")
+                if txt.strip():
+                    docs_texts.append(txt)
+            context_text = "\n\n---\n\n".join(docs_texts)
+        except Exception as e:
+            results, routing = [], {"policy": retrieval_policy, "backend": "chroma", "error": f"{type(e).__name__}: {e}"}
+
+    retrieval_ms = int((time.time() - t0) * 1000)
 
     system = (
         "You are a QA assistant for questions about the TV show The Office.\n"
@@ -3542,6 +3771,13 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
     st.write = _write_sanitized  # type: ignore[assignment]
 
+    _orig_markdown = st.markdown
+
+    def _markdown_sanitized(body: Any, *args: Any, **kwargs: Any) -> Any:
+        return _orig_markdown(_sanitize_for_ui(body), *args, **kwargs)
+
+    st.markdown = _markdown_sanitized  # type: ignore[assignment]
+
     PAGES = [
         "Chat Playground",
         "Run Explorer",
@@ -3610,7 +3846,50 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
     if page == "Chat Playground":
         st.sidebar.subheader("Live Chat")
-        st.sidebar.caption("Uses your local Chroma indexes + OpenAI; requires OPENAI_API_KEY.")
+        st.sidebar.caption("Uses Qdrant (recommended for Streamlit Cloud) or local Chroma; requires OPENAI_API_KEY.")
+
+        backend = st.sidebar.selectbox(
+            "Retrieval backend",
+            options=["qdrant", "chroma"],
+            index=0,
+            format_func=lambda x: {"qdrant": "Qdrant (cloud)", "chroma": "Local Chroma (dev)"}.get(str(x), str(x)),
+            help="For Streamlit Community Cloud deployments, use Qdrant.",
+        )
+        st.session_state["live_backend"] = backend
+
+        if backend == "qdrant":
+            st.sidebar.markdown("**Qdrant connection**")
+            st.session_state["qdrant_url"] = st.sidebar.text_input(
+                "QDRANT_URL",
+                value=str(st.session_state.get("qdrant_url") or os.environ.get("QDRANT_URL") or ""),
+                help="Example: https://<cluster>.cloud.qdrant.io",
+            )
+            st.session_state["qdrant_api_key"] = st.sidebar.text_input(
+                "QDRANT_API_KEY",
+                value=str(st.session_state.get("qdrant_api_key") or os.environ.get("QDRANT_API_KEY") or ""),
+                type="password",
+                help="Optional if your Qdrant endpoint is public; recommended for Cloud.",
+            )
+
+            st.sidebar.markdown("**Collections (two collections)**")
+            st.session_state["qdrant_scripts_collection"] = st.sidebar.text_input(
+                "Scripts collection",
+                value=str(
+                    st.session_state.get("qdrant_scripts_collection")
+                    or os.environ.get("QDRANT_SCRIPTS_COLLECTION")
+                    or "office_scripts"
+                ),
+                help="Qdrant collection containing script + summary chunks.",
+            )
+            st.session_state["qdrant_derived_collection"] = st.sidebar.text_input(
+                "Derived collection",
+                value=str(
+                    st.session_state.get("qdrant_derived_collection")
+                    or os.environ.get("QDRANT_DERIVED_COLLECTION")
+                    or "office_derived_cards"
+                ),
+                help="Qdrant collection containing derived cards (episode/season/topic).",
+            )
 
         show_advanced_indexes = st.sidebar.checkbox(
             "Show advanced indexes",
@@ -3634,20 +3913,20 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
         retrieval_policy = st.sidebar.selectbox(
             "Retrieval policy",
-            options=["script_only", "derived_only", "blended"],
-            index=_select_index(["script_only", "derived_only", "blended"], st.session_state.get("live_retrieval_policy")),
+            options=["script_only", "derived_only", "hybrid"],
+            index=_select_index(["script_only", "derived_only", "hybrid"], st.session_state.get("live_retrieval_policy")),
             format_func=lambda p: {
                 "script_only": "Script-only",
                 "derived_only": "Derived-only",
-                "blended": "Hybrid (scripts + derived routing)",
+                "hybrid": "Hybrid (scripts + derived)",
             }.get(str(p), str(p)),
         )
         st.session_state["live_retrieval_policy"] = retrieval_policy
 
-        uses_script = retrieval_policy in {"script_only", "blended", "hybrid"}
-        uses_derived = retrieval_policy in {"derived_only", "blended", "hybrid"}
+        uses_script = retrieval_policy in {"script_only", "hybrid"}
+        uses_derived = retrieval_policy in {"derived_only", "hybrid"}
 
-        if uses_script:
+        if backend == "chroma" and uses_script:
             # Script persist dir dropdown.
             script_persist_dir_options = (persist_dir_options if persist_dir_options else [script_default])
             script_persist_current = st.session_state.get("live_script_persist_dir") or script_default
@@ -3664,10 +3943,10 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
             st.session_state["live_script_persist_dir"] = script_persist_dir
             # Remove script collection selection: default collection only.
             st.session_state["live_script_collection_name"] = None
-        else:
+        elif backend == "chroma":
             st.sidebar.caption("Script index controls hidden (derived_only).")
 
-        if uses_derived:
+        if backend == "chroma" and uses_derived:
             # Derived persist dir dropdown.
             derived_persist_dir_options = (persist_dir_options if persist_dir_options else [derived_default])
             derived_persist_current = st.session_state.get("live_derived_persist_dir") or derived_default
@@ -3693,7 +3972,7 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
                 index=_select_index(derived_collection_options, str(derived_collection_current)),
             )
             st.session_state["live_derived_collection_name"] = derived_collection_choice
-        else:
+        elif backend == "chroma":
             st.sidebar.caption("Derived index controls hidden (script_only).")
 
         llm_model_choice = st.sidebar.selectbox(
@@ -3717,7 +3996,7 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
             value=10,
             step=1,
         )
-        if retrieval_policy in {"blended", "hybrid"}:
+        if retrieval_policy in {"hybrid"}:
             st.session_state["live_derived_k"] = st.sidebar.number_input(
                 "Top-k derived (hybrid)",
                 min_value=1,

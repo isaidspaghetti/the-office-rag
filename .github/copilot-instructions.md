@@ -12,11 +12,11 @@
   - Writes stable metadata per chunk: `episode_id` like `S02E11`, plus `doc_type`, `chunk_type`, `chunk_index`.
 - Eval harness: [experiments/run_eval.py](../experiments/run_eval.py)
   - Writes one JSON file per run under `experiments/runs/` (run_id includes UTC timestamp + slugified run_name).
-  - Retrieval policies: `script_only`, `derived_only`, `derived_then_script`, `auto`, `blended`.
+  - Retrieval policies: `script_only`, `derived_only`, `derived_then_script`, `auto`, `blended` (shown as “Hybrid” in the dashboards).
   - Query expansion + fusion lives in [rag/query_expansion.py](../rag/query_expansion.py) and [rag/fusion.py](../rag/fusion.py) (cache default: `experiments/cache/query_expansion_cache.json`).
 - Debug helpers: [retrieval_pipeline.py](../retrieval_pipeline.py) (single-query retrieval + optional query-expansion/RRF) and [experiments/inspect_routing_case.py](../experiments/inspect_routing_case.py) (print routing shortlist + top sources for one case).
 - Run summarization: [experiments/summarize_runs.py](../experiments/summarize_runs.py) → `experiments/run_metrics.*` and `experiments/case_metrics.*`.
-- Run scoring (LLM judge): [experiments/score_runs.py](../experiments/score_runs.py) (gold: `experiments/gold_answers.json`, output: `experiments/scored_runs/`).
+- Run scoring (LLM judge): [experiments/score_runs.py](../experiments/score_runs.py) (gold: `experiments/gold_answers.json`, output: `experiments/scored_runs_two_pass/`).
   - Note: [apps/rag_runs_dashboard.py](../apps/rag_runs_dashboard.py) is currently a scoring script (not a Streamlit UI).
 
 ## Derived-corpus workflow (map/reduce → index)
@@ -34,7 +34,7 @@
 
 ## Common commands (copy/paste)
 - Build script index: `python ingestion/ingestion_pipeline.py --persist-dir db/chroma_db_meta --use-metadata --reset`
-- Run a routed eval: `python experiments/run_eval.py --retrieval-policy blended --derived-persist-dir db/chroma_db_derived_cards --derived-collection-name derived_cards --run-name my_run --search-type similarity --k 12`
+- Run a routed eval (Hybrid in dashboards): `python experiments/run_eval.py --retrieval-policy blended --derived-persist-dir db/chroma_db_derived_cards --derived-collection-name derived_cards --run-name my_run --search-type similarity --k 12`
 - Run the preset routing sweep: `bash experiments/run_routing_sweep.sh` (also available as a VS Code task in `.vscode/tasks.json`)
 - Summarize runs: `python experiments/summarize_runs.py`
 - Score runs: `python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json`

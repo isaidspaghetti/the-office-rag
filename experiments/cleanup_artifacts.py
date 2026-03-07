@@ -335,7 +335,7 @@ def move_paths(paths: List[Path], *, base_dir: Path, trash_dir: Path, dry_run: b
 def main() -> None:
     ap = argparse.ArgumentParser(description="Audit and quarantine broken run/scored artifacts.")
     ap.add_argument("--runs-dir", default="experiments/runs")
-    ap.add_argument("--scored-dir", default="experiments/scored_runs")
+    ap.add_argument("--scored-dir", default="experiments/scored_runs_two_pass")
     ap.add_argument("--trash-root", default="experiments/_trash")
     ap.add_argument(
         "--apply",

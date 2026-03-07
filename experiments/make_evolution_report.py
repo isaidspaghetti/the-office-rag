@@ -79,7 +79,7 @@ class RunRow:
 
     scored_file: Optional[str]
 
-    # Optional judge-scored metrics (from experiments/scored_runs/<run_id>.scored.json)
+    # Optional judge-scored metrics (from experiments/scored_runs_two_pass/<run_id>.scored.json)
     judge_cases_scored: Optional[int]
     judge_avg_overall: Optional[int]
     det_episode_ok_rate: Optional[float]
@@ -323,14 +323,17 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
 def main() -> None:
     p = argparse.ArgumentParser(description="Generate a markdown evolution report from run logs")
     p.add_argument("--runs-dir", default="experiments/runs")
-    p.add_argument(
+    ap.add_argument(
         "--scored-dir",
-        default="",
-        help="Optional scored runs dir (e.g. experiments/scored_runs) to join judge metrics",
+        default="experiments/scored_runs_two_pass",
+        help=(
+            "Directory containing scored run JSONs (default: experiments/scored_runs_two_pass). "
+            "Set to empty string to omit judge metrics."
+        ),
     )
-    p.add_argument("--run-name-prefix", required=True)
-    p.add_argument("--out", default="")
-    p.add_argument("--notes", default="")
+    ap.add_argument("--run-name-prefix", required=True)
+    ap.add_argument("--out", default="")
+    ap.add_argument("--notes", default="")
     args = p.parse_args()
 
     runs_dir = Path(args.runs_dir).expanduser().resolve()

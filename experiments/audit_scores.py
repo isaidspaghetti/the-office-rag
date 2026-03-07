@@ -99,7 +99,7 @@ def _judge_case_counts(scored_obj: Any) -> Tuple[Optional[int], Optional[int]]:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Audit run logs and scored outputs for suspicious pairings.")
     ap.add_argument("--runs-dir", default="experiments/runs")
-    ap.add_argument("--scored-dir", default="experiments/scored_runs")
+    ap.add_argument("--scored-dir", default="experiments/scored_runs_two_pass")
     ap.add_argument("--out", default="experiments/_score_audit.txt")
     args = ap.parse_args()
 

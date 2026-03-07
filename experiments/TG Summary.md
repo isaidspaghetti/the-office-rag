@@ -54,12 +54,11 @@ Dashboard:
 A. first Gave the judge both gold_answer and retrieved_context. This can bias correctness upward even when retrieval is weak; the rubric tries to counterbalance via groundedness, but it’s still a common failure mode. 
 B. Must use better LLM for answers for judgement, carefully craft gold-standards, and Prompt Engineer carefully. 
 C. Even with (B) a much more robust pattern is 2-pass judging: (1) context-only groundedness, (2) gold-only correctness, then combine. 
-
+D. Juding is extremely important and hugely increases the decision making capabilities. I got tired by the time I got here, and shoudl have considered judging from the start, and made more modularity in running sweeps, parameterizing more so I could re-test with new questions
 
 ## Scoring insights & mistakes:
 - Start with 2+ phase and prompt engineer individually instead of cramming into one judge
 - Cleaner data first: 
 -   while having tons of metrics is nice, I should have also chosen specific data points earlier on to highlight (first and second classes), 
 - Should have bookmarked best run results and important failures instead of asking AI to summarize later. Hand written notes much stronger and faster for retrospectives and forensics.
-- 
-
+- Modularity: as the model grew, genreations gave better insights over individual tuning. Having th ability to pass different routing stratgies, judges, and questions asgainst older models would have helped better express performance gains.
