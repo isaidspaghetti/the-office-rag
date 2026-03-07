@@ -9,8 +9,7 @@ Run logs live under:
 - experiments/runs/*.json (schema: run, config, cases[], summary)
 
 Scored logs live under (supported):
-- experiments/scored_runs_two_pass/*.scored.json (preferred if present)
-- experiments/scored_runs/*.scored.json
+- experiments/scored_runs_two_pass/*.scored.json (required)
 
 This file intentionally avoids non-standard deps beyond Streamlit + Plotly.
 """
@@ -229,44 +228,125 @@ def _run_id_from_scored_filename(path: Path) -> Optional[str]:
 
 
 @st.cache_data(show_spinner=False)
-def load_scored_runs(*, scored_dirs: Sequence[str], prefer_two_pass: bool = True) -> Dict[str, ScoredFile]:
-    """Load scored runs into {run_id: ScoredFile}.
+def load_scored_runs(*, scored_dirs: Sequence[str]) -> Tuple[Dict[str, ScoredFile], Dict[str, Any]]:
+    """Load scored runs into {run_id: ScoredFile} plus a compact load report.
+
+    Strict: only accepts two-pass scored artifacts (scoring_meta.judge_mode == 'two_pass').
 
     If multiple scored dirs provide the same run_id, prefer earlier dirs.
     Callers should pass dirs in preference order.
     """
     out: Dict[str, ScoredFile] = {}
 
-    dirs = [str(x) for x in scored_dirs if str(x).strip()]
+    report: Dict[str, Any] = {
+        "scored_dirs": [str(x) for x in scored_dirs if str(x).strip()],
+        "scanned_files": 0,
+        "accepted_two_pass": 0,
+        "rejected_non_two_pass": 0,
+        "rejected_parse_errors": 0,
+        "rejected_invalid_schema": 0,
+        "skipped_duplicate_run_id": 0,
+        "sample_rejected_paths": [],
+    }
+
+    dirs = list(report["scored_dirs"])
     if not dirs:
-        return out
+        return out, report
+
+    def _sample_reject(path: Path) -> None:
+        try:
+            xs = report.get("sample_rejected_paths")
+            if isinstance(xs, list) and len(xs) < 10:
+                xs.append(str(path))
+        except Exception:
+            return
 
     for d in dirs:
         p = Path(d).expanduser()
         if not p.exists() or not p.is_dir():
             continue
+
         for sf in sorted(p.glob("*.scored.json"), key=lambda x: x.stat().st_mtime, reverse=True):
+            report["scanned_files"] = int(report.get("scanned_files") or 0) + 1
+
             run_id = _run_id_from_scored_filename(sf)
-            if not run_id or run_id in out:
+            if not run_id:
+                report["rejected_invalid_schema"] = int(report.get("rejected_invalid_schema") or 0) + 1
+                _sample_reject(sf)
                 continue
+            if run_id in out:
+                report["skipped_duplicate_run_id"] = int(report.get("skipped_duplicate_run_id") or 0) + 1
+                continue
+
             try:
                 obj = json.loads(sf.read_text(encoding="utf-8"))
             except Exception:
+                report["rejected_parse_errors"] = int(report.get("rejected_parse_errors") or 0) + 1
+                _sample_reject(sf)
                 continue
             if not isinstance(obj, dict) or "scored_cases" not in obj:
+                report["rejected_invalid_schema"] = int(report.get("rejected_invalid_schema") or 0) + 1
+                _sample_reject(sf)
                 continue
 
-            # Optional: enforce two-pass scoring when available/desired.
-            if prefer_two_pass:
-                mode = safe_get(obj, "scoring_meta.judge_mode", None)
-                if isinstance(mode, str) and mode.strip():
-                    if mode.strip().lower() != "two_pass":
-                        # Skip single-pass scored file when we are in two-pass mode.
-                        continue
+            mode = safe_get(obj, "scoring_meta.judge_mode", None)
+            mode_norm = str(mode or "").strip().lower()
+            if mode_norm != "two_pass":
+                report["rejected_non_two_pass"] = int(report.get("rejected_non_two_pass") or 0) + 1
+                _sample_reject(sf)
+                continue
 
             out[run_id] = ScoredFile(run_id=run_id, path=str(sf), obj=obj)
+            report["accepted_two_pass"] = int(report.get("accepted_two_pass") or 0) + 1
 
-    return out
+    return out, report
+
+
+def _render_missing_data_help(*, runs_dir: Path, scored_dir: Path, gold_path: Path, scored_report: Dict[str, Any]) -> None:
+    """Render a cloud-friendly setup guide when required artifacts are missing."""
+    runs_dir_s = str(runs_dir.as_posix())
+    scored_dir_s = str(scored_dir.as_posix())
+    gold_s = str(gold_path.as_posix())
+
+    st.error("Required experiment artifacts not found (or filtered out).")
+
+    with st.expander("What this dashboard expects", expanded=True):
+        st.markdown(
+            "\n".join(
+                [
+                    f"- Run logs: `{runs_dir_s}/**/*.json` (must contain top-level `run` and `cases`) ",
+                    f"- Two-pass scored logs: `{scored_dir_s}/*.scored.json` (must have `scoring_meta.judge_mode == two_pass`) ",
+                    f"- Gold answers (optional but recommended): `{gold_s}`",
+                ]
+            )
+        )
+
+    with st.expander("How to generate them (local)", expanded=False):
+        st.markdown(
+            "\n".join(
+                [
+                    "1) Generate runs:",
+                    "   - `python experiments/run_eval.py --run-name demo_run --search-type similarity --k 12`",
+                    "2) Score runs with the strict two-pass judge (writes canonical outputs):",
+                    "   - `python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json --judge-mode two_pass --out-dir experiments/scored_runs_two_pass`",
+                    "3) Commit/push `experiments/runs/` and `experiments/scored_runs_two_pass/` to your Streamlit Cloud repo.",
+                ]
+            )
+        )
+
+    scanned = int(scored_report.get("scanned_files") or 0)
+    accepted = int(scored_report.get("accepted_two_pass") or 0)
+    rejected_np = int(scored_report.get("rejected_non_two_pass") or 0)
+    if scanned and not accepted and rejected_np:
+        st.warning(
+            "Scored files were found, but none were accepted because they are not two-pass. "
+            "Re-run the scorer with `--judge-mode two_pass` and write to `experiments/scored_runs_two_pass/`."
+        )
+        samples = scored_report.get("sample_rejected_paths")
+        if isinstance(samples, list) and samples:
+            with st.expander("Examples of rejected scored files", expanded=False):
+                for s in samples[:10]:
+                    st.write("- ", str(s))
 
 
 @st.cache_data(show_spinner=False)
@@ -1234,6 +1314,204 @@ def plot_stage_score_line(stage_rows: List[Dict[str, Any]]) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+# --- Executive timeline (requested) ---
+TIMELINE_STAGE_ORDER: List[str] = [
+    "Baseline",
+    "Increased Recall",
+    "MMR / Diversity",
+    "Scene Chunking",
+    "Query Expansion + Fusion",
+    "Metadata / Routing",
+    "Derived Summaries / Cards",
+    "Model Upgrades",
+]
+
+
+TIMELINE_KEY_INSIGHTS_OVERRIDES: Dict[str, str] = {
+    # Optional: override any stage's Key Insight text here.
+    # Example:
+    # "Increased Recall": "+8 improvement: higher k improved coverage, but raised token cost.",
+}
+
+
+def _default_key_insight(stage: str) -> str:
+    for card in STORY_STAGE_CARDS:
+        if card.key == stage:
+            # Default to the curated story text (keeps timeline aligned with the narrative cards).
+            return str(card.what_changed or "").strip()
+    return ""
+
+
+def _timeline_rows(stage_rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    stage_map = {str(r.get("stage")): r for r in stage_rows}
+
+    rows: List[Dict[str, Any]] = []
+    prev_score: Optional[float] = None
+    for stage in TIMELINE_STAGE_ORDER:
+        mean_score = safe_float((stage_map.get(stage) or {}).get("mean_score"))
+        delta = (mean_score - prev_score) if (mean_score is not None and prev_score is not None) else None
+        rows.append(
+            {
+                "stage": stage,
+                "mean_score": mean_score,
+                "delta_vs_prev": delta,
+                "key_insight": (TIMELINE_KEY_INSIGHTS_OVERRIDES.get(stage) or _default_key_insight(stage)),
+            }
+        )
+        if mean_score is not None:
+            prev_score = mean_score
+    return rows
+
+
+def plot_experiment_timeline(stage_rows: List[Dict[str, Any]]) -> None:
+    """Executive-friendly Experiment Timeline.
+
+    - Line chart: stage order vs avg judge score
+    - Annotations: biggest +/- consecutive deltas + explicit callouts for specific stages
+    - Table: Stage | Avg Score | Δ vs Previous | Key Insight
+    """
+
+    rows = _timeline_rows(stage_rows)
+    scored_rows = [r for r in rows if r.get("mean_score") is not None]
+    if not scored_rows:
+        st.info("No stage scores available yet (missing scored runs).")
+        st.dataframe(rows, use_container_width=True, hide_index=True)
+        return
+
+    if not _plotly_or_warning():
+        st.dataframe(rows, use_container_width=True, hide_index=True)
+        return
+
+    xs = [r["stage"] for r in rows]
+    ys = [r.get("mean_score") for r in rows]
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=xs,
+            y=ys,
+            mode="lines+markers",
+            name="Avg judge score",
+            hovertemplate="%{x}<br>avg=%{y:.1f}<extra></extra>",
+            connectgaps=False,
+        )
+    )
+    fig.update_layout(
+        title="Experiment Timeline — Avg judge score by stage",
+        xaxis_title="Stage",
+        yaxis_title="Avg overall score (0..100)",
+        margin=dict(l=20, r=20, t=60, b=20),
+        height=420,
+    )
+    fig.update_xaxes(tickangle=-20)
+
+    # Compute biggest +/− deltas (consecutive, among scored steps).
+    deltas: List[Tuple[str, float, float, float]] = []  # (stage, delta, prev_score, cur_score)
+    prev_scored: Optional[Tuple[str, float]] = None
+    for r in rows:
+        s = r.get("stage")
+        y = r.get("mean_score")
+        if y is None:
+            continue
+        if prev_scored is not None:
+            _prev_stage, prev_y = prev_scored
+            d = float(y) - float(prev_y)
+            deltas.append((str(s), float(d), float(prev_y), float(y)))
+        prev_scored = (str(s), float(y))
+
+    def _annotate_delta(stage: str, *, delta: float, y: float, label: str, color: str) -> None:
+        fig.add_annotation(
+            x=stage,
+            y=y,
+            text=label,
+            showarrow=True,
+            arrowhead=2,
+            arrowsize=1,
+            arrowwidth=2,
+            arrowcolor=color,
+            font=dict(color=color),
+            yshift=24,
+        )
+
+    if deltas:
+        best_pos = max(deltas, key=lambda t: t[1])
+        best_neg = min(deltas, key=lambda t: t[1])
+        pos_stage, pos_delta, _pos_prev, pos_y = best_pos
+        neg_stage, neg_delta, _neg_prev, neg_y = best_neg
+        _annotate_delta(
+            pos_stage,
+            delta=pos_delta,
+            y=pos_y,
+            label=f"Biggest +Δ {pos_delta:+.0f}",
+            color="#1a7f37",
+        )
+        _annotate_delta(
+            neg_stage,
+            delta=neg_delta,
+            y=neg_y,
+            label=f"Biggest −Δ {neg_delta:+.0f}",
+            color="#b42318",
+        )
+
+    # Explicit callouts (requested) for specific stages, using real deltas.
+    delta_by_stage = {str(r["stage"]): r.get("delta_vs_prev") for r in rows}
+    score_by_stage = {str(r["stage"]): r.get("mean_score") for r in rows}
+
+    inc_d = delta_by_stage.get("Increased Recall")
+    inc_y = score_by_stage.get("Increased Recall")
+    if inc_d is not None and inc_y is not None:
+        inc_label = (
+            "+8 score improvement at 'Increased Recall'"
+            if int(round(float(inc_d))) == 8
+            else f"Score change at 'Increased Recall': {float(inc_d):+.0f}"
+        )
+        _annotate_delta("Increased Recall", delta=float(inc_d), y=float(inc_y), label=inc_label, color="#0b5fff")
+
+    mmr_d = delta_by_stage.get("MMR / Diversity")
+    mmr_y = score_by_stage.get("MMR / Diversity")
+    if mmr_d is not None and mmr_y is not None:
+        mmr_label = (
+            "-10 score regression at 'MMR / Diversity'"
+            if int(round(float(mmr_d))) == -10
+            else f"Score change at 'MMR / Diversity': {float(mmr_d):+.0f}"
+        )
+        _annotate_delta("MMR / Diversity", delta=float(mmr_d), y=float(mmr_y), label=mmr_label, color="#0b5fff")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    # Table under chart.
+    table_rows: List[Dict[str, Any]] = []
+    for r in rows:
+        ms = r.get("mean_score")
+        d = r.get("delta_vs_prev")
+        table_rows.append(
+            {
+                "Stage": r.get("stage"),
+                "Avg Score": (None if ms is None else float(ms)),
+                "Δ vs Previous": (None if d is None else float(d)),
+                "Key Insight": r.get("key_insight"),
+            }
+        )
+
+    # Render defensively across Streamlit versions.
+    try:
+        _cc = getattr(st, "column_config", None)
+        if _cc is not None and hasattr(_cc, "NumberColumn"):
+            st.dataframe(
+                table_rows,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "Avg Score": st.column_config.NumberColumn(format="%.1f"),
+                    "Δ vs Previous": st.column_config.NumberColumn(format="%+.1f"),
+                },
+            )
+        else:
+            st.dataframe(table_rows, use_container_width=True, hide_index=True)
+    except Exception:
+        st.dataframe(table_rows, use_container_width=True, hide_index=True)
+
+
 def plot_failure_pie(failure_counts: Dict[str, int]) -> None:
     rows = [{"failure_mode": k, "count": int(v)} for k, v in failure_counts.items() if int(v) > 0]
     if not rows:
@@ -1475,6 +1753,11 @@ def render_timeline_page(
 ) -> None:
     st.title("Experiment timeline")
     st.caption("A curated, step-by-step narrative of what changed, why, and what happened.")
+
+    st.subheader("Experiment Timeline")
+    st.caption("Stage-level progression using real scored runs (avg judge overall).")
+    plot_experiment_timeline(stage_rows)
+    st.divider()
 
     stage_map = {str(r.get("stage")): r for r in stage_rows}
 
@@ -2109,6 +2392,13 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
     st.write = _write_sanitized  # type: ignore[assignment]
 
+    _orig_markdown = st.markdown
+
+    def _markdown_sanitized(body: Any, *args: Any, **kwargs: Any) -> Any:
+        return _orig_markdown(_sanitize_for_ui(body), *args, **kwargs)
+
+    st.markdown = _markdown_sanitized  # type: ignore[assignment]
+
     # Top navigation (story-first ordering)
     pages = [
         "Summary",
@@ -2122,7 +2412,12 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
     default_page = st.session_state.get("story_page") or pages[0]
     st.markdown('<div class="sticky-nav">', unsafe_allow_html=True)
     if hasattr(st, "segmented_control"):
-        page = st.segmented_control("", options=pages, default=default_page)
+        page = st.segmented_control(
+            "Story page",
+            options=pages,
+            default=default_page,
+            label_visibility="collapsed",
+        )
     else:
         page = st.radio(
             "Page",
@@ -2143,26 +2438,21 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
     runs_dir = Path(st.sidebar.text_input("Runs dir", value=str(project_root / "experiments" / "runs"))).expanduser()
 
-    # Prefer two-pass directory when present.
-    scored_dirs_default = [
-        str(project_root / "experiments" / "scored_runs_two_pass"),
-        str(project_root / "experiments" / "scored_runs"),
-    ]
-    scored_dirs_raw = st.sidebar.text_area(
-        "Scored dirs (one per line; first wins)",
-        value="\n".join(scored_dirs_default),
-        height=80,
-    )
-    scored_dirs = [x.strip() for x in scored_dirs_raw.splitlines() if x.strip()]
+    scored_dir_default = str(project_root / "experiments" / "scored_runs_two_pass")
+    scored_dir = str(
+        st.sidebar.text_input(
+            "Scored dir (two-pass only)",
+            value=scored_dir_default,
+            help="This dashboard only reads canonical two-pass outputs (judge_mode=two_pass).",
+        )
+        or ""
+    ).strip()
+    if Path(scored_dir).name != "scored_runs_two_pass":
+        st.sidebar.error("This dashboard only supports experiments/scored_runs_two_pass.")
+        scored_dir = scored_dir_default
 
     gold_path = str(project_root / "experiments" / "gold_answers.json")
     gold_by_case_id = load_gold_answers(gold_path)
-
-    require_two_pass = st.sidebar.toggle(
-        "Prefer two-pass scores",
-        value=True,
-        help="If enabled, ignores scored files unless scoring_meta.judge_mode == two_pass.",
-    )
 
     with st.sidebar.expander("Performance", expanded=False):
         st.caption("If you have many runs, reduce scan size.")
@@ -2172,21 +2462,58 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
     with st.spinner("Loading runs + scored artifacts…"):
         all_runs = load_runs(str(runs_dir))
         runs = all_runs[: int(scan_limit)]
-        scored_by_run_id = load_scored_runs(scored_dirs=scored_dirs, prefer_two_pass=bool(require_two_pass))
+        scored_by_run_id, scored_report = load_scored_runs(scored_dirs=[scored_dir])
 
-        runs_by_id, metrics, stage_rows = build_story_dataset(
-            runs=runs,
-            scored_by_run_id=scored_by_run_id,
-            gold_by_case_id=gold_by_case_id,
+    # Sidebar diagnostics / cloud-friendly guidance.
+    with st.sidebar.expander("Data health", expanded=False):
+        st.write(
+            {
+                "runs_dir": str(runs_dir),
+                "run_logs_found": len(all_runs),
+                "runs_loaded": len(runs),
+                "scored_dir": str(scored_dir),
+                "two_pass_scored_found": len(scored_by_run_id),
+                "scored_loader": scored_report,
+                "gold_loaded": len(gold_by_case_id),
+            }
         )
 
-        failure_counts = _global_failure_counts(
-            runs_by_id=runs_by_id,
-            scored_by_id=scored_by_run_id,
-            metrics=metrics,
-            gold_by_case_id=gold_by_case_id,
-            representative_only=True,
+    runs_dir_p = Path(runs_dir).expanduser()
+    scored_dir_p = Path(scored_dir).expanduser()
+    gold_path_p = Path(gold_path).expanduser()
+
+    missing_runs = (not runs_dir_p.exists()) or (len(all_runs) == 0)
+    missing_two_pass_scores = (not scored_dir_p.exists()) or (len(scored_by_run_id) == 0)
+
+    if missing_runs or missing_two_pass_scores:
+        _render_missing_data_help(
+            runs_dir=runs_dir_p,
+            scored_dir=scored_dir_p,
+            gold_path=gold_path_p,
+            scored_report=scored_report,
         )
+        st.stop()
+
+    if not gold_by_case_id:
+        st.info(
+            "Gold answers not found; some coverage diagnostics will be limited. "
+            "This is fine for demos, but recommended for deeper evals."
+        )
+
+    # Build dataset (requires two-pass scored artifacts).
+    runs_by_id, metrics, stage_rows = build_story_dataset(
+        runs=runs,
+        scored_by_run_id=scored_by_run_id,
+        gold_by_case_id=gold_by_case_id,
+    )
+
+    failure_counts = _global_failure_counts(
+        runs_by_id=runs_by_id,
+        scored_by_id=scored_by_run_id,
+        metrics=metrics,
+        gold_by_case_id=gold_by_case_id,
+        representative_only=True,
+    )
 
     # Page routing.
     if page == "Summary":

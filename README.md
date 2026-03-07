@@ -21,6 +21,10 @@ This repo intentionally keeps the system simple enough to iterate quickly, while
 Dependencies are intentionally lightweight and revolve around:
 - `langchain-openai`, `langchain-chroma`, `langchain-core`, `chromadb`, `python-dotenv`
 
+If you're running the Streamlit dashboards (local or Streamlit Cloud), install the pinned-ish deps:
+
+- `pip install -r requirements.txt`
+
 ### 2) Build an index (Chroma)
 
 The ingestion CLI reads normalized docs from `ingestion/normalized_docs_txt/` and writes a persisted Chroma index.
@@ -33,9 +37,19 @@ Notes:
 - `--reset` deletes the target persist dir (dev-only).
 - Metadata writes canonical `episode_id` like `S02E11`, plus chunk identity (`chunk_type`, `chunk_index`).
 
-### 2b) Build a separate derived corpus index (summaries + derived cards)
+### 2b) Build a derived-cards index (episode/season/topic cards)
 
-This creates a *separate* Chroma index intended for broad/aggregation questions and routing.
+This creates a *separate* index intended for broad/aggregation questions and routing.
+
+- Build a combined derived-cards index (Episode/Season/Topic cards) from `derived/artifacts/`:
+
+  `python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
+
+Notes:
+- This index is used by `experiments/run_eval.py` when `--retrieval-policy derived_then_script|auto|blended`.
+- Cards are distinguished by `metadata.derived_type` in `{episode_card, season_card, topic_card}`.
+
+Legacy: this repo also contains older derived index builders (e.g. `derived/build_derived_index.py`).
 
 - Build a summaries-only derived index:
 
@@ -68,6 +82,20 @@ Eval reads `experiments/test_queries.json` and writes one JSON file per run to `
 If you want runs to use the metadata index, pass:
 - `--persist-dir db/chroma_db_meta`
 
+### 3b) Score runs with the strict two-pass judge (canonical artifacts)
+
+Dashboards should use **only** the two-pass judge outputs written to:
+
+- `experiments/scored_runs_two_pass/`
+
+Score all runs:
+
+`python experiments/score_runs.py --runs-dir experiments/runs --gold experiments/gold_answers.json`
+
+Notes:
+- The scorer defaults to `--judge-mode two_pass` and writes to `experiments/scored_runs_two_pass/`.
+- If you have older `*.scored.json` produced in single-pass mode, regenerate them; dashboards will ignore non-two-pass scored files.
+
 ### 4) Turn runs into chartable tables
 
 - Generate flat metrics tables (CSV + JSONL):
@@ -79,6 +107,30 @@ Outputs:
 - `experiments/case_metrics.csv` and `experiments/case_metrics.jsonl`
 
 These are designed to be easy inputs for plotting (Excel/Sheets) or for an LLM to generate visuals.
+
+## Streamlit dashboards
+
+This repo uses a single Streamlit entrypoint:
+
+- Local run: `streamlit run app.py`
+
+The app routes between:
+
+- Summary (offline; reads run logs + two-pass scores)
+- Chat & Debug (optional live retrieval; recommended backend is Qdrant)
+
+Deep links:
+
+- Summary: `/?mode=summary`
+- Chat & Debug: `/?mode=chat_debug`
+
+## Streamlit Cloud (Qdrant + OpenAI)
+
+Deployment notes (secrets, two Qdrant collections, smoke tests):
+
+- `docs/STREAMLIT_CLOUD_DEPLOY.md` (canonical quick checklist)
+- `docs/STREAMLIT_CLOUD_DEPLOYMENT.md` (detailed Streamlit Cloud notes)
+- `docs/DEPLOY_STREAMLIT_CLOUD_QDRANT.md` (Qdrant indexing: two collections)
 
 ## Repo layout
 

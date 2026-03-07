@@ -237,6 +237,70 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "test"
+		},
+		{
+			"label": "validate two-pass scored artifacts",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/validate_scored_artifacts.py"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "validate two-pass scored artifacts (summary)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/validate_scored_artifacts.py",
+				"--show-samples",
+				"0"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "rescore one topiccards run (overwrite)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--out-dir",
+				"experiments/scored_runs_two_pass",
+				"--run-id-prefix",
+				"2026-03-06T23-27-38Z_topiccards_blended_gen_gpt_4_1_mini_qe_rrf_similarity_k12",
+				"--judge-mode",
+				"two_pass",
+				"--progress-every",
+				"5",
+				"--openai-max-retries",
+				"0",
+				"--judge-max-retries",
+				"2"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "validate scored artifacts after rescore",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/validate_scored_artifacts.py",
+				"--show-samples",
+				"0"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "test"
 		}
 	]
 }

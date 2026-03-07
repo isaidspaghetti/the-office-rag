@@ -266,8 +266,8 @@ PRACTICE_LABELS = {
     "query_expansion_rrf": "Query expansion + RRF (recall)",
     "metadata_index": "Metadata-enabled filtering", 
     "derived_routing": "Derived routing (episode shortlisting)",
-    "blended": "Blended retrieval (baseline + routed)",
-    "topiccards": "Topic cards (derived evidence) + blended",
+    "blended": "Hybrid retrieval (baseline + routed)",
+    "topiccards": "Topic cards (derived evidence) + Hybrid",
 }
 
 
@@ -391,7 +391,7 @@ def render_markdown(*, rows: List[RunRow]) -> str:
     lines.append("- **Query expansion + RRF**: generates alternate retrieval queries and fuses results for higher recall on ambiguous queries.")
     lines.append("- **Metadata-enabled filtering**: allows hard constraints (e.g., season/episode) to prevent drift across irrelevant episodes.")
     lines.append("- **Derived routing**: uses higher-level derived cards to shortlist episodes, then retrieves scripts within that shortlist.")
-    lines.append("- **Blended retrieval**: combines baseline recall with routed expansions, improving robustness across question types.")
+    lines.append("- **Hybrid retrieval**: combines baseline recall with routed expansions, improving robustness across question types.")
     lines.append("")
 
     lines.append("## Notes / gotchas")
