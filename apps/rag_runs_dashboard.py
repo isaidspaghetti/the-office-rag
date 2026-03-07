@@ -32,6 +32,86 @@ EP_IN_SOURCE_RE = re.compile(r"s(\d{2})e(\d{2})", re.IGNORECASE)
 TOKEN_RE = re.compile(r"[a-z0-9]+", re.IGNORECASE)
 
 
+_DOTENV_LOADED = False
+
+
+def _maybe_load_dotenv_once() -> None:
+    """Best-effort local .env loading.
+
+    Streamlit Cloud uses st.secrets; local dev often relies on a repo-root `.env`.
+    We avoid importing python-dotenv unless needed.
+    """
+    global _DOTENV_LOADED
+    if _DOTENV_LOADED:
+        return
+    _DOTENV_LOADED = True
+
+    try:
+        from dotenv import load_dotenv  # type: ignore
+
+        load_dotenv(override=False)
+    except Exception:
+        return
+
+
+def get_secret(name: str) -> str:
+    """Best-effort secret lookup for Streamlit Cloud.
+
+    Order:
+      1) st.secrets (when configured)
+      2) environment variables
+    """
+    v: Any = None
+    try:
+        v = st.secrets.get(name)  # type: ignore[attr-defined]
+    except Exception:
+        v = None
+    if v is None:
+        v = os.environ.get(name)
+        if not v:
+            _maybe_load_dotenv_once()
+            v = os.environ.get(name)
+    return str(v or "").strip()
+
+
+def _env_flag(name: str) -> bool:
+    v = str(os.environ.get(name) or "").strip().lower()
+    return v in {"1", "true", "yes", "y", "on"}
+
+
+def is_local_dev(*, project_root: Path) -> bool:
+    """Best-effort heuristic for whether we're running in local dev.
+
+    This is used to hide dev-only UI (like local Chroma indexes) when deployed.
+    Override with env vars:
+      - RAG_FORCE_LOCAL_UI=1
+      - RAG_FORCE_CLOUD_UI=1
+    """
+
+    if _env_flag("RAG_FORCE_LOCAL_UI"):
+        return True
+    if _env_flag("RAG_FORCE_CLOUD_UI"):
+        return False
+
+    # Local dev commonly has a repo-root .env (not committed).
+    try:
+        if (project_root / ".env").exists():
+            return True
+    except Exception:
+        pass
+
+    # Streamlit Community Cloud commonly runs under /mount/src.
+    try:
+        cwd = Path.cwd().as_posix()
+        if cwd.startswith("/mount/src") or "/mount/src/" in cwd:
+            return False
+    except Exception:
+        pass
+
+    # Default to local unless we have a positive cloud signal.
+    return True
+
+
 # -----------------------------
 # Friendly labels (UI)
 # -----------------------------
@@ -1353,18 +1433,33 @@ def _qdrant_search(
     """Best-effort Qdrant vector search returning raw hits."""
     if not collection_name:
         return []
-    try:
-        # qdrant-client stable API.
+
+    # qdrant-client API has changed over time.
+    # - Newer versions expose query_points() and may not expose search().
+    # - Older versions expose search().
+    if hasattr(client, "query_points"):
+        resp = client.query_points(
+            collection_name=str(collection_name),
+            query=[float(x) for x in (query_vector or [])],
+            limit=int(limit),
+            with_payload=True,
+        )
+        return list(getattr(resp, "points", None) or [])
+
+    if hasattr(client, "search"):
         return list(
             client.search(
                 collection_name=str(collection_name),
-                query_vector=query_vector,
+                query_vector=[float(x) for x in (query_vector or [])],
                 limit=int(limit),
                 with_payload=True,
             )
         )
-    except Exception:
-        return []
+
+    raise RuntimeError(
+        "Unsupported qdrant-client API: expected QdrantClient.query_points() or QdrantClient.search(). "
+        "Try upgrading: pip install -U qdrant-client"
+    )
 
 
 def _live_retrieve_qdrant(
@@ -1549,33 +1644,18 @@ def answer_question(question: str) -> Dict[str, Any]:
     # Pull config from sidebar (with safe defaults).
     live_backend = str(st.session_state.get("live_backend") or "qdrant").strip().lower()
 
-    def _secret(name: str) -> str:
-        """Best-effort secret lookup for Streamlit Cloud.
-
-        Order:
-          1) st.secrets (when configured)
-          2) environment variables
-        """
-        v: Any = None
-        try:
-            v = st.secrets.get(name)  # type: ignore[attr-defined]
-        except Exception:
-            v = None
-        if v is None:
-            v = os.environ.get(name)
-        return str(v or "").strip()
-
     # Qdrant config (cloud-friendly defaults).
-    qdrant_url = str(st.session_state.get("qdrant_url") or _secret("QDRANT_URL") or "").strip()
-    qdrant_api_key = str(st.session_state.get("qdrant_api_key") or _secret("QDRANT_API_KEY") or "").strip() or None
+    # NOTE: we intentionally do not surface URL/API key in the UI; they come from secrets/env.
+    qdrant_url = str(get_secret("QDRANT_URL") or "").strip()
+    qdrant_api_key = str(get_secret("QDRANT_API_KEY") or "").strip() or None
     qdrant_scripts_collection = str(
         st.session_state.get("qdrant_scripts_collection")
-        or _secret("QDRANT_SCRIPTS_COLLECTION")
+        or get_secret("QDRANT_SCRIPTS_COLLECTION")
         or "office_scripts"
     ).strip()
     qdrant_derived_collection = str(
         st.session_state.get("qdrant_derived_collection")
-        or _secret("QDRANT_DERIVED_COLLECTION")
+        or get_secret("QDRANT_DERIVED_COLLECTION")
         or "office_derived_cards"
     ).strip()
 
@@ -1617,7 +1697,7 @@ def answer_question(question: str) -> Dict[str, Any]:
     # Streamlit Cloud secrets are not guaranteed to be exported as env vars.
     # Mirror them into os.environ so downstream OpenAI clients can read them.
     if not os.environ.get("OPENAI_API_KEY"):
-        sk = _secret("OPENAI_API_KEY")
+        sk = get_secret("OPENAI_API_KEY")
         if sk:
             os.environ["OPENAI_API_KEY"] = sk
 
@@ -1905,7 +1985,7 @@ def pareto_frontier(points: List[Tuple[str, float, float]]) -> List[Tuple[str, f
 # -----------------------------
 def page_chat_playground(*, enable_live_chat: bool, docs_root: Path, export_dir: Path) -> None:
     st.header("Chat Playground")
-    st.caption("Optional live mode (feature-flagged). Use Run Explorer for historical inspection.")
+    st.caption("Ask me a question about The Office...")
 
     if "chat_messages" not in st.session_state:
         st.session_state.chat_messages = []
@@ -3789,7 +3869,7 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
     ]
 
     # Top navigation: segmented control feels more like a navbar than radio buttons.
-    default_page = st.session_state.get("nav_page") or PAGES[1]
+    default_page = st.session_state.get("nav_page") or PAGES[0]
     st.markdown('<div class="sticky-nav">', unsafe_allow_html=True)
     if hasattr(st, "segmented_control"):
         page = st.segmented_control("Page", options=PAGES, default=default_page)
@@ -3846,37 +3926,51 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
 
     if page == "Chat Playground":
         st.sidebar.subheader("Live Chat")
-        st.sidebar.caption("Uses Qdrant (recommended for Streamlit Cloud) or local Chroma; requires OPENAI_API_KEY.")
+
+        local_dev = is_local_dev(project_root=project_root)
+        if local_dev:
+            st.sidebar.caption(
+                "Uses Qdrant (recommended for Streamlit Cloud) or local Chroma (dev-only); requires OPENAI_API_KEY."
+            )
+        else:
+            st.sidebar.caption("Uses Qdrant (Streamlit Cloud deployment); requires OPENAI_API_KEY.")
+
+        backend_options = ["qdrant"] + (["chroma"] if local_dev else [])
+        backend_current = str(st.session_state.get("live_backend") or "qdrant")
+        if backend_current not in backend_options:
+            backend_current = "qdrant"
 
         backend = st.sidebar.selectbox(
             "Retrieval backend",
-            options=["qdrant", "chroma"],
-            index=0,
+            options=backend_options,
+            index=_select_index(backend_options, backend_current),
             format_func=lambda x: {"qdrant": "Qdrant (cloud)", "chroma": "Local Chroma (dev)"}.get(str(x), str(x)),
-            help="For Streamlit Community Cloud deployments, use Qdrant.",
+            help=(
+                "For Streamlit Community Cloud deployments, use Qdrant." if local_dev else "Backend is fixed to Qdrant in deployed mode."
+            ),
         )
         st.session_state["live_backend"] = backend
 
         if backend == "qdrant":
             st.sidebar.markdown("**Qdrant connection**")
-            st.session_state["qdrant_url"] = st.sidebar.text_input(
-                "QDRANT_URL",
-                value=str(st.session_state.get("qdrant_url") or os.environ.get("QDRANT_URL") or ""),
-                help="Example: https://<cluster>.cloud.qdrant.io",
+            has_url = bool(get_secret("QDRANT_URL"))
+            has_key = bool(get_secret("QDRANT_API_KEY"))
+            st.sidebar.caption(
+                "Using secrets/env (not shown in UI). "
+                f"QDRANT_URL={'set' if has_url else 'missing'}; QDRANT_API_KEY={'set' if has_key else 'missing'}."
             )
-            st.session_state["qdrant_api_key"] = st.sidebar.text_input(
-                "QDRANT_API_KEY",
-                value=str(st.session_state.get("qdrant_api_key") or os.environ.get("QDRANT_API_KEY") or ""),
-                type="password",
-                help="Optional if your Qdrant endpoint is public; recommended for Cloud.",
-            )
+
+            if not has_url:
+                st.sidebar.warning(
+                    "QDRANT_URL is missing. Add it in Streamlit secrets (or env) for live Qdrant retrieval."
+                )
 
             st.sidebar.markdown("**Collections (two collections)**")
             st.session_state["qdrant_scripts_collection"] = st.sidebar.text_input(
                 "Scripts collection",
                 value=str(
                     st.session_state.get("qdrant_scripts_collection")
-                    or os.environ.get("QDRANT_SCRIPTS_COLLECTION")
+                    or get_secret("QDRANT_SCRIPTS_COLLECTION")
                     or "office_scripts"
                 ),
                 help="Qdrant collection containing script + summary chunks.",
@@ -3885,24 +3979,27 @@ def main(*, set_page_config: bool = True, show_title: bool | None = None) -> Non
                 "Derived collection",
                 value=str(
                     st.session_state.get("qdrant_derived_collection")
-                    or os.environ.get("QDRANT_DERIVED_COLLECTION")
+                    or get_secret("QDRANT_DERIVED_COLLECTION")
                     or "office_derived_cards"
                 ),
                 help="Qdrant collection containing derived cards (episode/season/topic).",
             )
 
-        show_advanced_indexes = st.sidebar.checkbox(
-            "Show advanced indexes",
-            value=False,
-            help="Includes experimental scene-based chunking indexes (not recommended for new demos).",
-        )
-
-        # Discover options at runtime.
-        db_root = str(project_root / "db")
-        persist_dir_options = list_chroma_persist_dirs(db_root, include_advanced=bool(show_advanced_indexes))
-        # Prefer common defaults when present.
+        # Chroma-only knobs (dev mode)
+        show_advanced_indexes = False
+        persist_dir_options: List[str] = []
         script_default = str(project_root / "db" / "chroma_db")
         derived_default = str(project_root / "db" / "chroma_db_derived_cards")
+        if backend == "chroma":
+            show_advanced_indexes = st.sidebar.checkbox(
+                "Show advanced indexes",
+                value=False,
+                help="Includes experimental scene-based chunking indexes (not recommended for new demos).",
+            )
+
+            # Discover options at runtime.
+            db_root = str(project_root / "db")
+            persist_dir_options = list_chroma_persist_dirs(db_root, include_advanced=bool(show_advanced_indexes))
 
         # Models: discovered from historical run logs (plus a couple sane defaults).
         discovered_models = list_llm_models_from_runs(str(project_root / "experiments" / "runs"))
