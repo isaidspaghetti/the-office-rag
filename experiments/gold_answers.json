@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "q1",
+    "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+    "gold_answer": "Jim impersonates Dwight and says the line while mocking Dwight’s obsessions (bears, beets, and Battlestar Galactica). This happens in Season 3, Episode 20 (\"Product Recall\").",
+    "expected_episode_ids": ["S03E20"],
+    "must_include": ["Jim", "impersonat", "Dwight", "bears", "beets", "battlestar"],
+    "must_not_include": ["S03E21"],
+    "notes": "Allow small phrasing differences. Episode number is the key."
+  },
+  {
+    "case_id": "q2",
+    "question": "In what episode does Michael burn his foot?",
+    "gold_answer": "Season 2, Episode 12 (\"The Injury\"). Michael burns his foot on a George Foreman grill.",
+    "expected_episode_ids": ["S02E12"],
+    "must_include": ["The Injury", "Foreman", "grill"],
+    "must_not_include": [],
+    "notes": "Accept either 'S02E12' or 'Season 2 Episode 12'."
+  },
+  {
+    "case_id": "q3",
+    "question": "Summarize season 2 of The Office.",
+    "gold_answer": "Season 2 deepens the Jim/Pam relationship tension while Pam remains engaged to Roy; Michael’s relationship with Jan becomes more involved; Dwight’s ambition and rivalry with Jim continues through workplace conflicts and pranks; the season builds to major emotional beats including \"Casino Night\" where Jim confesses his feelings and kisses Pam.",
+    "expected_episode_ids": [],
+    "must_include": ["Jim", "Pam", "Roy", "Jan", "Casino Night"],
+    "must_not_include": [],
+    "notes": "This is a synthesis question; do not require episode IDs but reward accurate major arcs."
+  },
+  {
+    "case_id": "q4",
+    "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+    "gold_answer": "Dwight dislikes Jim mainly because: (1) Jim constantly pranks and undermines him, which Dwight sees as disrespect and disruption; (2) Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive of Dwight’s self-appointed authority; (3) Dwight is competitive and threatened by Jim’s social ease and influence in the office. Provide examples from distinct situations/episodes when possible. Important nuance:Underneath the rivalry, there’s deep respect. By the final season, Dwight names Jim best man at his wedding.",
+    "expected_episode_ids": [],
+    "must_include": ["prank", "authority", "rule"],
+    "must_not_include": [],
+    "notes": "Answer should provide 3 distinct reasons and at least one example each. Reward answers that explain Jim being Dwight's best man."
+  },
+  {
+    "case_id": "q5",
+    "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+    "gold_answer": "Commonly considered serious relationships: 1.  Jan Levinson (toxic/co-dependent HR executive); ends after escalating dysfunction. 2. Carol Stills (breaks up because Michael moves too fast / is inappropriate) he proposed to her on their fourth date and photoshopped his face over her ex-husband's in a family photo. 3.  Holly Flax (Michael’s best match; they end up together. Michael porposes to her and leaves to be with her). Donna Newton (Michael ends it after learning she is married).  Helene Beesly (Pam's Mom). Michael ends it because she’s too old for him.",
+    "expected_episode_ids": [],
+    "must_include": ["Jan", "Carol", "Holly", "Donna", "Helene"],
+    "must_not_include": ["herpes while dating Carol"],
+    "notes": ""
+  },
+  {
+    "case_id": "q6",
+    "question": "What is the teapot letter and why is it important?",
+    "gold_answer": "Jim gives Pam a teapot filled with meaningful items, including a letter; it represents Jim’s feelings and their relationship. It’s introduced in Season 2’s Christmas episode (\"Christmas Party\") and remains a meaningful symbol referenced later as their relationship progresses.",
+    "expected_episode_ids": ["S02E10"],
+    "must_include": ["teapot", "letter", "Jim", "Pam", "Christmas"],
+    "must_not_include": [],
+    "notes": "Do not require knowing the exact later-episode number; require correct origin and significance."
+  },
+  {
+    "case_id": "q7",
+    "question": "Who is Creed and what is his deal?",
+    "gold_answer": "Creed Bratton works in Quality Assurance at Dunder Mifflin. His 'deal' is that he’s bizarre and evasive, often implying shady or criminal behavior and a questionable identity. He’s comic relief as an unpredictable, mysterious presence, and he is arrested in the series finale.",
+    "expected_episode_ids": [],
+    "must_include": ["Creed", "Quality", "Assurance", "arrest"],
+    "must_not_include": [],
+    "notes": "Reward answers that capture both his job and the running gag of criminal/shady implications."
+  }
+]

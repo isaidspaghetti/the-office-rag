@@ -1,0 +1,3039 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-13-57Z_evo_4_1_mini_2026_03_05_step04_derived_then_script_sim_k10",
+    "run_name": "evo_4_1_mini_2026-03-05_step04_derived_then_script_sim_k10",
+    "created_at_utc": "2026-03-06T06:13:57Z",
+    "notes": ""
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:13:57Z",
+            "sha256": "f209dc739044008efe70a93f22db691e82227f9f8e93ea5a4740b79e4cecbace"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-06T04:52:41Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-06T04:52:41Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": false,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season09_4_1_mini_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season09_4_1_mini_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [],
+          "seasons_filter": null,
+          "docs_planned": 24,
+          "dry_run": false,
+          "docs_indexed": 24
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04/chroma.sqlite3",
+            "size_bytes": 917504,
+            "mtime_utc": "2026-03-06T06:13:57Z",
+            "sha256": "b6fdc88e3505ab5c2288516ea599e8c8303dbe60087dda6284970a81b7a08cf2"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+      "collection_name": "derived_cards",
+      "num_vectors": 24
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "derived_then_script",
+      "search_type": "similarity",
+      "k": 10,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": false,
+      "provider": null,
+      "model": null,
+      "temperature": null,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "expected": {
+        "episode_ids": [
+          "S03E20"
+        ]
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 550,
+        "stats": {
+          "min": 0.5025382041931152,
+          "max": 0.6128706336021423,
+          "mean": 0.5333534896373748
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 25,
+            "first_line": "=== SCENE 045 ===",
+            "preview": "=== SCENE 045 ===\n\nAndy: Hey, what's goin' on over here? Some sort of singing competition for the young'uns?\nCasey: You're back!\nAndy: No, it's me, Andy!\nCasey: No, I know.\nAndy: No, no, no. I'm wearing makeup.\nCasey: You did a really great…",
+            "score": 0.6128706336021423
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 15,
+            "first_line": "=== SCENE 033 ===",
+            "preview": "=== SCENE 033 ===\n\nJim: A good assistant knows what their superior is thinking before they even think it. Meredith, what number am I thinking of right now?\nMeredith: Uh, two.\nJim: 985,000,000,000,017.\nDwight: Not even close, Meredith. Come …",
+            "score": 0.5445897579193115
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "Dwight: Not now! Private time!",
+            "preview": "Dwight: Not now! Private time!\nJim: I love Star Wars as much as the next guy—\nDwight: Hey, hey! Seriously?\n[STAGE] holds up Battlestar Galactica model box\nJim: My god, I'm so sorry. Well this might make up for it: I think I have found an en…",
+            "score": 0.5443037152290344
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt",
+            "episode_id": "S09E07",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 4,
+            "first_line": "David: Look, we need our top salesman running point on this and Dwight, that is you.",
+            "preview": "David: Look, we need our top salesman running point on this and Dwight, that is you.\nDwight: I'm gonna need to put you on hold for a second. Hah! Yah! Woooo! Eat it Jim! Eat it Phyllis! Eat… where's Stanley?\n[STAGE] presses hold button\nErin…",
+            "score": 0.5278558135032654
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 40,
+            "first_line": "Creed: Hey, grab a seat. We have that table and that table, but not that table or that table or that table. Floor's up for grabs. Meredith has been hogging the can. Oh!",
+            "preview": "Creed: Hey, grab a seat. We have that table and that table, but not that table or that table or that table. Floor's up for grabs. Meredith has been hogging the can. Oh!\n[STAGE] Dwight kisses Creed's head\nErin: You have to change the channel…",
+            "score": 0.5260850191116333
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e05_here_comes_treble_script.txt",
+            "episode_id": "S09E05",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "=== SCENE 022 ===",
+            "preview": "=== SCENE 022 ===\n\nDwight: Hi Daryl. I'm just here to smear some peanut butter on my forehead.\nNellie: You know, to uh, to protect his brain from the nanobots that the government put in the air conditioning.\nDwight: That makes sense to you,…",
+            "score": 0.5242311358451843
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+            "episode_id": "S09E03",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 8,
+            "first_line": "=== SCENE 017 ===",
+            "preview": "=== SCENE 017 ===\n\nAndy: Darryl said, \"Cool, man.\" He called me as cool man.\n\n=== SCENE 018 ===\n\nPam: You know, I really do think it would be worth it to pull over and just take ten minutes to eat.\nNellie: Mmmm—the thing is Pam, I'm gonna b…",
+            "score": 0.5214966535568237
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e05_here_comes_treble_script.txt",
+            "episode_id": "S09E05",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 6,
+            "first_line": "=== SCENE 013 ===",
+            "preview": "=== SCENE 013 ===\n\nNellie: It's my pill. I have an anxiety issue and I'm not ashamed of that, But I'm not loving the idea of Dwight having that information. I once saw him yell at Phyllis for sneezing wrong.\n\n=== SCENE 014 ===\n\nNellie: Yeah…",
+            "score": 0.5174775123596191
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 27,
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nOscar (holding Phillip): Listen, listen. Shh, buddy. Stanley's sleeping. You don't want to wake up the grumpy old walrus, do you?\nStanley: I heard that.\nPhilip: Mama.\nDwight: Hey, you want me to take the little diaper bla…",
+            "score": 0.5120864510536194
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+            "episode_id": "S09E03",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 11,
+            "first_line": "=== SCENE 025 ===",
+            "preview": "=== SCENE 025 ===\n\nDarryl: Whoa! That person has really gotten him or herself into quite a predicament.\n\n=== SCENE 026 ===\n\nAndy: Hey mom, it's Andy. Give me a call when you get a chance gotta quick question for you, uhhhh no big deal just …",
+            "score": 0.5025382041931152
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": false,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E05"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Here Comes Treble",
+                "score": 0.5556354522705078
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.5403653383255005
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E07"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Whale",
+                "score": 0.5355963110923767
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.533235490322113
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E03"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Andy’s Ancestry",
+                "score": 0.5265000462532043
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E17"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Farm",
+                "score": 0.5213507413864136
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E21"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Livin’ The Dream",
+                "score": 0.5191514492034912
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.516133725643158
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E09"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.5134463906288147
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E01"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "New Guys",
+                "score": 0.5109840035438538
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E06"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Boat",
+                "score": 0.5085870027542114
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E12"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Customer Loyalty",
+                "score": 0.5066581964492798
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E05",
+            "S09E22",
+            "S09E07",
+            "S09E19",
+            "S09E03",
+            "S09E17"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E03",
+                "S09E05",
+                "S09E07",
+                "S09E17",
+                "S09E19",
+                "S09E22"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 9978,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E03",
+          "S09E05",
+          "S09E07",
+          "S09E22"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 65.12
+        },
+        "context_diversity": {
+          "distinct_episode_count": 4,
+          "distinct_source_count": 4,
+          "top_episode_share": 0.5,
+          "episode_entropy_norm": 0.8804820237218407,
+          "episode_counts": {
+            "S09E22": 5,
+            "S09E03": 2,
+            "S09E05": 2,
+            "S09E07": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt": 5,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e05_here_comes_treble_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 10
+          },
+          "chunk_type_counts": {
+            "char": 10
+          },
+          "source_dup_rate": 0.6,
+          "episode_dup_rate": 0.6
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "expected": {
+        "episode_ids": [
+          "S02E12"
+        ]
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 435,
+        "stats": {
+          "min": 0.34388959407806396,
+          "max": 0.3963496685028076,
+          "mean": 0.3632555603981018
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt",
+            "episode_id": "S09E18",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 4,
+            "first_line": "=== SCENE 007 ===",
+            "preview": "=== SCENE 007 ===\n\nKevin (Meredith laughs): What's going on? Oh, did Gangnam Style put out a new song?\nOscar: There's a promo for the new documentary on the web.\nPhyllis: Play it again.\nPromo Voice (Music begins, Michael Scott is shown): Th…",
+            "score": 0.3963496685028076
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "episode_id": "S09E23",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 38,
+            "first_line": "=== SCENE 083 ===",
+            "preview": "=== SCENE 083 ===\n\nMichael (crying): I feel like all my kids grew up and then they married each other. It's every parent's dream.\n\n=== SCENE 084 ===\n\nDarryl: Thank you go much.\nDwight: Good night.\nToby: Good luck.\nVal: Great. It was really …",
+            "score": 0.37637269496917725
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "=== SCENE 023 ===",
+            "preview": "=== SCENE 023 ===\n\nAngela: The Senator is exhausted. This campaign is wearing him out.\nOscar: That's a tough one.\nAngela: That man he's up against is so dirty. And the senator's just pushing back as hard as he can.\nKevin: Please, stop.\nAnge…",
+            "score": 0.3721022605895996
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E06 — The Boat",
+            "preview": "The Office — S09E06 — The Boat\n\n=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly for the first time. So yes, Sena…",
+            "score": 0.3645288944244385
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e19_stairmageddon_summary.txt",
+            "episode_id": "S09E19",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E19 — Stairmageddon",
+            "preview": "The Office — S09E19 — Stairmageddon\n\nStanley refuses to go on a sales call with Dwight because the elevator is broke; Jim and Pam begin marriage counseling.",
+            "score": 0.3609788417816162
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e04_work_bus_summary.txt",
+            "episode_id": "S09E04",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E04 — Work Bus",
+            "preview": "The Office — S09E04 — Work Bus\n\nJim convinces Dwight that the office has safety issues so Jim sets up a temporary office in the parking lot.",
+            "score": 0.359286904335022
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e06_the_boat_summary.txt",
+            "episode_id": "S09E06",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E06 — The Boat",
+            "preview": "The Office — S09E06 — The Boat\n\nAndy deals with the aftermath of his family losing all their money; Jim, Pam and Nellie pulls a radio interview prank on Dwight; Kevin finds out about Oscar and Angela's husband.",
+            "score": 0.35923683643341064
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e19_stairmageddon_script.txt",
+            "episode_id": "S09E19",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E19 — Stairmageddon",
+            "preview": "The Office — S09E19 — Stairmageddon\n\n=== SCENE 000 ===\n\nStanley (humming): What the hell? No. This is NOT happening.\nErin: Didn't you get the memo? It's Stairmageddon! Come on Stanley!\n[STAGE] claps and opens the door to the stairwell\n[STAG…",
+            "score": 0.3554033041000366
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e08_the_target_summary.txt",
+            "episode_id": "S09E08",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E08 — The Target",
+            "preview": "The Office — S09E08 — The Target\n\nAngela wants to put a hit out on Oscar; Jim has to wine and dine Phyllis and Stanley for a favor.",
+            "score": 0.3444066047668457
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+            "episode_id": "S09E08",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 19,
+            "first_line": "=== SCENE 027 ===",
+            "preview": "=== SCENE 027 ===\n\nDwight: There's no time to explain. Okay, actually, there is time to explain. When Angela found out that you seduced her husband, we hired a guy to break your knee caps.\n[STAGE] descending stairs\nOscar: Oh, my God! What i…",
+            "score": 0.34388959407806396
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": false,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E06"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Boat",
+                "score": 0.3963460922241211
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.3933011293411255
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E04"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Work Bus",
+                "score": 0.38340020179748535
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E08"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Target",
+                "score": 0.3744012713432312
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.3725043535232544
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E23"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Finale",
+                "score": 0.36418652534484863
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E14"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Vandalism",
+                "score": 0.36307185888290405
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.3592294454574585
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E21"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Livin’ The Dream",
+                "score": 0.35539352893829346
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E11"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Suit Warehouse",
+                "score": 0.35307490825653076
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E20"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Paper Airplane",
+                "score": 0.3466408848762512
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E03"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Andy’s Ancestry",
+                "score": 0.3453325033187866
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E06",
+            "S09E19",
+            "S09E04",
+            "S09E08",
+            "S09E18",
+            "S09E23"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E04",
+                "S09E06",
+                "S09E08",
+                "S09E18",
+                "S09E19",
+                "S09E23"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 5814,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E04",
+          "S09E06",
+          "S09E08",
+          "S09E18",
+          "S09E19",
+          "S09E23"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 79.09
+        },
+        "context_diversity": {
+          "distinct_episode_count": 6,
+          "distinct_source_count": 9,
+          "top_episode_share": 0.3,
+          "episode_entropy_norm": 0.9464119282150146,
+          "episode_counts": {
+            "S09E06": 3,
+            "S09E08": 2,
+            "S09E19": 2,
+            "S09E04": 1,
+            "S09E18": 1,
+            "S09E23": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e18_promos_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e19_stairmageddon_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e04_work_bus_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e06_the_boat_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e08_the_target_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e19_stairmageddon_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 6,
+            "summary": 4
+          },
+          "chunk_type_counts": {
+            "char": 10
+          },
+          "source_dup_rate": 0.09999999999999998,
+          "episode_dup_rate": 0.4
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 384,
+        "stats": {
+          "min": 0.5065901279449463,
+          "max": 0.6293924450874329,
+          "mean": 0.5369790256023407
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 09",
+            "preview": "Season card: Season 09\nOverview:\nSeason 9 of The Office focuses on significant changes in the Dunder Mifflin Scranton branch, including leadership transitions, personal relationship developments, and the impact of a documentary about the of…",
+            "score": 0.6293924450874329
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt",
+            "episode_id": "S09E01",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E01 — New Guys",
+            "preview": "The Office — S09E01 — New Guys\n\n=== SCENE 000 ===\n\nErin: Andy's coming back today! Andy's coming back today! Ha! Andy's coming back today. David Wallace sent him on an outward bound wilderness adventure for a whole month to make him more de…",
+            "score": 0.5548089742660522
+          },
+          {
+            "rank": 3,
+            "source": null,
+            "episode_id": "S09E22",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S09E22 — A.A.R.M",
+            "preview": "Episode card: S09E22 — A.A.R.M\nSynopsis:\nIn this episode, Dwight becomes the permanent manager and enforces new security measures while the office prepares for a documentary airing. Jim and Dwight conduct humorous tests to select an assista…",
+            "score": 0.5420019030570984
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E06 — The Boat",
+            "preview": "The Office — S09E06 — The Boat\n\n=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly for the first time. So yes, Sena…",
+            "score": 0.540071964263916
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e06_the_boat_summary.txt",
+            "episode_id": "S09E06",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E06 — The Boat",
+            "preview": "The Office — S09E06 — The Boat\n\nAndy deals with the aftermath of his family losing all their money; Jim, Pam and Nellie pulls a radio interview prank on Dwight; Kevin finds out about Oscar and Angela's husband.",
+            "score": 0.5294494032859802
+          },
+          {
+            "rank": 6,
+            "source": null,
+            "episode_id": "S09E23",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S09E23 — Finale",
+            "preview": "Episode card: S09E23 — Finale\nSynopsis:\nIn the series finale, the Dunder Mifflin employees reunite for Dwight's wedding and a final celebration, reflecting on their shared past and future. Kevin is humorously fired by Dwight with a cake ann…",
+            "score": 0.5216904878616333
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e02_roy_s_wedding_summary.txt",
+            "episode_id": "S09E02",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E02 — Roy's Wedding",
+            "preview": "The Office — S09E02 — Roy's Wedding\n\nJim and Pam attend Roy's wedding. Nellie tries to initiate a special project involving charity.",
+            "score": 0.5187798142433167
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+            "episode_id": "S09E04",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E04 — Work Bus",
+            "preview": "The Office — S09E04 — Work Bus\n\n=== SCENE 000 ===",
+            "score": 0.517810583114624
+          },
+          {
+            "rank": 9,
+            "source": null,
+            "episode_id": "S09E02",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S09E02 — Roy’s Wedding",
+            "preview": "Episode card: S09E02 — Roy’s Wedding\nSynopsis:\nIn this episode, the office copes with the custodian's month-long absence by implementing a chore wheel system led by Pam, which evolves from chores to prizes and penalties before settling on a…",
+            "score": 0.509194552898407
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e02_roy_s_wedding_script.txt",
+            "episode_id": "S09E02",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E02 — Roy’s Wedding",
+            "preview": "The Office — S09E02 — Roy’s Wedding\n\n=== SCENE 000 ===\n\nPam (surveying an untidy office): The building's custodian is on vacation for the month and Dwight is too cheap to hire a replacement. So, instead, we're living in filth. But, not for …",
+            "score": 0.5065901279449463
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E01",
+                  "S09E02",
+                  "S09E03",
+                  "S09E04",
+                  "S09E05",
+                  "S09E06",
+                  "S09E07",
+                  "S09E08",
+                  "S09E09",
+                  "S09E10",
+                  "S09E11",
+                  "S09E12",
+                  "S09E13",
+                  "S09E14",
+                  "S09E15",
+                  "S09E16",
+                  "S09E17",
+                  "S09E18",
+                  "S09E19",
+                  "S09E20",
+                  "S09E21",
+                  "S09E22",
+                  "S09E23",
+                  "S09E24",
+                  "S09E25"
+                ],
+                "derived_type": "season_card",
+                "season": 9,
+                "title": null,
+                "score": 0.6293924450874329
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.5420019030570984
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E23"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Finale",
+                "score": 0.5216904878616333
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E02"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Roy’s Wedding",
+                "score": 0.509194552898407
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.5041902661323547
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.500408411026001
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E11"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Suit Warehouse",
+                "score": 0.49406886100769043
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E20"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Paper Airplane",
+                "score": 0.49096590280532837
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E15"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Couples Discount",
+                "score": 0.48974519968032837
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E07"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Whale",
+                "score": 0.489166259765625
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E01"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "New Guys",
+                "score": 0.48842722177505493
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E21"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Livin’ The Dream",
+                "score": 0.4855617880821228
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E01",
+            "S09E02",
+            "S09E03",
+            "S09E04",
+            "S09E05",
+            "S09E06"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E01",
+                "S09E02",
+                "S09E03",
+                "S09E04",
+                "S09E05",
+                "S09E06"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 15234,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E01",
+          "S09E02",
+          "S09E04",
+          "S09E06",
+          "S09E22",
+          "S09E23"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 76.79
+        },
+        "context_diversity": {
+          "distinct_episode_count": 6,
+          "distinct_source_count": 6,
+          "top_episode_share": 0.3,
+          "episode_entropy_norm": 0.8952727687680759,
+          "episode_counts": {
+            "S09E02": 3,
+            "S09E06": 2,
+            "S09E01": 1,
+            "S09E04": 1,
+            "S09E22": 1,
+            "S09E23": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e02_roy_s_wedding_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e02_roy_s_wedding_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e06_the_boat_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "derived": 4,
+            "script": 4,
+            "summary": 2
+          },
+          "chunk_type_counts": {
+            "char": 6
+          },
+          "source_dup_rate": 0.4,
+          "episode_dup_rate": 0.4
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 475,
+        "stats": {
+          "min": 0.5345299243927002,
+          "max": 0.5707513093948364,
+          "mean": 0.5506209611892701
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 4,
+            "first_line": "=== SCENE 018 ===",
+            "preview": "=== SCENE 018 ===\n\nDwight: Pfft, \"Athlead\"? Please. They're too lazy to call it Athletes Lead? Jim should just call it \"Stumpany,\" for \"Stupid Company.\"\nDarryl: Nothing stupid about working for yourself. Hanging out with pro athletes, getti…",
+            "score": 0.5707513093948364
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+            "episode_id": "S09E11",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 1,
+            "first_line": "Dwight (on phone with Jim): I hope you've been paying your wig storage bills Jimbo, because it's time for another episode of \"Handsome and Stinky, paper brothers for hire\".",
+            "preview": "Dwight (on phone with Jim): I hope you've been paying your wig storage bills Jimbo, because it's time for another episode of \"Handsome and Stinky, paper brothers for hire\".\nJim: Sorry, Stinky, can't do it. Too busy.\nDwight: Oh, god, this ag…",
+            "score": 0.5654827356338501
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+            "episode_id": "S09E13",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 21,
+            "first_line": "=== SCENE 040 ===",
+            "preview": "=== SCENE 040 ===\n\nDwight: And I was thinking it's only fair that you help make this decision since they'll be sitting at your desk next to your wife.\nJim: But you know I wouldn't hire any of these all-stars.\nDwight: Aah! God, that sucks! A…",
+            "score": 0.5580136179924011
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 36,
+            "first_line": "=== SCENE 061 ===",
+            "preview": "=== SCENE 061 ===\n\nJim: I don't know what you want me to tell you, man. All I know is that every time I've been faced with a tough decision, there's only one thing that outweighs every other concern. One thing that will make you give up on …",
+            "score": 0.5568284392356873
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 14,
+            "first_line": "=== SCENE 030 ===",
+            "preview": "=== SCENE 030 ===\n\nJim: By 2:00, Dwight will chose himself to be assistant to his own assistant, me.\n\n=== SCENE 031 ===\n\nDarryl: What up?\nGlenn: What's going on? How was the delivery?\nDarryl: Delivered all my furniture to Philly. Hey, keep …",
+            "score": 0.5547662973403931
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+            "episode_id": "S09E09",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 24,
+            "first_line": "=== SCENE 038 ===",
+            "preview": "=== SCENE 038 ===\n\nDwight: Oh! Damn It! Jim got the bigger half.\n[STAGE] Pig rib breaks and Jim wins, and stuff splatters people. Everyone groans\nDarryl (To himself): Back for more, huh?\n[STAGE] Gets up and walks towards Jim\nJim: Ooh, nog i…",
+            "score": 0.548134446144104
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt",
+            "episode_id": "S09E13",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 3,
+            "first_line": "=== SCENE 006 ===",
+            "preview": "=== SCENE 006 ===\n\nDwight: Big changes coming to the old desk clump. No longer a Pam-Jim alliance against Dwight. Now it is Dwight and a friend axis against Pam.\nJim: You could've just called that an alliance too, right?\nDwight: I chose my …",
+            "score": 0.5431182980537415
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 11,
+            "first_line": "=== SCENE 031 ===",
+            "preview": "=== SCENE 031 ===\n\nDwight: Thank you so much for coming. Darryl and I will be here to serve you for years and years and years and years. So, should we go call Jim and tell him to go screw himself?\n[STAGE] chuckles\nDarryl: Dwight, look, I'm …",
+            "score": 0.5383149981498718
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 35,
+            "first_line": "=== SCENE 060 ===",
+            "preview": "=== SCENE 060 ===\n\nJim: What do we got?\nDwight: I was thinking of proposing to Esther today.\nJim: Wow! Congratulations, that's a really big step.\nDwight: She's got a ton of great qualities. She's young, she's beautiful, genes so pure you co…",
+            "score": 0.5362695455551147
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": "S09E22",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 19,
+            "first_line": "Jim: An assistant brings their boss coffee with speed and dexterity. But an assistant to the assistant has a thousand times more to prove, am I right?",
+            "preview": "Jim: An assistant brings their boss coffee with speed and dexterity. But an assistant to the assistant has a thousand times more to prove, am I right?\nDwight: A thousand times more.\nPhyllis: I'll try this one.\nJim: Phyllis! Grab both these …",
+            "score": 0.5345299243927002
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E13"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Junior Salesman",
+                "score": 0.4759563207626343
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E09"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.4477687478065491
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.4356663227081299
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E11"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Suit Warehouse",
+                "score": 0.4352691173553467
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E12"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Customer Loyalty",
+                "score": 0.43014466762542725
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.42041802406311035
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E05"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Here Comes Treble",
+                "score": 0.41706645488739014
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E03"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Andy’s Ancestry",
+                "score": 0.41607147455215454
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E14"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Vandalism",
+                "score": 0.4101907014846802
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E01",
+                  "S09E02",
+                  "S09E03",
+                  "S09E04",
+                  "S09E05",
+                  "S09E06",
+                  "S09E07",
+                  "S09E08",
+                  "S09E09",
+                  "S09E10",
+                  "S09E11",
+                  "S09E12",
+                  "S09E13",
+                  "S09E14",
+                  "S09E15",
+                  "S09E16",
+                  "S09E17",
+                  "S09E18",
+                  "S09E19",
+                  "S09E20",
+                  "S09E21",
+                  "S09E22",
+                  "S09E23",
+                  "S09E24",
+                  "S09E25"
+                ],
+                "derived_type": "season_card",
+                "season": 9,
+                "title": null,
+                "score": 0.40571129322052
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E01"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "New Guys",
+                "score": 0.4002862572669983
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E07"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Whale",
+                "score": 0.39970409870147705
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E13",
+            "S09E09",
+            "S09E22",
+            "S09E11",
+            "S09E12",
+            "S09E19"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E09",
+                "S09E11",
+                "S09E12",
+                "S09E13",
+                "S09E19",
+                "S09E22"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 8784,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E09",
+          "S09E11",
+          "S09E12",
+          "S09E13",
+          "S09E22"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 72.12
+        },
+        "context_diversity": {
+          "distinct_episode_count": 5,
+          "distinct_source_count": 5,
+          "top_episode_share": 0.4,
+          "episode_entropy_norm": 0.9138646883853215,
+          "episode_counts": {
+            "S09E22": 4,
+            "S09E12": 2,
+            "S09E13": 2,
+            "S09E09": 1,
+            "S09E11": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt": 4,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e13_junior_salesman_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 10
+          },
+          "chunk_type_counts": {
+            "char": 10
+          },
+          "source_dup_rate": 0.5,
+          "episode_dup_rate": 0.5
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 608,
+        "stats": {
+          "min": 0.42149293422698975,
+          "max": 0.4651493430137634,
+          "mean": 0.4373685598373413
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "episode_id": "S09E23",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 36,
+            "first_line": "=== SCENE 075 ===",
+            "preview": "=== SCENE 075 ===\n\nPam: Michael has so many pictures of his kids he had to get two phones with two numbers and he pays two bills.\nPam (with Michael): Oh, my gosh, it's choreographed!\nPam: He just so happy to have a family plan.\n\n=== SCENE 0…",
+            "score": 0.4651493430137634
+          },
+          {
+            "rank": 2,
+            "source": null,
+            "episode_id": "S09E23",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S09E23 — Finale",
+            "preview": "Episode card: S09E23 — Finale\nSynopsis:\nIn the series finale, the Dunder Mifflin employees reunite for Dwight's wedding and a final celebration, reflecting on their shared past and future. Kevin is humorously fired by Dwight with a cake ann…",
+            "score": 0.4572112560272217
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e15_couples_discount_script.txt",
+            "episode_id": "S09E15",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E15 — Couples Discount",
+            "preview": "The Office — S09E15 — Couples Discount\n\n=== SCENE 000 ===\n\nPam (to Jim): Hey. I feel so lucky we're in the same city for Valentine's Day.\nJim: It's like magic. Or, it's like me getting on my hands and knees and begging my partners to switch…",
+            "score": 0.4540839195251465
+          },
+          {
+            "rank": 4,
+            "source": null,
+            "episode_id": "S09E15",
+            "doc_type": "derived",
+            "derived_type": "episode_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Episode card: S09E15 — Couples Discount",
+            "preview": "Episode card: S09E15 — Couples Discount\nSynopsis:\nIn this Valentine's Day episode, the office staff attempt to take advantage of couples discounts by pairing off with fake partners, leading to humorous and tense situations. Pam and Jim enjo…",
+            "score": 0.4520907402038574
+          },
+          {
+            "rank": 5,
+            "source": null,
+            "episode_id": null,
+            "doc_type": "derived",
+            "derived_type": "season_card",
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Season card: Season 09",
+            "preview": "Season card: Season 09\nOverview:\nSeason 9 of The Office focuses on significant changes in the Dunder Mifflin Scranton branch, including leadership transitions, personal relationship developments, and the impact of a documentary about the of…",
+            "score": 0.42954790592193604
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+            "episode_id": "S09E04",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 19,
+            "first_line": "=== SCENE 029 ===",
+            "preview": "=== SCENE 029 ===\n\nJim: Dwight, sometimes it takes couples years to get pregnant.\nDwight: Really? How long did it take you and Pam to conceive?\nJim: That doesn't matter.\nDwight: What position did you use to conceive?\nJim: Ok…that's not…\nDwi…",
+            "score": 0.42564892768859863
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "episode_id": "S09E23",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 46,
+            "first_line": "=== SCENE 099 ===",
+            "preview": "=== SCENE 099 ===\n\nDwight: Do I get along with my co-workers? Well, first of all, I don't have co-workers anymore, I have subordinates. So… have I gotten along with my subordinates? Let's see. My supplier relations rep, Meredith Palmer, is …",
+            "score": 0.42411190271377563
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "episode_id": "S09E23",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 27,
+            "first_line": "=== SCENE 059 ===",
+            "preview": "=== SCENE 059 ===\n\nWoman 4: I have a question for Jim and Pam. Everyone watching sees how much you love each other and how you're soul mates. So, Pam, how could you doubt that when Jim moved to Philadelphia?\nJim: Um, you know what, I actual…",
+            "score": 0.4226323366165161
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+            "episode_id": "S09E23",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 38,
+            "first_line": "=== SCENE 083 ===",
+            "preview": "=== SCENE 083 ===\n\nMichael (crying): I feel like all my kids grew up and then they married each other. It's every parent's dream.\n\n=== SCENE 084 ===\n\nDarryl: Thank you go much.\nDwight: Good night.\nToby: Good luck.\nVal: Great. It was really …",
+            "score": 0.4217163324356079
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e15_couples_discount_summary.txt",
+            "episode_id": "S09E15",
+            "doc_type": "summary",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E15 — Couples Discount",
+            "preview": "The Office — S09E15 — Couples Discount\n\nThe staff celebrates Valentine's Day by going out to a local nail salon for couple's discounts; Jim and Pam have lunch with Brian.",
+            "score": 0.42149293422698975
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": true,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E23"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Finale",
+                "score": 0.4572112560272217
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E15"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Couples Discount",
+                "score": 0.4520907402038574
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E01",
+                  "S09E02",
+                  "S09E03",
+                  "S09E04",
+                  "S09E05",
+                  "S09E06",
+                  "S09E07",
+                  "S09E08",
+                  "S09E09",
+                  "S09E10",
+                  "S09E11",
+                  "S09E12",
+                  "S09E13",
+                  "S09E14",
+                  "S09E15",
+                  "S09E16",
+                  "S09E17",
+                  "S09E18",
+                  "S09E19",
+                  "S09E20",
+                  "S09E21",
+                  "S09E22",
+                  "S09E23",
+                  "S09E24",
+                  "S09E25"
+                ],
+                "derived_type": "season_card",
+                "season": 9,
+                "title": null,
+                "score": 0.42954790592193604
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E16"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Moving On",
+                "score": 0.41749149560928345
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E21"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Livin’ The Dream",
+                "score": 0.3884866237640381
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.3797043561935425
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.37918543815612793
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.37504667043685913
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E12"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Customer Loyalty",
+                "score": 0.372810423374176
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E02"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Roy’s Wedding",
+                "score": 0.3708842396736145
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E06"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Boat",
+                "score": 0.3696126937866211
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E20"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Paper Airplane",
+                "score": 0.3659393787384033
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E23",
+            "S09E15",
+            "S09E01",
+            "S09E02",
+            "S09E03",
+            "S09E04"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E01",
+                "S09E02",
+                "S09E03",
+                "S09E04",
+                "S09E15",
+                "S09E23"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 15347,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E04",
+          "S09E15",
+          "S09E23"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 61.92
+        },
+        "context_diversity": {
+          "distinct_episode_count": 3,
+          "distinct_source_count": 4,
+          "top_episode_share": 0.5,
+          "episode_entropy_norm": 0.8538261865014825,
+          "episode_counts": {
+            "S09E23": 5,
+            "S09E15": 3,
+            "S09E04": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt": 4,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e15_couples_discount_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_09/s09e15_couples_discount_summary.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 6,
+            "derived": 3,
+            "summary": 1
+          },
+          "chunk_type_counts": {
+            "char": 7
+          },
+          "source_dup_rate": 0.6,
+          "episode_dup_rate": 0.7
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "expected": {
+        "episode_ids": [
+          "S02E10"
+        ]
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 400,
+        "stats": {
+          "min": 0.19842076301574707,
+          "max": 0.2727011442184448,
+          "mean": 0.21939064264297486
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+            "episode_id": "S09E20",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nAngela: Was Dwight rooting for me? Hmm. I hadn't noticed.\n\n=== SCENE 025 ===\n\nKevin: I'm not giving up. I'm going to keep making planes until one of them flies. Like Wilbur and Orville Redenbacher.\n\n=== SCENE 026 ===\n\nJim…",
+            "score": 0.2727011442184448
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 0,
+            "first_line": "The Office — S09E12 — Customer Loyalty",
+            "preview": "The Office — S09E12 — Customer Loyalty\n\n=== SCENE 000 ===\n\nDwight: Gotta clear out these file cabinets people, a lot of these are dead accounts. \"Scranton Mimeograph Corp?\" I don't think we're doing business with them any time soon. That's …",
+            "score": 0.23743057250976562
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt",
+            "episode_id": "S09E07",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 3,
+            "first_line": "=== SCENE 006 ===",
+            "preview": "=== SCENE 006 ===\n\nDwight: The White Pages: Do you want it? No. Do you use it? No. Does it inexplicably show up on your doorstep three times a year? Yes, yes, and yes. There's a reason that we in the paper industry call this thing \"the Whit…",
+            "score": 0.2351292371749878
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 15,
+            "first_line": "=== SCENE 040 ===",
+            "preview": "=== SCENE 040 ===\n\nToby: Hey, really nice job in that meeting in there.\nNellie: Oh, thank you. I don't know, I sort of thought–\nToby (hugging Nellie): So proud of you, Hon.\nNellie: Oh, I don't know. Okay.\nToby: I'm just curious though, what…",
+            "score": 0.2161889672279358
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 8,
+            "first_line": "=== SCENE 027 ===",
+            "preview": "=== SCENE 027 ===\n\nDwight: Hey, everybody. Uh, coffee order is going around — on me. Just sign your name below.\nAll (murmuring):\nDwight: You're welcome.\nPhyllis: Wait. This says \"Dunder Mifflin Loyalty Pledge\"?\nDwight: This — uh, what? Doub…",
+            "score": 0.2116323709487915
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt",
+            "episode_id": "S09E07",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 2,
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nDwight (answEring phone): Dwight Schrute. Well, hi there David Wallace. Why would you ever call me when the manager is out of town?\n[STAGE] turns on speakerphone\nDavid (on speakerphone): Well, I have some very exciting ne…",
+            "score": 0.2093639373779297
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e17_the_farm_script.txt",
+            "episode_id": "S09E17",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 9,
+            "first_line": "=== SCENE 015 ===",
+            "preview": "=== SCENE 015 ===\n\nStanley: Maybe we should eat the cupcakes. Haven't we done enough to Packer? I mean, we sent him down to Florida on a prank. And you did fire him.\n[STAGE] to Nellie\nNellie: I did. I did, yes. And it was purely political. …",
+            "score": 0.20798933506011963
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nNellie: For those just joining us, terror in Greenwich. Where police have surrounded the house of Dunder Mifflin CEO David Wallace. Wallace is said to be despondent over the company's stock plummet and is taking a mailman…",
+            "score": 0.2030889391899109
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 15,
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nNellie: The fallout from this morning's revelation continues to mount, since Mr. Dwight Shrute began speaking, Dunder Mifflin share prices fell 73%. Mr. Shrute, shareholders demand accountability from corporate leadership…",
+            "score": 0.20196115970611572
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+            "episode_id": "S09E06",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 20,
+            "first_line": "=== SCENE 038 ===",
+            "preview": "=== SCENE 038 ===\n\nDavid Wallace (On phone): Hello?\nDwight: David, is that you?\nDavid Wallace: Dwight?\nDwight: Oh, thank god. Oh, thank god. Are you ok? Is everyone ok?\nDavid Wallace: Yeah? Are you ok?\nDwight: Oh, I'm OK. I just want you to…",
+            "score": 0.19842076301574707
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": false,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E06"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Boat",
+                "score": 0.2257019281387329
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E12"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Customer Loyalty",
+                "score": 0.20495033264160156
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E07"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Whale",
+                "score": 0.19308334589004517
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E10"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Lice",
+                "score": 0.18878459930419922
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E17"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Farm",
+                "score": 0.18173575401306152
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E20"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Paper Airplane",
+                "score": 0.17856204509735107
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E03"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Andy’s Ancestry",
+                "score": 0.17566394805908203
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E04"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Work Bus",
+                "score": 0.17142033576965332
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.16955053806304932
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E09"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.16874217987060547
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E08"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Target",
+                "score": 0.16849756240844727
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E11"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Suit Warehouse",
+                "score": 0.16794848442077637
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E06",
+            "S09E12",
+            "S09E07",
+            "S09E10",
+            "S09E17",
+            "S09E20"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E06",
+                "S09E07",
+                "S09E10",
+                "S09E12",
+                "S09E17",
+                "S09E20"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 7449,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E06",
+          "S09E07",
+          "S09E12",
+          "S09E17",
+          "S09E20"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": false,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 76.57
+        },
+        "context_diversity": {
+          "distinct_episode_count": 5,
+          "distinct_source_count": 5,
+          "top_episode_share": 0.3,
+          "episode_entropy_norm": 0.9349775297671233,
+          "episode_counts": {
+            "S09E06": 3,
+            "S09E12": 3,
+            "S09E07": 2,
+            "S09E17": 1,
+            "S09E20": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e17_the_farm_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 10
+          },
+          "chunk_type_counts": {
+            "char": 10
+          },
+          "source_dup_rate": 0.5,
+          "episode_dup_rate": 0.5
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": true,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 10,
+        "latency_ms": 1893,
+        "stats": {
+          "min": 0.28716158866882324,
+          "max": 0.3424389958381653,
+          "mean": 0.30472824573516843
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e19_stairmageddon_script.txt",
+            "episode_id": "S09E19",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 16,
+            "first_line": "Robert (on the computer screen): I'll say it again for mis amigos latinos. Yo soy homosexual.",
+            "preview": "Robert (on the computer screen): I'll say it again for mis amigos latinos. Yo soy homosexual.\nPete: Poor Angela.\nPhyllis: Yeah. Poor Angela.\nRobert: I once believed that a gay person could be somewhat straight. It wasn't until my marriage t…",
+            "score": 0.3424389958381653
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt",
+            "episode_id": "S09E12",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 9,
+            "first_line": "Dwight (writing on white board): Customer Loyalty. What is it? Can you hold it in your hand? Can you nudge it with your finger? Can you dump it on a woman? No. Why? Because it's an idea. But what does it mean?",
+            "preview": "Dwight (writing on white board): Customer Loyalty. What is it? Can you hold it in your hand? Can you nudge it with your finger? Can you dump it on a woman? No. Why? Because it's an idea. But what does it mean?\nKevin: Ooh, it's when you get …",
+            "score": 0.32586079835891724
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt",
+            "episode_id": "S09E01",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 11,
+            "first_line": "=== SCENE 027 ===",
+            "preview": "=== SCENE 027 ===\n\nDwight: Paranoid? I'm not familiar with the word. And I really don't have time to learn new words right now, ok? A pudgy 22-year-old is trying to take my job.\n\n=== SCENE 028 ===\n\nDwight: Jim, get ready for the battle of y…",
+            "score": 0.3163819909095764
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt",
+            "episode_id": "S09E01",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 10,
+            "first_line": "Dwight: Good boy, getting big and strong. Snack foods!",
+            "preview": "Dwight: Good boy, getting big and strong. Snack foods!\nClark: Yep, body by Cheez-it\nDwight: Ah, humor. I have it too. I have a couple tickets to the slayer concert 10 months from now. You interested?\nClark: I think I'm busy that night. Or I…",
+            "score": 0.30390846729278564
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+            "episode_id": "S09E11",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 20,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nSuit Store Son: I'm sorry, you guys are here to sell us paper?\nDwight: Do you mind? The men are talking.\nSuit Store Father: Sons used to idolize their fathers.\nDwight: Us old timers need to stick together. And how better …",
+            "score": 0.3028110861778259
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+            "episode_id": "S09E11",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 5,
+            "first_line": "=== SCENE 007 ===",
+            "preview": "=== SCENE 007 ===\n\nDwight: There he is! We are all so proud of you for the small part that you played in landing the white pages. Prouder of me, but…\n[STAGE] chuckles\nClark: If you really want to show appreciation, just give me half the com…",
+            "score": 0.296431303024292
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt",
+            "episode_id": "S09E01",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 20,
+            "first_line": "=== SCENE 047 ===",
+            "preview": "=== SCENE 047 ===\n\nDwight: Ok. Oh, god.\n[STAGE] prepares bike trapeze\n\n=== SCENE 048 ===\n\nDwight: Attention, employees of Dunder Mifflin. Everyone thinks the new guys are so cool cause they can slack line. Boo. Hey Clark, this is what a are…",
+            "score": 0.29595524072647095
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+            "episode_id": "S09E11",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "Athlead Employee: …So definitely looking to expand our market, but for now we're just concentrating on athletes that are popular here in the northeast. Of course, that's not a mandate.",
+            "preview": "Athlead Employee: …So definitely looking to expand our market, but for now we're just concentrating on athletes that are popular here in the northeast. Of course, that's not a mandate.\nDarryl: \"Mandate\"- Always think of two men on a date. I…",
+            "score": 0.2882031202316284
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt",
+            "episode_id": "S09E11",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 26,
+            "first_line": "=== SCENE 033 ===",
+            "preview": "=== SCENE 033 ===\n\nOscar: Kevin, move. I can't pull up the rug if you're standing on it with your rhinoceros feet.\nKevin: Well I can't stand here if you pull the carpet out from under me.\nAngela: Oh, my head is killing me. Does anyone have …",
+            "score": 0.28812986612319946
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+            "episode_id": "S09E03",
+            "doc_type": "script",
+            "derived_type": null,
+            "topic_id": null,
+            "topic_type": null,
+            "chunk_type": "char",
+            "chunk_index": 18,
+            "first_line": "Andy: Dwight's grandfather was a— .",
+            "preview": "Andy: Dwight's grandfather was a— .\n[STAGE] is interrupted by Dwight\nDwight: Was a member of the Bund. Which is not technically the same thing as the Nazi party. So…\n[STAGE] clears throat\nAndy: I was gonna say he was a tax evader.\nDwight: O…",
+            "score": 0.28716158866882324
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "derived_then_script",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": {
+                "$in": [
+                  "episode_card",
+                  "season_card",
+                  "topic_card"
+                ]
+              }
+            },
+            "included_in_context": false,
+            "results": [
+              {
+                "rank": 1,
+                "episode_ids": [
+                  "S09E12"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Customer Loyalty",
+                "score": 0.2993811368942261
+              },
+              {
+                "rank": 2,
+                "episode_ids": [
+                  "S09E19"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Stairmageddon",
+                "score": 0.27620041370391846
+              },
+              {
+                "rank": 3,
+                "episode_ids": [
+                  "S09E11"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Suit Warehouse",
+                "score": 0.2642310857772827
+              },
+              {
+                "rank": 4,
+                "episode_ids": [
+                  "S09E01"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "New Guys",
+                "score": 0.25913143157958984
+              },
+              {
+                "rank": 5,
+                "episode_ids": [
+                  "S09E03"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Andy’s Ancestry",
+                "score": 0.25842058658599854
+              },
+              {
+                "rank": 6,
+                "episode_ids": [
+                  "S09E18"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Promos",
+                "score": 0.257413387298584
+              },
+              {
+                "rank": 7,
+                "episode_ids": [
+                  "S09E08"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Target",
+                "score": 0.2549280524253845
+              },
+              {
+                "rank": 8,
+                "episode_ids": [
+                  "S09E06"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Boat",
+                "score": 0.24844396114349365
+              },
+              {
+                "rank": 9,
+                "episode_ids": [
+                  "S09E13"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Junior Salesman",
+                "score": 0.24667978286743164
+              },
+              {
+                "rank": 10,
+                "episode_ids": [
+                  "S09E17"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "The Farm",
+                "score": 0.2450447678565979
+              },
+              {
+                "rank": 11,
+                "episode_ids": [
+                  "S09E22"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "A.A.R.M",
+                "score": 0.23905247449874878
+              },
+              {
+                "rank": 12,
+                "episode_ids": [
+                  "S09E14"
+                ],
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Vandalism",
+                "score": 0.23694062232971191
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S09E12",
+            "S09E19",
+            "S09E11",
+            "S09E01",
+            "S09E03",
+            "S09E18"
+          ],
+          "script_filter": {
+            "episode_id": {
+              "$in": [
+                "S09E01",
+                "S09E03",
+                "S09E11",
+                "S09E12",
+                "S09E18",
+                "S09E19"
+              ]
+            }
+          },
+          "script_filter_mode": "metadata",
+          "script_index_has_episode_id": true,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": null,
+        "latency_ms": null,
+        "error": null,
+        "usage": {
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "total_tokens": null
+        },
+        "stats": {
+          "context_docs": 10,
+          "context_chars": 11798,
+          "answer_chars": 0
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S09E01",
+          "S09E03",
+          "S09E11",
+          "S09E12",
+          "S09E19"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 70.66
+        },
+        "context_diversity": {
+          "distinct_episode_count": 5,
+          "distinct_source_count": 5,
+          "top_episode_share": 0.4,
+          "episode_entropy_norm": 0.881353453268883,
+          "episode_counts": {
+            "S09E11": 4,
+            "S09E01": 3,
+            "S09E03": 1,
+            "S09E12": 1,
+            "S09E19": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e11_suit_warehouse_script.txt": 4,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e01_new_guys_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e12_customer_loyalty_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e19_stairmageddon_script.txt": 1
+          },
+          "doc_type_counts": {
+            "script": 10
+          },
+          "chunk_type_counts": {
+            "char": 10
+          },
+          "source_dup_rate": 0.5,
+          "episode_dup_rate": 0.5
+        },
+        "answer_quotes": {
+          "count": 0,
+          "any_quote_in_context": null,
+          "examples": []
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": null,
+        "reasoning_failure": null
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": false,
+    "avg_retrieval_latency_ms": 677,
+    "avg_context_docs": 10.0,
+    "avg_context_chars": 10629.142857142857,
+    "avg_distinct_episodes_in_context": 4.857142857142857,
+    "avg_distinct_sources_in_context": 5.428571428571429,
+    "avg_top_episode_share_in_context": 0.3857142857142857,
+    "avg_episode_entropy_norm_in_context": 0.9008840826611059,
+    "avg_cited_episode_ids_not_in_context": 0.0,
+    "avg_aggregation_readiness_score": 71.75285714285714,
+    "avg_aggregation_readiness_score_agg_questions": 70.27666666666669,
+    "avg_answer_latency_ms": null,
+    "avg_prompt_tokens": null,
+    "avg_completion_tokens": null,
+    "avg_total_tokens": null,
+    "idk_rate": 0.0,
+    "episode_citation_rate": 0.0,
+    "retrieval_empty_rate": 0.0,
+    "retrieval_failure_rate": 1.0,
+    "grounding_failure_rate": null,
+    "quote_in_context_rate": 0.0,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

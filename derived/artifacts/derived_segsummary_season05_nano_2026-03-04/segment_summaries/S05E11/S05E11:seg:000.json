@@ -1,0 +1,217 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_nano_2026-03-04",
+  "created_at_utc": "2026-03-05T00:22:41Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S05E11",
+  "segment_id": "S05E11:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6652,
+  "people": [
+    "Pam",
+    "Michael",
+    "Dwight",
+    "Jim",
+    "Oscar",
+    "Angela",
+    "Kevin",
+    "Andy",
+    "Stanley",
+    "Phyllis"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Pam answers the phone and informs that Michael is not in yet.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 19,
+          "char_end": 102,
+          "snippet": "Pam (answEring the phone): Dunder Mifflin, this is Pam. I'm sorry, he's not in yet."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael is seen yelling from the street and making a boast about running twelve miles an hour.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 133,
+          "char_end": 219,
+          "snippet": "Michael (heard yelling from the street): Yeah! Yeah! Yeah, okay! Twelve miles an hour."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Pam reports that Angela made 911 calls about cars going too fast, causing a traffic hazard.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 262,
+          "char_end": 382,
+          "snippet": "Pam: Angela made several 911 calls about cars going too fast in front of the building, so the police put up a radar gun."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael attempts to run past the radar gun to increase his speed and prove he can go faster.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 750,
+          "char_end": 814,
+          "snippet": "Michael: I want another try. Here we go! Thirty-one! Thirty-one!"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim mentions that Andy does not know about Angela's affair with Dwight, which has been ongoing for seventeen days.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1465,
+          "char_end": 1567,
+          "snippet": "Jim: Andy still doesn't know that Angela's having an affair with Dwight. And it's been seventeen days."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael discusses the possibility of revealing Angela's affair to Andy and the complications involved.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1869,
+          "char_end": 1896,
+          "snippet": "Michael: I am telling Andy."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Thirty-one is humanly impossible.",
+      "speaker": "Oscar",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 955,
+          "char_end": 995,
+          "snippet": "Oscar: Thirty-one is humanly impossible."
+        }
+      ]
+    },
+    {
+      "quote": "Dwight and Angela are having an affair.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 0,
+          "char_end": 6652,
+          "snippet": "=== SCENE 000 ===\n\nPam (answEring the phone): Dunder Mifflin, this is Pam. I'm sorry, he's not in yet. Would you like his voicemail?\nMichael (heard yelling from the street): Yeah! Yeah! Yeah, okay! Twelve miles an hour. Eat that, Carl Lewis"
+        }
+      ]
+    },
+    {
+      "quote": "Andy still doesn't know that Angela's having an affair with Dwight.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1465,
+          "char_end": 1537,
+          "snippet": "Jim: Andy still doesn't know that Angela's having an affair with Dwight."
+        }
+      ]
+    },
+    {
+      "quote": "I want to tell Andy.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1869,
+          "char_end": 1896,
+          "snippet": "Michael: I am telling Andy."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What will happen after Michael reveals the affair?",
+    "How Dwight and Angela feel about Michael's plan to tell Andy?",
+    "What is the outcome of the traffic incident?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What will happen after Michael reveals the affair?",
+      "why_uncertain": "The segment does not show the aftermath of the revelation.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1869,
+          "char_end": 1896,
+          "snippet": "Michael: I am telling Andy."
+        }
+      ]
+    },
+    {
+      "question": "How Dwight and Angela feel about Michael's plan to tell Andy?",
+      "why_uncertain": "Their reactions are not explicitly shown.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1897,
+          "char_end": 1955,
+          "snippet": "Dwight: No. You can't do that. It shouldn't come from you."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the traffic incident?",
+      "why_uncertain": "The segment does not specify the result of the radar gun or traffic hazard.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 262,
+          "char_end": 382,
+          "snippet": "Pam: Angela made several 911 calls about cars going too fast in front of the building, so the police put up a radar gun."
+        }
+      ]
+    }
+  ]
+}

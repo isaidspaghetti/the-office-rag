@@ -1,0 +1,163 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season07_nano_2026-03-04_S07E01",
+  "created_at_utc": "2026-03-05T00:01:19Z",
+  "llm_model": "gpt-4.1-nano",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S07E01",
+  "title": "Nepotism",
+  "one_paragraph_synopsis": "In this episode, the office discusses nepotism, with Michael revealing his nephew Luke is hired and treated favorably, leading to debates about favoritism and family connections. The episode also features workplace chaos, minor conflicts, and humorous interactions among staff.",
+  "main_threads": [
+    {
+      "thread": "Michael's nepotism and family connections",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8040,
+          "char_end": 8132,
+          "snippet": "Oscar: Michael, that's nepotism. Luke is getting special treatment because he's your nephew."
+        },
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8133,
+          "char_end": 8250,
+          "snippet": "Michael: Yes, exactly. That is a very nice way of putting it, Oscar. Mixing family and business is a beautiful thing."
+        },
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8761,
+          "char_end": 8844,
+          "snippet": "Michael: God, when he needed help on Earth, who did he hire? Jesus Christ, his son."
+        },
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 6834,
+          "char_end": 13619,
+          "snippet": "Michael: Don't bother Luke.\nPam: Why is there a circle with a line through it?\nMichael: That means don't. Haven't you seen Ghostbusters, Pam?\nPhyllis: Yeah, but it's like you're..."
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Michael",
+      "what_changes": "Admits to nepotism and compares it to divine favoritism, emphasizing treating Luke like family.",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8133,
+          "char_end": 8250,
+          "snippet": "Michael: Yes, exactly. That is a very nice way of putting it, Oscar. Mixing family and business is a beautiful thing."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": [
+        "Michael",
+        "Luke"
+      ],
+      "status": "Michael reveals Luke is his nephew and emphasizes treating him like family",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8040,
+          "char_end": 8132,
+          "snippet": "Oscar: Michael, that's nepotism. Luke is getting special treatment because he's your nephew."
+        },
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 8133,
+          "char_end": 8250,
+          "snippet": "Michael: Yes, exactly. That is a very nice way of putting it, Oscar. Mixing family and business is a beautiful thing."
+        },
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 6834,
+          "char_end": 13619,
+          "snippet": "Michael: Don't bother Luke.\nPam: Why is there a circle with a line through it?\nMichael: That means don't. Haven't you seen Ghostbusters, Pam?\nPhyllis: Yeah, but it's like you're..."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "nepotism",
+    "office politics",
+    "favoritism",
+    "humor"
+  ],
+  "source_segments": [
+    "S07E01:seg:000",
+    "S07E01:seg:001",
+    "S07E01:seg:002"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season07_nano_2026-03-04_S07E01; Focused on Michael's admission of nepotism and related office dynamics.",
+  "uncertainties": [
+    "What is Luke's role or job in the office?",
+    "How does the office staff actually feel about Luke's nepotism?",
+    "What are the consequences of Michael's nepotism?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is Luke's role or job in the office?",
+      "why_uncertain": "The segment discusses nepotism and their relationship but does not specify Luke's job.",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 6834,
+          "char_end": 13619,
+          "snippet": "Michael: Don't bother Luke.\nPam: Why is there a circle with a line through it?\nMichael: That means don't. Haven't you seen Ghostbusters, Pam?\nPhyllis: Yeah, but it's like you're..."
+        }
+      ]
+    },
+    {
+      "question": "How does the office staff actually feel about Luke's nepotism?",
+      "why_uncertain": "The segment shows debate and comments but does not clearly state staff opinions.",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 6834,
+          "char_end": 13619,
+          "snippet": "Michael: Don't bother Luke.\nPam: Why is there a circle with a line through it?\nMichael: That means don't. Haven't you seen Ghostbusters, Pam?\nPhyllis: Yeah, but it's like you're..."
+        }
+      ]
+    },
+    {
+      "question": "What are the consequences of Michael's nepotism?",
+      "why_uncertain": "No explicit outcomes or consequences are shown in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S07E01",
+          "segment_id": "S07E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e01_nepotism_script.txt",
+          "char_start": 6834,
+          "char_end": 13619,
+          "snippet": "Michael: Don't bother Luke.\nPam: Why is there a circle with a line through it?\nMichael: That means don't. Haven't you seen Ghostbusters, Pam?\nPhyllis: Yeah, but it's like you're..."
+        }
+      ]
+    }
+  ]
+}

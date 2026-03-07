@@ -1,0 +1,292 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-04-25Z_auto_qe_rrf_similarity_k12",
+    "run_name": "auto_qe_rrf_similarity_k12",
+    "created_at_utc": "2026-03-05T02:04:25Z",
+    "notes": "Routing (auto) + query expansion + RRF fusion"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "auto",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 63,
+    "overall_scores": [
+      44,
+      100,
+      67,
+      55,
+      40,
+      73,
+      63
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 1,
+        "completeness": 5,
+        "hallucination": 1,
+        "overall": 44,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The quote is from Season 3, Episode 20 (\"Product Recall\")",
+          "Jim asks, 'What kind of bear is best?' and the following dialogue",
+          "Dwight reacts with confusion and says, 'Bears do not— What is going on— What are you doing?!'"
+        ],
+        "missing_points": [
+          "The retrieved context does not confirm the episode or the exact scene",
+          "No direct evidence in the retrieved context that Jim impersonates Dwight with that quote"
+        ],
+        "notes": "The candidate answer correctly identifies the episode and context per the gold answer, but the retrieved context does not support any of these claims. The retrieved context contains no mention of the quote or episode number, so the answer is not grounded."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "The candidate answer correctly identifies the episode as Season 2, Episode 12, titled 'The Injury', and states that Michael burns his foot on a George Foreman Grill. These facts are fully supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 67,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Season 2 covers sensitive topics like sexual harassment in the workplace",
+          "The season also covers character relationships and office events such as Christmas Party",
+          "Episodes like The Injury and Boys and Girls delve into office interactions and gender dynamics"
+        ],
+        "missing_points": [
+          "Jim/Pam relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan becoming more involved",
+          "Dwight's ambition and rivalry with Jim through workplace conflicts and pranks",
+          "Major emotional beats including Casino Night where Jim confesses feelings and kisses Pam"
+        ],
+        "notes": "The candidate answer lists several episodes and events supported by the retrieved context but misses key relationship dynamics and emotional highlights emphasized in the gold answer. Some claims about episode content are not supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 55,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive of Dwight’s self-appointed authority (implied but not explicitly supported)",
+          "Dwight is competitive and threatened by Jim’s social ease and influence in the office (not supported)",
+          "Examples from distinct episodes as requested in gold answer are missing or unclear"
+        ],
+        "missing_points": [
+          "Explicit mention of Dwight's respect for Jim underneath rivalry",
+          "Example of Dwight naming Jim best man at his wedding",
+          "Clear examples from distinct episodes to illustrate each reason"
+        ],
+        "notes": "The candidate answer identifies three reasons Dwight dislikes Jim that align broadly with the gold answer, but the retrieved context only partially supports these claims. The examples cited are mostly generic references to scenes without detailed content or clear linkage to the reasons. The answer lacks nuance about underlying respect and specific episode examples. Some claims about Dwight's values and feelings are not grounded in the retrieved context."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 40,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and ending",
+          "Julie as a serious girlfriend",
+          "Details about how Helene relationship ended",
+          "Details about Holly relationship ending"
+        ],
+        "missing_points": [
+          "Carol Stills relationship and breakup",
+          "Donna Newton relationship and ending",
+          "Explicit mention of how Michael's relationships ended as per gold answer"
+        ],
+        "notes": "The candidate answer correctly identifies Jan Levinson, Helene, and Holly as serious girlfriends mentioned in the retrieved context, but the context does not provide detailed information on how these relationships ended. The candidate introduces Julie as a serious girlfriend, which is not supported by the context. The candidate omits Carol Stills and Donna Newton, who are in the gold answer but not in the retrieved context. The answer is cautious in stating relationship endings but still speculates beyond the retrieved context. Overall, the answer is partially correct but incomplete and only partially grounded."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E02"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 73,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "The card is part of Jim's way of expressing his feelings to Pam",
+          "The teapot includes Jim's high school yearbook photo and a hot sauce packet",
+          "Quote: 'Because Christmas is the time to tell people how you feel,' S02E02"
+        ],
+        "missing_points": [
+          "The letter represents Jim’s feelings and their relationship",
+          "The teapot letter is introduced in Season 2’s Christmas episode (\"Christmas Party\")",
+          "The teapot letter remains a meaningful symbol referenced later as their relationship progresses"
+        ],
+        "notes": "The candidate answer correctly identifies the teapot as a Secret Santa gift from Jim to Pam with inside jokes and sentimental items, aligning with the retrieved context from S02E10. However, the retrieved context does not confirm the specific contents mentioned (yearbook photo, hot sauce packet) or the quote from S02E02. The importance of the letter as a symbol of Jim's feelings and its ongoing significance is not fully supported by the context."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 4,
+        "overall": 63,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed tries to start his own paper company",
+          "Creed has a medal from the Office Olympics",
+          "Creed is involved in a meeting that no one attends",
+          "Creed is arrested in the series finale"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed's deal is that he implies shady or criminal behavior and has a questionable identity",
+          "Creed is comic relief as an unpredictable, mysterious presence"
+        ],
+        "notes": "The candidate answer captures Creed's eccentric and mysterious personality well, supported by the retrieved context. However, it misses key facts about his role and 'deal' as described in the gold answer, and includes some claims not supported by the retrieved context."
+      }
+    }
+  ]
+}

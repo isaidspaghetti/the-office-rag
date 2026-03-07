@@ -1,0 +1,249 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_nano_2026-03-04_S08E01",
+  "created_at_utc": "2026-03-04T23:21:30Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S08E01",
+  "segment_id": "S08E01:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13962,
+  "segment_char_end": 20749,
+  "people": [
+    "Kevin",
+    "Meredith",
+    "Creed",
+    "Dwight",
+    "Andy",
+    "Robert",
+    "Phyllis",
+    "Erin",
+    "Gabe",
+    "Jim",
+    "Pam",
+    "Stanley",
+    "Angela",
+    "Oscar",
+    "Ryan",
+    "Darryl",
+    "Toby",
+    "Kelly"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Kevin sprays Meredith and Creed with water guns, leading to a playful scene.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 13962,
+          "char_end": 14028,
+          "snippet": "Kevin (spraying Meredith and Creed with water gun): Loser. Losers."
+        },
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 14029,
+          "char_end": 14074,
+          "snippet": "[STAGE] Dwight holding up \"L\" to his forehead"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Andy tries to clarify and defend his list of office people, leading to a disagreement with Robert.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 14487,
+          "char_end": 14556,
+          "snippet": "Andy: Hi, Robert? Can you come out here please it's really important."
+        },
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 14728,
+          "char_end": 14754,
+          "snippet": "Robert: I never said that."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Andy shares positive facts about colleagues to convince Robert of their worth.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 16320,
+          "char_end": 16404,
+          "snippet": "Andy: Meredith Palmer… Supplier relations. The word \"no\" not even in her vocabulary."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Andy describes Erin Hannon as his closest confidant and a winner.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 16646,
+          "char_end": 16739,
+          "snippet": "Andy: Erin Hannon, the receptionist and my closest confidant. A winner if there ever was one."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The office discusses upcoming Columbus Day and plans for a half-day, despite some controversy.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 17043,
+          "char_end": 17059,
+          "snippet": "Andy: Yes, I do."
+        }
+      ]
+    },
+    {
+      "type": "filler",
+      "summary": "The segment contains multiple small interactions and casual conversations among staff.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 17529,
+          "char_end": 17572,
+          "snippet": "Jim: Alright, I'm gonna go warm up the car."
+        },
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 17573,
+          "char_end": 17619,
+          "snippet": "Pam: Okay. Oh, uh, you dropped something. Jim?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Winners prove me right. Losers, prove me wrong.",
+      "speaker": "Robert",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 14728,
+          "char_end": 14754,
+          "snippet": "Robert: I never said that."
+        }
+      ]
+    },
+    {
+      "quote": "Creed! Wha- This is a safety issue with you. There's no way to know if you're dead!",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 19458,
+          "char_end": 19547,
+          "snippet": "Andy: Creed! Wha- This is a safety issue with you. There's no way to know if you're dead!"
+        }
+      ]
+    },
+    {
+      "quote": "Night.",
+      "speaker": "Various",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 17426,
+          "char_end": 17438,
+          "snippet": "Andy: Night."
+        }
+      ]
+    },
+    {
+      "quote": "It's kinda sophisticated.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 18157,
+          "char_end": 18182,
+          "snippet": "It's kinda sophisticated."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the list disagreement?",
+    "What is the exact nature of the conflict between Andy and Robert?",
+    "What is the significance of the half-day on Columbus Day?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the list disagreement?",
+      "why_uncertain": "The segment does not show the resolution of the list conflict.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 13962,
+          "char_end": 20749,
+          "snippet": "Kevin (spraying Meredith and Creed with water gun): Loser. Losers.\n[STAGE] Dwight holding up \"L\" to his forehead\nMeredith (on the phone, while getting sprayed): Just take the casserole out of the- Take it out of the refrigerator and put it "
+        }
+      ]
+    },
+    {
+      "question": "What is the exact nature of the conflict between Andy and Robert?",
+      "why_uncertain": "The segment shows their disagreement but not the full context or resolution.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 13962,
+          "char_end": 20749,
+          "snippet": "Kevin (spraying Meredith and Creed with water gun): Loser. Losers.\n[STAGE] Dwight holding up \"L\" to his forehead\nMeredith (on the phone, while getting sprayed): Just take the casserole out of the- Take it out of the refrigerator and put it "
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the half-day on Columbus Day?",
+      "why_uncertain": "The segment mentions the plan but not the broader implications or reactions.",
+      "evidence": [
+        {
+          "episode_id": "S08E01",
+          "segment_id": "S08E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e01_the_list_script.txt",
+          "char_start": 13962,
+          "char_end": 20749,
+          "snippet": "Kevin (spraying Meredith and Creed with water gun): Loser. Losers.\n[STAGE] Dwight holding up \"L\" to his forehead\nMeredith (on the phone, while getting sprayed): Just take the casserole out of the- Take it out of the refrigerator and put it "
+        }
+      ]
+    }
+  ]
+}

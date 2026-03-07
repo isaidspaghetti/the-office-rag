@@ -1,0 +1,199 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E20",
+  "created_at_utc": "2026-03-04T21:42:40Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E20",
+  "segment_id": "S02E20:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13418,
+  "segment_char_end": 17917,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Angela",
+    "Linda",
+    "Ryan",
+    "Pam",
+    "Jim",
+    "Kevin",
+    "Hank"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael asks Dwight to provide urine for a drug test, implying it may be for himself.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13418,
+          "char_end": 13503,
+          "snippet": "Michael: So I need you to do some work on the St. Andrews account. I need your urine."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13641,
+          "char_end": 13674,
+          "snippet": "Michael: Just. I need your urine."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight refuses to give his urine, citing legal and personal reasons.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13811,
+          "char_end": 13833,
+          "snippet": "Dwight: Then I refuse."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 14216,
+          "char_end": 14237,
+          "snippet": "Dwight: Not my urine."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael claims he might have gotten high accidentally at a concert and needs clean urine.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 14016,
+          "char_end": 14057,
+          "snippet": "Michael: I need clean urine for the lady."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Angela and Dwight discuss Dwight giving Michael his urine, with Angela refusing to give permission.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 14457,
+          "char_end": 14504,
+          "snippet": "Angela: Do you want to give Michael your urine?"
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 14556,
+          "char_end": 14610,
+          "snippet": "Angela: You're not going to get my permission on this."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Dwight is later recognized as having passed a drug test thanks to his urine, and he resigns his security uniform.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 15841,
+          "char_end": 15919,
+          "snippet": "Michael: Dwight. Well, I passed the test thanks to you and your untainted pee."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 16107,
+          "char_end": 16178,
+          "snippet": "Dwight: I took an oath when I was sworn in and I broke that oath today."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I need your urine.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13641,
+          "char_end": 13674,
+          "snippet": "Michael: Just. I need your urine."
+        }
+      ]
+    },
+    {
+      "quote": "I think I may have gotten high accidentally by a girl with a lip ring.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13418,
+          "char_end": 17917,
+          "snippet": "Michael: So I need you to do some work on the St. Andrews account. I need your urine. I need some filing done.\nDwight: What kind of filing?\nMichael: Just forget it. Just the urine.\nDwight: That goes directly to the tester.\nMichael: Just. I "
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Why exactly does Michael need Dwight's urine?",
+    "What is Dwight's motivation for passing the test and resigning his security uniform?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Why exactly does Michael need Dwight's urine?",
+      "why_uncertain": "The segment suggests it is for a drug test, but the specific purpose is not explicitly confirmed.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 13418,
+          "char_end": 13503,
+          "snippet": "Michael: So I need you to do some work on the St. Andrews account. I need your urine."
+        }
+      ]
+    },
+    {
+      "question": "What is Dwight's motivation for passing the test and resigning his security uniform?",
+      "why_uncertain": "The segment shows Dwight passing the test and resigning, but does not explain his motivations.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 15841,
+          "char_end": 15919,
+          "snippet": "Michael: Dwight. Well, I passed the test thanks to you and your untainted pee."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 16107,
+          "char_end": 16178,
+          "snippet": "Dwight: I took an oath when I was sworn in and I broke that oath today."
+        }
+      ]
+    }
+  ]
+}

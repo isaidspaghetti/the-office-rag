@@ -1,0 +1,216 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season05_nano_2026-03-04_S05E03",
+  "created_at_utc": "2026-03-04T23:48:47Z",
+  "llm_model": "gpt-4.1-nano",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S05E03",
+  "title": "Baby Shower",
+  "one_paragraph_synopsis": "In this episode, the office hosts a baby shower with various humorous interactions, including Jan introducing her baby, Michael seeking advice about feeling connected to a baby, and Dwight testing a stroller's durability. The episode features preparations, playful conflicts, and character interactions centered around the theme of impending parenthood.",
+  "main_threads": [
+    {
+      "thread": "Office preparations and interactions around the baby shower, including Jan's introduction of her baby and Michael seeking advice about bonding with a baby.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 2897,
+          "char_end": 2950,
+          "snippet": "Michael: Damnit, Phyllis! I'm sorry. Damnit, Phyllis."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 8275,
+          "char_end": 8299,
+          "snippet": "Michael: Can I hold her?"
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 13466,
+          "char_end": 13529,
+          "snippet": "Michael: Uh, I need some advice from one baby daddy to another."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 13758,
+          "char_end": 13816,
+          "snippet": "Darryl: Hell yeah. You know why? Because that was my baby."
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Michael",
+      "what_changes": "Expresses a nonchalant attitude towards the biological connection to the baby and seeks advice about feeling connected to a baby.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 3797,
+          "char_end": 3877,
+          "snippet": "Michael: It does not matter to me at all whether this baby is biologically mine."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 13466,
+          "char_end": 13529,
+          "snippet": "Michael: Uh, I need some advice from one baby daddy to another."
+        }
+      ]
+    },
+    {
+      "character": "Jan",
+      "what_changes": "Introduces her baby Astrid and discusses her birth experience, and interacts with Holly and others at the shower.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 8275,
+          "char_end": 8299,
+          "snippet": "Michael: Can I hold her?"
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 12138,
+          "char_end": 12184,
+          "snippet": "Jan: Well, actually, I, uh, I had a tub birth."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 14332,
+          "char_end": 14410,
+          "snippet": "Jan (wakes up on the reception couch): Oh. I was just catching up on my sleep."
+        }
+      ]
+    },
+    {
+      "character": "Dwight",
+      "what_changes": "Tests the safety of a stroller by pushing a watermelon and observing its behavior.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21112,
+          "char_end": 21183,
+          "snippet": "Let's see what this baby can do… Aaaah! Aa-aaah! It's a hardy stroller."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21201,
+          "char_end": 21283,
+          "snippet": "[STAGE] drives car fast, holding stroller alongside the car, stroller remains fine"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": [
+        "Michael",
+        "Holly"
+      ],
+      "status": "Friendly, with moments of affection and playful teasing",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 16410,
+          "char_end": 16447,
+          "snippet": "Holly: You still gonna be mean to me?"
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 16448,
+          "char_end": 16524,
+          "snippet": "Michael (just hugs her, and she hugs him back and smiles): You wanna go out?"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "baby_shower",
+    "office_comedy",
+    "humor",
+    "pregnancy"
+  ],
+  "source_segments": [
+    "S05E03:seg:000",
+    "S05E03:seg:001",
+    "S05E03:seg:002",
+    "S05E03:seg:003"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season05_nano_2026-03-04_S05E03; Summarized key interactions and character moments related to the baby shower, focusing on humor and character development around the theme of impending parenthood.",
+  "uncertainties": [
+    "What is the outcome of Dwight's fake labor and delivery?",
+    "Are the baby shower plans successful or completed?",
+    "What is the overall outcome of the office's baby shower?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Dwight's fake labor and delivery?",
+      "why_uncertain": "The segment only shows the preparation and acting, not the actual outcome.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 0,
+          "char_end": 7087,
+          "snippet": "=== SCENE 000 ===\n\nDwight (looking pregnant): Hey Michael?\nMichael: Yeah.\nDwight: Contractions are coming every ten minutes.\nMichael: OK, just remember to keep breathing.\nDwight..."
+        }
+      ]
+    },
+    {
+      "question": "Are the baby shower plans successful or completed?",
+      "why_uncertain": "The segment shows planning and discussion but no final outcome.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 0,
+          "char_end": 7087,
+          "snippet": "=== SCENE 000 ===\n\nDwight (looking pregnant): Hey Michael?\nMichael: Yeah.\nDwight: Contractions are coming every ten minutes.\nMichael: OK, just remember to keep breathing.\nDwight..."
+        }
+      ]
+    },
+    {
+      "question": "What is the overall outcome of the office's baby shower?",
+      "why_uncertain": "The episode ends with character interactions and preparations, but no final resolution is shown.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 7087,
+          "char_end": 13422,
+          "snippet": "Stanley: I do not like pregnant women in my workspace. They're always complaining. I have varicose veins, too. I have swollen ankles, I'm constantly hungry – do you think my nip..."
+        }
+      ]
+    }
+  ]
+}

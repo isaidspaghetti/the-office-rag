@@ -1,0 +1,263 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E04",
+  "created_at_utc": "2026-03-04T22:54:21Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E04",
+  "segment_id": "S04E04:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13611,
+  "segment_char_end": 20674,
+  "people": [
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Michael",
+    "Ryan",
+    "Kelly",
+    "Darryl",
+    "Jan",
+    "Vikram",
+    "Andy",
+    "Angela",
+    "Oscar",
+    "Kevin",
+    "Phyllis",
+    "Stanley",
+    "Toby"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight is crying and Jim checks on him.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13611,
+          "char_end": 13664,
+          "snippet": "Pam (Pam and Jim hear Dwight crying): Ugh, your turn."
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13758,
+          "char_end": 13774,
+          "snippet": "Jim: Hey Dwight."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael declines going out for a beer and interacts with Jan.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 14363,
+          "char_end": 14413,
+          "snippet": "Michael: Thanks, no, I have work tomorrow morning."
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 14520,
+          "char_end": 14556,
+          "snippet": "Jan: You drive, I had too much wine."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Ryan and Michael discuss Michael's presentation and job situation.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 17168,
+          "char_end": 17230,
+          "snippet": "Ryan: How long until you actually get this presentation ready?"
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 17231,
+          "char_end": 17305,
+          "snippet": "Michael: Why don't you do the presentation, because you know how to do it?"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael argues about the correct usage of 'whom' and 'who'.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 18172,
+          "char_end": 18213,
+          "snippet": "Michael: Well it sounds right, but is it?"
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 18052,
+          "char_end": 18137,
+          "snippet": "Pam: It's 'whom' when it's the object of a sentence, and 'who' when it's the subject."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael decides to quit his job, expressing regret about his career.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 19415,
+          "char_end": 19429,
+          "snippet": "Michael: I am."
+        },
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 19521,
+          "char_end": 19630,
+          "snippet": "Michael: I was never in this for the money. But it turns out that the money was an absolute necessity for me."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy discusses his interest in Angela with Pam.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 20198,
+          "char_end": 20238,
+          "snippet": "Pam: I can't believe that's not working."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am better than you have ever been or ever will be.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 15042,
+          "char_end": 15102,
+          "snippet": "Dwight: I am better than you have ever been or ever will be."
+        }
+      ]
+    },
+    {
+      "quote": "You drive, I had too much wine.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 14520,
+          "char_end": 14556,
+          "snippet": "Jan: You drive, I had too much wine."
+        }
+      ]
+    },
+    {
+      "quote": "It's 'whom' when it's the object of a sentence, and 'who' when it's the subject.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 18057,
+          "char_end": 18137,
+          "snippet": "It's 'whom' when it's the object of a sentence, and 'who' when it's the subject."
+        }
+      ]
+    },
+    {
+      "quote": "I am quitting.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13611,
+          "char_end": 20674,
+          "snippet": "Pam (Pam and Jim hear Dwight crying): Ugh, your turn.\nDwight (Jim knocks on Dwight's door, crying stops): Come in. Did you have another nightmare?\nJim: Hey Dwight.\nDwight: Oh, Jim. I thought you were Mose.\nJim: Does Mose have nightmares?\nJi"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the reason for Dwight's crying?",
+    "What is the outcome of Michael's job quitting?",
+    "What is the result of Andy's romantic interest in Angela?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the reason for Dwight's crying?",
+      "why_uncertain": "The segment only shows Dwight crying and Jim checking on him, no explicit reason given.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13611,
+          "char_end": 20674,
+          "snippet": "Pam (Pam and Jim hear Dwight crying): Ugh, your turn.\nDwight (Jim knocks on Dwight's door, crying stops): Come in. Did you have another nightmare?\nJim: Hey Dwight.\nDwight: Oh, Jim. I thought you were Mose.\nJim: Does Mose have nightmares?\nJi"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's job quitting?",
+      "why_uncertain": "The segment ends with Michael stating he is quitting, but no further outcome is provided.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13611,
+          "char_end": 20674,
+          "snippet": "Pam (Pam and Jim hear Dwight crying): Ugh, your turn.\nDwight (Jim knocks on Dwight's door, crying stops): Come in. Did you have another nightmare?\nJim: Hey Dwight.\nDwight: Oh, Jim. I thought you were Mose.\nJim: Does Mose have nightmares?\nJi"
+        }
+      ]
+    },
+    {
+      "question": "What is the result of Andy's romantic interest in Angela?",
+      "why_uncertain": "The segment only shows Andy discussing his interest, no resolution or outcome is provided.",
+      "evidence": [
+        {
+          "episode_id": "S04E04",
+          "segment_id": "S04E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e04_money_script.txt",
+          "char_start": 13611,
+          "char_end": 20674,
+          "snippet": "Pam (Pam and Jim hear Dwight crying): Ugh, your turn.\nDwight (Jim knocks on Dwight's door, crying stops): Come in. Did you have another nightmare?\nJim: Hey Dwight.\nDwight: Oh, Jim. I thought you were Mose.\nJim: Does Mose have nightmares?\nJi"
+        }
+      ]
+    }
+  ]
+}

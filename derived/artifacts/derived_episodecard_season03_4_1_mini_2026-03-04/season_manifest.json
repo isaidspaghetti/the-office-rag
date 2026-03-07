@@ -1,0 +1,445 @@
+{
+  "schema": "SeasonEpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_episodecard_season03_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-05T20:47:26Z",
+  "season": 3,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "segment_summaries_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "llm_model": "gpt-4.1-mini",
+    "segments_build_prefix": "derived_segsummary_season03_4_1_mini_2026-03-04",
+    "force": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S03E01",
+        "title": "Gay Witch Hunt",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E01",
+        "out_file": "episode_cards/S03E01.json"
+      },
+      {
+        "episode_id": "S03E02",
+        "title": "The Convention",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E02",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E02",
+        "out_file": "episode_cards/S03E02.json"
+      },
+      {
+        "episode_id": "S03E03",
+        "title": "The Coup",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E03",
+        "out_file": "episode_cards/S03E03.json"
+      },
+      {
+        "episode_id": "S03E04",
+        "title": "Grief Counseling",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E04",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E04",
+        "out_file": "episode_cards/S03E04.json"
+      },
+      {
+        "episode_id": "S03E05",
+        "title": "Initiation",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E05",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E05",
+        "out_file": "episode_cards/S03E05.json"
+      },
+      {
+        "episode_id": "S03E06",
+        "title": "Diwali",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E06",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E06",
+        "out_file": "episode_cards/S03E06.json"
+      },
+      {
+        "episode_id": "S03E07",
+        "title": "Branch Closing",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E07",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E07",
+        "out_file": "episode_cards/S03E07.json"
+      },
+      {
+        "episode_id": "S03E08",
+        "title": "The Merger",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E08",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E08",
+        "out_file": "episode_cards/S03E08.json"
+      },
+      {
+        "episode_id": "S03E09",
+        "title": "The Convict",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E09",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E09",
+        "out_file": "episode_cards/S03E09.json"
+      },
+      {
+        "episode_id": "S03E10",
+        "title": "A Benihana Christmas",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E10",
+        "out_file": "episode_cards/S03E10.json"
+      },
+      {
+        "episode_id": "S03E11",
+        "title": "Back From Vacation",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E11",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E11",
+        "out_file": "episode_cards/S03E11.json"
+      },
+      {
+        "episode_id": "S03E12",
+        "title": "Traveling Salesmen",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E12",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E12",
+        "out_file": "episode_cards/S03E12.json"
+      },
+      {
+        "episode_id": "S03E13",
+        "title": "The Return",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E13",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E13",
+        "out_file": "episode_cards/S03E13.json"
+      },
+      {
+        "episode_id": "S03E14",
+        "title": "Ben Franklin",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E14",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E14",
+        "out_file": "episode_cards/S03E14.json"
+      },
+      {
+        "episode_id": "S03E15",
+        "title": "Phyllis’ Wedding",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E15",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E15",
+        "out_file": "episode_cards/S03E15.json"
+      },
+      {
+        "episode_id": "S03E16",
+        "title": "Business School",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E16",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E16",
+        "out_file": "episode_cards/S03E16.json"
+      },
+      {
+        "episode_id": "S03E17",
+        "title": "Cocktails",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E17",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E17",
+        "out_file": "episode_cards/S03E17.json"
+      },
+      {
+        "episode_id": "S03E18",
+        "title": "The Negotiation",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E18",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E18",
+        "out_file": "episode_cards/S03E18.json"
+      },
+      {
+        "episode_id": "S03E19",
+        "title": "Safety Training",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E19",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E19",
+        "out_file": "episode_cards/S03E19.json"
+      },
+      {
+        "episode_id": "S03E20",
+        "title": "Product Recall",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E20",
+        "out_file": "episode_cards/S03E20.json"
+      },
+      {
+        "episode_id": "S03E21",
+        "title": "Women’s Appreciation",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E21",
+        "out_file": "episode_cards/S03E21.json"
+      },
+      {
+        "episode_id": "S03E22",
+        "title": "Beach Games",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E22",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E22",
+        "out_file": "episode_cards/S03E22.json"
+      },
+      {
+        "episode_id": "S03E23",
+        "title": "The Job",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E23",
+        "out_file": "episode_cards/S03E23.json"
+      }
+    ],
+    "planned_total_llm_calls": 23
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T20:47:26Z",
+    "ended_at_utc": "2026-03-05T20:47:26Z",
+    "episodes_done": 23,
+    "episode_cards_written": 23,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S03E01",
+        "title": "Gay Witch Hunt",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E01",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E02",
+        "title": "The Convention",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E02",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E02",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E03",
+        "title": "The Coup",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E03",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E04",
+        "title": "Grief Counseling",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E04",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E04",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E05",
+        "title": "Initiation",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E05",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E05",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E06",
+        "title": "Diwali",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E06",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E06",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E07",
+        "title": "Branch Closing",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E07",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E07",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E08",
+        "title": "The Merger",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E08",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E08",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E09",
+        "title": "The Convict",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E09",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E09",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E10",
+        "title": "A Benihana Christmas",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E10",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E11",
+        "title": "Back From Vacation",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E11",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E11",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E12",
+        "title": "Traveling Salesmen",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E12",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E12",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E13",
+        "title": "The Return",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E13",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E13",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E14",
+        "title": "Ben Franklin",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E14",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E14",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E15",
+        "title": "Phyllis’ Wedding",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E15",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E15",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 3,
+        "error": null
+      },
+      {
+        "episode_id": "S03E16",
+        "title": "Business School",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E16",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E16",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E17",
+        "title": "Cocktails",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E17",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E17",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E18",
+        "title": "The Negotiation",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E18",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E18",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E19",
+        "title": "Safety Training",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E19",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E19",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 5,
+        "error": null
+      },
+      {
+        "episode_id": "S03E20",
+        "title": "Product Recall",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E20",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 4,
+        "error": null
+      },
+      {
+        "episode_id": "S03E21",
+        "title": "Women’s Appreciation",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E21",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 5,
+        "error": null
+      },
+      {
+        "episode_id": "S03E22",
+        "title": "Beach Games",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E22",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E22",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 5,
+        "error": null
+      },
+      {
+        "episode_id": "S03E23",
+        "title": "The Job",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23",
+        "episode_card_build_id": "derived_episodecard_season03_4_1_mini_2026-03-04_S03E23",
+        "started_at_utc": "2026-03-05T20:47:26Z",
+        "ended_at_utc": "2026-03-05T20:47:26Z",
+        "duration_ms": 5,
+        "error": null
+      }
+    ]
+  }
+}

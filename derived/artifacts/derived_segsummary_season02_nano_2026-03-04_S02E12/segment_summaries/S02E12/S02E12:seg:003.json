@@ -1,0 +1,178 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E12",
+  "created_at_utc": "2026-03-04T21:14:28Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E12",
+  "segment_id": "S02E12:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 21028,
+  "segment_char_end": 21590,
+  "people": [
+    "Doctor",
+    "Dwight",
+    "Michael",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight discusses getting into a CT machine and asks Michael to stay with him.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21028,
+          "char_end": 21083,
+          "snippet": "Doctor: We need to get your friend into the CT machine."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael refuses to call Dwight's cousin Mose.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21152,
+          "char_end": 21164,
+          "snippet": "Michael: No."
+        },
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21214,
+          "char_end": 21312,
+          "snippet": "Michael: No, I'm not calling your weirdo cousin. Twenty-seven years old, never left the beet farm."
+        }
+      ]
+    },
+    {
+      "type": "reaction",
+      "summary": "Dwight reacts with concern and fear about the situation.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21313,
+          "char_end": 21336,
+          "snippet": "Dwight: Oh God. Oh God."
+        },
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21337,
+          "char_end": 21353,
+          "snippet": "Michael: Guh-od."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim prepares to pull the car around and discusses language skills with Michael.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21463,
+          "char_end": 21498,
+          "snippet": "Jim: I'm gonna pull the car around."
+        },
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21552,
+          "char_end": 21572,
+          "snippet": "Michael: No. Do you?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Doctor: We need to get your friend into the CT machine.",
+      "speaker": "Doctor",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21028,
+          "char_end": 21083,
+          "snippet": "Doctor: We need to get your friend into the CT machine."
+        }
+      ]
+    },
+    {
+      "quote": "Dwight: Ok. Uh, that's bad, will you stay with me?",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21028,
+          "char_end": 21590,
+          "snippet": "Doctor: We need to get your friend into the CT machine.\nDwight: Into a machine?! Ok. Uh, that's bad, will you stay with me?\nMichael: No.\nDwight: Ok, will you please call my cousin Mose?\nMichael: No, I'm not calling your weirdo cousin. Twent"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: No.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21152,
+          "char_end": 21164,
+          "snippet": "Michael: No."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific medical procedure is Dwight about to undergo?",
+    "What is Dwight's relationship to the other characters?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific medical procedure is Dwight about to undergo?",
+      "why_uncertain": "The segment only mentions 'get your friend into the CT machine' but does not specify the reason or context.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21028,
+          "char_end": 21083,
+          "snippet": "Doctor: We need to get your friend into the CT machine."
+        }
+      ]
+    },
+    {
+      "question": "What is Dwight's relationship to the other characters?",
+      "why_uncertain": "The segment does not specify Dwight's relationship to Michael, Jim, or others.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 21028,
+          "char_end": 21590,
+          "snippet": "Doctor: We need to get your friend into the CT machine.\nDwight: Into a machine?! Ok. Uh, that's bad, will you stay with me?\nMichael: No.\nDwight: Ok, will you please call my cousin Mose?\nMichael: No, I'm not calling your weirdo cousin. Twent"
+        }
+      ]
+    }
+  ]
+}

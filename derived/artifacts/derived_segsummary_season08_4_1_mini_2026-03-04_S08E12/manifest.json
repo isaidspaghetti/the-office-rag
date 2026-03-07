@@ -1,0 +1,85 @@
+{
+  "schema": "SegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_4_1_mini_2026-03-04_S08E12",
+  "created_at_utc": "2026-03-06T01:51:13Z",
+  "episode": {
+    "episode_id": "S08E12",
+    "title": "Pool Party",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e12_pool_party_script.txt",
+    "body_char_count": 20320
+  },
+  "config": {
+    "llm_model": "gpt-4.1-mini",
+    "timeout": null,
+    "max_retries": null,
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "max_segments": null,
+    "segment_index": null,
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_segments": [
+      {
+        "segment_id": "S08E12:seg:000",
+        "segment_index": 0,
+        "segment_char_start": 0,
+        "segment_char_end": 6949,
+        "approx_tokens": 1748,
+        "out_file": "segment_summaries/S08E12/S08E12:seg:000.json"
+      },
+      {
+        "segment_id": "S08E12:seg:001",
+        "segment_index": 1,
+        "segment_char_start": 6949,
+        "segment_char_end": 13995,
+        "approx_tokens": 1771,
+        "out_file": "segment_summaries/S08E12/S08E12:seg:001.json"
+      },
+      {
+        "segment_id": "S08E12:seg:002",
+        "segment_index": 2,
+        "segment_char_start": 13995,
+        "segment_char_end": 20320,
+        "approx_tokens": 1589,
+        "out_file": "segment_summaries/S08E12/S08E12:seg:002.json"
+      }
+    ],
+    "planned_llm_calls": 3
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-06T01:51:13Z",
+    "ended_at_utc": "2026-03-06T01:52:07Z",
+    "llm_calls_planned": 3,
+    "llm_calls_made": 3,
+    "skipped_existing": 0,
+    "written": 3,
+    "errors": 0,
+    "segments": [
+      {
+        "segment_id": "S08E12:seg:000",
+        "status": "written",
+        "out_file": "segment_summaries/S08E12/S08E12:seg:000.json",
+        "call_started_at_utc": "2026-03-06T01:51:13Z",
+        "call_duration_ms": 15627
+      },
+      {
+        "segment_id": "S08E12:seg:001",
+        "status": "written",
+        "out_file": "segment_summaries/S08E12/S08E12:seg:001.json",
+        "call_started_at_utc": "2026-03-06T01:51:29Z",
+        "call_duration_ms": 20579
+      },
+      {
+        "segment_id": "S08E12:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S08E12/S08E12:seg:002.json",
+        "call_started_at_utc": "2026-03-06T01:51:50Z",
+        "call_duration_ms": 17410
+      }
+    ]
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_4_1_mini_2026-03-04_S01E03",
+  "created_at_utc": "2026-03-05T06:31:47Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S01E03",
+  "segment_id": "S01E03:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6544,
+  "people": [
+    "Michael",
+    "Pam",
+    "Jan",
+    "Jim",
+    "Dwight",
+    "Stanley",
+    "Oscar",
+    "Kevin",
+    "Angela"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael is tasked with choosing a new health care plan for the office and initially misunderstands the options.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 853,
+          "char_end": 992,
+          "snippet": "Michael: I am going to go with the best, Jan. I am going to go with the one with the acupuncture, therapeutic massage, you know, the works."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jan corrects Michael that none of the plans have acupuncture and urges him to pick the cheapest plan to save money.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 993,
+          "char_end": 1052,
+          "snippet": "Jan: Wait, acupuncture? None of the plans have acupuncture."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael delegates the task of choosing the health care plan to Jim, who declines and suggests Dwight instead.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 2666,
+          "char_end": 2753,
+          "snippet": "Jim: Any time Michael asks me to do anything, I just tell him that Dwight should do it."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight accepts the responsibility and sets up a temporary workspace in the conference room.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 2774,
+          "char_end": 2813,
+          "snippet": "Dwight: Yes. I can do it. I'm your man."
+        },
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 3295,
+          "char_end": 3361,
+          "snippet": "Michael: You can use the conference room as a temporary workspace."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight chooses a very harsh health care plan cutting many benefits, which upsets the employees.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 4261,
+          "char_end": 4336,
+          "snippet": "Stanley: There's no dental, there's no vision, there's a $1,200 deductible."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Dwight justifies his harsh plan by comparing health care to survival in the wild and claims he has a perfect immune system.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 4056,
+          "char_end": 4101,
+          "snippet": "Dwight: In the wild, there is no health care."
+        },
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 6125,
+          "char_end": 6182,
+          "snippet": "Dwight: I don't need them. Superior genes. I'm a Schrute."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am in charge of picking a great new health care plan.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 0,
+          "char_end": 6544,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Pam. Pamela. Pam-elama-ding-dong. Making copies.\nPam: I'm not making any copies.\nMichael: Let's go. Messages. Stat. Lots to do, lots to do. Information superhighway.\nPam: Nothing new.\nMichael: Lay them on me. Wha"
+        }
+      ]
+    },
+    {
+      "quote": "Wait, acupuncture? None of the plans have acupuncture.",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 993,
+          "char_end": 1052,
+          "snippet": "Jan: Wait, acupuncture? None of the plans have acupuncture."
+        }
+      ]
+    },
+    {
+      "quote": "Any time Michael asks me to do anything, I just tell him that Dwight should do it.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 2671,
+          "char_end": 2753,
+          "snippet": "Any time Michael asks me to do anything, I just tell him that Dwight should do it."
+        }
+      ]
+    },
+    {
+      "quote": "I slashed benefits to the bone. I saved this company money.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 3936,
+          "char_end": 3995,
+          "snippet": "I slashed benefits to the bone. I saved this company money."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the final outcome of the health care plan decision?",
+    "How do the other employees react to Dwight's health care plan beyond initial complaints?",
+    "Does Michael truly support Dwight's harsh approach or is he conflicted?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the final outcome of the health care plan decision?",
+      "why_uncertain": "The segment ends before revealing whether Dwight's plan is accepted or rejected.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 0,
+          "char_end": 6544,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Pam. Pamela. Pam-elama-ding-dong. Making copies.\nPam: I'm not making any copies.\nMichael: Let's go. Messages. Stat. Lots to do, lots to do. Information superhighway.\nPam: Nothing new.\nMichael: Lay them on me. Wha"
+        }
+      ]
+    },
+    {
+      "question": "How do the other employees react to Dwight's health care plan beyond initial complaints?",
+      "why_uncertain": "The segment only shows brief reactions and does not detail further consequences or responses.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 0,
+          "char_end": 6544,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Pam. Pamela. Pam-elama-ding-dong. Making copies.\nPam: I'm not making any copies.\nMichael: Let's go. Messages. Stat. Lots to do, lots to do. Information superhighway.\nPam: Nothing new.\nMichael: Lay them on me. Wha"
+        }
+      ]
+    },
+    {
+      "question": "Does Michael truly support Dwight's harsh approach or is he conflicted?",
+      "why_uncertain": "Michael's internal thoughts about Dwight's success or failure are mentioned but his true feelings are not fully explored.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 0,
+          "char_end": 6544,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Pam. Pamela. Pam-elama-ding-dong. Making copies.\nPam: I'm not making any copies.\nMichael: Let's go. Messages. Stat. Lots to do, lots to do. Information superhighway.\nPam: Nothing new.\nMichael: Lay them on me. Wha"
+        }
+      ]
+    }
+  ]
+}

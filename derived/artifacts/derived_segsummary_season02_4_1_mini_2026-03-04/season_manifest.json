@@ -1,0 +1,739 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season02_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-05T06:50:34Z",
+  "season": 2,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "llm_model": "gpt-4.1-mini",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S02E01",
+        "title": "The Dundies",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E01"
+      },
+      {
+        "episode_id": "S02E02",
+        "title": "Sexual Harassment",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E02"
+      },
+      {
+        "episode_id": "S02E03",
+        "title": "Office Olympics",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E03"
+      },
+      {
+        "episode_id": "S02E04",
+        "title": "The Fire",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E04"
+      },
+      {
+        "episode_id": "S02E05",
+        "title": "Halloween",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E05"
+      },
+      {
+        "episode_id": "S02E06",
+        "title": "The Fight",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E06"
+      },
+      {
+        "episode_id": "S02E07",
+        "title": "The Client",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E07"
+      },
+      {
+        "episode_id": "S02E08",
+        "title": "Performance Review",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E08"
+      },
+      {
+        "episode_id": "S02E09",
+        "title": "E-mail Surveillance",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E09"
+      },
+      {
+        "episode_id": "S02E10",
+        "title": "Christmas Party",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E10"
+      },
+      {
+        "episode_id": "S02E11",
+        "title": "Booze Cruise",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E11"
+      },
+      {
+        "episode_id": "S02E12",
+        "title": "The Injury",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S02E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E12"
+      },
+      {
+        "episode_id": "S02E13",
+        "title": "The Secret",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E13"
+      },
+      {
+        "episode_id": "S02E14",
+        "title": "The Carpet",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E14"
+      },
+      {
+        "episode_id": "S02E15",
+        "title": "Boys and Girls",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E15"
+      },
+      {
+        "episode_id": "S02E16",
+        "title": "Valentine’s Day",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E16"
+      },
+      {
+        "episode_id": "S02E17",
+        "title": "Dwight’s Speech",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E17"
+      },
+      {
+        "episode_id": "S02E18",
+        "title": "Take Your Daughter to Work Day",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E18"
+      },
+      {
+        "episode_id": "S02E19",
+        "title": "Michael’s Birthday",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E19"
+      },
+      {
+        "episode_id": "S02E20",
+        "title": "Drug Testing",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E20"
+      },
+      {
+        "episode_id": "S02E21",
+        "title": "Conflict Resolution",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S02E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E21"
+      },
+      {
+        "episode_id": "S02E22",
+        "title": "Casino Night",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S02E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E22"
+      }
+    ],
+    "planned_total_llm_calls": 68
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T06:50:34Z",
+    "ended_at_utc": "2026-03-05T20:47:24Z",
+    "episodes_done": 22,
+    "segment_summaries_written": 63,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S02E01",
+        "title": "The Dundies",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E01",
+        "started_at_utc": "2026-03-05T06:50:34Z",
+        "ended_at_utc": "2026-03-05T06:51:18Z",
+        "duration_ms": 43920,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E01/segment_summaries/S02E01"
+      },
+      {
+        "episode_id": "S02E02",
+        "title": "Sexual Harassment",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E02",
+        "started_at_utc": "2026-03-05T06:51:18Z",
+        "ended_at_utc": "2026-03-05T06:52:26Z",
+        "duration_ms": 67850,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E02/segment_summaries/S02E02"
+      },
+      {
+        "episode_id": "S02E03",
+        "title": "Office Olympics",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E03",
+        "started_at_utc": "2026-03-05T06:54:28Z",
+        "ended_at_utc": "2026-03-05T06:55:06Z",
+        "duration_ms": 38682,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E03/segment_summaries/S02E03"
+      },
+      {
+        "episode_id": "S02E04",
+        "title": "The Fire",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E04",
+        "started_at_utc": "2026-03-05T06:55:54Z",
+        "ended_at_utc": "2026-03-05T06:56:29Z",
+        "duration_ms": 35157,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E04/segment_summaries/S02E04"
+      },
+      {
+        "episode_id": "S02E05",
+        "title": "Halloween",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E05",
+        "started_at_utc": "2026-03-05T06:56:29Z",
+        "ended_at_utc": "2026-03-05T06:57:36Z",
+        "duration_ms": 66572,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E05/segment_summaries/S02E05"
+      },
+      {
+        "episode_id": "S02E06",
+        "title": "The Fight",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E06",
+        "started_at_utc": "2026-03-05T06:57:36Z",
+        "ended_at_utc": "2026-03-05T06:58:39Z",
+        "duration_ms": 63413,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E06/segment_summaries/S02E06"
+      },
+      {
+        "episode_id": "S02E07",
+        "title": "The Client",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E07",
+        "started_at_utc": "2026-03-05T06:58:39Z",
+        "ended_at_utc": "2026-03-05T06:59:32Z",
+        "duration_ms": 53262,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E07/segment_summaries/S02E07"
+      },
+      {
+        "episode_id": "S02E08",
+        "title": "Performance Review",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E08",
+        "started_at_utc": "2026-03-05T06:59:32Z",
+        "ended_at_utc": "2026-03-05T07:00:34Z",
+        "duration_ms": 61421,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E08/segment_summaries/S02E08"
+      },
+      {
+        "episode_id": "S02E09",
+        "title": "E-mail Surveillance",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E09",
+        "started_at_utc": "2026-03-05T07:00:34Z",
+        "ended_at_utc": "2026-03-05T07:01:45Z",
+        "duration_ms": 70868,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E09/segment_summaries/S02E09"
+      },
+      {
+        "episode_id": "S02E10",
+        "title": "Christmas Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E10",
+        "started_at_utc": "2026-03-05T07:01:45Z",
+        "ended_at_utc": "2026-03-05T07:02:54Z",
+        "duration_ms": 69626,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E10/segment_summaries/S02E10"
+      },
+      {
+        "episode_id": "S02E11",
+        "title": "Booze Cruise",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E11",
+        "started_at_utc": "2026-03-05T07:02:54Z",
+        "ended_at_utc": "2026-03-05T07:04:01Z",
+        "duration_ms": 66491,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E11/segment_summaries/S02E11"
+      },
+      {
+        "episode_id": "S02E12",
+        "title": "The Injury",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E12",
+        "started_at_utc": "2026-03-05T07:04:01Z",
+        "ended_at_utc": "2026-03-05T07:05:03Z",
+        "duration_ms": 62728,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E12/segment_summaries/S02E12"
+      },
+      {
+        "episode_id": "S02E13",
+        "title": "The Secret",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E13",
+        "started_at_utc": "2026-03-05T07:05:03Z",
+        "ended_at_utc": "2026-03-05T07:05:57Z",
+        "duration_ms": 53648,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E13/segment_summaries/S02E13"
+      },
+      {
+        "episode_id": "S02E14",
+        "title": "The Carpet",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E14",
+        "started_at_utc": "2026-03-05T07:05:57Z",
+        "ended_at_utc": "2026-03-05T07:06:47Z",
+        "duration_ms": 50070,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E14/segment_summaries/S02E14"
+      },
+      {
+        "episode_id": "S02E15",
+        "title": "Boys and Girls",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E15",
+        "started_at_utc": "2026-03-05T07:06:47Z",
+        "ended_at_utc": "2026-03-05T07:07:37Z",
+        "duration_ms": 49974,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E15/segment_summaries/S02E15"
+      },
+      {
+        "episode_id": "S02E16",
+        "title": "Valentine’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E16",
+        "started_at_utc": "2026-03-05T07:07:37Z",
+        "ended_at_utc": "2026-03-05T07:08:41Z",
+        "duration_ms": 63586,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E16/segment_summaries/S02E16"
+      },
+      {
+        "episode_id": "S02E17",
+        "title": "Dwight’s Speech",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E17",
+        "started_at_utc": "2026-03-05T07:08:41Z",
+        "ended_at_utc": "2026-03-05T07:09:25Z",
+        "duration_ms": 43923,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E17/segment_summaries/S02E17"
+      },
+      {
+        "episode_id": "S02E18",
+        "title": "Take Your Daughter to Work Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E18",
+        "started_at_utc": "2026-03-05T07:09:25Z",
+        "ended_at_utc": "2026-03-05T07:10:17Z",
+        "duration_ms": 52126,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E18/segment_summaries/S02E18"
+      },
+      {
+        "episode_id": "S02E19",
+        "title": "Michael’s Birthday",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E19",
+        "started_at_utc": "2026-03-05T07:10:17Z",
+        "ended_at_utc": "2026-03-05T07:11:03Z",
+        "duration_ms": 46589,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E19/segment_summaries/S02E19"
+      },
+      {
+        "episode_id": "S02E20",
+        "title": "Drug Testing",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E20",
+        "started_at_utc": "2026-03-05T07:11:03Z",
+        "ended_at_utc": "2026-03-05T07:12:25Z",
+        "duration_ms": 81400,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E20/segment_summaries/S02E20"
+      },
+      {
+        "episode_id": "S02E21",
+        "title": "Conflict Resolution",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E21",
+        "started_at_utc": "2026-03-05T19:18:50Z",
+        "ended_at_utc": "2026-03-05T19:19:09Z",
+        "duration_ms": 19078,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E21/segment_summaries/S02E21"
+      },
+      {
+        "episode_id": "S02E22",
+        "title": "Casino Night",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E22",
+        "started_at_utc": "2026-03-05T19:19:09Z",
+        "ended_at_utc": "2026-03-05T19:20:26Z",
+        "duration_ms": 76419,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E22/segment_summaries/S02E22"
+      }
+    ],
+    "latest_episodes": [
+      {
+        "episode_id": "S02E01",
+        "title": "The Dundies",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E01",
+        "started_at_utc": "2026-03-05T06:50:34Z",
+        "ended_at_utc": "2026-03-05T06:51:18Z",
+        "duration_ms": 43920,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E01/segment_summaries/S02E01"
+      },
+      {
+        "episode_id": "S02E02",
+        "title": "Sexual Harassment",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E02",
+        "started_at_utc": "2026-03-05T06:51:18Z",
+        "ended_at_utc": "2026-03-05T06:52:26Z",
+        "duration_ms": 67850,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E02/segment_summaries/S02E02"
+      },
+      {
+        "episode_id": "S02E03",
+        "title": "Office Olympics",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E03",
+        "started_at_utc": "2026-03-05T06:54:28Z",
+        "ended_at_utc": "2026-03-05T06:55:06Z",
+        "duration_ms": 38682,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E03/segment_summaries/S02E03"
+      },
+      {
+        "episode_id": "S02E04",
+        "title": "The Fire",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E04",
+        "started_at_utc": "2026-03-05T06:55:54Z",
+        "ended_at_utc": "2026-03-05T06:56:29Z",
+        "duration_ms": 35157,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E04/segment_summaries/S02E04"
+      },
+      {
+        "episode_id": "S02E05",
+        "title": "Halloween",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E05",
+        "started_at_utc": "2026-03-05T06:56:29Z",
+        "ended_at_utc": "2026-03-05T06:57:36Z",
+        "duration_ms": 66572,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E05/segment_summaries/S02E05"
+      },
+      {
+        "episode_id": "S02E06",
+        "title": "The Fight",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E06",
+        "started_at_utc": "2026-03-05T06:57:36Z",
+        "ended_at_utc": "2026-03-05T06:58:39Z",
+        "duration_ms": 63413,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E06/segment_summaries/S02E06"
+      },
+      {
+        "episode_id": "S02E07",
+        "title": "The Client",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E07",
+        "started_at_utc": "2026-03-05T06:58:39Z",
+        "ended_at_utc": "2026-03-05T06:59:32Z",
+        "duration_ms": 53262,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E07/segment_summaries/S02E07"
+      },
+      {
+        "episode_id": "S02E08",
+        "title": "Performance Review",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E08",
+        "started_at_utc": "2026-03-05T06:59:32Z",
+        "ended_at_utc": "2026-03-05T07:00:34Z",
+        "duration_ms": 61421,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E08/segment_summaries/S02E08"
+      },
+      {
+        "episode_id": "S02E09",
+        "title": "E-mail Surveillance",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E09",
+        "started_at_utc": "2026-03-05T07:00:34Z",
+        "ended_at_utc": "2026-03-05T07:01:45Z",
+        "duration_ms": 70868,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E09/segment_summaries/S02E09"
+      },
+      {
+        "episode_id": "S02E10",
+        "title": "Christmas Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E10",
+        "started_at_utc": "2026-03-05T07:01:45Z",
+        "ended_at_utc": "2026-03-05T07:02:54Z",
+        "duration_ms": 69626,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E10/segment_summaries/S02E10"
+      },
+      {
+        "episode_id": "S02E11",
+        "title": "Booze Cruise",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E11",
+        "started_at_utc": "2026-03-05T07:02:54Z",
+        "ended_at_utc": "2026-03-05T07:04:01Z",
+        "duration_ms": 66491,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E11/segment_summaries/S02E11"
+      },
+      {
+        "episode_id": "S02E12",
+        "title": "The Injury",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E12",
+        "started_at_utc": "2026-03-05T07:04:01Z",
+        "ended_at_utc": "2026-03-05T07:05:03Z",
+        "duration_ms": 62728,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E12/segment_summaries/S02E12"
+      },
+      {
+        "episode_id": "S02E13",
+        "title": "The Secret",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E13",
+        "started_at_utc": "2026-03-05T07:05:03Z",
+        "ended_at_utc": "2026-03-05T07:05:57Z",
+        "duration_ms": 53648,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E13/segment_summaries/S02E13"
+      },
+      {
+        "episode_id": "S02E14",
+        "title": "The Carpet",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E14",
+        "started_at_utc": "2026-03-05T07:05:57Z",
+        "ended_at_utc": "2026-03-05T07:06:47Z",
+        "duration_ms": 50070,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E14/segment_summaries/S02E14"
+      },
+      {
+        "episode_id": "S02E15",
+        "title": "Boys and Girls",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E15",
+        "started_at_utc": "2026-03-05T07:06:47Z",
+        "ended_at_utc": "2026-03-05T07:07:37Z",
+        "duration_ms": 49974,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E15/segment_summaries/S02E15"
+      },
+      {
+        "episode_id": "S02E16",
+        "title": "Valentine’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E16",
+        "started_at_utc": "2026-03-05T07:07:37Z",
+        "ended_at_utc": "2026-03-05T07:08:41Z",
+        "duration_ms": 63586,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E16/segment_summaries/S02E16"
+      },
+      {
+        "episode_id": "S02E17",
+        "title": "Dwight’s Speech",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E17",
+        "started_at_utc": "2026-03-05T07:08:41Z",
+        "ended_at_utc": "2026-03-05T07:09:25Z",
+        "duration_ms": 43923,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E17/segment_summaries/S02E17"
+      },
+      {
+        "episode_id": "S02E18",
+        "title": "Take Your Daughter to Work Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E18",
+        "started_at_utc": "2026-03-05T07:09:25Z",
+        "ended_at_utc": "2026-03-05T07:10:17Z",
+        "duration_ms": 52126,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E18/segment_summaries/S02E18"
+      },
+      {
+        "episode_id": "S02E19",
+        "title": "Michael’s Birthday",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E19",
+        "started_at_utc": "2026-03-05T07:10:17Z",
+        "ended_at_utc": "2026-03-05T07:11:03Z",
+        "duration_ms": 46589,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E19/segment_summaries/S02E19"
+      },
+      {
+        "episode_id": "S02E20",
+        "title": "Drug Testing",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E20",
+        "started_at_utc": "2026-03-05T07:11:03Z",
+        "ended_at_utc": "2026-03-05T07:12:25Z",
+        "duration_ms": 81400,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E20/segment_summaries/S02E20"
+      },
+      {
+        "episode_id": "S02E21",
+        "title": "Conflict Resolution",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E21",
+        "started_at_utc": "2026-03-05T19:18:50Z",
+        "ended_at_utc": "2026-03-05T19:19:09Z",
+        "duration_ms": 19078,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E21/segment_summaries/S02E21"
+      },
+      {
+        "episode_id": "S02E22",
+        "title": "Casino Night",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S02E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E22",
+        "started_at_utc": "2026-03-05T19:19:09Z",
+        "ended_at_utc": "2026-03-05T19:20:26Z",
+        "duration_ms": 76419,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season02_4_1_mini_2026-03-04_S02E22/segment_summaries/S02E22"
+      }
+    ]
+  },
+  "resumed_at_utc": "2026-03-05T20:47:24Z"
+}

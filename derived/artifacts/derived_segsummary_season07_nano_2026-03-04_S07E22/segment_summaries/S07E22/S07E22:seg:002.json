@@ -1,0 +1,201 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_nano_2026-03-04_S07E22",
+  "created_at_utc": "2026-03-04T23:59:19Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S07E22",
+  "segment_id": "S07E22:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14102,
+  "segment_char_end": 20016,
+  "people": [
+    "Jim",
+    "Deangelo",
+    "Dwight",
+    "Jordan",
+    "Andy",
+    "Pam",
+    "Kelly",
+    "Ryan",
+    "Gabe",
+    "Kevin",
+    "Darryl",
+    "Angela",
+    "Oscar",
+    "Erin"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Deangelo interacts with Jim and Dwight, revealing office tensions and misunderstandings.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 14209,
+          "char_end": 14259,
+          "snippet": "Jim quietly enters Deangelo's office and sits down"
+        },
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 14518,
+          "char_end": 14573,
+          "snippet": "Dwight: So, he kicked you out of the inner circle, huh?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Deangelo organizes a dunking contest and interacts with staff, leading to humorous moments.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 17232,
+          "char_end": 17297,
+          "snippet": "Deangelo: I'm no MJ. I can do his dunk. From the free throw line."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Jim and Deangelo attempt a dunk, resulting in the hoop crashing down.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 17938,
+          "char_end": 17967,
+          "snippet": "Deangelo: Yeah, I don't know."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Deangelo sustains an injury after dunking, leading to concern from Jim and Erin.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 19543,
+          "char_end": 19595,
+          "snippet": "Jim (ambulance pulls away in parking lot): Now what?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Staff members comment on the chaos and humor of the office scene.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 19943,
+          "char_end": 20016,
+          "snippet": "Gabe: Droswip, yeah. I get it. Okay, we're gonna get you to the restroom."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I'm no MJ. I can do his dunk. From the free throw line.",
+      "speaker": "Deangelo",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 17232,
+          "char_end": 17297,
+          "snippet": "Deangelo: I'm no MJ. I can do his dunk. From the free throw line."
+        }
+      ]
+    },
+    {
+      "quote": "Now what?",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 19543,
+          "char_end": 19595,
+          "snippet": "Jim (ambulance pulls away in parking lot): Now what?"
+        }
+      ]
+    },
+    {
+      "quote": "Deangelo (speaking gibberish): Tablab.",
+      "speaker": "Deangelo",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 19699,
+          "char_end": 19737,
+          "snippet": "Deangelo (speaking gibberish): Tablab."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly happened to Deangelo after the dunk?",
+    "What is the outcome of Deangelo's injury?",
+    "What is the significance of the office conflicts?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly happened to Deangelo after the dunk?",
+      "why_uncertain": "The segment shows him in gibberish and being taken away, but details are unclear.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 14102,
+          "char_end": 20016,
+          "snippet": "=== SCENE 025 ===\n\nDeangelo: Internally, for office use where do we get our paper from? Do we go –\n[STAGE] Jim quietly enters Deangelo's office and sits down\nJim (to Jordan): Don't worry, the first day's always the hardest.\nDeangelo (starin"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Deangelo's injury?",
+      "why_uncertain": "The segment ends with him being taken away, no further outcome is provided.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 19543,
+          "char_end": 19595,
+          "snippet": "Jim (ambulance pulls away in parking lot): Now what?"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the office conflicts?",
+      "why_uncertain": "The segment shows some tension but does not clarify the broader context or consequences.",
+      "evidence": [
+        {
+          "episode_id": "S07E22",
+          "segment_id": "S07E22:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e22_the_inner_circle_script.txt",
+          "char_start": 14102,
+          "char_end": 20016,
+          "snippet": "=== SCENE 025 ===\n\nDeangelo: Internally, for office use where do we get our paper from? Do we go –\n[STAGE] Jim quietly enters Deangelo's office and sits down\nJim (to Jordan): Don't worry, the first day's always the hardest.\nDeangelo (starin"
+        }
+      ]
+    }
+  ]
+}

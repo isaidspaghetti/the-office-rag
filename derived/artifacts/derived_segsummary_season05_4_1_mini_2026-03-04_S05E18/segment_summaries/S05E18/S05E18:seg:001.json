@@ -1,0 +1,197 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E18",
+  "created_at_utc": "2026-03-05T23:25:39Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E18",
+  "segment_id": "S05E18:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 4433,
+  "segment_char_end": 11084,
+  "people": [
+    "Michael",
+    "Charles",
+    "Kevin",
+    "Oscar",
+    "Angela",
+    "Andy",
+    "Stanley",
+    "Dwight",
+    "David",
+    "Stephanie"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael introduces the accounting department and Charles Miner to the office staff.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4433,
+          "char_end": 4526,
+          "snippet": "Michael: All right, let me introduce you to some of the troops. Accounting, front and center."
+        },
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4689,
+          "char_end": 4735,
+          "snippet": "Michael: This is Oscar Martinez. He is Latino."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Charles announces budget cuts including a 3% cut across the board and no matching 401k contributions, causing concern among staff.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 6454,
+          "char_end": 6579,
+          "snippet": "Charles: Is that we are cutting three percent across the board, which means we will no longer be matching 401k contributions."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael and Charles discuss their working relationship and management roles, with Michael resisting being managed.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4433,
+          "char_end": 11084,
+          "snippet": "Michael: All right, let me introduce you to some of the troops. Accounting, front and center. Come on up here. I'd like you to meet somebody. This is the accounting department.\nCharles: Hey, I come from accounting, too.\nMichael: Oh, nerd al"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael attempts to contact David Wallace but encounters difficulties including Dwight's inappropriate phone behavior.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 9961,
+          "char_end": 10013,
+          "snippet": "Michael (on phone): Michael Scott calling for David."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "This is Oscar Martinez. He is Latino.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4689,
+          "char_end": 4735,
+          "snippet": "Michael: This is Oscar Martinez. He is Latino."
+        }
+      ]
+    },
+    {
+      "quote": "Is that we are cutting three percent across the board, which means we will no longer be matching 401k contributions.",
+      "speaker": "Charles",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 6454,
+          "char_end": 6579,
+          "snippet": "Charles: Is that we are cutting three percent across the board, which means we will no longer be matching 401k contributions."
+        }
+      ]
+    },
+    {
+      "quote": "It was my understanding that I was not going to be managed.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 7704,
+          "char_end": 7797,
+          "snippet": "Michael (on speakerphone): David, it was my understanding that I was not going to be managed."
+        }
+      ]
+    },
+    {
+      "quote": "I've got David Wallace's son in the trunk of my car.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4433,
+          "char_end": 11084,
+          "snippet": "Michael: All right, let me introduce you to some of the troops. Accounting, front and center. Come on up here. I'd like you to meet somebody. This is the accounting department.\nCharles: Hey, I come from accounting, too.\nMichael: Oh, nerd al"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will there be layoffs at the branch?",
+    "How will Michael and Charles's working relationship develop?",
+    "Will David Wallace respond to Michael's requests for communication?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will there be layoffs at the branch?",
+      "why_uncertain": "Charles and Michael give conflicting or non-committal answers about layoffs.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 5884,
+          "char_end": 6102,
+          "snippet": "Stanley Hudson. Are there gonna be layoffs?\nMichael: No. Absolutely not.\nCharles: Uh, hold on, Michael, thank you. Uh, Stanley, you know, we can't make any promises, but we'll try everything in our power to avoid that."
+        }
+      ]
+    },
+    {
+      "question": "How will Michael and Charles's working relationship develop?",
+      "why_uncertain": "The segment shows initial tension and disagreement but does not reveal future dynamics.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4433,
+          "char_end": 11084,
+          "snippet": "Michael: All right, let me introduce you to some of the troops. Accounting, front and center. Come on up here. I'd like you to meet somebody. This is the accounting department.\nCharles: Hey, I come from accounting, too.\nMichael: Oh, nerd al"
+        }
+      ]
+    },
+    {
+      "question": "Will David Wallace respond to Michael's requests for communication?",
+      "why_uncertain": "Michael tries to reach David but the segment ends without clear resolution.",
+      "evidence": [
+        {
+          "episode_id": "S05E18",
+          "segment_id": "S05E18:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e18_new_boss_script.txt",
+          "char_start": 4433,
+          "char_end": 11084,
+          "snippet": "Michael: All right, let me introduce you to some of the troops. Accounting, front and center. Come on up here. I'd like you to meet somebody. This is the accounting department.\nCharles: Hey, I come from accounting, too.\nMichael: Oh, nerd al"
+        }
+      ]
+    }
+  ]
+}

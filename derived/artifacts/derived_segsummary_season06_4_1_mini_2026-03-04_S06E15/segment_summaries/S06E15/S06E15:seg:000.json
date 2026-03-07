@@ -1,0 +1,244 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E15",
+  "created_at_utc": "2026-03-06T01:36:13Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S06E15",
+  "segment_id": "S06E15:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7149,
+  "people": [
+    "Michael Scott",
+    "Dwight",
+    "Jo Bennett",
+    "Gabe",
+    "Andy",
+    "Angela",
+    "Kevin",
+    "Meredith Palmer",
+    "Creed Bratton",
+    "Jim Halpert",
+    "Erin",
+    "Kelly",
+    "Pam"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael cannot find his hotel reservation for the Vancouver Olympics despite having booked it for three years.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 90,
+          "char_end": 279,
+          "snippet": "Michael: Hello Vancouver, this is Michael Scott calling from the United States of America! I have a reservation in your fair city from February 12th to the 19th, first week of the Olympics."
+        },
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 821,
+          "char_end": 977,
+          "snippet": "Hotel Employee: Uh, sir? A lot of people are trying to get last-minute reservations at hotels here for the Olympics, but we've been fully booked for months."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Jo Bennett, the new CEO of Sabre, visits the office and introduces herself with a colorful personal background.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 3772,
+          "char_end": 3941,
+          "snippet": "Jo: I'm Jolene Bennett, Jo for short. I'm a breast cancer survivor, close, personal friends with Nancy Pelosi, and Truman Capote and I slept with three of the same guys."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jo Bennett interacts with the office staff, noting the co-manager situation and making humorous remarks.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 2580,
+          "char_end": 2642,
+          "snippet": "Jo (gesturing to Michael): I thought this guy was the manager?"
+        },
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 2714,
+          "char_end": 2775,
+          "snippet": "Jo: Two guys doing one job? We gotta do something about that!"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Andy prepares Valentine's Day cards for the office, including one for Erin, while trying to avoid seeming too eager.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 4440,
+          "char_end": 4495,
+          "snippet": "Erin (opening card): Oh, you did? Aw, a bird and a dog!"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Pam shows Jim that salesmen can make more money than managers according to the new handbook.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 6677,
+          "char_end": 6787,
+          "snippet": "Pam: So, check this out. According to the handbook, you could make more money as a salesman than as a manager."
+        },
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 6863,
+          "char_end": 6901,
+          "snippet": "Jim: This is way more than I make now."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim expresses that he is not going to miss being manager and admits he is motivated by money and women.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 6922,
+          "char_end": 6970,
+          "snippet": "Jim: I don't think I'm gonna miss being manager."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I'm a breast cancer survivor, close, personal friends with Nancy Pelosi, and Truman Capote and I slept with three of the same guys.",
+      "speaker": "Jo Bennett",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 3772,
+          "char_end": 3941,
+          "snippet": "Jo: I'm Jolene Bennett, Jo for short. I'm a breast cancer survivor, close, personal friends with Nancy Pelosi, and Truman Capote and I slept with three of the same guys."
+        }
+      ]
+    },
+    {
+      "quote": "Two guys doing one job? We gotta do something about that!",
+      "speaker": "Jo Bennett",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 2714,
+          "char_end": 2775,
+          "snippet": "Jo: Two guys doing one job? We gotta do something about that!"
+        }
+      ]
+    },
+    {
+      "quote": "I don't think I'm gonna miss being manager.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 6927,
+          "char_end": 6970,
+          "snippet": "I don't think I'm gonna miss being manager."
+        }
+      ]
+    },
+    {
+      "quote": "Well, with all due respect to this job, I think I'm definitely in it for the money. And quite honestly, the women.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 7033,
+          "char_end": 7147,
+          "snippet": "Well, with all due respect to this job, I think I'm definitely in it for the money. And quite honestly, the women."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Michael's hotel reservation issue?",
+    "How will the co-manager situation be resolved?",
+    "Will Andy's Valentine's card strategy affect his relationship with Erin?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Michael's hotel reservation issue?",
+      "why_uncertain": "The segment ends with Dwight finding a confirmation code but does not reveal if the reservation is confirmed.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 7149,
+          "snippet": "=== SCENE 000 ===\n\nHotel Employee (on phone): Vancouver Court Hotel, how many I help you?\nMichael: Hello Vancouver, this is Michael Scott calling from the United States of America! I have a reservation in your fair city from February 12th t"
+        }
+      ]
+    },
+    {
+      "question": "How will the co-manager situation be resolved?",
+      "why_uncertain": "Jo Bennett comments on the two co-managers but no resolution or plan is detailed in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 7149,
+          "snippet": "=== SCENE 000 ===\n\nHotel Employee (on phone): Vancouver Court Hotel, how many I help you?\nMichael: Hello Vancouver, this is Michael Scott calling from the United States of America! I have a reservation in your fair city from February 12th t"
+        }
+      ]
+    },
+    {
+      "question": "Will Andy's Valentine's card strategy affect his relationship with Erin?",
+      "why_uncertain": "Andy gives Erin a card and she appreciates it, but the segment does not show any further development.",
+      "evidence": [
+        {
+          "episode_id": "S06E15",
+          "segment_id": "S06E15:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e15_manager_and_salesman_script.txt",
+          "char_start": 0,
+          "char_end": 7149,
+          "snippet": "=== SCENE 000 ===\n\nHotel Employee (on phone): Vancouver Court Hotel, how many I help you?\nMichael: Hello Vancouver, this is Michael Scott calling from the United States of America! I have a reservation in your fair city from February 12th t"
+        }
+      ]
+    }
+  ]
+}

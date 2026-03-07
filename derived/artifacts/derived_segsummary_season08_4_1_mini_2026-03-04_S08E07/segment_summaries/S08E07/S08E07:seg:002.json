@@ -1,0 +1,202 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_4_1_mini_2026-03-04_S08E07",
+  "created_at_utc": "2026-03-06T01:45:00Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S08E07",
+  "segment_id": "S08E07:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13657,
+  "segment_char_end": 18782,
+  "people": [
+    "Pam",
+    "Jim",
+    "Cathy",
+    "Dwight",
+    "Darryl",
+    "Kevin",
+    "Andy",
+    "Val",
+    "Old Man"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Pam is frustrated that Jim won't admit Cathy is attractive, leading to Dwight proposing a lie-detector test.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 14060,
+          "char_end": 14157,
+          "snippet": "Pam: Why won't you just admit that she's attractive? It's kind of annoying that you won't say it."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight conducts a homemade lie-detector test on Jim in public using physiological signs.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight claims Jim is lying about not finding Cathy attractive based on the test results.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 17189,
+          "char_end": 17266,
+          "snippet": "Dwight: Do you find Cathy Simms attractive?\nJim: No.\nDwight: Yep, he's lying."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Pam expresses concern for Jim's health and insists on calling his doctor after Dwight points out Jim's high blood pressure.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 17691,
+          "char_end": 17730,
+          "snippet": "Pam: Jim, you have high blood pressure."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Meanwhile, Darryl, Kevin, Andy, and Val have a jam session and discuss their music group dynamics.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Your husband is a pathological liar.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 17579,
+          "char_end": 17690,
+          "snippet": "Dwight: Look at the numbers. Every single time, it's come up 150 over 100. Your husband is a pathological liar."
+        }
+      ]
+    },
+    {
+      "quote": "Why won't you just admit that she's attractive? It's kind of annoying that you won't say it.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 14060,
+          "char_end": 14157,
+          "snippet": "Pam: Why won't you just admit that she's attractive? It's kind of annoying that you won't say it."
+        }
+      ]
+    },
+    {
+      "quote": "I wanna call your doctor.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 18334,
+          "char_end": 18383,
+          "snippet": "Pam: Come on, let's go. I wanna call your doctor."
+        }
+      ]
+    },
+    {
+      "quote": "When it lies, the human body exhibits many telltale signs.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Does Jim actually find Cathy attractive or is he truly lying?",
+    "What is the outcome of Pam calling Jim's doctor or addressing his health concerns?",
+    "What is the significance of Jim not being his real name as suggested by Dwight?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Does Jim actually find Cathy attractive or is he truly lying?",
+      "why_uncertain": "The segment only shows Dwight's homemade test results and Jim's denials, but no definitive proof.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Pam calling Jim's doctor or addressing his health concerns?",
+      "why_uncertain": "The segment ends with Pam wanting to call the doctor but does not show any follow-up or results.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of Jim not being his real name as suggested by Dwight?",
+      "why_uncertain": "Dwight mentions Jim is not his real name but the segment does not explain or elaborate further.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 13657,
+          "char_end": 18782,
+          "snippet": "Pam: Oh, hey, I'll just be a second.\nCathy: Yeah, take your time.\nPam: Okay.\nCathy (to Jim): Oh, that line from Zoolander?\nJim: Mm-hmm?\nCathy: It was from a deleted scene so we were both right.\nJim (laughs): Told you.\nCathy: Um, do I hand i"
+        }
+      ]
+    }
+  ]
+}

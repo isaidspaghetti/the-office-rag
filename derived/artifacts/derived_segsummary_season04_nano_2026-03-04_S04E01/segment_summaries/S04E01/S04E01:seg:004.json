@@ -1,0 +1,158 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E01",
+  "created_at_utc": "2026-03-04T22:51:44Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E01",
+  "segment_id": "S04E01:seg:004",
+  "segment_index": 4,
+  "segment_char_start": 27648,
+  "segment_char_end": 34570,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Toby",
+    "Jan",
+    "Oscar",
+    "Creed",
+    "Stanley",
+    "Andy",
+    "Pam",
+    "Jim",
+    "Kevin",
+    "Angela",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The characters participate in a charity fun run with various interactions and commentary.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 27648,
+          "char_end": 27724,
+          "snippet": "Michael: Just remember folks, it's not about winning, it is about finishing."
+        },
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 27757,
+          "char_end": 27797,
+          "snippet": "Michael (pulls Toby's pants down): Beow!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight discusses killing and stuffing Sprinkles, causing tension with Angela.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 30819,
+          "char_end": 30845,
+          "snippet": "Angela: You did kill her!?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael reflects on his physical and emotional struggles during the race.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34112,
+          "char_end": 34184,
+          "snippet": "Michael: Finishing that 5k, was the hardest thing I have ever had to do."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Rabies victims… have to live with an irrational hatred of water their entire lives.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 28741,
+          "char_end": 28833,
+          "snippet": "Michael: Rabies victims… have to live with an irrational hatred of water their entire lives."
+        }
+      ]
+    },
+    {
+      "quote": "I can make a difference, remember, I'm the one who started this whole thing off by hitting Meredith with my car.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 27648,
+          "char_end": 34570,
+          "snippet": "Michael: Just remember folks, it's not about winning, it is about finishing.\nDwight: On your marks, get set…\nMichael (pulls Toby's pants down): Beow!\nToby: Hey!\n[STAGE] extremely loud gunshot\n\n=== SCENE 054 ===\n\nMichael: On your left!\nOscar"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the race or the characters' personal results?",
+    "What is the exact relationship between the characters involved?",
+    "What happens after the segment ends?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the race or the characters' personal results?",
+      "why_uncertain": "The segment ends with Michael reflecting on his effort, but does not specify the final results.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 34112,
+          "char_end": 34184,
+          "snippet": "Michael: Finishing that 5k, was the hardest thing I have ever had to do."
+        }
+      ]
+    },
+    {
+      "question": "What is the exact relationship between the characters involved?",
+      "why_uncertain": "The segment shows interactions but does not explicitly define relationships.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 28403,
+          "char_end": 28437,
+          "snippet": "Pam: Yeah. Oh we're in last place."
+        }
+      ]
+    },
+    {
+      "question": "What happens after the segment ends?",
+      "why_uncertain": "The segment concludes with Michael's reflection, no further events are shown.",
+      "evidence": [
+        {
+          "episode_id": "S04E01",
+          "segment_id": "S04E01:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+          "char_start": 27648,
+          "char_end": 34570,
+          "snippet": "Michael: Just remember folks, it's not about winning, it is about finishing.\nDwight: On your marks, get set…\nMichael (pulls Toby's pants down): Beow!\nToby: Hey!\n[STAGE] extremely loud gunshot\n\n=== SCENE 054 ===\n\nMichael: On your left!\nOscar"
+        }
+      ]
+    }
+  ]
+}

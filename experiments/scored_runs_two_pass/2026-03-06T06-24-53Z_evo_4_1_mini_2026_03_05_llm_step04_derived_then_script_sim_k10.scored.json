@@ -1,0 +1,714 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-24-53Z_evo_4_1_mini_2026_03_05_llm_step04_derived_then_script_sim_k10",
+    "run_name": "evo_4_1_mini_2026-03-05_llm_step04_derived_then_script_sim_k10",
+    "created_at_utc": "2026-03-06T06:24:53Z",
+    "notes": "LLM-enabled sweep with gpt-4.1-mini; telemetry disabled; script=db/chroma_db_meta derived=db/chroma_db_derived_cards_4_1_mini_2026-03-04"
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:24:52Z",
+            "sha256": "e6d757f654fe31088d67bbe4dab5d148a1b9c4b2f6b831de192ca5a947f9f5b9"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-06T04:52:41Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-06T04:52:41Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": false,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season09_4_1_mini_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season09_4_1_mini_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [],
+          "seasons_filter": null,
+          "docs_planned": 24,
+          "dry_run": false,
+          "docs_indexed": 24
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04/chroma.sqlite3",
+            "size_bytes": 917504,
+            "mtime_utc": "2026-03-06T06:24:53Z",
+            "sha256": "fcf37d9d30969e66919ac82d6521b7becfb39103b111e13fd5ae86f4a77104f5"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+      "collection_name": "derived_cards",
+      "num_vectors": 24
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "derived_then_script",
+      "search_type": "similarity",
+      "k": 10,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 60.0,
+      "max_retries": 1,
+      "seed": 42
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-06T07:33:11Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 38,
+    "overall_scores": [
+      34,
+      40,
+      40,
+      54,
+      40,
+      40,
+      20
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.5714285714285714,
+    "must_include_ok_rate": 0.14285714285714285,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 5,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 34,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "The phrase 'Bears. Beets. Battlestar Galactica.' is associated with Dwight",
+          "The exact quote 'Bears. Beets. Battlestar Galactica.' is not explicitly present in the provided context",
+          "The relevant scene is SCENE 034 where Dwight holds up a Battlestar Galactica model box"
+        ],
+        "missing_points": [
+          "Does not identify that Jim impersonates Dwight and says the line",
+          "Does not specify the episode as Season 3, Episode 20 (\"Product Recall\")",
+          "Does not mention the mocking of Dwight's obsessions (bears, beets, Battlestar Galactica)",
+          "Focuses on Dwight's own dialogue rather than the iconic quote by Jim"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes a scene where Dwight holds up a Battlestar Galactica model box but does not contain the exact phrase 'Bears. Beets. Battlestar Galactica.' or sufficient context about the quote or its episode. The candidate answer infers the connection but the exact quote and context are not present. | correctness: The candidate answer discusses Dwight and Battlestar Galactica references but misses the key fact that Jim says the line while impersonating Dwight in S03E20.",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "The phrase 'Bears. Beets. Battlestar Galactica.' is associated with Dwight",
+            "The exact quote 'Bears. Beets. Battlestar Galactica.' is not explicitly present in the provided context",
+            "The relevant scene is SCENE 034 where Dwight holds up a Battlestar Galactica model box"
+          ],
+          "notes": "The retrieved context includes a scene where Dwight holds up a Battlestar Galactica model box but does not contain the exact phrase 'Bears. Beets. Battlestar Galactica.' or sufficient context about the quote or its episode. The candidate answer infers the connection but the exact quote and context are not present."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 2,
+          "missing_points": [
+            "Does not identify that Jim impersonates Dwight and says the line",
+            "Does not specify the episode as Season 3, Episode 20 (\"Product Recall\")",
+            "Does not mention the mocking of Dwight's obsessions (bears, beets, Battlestar Galactica)",
+            "Focuses on Dwight's own dialogue rather than the iconic quote by Jim"
+          ],
+          "notes": "The candidate answer discusses Dwight and Battlestar Galactica references but misses the key fact that Jim says the line while impersonating Dwight in S03E20."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"The phrase 'Bears. Beets. Battlestar Galactica.' is associated with Dwight\",\n    \"The exact quote 'Bears. Beets. Battlestar Galactica.' is not explicitly present in the provided context\",\n    \"The relevant scene is SCENE 034 where Dwight holds up a Battlestar Galactica model box\"\n  ],\n  \"notes\": \"The retrieved context includes a scene where Dwight holds up a Battlestar Galactica model box but does not contain the exact phrase 'Bears. Beets. Battlestar Galactica.' or sufficient context about the quote or its episode. The candidate answer infers the connection but the exact quote and context are not present.\"\n}",
+          "correctness": "```json\n{\n  \"correctness\": 2,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Does not identify that Jim impersonates Dwight and says the line\",\n    \"Does not specify the episode as Season 3, Episode 20 (\\\"Product Recall\\\")\",\n    \"Does not mention the mocking of Dwight's obsessions (bears, beets, Battlestar Galactica)\",\n    \"Focuses on Dwight's own dialogue rather than the iconic quote by Jim\"\n  ],\n  \"notes\": \"The candidate answer discusses Dwight and Battlestar Galactica references but misses the key fact that Jim says the line while impersonating Dwight in S03E20.\"\n}\n```"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "episode identification",
+          "season and episode number",
+          "episode title",
+          "description of injury"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The candidate answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot. | correctness: Candidate answer does not provide any information about the episode; it states lack of knowledge instead.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "episode identification",
+            "season and episode number",
+            "episode title",
+            "description of injury"
+          ],
+          "notes": "Candidate answer does not provide any information about the episode; it states lack of knowledge instead."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot.\"\n}",
+          "correctness": "{\"correctness\":0,\"completeness\":0,\"missing_points\":[\"episode identification\",\"season and episode number\",\"episode title\",\"description of injury\"],\"notes\":\"Candidate answer does not provide any information about the episode; it states lack of knowledge instead.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim/Pam relationship tension",
+          "Pam engaged to Roy",
+          "Michael and Jan's relationship",
+          "Dwight's ambition and rivalry with Jim",
+          "\"Casino Night\" episode with Jim's confession and kiss"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The candidate correctly states that the retrieved context does not contain information about Season 2 and only covers Season 9. | correctness: Candidate answer does not provide any summary of Season 2 and instead states lack of information.",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate correctly states that the retrieved context does not contain information about Season 2 and only covers Season 9."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Jim/Pam relationship tension",
+            "Pam engaged to Roy",
+            "Michael and Jan's relationship",
+            "Dwight's ambition and rivalry with Jim",
+            "\"Casino Night\" episode with Jim's confession and kiss"
+          ],
+          "notes": "Candidate answer does not provide any summary of Season 2 and instead states lack of information."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate correctly states that the retrieved context does not contain information about Season 2 and only covers Season 9.\"\n}",
+          "correctness": "{\n  \"correctness\": 0,\n  \"completeness\": 0,\n  \"missing_points\": [\n    \"Jim/Pam relationship tension\",\n    \"Pam engaged to Roy\",\n    \"Michael and Jan's relationship\",\n    \"Dwight's ambition and rivalry with Jim\",\n    \"\\\"Casino Night\\\" episode with Jim's confession and kiss\"\n  ],\n  \"notes\": \"Candidate answer does not provide any summary of Season 2 and instead states lack of information.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 2,
+        "overall": 54,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jim steals people from Dwight's team",
+          "Dwight calls Jim 'Stinky' and they exchange playful insults",
+          "Dwight feels inferior or challenged by Jim"
+        ],
+        "missing_points": [
+          "Jim constantly pranks and undermines Dwight",
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Examples from distinct episodes"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains some banter between Dwight and Jim, including Dwight calling Jim 'Stinky' once, but no explicit reasons why Dwight dislikes Jim or examples of stealing team members or feelings of inferiority. The candidate answer's claims are mostly unsupported by the provided context. | correctness: Candidate provides reasons related to poaching, mocking, and feeling challenged, which align with rivalry and dislike, but misses key points about pranks, respect for hiera…",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jim steals people from Dwight's team",
+            "Dwight calls Jim 'Stinky' and they exchange playful insults",
+            "Dwight feels inferior or challenged by Jim"
+          ],
+          "notes": "The retrieved context contains some banter between Dwight and Jim, including Dwight calling Jim 'Stinky' once, but no explicit reasons why Dwight dislikes Jim or examples of stealing team members or feelings of inferiority. The candidate answer's claims are mostly unsupported by the provided context."
+        },
+        "correctness": {
+          "correctness": 4,
+          "completeness": 3,
+          "missing_points": [
+            "Jim constantly pranks and undermines Dwight",
+            "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+            "Examples from distinct episodes"
+          ],
+          "notes": "Candidate provides reasons related to poaching, mocking, and feeling challenged, which align with rivalry and dislike, but misses key points about pranks, respect for hierarchy, and the nuance of underlying respect. Examples are given but not clearly tied to distinct episodes as requested."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jim steals people from Dwight's team\",\n    \"Dwight calls Jim 'Stinky' and they exchange playful insults\",\n    \"Dwight feels inferior or challenged by Jim\"\n  ],\n  \"notes\": \"The retrieved context contains some banter between Dwight and Jim, including Dwight calling Jim 'Stinky' once, but no explicit reasons why Dwight dislikes Jim or examples of stealing team members or feelings of inferiority. The candidate answer's claims are mostly unsupported by the provided context.\"\n}",
+          "correctness": "{\"correctness\":4,\"completeness\":3,\"missing_points\":[\"Jim constantly pranks and undermines Dwight\",\"Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive\",\"Examples from distinct episodes\"],\"notes\":\"Candidate provides reasons related to poaching, mocking, and feeling challenged, which align with rivalry and dislike, but misses key points about pranks, respect for hierarchy, and the nuance of underlying respect. Examples are given but not clearly tied to distinct episodes as requested.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jan Levinson relationship and breakup",
+          "Carol Stills relationship and breakup",
+          "Holly Flax relationship and outcome",
+          "Donna Newton relationship and breakup",
+          "Helene Beesly relationship and breakup"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: Candidate correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended. | correctness: Candidate answer does not provide any information about Michael Scott's serious girlfriends or how the relationships ended, failing to address the question.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "Candidate correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Jan Levinson relationship and breakup",
+            "Carol Stills relationship and breakup",
+            "Holly Flax relationship and outcome",
+            "Donna Newton relationship and breakup",
+            "Helene Beesly relationship and breakup"
+          ],
+          "notes": "Candidate answer does not provide any information about Michael Scott's serious girlfriends or how the relationships ended, failing to address the question."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":5,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"Candidate correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended.\"}",
+          "correctness": "{\n  \"correctness\": 0,\n  \"completeness\": 0,\n  \"missing_points\": [\n    \"Jan Levinson relationship and breakup\",\n    \"Carol Stills relationship and breakup\",\n    \"Holly Flax relationship and outcome\",\n    \"Donna Newton relationship and breakup\",\n    \"Helene Beesly relationship and breakup\"\n  ],\n  \"notes\": \"Candidate answer does not provide any information about Michael Scott's serious girlfriends or how the relationships ended, failing to address the question.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 40,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Importance of the teapot letter",
+          "Reference to Jim and Pam's relationship",
+          "Mention of Season 2 Christmas episode"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The candidate correctly states that the context does not contain information about the 'teapot letter' or its importance. | correctness: Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 5,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate correctly states that the context does not contain information about the 'teapot letter' or its importance."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Explanation of what the teapot letter is",
+            "Importance of the teapot letter",
+            "Reference to Jim and Pam's relationship",
+            "Mention of Season 2 Christmas episode"
+          ],
+          "notes": "Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 5,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate correctly states that the context does not contain information about the 'teapot letter' or its importance.\"\n}",
+          "correctness": "{\"correctness\":0,\"completeness\":0,\"missing_points\":[\"Explanation of what the teapot letter is\",\"Importance of the teapot letter\",\"Reference to Jim and Pam's relationship\",\"Mention of Season 2 Christmas episode\"],\"notes\":\"Candidate answer does not provide any information about the teapot letter or its significance, failing to address the question.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 0,
+        "completeness": 1,
+        "hallucination": 0,
+        "overall": 20,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Creed makes a sarcastic or humorous comment about Wesley Silver being gay",
+          "Creed jokes about flirting with Erin",
+          "Creed describes a bizarre scene in the parking lot"
+        ],
+        "missing_points": [
+          "Creed's full name and job at Dunder Mifflin",
+          "His bizarre and evasive nature implying shady or criminal behavior",
+          "His role as comic relief and mysterious presence",
+          "His arrest in the series finale"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains no mention of Creed or any of the described lines or character traits. The candidate answer invents details not supported by the context. | correctness: Candidate answer only infers Creed's eccentricity from quotes but lacks key factual details from gold answer.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 0,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Creed makes a sarcastic or humorous comment about Wesley Silver being gay",
+            "Creed jokes about flirting with Erin",
+            "Creed describes a bizarre scene in the parking lot"
+          ],
+          "notes": "The retrieved context contains no mention of Creed or any of the described lines or character traits. The candidate answer invents details not supported by the context."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 1,
+          "missing_points": [
+            "Creed's full name and job at Dunder Mifflin",
+            "His bizarre and evasive nature implying shady or criminal behavior",
+            "His role as comic relief and mysterious presence",
+            "His arrest in the series finale"
+          ],
+          "notes": "Candidate answer only infers Creed's eccentricity from quotes but lacks key factual details from gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 0,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Creed makes a sarcastic or humorous comment about Wesley Silver being gay\",\n    \"Creed jokes about flirting with Erin\",\n    \"Creed describes a bizarre scene in the parking lot\"\n  ],\n  \"notes\": \"The retrieved context contains no mention of Creed or any of the described lines or character traits. The candidate answer invents details not supported by the context.\"\n}",
+          "correctness": "{\"correctness\":2,\"completeness\":1,\"missing_points\":[\"Creed's full name and job at Dunder Mifflin\",\"His bizarre and evasive nature implying shady or criminal behavior\",\"His role as comic relief and mysterious presence\",\"His arrest in the series finale\"],\"notes\":\"Candidate answer only infers Creed's eccentricity from quotes but lacks key factual details from gold answer.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

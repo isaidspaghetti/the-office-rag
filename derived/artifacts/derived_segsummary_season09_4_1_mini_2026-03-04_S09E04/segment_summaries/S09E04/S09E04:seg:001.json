@@ -1,0 +1,255 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E04",
+  "created_at_utc": "2026-03-06T01:41:10Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S09E04",
+  "segment_id": "S09E04:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6445,
+  "segment_char_end": 12817,
+  "people": [
+    "Jim",
+    "Pam",
+    "Andy",
+    "Dwight",
+    "Meredith",
+    "Kevin",
+    "Erin",
+    "Nellie",
+    "Stanley",
+    "Oscar",
+    "Pete",
+    "Angela",
+    "Clark",
+    "Phyllis",
+    "Darryl",
+    "Creed"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Jim plans a lake trip with Pam and the kids, including a stop at a pie stand.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6445,
+          "char_end": 6548,
+          "snippet": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6549,
+          "char_end": 6599,
+          "snippet": "Pam: Oh, can we stop by that pie stand on the way?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight introduces a mobile work bus as a temporary workspace for the office.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 7082,
+          "char_end": 7189,
+          "snippet": "Dwight: In my contract, it is stipulated that I provide a temporary work space. It will arrive in one hour."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 7262,
+          "char_end": 7303,
+          "snippet": "Dwight (Bus pulls into lot): Bring it in!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "The work bus environment causes discomfort and accidents among employees, including Pam getting spilled on.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 9488,
+          "char_end": 9507,
+          "snippet": "Pam: Oh my god! Ah!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim tries to convince Dwight and Andy to make the work bus experience better by stopping at a pie stand.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 10726,
+          "char_end": 10797,
+          "snippet": "Andy: Alright! The fat people have spoken! Dwight, get this bus moving."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Employees engage in playful activities and role call on the work bus.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 11258,
+          "char_end": 11327,
+          "snippet": "Group: Shabooyah, role call. Shabooyah, yah yah shabooyah, role call."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 11328,
+          "char_end": 11348,
+          "snippet": "Pam: My name is Pam."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Erin helps Nellie with a pre-adoption form and they discuss adoption terminology and feelings.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 8636,
+          "char_end": 8714,
+          "snippet": "Erin: Absolutely. I know exactly what they want to hear. I would love to help."
+        },
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 12420,
+          "char_end": 12512,
+          "snippet": "Erin: Always say that a child is placed for adoption, never surrendered. We're not hostages."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: Roll into the future with Work Bus. Say goodbye to wasteful buildings.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 7324,
+          "char_end": 7402,
+          "snippet": "Dwight: Roll into the future with Work Bus. Say goodbye to wasteful buildings."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6445,
+          "char_end": 6548,
+          "snippet": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids."
+        }
+      ]
+    },
+    {
+      "quote": "Andy: Alright! The fat people have spoken! Dwight, get this bus moving.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 10726,
+          "char_end": 10797,
+          "snippet": "Andy: Alright! The fat people have spoken! Dwight, get this bus moving."
+        }
+      ]
+    },
+    {
+      "quote": "Erin: Always say that a child is placed for adoption, never surrendered. We're not hostages.",
+      "speaker": "Erin",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 12420,
+          "char_end": 12512,
+          "snippet": "Erin: Always say that a child is placed for adoption, never surrendered. We're not hostages."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What happens after the work bus stops at the pie stand?",
+    "Why is Dwight sulking and acting weird?",
+    "What is the outcome of Nellie's adoption process?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What happens after the work bus stops at the pie stand?",
+      "why_uncertain": "The segment ends with the bus moving toward the pie stand but does not describe events afterward.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6445,
+          "char_end": 12817,
+          "snippet": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids.\nPam: Oh, can we stop by that pie stand on the way?\nJim: You mean Laverne's Pies Tires Fixed Also? Yes we will be doing that. We'll be ge"
+        }
+      ]
+    },
+    {
+      "question": "Why is Dwight sulking and acting weird?",
+      "why_uncertain": "Pam and Jim discuss Dwight's behavior but no explanation is given in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6445,
+          "char_end": 12817,
+          "snippet": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids.\nPam: Oh, can we stop by that pie stand on the way?\nJim: You mean Laverne's Pies Tires Fixed Also? Yes we will be doing that. We'll be ge"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Nellie's adoption process?",
+      "why_uncertain": "The segment shows Nellie and Erin discussing adoption forms but does not reveal the result.",
+      "evidence": [
+        {
+          "episode_id": "S09E04",
+          "segment_id": "S09E04:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e04_work_bus_script.txt",
+          "char_start": 6445,
+          "char_end": 12817,
+          "snippet": "Jim: I'm gonna drive you up to the lake, give you a whole week on the water. Just you, me and the kids.\nPam: Oh, can we stop by that pie stand on the way?\nJim: You mean Laverne's Pies Tires Fixed Also? Yes we will be doing that. We'll be ge"
+        }
+      ]
+    }
+  ]
+}

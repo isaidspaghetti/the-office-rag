@@ -1,0 +1,174 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E05",
+  "created_at_utc": "2026-03-04T20:55:09Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E05",
+  "segment_id": "S01E05:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13420,
+  "segment_char_end": 16912,
+  "people": [
+    "Michael",
+    "Jim",
+    "Roy",
+    "Darryl",
+    "Madge",
+    "Ryan",
+    "Dwight",
+    "Phyllis",
+    "Angela",
+    "Worker",
+    "Lonny",
+    "Darryl",
+    "Pam",
+    "Oscar"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The characters are engaged in a friendly basketball game with some physical contact and disputes.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 13420,
+          "char_end": 13493,
+          "snippet": "Michael: Shoot, shoot it. Whoa, whoa, whoa, whoa! Foul! Naked aggression!"
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 13607,
+          "char_end": 13635,
+          "snippet": "Darryl: Block, block, block!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael disputes a foul call and claims the game is over, expressing frustration.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14648,
+          "char_end": 14721,
+          "snippet": "Michael: No, no, no, no. That was a flagrant, personal, intentional foul."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14877,
+          "char_end": 14919,
+          "snippet": "Michael: Game over. Game over. That is it!"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael humorously claims the game ended in a tie, but then admits they will come in on Saturday.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 15328,
+          "char_end": 15380,
+          "snippet": "Michael: Well, let's just say whoever was ahead won."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael encourages team spirit and comments on the lessons of sportsmanship.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 16746,
+          "char_end": 16878,
+          "snippet": "Michael: The great thing about sports is that it is all about character. And you can learn lessons about life even if you don't win."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Game over. Game over. That is it!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14648,
+          "char_end": 14734,
+          "snippet": "Michael: No, no, no, no. That was a flagrant, personal, intentional foul. Right there."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14877,
+          "char_end": 14919,
+          "snippet": "Michael: Game over. Game over. That is it!"
+        }
+      ]
+    },
+    {
+      "quote": "Well, let's just say whoever was ahead won.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 15328,
+          "char_end": 15380,
+          "snippet": "Michael: Well, let's just say whoever was ahead won."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Who actually won the game?",
+    "What is the exact nature of the foul calls and disputes?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Who actually won the game?",
+      "why_uncertain": "Michael claims whoever was ahead won, but the actual outcome is not explicitly confirmed.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 15328,
+          "char_end": 15380,
+          "snippet": "Michael: Well, let's just say whoever was ahead won."
+        }
+      ]
+    },
+    {
+      "question": "What is the exact nature of the foul calls and disputes?",
+      "why_uncertain": "The segment shows disputes and calls but does not specify the rules or the correctness of the calls.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 14648,
+          "char_end": 14721,
+          "snippet": "Michael: No, no, no, no. That was a flagrant, personal, intentional foul."
+        }
+      ]
+    }
+  ]
+}

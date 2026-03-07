@@ -1,0 +1,2114 @@
+{
+  "run": {
+    "run_id": "2026-03-05T02-02-46Z_auto_t1_similarity_k12",
+    "run_name": "auto_t1_similarity_k12",
+    "created_at_utc": "2026-03-05T02:02:46Z",
+    "notes": "Routing: auto (derived_then_script for agg questions) + similarity k=12"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 195
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "auto",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3
+      },
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "cases": [
+    {
+      "case_id": "q1",
+      "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?",
+      "expected_notes": "Episode identification",
+      "expected": {
+        "episode_ids": [
+          "S03E20"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 310,
+        "stats": {
+          "min": 0.5600480437278748,
+          "max": 0.6614269018173218,
+          "mean": 0.582128033041954
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 20\nTITLE: Product Recall\nEPISODE_ID: 03-20\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Angela, Barbara, Chad Lite, Creed, Denise, Dwight, Jamie, Jim, Karen, Kelly…",
+            "score": 0.6614269018173218
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 045 ===",
+            "preview": "=== SCENE 045 ===\n\nAndy: Hey, what's goin' on over here? Some sort of singing competition for the young'uns?\nCasey: You're back!\nAndy: No, it's me, Andy!\nCasey: No, I know.\nAndy: No, no, no. I'm wearing makeup.\nCasey: You did a really great…",
+            "score": 0.6128706336021423
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e06_customer_survey_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Jim: So, as it turns out, Dwight is right. How bizarre.",
+            "preview": "Jim: So, as it turns out, Dwight is right. How bizarre.\nPam (in Jim's ear): I wonder what else Dwight's been right about…\n\n=== SCENE 050 ===\n\nDwight: Major pharmaceuticals do not want you to know that beet juice has medicinal value both as …",
+            "score": 0.6092917323112488
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nDwight: Jim, could you please inform Andy Bernard that he is being shunned.\nJim: Andy, Dwight says welcome back, and he could use a hug.\nDwight: Ok, tell him that's not true.\nJim: Dwight says that he actually doesn't know…",
+            "score": 0.5772282481193542
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nDarryl: What do we have here?\n\n=== SCENE 006 ===\n\nDarryl: Val knit me a beanie. But I can't if it's a \"we're just friends\" beanie or a \"I'm hot, you're hot, let's get it poppin'\" beanie. So I'm gonna up the ante, give her…",
+            "score": 0.5714687705039978
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 009 ===",
+            "preview": "=== SCENE 009 ===\n\nJim: Hey, Andy.\nAndy: Yo.\nJim: By any chance, did you see Battlestar Galactica last night?\nAndy: No, I did not. Was that any good?\nJim: Actually not. It was really so-so.\nDwight: Ok.\n[STAGE] Dwight turns around, but Jim h…",
+            "score": 0.5696790218353271
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Dwight: Listen up. Let's start… from the ground",
+            "preview": "Dwight: Listen up. Let's start… from the ground\nKevin (at the same time as Dwight): Trees.\nDwight: Trees! And where do trees grow?\nKevin (at the same time as Dwight): Forest.\nDwight: Soil. Right. We have, in front of you here, seven differe…",
+            "score": 0.5669849514961243
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 7\nEPISODE: 23\nTITLE: Dwight K. Schrute, (Acting) Manager\nEPISODE_ID: 07-23\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, All but Oscar, Andy, Angela, Creed, Darryl, Darryl & An…",
+            "score": 0.5654438734054565
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 22\nTITLE: Beach Games\nEPISODE_ID: 03-22\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Andy, Angela, Creed, David, Dwight, Everyone, Group, Jim, Karen, Kelly, Kevin, …",
+            "score": 0.5649771094322205
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 037 ===",
+            "preview": "=== SCENE 037 ===\n\nErin (Kevin comes around corner with a pan, ready to strike Dwight, Pam shakes her head): Oh, Pam. You got something on your shirt.\nPam: Oh, haha. Oh well. Pobody's nerfect, right?\nDwight: Did you just have a stroke, Pam?…",
+            "score": 0.56397944688797
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e23_turf_war_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 8\nEPISODE: 23\nTITLE: Turf War\nEPISODE_ID: 08-23\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: All, Andy, Angela, Creed, David, Dwight, Erin, Gabe, Harry, Jim, Kevin, Mr. Ramish, Nel…",
+            "score": 0.5621376633644104
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 026 ===",
+            "preview": "=== SCENE 026 ===\n\nAndy: Take that down.\n[STAGE] Dwight has hung a large red Cornell banner from the ceiling\nDwight: Excuse me?\nAndy: Take. That down.\nMeredith: You know I once dated a couple of guys from Cornell. They were really nice. The…",
+            "score": 0.5600480437278748
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "script_only"
+        }
+      },
+      "answer": {
+        "text": "The quote \"Bears. Beets. Battlestar Galactica.\" is from Season 3, Episode 20 (\"Product Recall\") of The Office. The context is a scene where Jim is dressed as Dwight and is impersonating him. Jim asks Dwight, \"What kind of bear is best?\" and Dwight responds, \"That's a ridiculous question.\" Jim then says, \"False. Black bear.\" Dwight starts to explain, but Jim interrupts with the line: \"Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.\" Dwight is confused and says, \"Bears do not— What is going on— What are you doing?!\" (S03E20, SCENE 000). This is a humorous moment where Jim is mocking Dwight by mimicking his mannerisms and interests.",
+        "latency_ms": 2580,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3050,
+          "completion_tokens": 167,
+          "total_tokens": 3217
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 10583,
+          "answer_chars": 648
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S03E19",
+          "S03E20",
+          "S03E22",
+          "S03E23",
+          "S05E02",
+          "S05E05",
+          "S05E06",
+          "S07E23",
+          "S08E06",
+          "S08E14",
+          "S08E23",
+          "S09E22"
+        ],
+        "cited_episode_ids": [
+          "S03E20"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": true,
+        "correct_episode_cited": true,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 97.08
+        },
+        "context_diversity": {
+          "distinct_episode_count": 12,
+          "distinct_source_count": 12,
+          "top_episode_share": 0.08333333333333333,
+          "episode_entropy_norm": 1.0000000000000004,
+          "episode_counts": {
+            "S03E19": 1,
+            "S03E20": 1,
+            "S03E22": 1,
+            "S03E23": 1,
+            "S05E02": 1,
+            "S05E05": 1,
+            "S05E06": 1,
+            "S07E23": 1,
+            "S08E06": 1,
+            "S08E14": 1,
+            "S08E23": 1,
+            "S09E22": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e19_safety_training_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e05_employee_transfer_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e06_customer_survey_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e23_dwight_k_schrute_acting_manager_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e14_special_project_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e23_turf_war_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.0
+        },
+        "answer_quotes": {
+          "count": 7,
+          "any_quote_in_context": true,
+          "examples": [
+            "Bears. Beets. Battlestar Galactica.",
+            "Product Recall"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": false,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q2",
+      "question": "In what episode does Michael burn his foot?",
+      "expected_notes": "Specific episode lookup",
+      "expected": {
+        "episode_ids": [
+          "S02E12"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 169,
+        "stats": {
+          "min": 0.5463414788246155,
+          "max": 0.6777485609054565,
+          "mean": 0.5815397451321284
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 12\nTITLE: The Injury\nAIRDATE: 2006-01-12\nTVMAZE_ID: 47657\nTVMAZE_URL: https://www.tvmaze.com/episodes/47657/the-office-2x12-the-injury\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summarie…",
+            "score": 0.6777485609054565
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 004 ===",
+            "preview": "=== SCENE 004 ===\n\nMichael: Morning everyone. Don't freak out. I forbid anybody to freak out. Clearly, I have had a very serious accident, but I will recover, God willing. I just want to be treated normally today. Normal would actually be g…",
+            "score": 0.6173837184906006
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nDwight: Ahhh. Mweehaa\nMichael: Doctor, what is more serious, a head injury or a foot injury?\nDoctor: A head injury.\nMichael: Well, you don't have all the information. The foot as been fairly severely burned and healed qui…",
+            "score": 0.6129347085952759
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.",
+            "preview": "Michael: Did you see Born on the Fourth of July? I was under the impression that Billy would be more like that guy.\n\n=== SCENE 021 ===\n\nBilly: What's wrong with that guy?\nJim: You mean today? He stepped on a George Foremen grill and he burn…",
+            "score": 0.5858998894691467
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 19\nTITLE: Michael's Birthday\nAIRDATE: 2006-03-30\nTVMAZE_ID: 47664\nTVMAZE_URL: https://www.tvmaze.com/episodes/47664/the-office-2x19-michaels-birthday\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/e…",
+            "score": 0.5838825702667236
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 001 ===",
+            "preview": "=== SCENE 001 ===\n\nPam: Dunder Mifflin, this is Pam.\nMichael: Pam! It's Michael. Help me! I need help right now.\nPam: Michael, what's wrong?\nMichael: I'm hurt, I have hurt myself. Oh my God!\nPam: Ok, wait wait wait wait…\nMichael: Ungh, this…",
+            "score": 0.5687153339385986
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e02_fun_run_2_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 4\nEPISODE: 2\nTITLE: Fun Run (2)\nAIRDATE: 2007-09-27\nTVMAZE_ID: 47694\nTVMAZE_URL: https://www.tvmaze.com/episodes/47694/the-office-4x02-fun-run-2\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries…",
+            "score": 0.5682535171508789
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e01_fun_run_1_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 4\nEPISODE: 1\nTITLE: Fun Run (1)\nAIRDATE: 2007-09-27\nTVMAZE_ID: 47693\nTVMAZE_URL: https://www.tvmaze.com/episodes/47693/the-office-4x01-fun-run-1\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries…",
+            "score": 0.5639166831970215
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael: It's okay guys… I can handle this. Everybody can go home.",
+            "preview": "Michael: It's okay guys… I can handle this. Everybody can go home.\nKevin: We're here for the show, Michael.\nMichael: You're just a bunch of voyeurs. Are you eating popcorn?\nKelly: It has almost no calories.\nPam: Are you ready?\nMichael: Yes.…",
+            "score": 0.5558509230613708
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Kevin: Why don't you go Michael?",
+            "preview": "Kevin: Why don't you go Michael?\nMichael: Because I already did. Remember? I burned my foot on a George Foreman grill.\nJim: And that is not the same at all. If you're going to ask other people to do it, you should do it yourself.\nMichael: A…",
+            "score": 0.5492643117904663
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 4\nTITLE: The Fire\nAIRDATE: 2005-10-11\nTVMAZE_ID: 47649\nTVMAZE_URL: https://www.tvmaze.com/episodes/47649/the-office-2x04-the-fire\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries.jso…",
+            "score": 0.5482852458953857
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nMichael: Who among you has the guts to replace me? Let him walk across these coals.\nKevin: Are you going to try it?\nAngela: I'm not going to talk through the fire after your disgusting feet have gone through.\nKevin: Angel…",
+            "score": 0.5463414788246155
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "script_only"
+        }
+      },
+      "answer": {
+        "text": "Michael burns his foot in Season 2, Episode 12, titled \"The Injury.\" In this episode, \"Michael accidentally burns his foot on his George Foreman Grill, but insists on coming to work anyway.\" (S02E12)",
+        "latency_ms": 1615,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2561,
+          "completion_tokens": 49,
+          "total_tokens": 2610
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 8842,
+          "answer_chars": 199
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": true,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E04",
+          "S02E12",
+          "S02E19",
+          "S03E22",
+          "S04E01",
+          "S04E02",
+          "S06E08"
+        ],
+        "cited_episode_ids": [
+          "S02E12"
+        ],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": true,
+        "correct_episode_cited": true,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 71.37
+        },
+        "context_diversity": {
+          "distinct_episode_count": 7,
+          "distinct_source_count": 8,
+          "top_episode_share": 0.4166666666666667,
+          "episode_entropy_norm": 0.873001762357072,
+          "episode_counts": {
+            "S02E12": 5,
+            "S03E22": 2,
+            "S02E04": 1,
+            "S02E19": 1,
+            "S04E01": 1,
+            "S04E02": 1,
+            "S06E08": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt": 4,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e22_beach_games_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e04_the_fire_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e12_the_injury_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e19_michael_s_birthday_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e01_fun_run_1_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_04/s04e02_fun_run_2_summary.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.33333333333333337,
+          "episode_dup_rate": 0.41666666666666663
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "The Injury.",
+            "Michael accidentally burns his foot on his George Foreman Grill, but insists on coming to work anyway."
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": false,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q3",
+      "question": "Summarize season 2 of The Office.",
+      "expected_notes": "Broad summary",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 468,
+        "stats": {
+          "min": 0.5657656192779541,
+          "max": 0.6395376324653625,
+          "mean": 0.6089490760456432
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nAIRDATE: 2005-09-20\nTVMAZE_ID: 47646\nTVMAZE_URL: https://www.tvmaze.com/episodes/47646/the-office-2x01-the-dundies\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summari…",
+            "score": 0.6395376324653625
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nAIRDATE: 2005-10-04\nTVMAZE_ID: 47648\nTVMAZE_URL: https://www.tvmaze.com/episodes/47648/the-office-2x03-office-olympics\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode…",
+            "score": 0.6382237672805786
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 1\nTITLE: The Dundies\nEPISODE_ID: 02-01\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Chili’s Employee, Darryl, Dwight, Employee, Everybody, Guy at bar, Jan, Jim, …",
+            "score": 0.6363751292228699
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 13\nTITLE: The Secret\nAIRDATE: 2006-01-19\nTVMAZE_ID: 47658\nTVMAZE_URL: https://www.tvmaze.com/episodes/47658/the-office-2x13-the-secret\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summarie…",
+            "score": 0.6358036398887634
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 3\nTITLE: Office Olympics\nEPISODE_ID: 02-03\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Bill, Carol, Crowd, Dwight, Everyone, Jim, Kevin, Meredith, Michael, Osca…",
+            "score": 0.6164817214012146
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e13_the_secret_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 2\nEPISODE: 13\nTITLE: The Secret\nEPISODE_ID: 02-13\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Creed, Dana, Dwight, Gil, Hooters Girls, Jim, Kelly, Kevin, Michael, Oscar, P…",
+            "score": 0.6116644740104675
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e08_the_merger_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 8\nTITLE: The Merger\nEPISODE_ID: 03-08\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Andy & Michael, Angela, Creed, Dwight, Hannah, Jan, Jim, Karen, Kelly, Kevin, Ma…",
+            "score": 0.6049394011497498
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e02_diversity_day_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 1\nEPISODE: 2\nTITLE: Diversity Day\nAIRDATE: 2005-03-29\nTVMAZE_ID: 47641\nTVMAZE_URL: https://www.tvmaze.com/episodes/47641/the-office-1x02-diversity-day\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_sum…",
+            "score": 0.5912971496582031
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 1\nEPISODE: 2\nTITLE: Diversity Day\nEPISODE_ID: 01-02\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Angela, Dwight, Jim, Kelly, Kevin, Michael, Mr. Brown, Oscar, Pam, Ryan, Stanley, T…",
+            "score": 0.5870147347450256
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 6\nEPISODE: 20\nTITLE: Secretary’s Day\nEPISODE_ID: 06-20\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/scripts.min.json\nSPEAKERS: Andy, Angela, Cookie Monster, Darryl, Dwight, Erin, Gabe, Hayworth’s waiter, Jim…",
+            "score": 0.571336567401886
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e08_the_merger_summary.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "SHOW: The Office",
+            "preview": "SHOW: The Office\nSEASON: 3\nEPISODE: 8\nTITLE: The Merger\nAIRDATE: 2006-11-16\nTVMAZE_ID: 47675\nTVMAZE_URL: https://www.tvmaze.com/episodes/47675/the-office-3x08-the-merger\nSOURCE: /Users/tg/Developer/RAG-1/ingestion/raw_docs/episode_summaries…",
+            "score": 0.5657656192779541
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S02E01",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "The Dundies",
+                "score": 0.5854229927062988
+              },
+              {
+                "rank": 2,
+                "episode_id": "S02E13",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "The Secret",
+                "score": 0.5712631940841675
+              },
+              {
+                "rank": 3,
+                "episode_id": "S02E03",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "Office Olympics",
+                "score": 0.5688169598579407
+              },
+              {
+                "rank": 4,
+                "episode_id": "S03E08",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Merger",
+                "score": 0.5465918779373169
+              },
+              {
+                "rank": 5,
+                "episode_id": "S06E20",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "Secretary’s Day",
+                "score": 0.5356955528259277
+              },
+              {
+                "rank": 6,
+                "episode_id": "S01E02",
+                "derived_type": "episode_card",
+                "season": 1,
+                "title": "Diversity Day",
+                "score": 0.533721387386322
+              },
+              {
+                "rank": 7,
+                "episode_id": "S02E10",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "Christmas Party",
+                "score": 0.5303843021392822
+              },
+              {
+                "rank": 8,
+                "episode_id": "S02E11",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "Booze Cruise",
+                "score": 0.5289146900177002
+              },
+              {
+                "rank": 9,
+                "episode_id": "S06E17",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "St. Patrick’s Day",
+                "score": 0.5283663868904114
+              },
+              {
+                "rank": 10,
+                "episode_id": "S02E22",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "Casino Night",
+                "score": 0.5280770659446716
+              },
+              {
+                "rank": 11,
+                "episode_id": "S04E13",
+                "derived_type": "episode_card",
+                "season": 4,
+                "title": "Job Fair",
+                "score": 0.5279604196548462
+              },
+              {
+                "rank": 12,
+                "episode_id": "S03E23",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Job",
+                "score": 0.5273144245147705
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S02E01",
+            "S02E13",
+            "S02E03",
+            "S03E08",
+            "S06E20",
+            "S01E02"
+          ],
+          "script_filter": null,
+          "script_filter_mode": "source_parse",
+          "script_index_has_episode_id": false,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Season 2 of The Office includes episodes that focus on the daily lives and interactions of the Scranton branch employees. Key moments include Michael hosting the annual Dundies awards (\"The Dundies,\" 2x01), Jim organizing an office Olympics event while Michael and Dwight are away (\"Office Olympics,\" 2x03), and Jim spending time with Michael to keep his feelings for Pam a secret (\"The Secret,\" 2x13). The season explores office dynamics, relationships, and humorous situations within the workplace.",
+        "latency_ms": 1605,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 1904,
+          "completion_tokens": 102,
+          "total_tokens": 2006
+        },
+        "stats": {
+          "context_docs": 11,
+          "context_chars": 5881,
+          "answer_chars": 500
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S01E02",
+          "S02E01",
+          "S02E03",
+          "S02E13",
+          "S03E08",
+          "S06E20"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 83.94
+        },
+        "context_diversity": {
+          "distinct_episode_count": 6,
+          "distinct_source_count": 11,
+          "top_episode_share": 0.18181818181818182,
+          "episode_entropy_norm": 0.986606462892553,
+          "episode_counts": {
+            "S01E02": 2,
+            "S02E01": 2,
+            "S02E03": 2,
+            "S02E13": 2,
+            "S03E08": 2,
+            "S06E20": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e01_the_dundies_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e03_office_olympics_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e13_the_secret_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e08_the_merger_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_01/s01e02_diversity_day_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e01_the_dundies_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e03_office_olympics_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_02/s02e13_the_secret_summary.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/summaries/season_03/s03e08_the_merger_summary.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.0,
+          "episode_dup_rate": 0.4545454545454546
+        },
+        "answer_quotes": {
+          "count": 3,
+          "any_quote_in_context": true,
+          "examples": [
+            "The Dundies,",
+            "Office Olympics,"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q4",
+      "question": "Why does Dwight dislike Jim? Give 3 reasons with examples",
+      "expected_notes": "Multi-episode relationship explanation",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 395,
+        "stats": {
+          "min": 0.5229269862174988,
+          "max": 0.5743305683135986,
+          "mean": 0.5438173015912374
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 003 ===",
+            "preview": "=== SCENE 003 ===\n\nDwight (in Jim's office): I'd like to lodge a complaint.\nJim: I'm sorry to hear about that. Who is this about?\nDwight: You!\nJim: Okay. Just want to let you know I take complaints very seriously. So… When did this happen?\n…",
+            "score": 0.5743305683135986
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 036 ===",
+            "preview": "=== SCENE 036 ===\n\nDwight: I like Karen. She's pretty and appears intelligent.\nJim: Well, I like pretty women who have the appearance of intelligence.\nDwight: My girlfriend is also beautiful and smart. She could be a model or a college prof…",
+            "score": 0.5737044811248779
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nDwight (in Michael's office): I have a complaint about Jim.\nMichael: That is not big picture.\nDwight: I would like to file a huge, enormous, massive complaint about the tallest guy in our office.\nMichael: … Okay.\nDwight: …",
+            "score": 0.5736476182937622
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 006 ===",
+            "preview": "=== SCENE 006 ===\n\nDwight: Oh, hey, listen, Jim. Here's a little tip for your performance review.\nJim: Ok.\nDwight: Tell Michael that we should be stocking more of the double-tabbed manila file folders.\nJim: We don't have double-tabbed manil…",
+            "score": 0.5616119503974915
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 038 ===",
+            "preview": "=== SCENE 038 ===\n\nDwight: Oh! Damn It! Jim got the bigger half.\n[STAGE] Pig rib breaks and Jim wins, and stuff splatters people. Everyone groans\nDarryl (To himself): Back for more, huh?\n[STAGE] Gets up and walks towards Jim\nJim: Ooh, nog i…",
+            "score": 0.548134446144104
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 005 ===",
+            "preview": "=== SCENE 005 ===\n\nRyan: I am very flattered. I was his second choice after \"Pass.\"\n\n=== SCENE 006 ===\n\nMichael: So that just leaves Dwight and Jim.\nDwight: Ok, wait. Does anyone want to trade?\nJim: Yup. I'll trade.\n\n=== SCENE 007 ===\n\nJim:…",
+            "score": 0.5325629711151123
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Jim: Oh, you know what? I gotta go.",
+            "preview": "Jim: Oh, you know what? I gotta go.\nDwight: Stop giggling.\nPam: Oh, really? Already?\nJim: Yeah, it's all right.\nDwight: It's a punishment. Hey, where are you going?\n[STAGE] Turns to Jim\nJim: I have to go to philly. But this was amazing. Oka…",
+            "score": 0.5312488675117493
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 033 ===",
+            "preview": "=== SCENE 033 ===\n\nDarryl: Meredith's a little cute. I'm just realizing. She got, like, a Emma Stone thing.\n\n=== SCENE 034 ===\n\nDarryl (At Meredtith): Boo!\nPam: For what it's worth, I liked your party better.\nDwight: Everyone thought the fo…",
+            "score": 0.5310136675834656
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 041 ===",
+            "preview": "=== SCENE 041 ===\n\nDwight: It's going to be ok.\nAngela: How is going to be ok, Dwight? Everyone will know our business.\nDwight: That's not the worst thing in the world. I'll just stand up in front of the office and reveal our true love. It …",
+            "score": 0.529425323009491
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 009 ===",
+            "preview": "=== SCENE 009 ===\n\nJim: Seriously? You're going to sit in the back?\nDwight: Uh, yeah. It's the safest part of the car. In the event of a crash, the driver always protects his side of the car first.\n\n=== SCENE 010 ===\n\nMichael: Here we go.\n\n…",
+            "score": 0.5240947604179382
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 023 ===",
+            "preview": "=== SCENE 023 ===\n\nDwight: People are starting to notice how terrible Jim is. It's great. Eventually, they'll rise up and revolt. My only hope is that they do it sooner rather than later. If the people here were our founding fathers, the Re…",
+            "score": 0.5231059789657593
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 059 ===",
+            "preview": "=== SCENE 059 ===\n\nPam: I literally cannot wait to see what Dwight has planned. And I wish Jim were here.\n\n=== SCENE 060 ===",
+            "score": 0.5229269862174988
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S03E23",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Job",
+                "score": 0.49321526288986206
+              },
+              {
+                "rank": 2,
+                "episode_id": "S03E18",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Negotiation",
+                "score": 0.4825540781021118
+              },
+              {
+                "rank": 3,
+                "episode_id": "S03E12",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "Traveling Salesmen",
+                "score": 0.47610336542129517
+              },
+              {
+                "rank": 4,
+                "episode_id": "S06E03",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "The Promotion",
+                "score": 0.4756969213485718
+              },
+              {
+                "rank": 5,
+                "episode_id": "S09E09",
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Dwight Christmas",
+                "score": 0.46669262647628784
+              },
+              {
+                "rank": 6,
+                "episode_id": "S02E08",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "Performance Review",
+                "score": 0.45378053188323975
+              },
+              {
+                "rank": 7,
+                "episode_id": "S02E06",
+                "derived_type": "episode_card",
+                "season": 2,
+                "title": "The Fight",
+                "score": 0.45071089267730713
+              },
+              {
+                "rank": 8,
+                "episode_id": "S08E13",
+                "derived_type": "episode_card",
+                "season": 8,
+                "title": "Jury Duty",
+                "score": 0.4440021514892578
+              },
+              {
+                "rank": 9,
+                "episode_id": "S03E13",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Return",
+                "score": 0.44324588775634766
+              },
+              {
+                "rank": 10,
+                "episode_id": "S03E03",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "The Coup",
+                "score": 0.4416224956512451
+              },
+              {
+                "rank": 11,
+                "episode_id": "S01E04",
+                "derived_type": "episode_card",
+                "season": 1,
+                "title": "The Alliance",
+                "score": 0.4408082962036133
+              },
+              {
+                "rank": 12,
+                "episode_id": "S09E13",
+                "derived_type": "episode_card",
+                "season": 9,
+                "title": "Junior Salesman",
+                "score": 0.4375777244567871
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S03E23",
+            "S03E18",
+            "S03E12",
+            "S06E03",
+            "S09E09",
+            "S02E08"
+          ],
+          "script_filter": null,
+          "script_filter_mode": "source_parse",
+          "script_index_has_episode_id": false,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Dwight dislikes Jim for several reasons, as shown in the scenes:\n\n1. Jim annoys Dwight and makes him angry. For example, in SCENE 003, Dwight lodges a complaint about Jim, saying \"You!\" and that he feels \"Angry.\" Jim teases Dwight by writing \"held back tears,\" which frustrates Dwight.\n\n2. Jim often outsmarts or irritates Dwight. In SCENE 006, Dwight tries to give Jim a tip for his performance review about a fake product (double-tabbed manila file folders), but Jim calls him out and says he will ask for a pay decrease, which Dwight finds \"stupid\" and says \"I am going to zone you out for the rest of today.\"\n\n3. Dwight is jealous or competitive with Jim. In SCENE 036, Dwight talks about his girlfriend being \"beautiful and smart\" and \"intimidating to a lot of guys,\" while Jim jokes about liking \"pretty women who have the appearance of intelligence.\" Dwight declines Jim's suggestion to go on a double date, showing some rivalry.\n\nOverall, Dwight's dislike stems from Jim's teasing, undermining, and competition with him. Dwight's frustration is clear when he says things like \"Damn It!\" and calls Jim \"impish\" during their interactions (SCENE 008).",
+        "latency_ms": 3616,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2354,
+          "completion_tokens": 269,
+          "total_tokens": 2623
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 8114,
+          "answer_chars": 1156
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E08",
+          "S03E12",
+          "S03E23",
+          "S06E03",
+          "S09E09"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 72.87
+        },
+        "context_diversity": {
+          "distinct_episode_count": 5,
+          "distinct_source_count": 5,
+          "top_episode_share": 0.3333333333333333,
+          "episode_entropy_norm": 0.9155385080075168,
+          "episode_counts": {
+            "S03E12": 4,
+            "S06E03": 3,
+            "S09E09": 3,
+            "S02E08": 1,
+            "S03E23": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e12_traveling_salesmen_script.txt": 4,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e08_performance_review_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e23_the_job_script.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.5833333333333333,
+          "episode_dup_rate": 0.5833333333333333
+        },
+        "answer_quotes": {
+          "count": 7,
+          "any_quote_in_context": true,
+          "examples": [
+            "and that he feels",
+            "Jim teases Dwight by writing"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q5",
+      "question": "List Michael Scott’s serious girlfriends and how the relationships ended.",
+      "expected_notes": "Aggregation / list + count",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 419,
+        "stats": {
+          "min": 0.49413442611694336,
+          "max": 0.5768584609031677,
+          "mean": 0.5198716173569361
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 044 ===",
+            "preview": "=== SCENE 044 ===\n\nKelly: Hi, Michael.\nMichael (sitting at her desk): Hey, Kelly.\nKelly: Yeah, what are you doing here?\nMichael: Nothing. Just hangin'. Chillin'. No agenda. Would you consider hookin' me up with one of your friends?\nKelly: O…",
+            "score": 0.5768584609031677
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael: I have recently taken a lover.",
+            "preview": "Michael: I have recently taken a lover.\nJim: Well, that's great. Congratulations. Who's the lucky lady?\nMichael: Pam's mom.\nJim: What?\nMichael: Pam's mom, Helene. Remember from your wedding?\nJim: You're messing with me.\nMichael: About what?…",
+            "score": 0.5425409078598022
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 021 ===",
+            "preview": "=== SCENE 021 ===\n\nMichael: She's dead? She's so young.\n[STAGE] Dwight makes knife slitting noise\nDwight: She was so young and now she is dead. As dead as every dead animal who has ever died.\nMichael: Oh, God. Oh…\nDwight: Why don't you sit …",
+            "score": 0.5344172120094299
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael (unwraps rum gift): Oh, wow.",
+            "preview": "Michael (unwraps rum gift): Oh, wow.\nPam (giggles):\nMichael: That is amazing. I feel like a real Puerto Rican.\nErin: Michael, you're all set at Botticelli's. I changed the reservation to two people.\nMichael: Erin, look.\n[STAGE] holds up par…",
+            "score": 0.5240702033042908
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 042 ===",
+            "preview": "=== SCENE 042 ===\n\nMichael: So, what about you, Angela? Do you have any single friends?\nAngela: I don't.\nMichael: A cute little religious type, someone who wears a uniform, or…\nAngela: A Catholic schoolgirl?\nMichael: No, no, obviously older…",
+            "score": 0.5217919945716858
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 013 ===",
+            "preview": "=== SCENE 013 ===\n\nMichael: That could have gone one of two ways, but I never expected her to get upset.\n\n=== SCENE 014 ===\n\nPam (screams out in the parking lot, Michael watches from his office window):\nDwight (to Michael): You seem tense. …",
+            "score": 0.5132229328155518
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 011 ===",
+            "preview": "=== SCENE 011 ===\n\nAndy: I left my cell phone in my car.\nPhyllis: Call us when you get there so we know you're OK.\n[STAGE] Andy gets up and leaves\n\n=== SCENE 012 ===\n\nMichael (to Kevin): Listen man, I am completely over Jan, so, would you s…",
+            "score": 0.5106971263885498
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e11_scott_s_tots_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Erin: Frankie's Dirty Joke of the Day? There's a bunch of those.",
+            "preview": "Erin: Frankie's Dirty Joke of the Day? There's a bunch of those.\nMichael: Keep.\nErin: There's a bunch of Sent e-mails that jusy say \"Delivered.\" Should I delete all of those?\nMichael: I want to keep those so I can see what I sent.\nErin: Tha…",
+            "score": 0.5094587206840515
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 015 ===",
+            "preview": "=== SCENE 015 ===\n\nMichael: Dating shouldn't be hard for somebody like me, but it is and you know why? Because nobody here is willing to help me. Nothing would ever get done in this office without a formal request, would it? Well, fine. Her…",
+            "score": 0.509216845035553
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael (crying): I can't do this. All the channels are gonna be different there. I'm not gonna be able to find my shows. I'm not going to start improv at level one, and I don't think my credits will transfer. Ugh, and you know what? I just figured out where I was supposed to go to vote. I gotta call her, and I'm going to tell her, that I cannot come.",
+            "preview": "Michael (crying): I can't do this. All the channels are gonna be different there. I'm not gonna be able to find my shows. I'm not going to start improv at level one, and I don't think my credits will transfer. Ugh, and you know what? I just…",
+            "score": 0.5036516785621643
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e11_back_from_vacation_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Toby: Hey I need to talk to you right now.",
+            "preview": "Toby: Hey I need to talk to you right now.\nMichael: Not now, not ever.\nToby: About you and Jan.\nMichael: Aww, none of your business.\nToby: Wish it were true, but it, it uh, seems from that photo that you took, you've entered into an intimat…",
+            "score": 0.49839890003204346
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 038 ===",
+            "preview": "=== SCENE 038 ===\n\nJim: Where do you want to go for dinner?\nPam: I don't know, I kind of hate all our regular places right now. Oh, you know what , that one…\n[STAGE] Jim gets down on one knee\nJim: Hey Pam, will you wait for me one second wh…",
+            "score": 0.49413442611694336
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "derived_then_script",
+          "derived": {
+            "k": 12,
+            "filter": {
+              "derived_type": "episode_card"
+            },
+            "results": [
+              {
+                "rank": 1,
+                "episode_id": "S07E21",
+                "derived_type": "episode_card",
+                "season": 7,
+                "title": "Goodbye Michael",
+                "score": 0.5169597268104553
+              },
+              {
+                "rank": 2,
+                "episode_id": "S07E14",
+                "derived_type": "episode_card",
+                "season": 7,
+                "title": "The Search",
+                "score": 0.5166726112365723
+              },
+              {
+                "rank": 3,
+                "episode_id": "S04E10",
+                "derived_type": "episode_card",
+                "season": 4,
+                "title": "Chair Model",
+                "score": 0.5009281635284424
+              },
+              {
+                "rank": 4,
+                "episode_id": "S06E06",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "The Lover",
+                "score": 0.49041229486465454
+              },
+              {
+                "rank": 5,
+                "episode_id": "S06E11",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "Scott’s Tots",
+                "score": 0.4779156446456909
+              },
+              {
+                "rank": 6,
+                "episode_id": "S03E11",
+                "derived_type": "episode_card",
+                "season": 3,
+                "title": "Back From Vacation",
+                "score": 0.47637373208999634
+              },
+              {
+                "rank": 7,
+                "episode_id": "S05E23",
+                "derived_type": "episode_card",
+                "season": 5,
+                "title": "Broke",
+                "score": 0.4720679521560669
+              },
+              {
+                "rank": 8,
+                "episode_id": "S07E04",
+                "derived_type": "episode_card",
+                "season": 7,
+                "title": "Sex Ed",
+                "score": 0.47064363956451416
+              },
+              {
+                "rank": 9,
+                "episode_id": "S07E20",
+                "derived_type": "episode_card",
+                "season": 7,
+                "title": "Michael’s Last Dundies",
+                "score": 0.46925151348114014
+              },
+              {
+                "rank": 10,
+                "episode_id": "S06E21",
+                "derived_type": "episode_card",
+                "season": 6,
+                "title": "Body Language",
+                "score": 0.4646492004394531
+              },
+              {
+                "rank": 11,
+                "episode_id": "S04E02",
+                "derived_type": "episode_card",
+                "season": 4,
+                "title": "Dunder Mifflin Infinity",
+                "score": 0.46226757764816284
+              },
+              {
+                "rank": 12,
+                "episode_id": "S05E19",
+                "derived_type": "episode_card",
+                "season": 5,
+                "title": "Two Weeks",
+                "score": 0.4622192978858948
+              }
+            ]
+          },
+          "episode_shortlist": [
+            "S07E21",
+            "S07E14",
+            "S04E10",
+            "S06E06",
+            "S06E11",
+            "S03E11"
+          ],
+          "script_filter": null,
+          "script_filter_mode": "source_parse",
+          "script_index_has_episode_id": false,
+          "backfill": {
+            "enabled": true,
+            "min_docs": 3
+          }
+        }
+      },
+      "answer": {
+        "text": "Based on the provided context, Michael Scott's serious girlfriends and how the relationships ended are as follows:\n\n1. Jan Levinson:\n- Michael had a serious relationship with Jan. He mentions, \"Jan and I had love. We did not have marriage. We did have a baby carriage, which I got her for bringing groceries home, after she got a DUI.\" (SCENE 043)\n- The context does not specify exactly how the relationship ended, but Michael states he is \"completely over Jan\" (SCENE 012).\n\n2. Helene (Pam's mom):\n- Michael reveals he has \"recently taken a lover,\" who is Pam's mom, Helene. (SCENE 046)\n- Jim strongly advises Michael to never see her again and to avoid upsetting Pam. Michael agrees to take a different way home to avoid running into her. (SCENE 046)\n- The relationship seems complicated and not long-lasting, as Michael says, \"I was probably going to break up with her anyway.\" (SCENE 022)\n\n3. Other women:\n- Michael tries to be set up with various women by his coworkers, including Kelly's friends and Pam's landlady, but these do not seem to develop into serious relationships. (SCENE 044, SCENE 021, SCENE 022)\n\nNo other serious girlfriends or details about how those relationships ended are provided in the context.",
+        "latency_ms": 8385,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 3388,
+          "completion_tokens": 285,
+          "total_tokens": 3673
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 12316,
+          "answer_chars": 1222
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S03E11",
+          "S04E10",
+          "S06E06",
+          "S06E11",
+          "S07E21"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": true,
+          "readiness_score_0_100": 62.58
+        },
+        "context_diversity": {
+          "distinct_episode_count": 5,
+          "distinct_source_count": 5,
+          "top_episode_share": 0.5,
+          "episode_entropy_norm": 0.8166663857315859,
+          "episode_counts": {
+            "S04E10": 6,
+            "S06E06": 3,
+            "S03E11": 1,
+            "S06E11": 1,
+            "S07E21": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e10_chair_model_script.txt": 6,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e06_the_lover_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e11_back_from_vacation_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e11_scott_s_tots_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e21_goodbye_michael_script.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.5833333333333333,
+          "episode_dup_rate": 0.5833333333333333
+        },
+        "answer_quotes": {
+          "count": 4,
+          "any_quote_in_context": true,
+          "examples": [
+            "Jan and I had love. We did not have marriage. We did have a baby carriage, which I got her for bringing groceries home, ",
+            "completely over Jan"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q6",
+      "question": "What is the teapot letter and why is it important?",
+      "expected_notes": "Key plot object",
+      "expected": {
+        "episode_ids": [
+          "S02E10"
+        ]
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 199,
+        "stats": {
+          "min": 0.23401862382888794,
+          "max": 0.2754267454147339,
+          "mean": 0.24339289466540018
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 024 ===",
+            "preview": "=== SCENE 024 ===\n\nMark: This is not an office so much as it is a uh, rec room with a bunch of computers in it. Frankly, if I had my way, I'd toss the computers in the gar-bage. But unfortunately we use them for practically everything we do…",
+            "score": 0.2754267454147339
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nJim: So this year, for the first time ever, I got Pam in Secret Santa. And I got her this teapot, which I know she really wants, so she can make tea at her desk. But I'm also going to stuff it with some inside jokes. Like…",
+            "score": 0.2470914125442505
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 039 ===",
+            "preview": "=== SCENE 039 ===\n\nLiquor Store Clerk: It comes to $166.41.\nMichael: All right, now, you're the expert. Is this enough to get 20 people plastered?\nLiquor Store Clerk: Fifteen bottles of vodka? Yeah, that should do it.\nMichael: Cool, cool. B…",
+            "score": 0.24694222211837769
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 023 ===",
+            "preview": "=== SCENE 023 ===\n\nDwight: People are starting to notice how terrible Jim is. It's great. Eventually, they'll rise up and revolt. My only hope is that they do it sooner rather than later. If the people here were our founding fathers, the Re…",
+            "score": 0.24508064985275269
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 018 ===",
+            "preview": "=== SCENE 018 ===\n\nStanley: If your woman is like mine, I bet you come home to hear the same thing all the time. This paper is so hard. It scratches. Why can't there be a paper just for me? Well now there is. 'Papyr.' Paper for women. It's …",
+            "score": 0.24429476261138916
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e24_whistleblower_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 014 ===",
+            "preview": "=== SCENE 014 ===\n\nMichael: I basically swore up and down that none of my employees did it, and then I find out that one of my best ones did. And now he's probably going to get fired for it. And if that is not poetic justice, I don't know w…",
+            "score": 0.24216556549072266
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e02_roy_s_wedding_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 007 ===",
+            "preview": "=== SCENE 007 ===\n\nErin (as Pete and Clark enter office): Oh, Pete, you've got mail.\nPete: Really? I got something?\nErin: Well, it's addressed to Customer Service so, it's your mail.\nClark: Well, you know, I'm also Customer Service.\nErin: Y…",
+            "score": 0.24046170711517334
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 049 ===",
+            "preview": "=== SCENE 049 ===\n\nJim: You know, you don't have to answer calls during a party. Just thought you should know.\nPam (laughs): No, I was just checking out my present.\n[STAGE] holds up teapot\nJim: But …\nPam: I traded with Dwight. Just, I figur…",
+            "score": 0.24030351638793945
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael: Jan and I had an off again, on again relationship for two years. And I know this destroys her case, and I am sorry, but I throw myself at the mercy of the deposition.",
+            "preview": "Michael: Jan and I had an off again, on again relationship for two years. And I know this destroys her case, and I am sorry, but I throw myself at the mercy of the deposition.\nDiane Kelly: Thank you, Mr. Scott. That's all we needed to know.…",
+            "score": 0.23576033115386963
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 006 ===",
+            "preview": "=== SCENE 006 ===\n\nDwight: The White Pages: Do you want it? No. Do you use it? No. Does it inexplicably show up on your doorstep three times a year? Yes, yes, and yes. There's a reason that we in the paper industry call this thing \"the Whit…",
+            "score": 0.2351292371749878
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 030 ===",
+            "preview": "=== SCENE 030 ===\n\nMichael (looking for a place to sit, goes to Toby's table): Can I sit here?\nToby (nods): …You know, I, uh, I know a little about what you're going through in a way. Um, when I was a kid, my parents got divorced. They both…",
+            "score": 0.23403996229171753
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 020 ===",
+            "preview": "=== SCENE 020 ===\n\nToby: You can't fire Pete. You understand why, right?\nAndy: No.\nToby: Oh, Andy, we had this exact same conversation when you wanted to get rid of Nellie. You can't just get rid of people over grudges.\nAndy: Nellie was a p…",
+            "score": 0.23401862382888794
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "script_only"
+        }
+      },
+      "answer": {
+        "text": "The teapot letter is a special, sentimental letter that Jim includes inside a teapot he gives to Pam as a Secret Santa gift. The teapot itself is a meaningful gift because Pam really wants it to make tea at her desk. Jim stuffs the teapot with inside jokes and personal items, including a high school yearbook photo and a hot sauce packet, which make Pam laugh. The letter is important because it is a way for Jim to express his feelings to Pam during Christmas, as he says, \"Because Christmas is the time to tell people how you feel\" (SCENE 002). When Pam opens the teapot and finds the yearbook photo and other items, she is very touched, showing the emotional significance of the gift and the letter inside (SCENE 049).",
+        "latency_ms": 3382,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2813,
+          "completion_tokens": 158,
+          "total_tokens": 2971
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 10362,
+          "answer_chars": 722
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E10",
+          "S04E08",
+          "S06E03",
+          "S06E24",
+          "S08E08",
+          "S09E02",
+          "S09E07",
+          "S09E16"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": true,
+        "correct_episode_cited": false,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 82.41
+        },
+        "context_diversity": {
+          "distinct_episode_count": 8,
+          "distinct_source_count": 8,
+          "top_episode_share": 0.25,
+          "episode_entropy_norm": 0.9517961807358447,
+          "episode_counts": {
+            "S02E10": 3,
+            "S04E08": 2,
+            "S09E16": 2,
+            "S06E03": 1,
+            "S06E24": 1,
+            "S08E08": 1,
+            "S09E02": 1,
+            "S09E07": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e03_the_promotion_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e24_whistleblower_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e08_gettysburg_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e02_roy_s_wedding_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e07_the_whale_script.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.33333333333333337,
+          "episode_dup_rate": 0.33333333333333337
+        },
+        "answer_quotes": {
+          "count": 1,
+          "any_quote_in_context": true,
+          "examples": [
+            "Because Christmas is the time to tell people how you feel"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": false,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    },
+    {
+      "case_id": "q7",
+      "question": "Who is Creed and what is his deal?",
+      "expected_notes": "Character description",
+      "expected": {
+        "episode_ids": null
+      },
+      "retrieval": {
+        "top_k": 12,
+        "latency_ms": 171,
+        "stats": {
+          "min": 0.4355943202972412,
+          "max": 0.5216677188873291,
+          "mean": 0.472438578804334
+        },
+        "results": [
+          {
+            "rank": 1,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 028 ===",
+            "preview": "=== SCENE 028 ===\n\nOscar: Creed?\nCreed: Yes, sir.\nOscar: Everything OK?\n[STAGE] Creed has made his hair jet black\nCreed: Everything's cool, dude.\n\n=== SCENE 029 ===\n\nCreed: I'm thirty. Well, in November I'll be thirty.\n\n=== SCENE 030 ===",
+            "score": 0.5216677188873291
+          },
+          {
+            "rank": 2,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.",
+            "preview": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.\nCreed: What are you telling me?\nMichael: I… we're gonna …",
+            "score": 0.502574622631073
+          },
+          {
+            "rank": 3,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 014 ===",
+            "preview": "=== SCENE 014 ===\n\nCreed: We're screwed.\nMichael: Who is?\nCreed: Us? You and me. The old timers.\nMichael: I am not old. You are old. You are like a hundred.\nCreed: You're over 40, that's the cut off. Are you listening to what he's saying? R…",
+            "score": 0.49442410469055176
+          },
+          {
+            "rank": 4,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 043 ===",
+            "preview": "=== SCENE 043 ===\n\nMichael: Do you remember Ed Truck?\nCreed: Sure. He hired me. How's he doing?\nMichael: How would I know?\nCreed: I thought you might.\nMichael: My biggest fear is turning into him.\nCreed: Michael, you should have much bigger…",
+            "score": 0.49234211444854736
+          },
+          {
+            "rank": 5,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 056 ===",
+            "preview": "=== SCENE 056 ===\n\nCreed (to Jordan): Get me our biggest client on the phone, right this instant.\n[STAGE] closes his office door\nJordan: Who is our biggest client?\nPam: Uh, just put him through to me.\nJordan (laughs): Okay.\nPam: Hello! This…",
+            "score": 0.48969966173171997
+          },
+          {
+            "rank": 6,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 032 ===",
+            "preview": "=== SCENE 032 ===\n\nMichael: Yeah, I went hunting once. Shot the deer in the leg, had to kill it with a shovel. Took about an hour. Why do you ask?\n\n=== SCENE 033 ===\n\nMichael: I have to fire someone today, okay?\nCreed: Fine. Fire someone el…",
+            "score": 0.4729795455932617
+          },
+          {
+            "rank": 7,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 067 ===",
+            "preview": "=== SCENE 067 ===\n\nCreed (Angela hands Creed a pack of deodorant): For me?\nAngela: Yes.\nCreed: Thank you very much.\nAngela: Mmhmm.\n\n=== SCENE 068 ===",
+            "score": 0.46630656719207764
+          },
+          {
+            "rank": 8,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 017 ===",
+            "preview": "=== SCENE 017 ===\n\nMichael: Six weeks ago, none of these people wanted to come with me. You two were the only ones with the stones to follow.\nPam: Mm-hmmm.\nMichael: That was us, right there.\nPam: We were something else.\nRyan: What you gotta…",
+            "score": 0.4540103077888489
+          },
+          {
+            "rank": 9,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 029 ===",
+            "preview": "=== SCENE 029 ===\n\nPam: What happened?\nJim: It wasn't me.\nPam: Oh. That was like crazy. 'Cause I was…\nJim: Yeah, I know.\n\n=== SCENE 030 ===\n\nMichael: Uh, hey… Creed?\nCreed: Huh?\nMichael: Could I talk to you for a second?\n\n=== SCENE 031 ===",
+            "score": 0.44977259635925293
+          },
+          {
+            "rank": 10,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 002 ===",
+            "preview": "=== SCENE 002 ===\n\nCreed (to Jordan): Find out what language this is.\n[STAGE] speaking in strange language\n\n=== SCENE 003 ===\n\nCreed (running a meeting in the conference room): Okay, team building! On this side of the room, Stanley, Phyllis…",
+            "score": 0.44873690605163574
+          },
+          {
+            "rank": 11,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "=== SCENE 022 ===",
+            "preview": "=== SCENE 022 ===\n\nJim: I'm just hiding out until all this stuff blows over. With Creed. Playing chess. At work. He's winning. I feel like I'm describing a dream I had.\n\n=== SCENE 023 ===",
+            "score": 0.44115447998046875
+          },
+          {
+            "rank": 12,
+            "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e01_weight_loss_script.txt",
+            "episode_id": null,
+            "doc_type": null,
+            "chunk_type": null,
+            "chunk_index": null,
+            "first_line": "Kevin (spreading peanut butter on a bagel): What?",
+            "preview": "Kevin (spreading peanut butter on a bagel): What?\nCreed: Oh nothing.\nKelly: It's just some of us are taking this really seriously.\n\n=== SCENE 059 ===\n\nKelly: I swallowed a tapeworm last night. It's going to grow up to three feet inside of m…",
+            "score": 0.4355943202972412
+          }
+        ],
+        "multi_query": null,
+        "routing": {
+          "policy": "auto",
+          "effective_policy": "script_only"
+        }
+      },
+      "answer": {
+        "text": "Creed is a quirky and somewhat mysterious character at the office. He has a laid-back attitude and often seems detached from the usual office activities. For example, when asked if everything is okay, he simply replies, \"Everything's cool, dude\" (SCENE 028). He mentions that he is thirty years old (SCENE 029).\n\nCreed appears to have a somewhat ambiguous role and is involved in some unusual activities. He tries to avoid being fired by Michael and insists he wants to stay at the office, even though Michael is told he has to let someone go (SCENE 030, SCENE 033). Creed also shows a somewhat shady side, such as when he talks about starting his own paper company and trying to poach clients secretly (SCENE 056).\n\nHe is also involved in some odd moments, like selling Kelly a tapeworm from Mexico, which turns out not to be a tapeworm (SCENE 059, SCENE 060). Creed seems to have a unique perspective on office life and often makes cryptic or humorous remarks, such as calling the new young employee the \"grim reaper\" for the older staff (SCENE 014).\n\nOverall, Creed is portrayed as an eccentric, somewhat secretive, and humorous character who doesn't quite fit the typical office mold.",
+        "latency_ms": 3695,
+        "error": null,
+        "usage": {
+          "prompt_tokens": 2045,
+          "completion_tokens": 266,
+          "total_tokens": 2311
+        },
+        "stats": {
+          "context_docs": 12,
+          "context_chars": 7027,
+          "answer_chars": 1188
+        }
+      },
+      "heuristics": {
+        "said_idk": false,
+        "cited_episode": false,
+        "retrieved_any": true
+      },
+      "diagnostics": {
+        "context_episode_ids": [
+          "S02E05",
+          "S02E14",
+          "S04E02",
+          "S05E01",
+          "S05E24",
+          "S07E11",
+          "S07E24"
+        ],
+        "cited_episode_ids": [],
+        "cited_episode_ids_not_in_context": [],
+        "cited_episode_ids_not_in_context_count": 0,
+        "correct_episode_retrieved_in_top_k": null,
+        "correct_episode_cited": null,
+        "aggregation": {
+          "is_aggregation_like_question": false,
+          "readiness_score_0_100": 81.02
+        },
+        "context_diversity": {
+          "distinct_episode_count": 7,
+          "distinct_source_count": 7,
+          "top_episode_share": 0.25,
+          "episode_entropy_norm": 0.9577420562022181,
+          "episode_counts": {
+            "S02E05": 3,
+            "S04E02": 2,
+            "S05E24": 2,
+            "S07E24": 2,
+            "S02E14": 1,
+            "S05E01": 1,
+            "S07E11": 1
+          },
+          "source_counts": {
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt": 3,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e24_casual_friday_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt": 2,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e14_the_carpet_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e01_weight_loss_script.txt": 1,
+            "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt": 1
+          },
+          "doc_type_counts": {},
+          "chunk_type_counts": {},
+          "source_dup_rate": 0.41666666666666663,
+          "episode_dup_rate": 0.41666666666666663
+        },
+        "answer_quotes": {
+          "count": 2,
+          "any_quote_in_context": true,
+          "examples": [
+            "Everything's cool, dude",
+            "grim reaper"
+          ]
+        }
+      },
+      "labels": {
+        "retrieval_failure": null,
+        "grounding_failure": false,
+        "reasoning_failure": null
+      }
+    }
+  ],
+  "summary": {
+    "cases": 7,
+    "answered_with_llm": true,
+    "avg_retrieval_latency_ms": 304,
+    "avg_context_docs": 11.857142857142858,
+    "avg_context_chars": 9017.857142857143,
+    "avg_distinct_episodes_in_context": 7.142857142857143,
+    "avg_distinct_sources_in_context": 8.0,
+    "avg_top_episode_share_in_context": 0.2878787878787879,
+    "avg_episode_entropy_norm_in_context": 0.9287644794181131,
+    "avg_cited_episode_ids_not_in_context": 0.0,
+    "avg_aggregation_readiness_score": 78.75285714285714,
+    "avg_aggregation_readiness_score_agg_questions": 73.13,
+    "avg_answer_latency_ms": 3554,
+    "avg_prompt_tokens": 2587,
+    "avg_completion_tokens": 185,
+    "avg_total_tokens": 2773,
+    "idk_rate": 0.0,
+    "episode_citation_rate": 0.2857142857142857,
+    "retrieval_empty_rate": 0.0,
+    "retrieval_failure_rate": 0.0,
+    "grounding_failure_rate": 0.0,
+    "quote_in_context_rate": 1.0,
+    "errors_count": 0,
+    "errors_sample": []
+  }
+}

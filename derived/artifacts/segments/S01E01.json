@@ -1,0 +1,35 @@
+{
+  "schema": "EpisodeSegmentsV1",
+  "schema_version": 1,
+  "created_at_utc": "2026-03-04T20:53:22Z",
+  "episode_id": "S01E01",
+  "title": "Pilot",
+  "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+  "target_tokens": 1800,
+  "min_tokens": 400,
+  "body_char_count": 17883,
+  "body_approx_tokens": 4471,
+  "segments": [
+    {
+      "segment_id": "S01E01:seg:000",
+      "segment_index": 0,
+      "segment_char_start": 0,
+      "segment_char_end": 6981,
+      "approx_tokens": 1758
+    },
+    {
+      "segment_id": "S01E01:seg:001",
+      "segment_index": 1,
+      "segment_char_start": 6981,
+      "segment_char_end": 13998,
+      "approx_tokens": 1762
+    },
+    {
+      "segment_id": "S01E01:seg:002",
+      "segment_index": 2,
+      "segment_char_start": 13998,
+      "segment_char_end": 17883,
+      "approx_tokens": 976
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "EpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season04_nano_2026-03-04_S04E03",
+  "created_at_utc": "2026-03-04T23:08:49Z",
+  "episode": {
+    "episode_id": "S04E03",
+    "title": "Launch Party",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt"
+  },
+  "inputs": {
+    "segments_build_id": "derived_segsummary_season04_nano_2026-03-04_S04E03",
+    "segment_summaries_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_nano_2026-03-04_S04E03/segment_summaries/S04E03",
+    "segment_count": 6,
+    "evidence_pool_size": 56
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_llm_calls": 1,
+    "out_file": "episode_cards/S04E03.json"
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T23:08:49Z",
+    "ended_at_utc": "2026-03-04T23:08:59Z",
+    "llm_calls_made": 1,
+    "written": 1,
+    "errors": 0,
+    "call_started_at_utc": "2026-03-04T23:08:49Z",
+    "call_duration_ms": 10214
+  }
+}

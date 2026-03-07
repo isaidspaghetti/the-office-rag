@@ -1,0 +1,200 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E12",
+  "created_at_utc": "2026-03-05T23:19:46Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E12",
+  "segment_id": "S05E12:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7054,
+  "people": [
+    "Dwight",
+    "Jim",
+    "Phyllis",
+    "Stanley",
+    "Michael",
+    "David",
+    "Andy",
+    "Creed",
+    "Kevin",
+    "Meredith",
+    "Pam",
+    "Angela",
+    "Prince Grandfather"
+  ],
+  "beats": [
+    {
+      "type": "other",
+      "summary": "Dwight investigates a mysterious red wire in the office.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 19,
+          "char_end": 67,
+          "snippet": "Dwight: What's this?\nJim: Looks like a red wire."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael is asked to do field work to gather information on Prince Paper, a small company in a new market area.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 1512,
+          "char_end": 1526,
+          "snippet": "Michael: Okay."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael and Dwight argue over who will seduce the owner's daughter as part of their plan to gather information.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 3039,
+          "char_end": 3098,
+          "snippet": "Michael: I will seduce her.\nDwight: No, I wanna seduce her."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Dwight prepare a plan to visit Prince Family Paper as strangers and use a lip-licking signal to escape if needed.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 5008,
+          "char_end": 5104,
+          "snippet": "Dwight: So you go in now, I am going to go in exactly ten minutes. We have never met each other."
+        },
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 5356,
+          "char_end": 5396,
+          "snippet": "Michael: Ready to do this?\nDwight: Yeah."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael visits Prince Family Paper and learns it is a small family business with about 80 clients.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 6677,
+          "char_end": 6730,
+          "snippet": "Prince Grandfather: It's just me, my wife and my son."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael: I will seduce her.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 3039,
+          "char_end": 3098,
+          "snippet": "Michael: I will seduce her.\nDwight: No, I wanna seduce her."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: Ready to do this?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 5356,
+          "char_end": 5396,
+          "snippet": "Michael: Ready to do this?\nDwight: Yeah."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: My name is Michael Scarn. I am a local business owner and I would like to find out about your company.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 5908,
+          "char_end": 6019,
+          "snippet": "Michael: My name is Michael Scarn. I am a local business owner and I would like to find out about your company."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the significance of the red wire Dwight finds?",
+    "What will be the outcome of Michael's fact-finding mission at Prince Family Paper?",
+    "Who will ultimately seduce the owner's daughter if she exists?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the significance of the red wire Dwight finds?",
+      "why_uncertain": "The segment shows Dwight noticing the wire but does not explain its purpose or outcome.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 0,
+          "char_end": 7054,
+          "snippet": "=== SCENE 000 ===\n\nDwight: What's this?\nJim: Looks like a red wire.\nDwight: Hmm. It wasn't here before.\nJim: Well it's a computer Dwight, computers have wires.\nDwight: Yours doesn't.\nJim: Doesn't it?\nDwight: No, it's going in a different di"
+        }
+      ]
+    },
+    {
+      "question": "What will be the outcome of Michael's fact-finding mission at Prince Family Paper?",
+      "why_uncertain": "The segment ends with Michael meeting the family but does not reveal the results of his investigation.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 0,
+          "char_end": 7054,
+          "snippet": "=== SCENE 000 ===\n\nDwight: What's this?\nJim: Looks like a red wire.\nDwight: Hmm. It wasn't here before.\nJim: Well it's a computer Dwight, computers have wires.\nDwight: Yours doesn't.\nJim: Doesn't it?\nDwight: No, it's going in a different di"
+        }
+      ]
+    },
+    {
+      "question": "Who will ultimately seduce the owner's daughter if she exists?",
+      "why_uncertain": "Michael and Dwight argue over this but the segment does not resolve who will do it.",
+      "evidence": [
+        {
+          "episode_id": "S05E12",
+          "segment_id": "S05E12:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e12_prince_family_paper_script.txt",
+          "char_start": 0,
+          "char_end": 7054,
+          "snippet": "=== SCENE 000 ===\n\nDwight: What's this?\nJim: Looks like a red wire.\nDwight: Hmm. It wasn't here before.\nJim: Well it's a computer Dwight, computers have wires.\nDwight: Yours doesn't.\nJim: Doesn't it?\nDwight: No, it's going in a different di"
+        }
+      ]
+    }
+  ]
+}

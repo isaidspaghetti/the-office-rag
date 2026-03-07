@@ -1,0 +1,36 @@
+{
+  "schema": "EpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season03_nano_2026-03-04_S03E06",
+  "created_at_utc": "2026-03-04T22:48:19Z",
+  "episode": {
+    "episode_id": "S03E06",
+    "title": "Diwali",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e06_diwali_script.txt"
+  },
+  "inputs": {
+    "segments_build_id": "derived_segsummary_season03_nano_2026-03-04_S03E06",
+    "segment_summaries_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_nano_2026-03-04_S03E06/segment_summaries/S03E06",
+    "segment_count": 3,
+    "evidence_pool_size": 31
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_llm_calls": 1,
+    "out_file": "episode_cards/S03E06.json"
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T22:48:19Z",
+    "ended_at_utc": "2026-03-04T22:48:32Z",
+    "llm_calls_made": 1,
+    "written": 1,
+    "errors": 0,
+    "call_started_at_utc": "2026-03-04T22:48:19Z",
+    "call_duration_ms": 12993
+  }
+}

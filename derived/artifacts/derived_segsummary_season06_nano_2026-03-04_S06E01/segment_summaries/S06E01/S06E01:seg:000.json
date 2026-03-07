@@ -1,0 +1,202 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_nano_2026-03-04_S06E01",
+  "created_at_utc": "2026-03-04T23:19:43Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S06E01",
+  "segment_id": "S06E01:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6755,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Andy",
+    "Jim",
+    "Pam",
+    "Meredith",
+    "Kelly",
+    "Oscar",
+    "Phyllis",
+    "Maurie",
+    "Stanley",
+    "Teri",
+    "Tink's"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The office engages in a humorous parkour activity.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 19,
+          "char_end": 106,
+          "snippet": "Michael (enters office, somersaults onto couch, kicks over painting and lamp): Parkour!"
+        },
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 828,
+          "char_end": 901,
+          "snippet": "Dwight & Andy (approaching elevator, as Michael films): Parkour! Parkour!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael feels left out of office gossip about a potential wedding.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 3554,
+          "char_end": 3600,
+          "snippet": "Michael: Did everybody know about this but me?"
+        },
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 3601,
+          "char_end": 3652,
+          "snippet": "Phyllis: There's nothing to know, it's just gossip."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael learns about Eric and Megan possibly dating, but Dwight already knew.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 4935,
+          "char_end": 5100,
+          "snippet": "Michael: I hate, hate, hate being left out. Whether it's not being picked for a team, or being picked for a team and showing up and realizing the team doesn't exist."
+        },
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 4431,
+          "char_end": 4457,
+          "snippet": "Michael: Eric likes Megan."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael discusses his feelings of being the third wheel with Maurie.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 0,
+          "char_end": 6755,
+          "snippet": "=== SCENE 000 ===\n\nMichael (enters office, somersaults onto couch, kicks over painting and lamp): Parkour!\nDwight & Andy (rush into office, Andy climbs on reception desk, Dwight holds video camera):\nAndy: Parkour!\nDwight (walking on Pam's d"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael speculates about Stanley's midlife crisis and his wife being out of town.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 6475,
+          "char_end": 6512,
+          "snippet": "Phyllis: Teri's out of town, Michael."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "The goal is to get from point A to point B as creatively as possible",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 281,
+          "char_end": 368,
+          "snippet": "Jim: This… is Parkour. Internet sensation of 2004. And it was in one of the Bond films."
+        }
+      ]
+    },
+    {
+      "quote": "Stanley is having a midlife crisis.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 6009,
+          "char_end": 6069,
+          "snippet": "Michael: So, what is the scuttlebutt? Anybody hear anything?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly is the nature of the office gossip about the wedding?",
+    "Is Stanley's midlife crisis real or a rumor?",
+    "What is the outcome of the parkour activities?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly is the nature of the office gossip about the wedding?",
+      "why_uncertain": "The segment only states 'it's just gossip' without details.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 0,
+          "char_end": 6755,
+          "snippet": "=== SCENE 000 ===\n\nMichael (enters office, somersaults onto couch, kicks over painting and lamp): Parkour!\nDwight & Andy (rush into office, Andy climbs on reception desk, Dwight holds video camera):\nAndy: Parkour!\nDwight (walking on Pam's d"
+        }
+      ]
+    },
+    {
+      "question": "Is Stanley's midlife crisis real or a rumor?",
+      "why_uncertain": "The segment only shows Michael's belief and Phyllis's correction, no confirmation.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 0,
+          "char_end": 6755,
+          "snippet": "=== SCENE 000 ===\n\nMichael (enters office, somersaults onto couch, kicks over painting and lamp): Parkour!\nDwight & Andy (rush into office, Andy climbs on reception desk, Dwight holds video camera):\nAndy: Parkour!\nDwight (walking on Pam's d"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the parkour activities?",
+      "why_uncertain": "The segment ends with Michael and Dwight looking down at Andy inside a refrigerator box, no resolution provided.",
+      "evidence": [
+        {
+          "episode_id": "S06E01",
+          "segment_id": "S06E01:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e01_gossip_script.txt",
+          "char_start": 0,
+          "char_end": 6755,
+          "snippet": "=== SCENE 000 ===\n\nMichael (enters office, somersaults onto couch, kicks over painting and lamp): Parkour!\nDwight & Andy (rush into office, Andy climbs on reception desk, Dwight holds video camera):\nAndy: Parkour!\nDwight (walking on Pam's d"
+        }
+      ]
+    }
+  ]
+}

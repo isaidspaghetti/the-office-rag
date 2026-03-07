@@ -1,0 +1,236 @@
+{
+  "schema": "TopicEvidenceDiscoveryV1",
+  "schema_version": 1,
+  "topic_id": "relationship_michael_donna",
+  "topic_type": "relationship",
+  "entity_names": [
+    "Michael",
+    "Donna"
+  ],
+  "queries": [
+    "Donna married Michael ends it",
+    "Michael Donna affair married",
+    "Donna Newton Michael Scott breakup"
+  ],
+  "top_episode_ids": [
+    "S06E22",
+    "S06E21",
+    "S06E23",
+    "S07E04",
+    "S03E17",
+    "S04E08"
+  ],
+  "top_chunks_by_episode": {
+    "S06E22": [
+      "S06E22:chunk:000023",
+      "S06E22:chunk:000020",
+      "S06E22:chunk:000016",
+      "S06E22:chunk:000012",
+      "S06E22:chunk:000004"
+    ],
+    "S06E21": [
+      "S06E21:chunk:000022",
+      "S06E21:chunk:000010",
+      "S06E21:chunk:000028",
+      "S06E21:chunk:000025",
+      "S06E21:chunk:000004"
+    ],
+    "S06E23": [
+      "S06E23:chunk:000026",
+      "S06E23:chunk:000007",
+      "S06E23:chunk:000009",
+      "S06E23:chunk:000024"
+    ],
+    "S07E04": [
+      "S07E04:chunk:000008",
+      "S07E04:chunk:000011"
+    ],
+    "S03E17": [
+      "S03E17:chunk:000009",
+      "S03E17:chunk:000020"
+    ],
+    "S04E08": [
+      "S04E08:chunk:000014"
+    ]
+  },
+  "evidence_chunks": [
+    {
+      "chunk_ref_id": "S06E22:chunk:000023",
+      "episode_id": "S06E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "chunk_index": 23,
+      "query": "Donna married Michael ends it",
+      "score": 0.4165354371070862,
+      "text": "=== SCENE 039 ===\n\nDarryl: I don't wanna prank anymore. Things get real. It's not funny. I'm just gonna be good, stay in my room, go to church, try to do one nice thing per day. I do not wanna prank anymore.\n\n=== SCENE 040 ===\n\nMichael: Who is he?\nDonna: What, what do you mean?\nMichael: The other man. Who's the guy? Who is it?\nDonna: It's you. I'm married.\nMichael: I'm the mistress?\n\n=== SCENE 041 ==="
+    },
+    {
+      "chunk_ref_id": "S06E22:chunk:000020",
+      "episode_id": "S06E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "chunk_index": 20,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4353142976760864,
+      "text": "Michael: You know what? We should really do something fun this week.\nDonna: Yeah, we should.\nMichael: Wouldn't that be fun?\nDonna: Yeah.\nMichael: How about Thursday?\nDonna: Thursday works. Yeah, what do you wanna do?\nMichael: I can't do Thursday. Book club. How about Friday?\nDonna: Oh, Friday doesn't work.\nMichael: Oh, really? 'cause I was thinking we could go to this concert. Spice Girls are opening for Weird Al. Front row. It'd be a great, great concert.\nDonna: Shoot. I'm working.\nMichael: Oh okay. Well, maybe I could stop by.\nDonna: Well, won't you be at the concert?\nMichael: Nope, that's Tuesday.\nDonna: Oh, well, I can make it on Tuesday.\nMichael: You're cheating. You're cheating on me.\nDonna: How do you know?\nMichael: Pam told me.\n[STAGE] looks up at 2nd floor windows and so does Donna; Jim, Dwight, and Pam are visible on conference room window, they all scramble as soon as Donna and Michael look up, Pam throwing herself on the floor\nPam (gasps): Did she see me?\nJim (to Pam on floor): Nice effort."
+    },
+    {
+      "chunk_ref_id": "S06E22:chunk:000016",
+      "episode_id": "S06E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "chunk_index": 16,
+      "query": "Donna married Michael ends it",
+      "score": 0.45011216402053833,
+      "text": "Donna: Isn't that something?\nMichael: Wow. That's exciting.\n[STAGE] Pam knocks on Michaels door and goes in\nPam: Hey, Michael.\nMichael: Hey.\nPam: I'm sorry to interrupt you. Um, I actually have something very important to talk to you about, business related.\nMichael: Well it can wait. It can wait.\nPam: I lied it's personal. It's about me and Jim. We're… I just… you're the only person I can talk to.\nMichael: Jim is her husband.\nDonna: Oh.\nPam: And…\nMichael: And they are having problems, so sh…\nPam: No, not… we're not… we're not having problems. But it is personal. And I would love…\nMichael: Good in bed.\nPam: Yes. Yes, I desperately want to speak with you about my sex life with Jim.\nMichael: Oh, my God. Look at how cheap street level rooms are. Am I the only person who enjoys people watching?\nPam (loudly): I need you to sign this! So bad!\nMichael: Okay, weirdo.\nPam: I love … this idea is neat. I've never been. It sounds lovely.\n[STAGE] leans over Michael's desk to look at his computer screen\n[STAGE] meanwhile Michael looks at the pictures Pam printed out\nDonna: Yeah I think it'll be a nice trip. We're gonna get a lot done.\nPam (to Michael): You're gonna wanna look at the date on that. Oh, wow. Look at… golfing. Are you a golfer?\n[STAGE] to Donna\nDonna: I am, but I, I gave my clubs away. I swear too much. Hey, you okay?\n[STAGE] Pam and Donna both laugh\n[STAGE] to Michael, walki..."
+    },
+    {
+      "chunk_ref_id": "S06E22:chunk:000012",
+      "episode_id": "S06E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "chunk_index": 12,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4685852527618408,
+      "text": "=== SCENE 021 ===\n\nDonna: How could you think I would cheat on you?\nMichael: I didn't. Everybody else here did. Everybody convinced me that something was up. They poisoned my mind.\nDonna: That's pathetic.\nMichael: Ye… pfff. Well, no. It's a lie. That's not what happened. I just like you. I can't believe I get to be with you. You work at an adult arcade. You could have any man you want.\nDonna: When I tell you I like you, you need to trust me, not some freak.\n[STAGE] Dwight is gulping some sort of power shake\nMichael: If you wanna dump me, I totally get it.\nDonna: I told you I like you.\nMichael: Well, you are boner-ific.\n[STAGE] Donna laughs\nDonna: Hey, if I said that we should go away for a couple of days, you would…\nMichael: …poop my pants.\nDonna: Have you ever been to Vero Beach?\nMichael: Oh, my God, Vero Beach. No. Is that on the water?\nDonna: We're going.\nMichael: We are?\nDonna: Yeah.\n\n=== SCENE 022 ===\n\nAndy: What's up? I got your e-mail.\nDarryl: Close the door.\nAndy: Okay."
+    },
+    {
+      "chunk_ref_id": "S06E22:chunk:000004",
+      "episode_id": "S06E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+      "chunk_index": 4,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4815102219581604,
+      "text": "Michael: Ever since I found out that Donna might be cheating on me, I have not eaten or slept. This not knowing, that's what's killing me.\n\n=== SCENE 009 ===\n\nDwight: Oh, God, that tickles. What did…\nMichael (whispers): I want someone to follow Donna. I want her tailed. I need the name of a good private investigator.\nDwight: I think I've got one for you.\n[STAGE] hands Michael a business card\nMichael: This is you. How much do you charge?\nDwight: $100 a day, plus expenses.\nMichael: I'll give you $50. Money's no object.\nDwight: I'm just gonna warn you… and I say this to all my clients… you might not like what I find.\nMichael: Okay.\nDwight: And you might not like how I find it.\n[STAGE] slides over table, leaves\n\n=== SCENE 010 ===\n\nAndy: Of course. Yeah, that's terrible. Okay, let me get back to you. Hey, Stanley. One of my clients just called and said that their Sabre printer started smoking and caught on fire.\nStanley: My doctor told me to cut out hot dogs. We all got problems."
+    },
+    {
+      "chunk_ref_id": "S06E21:chunk:000022",
+      "episode_id": "S06E21",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "chunk_index": 22,
+      "query": "Donna married Michael ends it",
+      "score": 0.39829021692276,
+      "text": "Michael: We should have your contract done by Thursday.\nDonna: Oh, great. Great, I will look out for that stuff, then.\nMichael: Okay.\nDonna: And, um… you know I just wanted to say it was really… really nice to do business with you.\nMichael: Yeah it was nice to do business with you, too.\nDonna: Thank you. Did I… get everything?\nMichael: I don't know. I think so.\nDonna: Yeah, I think so.\nMichael (whispers): Okay. So… Oh, Donna?\nDonna: Yeah? Do you need validation? We don't… we don't validate.\nDonna: No, it's just in the lot, so…\nMichael: Thank you so much.\nDonna: You're welcome. You're… welcome.\n[STAGE] they hug\nMichael: Mmm.\n[STAGE] Donna giggles\nDonna: Bye.\nMichael (follows her out of office): Ahem. So, um… okay, if you have… if there's any other questions that you have…\nDonna: I don't have, uh, any other questions. I'm just gonna… make my way down to…\n[STAGE] blind clanking as she leans against door to prevent from Michael kissing her\nMichael: All right. All right. Bye.\nDonna: Bye-bye!\nMichael: And have a good elevator ride.\nDonna: Okay.\nMichael: Oh, what's that out there?\nKevin: Michael, how did it go?\n[STAGE] Michael goes in his office and closes door"
+    },
+    {
+      "chunk_ref_id": "S06E21:chunk:000010",
+      "episode_id": "S06E21",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "chunk_index": 10,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.43092209100723267,
+      "text": "=== SCENE 018 ===\n\nMichael: This is a place that I like to go to be alone with my thoughts. I've never taken anybody there before.\nDonna: Who took the photo?\nMichael: Ryan.\nDonna: Oh.\n[STAGE] Michael quickly advances PowerPoint show to last slide which is \"SEX\" in bold white letters on a black background and then exits the show quickly\nMichael: And that's it. That's me. That's who I am.\nDonna (giggles): Not bad.\nMichael: Oh, thanks. You're not bad, either.\n[STAGE] softly\nDonna: Thank you. Hmm.\n[STAGE] Michael tries t kiss Donna, Donna clears throat\nMichael: Hmm.\nDonna: Oh my God.\n[STAGE] realizing Jim and Pam are looking through the conference room windows\nMichael: Jim! Could you come in here for a sec? What was that printer we were looking at?\n\n=== SCENE 019 ==="
+    },
+    {
+      "chunk_ref_id": "S06E21:chunk:000028",
+      "episode_id": "S06E21",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "chunk_index": 28,
+      "query": "Donna married Michael ends it",
+      "score": 0.43197953701019287,
+      "text": "=== SCENE 046 ===\n\nDwight: Just once, I would like to be a puppet master and have nothing go wrong. Is that too much to ask?\n\n=== SCENE 047 ===\n\nMichael: You know what? Everybody told me that you weren't interested. Everybody. And I didn't believe 'em. And they were right. So… there's your barrette.\nDonna: No, y-you were… right.\nMichael: Who?\nDonna: You were right.\nMichael: About what?\nDonna: You were right. I'm sorry.\n[STAGE] Michael leans into Donna's car to kiss her and they kiss passionately\nMichael: No, no. No.\nDonna: I'm sor…\nMichael: No…\n[STAGE] they kiss again\n\n=== SCENE 048 ==="
+    },
+    {
+      "chunk_ref_id": "S06E21:chunk:000025",
+      "episode_id": "S06E21",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "chunk_index": 25,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4774816632270813,
+      "text": "Pam: Hey, Michael. How you doing?\n[STAGE] Michael is sitting on couch outside his office\nMichael: I don't know. I don't know. Can't really trust my feelings anymore.\nPam: You know what, Michael? For what it's worth… I was wrong, too. I thought she was interested in you.\nMichael: She suckered you too.\nPam: Mm-hmm.\nMichael: Was it the cleavage?\nPam: Yeah, and the shoulder cutouts.\nMichael: Yep.\nPhyllis: Michael, you know, it's easy to get fooled. Bob's warehouse guys flirt with me all the time. It… it's mostly harmless. Usually I don't let it go too far.\nAndy: You know, when I tore my scrote, I was, uh… I was seeing this really hot urologist about it, and thought she was into me. But now I think she was just doing a bunch of stuff to bill my HMO. You know, she's touching around down there. It's easy to get confused.\nErin: Michael, I think Donna left this here. Should I put it in the lost and found for 14 days and then I can take it home?\nMichael: God. She left this here?\nErin: Yeah.\nMichael: Okay. Maybe she wants me to return this to her at her work.\nJim: What?\nAll: No.\nMichael: Yeah. This could be a signal. People don't just take barrettes off.\nOscar: It's not a signal. It's just a coincidence. No, it's not even a coincidence. It's just something that happened.\nPam: Michael…\nMichael (hold up barrette): Well…\nPam: She doesn't want you to return the barrette. She's not interest..."
+    },
+    {
+      "chunk_ref_id": "S06E21:chunk:000004",
+      "episode_id": "S06E21",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e21_body_language_script.txt",
+      "chunk_index": 4,
+      "query": "Michael Donna affair married",
+      "score": 0.5218620300292969,
+      "text": "=== SCENE 011 ===\n\nMichael: Right here, we have the wonder twins, Jim and Pam Halpert. They will be assisting you today.\nDonna: You look exactly alike.\nPam: Oh, no we're actually married. We're not brother and sister.\nDonna: I have a sense about these things.\nJim: All right.\nDonna: You have some ancestors in common… somewhere back.\nAngela: I knew it. You should see their baby.\n\n=== SCENE 012 ===\n\nJim (explaining PowerPoint to Donna): So, yes, laser printers are more expensive. But they cost less to operate So it's a tradeoff.\n[STAGE] knocking\nMichael (barges in): Hi.\nJim: Hold on one second.\nMichael: Sorry to interrupt. Sorry to interrupt. Do you, Donna, by any chance shop at Victoria's Secret?\nJim: What?\nMichael: Because I keep getting these magazines sent to me via the address of the woman who used to live in my condo before me.\nJim: None of this is time sensitive.\nMichael: Uh, yes, uh, the sale is on now through May.\nDonna: Oh, yeah, thank you.\nMichael: Okay, I have more of them."
+    },
+    {
+      "chunk_ref_id": "S06E23:chunk:000026",
+      "episode_id": "S06E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+      "chunk_index": 26,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4194090962409973,
+      "text": "=== SCENE 040 ===\n\nMichael (driving in car; returns to office; grabs ice cream out of freezer): How do I feel about breaking up with Donna? Good. Moral. I feel proud. Like a grownup. That was not easy because I really liked her a lot. And I'm a little bit emotional right now because I know that I absolutely made the right decision. At the end of the day, we have to do what's right. And it was either living with myself or… being happy. And I picked… the… former.\n[STAGE] beeping; cut to Donna who is waiting in the parking lot of the motel\n[STAGE] Donna receives text from phone\n[STAGE] Donna has disappointed look; cut back to Michael in his office opening ice cream\n\n=== SCENE 041 ==="
+    },
+    {
+      "chunk_ref_id": "S06E23:chunk:000007",
+      "episode_id": "S06E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+      "chunk_index": 7,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4504600763320923,
+      "text": "=== SCENE 010 ===\n\nMichael: No, I gotta go. Text me later.\nJim: I'm really too tired to do this.\nPam: Me too!\nJim: Then let's just not do this. Do you have any idea the risks involved?\nPam: Hey Michael.\nMichael: Hey.\nPam: We were wondEring if you would like to have dinner with us tonight, in our home, and play with our baby.\nJim: We can order in from Hooters.\nMichael: Oh, Hooters to go. Nice.\nPam: We can watch a movie and play Rock Band.\nJim: Billy Joel Rock Band.\nMichael: That… exists?\nPam: Yes.\nMichael: Okay, well, I'll have to take a rain check, but thanks for the offer.\nPam (shouts): Michael Scott, are you still seeing Donna?\nMichael: Okay, Pam… she's not invisible so stop asking silly questions.\nPhyllis: Oh Michael.\nMichael: Since when is this an office where we delve into each other's personal lives?\n\n=== SCENE 011 ===\n\nMichael: I like Donna. Is it wrong to keep seeing her? Depends on who you ask. I mean, if you ask her husband… or you took a random poll, yeah, it's wrong."
+    },
+    {
+      "chunk_ref_id": "S06E23:chunk:000009",
+      "episode_id": "S06E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+      "chunk_index": 9,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4695742130279541,
+      "text": "Michael: People, this is Scranton. And many people consider that to be the Paris of northeastern Pennsylvania. And in Paris, it is rude for a woman to have less than four lovers.\nKelly: Eughh, Ryan, I do not want you hanging around Michael anymore.\nRyan: Okay.\nMichael: I will have you know that I asked Donna about this and she is fine with it. And just to be sure, I asked her again afterward. Same answer.\nAndy: How does he feel about it?\nMichael: He is never gonna find out. He is a high school baseball coach. He wakes up early. He goes to bed early. Look at how long it took for him to find out. It was right under his nose. I had to tell him.\n[STAGE] points to Andy\nJim: Now you're just being hurtful.\nMichael: I'm sorry, it… why is it okay for Stanley to cheat or for Phyllis to cheat…\nPhyllis: Hey!\nMichael: On her diet! He's a sports guy. He's scummy. Dogfighting. Drugs. They spit.\nAndy: Did Donna tell you that?\nMichael: Real sports with Bryant Gumble.\nAndy: So you're just making a giant assumption. You don't even know the guy.\nMichael: You know what? You know what? I am declaring a moment of silence right now. Ten minutes of silence honoring Michael Jackson. just sit there and think about Michael jackson."
+    },
+    {
+      "chunk_ref_id": "S06E23:chunk:000024",
+      "episode_id": "S06E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e23_the_chump_script.txt",
+      "chunk_index": 24,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.48195385932922363,
+      "text": "Phyllis: For your signature.\n[STAGE] drops document on Michael's desk\nMichael: Okay. Phyllis. Okay. Look at me. Phyllis, look at– okay, that's… All right, all right. You know what? I'm sick of this. I'm sick of the little disapproving head shakes. If you think that's going to have any effect on me, it will not. I am going to leave right now and go to a motel to meet Donna.\n[STAGE] Phyllis avoids looking at Michael\n[STAGE] continues to look away\n[STAGE] Phyllis turns to leave\n[STAGE] chases after her\nKevin: Why not your condo?\nMichael: Because a motel is dirty and it is sexy. Like me. And like Donna. And frankly, the stuff that we're into isn't very condo-appropriate.\nStanley: Oh, Michael, will you drop it? Everybody's spoken their mind, and no one's changing their mind.\nMichael: Okay, Morgan Freeman-narrating-everything.\nAndy: Do you want someone to stop you? 'Cause no one's going to.\nMichael: Nobody better try to stop me. Good.\n[STAGE] leaves the office. door closes\nDwight: I could have stopped him."
+    },
+    {
+      "chunk_ref_id": "S07E04:chunk:000008",
+      "episode_id": "S07E04",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e04_sex_ed_script.txt",
+      "chunk_index": 8,
+      "query": "Donna married Michael ends it",
+      "score": 0.45627886056900024,
+      "text": "=== SCENE 013 ===\n\nDonna (on phone): Hello?\nMichael: Hi Donna. It's Michael.\nDonna: Michael, I didn't think I'd here from you. How have you been?\nMichael: I have a disease, for which there is no known cure, that has been sexually transmitted to me.\nDonna: Oh no.\nMichael: I can't even say it. H-I…\nDonna: Oh my God.\nMichael: …R-P-E-E-S\nDonna: Wait, you're calling to tell me that you have herpes?\nMichael: No, I am calling to see if you gave me herpes. Because if you did I would be able to avoid a lot of sucky conversations. So you have it right?\nDonna: Ummm, no.\nMichael: Does your stupid husband have it?\nDonna: No! He doesn't. Are you telling me I have to get tested?\nMichael: Yes I am telling you you have to get tested for herpes. Good-bye!\nDwight: So long Donna!\n[STAGE] Michael hangs up\n\n=== SCENE 014 ==="
+    },
+    {
+      "chunk_ref_id": "S07E04:chunk:000011",
+      "episode_id": "S07E04",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e04_sex_ed_script.txt",
+      "chunk_index": 11,
+      "query": "Donna married Michael ends it",
+      "score": 0.5002521276473999,
+      "text": "Michael (still on phone with Holly): Do you ever wonder what life would have been like if you hadn't been transferred?\nHolly: Yeah.\nMichael: We would have twins.\n[STAGE] Dwight points towards the corner of his lip, indicating Michael's \"herpes\"\nHolly: I don't think we'd have kids.\nMichael: Mmhmm!\nHolly: It was just for a few weeks!\nMichael: Mhhmm! We would be married.\nHolly (sternly): Michael, I have been dating A.J. for a year and a half now. You do this you know.\nMichael: Do what?\nHolly: You romanticize things.\nMichael: I don't romanticize th- No…\n[STAGE] Dwight nodding and mouthing 'Yes you do'\nHolly: Michael, you cried at that tagline for a movie you made up.\nMichael: He had no arms or legs, he couldn't hear see, or speak… This is how he let a nation.\nHolly: You made ourselves to be more than we were.\nMichael: We were more than we were.\nHolly: I don't know what you're getting so upset about, we had to break up a long time ago, it was a good memory.\nMichael: Ok, alright I gotta go.\nHolly: Michael…\n[STAGE] Michael hangs up\nDwight (to the camera): He forgot to mention the herpes.\nMichael: It didn't come up organically."
+    },
+    {
+      "chunk_ref_id": "S03E17:chunk:000009",
+      "episode_id": "S03E17",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e17_cocktails_script.txt",
+      "chunk_index": 9,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.4745592474937439,
+      "text": "=== SCENE 021 ===\n\nJan: What's this over the \"i\"?\nMichael: It's a heart.\n\n=== SCENE 022 ===\n\nJan: Why is this so hard? That's what she said. Oh my God. What am I saying?\n\n=== SCENE 023 ===\n\nMichael: I love this woman!\nJan: Oh, no. Michael, please. Michael, please.\n\n=== SCENE 024 ===\n\nDwight: Do you ever watch Battlestar Galactica?\nDan Gore: No.\nDwight: No? Then you are an idiot.\n\n=== SCENE 025 ===\n\nRachel: Hello Michael.\nMichael: Rachel. Boy, you clean up good. Place looks great with all the lights on. And everything. Actually looks bigger with people in it. It's weird. So…\nDavid: Jan, glad you could make it.\nJan: Of course, of course, David. Do you remember Michael Scott?\nDavid: Of course I do.\nJan: From the Scranton Branch.\nMichael: Jan and I are lovers. It feels so good to finally say that out loud.\nJan: David, can I, um, speak to you privately for just a moment, please.\nRachel: Excuse me.\nMichael: Ok.\n\n=== SCENE 026 ==="
+    },
+    {
+      "chunk_ref_id": "S03E17:chunk:000020",
+      "episode_id": "S03E17",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e17_cocktails_script.txt",
+      "chunk_index": 20,
+      "query": "Donna married Michael ends it",
+      "score": 0.4838516116142273,
+      "text": "Michael: Our first fight. If this is about what happened in the bathroom, there was no place to cuddle…\nJan: I feel sick.\nMichael: You didn't have any of the potato salad did you?\nJan: No, we were good when we were just running around, you know, in secret. It was wrong and it was exciting. Maybe it was a mistake to take it public.\nMichael: Well, if that's the way you feel, my lady, then you have hurt me greatly.\nJan: Please don't cry.\nMichael: I'm not going to cry. I feel like it but I am not going to. Why don't you just take your stupid love contract and tear it up into a million little pieces.\nJan: It was never a love contract, Michael and besides, I have already given a copy to David and it would be just as embarrassing to get it back as I was handing it to him.\nMichael: I want the house, Jan. I want the picket fence. I want the ketchup fights and the tickling, and the giggling.\nJan: I didn't mean it. I was…\nMichael: Whatever.\nJan: Tired. I'm tired. And I didn't eat enough. And, and, that's all. That was it.\nMichael: That's all, you didn't mean it?\nJan: That's all. I didn't mean it. That's all. I'm just saying I didn't mean it.\nMichael: I love you, Jan.\nJan: Ok.\nDwight: Don't break up you guys, you're great together."
+    },
+    {
+      "chunk_ref_id": "S04E08:chunk:000014",
+      "episode_id": "S04E08",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e08_the_deposition_script.txt",
+      "chunk_index": 14,
+      "query": "Donna Newton Michael Scott breakup",
+      "score": 0.45418328046798706,
+      "text": "Diane Kelly (looking at a copy of Michael's diary): Mr. Scott, who is this other woman, Ryan? Who you refer to her as \"Just as hot as Jan, but in a different way.\"\nMichael: Not a woman, just a cool, great looking, best friend.\nLester: Aren't we trying to determine whether Michael or Jan were engaged in a romantic affair? Not Michael and this Ryan person.\nToby (laughs out loud): Excuse me.\nMichael: Alright, alright. This is the way I see it. Yes, I had sex with Jan, and yes, I did consider Jan to be my girlfriend. However, Jan clearly didn't consider me to be her boyfriend. So her actions are completely rightful.\nDiane Kelly: OK Mr. Scott, it's, it's admirable the way you defend a woman who is so obviously ambivalent about her relationship with you.\nMichael: Thank you very much. You didn't have to say that.\nDiane Kelly: ConsidEring she consistently gave you such poor performance reviews.\nMichael: That was before our relationship. She was going through a divorce, and she was drinking a lot… …of water.\n[STAGE] Jan glares at Michael\nDiane Kelly: Mr. Scott, this is a copy of a particularly negative performance review. Would you mind, uh, reading the date on that please?\n[STAGE] slides the performance review towards Michael\nMichael: March 17th.\nDiane Kelly: And that would be a month after your relationship became official, is that correct?\nMichael: Yes.\nDiane Kelly: You may read t..."
+    }
+  ],
+  "params": {
+    "query_top_k": 25,
+    "top_episodes": 6,
+    "top_chunks_per_episode": 5,
+    "max_chunk_chars": 1400
+  },
+  "build_id": "topiccards_v1_discovery_2026-03-05"
+}

@@ -1,0 +1,189 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-21-28Z_topiccards_blended_q5_fix_julie_v2",
+    "run_name": "topiccards_blended_q5_fix_julie_v2",
+    "created_at_utc": "2026-03-05T05:21:28Z",
+    "notes": "relationship topic_cards prioritized + derived kept in context + strict serious contract"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-06T07:22:49Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 1,
+    "avg_overall": 56,
+    "overall_scores": [
+      56
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 1,
+    "episode_ok_rate": 1.0,
+    "must_include_ok_rate": 1.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S03E10",
+          "S05E08",
+          "S06E06",
+          "S07E04",
+          "S07E15",
+          "S07E18"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 3,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 1,
+        "completeness": 4,
+        "hallucination": 1,
+        "overall": 56,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jan Levinson relationship details and quotes",
+          "Helene (Pam's mom) relationship and details",
+          "Holly Flax relationship details, breakup, and quotes",
+          "Carol relationship details, proposal, herpes, and quotes",
+          "Tara relationship mention and details"
+        ],
+        "missing_points": [
+          "Donna Newton relationship missing",
+          "Details on how Jan and Helene relationships ended missing",
+          "Tara not mentioned in gold answer"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context does not contain any information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed information and quotes not supported by the retrieved context. | correctness: Candidate answer includes Tara, not in gold; misses Donna Newton; lacks some ending details for Jan and Helene.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 1,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jan Levinson relationship details and quotes",
+            "Helene (Pam's mom) relationship and details",
+            "Holly Flax relationship details, breakup, and quotes",
+            "Carol relationship details, proposal, herpes, and quotes",
+            "Tara relationship mention and details"
+          ],
+          "notes": "The retrieved context does not contain any information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed information and quotes not supported by the retrieved context."
+        },
+        "correctness": {
+          "correctness": 4,
+          "completeness": 4,
+          "missing_points": [
+            "Donna Newton relationship missing",
+            "Details on how Jan and Helene relationships ended missing",
+            "Tara not mentioned in gold answer"
+          ],
+          "notes": "Candidate answer includes Tara, not in gold; misses Donna Newton; lacks some ending details for Jan and Helene."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jan Levinson relationship details and quotes\",\n    \"Helene (Pam's mom) relationship and details\",\n    \"Holly Flax relationship details, breakup, and quotes\",\n    \"Carol relationship details, proposal, herpes, and quotes\",\n    \"Tara relationship mention and details\"\n  ],\n  \"notes\": \"The retrieved context does not contain any information about Michael Scott's serious girlfriends or how the relationships ended. The candidate answer provides detailed information and quotes not supported by the retrieved context.\"\n}",
+          "correctness": "{\"correctness\":4,\"completeness\":4,\"missing_points\":[\"Donna Newton relationship missing\",\"Details on how Jan and Helene relationships ended missing\",\"Tara not mentioned in gold answer\"],\"notes\":\"Candidate answer includes Tara, not in gold; misses Donna Newton; lacks some ending details for Jan and Helene.\"}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

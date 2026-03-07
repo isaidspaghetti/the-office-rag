@@ -1,0 +1,228 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E04",
+  "created_at_utc": "2026-03-06T01:10:26Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S06E04",
+  "segment_id": "S06E04:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14209,
+  "segment_char_end": 21326,
+  "people": [
+    "Michael",
+    "Jim",
+    "Pam",
+    "Pete",
+    "Tom",
+    "Dwight",
+    "Mema",
+    "Andy",
+    "Kevin",
+    "Angela",
+    "Oscar"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Jim gives a heartfelt toast at the wedding reception, revealing Pam's pregnancy.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 15428,
+          "char_end": 15475,
+          "snippet": "Jim: Alright. Hey, everyone. Thanks for coming."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael awkwardly tries to explain Pam and Jim living together and having an accident, causing some discomfort.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 17026,
+          "char_end": 17228,
+          "snippet": "Michael (clears throat): Ok. Ok. Hey. What I think Jim is trying to say is that… they had an accident and you know what? These two people, they're living together, they're having lots of consentual sex–"
+        },
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 17229,
+          "char_end": 17261,
+          "snippet": "Mema: They were living together?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael bonds with Mema, turning off her TV and discussing modern attitudes about sex and pregnancy.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 19073,
+          "char_end": 19117,
+          "snippet": "Michael: I am actually great with old women."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Andy organizes a party in room 639, encouraging office members to attend.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 20345,
+          "char_end": 20368,
+          "snippet": "Andy: Partay. Room 639."
+        },
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 20661,
+          "char_end": 20728,
+          "snippet": "Andy: No one from the office has been to a real Bernard throw down."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Angela confronts Pam about going to the hotel bar, insisting on accompanying her.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 20909,
+          "char_end": 20953,
+          "snippet": "Angela: And where do you think you're going?"
+        },
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 21022,
+          "char_end": 21108,
+          "snippet": "Angela: Well, why don't I just save you some time and kick you in the stomach instead?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I was waiting for my wife.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 16482,
+          "char_end": 16543,
+          "snippet": "but I think even then I knew that… I was waiting for my wife."
+        }
+      ]
+    },
+    {
+      "quote": "Pam is an alcoholic. That's not true.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 16879,
+          "char_end": 16958,
+          "snippet": "She shouldn't because she's an alcoholic. Pam is an alcoholic. That's not true."
+        }
+      ]
+    },
+    {
+      "quote": "It's not 1890 anymore. It's modern day.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 19565,
+          "char_end": 19684,
+          "snippet": "I think you just need to chill out about this whole Pam getting pregnant thing. It's not 1890 anymore. It's modern day."
+        }
+      ]
+    },
+    {
+      "quote": "No one from the office has been to a real Bernard throw down.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 20661,
+          "char_end": 20728,
+          "snippet": "Andy: No one from the office has been to a real Bernard throw down."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Why is Mema not coming to the wedding?",
+    "What is the nature of the relationship between Pam and Angela?",
+    "What happens at Andy's party?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Why is Mema not coming to the wedding?",
+      "why_uncertain": "The segment mentions Mema is leaving but does not explain her reasons.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 14209,
+          "char_end": 21326,
+          "snippet": "Michael: They have hilarious material and they are going to totally deliver it wrong. I would kill with the brother stuff. It should be me… up there. It should be me and Pete, not Pete and Tom.\n\n=== SCENE 030 ===\n\nTom: Pam, you've got the g"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of the relationship between Pam and Angela?",
+      "why_uncertain": "The segment shows Angela confronting Pam but does not clarify their relationship or motivation.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 14209,
+          "char_end": 21326,
+          "snippet": "Michael: They have hilarious material and they are going to totally deliver it wrong. I would kill with the brother stuff. It should be me… up there. It should be me and Pete, not Pete and Tom.\n\n=== SCENE 030 ===\n\nTom: Pam, you've got the g"
+        }
+      ]
+    },
+    {
+      "question": "What happens at Andy's party?",
+      "why_uncertain": "The segment only includes Andy's invitation and anticipation but no details about the party itself.",
+      "evidence": [
+        {
+          "episode_id": "S06E04",
+          "segment_id": "S06E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e04_niagara_script.txt",
+          "char_start": 14209,
+          "char_end": 21326,
+          "snippet": "Michael: They have hilarious material and they are going to totally deliver it wrong. I would kill with the brother stuff. It should be me… up there. It should be me and Pete, not Pete and Tom.\n\n=== SCENE 030 ===\n\nTom: Pam, you've got the g"
+        }
+      ]
+    }
+  ]
+}

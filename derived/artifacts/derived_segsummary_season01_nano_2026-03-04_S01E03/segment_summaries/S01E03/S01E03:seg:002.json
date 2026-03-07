@@ -1,0 +1,169 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E03",
+  "created_at_utc": "2026-03-04T20:54:19Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E03",
+  "segment_id": "S01E03:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13164,
+  "segment_char_end": 17692,
+  "people": [
+    "Dwight",
+    "Jan",
+    "Michael",
+    "Phyllis",
+    "Angela",
+    "Ryan",
+    "Stanley",
+    "Kevin",
+    "Oscar",
+    "Pam",
+    "Meredith"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight calls Jan to ask for permission to fire Jim and discusses his role in managing health care plans.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 13272,
+          "char_end": 13394,
+          "snippet": "Dwight: Hi. Dwight Schrute calling, acting manager, Scranton branch. Listen, I needed your permission to fire Jim Halpert."
+        },
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 13654,
+          "char_end": 13748,
+          "snippet": "Dwight: That's not entirely true, because he put me in charge of picking the health care plan."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael distributes ice-cream sandwiches to employees and mentions a surprise.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 14100,
+          "char_end": 14172,
+          "snippet": "Michael: Hey, hey, everybody, Ice-cream sandwiches! Aaaahh! Here you go."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight expresses frustration over lack of support and his attempts at rational decision-making.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 14907,
+          "char_end": 15017,
+          "snippet": "Dwight: I tried being rational, OK? And what happened? The employees went crazy, I got no help from corporate."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight reads out loud the employees' medical conditions for insurance coverage.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 15070,
+          "char_end": 15221,
+          "snippet": "Dwight: I'm now going to read out loud your submitted medical conditions. When you hear yours read, please raise your hand to indicate that it is real."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael discusses the health care plan and the upcoming surprise.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 16346,
+          "char_end": 16390,
+          "snippet": "Michael: Uh, Dwight? Did you raise benefits?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: Hi. Dwight Schrute calling, acting manager, Scranton branch. Listen, I needed your permission to fire Jim Halpert.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 13272,
+          "char_end": 13394,
+          "snippet": "Dwight: Hi. Dwight Schrute calling, acting manager, Scranton branch. Listen, I needed your permission to fire Jim Halpert."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: Uh, Dwight? Did you raise benefits?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 16346,
+          "char_end": 16390,
+          "snippet": "Michael: Uh, Dwight? Did you raise benefits?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the big surprise Michael refers to?",
+    "What is Jan's response or reaction to Dwight's call?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the big surprise Michael refers to?",
+      "why_uncertain": "The segment ends with Michael describing the surprise as a drum roll without revealing what it is.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 13164,
+          "char_end": 17692,
+          "snippet": "Jan: Hello?\nDwight: Uh, hello. Uh, this is Dwight Schrute calling for Jan Levenson-Gould.\nJan: This is Jan.\nDwight: Hi. Dwight Schrute calling, acting manager, Scranton branch. Listen, I needed your permission to fire Jim Halpert.\nJan: Who "
+        }
+      ]
+    },
+    {
+      "question": "What is Jan's response or reaction to Dwight's call?",
+      "why_uncertain": "The segment only shows Dwight being told to call Jan, but does not include her response.",
+      "evidence": [
+        {
+          "episode_id": "S01E03",
+          "segment_id": "S01E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e03_health_care_script.txt",
+          "char_start": 17650,
+          "char_end": 17692,
+          "snippet": "Dwight: Oh, um… Jan wants you to call her."
+        }
+      ]
+    }
+  ]
+}

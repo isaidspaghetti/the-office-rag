@@ -1,0 +1,36 @@
+{
+  "schema": "EpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season03_nano_2026-03-04_S03E10",
+  "created_at_utc": "2026-03-04T22:49:01Z",
+  "episode": {
+    "episode_id": "S03E10",
+    "title": "A Benihana Christmas",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt"
+  },
+  "inputs": {
+    "segments_build_id": "derived_segsummary_season03_nano_2026-03-04_S03E10",
+    "segment_summaries_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_nano_2026-03-04_S03E10/segment_summaries/S03E10",
+    "segment_count": 6,
+    "evidence_pool_size": 73
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_llm_calls": 1,
+    "out_file": "episode_cards/S03E10.json"
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T22:49:01Z",
+    "ended_at_utc": "2026-03-04T22:49:10Z",
+    "llm_calls_made": 1,
+    "written": 1,
+    "errors": 0,
+    "call_started_at_utc": "2026-03-04T22:49:01Z",
+    "call_duration_ms": 9698
+  }
+}

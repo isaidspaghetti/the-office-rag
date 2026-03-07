@@ -1,0 +1,445 @@
+{
+  "schema": "SeasonEpisodeCardRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_episodecard_season09_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-06T04:48:59Z",
+  "season": 9,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "segment_summaries_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "llm_model": "gpt-4.1-mini",
+    "segments_build_prefix": "derived_segsummary_season09_4_1_mini_2026-03-04",
+    "force": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S09E01",
+        "title": "New Guys",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E01",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E01",
+        "out_file": "episode_cards/S09E01.json"
+      },
+      {
+        "episode_id": "S09E02",
+        "title": "Roy’s Wedding",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E02",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E02",
+        "out_file": "episode_cards/S09E02.json"
+      },
+      {
+        "episode_id": "S09E03",
+        "title": "Andy’s Ancestry",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E03",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E03",
+        "out_file": "episode_cards/S09E03.json"
+      },
+      {
+        "episode_id": "S09E04",
+        "title": "Work Bus",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E04",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E04",
+        "out_file": "episode_cards/S09E04.json"
+      },
+      {
+        "episode_id": "S09E05",
+        "title": "Here Comes Treble",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E05",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E05",
+        "out_file": "episode_cards/S09E05.json"
+      },
+      {
+        "episode_id": "S09E06",
+        "title": "The Boat",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E06",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E06",
+        "out_file": "episode_cards/S09E06.json"
+      },
+      {
+        "episode_id": "S09E07",
+        "title": "The Whale",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E07",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E07",
+        "out_file": "episode_cards/S09E07.json"
+      },
+      {
+        "episode_id": "S09E08",
+        "title": "The Target",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E08",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E08",
+        "out_file": "episode_cards/S09E08.json"
+      },
+      {
+        "episode_id": "S09E09",
+        "title": "Dwight Christmas",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E09",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E09",
+        "out_file": "episode_cards/S09E09.json"
+      },
+      {
+        "episode_id": "S09E10",
+        "title": "Lice",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E10",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E10",
+        "out_file": "episode_cards/S09E10.json"
+      },
+      {
+        "episode_id": "S09E11",
+        "title": "Suit Warehouse",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E11",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E11",
+        "out_file": "episode_cards/S09E11.json"
+      },
+      {
+        "episode_id": "S09E12",
+        "title": "Customer Loyalty",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E12",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E12",
+        "out_file": "episode_cards/S09E12.json"
+      },
+      {
+        "episode_id": "S09E13",
+        "title": "Junior Salesman",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E13",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E13",
+        "out_file": "episode_cards/S09E13.json"
+      },
+      {
+        "episode_id": "S09E14",
+        "title": "Vandalism",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E14",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E14",
+        "out_file": "episode_cards/S09E14.json"
+      },
+      {
+        "episode_id": "S09E15",
+        "title": "Couples Discount",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E15",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E15",
+        "out_file": "episode_cards/S09E15.json"
+      },
+      {
+        "episode_id": "S09E16",
+        "title": "Moving On",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E16",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E16",
+        "out_file": "episode_cards/S09E16.json"
+      },
+      {
+        "episode_id": "S09E17",
+        "title": "The Farm",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E17",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E17",
+        "out_file": "episode_cards/S09E17.json"
+      },
+      {
+        "episode_id": "S09E18",
+        "title": "Promos",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E18",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E18",
+        "out_file": "episode_cards/S09E18.json"
+      },
+      {
+        "episode_id": "S09E19",
+        "title": "Stairmageddon",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E19",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E19",
+        "out_file": "episode_cards/S09E19.json"
+      },
+      {
+        "episode_id": "S09E20",
+        "title": "Paper Airplane",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E20",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E20",
+        "out_file": "episode_cards/S09E20.json"
+      },
+      {
+        "episode_id": "S09E21",
+        "title": "Livin’ The Dream",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E21",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E21",
+        "out_file": "episode_cards/S09E21.json"
+      },
+      {
+        "episode_id": "S09E22",
+        "title": "A.A.R.M",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E22",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E22",
+        "out_file": "episode_cards/S09E22.json"
+      },
+      {
+        "episode_id": "S09E23",
+        "title": "Finale",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E23",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E23",
+        "out_file": "episode_cards/S09E23.json"
+      }
+    ],
+    "planned_total_llm_calls": 23
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-06T04:48:59Z",
+    "ended_at_utc": "2026-03-06T04:51:54Z",
+    "episodes_done": 23,
+    "episode_cards_written": 23,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S09E01",
+        "title": "New Guys",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E01",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E01",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E02",
+        "title": "Roy’s Wedding",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E02",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E02",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E03",
+        "title": "Andy’s Ancestry",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E03",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E03",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 13,
+        "error": null
+      },
+      {
+        "episode_id": "S09E04",
+        "title": "Work Bus",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E04",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E04",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E05",
+        "title": "Here Comes Treble",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E05",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E05",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 11,
+        "error": null
+      },
+      {
+        "episode_id": "S09E06",
+        "title": "The Boat",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E06",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E06",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E07",
+        "title": "The Whale",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E07",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E07",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E08",
+        "title": "The Target",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E08",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E08",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E09",
+        "title": "Dwight Christmas",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E09",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E09",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E10",
+        "title": "Lice",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E10",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E10",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E11",
+        "title": "Suit Warehouse",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E11",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E11",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E12",
+        "title": "Customer Loyalty",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E12",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E12",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E13",
+        "title": "Junior Salesman",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E13",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E13",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E14",
+        "title": "Vandalism",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E14",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E14",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E15",
+        "title": "Couples Discount",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E15",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E15",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 12,
+        "error": null
+      },
+      {
+        "episode_id": "S09E16",
+        "title": "Moving On",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E16",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E16",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:48:59Z",
+        "duration_ms": 13,
+        "error": null
+      },
+      {
+        "episode_id": "S09E17",
+        "title": "The Farm",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E17",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E17",
+        "started_at_utc": "2026-03-06T04:48:59Z",
+        "ended_at_utc": "2026-03-06T04:49:21Z",
+        "duration_ms": 21954,
+        "error": null
+      },
+      {
+        "episode_id": "S09E18",
+        "title": "Promos",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E18",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E18",
+        "started_at_utc": "2026-03-06T04:49:21Z",
+        "ended_at_utc": "2026-03-06T04:49:46Z",
+        "duration_ms": 25414,
+        "error": null
+      },
+      {
+        "episode_id": "S09E19",
+        "title": "Stairmageddon",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E19",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E19",
+        "started_at_utc": "2026-03-06T04:49:46Z",
+        "ended_at_utc": "2026-03-06T04:50:14Z",
+        "duration_ms": 27543,
+        "error": null
+      },
+      {
+        "episode_id": "S09E20",
+        "title": "Paper Airplane",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E20",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E20",
+        "started_at_utc": "2026-03-06T04:50:14Z",
+        "ended_at_utc": "2026-03-06T04:50:36Z",
+        "duration_ms": 21761,
+        "error": null
+      },
+      {
+        "episode_id": "S09E21",
+        "title": "Livin’ The Dream",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E21",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E21",
+        "started_at_utc": "2026-03-06T04:50:36Z",
+        "ended_at_utc": "2026-03-06T04:50:52Z",
+        "duration_ms": 16738,
+        "error": null
+      },
+      {
+        "episode_id": "S09E22",
+        "title": "A.A.R.M",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E22",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E22",
+        "started_at_utc": "2026-03-06T04:50:52Z",
+        "ended_at_utc": "2026-03-06T04:51:16Z",
+        "duration_ms": 24011,
+        "error": null
+      },
+      {
+        "episode_id": "S09E23",
+        "title": "Finale",
+        "status": "done",
+        "segments_build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E23",
+        "episode_card_build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E23",
+        "started_at_utc": "2026-03-06T04:51:16Z",
+        "ended_at_utc": "2026-03-06T04:51:54Z",
+        "duration_ms": 37973,
+        "error": null
+      }
+    ]
+  }
+}

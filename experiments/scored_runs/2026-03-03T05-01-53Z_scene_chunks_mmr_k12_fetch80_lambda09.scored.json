@@ -1,0 +1,284 @@
+{
+  "run": {
+    "run_id": "2026-03-03T05-01-53Z_scene_chunks_mmr_k12_fetch80_lambda09",
+    "run_name": "scene_chunks_mmr_k12_fetch80_lambda09",
+    "created_at_utc": "2026-03-03T05:01:53Z",
+    "notes": ""
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 8993
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "mmr",
+      "k": 12,
+      "fetch_k": 80,
+      "lambda_mult": 0.9
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 54,
+    "overall_scores": [
+      26,
+      100,
+      85,
+      30,
+      25,
+      30,
+      84
+    ]
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 26,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "The candidate answer states the scene is from Season 3, Episode 17 ('Dwight's Speech'), but retrieved context shows the scene is from Season 3, Episode 20 ('Product Recall').",
+          "The candidate answer claims Jim dresses as Dwight and says the line, but retrieved context does not explicitly confirm Jim is dressed as Dwight in S03E17.",
+          "The candidate answer provides a detailed dialogue that is not fully supported by the retrieved context."
+        ],
+        "missing_points": [
+          "Correct episode identification (S03E20).",
+          "Clear statement that Jim impersonates Dwight and says the line.",
+          "Context that Jim is mocking Dwight's obsessions."
+        ],
+        "notes": "The candidate answer incorrectly identifies the episode as S03E17 instead of S03E20, which is supported by the retrieved context. The retrieved context includes the relevant dialogue from S03E20 where Jim impersonates Dwight and says the line. The candidate answer's detailed dialogue and episode title are not supported by the retrieved context, leading to low groundedness and hallucination scores."
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 5,
+        "overall": 100,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "notes": "Candidate answer fully matches the gold answer and is supported by the retrieved context."
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E07",
+          "S02E08",
+          "S02E13",
+          "S02E15",
+          "S02E20",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 4,
+        "completeness": 4,
+        "hallucination": 5,
+        "overall": 85,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael dealing with sexual harassment policy issues due to inappropriate emails",
+          "Michael pitching to a client with Jan's help",
+          "A fire in the office kitchen",
+          "Dwight's overzealous investigations into a found joint"
+        ],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Dwight’s rivalry with Jim through workplace conflicts and pranks",
+          "Jim confesses his feelings and kisses Pam at Casino Night"
+        ],
+        "notes": "The candidate answer provides a detailed summary with many episode references supported by the retrieved context. However, some claims (e.g., sexual harassment emails, client pitch, fire, Dwight's drug testing) are not clearly supported by the retrieved documents. The answer misses key emotional beats and relationship tensions emphasized in the gold answer, such as Pam's engagement to Roy and Jim's confession at Casino Night."
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 30,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim undermines Dwight's efforts and position",
+          "Jim mocks and imitates Dwight",
+          "Dwight calls Jim 'a menace'"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Examples from distinct situations/episodes",
+          "Nuance of deep respect underneath rivalry"
+        ],
+        "notes": "The candidate answer partially reflects the retrieved context, mainly that Dwight is annoyed by Jim and sees him as an enemy/friend. However, the retrieved context does not support claims about Jim undermining Dwight's efforts or mocking him, nor does it provide concrete examples or the nuanced reasons from the gold answer. The answer lacks completeness and grounding in the provided context."
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 1,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 25,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Michael proposed to Carol on their fourth date",
+          "Michael found out he had herpes during relationship with Carol",
+          "Carol thought Michael was making a bigger deal out of herpes",
+          "Michael had sex with Jan and considered her his girlfriend",
+          "Jan gave Michael poor performance reviews after relationship became official",
+          "Relationship with Jan ended ambiguously",
+          "Jim strongly advised Michael never to see Helene again",
+          "Michael agreed to stop seeing Helene to avoid conflict",
+          "Michael mentions having a European girlfriend"
+        ],
+        "missing_points": [
+          "Relationship with Donna ended after Michael learned she was married",
+          "Relationship with Helene ended because she was too old for Michael",
+          "Holly Flax relationship ended with Michael proposing and leaving to be with her",
+          "More explicit details on how Jan and Michael's relationship ended",
+          "More details on how Carol and Michael's relationship ended"
+        ],
+        "notes": "The candidate answer provides some plausible relationships but most claims are not supported by the retrieved context, which contains very limited information. The gold answer includes more detailed and specific reasons for relationship endings that are not found in the context or candidate answer. The candidate answer also introduces details not supported by the context, leading to low groundedness and hallucination scores."
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 5,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Explanation of what the teapot letter is",
+          "Why the teapot letter is important",
+          "Reference to Jim giving Pam a teapot with meaningful items",
+          "Mention of the Season 2 Christmas episode"
+        ],
+        "notes": "Candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate. No unsupported claims or hallucinations present. However, the answer does not provide any information beyond acknowledging lack of data."
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 4,
+        "completeness": 4,
+        "hallucination": 4,
+        "overall": 84,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Creed was involved in illegal activities in the 1960s including selling drugs, trafficking endangered species meat, and stealing weapons-grade LSD from the military",
+          "Creed warns that nobody steals from him and the last person who did disappeared",
+          "Creed feels threatened by changes at work and the younger generation, referring to a 'grim reaper' kid and concerns about retraining"
+        ],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is comic relief as an unpredictable, mysterious presence",
+          "Creed is arrested in the series finale"
+        ],
+        "notes": "The candidate answer is mostly supported by the retrieved context, including Creed's mysteriousness, evasiveness, and the fake death incident. However, some specific claims about illegal activities and threats are not supported by the retrieved context. The answer misses Creed's official role and the fact that he is arrested in the finale."
+      }
+    }
+  ]
+}

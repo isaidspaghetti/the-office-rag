@@ -1,0 +1,235 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_nano_2026-03-04_S09E21",
+  "created_at_utc": "2026-03-04T23:36:48Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S09E21",
+  "segment_id": "S09E21:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 19001,
+  "segment_char_end": 25651,
+  "people": [
+    "Dwight Schrute",
+    "David Wallace",
+    "Pam",
+    "Jim",
+    "Andy",
+    "Creed",
+    "Kevin",
+    "Clark",
+    "Angela",
+    "Toby",
+    "Phyllis",
+    "Stanley"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight is announced as the new manager and accepts a new position.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19662,
+          "char_end": 19688,
+          "snippet": "Dwight Schrute is manager!"
+        },
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 20007,
+          "char_end": 20030,
+          "snippet": "Dwight: Thank you, Jim."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim declines the assistant regional manager position, opting for assistant to the regional manager.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 20374,
+          "char_end": 20428,
+          "snippet": "Jim: Nope. Can't accept that job. It's not a real job."
+        },
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 20568,
+          "char_end": 20594,
+          "snippet": "Dwight: Shake on it? Done."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy discusses his dreams, makes impulsive decisions, and performs a song.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight congratulates and interacts with colleagues, including Pam and Jim.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy attempts to leave Dunder Mifflin and makes a controversial request to Toby.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Andy and Angela have a tense conversation about their past and future.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 24560,
+          "char_end": 24643,
+          "snippet": "Andy: Wow. Angela. What we had was great, and, honestly I think about it a lot too—"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight Schrute is manager!",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19746,
+          "char_end": 19807,
+          "snippet": "Creed (from atop his desk): Creed Bratton is the new manager!"
+        }
+      ]
+    },
+    {
+      "quote": "Shake on it? Done.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 20568,
+          "char_end": 20594,
+          "snippet": "Dwight: Shake on it? Done."
+        }
+      ]
+    },
+    {
+      "quote": "Goin' with my dream. Gotta go all in, isn't that right, Jim?",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 21571,
+          "char_end": 21631,
+          "snippet": "Goin' with my dream. Gotta go all in, isn't that right, Jim?"
+        }
+      ]
+    },
+    {
+      "quote": "I will remember you—everyone is slightly impressed",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Dwight's management?",
+    "Will Andy succeed in his plans to leave Dunder Mifflin?",
+    "What is the final outcome of Andy and Angela's relationship?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Dwight's management?",
+      "why_uncertain": "The segment does not show the aftermath of Dwight's management.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    },
+    {
+      "question": "Will Andy succeed in his plans to leave Dunder Mifflin?",
+      "why_uncertain": "The segment ends with Andy making decisions and performing, no resolution shown.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    },
+    {
+      "question": "What is the final outcome of Andy and Angela's relationship?",
+      "why_uncertain": "The segment shows a tense conversation but no resolution.",
+      "evidence": [
+        {
+          "episode_id": "S09E21",
+          "segment_id": "S09E21:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e21_livin_the_dream_script.txt",
+          "char_start": 19001,
+          "char_end": 25651,
+          "snippet": "David Wallace: Attention, everyone, just a quick announcement. Little reconfiguration to the staff. Dwight Schrute—\nDwight: David. Can I just do one thing while you're making this announcement and then I'll never, ever do it again?\nDavid Wa"
+        }
+      ]
+    }
+  ]
+}

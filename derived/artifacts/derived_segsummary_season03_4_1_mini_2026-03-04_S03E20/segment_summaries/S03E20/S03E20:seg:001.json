@@ -1,0 +1,239 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20",
+  "created_at_utc": "2026-03-05T19:49:48Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E20",
+  "segment_id": "S03E20:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 7139,
+  "segment_char_end": 14028,
+  "people": [
+    "Andy",
+    "Jim",
+    "Michael",
+    "Dwight",
+    "Pam",
+    "Kevin",
+    "Oscar",
+    "Angela",
+    "Kelly",
+    "Creed",
+    "Barbara",
+    "Jamie",
+    "Chad Lite",
+    "School Official"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael holds a press conference to apologize for a controversial watermark incident involving Dunder Mifflin's paper.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 10492,
+          "char_end": 10626,
+          "snippet": "Michael: And so, with the eyes of the nation upon us, I would like to say that Dunder Mifflin truly regrets this unfortunate incident."
+        },
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 10934,
+          "char_end": 11015,
+          "snippet": "Barbara: Well it isn't ended. I'm… I'm very angry. I— I could have lost business."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Barbara rejects Michael's apology and demands he resign due to the offensive watermark.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 13174,
+          "char_end": 13231,
+          "snippet": "Barbara: I, for starters, I think that you should resign."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight interacts with a reporter from the Scranton Times and grants him limited security clearance.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 8375,
+          "char_end": 8428,
+          "snippet": "Dwight: And you must be uh, from the Washington Post."
+        },
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 8429,
+          "char_end": 8490,
+          "snippet": "Chad Lite: Scranton Times. Chad Lite, \"Lighter Side of Life.\""
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Andy discovers that Jamie, a student he knows, is actually in high school, which surprises him and Jim.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 9123,
+          "char_end": 9171,
+          "snippet": "Andy: You never told me you were in high-school!"
+        },
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 9272,
+          "char_end": 9317,
+          "snippet": "Jim: Well… that's not gonna hold up in court."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Dwight humorously comments on the watermark's depiction of animals having consensual sex.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 12774,
+          "char_end": 12864,
+          "snippet": "Dwight: May I point out that the sex appeared to be consensual? Both animals were smiling."
+        },
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 12898,
+          "char_end": 12987,
+          "snippet": "Dwight: I grew up on a farm. I have seen animals having sex in every position imaginable."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dunder Mifflin truly regrets this unfortunate incident.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 10492,
+          "char_end": 10626,
+          "snippet": "Michael: And so, with the eyes of the nation upon us, I would like to say that Dunder Mifflin truly regrets this unfortunate incident."
+        }
+      ]
+    },
+    {
+      "quote": "You're the head of the company! And so you should lose your job!",
+      "speaker": "Barbara",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 7139,
+          "char_end": 14028,
+          "snippet": "=== SCENE 018 ===\n\nAndy: So, Tuna. When we get in there, let's do a really good job, okay?\nJim: Did that\nAndy: Well not everything a guy says needs to be said. Sometimes it's just about the music of the conversation.\n\n=== SCENE 019 ===\n\nAnd"
+        }
+      ]
+    },
+    {
+      "quote": "May I point out that the sex appeared to be consensual? Both animals were smiling.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 12774,
+          "char_end": 12864,
+          "snippet": "Dwight: May I point out that the sex appeared to be consensual? Both animals were smiling."
+        }
+      ]
+    },
+    {
+      "quote": "You never told me you were in high-school!",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 9123,
+          "char_end": 9171,
+          "snippet": "Andy: You never told me you were in high-school!"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the final outcome of Barbara's complaint and Michael's potential resignation?",
+    "What is the nature of the relationship between Andy and Jamie?",
+    "What is the significance of the reporter Chad Lite's presence?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the final outcome of Barbara's complaint and Michael's potential resignation?",
+      "why_uncertain": "The segment ends with Barbara threatening to call the Better Business Bureau and Michael refusing to resign, but no resolution is shown.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 7139,
+          "char_end": 14028,
+          "snippet": "=== SCENE 018 ===\n\nAndy: So, Tuna. When we get in there, let's do a really good job, okay?\nJim: Did that\nAndy: Well not everything a guy says needs to be said. Sometimes it's just about the music of the conversation.\n\n=== SCENE 019 ===\n\nAnd"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of the relationship between Andy and Jamie?",
+      "why_uncertain": "The segment shows Andy surprised Jamie is in high school and Jim mentions a legal issue, but their relationship details are not explained.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 7139,
+          "char_end": 14028,
+          "snippet": "=== SCENE 018 ===\n\nAndy: So, Tuna. When we get in there, let's do a really good job, okay?\nJim: Did that\nAndy: Well not everything a guy says needs to be said. Sometimes it's just about the music of the conversation.\n\n=== SCENE 019 ===\n\nAnd"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the reporter Chad Lite's presence?",
+      "why_uncertain": "Chad Lite is granted security clearance and attends the press conference, but his role or impact is not detailed.",
+      "evidence": [
+        {
+          "episode_id": "S03E20",
+          "segment_id": "S03E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+          "char_start": 7139,
+          "char_end": 14028,
+          "snippet": "=== SCENE 018 ===\n\nAndy: So, Tuna. When we get in there, let's do a really good job, okay?\nJim: Did that\nAndy: Well not everything a guy says needs to be said. Sometimes it's just about the music of the conversation.\n\n=== SCENE 019 ===\n\nAnd"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_nano_2026-03-04_S09E03",
+  "created_at_utc": "2026-03-04T23:22:56Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S09E03",
+  "segment_id": "S09E03:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7075,
+  "people": [
+    "Dwight",
+    "Fake Jim",
+    "Pam",
+    "Erin",
+    "Darryl",
+    "Andy",
+    "Nellie",
+    "Jim",
+    "Steve",
+    "Krieger",
+    "Paul Krieger",
+    "Michelle Obama",
+    "Pete",
+    "Clark",
+    "Diana Ross",
+    "Stanley",
+    "Phyllis",
+    "Oscar"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight confronts Fake Jim, who is pretending to be Jim.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 45,
+          "char_end": 65,
+          "snippet": "Dwight: Who are you?"
+        },
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 165,
+          "char_end": 204,
+          "snippet": "Dwight: You're not Jim. Jim's not Asian"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Nellie discovers Andy is distantly related to Michelle Obama.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 3970,
+          "char_end": 4049,
+          "snippet": "Nellie: Well, it turns out, you are a distant blood relative of Michelle Obama!"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy and Darryl discuss their distant relation to Michelle Obama, leading to a humorous moment.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 5884,
+          "char_end": 5930,
+          "snippet": "Andy: It's me! I am related to Michelle Obama."
+        },
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 5948,
+          "char_end": 5970,
+          "snippet": "Darryl: What?! Really?"
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Dwight suggests learning Dothraki as an impressive language.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 2181,
+          "char_end": 2255,
+          "snippet": "Dwight: You wanna learn a really impressive second language? Try dothraki."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Pam arranges a dinner reservation and interacts with Nellie.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 1016,
+          "char_end": 1093,
+          "snippet": "Pam: Jim's at the dentist this morning. And Steve is an actor friend of ours."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Nellie practices driving and discusses her stress about the driver's license test.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 3393,
+          "char_end": 3455,
+          "snippet": "Pam: Nellie, I could practice with you in my car at lunchtime."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am related to Michelle Obama.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 5884,
+          "char_end": 5930,
+          "snippet": "Andy: It's me! I am related to Michelle Obama."
+        }
+      ]
+    },
+    {
+      "quote": "You wanna learn a really impressive second language? Try dothraki.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 2181,
+          "char_end": 2255,
+          "snippet": "Dwight: You wanna learn a really impressive second language? Try dothraki."
+        }
+      ]
+    },
+    {
+      "quote": "It's a lot easier than French.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 2606,
+          "char_end": 2636,
+          "snippet": "It's a lot easier than French."
+        }
+      ]
+    },
+    {
+      "quote": "Dwight: Who are you?",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 45,
+          "char_end": 65,
+          "snippet": "Dwight: Who are you?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the exact nature of Fake Jim's impersonation?",
+    "How does the relation to Michelle Obama impact the characters' interactions?",
+    "What is the outcome of Nellie's driving practice?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the exact nature of Fake Jim's impersonation?",
+      "why_uncertain": "The segment only shows Dwight's suspicion and confrontation, not the full context of Fake Jim's intentions.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 0,
+          "char_end": 7075,
+          "snippet": "=== SCENE 000 ===\n\nFake Jim: Morning, Dwight\nDwight: Who are you?\nFake Jim: Who am I? I'm Jim. We've been working together for twelve years. Ha, Weird joke, Dwight.\nDwight: You're not Jim. Jim's not Asian\nFake Jim: You seriously never notic"
+        }
+      ]
+    },
+    {
+      "question": "How does the relation to Michelle Obama impact the characters' interactions?",
+      "why_uncertain": "The segment mentions the relation but does not show subsequent effects or reactions.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 0,
+          "char_end": 7075,
+          "snippet": "=== SCENE 000 ===\n\nFake Jim: Morning, Dwight\nDwight: Who are you?\nFake Jim: Who am I? I'm Jim. We've been working together for twelve years. Ha, Weird joke, Dwight.\nDwight: You're not Jim. Jim's not Asian\nFake Jim: You seriously never notic"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Nellie's driving practice?",
+      "why_uncertain": "The segment only discusses her intentions and stress, not the result.",
+      "evidence": [
+        {
+          "episode_id": "S09E03",
+          "segment_id": "S09E03:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e03_andy_s_ancestry_script.txt",
+          "char_start": 0,
+          "char_end": 7075,
+          "snippet": "=== SCENE 000 ===\n\nFake Jim: Morning, Dwight\nDwight: Who are you?\nFake Jim: Who am I? I'm Jim. We've been working together for twelve years. Ha, Weird joke, Dwight.\nDwight: You're not Jim. Jim's not Asian\nFake Jim: You seriously never notic"
+        }
+      ]
+    }
+  ]
+}

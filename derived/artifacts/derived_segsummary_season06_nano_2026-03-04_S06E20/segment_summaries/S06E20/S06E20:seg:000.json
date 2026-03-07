@@ -1,0 +1,216 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_nano_2026-03-04_S06E20",
+  "created_at_utc": "2026-03-04T23:34:58Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S06E20",
+  "segment_id": "S06E20:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7140,
+  "people": [
+    "Cookie Monster (Kevin's voice)",
+    "Andy",
+    "Oscar",
+    "Kevin",
+    "Phyllis",
+    "Dwight",
+    "Ryan",
+    "Kelly",
+    "Angela",
+    "Erin",
+    "Pam",
+    "Jim",
+    "Michael",
+    "Darryl",
+    "Gabe"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The office celebrates Secretary's Day with various gestures and jokes.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 175,
+          "char_end": 197,
+          "snippet": "Andy: This is awesome!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Kevin is uncomfortable with the Cookie Monster parody and feels it makes fun of him.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nCookie Monster (Kevin's voice): Oscar, Toby said he left my Girl Scout cookies on my chair. Have you seen them? Wait I'm sitting on them.\n[STAGE] all laugh\nAndy: This is awesome!\nOscar: Thank you. It didn't even take that"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Gabe addresses the office about the Cookie Monster video being inappropriate and forbidden.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 5802,
+          "char_end": 5843,
+          "snippet": "Gabe: And that's straight from corporate."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael plans to take Erin to lunch for Secretary's Day, and they discuss their plans.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 3417,
+          "char_end": 3516,
+          "snippet": "Michael: I wanted to know what your plans for lunch were because I was hoping to ask you to… lunch."
+        },
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 3557,
+          "char_end": 3605,
+          "snippet": "Erin: I got a picture of you asking me to lunch."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The segment includes office banter, office life moments, and humorous exchanges about Secretary's Day.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 3900,
+          "char_end": 3944,
+          "snippet": "Michael: Okay, well, we'll figure something."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "This is Kevin. This is Kevin.",
+      "speaker": "Kevin",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nCookie Monster (Kevin's voice): Oscar, Toby said he left my Girl Scout cookies on my chair. Have you seen them? Wait I'm sitting on them.\n[STAGE] all laugh\nAndy: This is awesome!\nOscar: Thank you. It didn't even take that"
+        }
+      ]
+    },
+    {
+      "quote": "It's Secretary's Day. And it is Erin's and my three-week anniversary.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 1156,
+          "char_end": 1231,
+          "snippet": "Andy: It's Secretary's Day. And it is Erin's and my three-week anniversary."
+        }
+      ]
+    },
+    {
+      "quote": "I'm going to give Erin $15.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 2620,
+          "char_end": 2656,
+          "snippet": "Michael: I'm going to give Erin $15."
+        }
+      ]
+    },
+    {
+      "quote": "Hello, everyone. If I might have a moment of your time.",
+      "speaker": "Gabe",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 5566,
+          "char_end": 5627,
+          "snippet": "Gabe: Hello, everyone. If I might have a moment of your time."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific plans Michael and Erin have for lunch?",
+    "The exact nature of the office's overall celebration or response to Secretary's Day.",
+    "Kevin's feelings about the parody video beyond feeling it makes fun of him."
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific plans Michael and Erin have for lunch?",
+      "why_uncertain": "The segment shows their discussion but does not specify the final plan.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nCookie Monster (Kevin's voice): Oscar, Toby said he left my Girl Scout cookies on my chair. Have you seen them? Wait I'm sitting on them.\n[STAGE] all laugh\nAndy: This is awesome!\nOscar: Thank you. It didn't even take that"
+        }
+      ]
+    },
+    {
+      "question": "The exact nature of the office's overall celebration or response to Secretary's Day.",
+      "why_uncertain": "The segment shows some gestures and jokes but does not detail the full office response.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nCookie Monster (Kevin's voice): Oscar, Toby said he left my Girl Scout cookies on my chair. Have you seen them? Wait I'm sitting on them.\n[STAGE] all laugh\nAndy: This is awesome!\nOscar: Thank you. It didn't even take that"
+        }
+      ]
+    },
+    {
+      "question": "Kevin's feelings about the parody video beyond feeling it makes fun of him.",
+      "why_uncertain": "The segment only shows Kevin's feeling that it feels like they're making fun of him, not more.",
+      "evidence": [
+        {
+          "episode_id": "S06E20",
+          "segment_id": "S06E20:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e20_secretary_s_day_script.txt",
+          "char_start": 0,
+          "char_end": 7140,
+          "snippet": "=== SCENE 000 ===\n\nCookie Monster (Kevin's voice): Oscar, Toby said he left my Girl Scout cookies on my chair. Have you seen them? Wait I'm sitting on them.\n[STAGE] all laugh\nAndy: This is awesome!\nOscar: Thank you. It didn't even take that"
+        }
+      ]
+    }
+  ]
+}

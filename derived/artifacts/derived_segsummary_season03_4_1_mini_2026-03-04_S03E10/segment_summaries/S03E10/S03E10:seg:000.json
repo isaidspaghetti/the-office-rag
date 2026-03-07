@@ -1,0 +1,227 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+  "created_at_utc": "2026-03-05T19:38:04Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E10",
+  "segment_id": "S03E10:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6327,
+  "people": [
+    "Dwight",
+    "Pam",
+    "Jim",
+    "Toby",
+    "Michael",
+    "Phyllis",
+    "Creed",
+    "Kevin",
+    "Andy",
+    "Carol"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight brings a dead goose to the office and plans to cook it despite objections.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 19,
+          "char_end": 97,
+          "snippet": "Dwight: Merry Christmas!\n[STAGE] holds up dead goose and puts it on Pam's desk"
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 340,
+          "char_end": 462,
+          "snippet": "Dwight: Relax, OK. And because this is Christmas, I am going to roast this goose and prepare it with a wild rice dressing."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Toby insists Dwight cannot keep the dead goose in the office, but Dwight resists.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 1486,
+          "char_end": 1526,
+          "snippet": "Toby: Dwight, you cannot keep that here."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 1527,
+          "char_end": 1603,
+          "snippet": "Dwight: Ok, that is ridiculous. And totally against the spirit of Christmas."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael arrives riding a worn bicycle and looks for the toy drive box.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 1929,
+          "char_end": 2022,
+          "snippet": "Michael (Riding a bicycle down the hallway and singing): Deck the halls with boughs of holly."
+        },
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 2271,
+          "char_end": 2314,
+          "snippet": "Michael: I'm looking for the toy drive box."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael announces his girlfriend Carol is coming to the party and reveals a surprise trip to Jamaica.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 3060,
+          "char_end": 3203,
+          "snippet": "Michael: This is going to be the best Christmas ever. My girlfriend Carol is coming to our party tonight, and I have a little surprise for her."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Carol arrives early, confronts Michael about a fake Christmas card, and later breaks up with him.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 4649,
+          "char_end": 4704,
+          "snippet": "Carol: What is this?\n[STAGE] Holds up a Christmas photo"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "He's already dead.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 814,
+          "char_end": 869,
+          "snippet": "Dwight: No, Toby, this is different. He's already dead."
+        }
+      ]
+    },
+    {
+      "quote": "This is going to be the best Christmas ever.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 3060,
+          "char_end": 3203,
+          "snippet": "Michael: This is going to be the best Christmas ever. My girlfriend Carol is coming to our party tonight, and I have a little surprise for her."
+        }
+      ]
+    },
+    {
+      "quote": "I think you're a really sweet guy.",
+      "speaker": "Carol",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 5481,
+          "char_end": 5522,
+          "snippet": "Carol: I think you're a really sweet guy."
+        }
+      ]
+    },
+    {
+      "quote": "No, Carol. You walk out that door and it is over.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 6212,
+          "char_end": 6270,
+          "snippet": "Michael: No, Carol. You walk out that door and it is over."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What happens after Carol leaves Michael's office?",
+    "Does Dwight actually cook the goose in the office?",
+    "How do other office members react to Michael's surprise trip announcement?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What happens after Carol leaves Michael's office?",
+      "why_uncertain": "The segment ends immediately after Carol closes the door, with no further information.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Merry Christmas!\n[STAGE] holds up dead goose and puts it on Pam's desk\nPam: Merry Christ– NO! Why… why did you bring that here?\n[STAGE] looks up\nDwight: Don't worry, she's dead. Oh wait. He's dead.\nPam: Dwight, wh"
+        }
+      ]
+    },
+    {
+      "question": "Does Dwight actually cook the goose in the office?",
+      "why_uncertain": "Dwight expresses intent to cook the goose but the segment does not show any follow-up.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Merry Christmas!\n[STAGE] holds up dead goose and puts it on Pam's desk\nPam: Merry Christ– NO! Why… why did you bring that here?\n[STAGE] looks up\nDwight: Don't worry, she's dead. Oh wait. He's dead.\nPam: Dwight, wh"
+        }
+      ]
+    },
+    {
+      "question": "How do other office members react to Michael's surprise trip announcement?",
+      "why_uncertain": "The segment only shows Michael's announcement without reactions from others.",
+      "evidence": [
+        {
+          "episode_id": "S03E10",
+          "segment_id": "S03E10:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Merry Christmas!\n[STAGE] holds up dead goose and puts it on Pam's desk\nPam: Merry Christ– NO! Why… why did you bring that here?\n[STAGE] looks up\nDwight: Don't worry, she's dead. Oh wait. He's dead.\nPam: Dwight, wh"
+        }
+      ]
+    }
+  ]
+}

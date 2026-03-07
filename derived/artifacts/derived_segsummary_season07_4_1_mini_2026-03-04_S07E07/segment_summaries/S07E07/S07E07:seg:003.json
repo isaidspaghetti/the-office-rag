@@ -1,0 +1,182 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_4_1_mini_2026-03-04_S07E07",
+  "created_at_utc": "2026-03-06T01:44:18Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S07E07",
+  "segment_id": "S07E07:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 19387,
+  "segment_char_end": 21990,
+  "people": [
+    "Michael",
+    "Andy",
+    "Bus driver",
+    "Guy",
+    "Carla",
+    "Girl",
+    "Erin",
+    "Another guy"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael and Andy insist the bus driver stop the bus despite the driver being on a schedule.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 20838,
+          "char_end": 20905,
+          "snippet": "Michael & Andy (shouting and clapping): Stop the bus! Stop the bus!"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "The bus finally stops in Tennessee after Michael and Andy's insistence.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 20096,
+          "char_end": 20130,
+          "snippet": "Bus driver: Stopping in Tennessee."
+        },
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 20906,
+          "char_end": 20935,
+          "snippet": "Guy: Okay, stop the dang bus."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Erin arrives to pick up Michael, Andy, and a kid from the road and offers to take them home or back to the church.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21167,
+          "char_end": 21246,
+          "snippet": "Erin (driving up to pick up Michael, Andy, and kid off the road): Get in quick."
+        },
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21309,
+          "char_end": 21377,
+          "snippet": "Erin: Do you guys want me to take you home or go back to the church?"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Most people have left the church to see a movie suggested by Kevin.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21418,
+          "char_end": 21473,
+          "snippet": "Erin: No, actually most of them went to go see a movie."
+        },
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21498,
+          "char_end": 21575,
+          "snippet": "Erin: Yeah. Kevin suggested it, and then they all went in Meredith's minivan."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael expresses relief about being back in a country with movies.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21576,
+          "char_end": 21639,
+          "snippet": "Michael: It is so nice to be back in a country that has movies."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Stop the bus! Stop the bus!",
+      "speaker": "Michael & Andy",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 20838,
+          "char_end": 20905,
+          "snippet": "Michael & Andy (shouting and clapping): Stop the bus! Stop the bus!"
+        }
+      ]
+    },
+    {
+      "quote": "It is so nice to be back in a country that has movies.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21576,
+          "char_end": 21639,
+          "snippet": "Michael: It is so nice to be back in a country that has movies."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Why did Michael and Andy want the bus to stop?",
+    "What is the significance of the movie 'Lake Wobblegone' mentioned at the end?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Why did Michael and Andy want the bus to stop?",
+      "why_uncertain": "The segment shows their insistence but does not explicitly state their motivation.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 19387,
+          "char_end": 21990,
+          "snippet": "Michael: Can you fake a seizure or a heart attack or something?\nAndy: I can make myself cry.\nMichael: Do that. Do it.\nAndy: Should I-I got it. I got it. Um, hey, I saw a sign for a scenic overlook coming up. Really love to check out the vie"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the movie 'Lake Wobblegone' mentioned at the end?",
+      "why_uncertain": "The segment only mentions the movie title and a radio excerpt without context.",
+      "evidence": [
+        {
+          "episode_id": "S07E07",
+          "segment_id": "S07E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e07_christening_script.txt",
+          "char_start": 21696,
+          "char_end": 21763,
+          "snippet": "Erin: Oh, Lake Wobblegone's on. Do you guys-are you cool with that?"
+        }
+      ]
+    }
+  ]
+}

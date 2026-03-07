@@ -1,0 +1,221 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_4_1_mini_2026-03-04_S01E05",
+  "created_at_utc": "2026-03-05T06:33:26Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S01E05",
+  "segment_id": "S01E05:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6320,
+  "people": [
+    "Michael",
+    "Jim",
+    "Dwight",
+    "Ryan",
+    "Pam",
+    "Phyllis",
+    "Stanley",
+    "Oscar",
+    "Kevin",
+    "Darryl",
+    "Lonny",
+    "Roy"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael announces a friendly basketball game between office and warehouse staff to boost morale.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 210,
+          "char_end": 324,
+          "snippet": "Michael: Today at lunchtime we're going to be playing the warehouse staff at a friendly little game of basketball."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight wants to be on the basketball team but Michael denies him due to past behavior and assigns him weekend work instead.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 812,
+          "char_end": 915,
+          "snippet": "Dwight: Michael, can I talk to you, please? Privately? In your office? I think I should be on the team."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 916,
+          "char_end": 1003,
+          "snippet": "Michael: No. And that's not me being mean, Dwight. That is based on your past behavior."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael selects the basketball team lineup including himself, Stanley, Jim, Ryan, and Dwight, while Phyllis is excluded.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 5899,
+          "char_end": 5922,
+          "snippet": "Michael: Sorry Phyllis."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael jokes about the warehouse staff and introduces them to the office staff, including Darryl and Lonny.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 2649,
+          "char_end": 2724,
+          "snippet": "Michael: And here we have \"Mister Roger's Neighborhood.\" Come on over here."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael assigns Jim to manage the vacation schedule as a way to keep him busy and prevent complaints about weekend work.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 6194,
+          "char_end": 6254,
+          "snippet": "Michael: Jim, you're in charge of the vacation schedule now."
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 6255,
+          "char_end": 6270,
+          "snippet": "Jim: Oh my God."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 19,
+          "char_end": 142,
+          "snippet": "Michael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent."
+        }
+      ]
+    },
+    {
+      "quote": "This is our warehouse. Or, as I like to call it, the whorehouse. But don't you call it that, I've earned the right.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 2449,
+          "char_end": 2612,
+          "snippet": "Michael: All right, managing by walking around. This is our warehouse. Or, as I like to call it, the whorehouse. But don't you call it that, I've earned the right."
+        }
+      ]
+    },
+    {
+      "quote": "You would follow me to the ends of the earth, grumbling all the way.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 0,
+          "char_end": 6320,
+          "snippet": "=== SCENE 000 ===\n\nMichael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.\n[STAGE] Ryan holds up his bag\nDwight: Michael!\n\n=== SCENE 001 ===\n\nMichael: Today at lunchtime we"
+        }
+      ]
+    },
+    {
+      "quote": "Threat neutralized.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 6271,
+          "char_end": 6299,
+          "snippet": "Michael: Threat neutralized."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will Dwight accept the weekend work assignment without further conflict?",
+    "How will the basketball game actually proceed and what will be the outcome?",
+    "What is the nature of Pam's relationship with Roy beyond dating?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will Dwight accept the weekend work assignment without further conflict?",
+      "why_uncertain": "The segment ends with Dwight and Michael negotiating roles but does not show Dwight's final reaction or acceptance.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 0,
+          "char_end": 6320,
+          "snippet": "=== SCENE 000 ===\n\nMichael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.\n[STAGE] Ryan holds up his bag\nDwight: Michael!\n\n=== SCENE 001 ===\n\nMichael: Today at lunchtime we"
+        }
+      ]
+    },
+    {
+      "question": "How will the basketball game actually proceed and what will be the outcome?",
+      "why_uncertain": "The segment only covers the team selection and pre-game preparations but does not show the game itself or its results.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 0,
+          "char_end": 6320,
+          "snippet": "=== SCENE 000 ===\n\nMichael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.\n[STAGE] Ryan holds up his bag\nDwight: Michael!\n\n=== SCENE 001 ===\n\nMichael: Today at lunchtime we"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Pam's relationship with Roy beyond dating?",
+      "why_uncertain": "The segment only briefly mentions Roy dating Pam without further details on their relationship.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 0,
+          "char_end": 6320,
+          "snippet": "=== SCENE 000 ===\n\nMichael (to Jim): : Hey, you ready?\nMichael: All right, all right, secret sign. Hey, Ryan. Very good. Excellent, excellent.\n[STAGE] Ryan holds up his bag\nDwight: Michael!\n\n=== SCENE 001 ===\n\nMichael: Today at lunchtime we"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E22",
+  "created_at_utc": "2026-03-05T19:19:09Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S02E22",
+  "segment_id": "S02E22:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6693,
+  "people": [
+    "Michael",
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Roy",
+    "Jan",
+    "Oscar",
+    "Angela",
+    "Creed",
+    "Kevin",
+    "Kelly",
+    "Toby",
+    "Phyllis"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The Scranton Business Park is hosting a Casino Night in the warehouse for charity despite gambling being illegal in Pennsylvania.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 28,
+          "char_end": 154,
+          "snippet": "Tonight the Scranton Business Park is having Casino Night and we are converting our warehouse into a full-blown gambling hall."
+        },
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 155,
+          "char_end": 217,
+          "snippet": "And I know it's illegal in Pennsylvania, but it's for charity."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim claims he can win at roulette using mind control, which Dwight challenges and then witnesses the coat rack wobble.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 1070,
+          "char_end": 1088,
+          "snippet": "Jim: Mind control."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael and Jan have a complicated relationship described as 'good friends with privileges' but romance is on hold.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 2770,
+          "char_end": 2901,
+          "snippet": "Michael: Jan and I understand each other. The romance thing is sort of on hold for the time being, but we've remained good friends."
+        },
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 2902,
+          "char_end": 2950,
+          "snippet": "Good friends with privileges. Not now, some day."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael announces the charity event benefits the Boy Scouts of America and the top chip winner will get $500 to donate to a charity of their choice.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 2997,
+          "char_end": 3053,
+          "snippet": "Tonight's event is to benefit the Boy Scouts of America."
+        },
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 3340,
+          "char_end": 3464,
+          "snippet": "the person at the end of the evening with the highest chip count will receive $500 to donate to the charity of their choice."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Toby objects to inviting children to the Casino Night due to gambling, alcohol, and the warehouse setting, causing Michael to express frustration.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 4496,
+          "char_end": 4677,
+          "snippet": "Toby: Actually, I didn't think it was appropriate to invite children since it's… You know, there's gambling and alcohol, and it's in our dangerous warehouse and it's a school night…"
+        },
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 4761,
+          "char_end": 4890,
+          "snippet": "Michael: Why are you the way that you are? Honestly, every time I try to do something fun or exciting, you make it not… that way."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Michael makes awkward jokes about donating to 'Afghanistanis with AIDS' and discusses the difficulty of making AIDS jokes funny.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 5527,
+          "char_end": 5620,
+          "snippet": "Michael: There are certain topics that are off-limits to comedians, JFK, AIDS, the Holocaust."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael, because of you, some little kid in the Congo has a belly full of rice this evening.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 313,
+          "char_end": 441,
+          "snippet": "I can look in the mirror and say, \"Michael, because of you, some little kid in the Congo has a belly full of rice this evening.\""
+        }
+      ]
+    },
+    {
+      "quote": "Jim is about to prove his telekinetic powers and he needs absolute silence.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 1528,
+          "char_end": 1657,
+          "snippet": "Excuse me, everyone! Attention in the office, please. Jim is about to prove his telekinetic powers and he needs absolute silence."
+        }
+      ]
+    },
+    {
+      "quote": "Why are you the way that you are?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 4770,
+          "char_end": 4803,
+          "snippet": "Why are you the way that you are?"
+        }
+      ]
+    },
+    {
+      "quote": "There are certain topics that are off-limits to comedians, JFK, AIDS, the Holocaust.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 5536,
+          "char_end": 5620,
+          "snippet": "There are certain topics that are off-limits to comedians, JFK, AIDS, the Holocaust."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the Casino Night event and who wins the charity donation?",
+    "What is the nature of Michael and Jan's relationship beyond being 'good friends with privileges'?",
+    "Does Jim truly have telekinetic powers or was the coat rack wobble caused by something else?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the Casino Night event and who wins the charity donation?",
+      "why_uncertain": "The segment ends before revealing the event's conclusion or the winner.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 0,
+          "char_end": 6693,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Tonight the Scranton Business Park is having Casino Night and we are converting our warehouse into a full-blown gambling hall. And I know it's illegal in Pennsylvania, but it's for charity. And I consider myself "
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Michael and Jan's relationship beyond being 'good friends with privileges'?",
+      "why_uncertain": "The segment only states the relationship is on hold and does not provide further details.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 0,
+          "char_end": 6693,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Tonight the Scranton Business Park is having Casino Night and we are converting our warehouse into a full-blown gambling hall. And I know it's illegal in Pennsylvania, but it's for charity. And I consider myself "
+        }
+      ]
+    },
+    {
+      "question": "Does Jim truly have telekinetic powers or was the coat rack wobble caused by something else?",
+      "why_uncertain": "The segment shows the coat rack wobbling but does not confirm the cause.",
+      "evidence": [
+        {
+          "episode_id": "S02E22",
+          "segment_id": "S02E22:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e22_casino_night_script.txt",
+          "char_start": 0,
+          "char_end": 6693,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Tonight the Scranton Business Park is having Casino Night and we are converting our warehouse into a full-blown gambling hall. And I know it's illegal in Pennsylvania, but it's for charity. And I consider myself "
+        }
+      ]
+    }
+  ]
+}

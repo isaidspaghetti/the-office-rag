@@ -1,0 +1,128 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E22",
+  "created_at_utc": "2026-03-06T01:45:04Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S06E22",
+  "segment_id": "S06E22:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 20697,
+  "segment_char_end": 21591,
+  "people": [
+    "Michael",
+    "Donna",
+    "Dwight",
+    "Gym Instructor"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael questions Donna about another man, leading to a confusing exchange about their relationship.",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 20697,
+          "char_end": 20716,
+          "snippet": "Michael: Who is he?"
+        },
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 20798,
+          "char_end": 20827,
+          "snippet": "Donna: It's you. I'm married."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight takes over a gym workout session, ignoring the gym instructor's directions and leading the group through an intense and imaginative exercise.",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 20875,
+          "char_end": 20954,
+          "snippet": "Dwight (on workout bicycle at gym): Okay, everybody, let's take this next hill."
+        },
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 21216,
+          "char_end": 21288,
+          "snippet": "Dwight: No! The hill's a trap. Let's take the dirt road off to the side."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I'm the mistress?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 20828,
+          "char_end": 20854,
+          "snippet": "Michael: I'm the mistress?"
+        }
+      ]
+    },
+    {
+      "quote": "No! The hill's a trap. Let's take the dirt road off to the side.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 21216,
+          "char_end": 21288,
+          "snippet": "Dwight: No! The hill's a trap. Let's take the dirt road off to the side."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the true nature of Michael and Donna's relationship?",
+    "How do the other gym participants react to Dwight's leadership?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the true nature of Michael and Donna's relationship?",
+      "why_uncertain": "The dialogue is ambiguous and does not clarify their relationship beyond confusing statements.",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 20798,
+          "char_end": 20854,
+          "snippet": "Donna: It's you. I'm married.\nMichael: I'm the mistress?"
+        }
+      ]
+    },
+    {
+      "question": "How do the other gym participants react to Dwight's leadership?",
+      "why_uncertain": "The segment only shows Dwight's actions and the gym instructor's objections, but not the group's response.",
+      "evidence": [
+        {
+          "episode_id": "S06E22",
+          "segment_id": "S06E22:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e22_the_cover_up_script.txt",
+          "char_start": 21216,
+          "char_end": 21288,
+          "snippet": "Dwight: No! The hill's a trap. Let's take the dirt road off to the side."
+        }
+      ]
+    }
+  ]
+}

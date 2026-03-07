@@ -1,0 +1,193 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E07",
+  "created_at_utc": "2026-03-04T21:11:34Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E07",
+  "segment_id": "S02E07:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14202,
+  "segment_char_end": 17068,
+  "people": [
+    "Michael",
+    "Jan",
+    "Dwight",
+    "Pam",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael and Jan celebrate a successful interaction, implying they achieved something together.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14283,
+          "char_end": 14302,
+          "snippet": "Michael: We did it!"
+        },
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14303,
+          "char_end": 14318,
+          "snippet": "Jan: We got it!"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight questions Michael about his relationship with Jan, implying suspicion or concern.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 15428,
+          "char_end": 15451,
+          "snippet": "Dwight: Did you do her?"
+        },
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 15494,
+          "char_end": 15524,
+          "snippet": "Michael: Uh, no, no, no Gould."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael admits to having made out with Jan and describes their interaction.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14953,
+          "char_end": 15253,
+          "snippet": "Michael: No, nothing happened. I-I swear, nothing happened. What, I'm, totally being serious. A gentleman does not kiss and tell, and neither do I. No, seriously, guys, I'm not, I don't want to go into it at all. It's off limits. Fine, I..."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam discuss their perceived romantic connection, suggesting they consider it a date.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 16343,
+          "char_end": 16406,
+          "snippet": "Jim: Some might even say that we had our first date last night."
+        },
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 16407,
+          "char_end": 16423,
+          "snippet": "Pam: Oh, really?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael: We did it!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14283,
+          "char_end": 14302,
+          "snippet": "Michael: We did it!"
+        }
+      ]
+    },
+    {
+      "quote": "Dwight: Did you do her?",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 15428,
+          "char_end": 15451,
+          "snippet": "Dwight: Did you do her?"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: No, nothing happened. I-I swear, nothing happened.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14953,
+          "char_end": 15012,
+          "snippet": "Michael: No, nothing happened. I-I swear, nothing happened."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: Some might even say that we had our first date last night.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 16343,
+          "char_end": 16406,
+          "snippet": "Jim: Some might even say that we had our first date last night."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly happened between Michael and Jan?",
+    "Did Jan and Michael's interaction have any further consequences?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly happened between Michael and Jan?",
+      "why_uncertain": "Michael states only that they made out and nothing more, but details are not provided.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14202,
+          "char_end": 17068,
+          "snippet": "Michael (waving to Christian): See ya.\nJan: Bye… thanks. Yes!\n[STAGE] pumps fist\nMichael: We did it!\nJan: We got it!\nMichael: Nailed it. Nailed it! Come here.\nJan: I am really- Thrilled. Let's go.\n[STAGE] Michael kisses Jan\n[STAGE] Michael "
+        }
+      ]
+    },
+    {
+      "question": "Did Jan and Michael's interaction have any further consequences?",
+      "why_uncertain": "The segment does not specify any outcomes or consequences of their interaction.",
+      "evidence": [
+        {
+          "episode_id": "S02E07",
+          "segment_id": "S02E07:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e07_the_client_script.txt",
+          "char_start": 14953,
+          "char_end": 15012,
+          "snippet": "Michael: No, nothing happened. I-I swear, nothing happened."
+        }
+      ]
+    }
+  ]
+}

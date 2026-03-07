@@ -1,0 +1,198 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_nano_2026-03-04_S08E06",
+  "created_at_utc": "2026-03-04T23:24:46Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S08E06",
+  "segment_id": "S08E06:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 5864,
+  "people": [
+    "Andy",
+    "Erin",
+    "Jim",
+    "Pam",
+    "Stanley",
+    "Robert",
+    "Dwight",
+    "Gabe",
+    "Val",
+    "Toby",
+    "Darryl"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The characters discuss and sing 'Closing Time' as a tradition signaling the end of the workday.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 1443,
+          "char_end": 1572,
+          "snippet": "Stanley: I've never heard that song before. And once I heard it, I did not care for it, but that song means it's time to go home."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight proposes a new accountability system, which Andy considers controversial.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 4496,
+          "char_end": 4523,
+          "snippet": "Andy: Sounds controversial."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Gabe discusses starting a workplace relationship with Val and the paperwork involved.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 4964,
+          "char_end": 4984,
+          "snippet": "Gabe: Yes. For Gabe."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The episode features characters engaging in singing, joking, and casual office interactions.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 811,
+          "char_end": 877,
+          "snippet": "Pam: Let's see. Andy has been manager for a hundred and five days."
+        },
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 3476,
+          "char_end": 3568,
+          "snippet": "Jim: I'm just saying with the NBA lockout I think roller derby's in a really good place now."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Closing time, time for you to go home to the places you will be from.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 811,
+          "char_end": 941,
+          "snippet": "Pam: Let's see. Andy has been manager for a hundred and five days. Which means I've heard 'Closing Time' a hundred and five times."
+        }
+      ]
+    },
+    {
+      "quote": "Every new beginning comes from some other beginnings end.",
+      "speaker": "Andy/Stanley",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 1620,
+          "char_end": 1701,
+          "snippet": "Andy/Stanley (singing): Every new beginning comes from some other beginnings end."
+        }
+      ]
+    },
+    {
+      "quote": "I know who I want to take me home.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 1063,
+          "char_end": 1138,
+          "snippet": "Andy: I know who I want to take me home. I know who I want to take me home."
+        }
+      ]
+    },
+    {
+      "quote": "You're going to love this.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 4263,
+          "char_end": 4322,
+          "snippet": "Dwight (opens folder): Allow me. You're going to love this."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is Dwight's accountability system?",
+    "Are Gabe and Val actually dating?",
+    "What is the overall tone or purpose of the episode?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is Dwight's accountability system?",
+      "why_uncertain": "The segment only mentions Dwight's system briefly and struggles opening the folder, no details are provided.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 0,
+          "char_end": 5864,
+          "snippet": "=== SCENE 000 ===\n\nAndy (FlickEring Lights): Hey everybody it's closing time. You don't got to go home but you can't stay here.\n[STAGE] Plays radio and the song is Closing Time by Semisonic\nErin (Laughs and shrieks):\nAndy: Closing time.\n\n=="
+        }
+      ]
+    },
+    {
+      "question": "Are Gabe and Val actually dating?",
+      "why_uncertain": "Gabe states he is not technically seeing her but has attraction, no confirmation of a relationship.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 4964,
+          "char_end": 4984,
+          "snippet": "Gabe: Yes. For Gabe."
+        }
+      ]
+    },
+    {
+      "question": "What is the overall tone or purpose of the episode?",
+      "why_uncertain": "The segment contains various interactions but does not explicitly state the episode's main theme or purpose.",
+      "evidence": [
+        {
+          "episode_id": "S08E06",
+          "segment_id": "S08E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e06_doomsday_script.txt",
+          "char_start": 0,
+          "char_end": 5864,
+          "snippet": "=== SCENE 000 ===\n\nAndy (FlickEring Lights): Hey everybody it's closing time. You don't got to go home but you can't stay here.\n[STAGE] Plays radio and the song is Closing Time by Semisonic\nErin (Laughs and shrieks):\nAndy: Closing time.\n\n=="
+        }
+      ]
+    }
+  ]
+}

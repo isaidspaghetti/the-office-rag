@@ -1,0 +1,133 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E12",
+  "created_at_utc": "2026-03-05T20:22:33Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E12",
+  "segment_id": "S04E12:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 19653,
+  "segment_char_end": 19990,
+  "people": [
+    "Ryan",
+    "Jim",
+    "Wallace"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Ryan explains that going after Jim is risky because Wallace likes him, but taking risks is necessary in business.",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19653,
+          "char_end": 19765,
+          "snippet": "Ryan: Wallace likes Jim. So going after him – that's a risky move for me, but in business, you gotta take risks."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Ryan uses a metaphor about getting out on the open highway with the top down to illustrate taking risks.",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19766,
+          "char_end": 19832,
+          "snippet": "Sometimes you gotta get out on the open highway, with the top down"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Ryan presses a button multiple times to get the car's top down, but it gets bunched up and the car rolls backwards slightly.",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19833,
+          "char_end": 19893,
+          "snippet": "[STAGE] pushes button about eight times to get the top down."
+        },
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19894,
+          "char_end": 19990,
+          "snippet": "Finally it comes down and it's all bunched up. As he's fixing it, the car rolls backwards a bit."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Wallace likes Jim. So going after him – that's a risky move for me, but in business, you gotta take risks.",
+      "speaker": "Ryan",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19653,
+          "char_end": 19765,
+          "snippet": "Ryan: Wallace likes Jim. So going after him – that's a risky move for me, but in business, you gotta take risks."
+        }
+      ]
+    },
+    {
+      "quote": "Sometimes you gotta get out on the open highway, with the top down",
+      "speaker": "Ryan",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19766,
+          "char_end": 19832,
+          "snippet": "Sometimes you gotta get out on the open highway, with the top down"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Ryan's risky move going after Jim?",
+    "Why does the car roll backwards when Ryan is fixing the top?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Ryan's risky move going after Jim?",
+      "why_uncertain": "The segment does not provide any information about the results or consequences of Ryan's action.",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19653,
+          "char_end": 19765,
+          "snippet": "Ryan: Wallace likes Jim. So going after him – that's a risky move for me, but in business, you gotta take risks."
+        }
+      ]
+    },
+    {
+      "question": "Why does the car roll backwards when Ryan is fixing the top?",
+      "why_uncertain": "The segment does not explain the cause of the car rolling backwards.",
+      "evidence": [
+        {
+          "episode_id": "S04E12",
+          "segment_id": "S04E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e12_did_i_stutter_script.txt",
+          "char_start": 19894,
+          "char_end": 19990,
+          "snippet": "Finally it comes down and it's all bunched up. As he's fixing it, the car rolls backwards a bit."
+        }
+      ]
+    }
+  ]
+}
