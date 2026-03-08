@@ -31,7 +31,6 @@ REPO_ROOT = Path(__file__).resolve().parent
 EXPERIMENTS_DIR = REPO_ROOT / "experiments"
 DEFAULT_RUNS_DIR = EXPERIMENTS_DIR / "runs"
 
-
 DEFAULT_EMBED_MODEL = "text-embedding-3-small"
 DEFAULT_LLM_MODEL = "gpt-4.1-mini"
 
@@ -608,12 +607,12 @@ def render_chat_debug() -> None:
 	if backend == "chroma":
 		st.caption("Backend: local Chroma (persisted under db/)")
 		script_persist = st.sidebar.selectbox(
-			"Script persist dir",
+			"Script Index",
 			options=(all_local_script or DEFAULT_LOCAL_SCRIPT_PERSIST_DIRS),
 			index=0,
 		)
 		derived_persist = st.sidebar.selectbox(
-			"Derived persist dir",
+			"Derived Data Index",
 			options=(all_local_derived or DEFAULT_LOCAL_DERIVED_PERSIST_DIRS),
 			index=0,
 		)
@@ -633,6 +632,8 @@ def render_chat_debug() -> None:
 
 	if "chat_messages" not in st.session_state:
 		st.session_state.chat_messages = []
+	if "chat_last_question" not in st.session_state:
+		st.session_state.chat_last_question = ""
 
 	# Render history
 	for m in st.session_state.chat_messages:
@@ -641,16 +642,98 @@ def render_chat_debug() -> None:
 		with st.chat_message(role):
 			st.markdown(content)
 
-	question = st.chat_input("Ask about The Office…")
-	if not question:
+	question_to_run: Optional[str] = None
+
+	new_question = st.chat_input("Ask about The Office…")
+	if new_question:
+		question_to_run = str(new_question)
+		st.session_state.chat_last_question = str(new_question)
+		st.session_state.chat_messages.append({"role": "user", "content": question_to_run})
+		with st.chat_message("user"):
+			st.markdown(question_to_run)
+
+	# Inline quick rerun controls (main pane) for the last asked question.
+	last_question = str(st.session_state.get("chat_last_question") or "").strip()
+	quick_backend = backend
+	quick_retrieval_policy = retrieval_policy
+	quick_k = int(k)
+	quick_derived_k = int(derived_k)
+	quick_episode_shortlist_size = int(episode_shortlist_size)
+	quick_llm_enabled = bool(llm_enabled)
+	quick_llm_model = str(llm_model)
+	quick_temperature = float(temperature)
+
+	if last_question:
+		with st.expander("Re-run last question with different params", expanded=False):
+			st.caption("This lets you tweak settings right in chat without touching the left sidebar.")
+			quick_question = st.text_input("Question", value=last_question, key="chat_quick_question")
+			qc1, qc2, qc3 = st.columns(3)
+			with qc1:
+				quick_backend = st.selectbox(
+					"Backend",
+					options=["chroma", "qdrant"],
+					index=(0 if backend == "chroma" else 1),
+					key="chat_quick_backend",
+				)
+				quick_retrieval_policy = st.selectbox(
+					"Policy",
+					options=["script_only", "derived_only", "derived_then_script"],
+					index=["script_only", "derived_only", "derived_then_script"].index(retrieval_policy),
+					key="chat_quick_policy",
+				)
+			with qc2:
+				quick_k = int(st.slider("Top-k", 1, 20, int(k), key="chat_quick_k"))
+				quick_derived_k = int(st.slider("Derived k", 1, 30, int(derived_k), key="chat_quick_derived_k"))
+			with qc3:
+				quick_episode_shortlist_size = int(
+					st.slider("Shortlist size", 1, 12, int(episode_shortlist_size), key="chat_quick_shortlist")
+				)
+				quick_llm_enabled = bool(
+					st.checkbox("Generate answer (LLM)", value=bool(llm_enabled), key="chat_quick_llm_enabled")
+				)
+
+
+			qcm1, qcm2 = st.columns([0.7, 0.3])
+			with qcm1:
+				quick_llm_model = st.text_input("LLM model", value=str(llm_model), key="chat_quick_llm_model")
+			with qcm2:
+				quick_temperature = float(
+					st.slider("Temp", min_value=0.0, max_value=1.0, value=float(temperature), key="chat_quick_temp")
+				)
+
+			run_quick = st.button("Re-run in chat", key="chat_quick_rerun")
+			if run_quick:
+				question_to_run = str(quick_question).strip()
+				if question_to_run:
+					st.session_state.chat_last_question = question_to_run
+					st.session_state.chat_messages.append({"role": "user", "content": question_to_run})
+					with st.chat_message("user"):
+						st.markdown(question_to_run)
+
+	if not question_to_run:
 		with st.expander("Setup / expectations"):
 			st.write("Local: uses Chroma under `db/`. Deployed: auto-switches to Qdrant when QDRANT_URL is set.")
 			st.write("Policy `derived_then_script` uses derived cards to route into script chunks.")
 		return
 
-	st.session_state.chat_messages.append({"role": "user", "content": question})
-	with st.chat_message("user"):
-		st.markdown(question)
+	# If quick rerun was used, override sidebar settings for this execution only.
+	if str(st.session_state.get("chat_last_question") or "").strip() == str(question_to_run).strip():
+		if "chat_quick_backend" in st.session_state:
+			backend = str(quick_backend)
+		if "chat_quick_policy" in st.session_state:
+			retrieval_policy = str(quick_retrieval_policy)
+		if "chat_quick_k" in st.session_state:
+			k = int(quick_k)
+		if "chat_quick_derived_k" in st.session_state:
+			derived_k = int(quick_derived_k)
+		if "chat_quick_shortlist" in st.session_state:
+			episode_shortlist_size = int(quick_episode_shortlist_size)
+		if "chat_quick_llm_enabled" in st.session_state:
+			llm_enabled = bool(quick_llm_enabled)
+		if "chat_quick_llm_model" in st.session_state:
+			llm_model = str(quick_llm_model)
+		if "chat_quick_temp" in st.session_state:
+			temperature = float(quick_temperature)
 
 	# Build vectorstores lazily per request (simple + robust; can be cached later)
 	try:
@@ -690,12 +773,12 @@ def render_chat_debug() -> None:
 
 	try:
 		if retrieval_policy == "script_only":
-			retrieved = _as_pairs(script_db.similarity_search_with_relevance_scores(question, k=int(k)))
+			retrieved = _as_pairs(script_db.similarity_search_with_relevance_scores(question_to_run, k=int(k)))
 		elif retrieval_policy == "derived_only":
-			retrieved = _as_pairs(derived_db.similarity_search_with_relevance_scores(question, k=int(k)))
+			retrieved = _as_pairs(derived_db.similarity_search_with_relevance_scores(question_to_run, k=int(k)))
 		else:
 			# derived -> script routing
-			derived_pairs = _as_pairs(derived_db.similarity_search_with_relevance_scores(question, k=int(derived_k)))
+			derived_pairs = _as_pairs(derived_db.similarity_search_with_relevance_scores(question_to_run, k=int(derived_k)))
 			shortlist: List[str] = []
 			seen: set[str] = set()
 			for d, _s in derived_pairs:
@@ -717,7 +800,7 @@ def render_chat_debug() -> None:
 
 			# Best-effort: retrieve a larger pool, then filter by episode_id.
 			candidate_k = max(int(k) * 12, 60)
-			script_pairs = _as_pairs(script_db.similarity_search_with_relevance_scores(question, k=int(candidate_k)))
+			script_pairs = _as_pairs(script_db.similarity_search_with_relevance_scores(question_to_run, k=int(candidate_k)))
 			filtered: List[Tuple[Any, Optional[float]]] = []
 			if shortlist:
 				allowed = {s.strip().upper() for s in shortlist}
@@ -750,7 +833,7 @@ def render_chat_debug() -> None:
 
 	retrieval_ms = int((time.time() - t0) * 1000)
 
-	with st.expander(f"Retrieved context ({len(retrieved)} docs, {retrieval_ms}ms)", expanded=True):
+	with st.expander(f"Retrieved context ({len(retrieved)} docs, {retrieval_ms}ms)", expanded=False):
 		if routing:
 			st.write("Routing:")
 			st.json(routing)
@@ -762,16 +845,15 @@ def render_chat_debug() -> None:
 	context = "\n\n---\n\n".join([str(getattr(d, "page_content", None) or "") for (d, _s) in retrieved])
 
 	answer_text = ""
-	if llm_enabled:
-		try:
-			llm = ChatOpenAI(model=str(llm_model), temperature=float(temperature))
-			sys, user = _answer_prompt(question=question, context=context)
-			msg = llm.invoke([("system", sys), ("human", user)])
-			answer_text = str(getattr(msg, "content", "") or "").strip()
-		except Exception as e:
-			answer_text = f"(LLM error: {type(e).__name__}: {e})"
-	else:
-		answer_text = "(LLM disabled)"
+
+	try:
+		llm = ChatOpenAI(model=str(llm_model), temperature=float(temperature))
+		sys, user = _answer_prompt(question=question_to_run, context=context)
+		msg = llm.invoke([("system", sys), ("human", user)])
+		answer_text = str(getattr(msg, "content", "") or "").strip()
+	except Exception as e:
+		answer_text = f"(LLM error: {type(e).__name__}: {e})"
+
 
 	st.session_state.chat_messages.append({"role": "assistant", "content": answer_text})
 	with st.chat_message("assistant"):
@@ -894,7 +976,7 @@ def main() -> None:
 	qp = _query_params()
 	default_mode = str(qp.get("mode") or "summary").strip().lower()
 
-	options = ["summary", "run_explorer", "chat_debug"]
+	options = ["chat & debug", "reports", "run explorer"]
 	default_idx = 0
 	if default_mode in options:
 		default_idx = options.index(default_mode)
