@@ -16,6 +16,8 @@ import streamlit as st
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 
+from langchain_core.documents import Document
+
 try:
     from qdrant_client import QdrantClient  # type: ignore
     from langchain_community.vectorstores import Qdrant as QdrantVS  # type: ignore
@@ -241,9 +243,202 @@ def _build_qdrant(*, url: str, api_key: Optional[str], collection: str, embed_mo
         raise RuntimeError(
             "Qdrant backend not available (missing qdrant-client/langchain-community)"
         )
+
     client = QdrantClient(url=str(url), api_key=(str(api_key) if api_key else None))
     embeddings = OpenAIEmbeddings(model=embed_model)
-    return QdrantVS(client=client, collection_name=str(collection), embeddings=embeddings)
+
+    # NOTE: Newer qdrant-client versions (2026) expose `query_points()` and may not have `search()`.
+    # LangChain's Qdrant vectorstore historically called `client.search()`, which breaks in deploy.
+    # We use a tiny adapter that targets `query_points()` directly.
+
+    def _payload_text(payload: Dict[str, Any]) -> str:
+        for k in ("text", "page_content", "document"):
+            v = payload.get(k)
+            if isinstance(v, str) and v.strip():
+                return v
+        return ""
+
+    def _coerce_vector(v: Any) -> Optional[List[float]]:
+        if v is None:
+            return None
+        if isinstance(v, list):
+            try:
+                return [float(x) for x in v]
+            except Exception:
+                return None
+        if isinstance(v, dict):
+            # Multi-vector collections: pick the first vector.
+            for _k, vv in v.items():
+                return _coerce_vector(vv)
+        return None
+
+    def _cosine(a: List[float], b: List[float]) -> float:
+        # Pure-Python cosine similarity (candidate sizes are small).
+        s_ab = 0.0
+        s_aa = 0.0
+        s_bb = 0.0
+        for x, y in zip(a, b):
+            fx = float(x)
+            fy = float(y)
+            s_ab += fx * fy
+            s_aa += fx * fx
+            s_bb += fy * fy
+        if s_aa <= 0.0 or s_bb <= 0.0:
+            return 0.0
+        return s_ab / ((s_aa ** 0.5) * (s_bb ** 0.5))
+
+    class _QdrantCompatVectorStore:
+        def __init__(self, *, client: Any, collection_name: str, embeddings: Any):
+            self._client = client
+            self._collection = str(collection_name)
+            self._embeddings = embeddings
+
+        def similarity_search(self, query: str, *, k: int = 4, **_kwargs: Any) -> List[Document]:
+            pairs = self.similarity_search_with_relevance_scores(query, k=int(k))
+            return [d for d, _s in pairs]
+
+        def similarity_search_with_relevance_scores(
+            self, query: str, *, k: int = 4, **_kwargs: Any
+        ) -> List[Tuple[Document, float]]:
+            qvec = [float(x) for x in (self._embeddings.embed_query(str(query)) or [])]
+
+            if not hasattr(self._client, "query_points"):
+                raise AttributeError(
+                    "Unsupported qdrant-client API: expected QdrantClient.query_points(). "
+                    "Try upgrading qdrant-client."
+                )
+
+            resp = self._client.query_points(
+                collection_name=self._collection,
+                query=qvec,
+                limit=int(k),
+                with_payload=True,
+            )
+            if isinstance(resp, list):
+                points = list(resp)
+            else:
+                points = list(getattr(resp, "points", None) or [])
+
+            out: List[Tuple[Document, float]] = []
+            for p in points:
+                payload = getattr(p, "payload", None) or {}
+                if not isinstance(payload, dict):
+                    payload = {}
+                score = getattr(p, "score", None)
+                try:
+                    score_f = float(score) if score is not None else 0.0
+                except Exception:
+                    score_f = 0.0
+                out.append(
+                    (
+                        Document(page_content=_payload_text(payload), metadata=dict(payload)),
+                        score_f,
+                    )
+                )
+            return out
+
+        def max_marginal_relevance_search(
+            self,
+            query: str,
+            *,
+            k: int = 4,
+            fetch_k: int = 20,
+            lambda_mult: float = 0.5,
+            **_kwargs: Any,
+        ) -> List[Document]:
+            # Fetch a larger candidate pool, then apply MMR locally.
+            qvec = [float(x) for x in (self._embeddings.embed_query(str(query)) or [])]
+            if not hasattr(self._client, "query_points"):
+                # Fall back to similarity.
+                return self.similarity_search(query, k=int(k))
+
+            resp = self._client.query_points(
+                collection_name=self._collection,
+                query=qvec,
+                limit=int(fetch_k),
+                with_payload=True,
+                with_vectors=True,
+            )
+            if isinstance(resp, list):
+                points = list(resp)
+            else:
+                points = list(getattr(resp, "points", None) or [])
+            if not points:
+                return []
+
+            cand_docs: List[Document] = []
+            cand_vecs: List[Optional[List[float]]] = []
+            for p in points:
+                payload = getattr(p, "payload", None) or {}
+                if not isinstance(payload, dict):
+                    payload = {}
+                vec = _coerce_vector(getattr(p, "vector", None) or getattr(p, "vectors", None))
+                cand_vecs.append(vec)
+                cand_docs.append(Document(page_content=_payload_text(payload), metadata=dict(payload)))
+
+            if not any(v is not None for v in cand_vecs):
+                # If vectors weren't returned (or shape changed), fall back to similarity ordering.
+                return cand_docs[: int(k)]
+
+            # Filter to only candidates with vectors for MMR scoring.
+            vec_idxs = [i for i, v in enumerate(cand_vecs) if v is not None]
+            if not vec_idxs:
+                return cand_docs[: int(k)]
+
+            # Precompute query->candidate similarity.
+            sim_q = {i: _cosine(qvec, cand_vecs[i] or []) for i in vec_idxs}
+
+            selected: List[int] = []
+            remaining = list(vec_idxs)
+
+            def _best_first() -> int:
+                return max(remaining, key=lambda i: sim_q.get(i, 0.0))
+
+            # First pick: max similarity to query.
+            first = _best_first()
+            selected.append(first)
+            remaining.remove(first)
+
+            # Next picks: MMR objective.
+            lam = float(lambda_mult)
+            lam = max(0.0, min(1.0, lam))
+            while remaining and len(selected) < int(k):
+                best_i = remaining[0]
+                best_score = float("-inf")
+                for i in remaining:
+                    v_i = cand_vecs[i]
+                    if v_i is None:
+                        continue
+                    max_sim_to_selected = 0.0
+                    for j in selected:
+                        v_j = cand_vecs[j]
+                        if v_j is None:
+                            continue
+                        max_sim_to_selected = max(max_sim_to_selected, _cosine(v_i, v_j))
+                    mmr_score = lam * sim_q.get(i, 0.0) - (1.0 - lam) * max_sim_to_selected
+                    if mmr_score > best_score:
+                        best_score = mmr_score
+                        best_i = i
+                selected.append(best_i)
+                remaining.remove(best_i)
+
+            # Preserve original ordering for candidates without vectors by appending them last.
+            chosen = [cand_docs[i] for i in selected]
+            if len(chosen) < int(k):
+                for i, d in enumerate(cand_docs):
+                    if i in selected:
+                        continue
+                    chosen.append(d)
+                    if len(chosen) >= int(k):
+                        break
+            return chosen
+
+    # Prefer LangChain's vectorstore when it matches the installed qdrant-client API.
+    # Otherwise, use our adapter.
+    if QdrantVS is not None and hasattr(client, "search"):
+        return QdrantVS(client=client, collection_name=str(collection), embeddings=embeddings)
+
+    return _QdrantCompatVectorStore(client=client, collection_name=str(collection), embeddings=embeddings)
 
 
 def _format_doc_line(doc: Any) -> str:
