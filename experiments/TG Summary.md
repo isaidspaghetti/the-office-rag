@@ -1,5 +1,5 @@
 
-This RAG Evaluation Application application was built to make a Chat bot trained strictly on the closed captions of the Office tv show. It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it.
+This RAG Evaluation Applicationapplication was built to make a Chat bot trained strictly on the closed captions of the Office tv show. It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it.
 
 
 The experimentation phases wer as follows: 

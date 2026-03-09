@@ -1,125 +1,102 @@
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List
 
 import streamlit as st
 
-from apps.dashboard.shared import (
-    DEFAULT_RUNS_DIR,
-    REPO_ROOT,
-    _iter_run_files,
-    _load_run_obj,
-    _load_scored_obj,
-    _run_id_from_run_file,
-    _short_path,
-    _two_pass_overall,
-)
+from apps.dashboard.data.loaders import load_run_entries, load_scored_obj, run_id_from_entry
+from apps.dashboard.styles.css import inject_dashboard_css
+
+
+def _safe_get(d: Any, path: str, default: Any = None) -> Any:
+    cur = d
+    for part in (path or "").split("."):
+        if not part:
+            continue
+        if not isinstance(cur, dict) or part not in cur:
+            return default
+        cur = cur[part]
+    return cur
 
 
 def render_run_explorer() -> None:
+    """Lightweight run explorer.
+
+    This existed as a mode in the app shell but the original prototype file was empty.
+    Keep it minimal: browse run logs and (optionally) their scored artifacts.
+    """
+
+    inject_dashboard_css(layout="default")
+
     st.header("Run Explorer")
 
-    runs_dir = DEFAULT_RUNS_DIR
-    canonical_scored_dir = REPO_ROOT / "experiments" / "scored_runs_two_pass"
-    if not canonical_scored_dir.exists():
-        st.warning("No scored_runs_two_pass directory found; run scoring or check repo artifacts.")
+    runs_dir = st.text_input("Runs dir", value="experiments/runs")
+    scored_dir = st.text_input("Scored dir", value="experiments/scored_runs_two_pass")
 
-    left, right = st.columns([0.42, 0.58])
+    entries = load_run_entries(runs_dir=runs_dir, max_files=1200)
+    if not entries:
+        st.info("No run JSON logs found.")
+        return
 
-    with left:
-        st.subheader("Pick a run")
-        name_filter = st.text_input("Filter (substring)", value="")
-        run_files = _iter_run_files(runs_dir)
-        if not run_files:
-            st.warning("No run logs found under experiments/runs")
-            return
+    # Build display labels.
+    labels: List[str] = []
+    id_to_entry: Dict[str, Any] = {}
+    for e in entries:
+        rid = run_id_from_entry(e)
+        run_name = str(_safe_get(e.obj, "run.run_name", "") or "")
+        display = f"{rid} — {run_name}" if run_name else rid
+        labels.append(display)
+        id_to_entry[display] = e
 
-        # Build display options with minimal parsing.
-        options: List[Tuple[str, Path]] = []
-        for rf in run_files:
-            obj = _load_run_obj(rf)
-            if not obj:
-                continue
-            run = obj.get("run") or {}
-            run_name = str(run.get("run_name") or "")
-            run_id = str(run.get("run_id") or _run_id_from_run_file(rf))
-            label = f"{run_name}  —  {run_id}".strip()
-            if name_filter and name_filter.lower() not in label.lower():
-                continue
-            options.append((label, rf))
+    picked = st.selectbox("Run", options=labels, index=0)
+    entry = id_to_entry.get(picked)
+    if not entry:
+        return
 
-        if not options:
-            st.info("No runs match the filter.")
-            return
+    rid = run_id_from_entry(entry)
+    obj = entry.obj
 
-        labels = [x[0] for x in options]
-        picked = st.selectbox("Run", options=labels, index=0)
-        run_file = dict(options)[picked]
+    run_meta = obj.get("run") if isinstance(obj.get("run"), dict) else {}
+    cfg = obj.get("config") if isinstance(obj.get("config"), dict) else {}
+    summary = obj.get("summary") if isinstance(obj.get("summary"), dict) else {}
 
-        obj = _load_run_obj(run_file)
-        if not obj:
-            st.error("Failed to load run JSON")
-            return
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.metric("cases", len(obj.get("cases") or []))
+    with c2:
+        st.metric("policy", str(_safe_get(cfg, "retrieval.policy", "") or ""))
+    with c3:
+        st.metric("k", str(_safe_get(cfg, "retrieval.k", "") or ""))
 
-        run_id = str((obj.get("run") or {}).get("run_id") or _run_id_from_run_file(run_file))
-        scored_obj = _load_scored_obj(canonical_scored_dir, run_id)
+    with st.expander("Run metadata"):
+        st.json(run_meta)
 
-        st.caption(f"Run file: {_short_path(run_file)}")
-        st.caption(f"Scored: {'yes' if scored_obj else 'no'}")
+    with st.expander("Config"):
+        st.json(cfg)
 
-        with st.expander("Run config", expanded=False):
-            st.json(obj.get("config") or {})
+    with st.expander("Summary"):
+        st.json(summary)
 
-    with right:
-        cases = obj.get("cases") or []
-        if not isinstance(cases, list) or not cases:
-            st.warning("Run has no cases")
-            return
+    scored_obj = load_scored_obj(scored_dir=scored_dir, run_id=rid)
+    if scored_obj:
+        with st.expander("Scored summary"):
+            st.json(scored_obj.get("score_summary") or {})
 
-        st.subheader("Cases")
-        case_ids = [str((c or {}).get("case_id") or "") for c in cases if isinstance(c, dict)]
-        case_ids = [c for c in case_ids if c]
-        picked_case_id = st.selectbox("Case", options=case_ids, index=0)
-        case = None
+    cases = obj.get("cases")
+    if isinstance(cases, list) and cases:
+        rows: List[Dict[str, Any]] = []
         for c in cases:
-            if isinstance(c, dict) and str(c.get("case_id") or "") == picked_case_id:
-                case = c
-                break
-        if case is None:
-            st.error("Case not found")
-            return
+            if not isinstance(c, dict):
+                continue
+            rows.append(
+                {
+                    "case_id": c.get("case_id"),
+                    "question": str(c.get("question") or "")[:160],
+                    "answer": str(_safe_get(c, "answer.text", "") or "")[:160],
+                }
+            )
+        st.subheader("Cases")
+        st.dataframe(rows, use_container_width=True, hide_index=True)
 
-        overall = _two_pass_overall(scored_obj, picked_case_id)
-        if overall is not None:
-            st.markdown(f"**Two-pass overall:** {overall}")
-
-        st.markdown("**Question**")
-        st.write(str(case.get("question") or ""))
-
-        ans = ((case.get("answer") or {}) if isinstance(case.get("answer"), dict) else {}) or {}
-        st.markdown("**Answer**")
-        st.write(ans.get("text"))
-        if ans.get("error"):
-            st.error(str(ans.get("error")))
-
-        retr = (
-            (case.get("retrieval") or {}) if isinstance(case.get("retrieval"), dict) else {}
-        ) or {}
-        results = retr.get("results") or []
-        with st.expander(
-            f"Retrieval results ({len(results) if isinstance(results, list) else 0})", expanded=True
-        ):
-            if isinstance(results, list):
-                for r in results[:20]:
-                    if not isinstance(r, dict):
-                        continue
-                    src = r.get("source")
-                    eid = r.get("episode_id")
-                    score = r.get("score")
-                    st.markdown(f"- score={score} | {eid} | {src}")
-                    st.caption(r.get("first_line") or "")
-                    st.text(str(r.get("preview") or "")[:600])
-
-        with st.expander("Diagnostics", expanded=False):
-            st.json(case.get("diagnostics") or {})
+        with st.expander("Raw run JSON"):
+            st.json(obj)
