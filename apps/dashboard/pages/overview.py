@@ -9,7 +9,7 @@ from apps.dashboard.components.cards import pills, section_card
 from apps.dashboard.components.hero import hero_card
 from apps.dashboard.components.html import spacer
 from apps.dashboard.styles.css import inject_dashboard_css
-from apps.dashboard.shared import PhaseRow, _step_num
+from apps.dashboard.shared import REPO_ROOT, PhaseRow, _step_num
 
 
 def render_overview_page(
@@ -34,8 +34,8 @@ def render_overview_page(
         body_html=(
             "This application is an <b>Evaluation dashboard + Retrieval Augmented Generation (RAG) Chat Bot</b>."
             "<br/><br/>"
-            "The retrival corpus is generated based strictly on the closed captions of <b>The Office</b> tv show. "
-            "It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it with required citation and a 0.0 temperature."
+            "The retrieval corpus is generated strictly from the closed captions of <b>The Office</b>. "
+            "It’s a training exercise: take a deliberately sparse corpus and build a system that answers with required citation and a 0.0 temperature."
             "<br/><br/>"
             "The evolution flows through basic to advanced AI engineering concepts, with a clear path for iterative improvement. "
             "It also requires understanding how to design experiments, analyze results, and how to measure and improve them over time."
@@ -56,8 +56,8 @@ def render_overview_page(
             "<li>identifying failure modes such as hallucination or missing context</li>"
             "<li>improving the system through structured architectural changes</li>"
             "</ul>"
-            "Every change was tested across multiple runs to understand <b>what actually improved results</b>. "
-            "Changes must be measurable. It takes human judgement to intervene, direct, and orchestrate changes."
+            "Every change is tested across runs to understand <b>what actually improved results</b>. "
+            "Changes must be measurable — and it still takes human judgment to intervene, direct, and orchestrate improvements."
         ),
         classes="card-base card-method",
     )
@@ -96,17 +96,17 @@ def render_overview_page(
     spacer(rem=1.25)
 
     section_card(
-        title="Why This Matters for Tonic",
+        title="Why This Matters",
         body_html=(
-            "The same engineering approach applies directly to real business AI systems, including:"
+            "The same engineering approach applies directly to real-world AI systems, including:"
             "<ul>"
             "<li>internal knowledge copilots</li>"
             "<li>document search and summarization tools</li>"
-            "<li>support and Slack assistants</li>"
+            "<li>support and ticket assistants</li>"
             "<li>AI-powered product features</li>"
             "</ul>"
-            "This project demonstrates the ability to <b>lead AI engineering initiatives with measurable results</b>, "
-            "rather than relying on ad-hoc experimentation."
+            "This project demonstrates how to <b>lead an evaluation-driven iteration loop</b>, "
+            "rather than relying on ad-hoc prompt tweaking."
         ),
         classes="card-base card-accent",
     )
@@ -136,7 +136,10 @@ def render_overview_page(
     st.subheader("Primary Source")
     left_ref, right_ref = st.columns([0.35, 0.65], gap="large")
     with left_ref:
-        st.image("Aibook.jpg", caption="AI Engineering (O'Reilly, 2025)")
+        st.image(
+            str(REPO_ROOT / "apps" / "dashboard" / "assets" / "Aibook.jpg"),
+            caption="AI Engineering (O'Reilly, 2025)",
+        )
     with right_ref:
         section_card(
             title="Reference: AI Engineering",

@@ -14,7 +14,7 @@ from apps.dashboard.shared import _query_params
 def main() -> None:
     load_dotenv()
     st.set_page_config(page_title="RAG Evaluation & Observability Dashboard", layout="wide")
-    st.title("RAG Evauation Dashboard")
+    st.title("RAG Evaluation Dashboard")
 
     qp = _query_params()
     default_mode_raw = str(qp.get("mode") or "summary").strip().lower()

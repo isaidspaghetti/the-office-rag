@@ -13,6 +13,8 @@ from apps.dashboard.shared import (
     EXPERIMENTS_DIR,
     REPO_ROOT,
     PhaseRow,
+    _env_or_secret,
+    _resolve_under_repo,
     _load_phase_summary,
     _phase_summary_is_step_grouped,
     _pick_latest_phase_summary_json,
@@ -30,24 +32,39 @@ def render_summary() -> None:
 
     st.header("Reports")
 
-    canonical_scored_dir = REPO_ROOT / "experiments" / "scored_runs_two_pass"
-    ctxfix_all_dir = REPO_ROOT / "experiments" / "scored_runs_two_pass_ctxfix_all_2026-03-07"
-    rescored_dir = REPO_ROOT / "experiments" / "scored_runs_two_pass_rescored_2026-03-07"
-    rescored_ctxfix_dir = REPO_ROOT / "experiments" / "scored_runs_two_pass_rescored_ctxfix_2026-03-07"
-
     def _has_scored_files(p: Path) -> bool:
-        return p.exists() and any(p.glob("*.scored.json"))
+        return p.exists() and p.is_dir() and any(p.glob("*.scored.json"))
 
-    if _has_scored_files(canonical_scored_dir):
-        scored_dir = canonical_scored_dir
-    elif _has_scored_files(ctxfix_all_dir):
-        scored_dir = ctxfix_all_dir
-    elif _has_scored_files(rescored_ctxfix_dir):
-        scored_dir = rescored_ctxfix_dir
-    elif _has_scored_files(rescored_dir):
-        scored_dir = rescored_dir
-    else:
-        scored_dir = canonical_scored_dir
+    def _pick_scored_dir() -> Path:
+        override = (
+            _env_or_secret("REPORTS_SCORED_DIR")
+            or _env_or_secret("SCORED_DIR")
+            or _env_or_secret("SCORED_RUNS_DIR")
+        )
+        if override:
+            p = _resolve_under_repo(str(override))
+            if _has_scored_files(p):
+                return p
+            st.warning(
+                f"Scored dir override is set but contains no '*.scored.json' files: {override}"
+            )
+
+        canonical = REPO_ROOT / "experiments" / "scored_runs_two_pass"
+        if _has_scored_files(canonical):
+            return canonical
+
+        # Auto-discover latest scored directory under experiments/.
+        candidates = []
+        for p in sorted((REPO_ROOT / "experiments").glob("scored_runs_two_pass*")):
+            if _has_scored_files(p):
+                candidates.append(p)
+        if candidates:
+            candidates.sort(key=lambda pp: pp.stat().st_mtime)
+            return candidates[-1]
+
+        return canonical
+
+    scored_dir = _pick_scored_dir()
 
     # Back-compat: older sessions had now-removed subpages.
     if str(st.session_state.get("reports_subpage") or "") in {"Groups", "Timeline", "Charts"}:

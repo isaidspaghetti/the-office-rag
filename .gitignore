@@ -214,3 +214,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Repo-specific heavy artifacts (do not commit) ---
+# Local vector DB persist dirs (Chroma) are huge and machine-specific.
+db/
+
+# Query-expansion cache and other local experiment caches.
+experiments/cache/
+
+# Convenience scratch outputs.
+experiments/_last_*.txt
