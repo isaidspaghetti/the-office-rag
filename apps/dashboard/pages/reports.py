@@ -866,34 +866,109 @@ def render_summary() -> None:
         return (2, 10**9, g_l)
 
     def _render_groups_section(rows_in: List[PhaseRow]) -> None:
-        st.subheader("Performance Analysis")
-        
-
+        # Card CSS is needed on the Analysis page too (not just Overview).
         st.markdown(
-                _html(
-                    """<div class="section-card phase-card">
-<div class="section-title">Phase 1 — Baseline Retrieval</div>
+            _html(
+                """
+<style>
+  .hero-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 45%, #2563eb 100%);
+    color: #ffffff;
+    padding: 1.5rem 1.75rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+    margin-bottom: 1.25rem;
+  }
 
-<div class="body-text">
-<p>The system began with a minimal semantic retrieval architecture:</p>
-<ul>
-<li>basic chunking</li>
-<li>similarity search</li>
-<li>GPT-4.1 nano for answer generation</li>
-</ul>
-<p>
-This configuration worked well for <b>direct lookups and quotes</b> but struggled with broader reasoning questions.
-Without enough context diversity, the model often hallucinated or produced incomplete answers.
-</p>
-</div>
+  .hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
 
-<div class="highlight">
-Baseline runs established a reference point used to evaluate every later experiment.
-</div>
-</div>""",
-                ),
-                unsafe_allow_html=True,
-            )
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-card {
+    background: #ffffff;
+    padding: 1.25rem 1.25rem 1rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    height: 100%;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.6rem;
+  }
+
+  .body-text {
+    color: #334155;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .highlight {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    color: #1e293b;
+    margin-top: 0.75rem;
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .muted {
+    color: #64748b;
+    font-size: 0.92rem;
+  }
+
+  /* Phase cards (gradient + white text) */
+  .phase-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: none;
+  }
+  .phase-card .section-title {
+    color: #ffffff;
+  }
+  .phase-card .body-text {
+    color: #e2e8f0;
+  }
+  .phase-card .highlight {
+    background: rgba(255,255,255,0.06);
+    border-left: 4px solid #2563eb;
+    color: #ffffff;
+  }
+</style>
+"""
+            ),
+            unsafe_allow_html=True,
+        )
+
+        st.subheader("Performance Analysis")
+
         # -----------------------------
         # Header / hero
         # -----------------------------
@@ -926,25 +1001,24 @@ Baseline runs established a reference point used to evaluate every later experim
             unsafe_allow_html=True,
         )
 
-
         # -----------------------------
         # Questions Card
         # -----------------------------
         st.markdown(
             _html(
                 """<div class="section-card">
-    <div class="hero-title">Test Question Set</div>
-    <div class="body-text">
-        <ul>
-            <li>Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?</li>
-            <li>In what episode does Michael burn his foot?</li>
-            <li>Summarize season 2 of The Office.</li>
-            <li>Why does Dwight dislike Jim? Give 3 reasons with examples.</li>
-            <li>List Michael Scott’s serious girlfriends and how the relationships ended.</li>
-            <li>What is the teapot letter and why is it important?</li>
-            <li>Who is Creed and what is his deal?</li>
-        </ul>
-    </div>
+<div class="hero-title">Test Question Set</div>
+<div class="body-text">
+<ul>
+<li>Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?</li>
+<li>In what episode does Michael burn his foot?</li>
+<li>Summarize season 2 of The Office.</li>
+<li>Why does Dwight dislike Jim? Give 3 reasons with examples.</li>
+<li>List Michael Scott’s serious girlfriends and how the relationships ended.</li>
+<li>What is the teapot letter and why is it important?</li>
+<li>Who is Creed and what is his deal?</li>
+</ul>
+</div>
 </div>""",
             ),
             unsafe_allow_html=True,
