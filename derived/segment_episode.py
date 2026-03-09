@@ -235,15 +235,27 @@ def _find_episode(*, docs_dir: Path, episode_id: str) -> EpisodeScript:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Deterministically segment an episode script for map/reduce summarization.")
-    p.add_argument("--docs-dir", default="ingestion/normalized_docs_txt", help="Normalized docs dir")
+    p = argparse.ArgumentParser(
+        description="Deterministically segment an episode script for map/reduce summarization."
+    )
+    p.add_argument(
+        "--docs-dir", default="ingestion/normalized_docs_txt", help="Normalized docs dir"
+    )
     p.add_argument("--episode-id", required=False, help="Episode ID like S07E24")
     p.add_argument("--list", action="store_true", help="List available episode IDs and titles")
-    p.add_argument("--target-tokens", type=int, default=1800, help="Target tokens per segment (approx)")
-    p.add_argument("--min-tokens", type=int, default=400, help="Minimum tokens before splitting (approx)")
+    p.add_argument(
+        "--target-tokens", type=int, default=1800, help="Target tokens per segment (approx)"
+    )
+    p.add_argument(
+        "--min-tokens", type=int, default=400, help="Minimum tokens before splitting (approx)"
+    )
     p.add_argument("--out", default=None, help="Optional path to write segments JSON")
-    p.add_argument("--include-text", action="store_true", help="Include full segment text in output JSON")
-    p.add_argument("--print-n", type=int, default=3, help="Print the first N segments as a sanity check")
+    p.add_argument(
+        "--include-text", action="store_true", help="Include full segment text in output JSON"
+    )
+    p.add_argument(
+        "--print-n", type=int, default=3, help="Print the first N segments as a sanity check"
+    )
 
     args = p.parse_args()
 
@@ -270,15 +282,21 @@ def main() -> None:
     print("=== Episode segmentation ===")
     print(f"Episode: {ep.episode_id} — {ep.title}")
     print(f"Source : {ep.source_path}")
-    print(f"Body chars: {len(ep.body_text)}  approx_tokens={approx_tokens_from_chars(len(ep.body_text))}")
-    print(f"Segments: {len(segs)}  target_tokens={int(args.target_tokens)}  min_tokens={int(args.min_tokens)}")
+    print(
+        f"Body chars: {len(ep.body_text)}  approx_tokens={approx_tokens_from_chars(len(ep.body_text))}"
+    )
+    print(
+        f"Segments: {len(segs)}  target_tokens={int(args.target_tokens)}  min_tokens={int(args.min_tokens)}"
+    )
 
     n = max(0, int(args.print_n))
     if n:
         for s in segs[:n]:
             text = ep.body_text[s.segment_char_start : s.segment_char_end]
             preview = text[:240].replace("\n", "\\n")
-            print(f"\n{s.segment_id}  chars={s.segment_char_end - s.segment_char_start}  approx_tokens={s.approx_tokens}")
+            print(
+                f"\n{s.segment_id}  chars={s.segment_char_end - s.segment_char_start}  approx_tokens={s.approx_tokens}"
+            )
             print(f"  offsets: [{s.segment_char_start}, {s.segment_char_end})")
             print(f"  preview: {preview}...")
 

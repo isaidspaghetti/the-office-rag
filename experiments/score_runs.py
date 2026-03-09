@@ -92,7 +92,9 @@ def deterministic_score(
     expected_eps = {e.upper() for e in (expected_episode_ids or [])}
     episode_ok = True
     if expected_eps:
-        episode_ok = bool(ans_eps & expected_eps) or any(e.lower() in normalize_text(ans) for e in expected_eps)
+        episode_ok = bool(ans_eps & expected_eps) or any(
+            e.lower() in normalize_text(ans) for e in expected_eps
+        )
 
     must_include_hits = 0
     for term in must_include or []:
@@ -170,7 +172,9 @@ def build_context_from_results(
     return ctx
 
 
-def _overall_from_components(*, correctness: int, groundedness: int, completeness: int, hallucination: int) -> int:
+def _overall_from_components(
+    *, correctness: int, groundedness: int, completeness: int, hallucination: int
+) -> int:
     # Weighted: correctness 40%, groundedness 30%, completeness 20%, hallucination 10%.
     # Each component is 0..5.
     raw = (40 * correctness) + (30 * groundedness) + (20 * completeness) + (10 * hallucination)
@@ -225,7 +229,7 @@ def judge_prompt(
             "verdict": "one of: correct | partially_correct | incorrect | idk_preferred",
             "unsupported_claims": "list of short strings",
             "missing_points": "list of short strings",
-            "notes": "short string"
+            "notes": "short string",
         },
     }
     return system, json.dumps(user, ensure_ascii=False)
@@ -299,7 +303,9 @@ def parse_judge_json(text: str) -> Dict[str, Any]:
         raise
 
 
-def _validate_int_range(obj: Dict[str, Any], key: str, lo: int, hi: int, errors: List[str]) -> Optional[int]:
+def _validate_int_range(
+    obj: Dict[str, Any], key: str, lo: int, hi: int, errors: List[str]
+) -> Optional[int]:
     v = obj.get(key)
     if not isinstance(v, int):
         errors.append(f"{key} must be int")
@@ -535,7 +541,12 @@ def score_case(
 def _deterministic_summary(scored_cases: List[Dict[str, Any]]) -> Dict[str, Any]:
     total = len(scored_cases)
     if total <= 0:
-        return {"cases_total": 0, "episode_ok_rate": None, "must_include_ok_rate": None, "forbidden_hit_rate": None}
+        return {
+            "cases_total": 0,
+            "episode_ok_rate": None,
+            "must_include_ok_rate": None,
+            "forbidden_hit_rate": None,
+        }
 
     ep_ok = 0
     must_ok = 0
@@ -726,9 +737,15 @@ def _score_one_run(
 def main() -> None:
     load_dotenv()
 
-    parser = argparse.ArgumentParser(description="Score RAG run logs using deterministic checks and an optional judge.")
-    parser.add_argument("--runs-dir", default="experiments/runs", help="Directory containing run JSON logs")
-    parser.add_argument("--gold", default="experiments/gold_answers.json", help="Gold answers JSON file")
+    parser = argparse.ArgumentParser(
+        description="Score RAG run logs using deterministic checks and an optional judge."
+    )
+    parser.add_argument(
+        "--runs-dir", default="experiments/runs", help="Directory containing run JSON logs"
+    )
+    parser.add_argument(
+        "--gold", default="experiments/gold_answers.json", help="Gold answers JSON file"
+    )
     parser.add_argument(
         "--out-dir",
         default="experiments/scored_runs_two_pass",
@@ -746,15 +763,30 @@ def main() -> None:
         choices=["two_pass", "one_pass", "none"],
         help="Judge scoring mode. Use 'none' for deterministic-only scoring.",
     )
-    parser.add_argument("--judge-model", default="gpt-4.1-mini", help="OpenAI model to use as judge")
+    parser.add_argument(
+        "--judge-model", default="gpt-4.1-mini", help="OpenAI model to use as judge"
+    )
     parser.add_argument("--temperature", type=float, default=0.0)
-    parser.add_argument("--timeout", type=float, default=60.0, help="Judge request timeout (seconds)")
+    parser.add_argument(
+        "--timeout", type=float, default=60.0, help="Judge request timeout (seconds)"
+    )
     parser.add_argument("--judge-max-retries", type=int, default=2, help="Retries for judge calls")
-    parser.add_argument("--openai-max-retries", type=int, default=0, help="OpenAI client max retries")
-    parser.add_argument("--deterministic-only", action="store_true", help="Skip judge calls; write deterministic-only outputs")
+    parser.add_argument(
+        "--openai-max-retries", type=int, default=0, help="OpenAI client max retries"
+    )
+    parser.add_argument(
+        "--deterministic-only",
+        action="store_true",
+        help="Skip judge calls; write deterministic-only outputs",
+    )
 
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing scored files")
-    parser.add_argument("--max-runs", type=int, default=0, help="Optional cap for number of runs to score (0 = no cap)")
+    parser.add_argument(
+        "--max-runs",
+        type=int,
+        default=0,
+        help="Optional cap for number of runs to score (0 = no cap)",
+    )
 
     args = parser.parse_args()
 

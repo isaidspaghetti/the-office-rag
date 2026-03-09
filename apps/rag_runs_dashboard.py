@@ -68,7 +68,9 @@ def deterministic_score(
     expected_eps = {e.upper() for e in (expected_episode_ids or [])}
     episode_ok = True
     if expected_eps:
-        episode_ok = bool(ans_eps & expected_eps) or any(e.lower() in normalize_text(ans) for e in expected_eps)
+        episode_ok = bool(ans_eps & expected_eps) or any(
+            e.lower() in normalize_text(ans) for e in expected_eps
+        )
 
     must_ok = True
     if must_include:
@@ -92,7 +94,9 @@ def deterministic_score(
     }
 
 
-def build_context_from_results(case: Dict[str, Any], *, max_docs: int = 6, max_chars: int = 8000) -> str:
+def build_context_from_results(
+    case: Dict[str, Any], *, max_docs: int = 6, max_chars: int = 8000
+) -> str:
     """
     Use retrieval previews as judge context. This keeps scoring cheap and avoids disk dependency.
     """
@@ -153,7 +157,7 @@ def judge_prompt(
             "verdict": "one of: correct | partially_correct | incorrect | idk_preferred",
             "unsupported_claims": "list of short strings",
             "missing_points": "list of short strings",
-            "notes": "short string"
+            "notes": "short string",
         },
     }
     return system, json.dumps(user, ensure_ascii=False)
@@ -259,12 +263,22 @@ def score_run(
 def main() -> None:
     load_dotenv()
 
-    parser = argparse.ArgumentParser(description="Score RAG run logs using gold answers + OpenAI judge.")
-    parser.add_argument("--runs-dir", default="experiments/runs", help="Directory containing run JSON logs")
-    parser.add_argument("--gold", default="experiments/gold_answers.json", help="Gold answers JSON file")
-    parser.add_argument("--out-dir", default="experiments/scored_runs", help="Where to write scored JSON files")
+    parser = argparse.ArgumentParser(
+        description="Score RAG run logs using gold answers + OpenAI judge."
+    )
+    parser.add_argument(
+        "--runs-dir", default="experiments/runs", help="Directory containing run JSON logs"
+    )
+    parser.add_argument(
+        "--gold", default="experiments/gold_answers.json", help="Gold answers JSON file"
+    )
+    parser.add_argument(
+        "--out-dir", default="experiments/scored_runs", help="Where to write scored JSON files"
+    )
 
-    parser.add_argument("--judge-model", default="gpt-4.1-mini", help="OpenAI model to use as judge")
+    parser.add_argument(
+        "--judge-model", default="gpt-4.1-mini", help="OpenAI model to use as judge"
+    )
     parser.add_argument("--temperature", type=float, default=0.0)
 
     args = parser.parse_args()

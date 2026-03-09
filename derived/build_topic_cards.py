@@ -165,7 +165,9 @@ def open_script_store(
     return Chroma(**kwargs)
 
 
-def similarity_search_with_scores(vs: Chroma, query: str, k: int) -> List[Tuple[Document, Optional[float]]]:
+def similarity_search_with_scores(
+    vs: Chroma, query: str, k: int
+) -> List[Tuple[Document, Optional[float]]]:
     # langchain-chroma returns distance by default in some versions; treat it as a score-ish number.
     # We only use it for within-run ranking.
     results = vs.similarity_search_with_score(query, k=k)
@@ -293,19 +295,9 @@ def _make_synthesis_prompt(*, topic: TopicSpec, evidence: Dict[str, Any]) -> Tup
             "topic_type": topic.topic_type,
             "entity_names": topic.entity_names,
             "episode_ids": ["SxxEyy"],
-            "bullet_facts": [
-                {
-                    "fact": "<one short bullet fact>",
-                    "citations": ["<chunk_ref_id>"]
-                }
-            ],
-            "supporting_quotes": [
-                {
-                    "quote": "<verbatim quote>",
-                    "citations": ["<chunk_ref_id>"]
-                }
-            ],
-            "missing": ["<what could not be supported from evidence>"]
+            "bullet_facts": [{"fact": "<one short bullet fact>", "citations": ["<chunk_ref_id>"]}],
+            "supporting_quotes": [{"quote": "<verbatim quote>", "citations": ["<chunk_ref_id>"]}],
+            "missing": ["<what could not be supported from evidence>"],
         },
         "rules": [
             "Return JSON only.",
@@ -338,16 +330,19 @@ def synthesize_topic_card(
     evidence: Dict[str, Any],
 ) -> Dict[str, Any]:
     system, user = _make_synthesis_prompt(topic=topic, evidence=evidence)
-    msg = llm.invoke([
-        {"role": "system", "content": system},
-        {"role": "user", "content": user},
-    ])
+    msg = llm.invoke(
+        [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ]
+    )
 
     parsed = _try_parse_json(str(getattr(msg, "content", "") or ""))
 
     # Validate quotes are exact substrings; if not, drop and record missing.
     chunk_text_by_id = {
-        str(c.get("chunk_ref_id")): str(c.get("text") or "") for c in (evidence.get("evidence_chunks") or [])
+        str(c.get("chunk_ref_id")): str(c.get("text") or "")
+        for c in (evidence.get("evidence_chunks") or [])
     }
 
     missing: List[str] = []
@@ -399,6 +394,7 @@ def synthesize_topic_card(
     def _extract_quoted_substrings(s: str) -> List[str]:
         # Pull out "..." segments and require they exist in evidence if used.
         return [q.strip() for q in re.findall(r'"([^"]+)"', s or "") if q.strip()]
+
     for f in parsed.get("bullet_facts") or []:
         if not isinstance(f, dict):
             continue
@@ -410,7 +406,9 @@ def synthesize_topic_card(
 
         # Heuristic repairs/validation for citations.
         # 1) Ensure at least one citation chunk mentions the required entities.
-        if citations and not any(_text_mentions_required_entities(chunk_text_by_id.get(c, "").lower()) for c in citations):
+        if citations and not any(
+            _text_mentions_required_entities(chunk_text_by_id.get(c, "").lower()) for c in citations
+        ):
             entity_hits = _best_chunks_matching(_text_mentions_required_entities)
             if entity_hits:
                 citations = entity_hits[:3]
@@ -448,13 +446,18 @@ def synthesize_topic_card(
 
         # Final check: relationship facts should cite at least one chunk mentioning all entities.
         if topic.topic_type == "relationship" and len(entity_terms) >= 2:
-            if not any(all(t in (chunk_text_by_id.get(c, "").lower()) for t in entity_terms) for c in citations):
+            if not any(
+                all(t in (chunk_text_by_id.get(c, "").lower()) for t in entity_terms)
+                for c in citations
+            ):
                 missing.append(f"Fact citations lack both entities: {fact[:80]}")
                 continue
 
         facts_out.append({"fact": fact, "citations": citations})
 
-    episode_ids = [str(x).strip().upper() for x in (parsed.get("episode_ids") or []) if str(x).strip()]
+    episode_ids = [
+        str(x).strip().upper() for x in (parsed.get("episode_ids") or []) if str(x).strip()
+    ]
     episode_ids = [e for e in episode_ids if re.match(r"^S\d{2}E\d{2}$", e)]
     if not episode_ids:
         episode_ids = [str(x) for x in (evidence.get("top_episode_ids") or []) if str(x).strip()]
@@ -474,21 +477,37 @@ def synthesize_topic_card(
         "bullet_facts": facts_out,
         "supporting_quotes": quotes_out,
         "missing": missing,
-        "evidence_chunk_refs": [str(c.get("chunk_ref_id")) for c in (evidence.get("evidence_chunks") or [])],
+        "evidence_chunk_refs": [
+            str(c.get("chunk_ref_id")) for c in (evidence.get("evidence_chunks") or [])
+        ],
     }
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Two-pass topic card builder: (1) retrieve evidence, (2) synthesize one card per topic.")
-    p.add_argument("--topics", default="derived/topic_cards/topics.example.json", help="Path to topics JSON")
+    p = argparse.ArgumentParser(
+        description="Two-pass topic card builder: (1) retrieve evidence, (2) synthesize one card per topic."
+    )
+    p.add_argument(
+        "--topics", default="derived/topic_cards/topics.example.json", help="Path to topics JSON"
+    )
     p.add_argument("--out-root", default="derived/artifacts", help="Output root")
     p.add_argument("--build-prefix", default=None, help="Build directory name under out-root")
 
-    p.add_argument("--script-persist-dir", default=DEFAULT_SCRIPT_PERSIST_DIR, help="Chroma persist dir for scripts")
-    p.add_argument("--script-collection-name", default=DEFAULT_SCRIPT_COLLECTION_NAME, help="Chroma collection name (optional)")
+    p.add_argument(
+        "--script-persist-dir",
+        default=DEFAULT_SCRIPT_PERSIST_DIR,
+        help="Chroma persist dir for scripts",
+    )
+    p.add_argument(
+        "--script-collection-name",
+        default=DEFAULT_SCRIPT_COLLECTION_NAME,
+        help="Chroma collection name (optional)",
+    )
     p.add_argument("--embed-model", default=DEFAULT_EMBED_MODEL)
 
-    p.add_argument("--pass", dest="pass_name", choices=["discover", "synthesize", "both"], default="discover")
+    p.add_argument(
+        "--pass", dest="pass_name", choices=["discover", "synthesize", "both"], default="discover"
+    )
     p.add_argument("--query-top-k", type=int, default=DEFAULT_QUERY_TOP_K)
     p.add_argument("--top-episodes", type=int, default=DEFAULT_TOP_EPISODES)
     p.add_argument("--top-chunks-per-episode", type=int, default=DEFAULT_TOP_CHUNKS_PER_EPISODE)
@@ -560,7 +579,9 @@ def main() -> None:
     if args.pass_name in {"discover", "both"}:
         vs = open_script_store(
             persist_dir=script_persist,
-            collection_name=str(args.script_collection_name) if args.script_collection_name else None,
+            collection_name=(
+                str(args.script_collection_name) if args.script_collection_name else None
+            ),
             embed_model=str(args.embed_model),
         )
 
@@ -597,7 +618,9 @@ def main() -> None:
 
         # If we didn't run discovery in this invocation, expect evidence files already exist.
         if not evidence_dir.exists():
-            raise SystemExit(f"Missing evidence dir: {evidence_dir}. Run with --pass discover first.")
+            raise SystemExit(
+                f"Missing evidence dir: {evidence_dir}. Run with --pass discover first."
+            )
 
         for topic in topics:
             evidence_path = evidence_dir / f"{topic.topic_id}.json"

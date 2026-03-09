@@ -73,7 +73,9 @@ def main() -> None:
     rows.sort(key=lambda r: int(r["delta"]), reverse=True)
 
     top_deltas = rows[: int(args.top)]
-    regressions = sorted([r for r in rows if int(r["delta"]) < 0], key=lambda r: int(r["delta"]))[:10]
+    regressions = sorted([r for r in rows if int(r["delta"]) < 0], key=lambda r: int(r["delta"]))[
+        :10
+    ]
 
     report = {
         "best_run_id": str(args.best_run_id),

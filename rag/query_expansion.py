@@ -145,12 +145,11 @@ def expand_queries(
         "Keep each query short (<= 12 words) and entity-preserving.\n"
         "Preserve important constraints/qualifiers from the original question (e.g., 'serious', 'how it ended', 'in which episode').\n"
         "Do NOT broaden the scope (e.g., don't turn 'serious girlfriends' into 'dating history') unless the original question is broad.\n"
-        "Return ONLY valid JSON: {\"queries\": [..]}."
+        'Return ONLY valid JSON: {"queries": [..]}.'
     )
 
     user = (
-        f"Original question: {base}\n\n"
-        f"Generate exactly {config.n} alternative search queries."
+        f"Original question: {base}\n\n" f"Generate exactly {config.n} alternative search queries."
     )
 
     msg = llm.invoke([("system", system), ("human", user)])

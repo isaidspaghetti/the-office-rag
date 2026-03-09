@@ -41,7 +41,9 @@ def split_episode_script_into_scenes(doc: Document) -> List[Document]:
     return chunks
 
 
-def split_episode_script_into_scene_windows(doc: Document, *, window_size: int = 1) -> List[Document]:
+def split_episode_script_into_scene_windows(
+    doc: Document, *, window_size: int = 1
+) -> List[Document]:
     """Split an episode script into overlapping scene windows.
 
     With window_size=1 (default), each output chunk includes:

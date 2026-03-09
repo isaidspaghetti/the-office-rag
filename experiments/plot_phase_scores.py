@@ -336,11 +336,18 @@ def try_plot_png(path: Path, rows: List[Dict[str, Any]], *, title: str, group_by
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Summarize best/worst judge scores per phase and optionally plot a PNG.")
+    p = argparse.ArgumentParser(
+        description="Summarize best/worst judge scores per phase and optionally plot a PNG."
+    )
     p.add_argument("--runs-dir", default="experiments/runs")
     p.add_argument("--scored-dir", default="experiments/scored_runs_two_pass")
     p.add_argument("--run-name-prefix", default="", help="Optional filter for run.run_name")
-    p.add_argument("--group-by", default="phase", choices=["phase", "step"], help="Group runs by inferred phase or stepNN")
+    p.add_argument(
+        "--group-by",
+        default="phase",
+        choices=["phase", "step"],
+        help="Group runs by inferred phase or stepNN",
+    )
     p.add_argument(
         "--require-llm",
         action="store_true",

@@ -141,7 +141,9 @@ def _to_float(x: Any) -> Optional[float]:
         return None
 
 
-def load_rows(*, runs_dir: Path, run_name_prefix: str, scored_dir: Optional[Path] = None) -> List[RunRow]:
+def load_rows(
+    *, runs_dir: Path, run_name_prefix: str, scored_dir: Optional[Path] = None
+) -> List[RunRow]:
     rows: List[RunRow] = []
 
     for rf in sorted(runs_dir.rglob("*.json")):
@@ -149,7 +151,11 @@ def load_rows(*, runs_dir: Path, run_name_prefix: str, scored_dir: Optional[Path
             obj = _read_json(rf)
         except Exception:
             continue
-        if not (isinstance(obj, dict) and isinstance(obj.get("run"), dict) and isinstance(obj.get("summary"), dict)):
+        if not (
+            isinstance(obj, dict)
+            and isinstance(obj.get("run"), dict)
+            and isinstance(obj.get("summary"), dict)
+        ):
             continue
 
         run_name = str(_safe_get(obj, "run.run_name", "") or "")
@@ -179,32 +185,49 @@ def load_rows(*, runs_dir: Path, run_name_prefix: str, scored_dir: Optional[Path
                 retrieval_policy=str(_safe_get(obj, "config.retrieval.policy", "") or ""),
                 search_type=str(_safe_get(obj, "config.retrieval.search_type", "") or ""),
                 k=_to_int(_safe_get(obj, "config.retrieval.k", None)),
-
                 avg_total_tokens=_to_int(_safe_get(obj, "summary.avg_total_tokens", None)),
-
-                avg_retrieval_latency_ms=_to_int(_safe_get(obj, "summary.avg_retrieval_latency_ms", None)),
+                avg_retrieval_latency_ms=_to_int(
+                    _safe_get(obj, "summary.avg_retrieval_latency_ms", None)
+                ),
                 avg_context_docs=_to_float(_safe_get(obj, "summary.avg_context_docs", None)),
                 avg_context_chars=_to_float(_safe_get(obj, "summary.avg_context_chars", None)),
-
-                avg_distinct_episodes_in_context=_to_float(_safe_get(obj, "summary.avg_distinct_episodes_in_context", None)),
-                avg_top_episode_share_in_context=_to_float(_safe_get(obj, "summary.avg_top_episode_share_in_context", None)),
-                avg_episode_entropy_norm_in_context=_to_float(_safe_get(obj, "summary.avg_episode_entropy_norm_in_context", None)),
-                avg_aggregation_readiness_score=_to_float(_safe_get(obj, "summary.avg_aggregation_readiness_score", None)),
-
-                retrieval_empty_rate=_to_float(_safe_get(obj, "summary.retrieval_empty_rate", None)),
-                retrieval_failure_rate=_to_float(_safe_get(obj, "summary.retrieval_failure_rate", None)),
-                grounding_failure_rate=_to_float(_safe_get(obj, "summary.grounding_failure_rate", None)),
-                quote_in_context_rate=_to_float(_safe_get(obj, "summary.quote_in_context_rate", None)),
-
+                avg_distinct_episodes_in_context=_to_float(
+                    _safe_get(obj, "summary.avg_distinct_episodes_in_context", None)
+                ),
+                avg_top_episode_share_in_context=_to_float(
+                    _safe_get(obj, "summary.avg_top_episode_share_in_context", None)
+                ),
+                avg_episode_entropy_norm_in_context=_to_float(
+                    _safe_get(obj, "summary.avg_episode_entropy_norm_in_context", None)
+                ),
+                avg_aggregation_readiness_score=_to_float(
+                    _safe_get(obj, "summary.avg_aggregation_readiness_score", None)
+                ),
+                retrieval_empty_rate=_to_float(
+                    _safe_get(obj, "summary.retrieval_empty_rate", None)
+                ),
+                retrieval_failure_rate=_to_float(
+                    _safe_get(obj, "summary.retrieval_failure_rate", None)
+                ),
+                grounding_failure_rate=_to_float(
+                    _safe_get(obj, "summary.grounding_failure_rate", None)
+                ),
+                quote_in_context_rate=_to_float(
+                    _safe_get(obj, "summary.quote_in_context_rate", None)
+                ),
                 errors_count=_to_int(_safe_get(obj, "summary.errors_count", None)),
-
                 scored_file=(str(scored_path.as_posix()) if scored_path is not None else None),
-
                 judge_cases_scored=_to_int(_safe_get(scored, "score_summary.cases_scored", None)),
                 judge_avg_overall=_to_int(_safe_get(scored, "score_summary.avg_overall", None)),
-                det_episode_ok_rate=_to_float(_safe_get(scored, "deterministic_summary.episode_ok_rate", None)),
-                det_must_include_ok_rate=_to_float(_safe_get(scored, "deterministic_summary.must_include_ok_rate", None)),
-                det_forbidden_hit_rate=_to_float(_safe_get(scored, "deterministic_summary.forbidden_hit_rate", None)),
+                det_episode_ok_rate=_to_float(
+                    _safe_get(scored, "deterministic_summary.episode_ok_rate", None)
+                ),
+                det_must_include_ok_rate=_to_float(
+                    _safe_get(scored, "deterministic_summary.must_include_ok_rate", None)
+                ),
+                det_forbidden_hit_rate=_to_float(
+                    _safe_get(scored, "deterministic_summary.forbidden_hit_rate", None)
+                ),
             )
         )
 
@@ -220,7 +243,9 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
         lines.append(notes.strip())
         lines.append("")
 
-    has_scores = any((r.judge_avg_overall is not None) or (r.judge_cases_scored is not None) for r in rows)
+    has_scores = any(
+        (r.judge_avg_overall is not None) or (r.judge_cases_scored is not None) for r in rows
+    )
 
     if has_scores:
         lines.append("## Summary table (scored)")
@@ -228,9 +253,7 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
         lines.append(
             "| step | run_name | policy | search | k | avg_overall | judge_cases | det_episode_ok | det_must_include_ok | det_forbidden_hit | avg_total_tokens | grounding_fail | quote_in_ctx |"
         )
-        lines.append(
-            "|---:|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
-        )
+        lines.append("|---:|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
 
         for r in rows:
             lines.append(
@@ -262,9 +285,7 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
     lines.append(
         "| step | run_name | policy | search | k | avg_ctx_docs | avg_distinct_eps | top_ep_share | ep_entropy | agg_readiness | empty_rate | retrieval_fail_rate | avg_retrieval_ms | errors |"
     )
-    lines.append(
-        "|---:|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
-    )
+    lines.append("|---:|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
 
     for r in rows:
         lines.append(
@@ -309,13 +330,19 @@ def render_markdown(*, rows: List[RunRow], run_name_prefix: str, notes: str) -> 
     if has_scores:
         lines.append("## Notes")
         lines.append("")
-        lines.append("- This report already includes judge scoring (avg_overall) and deterministic checks.")
+        lines.append(
+            "- This report already includes judge scoring (avg_overall) and deterministic checks."
+        )
         lines.append("- If you re-run new steps, re-run scoring so the scored files stay in sync.")
     else:
         lines.append("## Next (when OPENAI_API_KEY is set)")
         lines.append("")
-        lines.append("- Re-run the same steps with LLM answering enabled (`--llm-model gpt-4.1-mini`) and then judge-score them with `experiments/score_runs.py`.")
-        lines.append("- That will populate `avg_overall` and other judge metrics for a true end-to-end evolution story.")
+        lines.append(
+            "- Re-run the same steps with LLM answering enabled (`--llm-model gpt-4.1-mini`) and then judge-score them with `experiments/score_runs.py`."
+        )
+        lines.append(
+            "- That will populate `avg_overall` and other judge metrics for a true end-to-end evolution story."
+        )
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -337,12 +364,18 @@ def main() -> None:
     args = p.parse_args()
 
     runs_dir = Path(args.runs_dir).expanduser().resolve()
-    scored_dir = Path(args.scored_dir).expanduser().resolve() if str(args.scored_dir).strip() else None
-    rows = load_rows(runs_dir=runs_dir, run_name_prefix=str(args.run_name_prefix), scored_dir=scored_dir)
+    scored_dir = (
+        Path(args.scored_dir).expanduser().resolve() if str(args.scored_dir).strip() else None
+    )
+    rows = load_rows(
+        runs_dir=runs_dir, run_name_prefix=str(args.run_name_prefix), scored_dir=scored_dir
+    )
     if not rows:
         raise SystemExit(f"No runs found with prefix: {args.run_name_prefix}")
 
-    md = render_markdown(rows=rows, run_name_prefix=str(args.run_name_prefix), notes=str(args.notes))
+    md = render_markdown(
+        rows=rows, run_name_prefix=str(args.run_name_prefix), notes=str(args.notes)
+    )
 
     out = str(args.out).strip()
     if out:

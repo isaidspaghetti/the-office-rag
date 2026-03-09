@@ -96,7 +96,9 @@ def _make_queries(a: str, b: str) -> List[str]:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Generate relationship TopicSpec list by mining EpisodeDerivedCardV1 artifacts")
+    p = argparse.ArgumentParser(
+        description="Generate relationship TopicSpec list by mining EpisodeDerivedCardV1 artifacts"
+    )
     p.add_argument(
         "--episode-cards-glob",
         default="derived/artifacts/**/episode_cards/*.json",
@@ -112,7 +114,12 @@ def main() -> None:
         action="store_true",
         help="If set, only include pairs where at least one side is in character-config's characters/aliases",
     )
-    p.add_argument("--min-episodes", type=int, default=2, help="Minimum distinct episodes a pair must appear in")
+    p.add_argument(
+        "--min-episodes",
+        type=int,
+        default=2,
+        help="Minimum distinct episodes a pair must appear in",
+    )
     p.add_argument("--top-n", type=int, default=30, help="Max number of pairs to include")
     p.add_argument(
         "--out",
@@ -122,7 +129,9 @@ def main() -> None:
 
     args = p.parse_args()
 
-    character_config_path = _resolve_under_repo(str(args.character_config)) if args.character_config else None
+    character_config_path = (
+        _resolve_under_repo(str(args.character_config)) if args.character_config else None
+    )
     main_cast = _load_main_cast_names(character_config_path)
 
     pair_episodes: DefaultDict[Tuple[str, str], Set[str]] = defaultdict(set)
@@ -211,7 +220,15 @@ def main() -> None:
     out_path.write_text(_safe_json(payload) + "\n", encoding="utf-8")
 
     print(f"Wrote topics: {out_path}")
-    print(_safe_json({"num_topics": len(topics), "min_episodes": int(args.min_episodes), "top_n": int(args.top_n)}))
+    print(
+        _safe_json(
+            {
+                "num_topics": len(topics),
+                "min_episodes": int(args.min_episodes),
+                "top_n": int(args.top_n),
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

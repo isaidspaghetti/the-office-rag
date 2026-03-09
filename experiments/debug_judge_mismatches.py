@@ -11,7 +11,9 @@ def read_json(path: Path) -> Any:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Find cases where judge context likely lacked supporting quotes.")
+    p = argparse.ArgumentParser(
+        description="Find cases where judge context likely lacked supporting quotes."
+    )
     p.add_argument("--runs-dir", default="experiments/runs")
     p.add_argument("--scored-dir", default="experiments/scored_runs_two_pass_rescored_2026-03-07")
     p.add_argument("--max", type=int, default=10)
@@ -47,7 +49,9 @@ def main() -> None:
 
         cases = run.get("cases") or []
         cases_by_id = {
-            c.get("case_id"): c for c in cases if isinstance(c, dict) and str(c.get("case_id") or "").strip()
+            c.get("case_id"): c
+            for c in cases
+            if isinstance(c, dict) and str(c.get("case_id") or "").strip()
         }
 
         for row in sobj.get("scored_cases") or []:
@@ -61,7 +65,7 @@ def main() -> None:
                 continue
 
             # Run-eval diagnostics computed against full context_text at eval time.
-            aq = ((c.get("diagnostics") or {}).get("answer_quotes") or {})
+            aq = (c.get("diagnostics") or {}).get("answer_quotes") or {}
             any_in_ctx = aq.get("any_quote_in_context")
             if any_in_ctx is not True:
                 continue
@@ -71,7 +75,10 @@ def main() -> None:
             unsupported_str = " ".join(str(x) for x in unsupported).lower()
 
             # Heuristic: judge claims quote unsupported / not in context.
-            if "not in the context" in unsupported_str or "not present in the retrieved context" in unsupported_str:
+            if (
+                "not in the context" in unsupported_str
+                or "not present in the retrieved context" in unsupported_str
+            ):
                 examples = aq.get("examples") or []
                 hits.append(
                     (

@@ -174,9 +174,13 @@ def reduce_season(cfg: ReduceSeasonConfig) -> Path:
         ep_status["duration_ms"] = int((time.time() - t0) * 1000)
         manifest["execution"]["episodes"].append(ep_status)
         season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
-        print(f"[{idx}/{len(episodes)}] {ep.episode_id} {ep_status['status']} ({ep_status['duration_ms']}ms)")
+        print(
+            f"[{idx}/{len(episodes)}] {ep.episode_id} {ep_status['status']} ({ep_status['duration_ms']}ms)"
+        )
 
-    manifest["execution"]["status"] = "done" if manifest["execution"]["errors"] == 0 else "done_with_errors"
+    manifest["execution"]["status"] = (
+        "done" if manifest["execution"]["errors"] == 0 else "done_with_errors"
+    )
     manifest["execution"]["ended_at_utc"] = utc_now_iso()
     season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
 
@@ -184,7 +188,9 @@ def reduce_season(cfg: ReduceSeasonConfig) -> Path:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Reduce one season's SegmentSummaryV1 into EpisodeDerivedCardV1")
+    p = argparse.ArgumentParser(
+        description="Reduce one season's SegmentSummaryV1 into EpisodeDerivedCardV1"
+    )
     p.add_argument("--season", type=int, required=True, help="Season number (1-9)")
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR)
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT)
@@ -206,7 +212,7 @@ def main() -> None:
     segments_root = _resolve_under_repo(str(args.segments_root))
     segsum_root = _resolve_under_repo(str(args.segment_summaries_root))
 
-    llm_model = (str(args.llm_model).strip() if args.llm_model else None)
+    llm_model = str(args.llm_model).strip() if args.llm_model else None
     if not llm_model:
         from derived.reduce_episode import DEFAULT_LLM_MODEL as REDUCE_DEFAULT
 

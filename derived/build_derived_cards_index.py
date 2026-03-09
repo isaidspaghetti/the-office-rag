@@ -142,7 +142,9 @@ def _render_topic_card(card: Dict[str, Any]) -> str:
     topic_id = str(card.get("topic_id") or "").strip()
     topic_type = str(card.get("topic_type") or "").strip()
     entities = [str(x).strip() for x in (card.get("entity_names") or []) if str(x).strip()]
-    episode_ids = [str(x).strip().upper() for x in (card.get("episode_ids") or []) if str(x).strip()]
+    episode_ids = [
+        str(x).strip().upper() for x in (card.get("episode_ids") or []) if str(x).strip()
+    ]
 
     lines: List[str] = []
     header = "Topic card"
@@ -344,8 +346,14 @@ def build_derived_cards_index(cfg: BuildConfig) -> Dict[str, Any]:
 
                 topic_id = str(card.get("topic_id") or "").strip()
                 topic_type = str(card.get("topic_type") or "").strip()
-                entities = [str(x).strip() for x in (card.get("entity_names") or []) if str(x).strip()]
-                episode_ids = [str(x).strip().upper() for x in (card.get("episode_ids") or []) if str(x).strip()]
+                entities = [
+                    str(x).strip() for x in (card.get("entity_names") or []) if str(x).strip()
+                ]
+                episode_ids = [
+                    str(x).strip().upper()
+                    for x in (card.get("episode_ids") or [])
+                    if str(x).strip()
+                ]
                 build_id = str(card.get("build_id") or "").strip()
                 stable_build_tag = build_id or pref
 
@@ -442,8 +450,12 @@ def main() -> None:
         help="Comma-separated topic-card build prefixes. If omitted, auto-detect under out-root.",
     )
 
-    p.add_argument("--no-episode-cards", action="store_true", help="Do not index EpisodeDerivedCardV1")
-    p.add_argument("--no-season-cards", action="store_true", help="Do not index SeasonDerivedCardV1")
+    p.add_argument(
+        "--no-episode-cards", action="store_true", help="Do not index EpisodeDerivedCardV1"
+    )
+    p.add_argument(
+        "--no-season-cards", action="store_true", help="Do not index SeasonDerivedCardV1"
+    )
     p.add_argument("--no-topic-cards", action="store_true", help="Do not index TopicCardV1")
 
     p.add_argument(
@@ -453,7 +465,9 @@ def main() -> None:
     )
 
     p.add_argument("--reset", action="store_true", help="Delete persist dir before rebuilding")
-    p.add_argument("--dry-run", action="store_true", help="Print what would be indexed; do not embed/write")
+    p.add_argument(
+        "--dry-run", action="store_true", help="Print what would be indexed; do not embed/write"
+    )
 
     args = p.parse_args()
 

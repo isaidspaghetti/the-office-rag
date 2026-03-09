@@ -23,7 +23,9 @@ DEFAULT_PERSIST_DIR = PROJECT_ROOT / "db" / "chroma_db"
 EMBED_MODEL = "text-embedding-3-small"
 
 
-_EPISODE_IN_PATH_RE = re.compile(r"(?:^|[\\/])s(?P<season>\d{2})e(?P<episode>\d{2})(?:[_.-]|$)", re.IGNORECASE)
+_EPISODE_IN_PATH_RE = re.compile(
+    r"(?:^|[\\/])s(?P<season>\d{2})e(?P<episode>\d{2})(?:[_.-]|$)", re.IGNORECASE
+)
 
 
 def _detect_doc_type_from_source(source: str) -> str:
@@ -71,7 +73,9 @@ def _source_relpath(source: str) -> str | None:
     return None
 
 
-def add_chunk_metadata(chunks: List[Document], *, default_chunk_type: str = "char") -> List[Document]:
+def add_chunk_metadata(
+    chunks: List[Document], *, default_chunk_type: str = "char"
+) -> List[Document]:
     """Ensure each chunk has stable chunk-level metadata.
 
     - Preserves existing metadata (episode_id, doc_type, speakers, etc.)

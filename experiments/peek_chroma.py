@@ -26,7 +26,9 @@ def main() -> None:
 
     res = col.get(limit=int(args.limit), include=["documents", "metadatas"])
 
-    for i, (meta, doc, _id) in enumerate(zip(res["metadatas"], res["documents"], res["ids"]), start=1):
+    for i, (meta, doc, _id) in enumerate(
+        zip(res["metadatas"], res["documents"], res["ids"]), start=1
+    ):
         meta = meta or {}
         doc = doc or ""
         print(f"\n--- CHUNK {i} ---")

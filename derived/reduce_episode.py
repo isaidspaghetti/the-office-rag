@@ -106,7 +106,9 @@ def _trim_snippet(s: str, max_chars: int = 180) -> str:
     return s[: max_chars - 3] + "..."
 
 
-def _make_evidence_pool(segment_summaries: List[Dict[str, Any]]) -> Tuple[Dict[str, Dict[str, Any]], Dict[Tuple[str, int, int], str]]:
+def _make_evidence_pool(
+    segment_summaries: List[Dict[str, Any]],
+) -> Tuple[Dict[str, Dict[str, Any]], Dict[Tuple[str, int, int], str]]:
     """Return (pool_by_id, key_to_id).
 
     key is (segment_id, char_start, char_end) to dedupe.
@@ -171,7 +173,9 @@ def _make_evidence_pool(segment_summaries: List[Dict[str, Any]]) -> Tuple[Dict[s
     return pool, key_to_id
 
 
-def _segment_context_for_llm(*, segment_summaries: List[Dict[str, Any]], key_to_id: Dict[Tuple[str, int, int], str]) -> List[Dict[str, Any]]:
+def _segment_context_for_llm(
+    *, segment_summaries: List[Dict[str, Any]], key_to_id: Dict[Tuple[str, int, int], str]
+) -> List[Dict[str, Any]]:
     segments_out: List[Dict[str, Any]] = []
 
     def _evidence_ids(spans: Any, max_items: int) -> List[str]:
@@ -232,7 +236,13 @@ def _segment_context_for_llm(*, segment_summaries: List[Dict[str, Any]], key_to_
     return segments_out
 
 
-def _make_prompt(*, episode: EpisodeScript, episode_segments: Dict[str, Any], segments_ctx: List[Dict[str, Any]], evidence_pool: Dict[str, Dict[str, Any]]) -> Tuple[str, str]:
+def _make_prompt(
+    *,
+    episode: EpisodeScript,
+    episode_segments: Dict[str, Any],
+    segments_ctx: List[Dict[str, Any]],
+    evidence_pool: Dict[str, Dict[str, Any]],
+) -> Tuple[str, str]:
     system = (
         "You are a careful reducer creating an episode-level derived card for a RAG system. "
         "You must ONLY use the provided segment summaries and evidence pool. "
@@ -256,20 +266,18 @@ def _make_prompt(*, episode: EpisodeScript, episode_segments: Dict[str, Any], se
             "episode_id": episode.episode_id,
             "title": episode.title,
             "one_paragraph_synopsis": "<one paragraph>",
-            "main_threads": [
-                {"thread": "<thread>", "evidence_ids": ["E0001", "E0002"]}
-            ],
+            "main_threads": [{"thread": "<thread>", "evidence_ids": ["E0001", "E0002"]}],
             "character_highlights": [
                 {"character": "<name>", "what_changes": "<what changes>", "evidence_ids": ["E0001"]}
             ],
             "relationships": [
                 {"pair": ["A", "B"], "status": "<status>", "evidence_ids": ["E0001"]}
             ],
-            "tags": ["<tag>"] ,
+            "tags": ["<tag>"],
             "uncertainties": [
                 {"question": "<open question>", "why_uncertain": "<why>", "evidence_ids": ["E0001"]}
             ],
-            "build_notes": "<optional>"
+            "build_notes": "<optional>",
         },
         "rules": [
             "Return JSON only.",
@@ -286,7 +294,9 @@ def _make_prompt(*, episode: EpisodeScript, episode_segments: Dict[str, Any], se
                 "episode_id": episode_segments.get("episode_id"),
                 "title": episode_segments.get("title"),
                 "source": episode_segments.get("source"),
-                "segment_ids": [s.get("segment_id") for s in _coerce_list(episode_segments.get("segments"))],
+                "segment_ids": [
+                    s.get("segment_id") for s in _coerce_list(episode_segments.get("segments"))
+                ],
             },
             "segments": segments_ctx,
             "evidence_pool": evidence_pool,
@@ -415,7 +425,11 @@ def _normalize_episode_card(
 
         return text_out, items_out
 
-    source_segments = [s.get("segment_id") for s in _coerce_list(episode_segments.get("segments")) if isinstance(s, dict)]
+    source_segments = [
+        s.get("segment_id")
+        for s in _coerce_list(episode_segments.get("segments"))
+        if isinstance(s, dict)
+    ]
 
     uncertainties_text, uncertainty_items = _norm_uncertainties()
 
@@ -472,7 +486,9 @@ def reduce_episode(cfg: ReduceConfig) -> Path:
     build_id = (cfg.build_id or "").strip() or f"derived_episodecard_{created_at.replace(':', '-')}"
 
     episode = _find_episode(docs_dir=cfg.docs_dir, episode_id=cfg.episode_id)
-    episode_segments = _load_episode_segments(segments_root=cfg.segments_root, episode_id=episode.episode_id)
+    episode_segments = _load_episode_segments(
+        segments_root=cfg.segments_root, episode_id=episode.episode_id
+    )
 
     expected_segment_ids = [
         s.get("segment_id")
@@ -483,7 +499,12 @@ def reduce_episode(cfg: ReduceConfig) -> Path:
     if not expected_segment_ids:
         raise ValueError(f"No segments found in {cfg.segments_root}/{episode.episode_id}.json")
 
-    seg_summ_dir = cfg.segment_summaries_root / cfg.segments_build_id / "segment_summaries" / episode.episode_id
+    seg_summ_dir = (
+        cfg.segment_summaries_root
+        / cfg.segments_build_id
+        / "segment_summaries"
+        / episode.episode_id
+    )
     if not seg_summ_dir.exists():
         raise FileNotFoundError(
             f"Missing segment_summaries directory: {seg_summ_dir}. "
@@ -505,7 +526,9 @@ def reduce_episode(cfg: ReduceConfig) -> Path:
         )
 
     evidence_pool, key_to_id = _make_evidence_pool(segment_summaries)
-    segments_ctx = _segment_context_for_llm(segment_summaries=segment_summaries, key_to_id=key_to_id)
+    segments_ctx = _segment_context_for_llm(
+        segment_summaries=segment_summaries, key_to_id=key_to_id
+    )
 
     out_dir = cfg.out_root / build_id / "episode_cards"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -626,7 +649,9 @@ def reduce_episode(cfg: ReduceConfig) -> Path:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Reduce SegmentSummaryV1 files into an EpisodeDerivedCardV1")
+    p = argparse.ArgumentParser(
+        description="Reduce SegmentSummaryV1 files into an EpisodeDerivedCardV1"
+    )
     p.add_argument("--episode-id", required=True, help="Episode ID like S07E24")
     p.add_argument(
         "--segments-build-id",
@@ -637,7 +662,9 @@ def main() -> None:
     p.add_argument("--segments-root", default=DEFAULT_SEGMENTS_ROOT)
     p.add_argument("--artifacts-root", default=DEFAULT_OUT_ROOT)
     p.add_argument("--llm-model", default=DEFAULT_LLM_MODEL)
-    p.add_argument("--build-id", default=None, help="Output build id (folder under derived/artifacts)")
+    p.add_argument(
+        "--build-id", default=None, help="Output build id (folder under derived/artifacts)"
+    )
     p.add_argument("--force", action="store_true")
     p.add_argument("--prompt-only", action="store_true")
 

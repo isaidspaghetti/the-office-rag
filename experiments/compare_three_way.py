@@ -41,7 +41,11 @@ def main() -> None:
     triples = [
         ("baseline_similarity_k3", "routed_baseline_similarity_k3", "auto_baseline_similarity_k3"),
         ("t1_similarity_k12", "routed_t1_similarity_k12", "auto_t1_similarity_k12"),
-        ("t2_mmr_k12_fetch40_l07_fixed", "routed_t2_mmr_k12_fetch40_l07_fixed", "auto_t2_mmr_k12_fetch40_l07_fixed"),
+        (
+            "t2_mmr_k12_fetch40_l07_fixed",
+            "routed_t2_mmr_k12_fetch40_l07_fixed",
+            "auto_t2_mmr_k12_fetch40_l07_fixed",
+        ),
         ("qe_rrf_similarity_k12", "routed_qe_rrf_similarity_k12", "auto_qe_rrf_similarity_k12"),
         ("qe_rrf_mmr_k12", "routed_qe_rrf_mmr_k12", "auto_qe_rrf_mmr_k12"),
     ]

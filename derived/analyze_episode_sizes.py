@@ -125,7 +125,9 @@ def _segments_needed(approx_tokens: int, segment_target_tokens: int) -> int:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Analyze per-episode script sizes for segmentation planning.")
+    p = argparse.ArgumentParser(
+        description="Analyze per-episode script sizes for segmentation planning."
+    )
     p.add_argument(
         "--docs-dir",
         default="ingestion/normalized_docs_txt",

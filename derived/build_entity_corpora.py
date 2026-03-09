@@ -149,7 +149,9 @@ def _auto_character_names(episode_cards: Sequence[Dict[str, Any]], *, top_n: int
     return [name for (name, _) in counts.most_common(top_n)]
 
 
-def _auto_relationship_pairs(episode_cards: Sequence[Dict[str, Any]], *, top_n: int = 80) -> List[Tuple[str, str]]:
+def _auto_relationship_pairs(
+    episode_cards: Sequence[Dict[str, Any]], *, top_n: int = 80
+) -> List[Tuple[str, str]]:
     counts: Counter[Tuple[str, str]] = Counter()
     for card in episode_cards:
         for rel in card.get("relationships") or []:
@@ -260,7 +262,13 @@ def build_character_cards(
 
         aliases = list((aliases_by_name or {}).get(name) or [])
 
-        episode_ids = sorted({str(h.get("episode_id") or "").strip().upper() for h in highlights if h.get("episode_id")})
+        episode_ids = sorted(
+            {
+                str(h.get("episode_id") or "").strip().upper()
+                for h in highlights
+                if h.get("episode_id")
+            }
+        )
 
         key_facts: List[str] = []
         for h in highlights:
@@ -272,7 +280,7 @@ def build_character_cards(
 
         evidence: List[Dict[str, Any]] = []
         for h in highlights:
-            for ev in (h.get("evidence") or []):
+            for ev in h.get("evidence") or []:
                 if isinstance(ev, dict):
                     evidence.append(ev)
 
@@ -338,7 +346,9 @@ def build_relationship_cards(
         label = str((labels_by_pair or {}).get((key_pair[0], key_pair[1])) or f"{a}–{b}")
         aliases = list((aliases_by_pair or {}).get((key_pair[0], key_pair[1])) or [])
 
-        episode_ids = sorted({str(e.get("episode_id") or "").strip().upper() for e in entries if e.get("episode_id")})
+        episode_ids = sorted(
+            {str(e.get("episode_id") or "").strip().upper() for e in entries if e.get("episode_id")}
+        )
 
         key_facts: List[str] = []
         for e in entries:
@@ -350,7 +360,7 @@ def build_relationship_cards(
 
         evidence: List[Dict[str, Any]] = []
         for e in entries:
-            for ev in (e.get("evidence") or []):
+            for ev in e.get("evidence") or []:
                 if isinstance(ev, dict):
                     evidence.append(ev)
 
@@ -423,7 +433,13 @@ def build_plot_object_cards(
             stats["skipped_objects_no_matches"] += 1
             continue
 
-        episode_ids = sorted({str(c.get("episode_id") or "").strip().upper() for c in matched_cards if c.get("episode_id")})
+        episode_ids = sorted(
+            {
+                str(c.get("episode_id") or "").strip().upper()
+                for c in matched_cards
+                if c.get("episode_id")
+            }
+        )
 
         # Key facts: pull the best-matching thread/tag/synopsis sentence fragments (simple heuristic).
         key_facts: List[str] = []
@@ -614,7 +630,9 @@ def main() -> None:
                         label = str(r.get("label") or "").strip()
                         if label:
                             labels_by_pair[(key_pair[0], key_pair[1])] = label
-                        aliases = [str(x).strip() for x in (r.get("aliases") or []) if str(x).strip()]
+                        aliases = [
+                            str(x).strip() for x in (r.get("aliases") or []) if str(x).strip()
+                        ]
                         if aliases:
                             aliases_by_pair[(key_pair[0], key_pair[1])] = aliases
     elif not bool(args.no_auto_relationships):

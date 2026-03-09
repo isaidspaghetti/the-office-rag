@@ -28,7 +28,9 @@ from rag.query_expansion import QueryExpansionConfig, build_expander_llm, expand
 # Defaults (adjust as needed)
 # -----------------------------
 DEFAULT_PERSIST_DIR = "db/chroma_db"
-DEFAULT_COLLECTION_NAME: Optional[str] = None  # set if you explicitly named the collection in ingestion
+DEFAULT_COLLECTION_NAME: Optional[str] = (
+    None  # set if you explicitly named the collection in ingestion
+)
 DEFAULT_EMBED_MODEL = "text-embedding-3-small"
 DEFAULT_LLM_MODEL = "gpt-4.1-mini"
 DEFAULT_TEMPERATURE = 0.0
@@ -177,7 +179,9 @@ def aggregation_readiness_score(
     # Coverage: what fraction of the context docs come from distinct episodes.
     coverage = float(distinct_episode_count / context_docs) if context_docs > 0 else 0.0
 
-    score01 = 0.45 * _clamp01(diversity) + 0.35 * _clamp01(anti_concentration) + 0.20 * _clamp01(coverage)
+    score01 = (
+        0.45 * _clamp01(diversity) + 0.35 * _clamp01(anti_concentration) + 0.20 * _clamp01(coverage)
+    )
     return float(round(100.0 * _clamp01(score01), 2))
 
 
@@ -298,7 +302,10 @@ def _similarity_search_with_scores(
     filt: Optional[Dict[str, Any]] = None,
 ) -> List[Tuple[Any, Optional[float]]]:
     if not filt:
-        return [(doc, float(score)) for (doc, score) in db.similarity_search_with_relevance_scores(question, k=k)]
+        return [
+            (doc, float(score))
+            for (doc, score) in db.similarity_search_with_relevance_scores(question, k=k)
+        ]
 
     # Try passing filters through to LangChain/Chroma. Different versions use different kw names.
     last_exc: Optional[Exception] = None
@@ -447,7 +454,7 @@ def any_quote_in_context(quotes: List[str], context_text: str) -> bool:
         if qn in ctx:
             return True
         # Tolerate trailing punctuation differences (e.g., "The Injury." vs "The Injury")
-        q2 = (q or "").strip().rstrip(" .,!?:;\"")
+        q2 = (q or "").strip().rstrip(' .,!?:;"')
         if q2 and normalize_for_match(q2) in ctx:
             return True
     return False
@@ -758,7 +765,11 @@ def run_eval(
                     "enabled": bool(query_expansion),
                     "n": int(expand_n) if query_expansion else None,
                     "model": str(expand_model) if query_expansion else None,
-                    "k_per_query": (int(k_per_query) if k_per_query is not None else None) if query_expansion else None,
+                    "k_per_query": (
+                        (int(k_per_query) if k_per_query is not None else None)
+                        if query_expansion
+                        else None
+                    ),
                     "fusion": str(fusion) if query_expansion else None,
                     "rrf_k0": int(rrf_k0) if (query_expansion and fusion == "rrf") else None,
                     "cache": str(expand_cache) if (query_expansion and expand_cache) else None,
@@ -907,7 +918,9 @@ def run_eval(
                 if expander_llm is None:
                     raise RuntimeError("query_expansion enabled but expander_llm is None")
 
-                expanded_queries = expand_queries(question=case.question, llm=expander_llm, config=expand_cfg)
+                expanded_queries = expand_queries(
+                    question=case.question, llm=expander_llm, config=expand_cfg
+                )
                 per_q_k = int(k_per_query) if k_per_query is not None else min(int(k), 6)
 
                 per_query_results: Dict[str, List[Tuple[Any, Optional[float]]]] = {}
@@ -995,7 +1008,11 @@ def run_eval(
         # Answer (optional)
         answer_text: Optional[str] = None
         answer_latency_ms: Optional[int] = None
-        usage: Dict[str, Optional[int]] = {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None}
+        usage: Dict[str, Optional[int]] = {
+            "prompt_tokens": None,
+            "completion_tokens": None,
+            "total_tokens": None,
+        }
         answer_error: Optional[str] = None
 
         if llm is not None:
@@ -1025,7 +1042,9 @@ def run_eval(
             "question": case.question,
             "expected_notes": case.expected_notes,
             "expected": {
-                "episode_ids": list(case.expected_episode_ids) if case.expected_episode_ids else None,
+                "episode_ids": (
+                    list(case.expected_episode_ids) if case.expected_episode_ids else None
+                ),
             },
             "retrieval": {
                 "top_k": k,
@@ -1063,7 +1082,7 @@ def run_eval(
         source_vals: List[str] = []
         doc_type_vals: List[str] = []
         chunk_type_vals: List[str] = []
-        for (doc, _score) in retrieved:
+        for doc, _score in retrieved:
             meta = getattr(doc, "metadata", None) or {}
             eid = meta.get("episode_id")
             if not isinstance(eid, str) or not eid.strip():
@@ -1122,7 +1141,11 @@ def run_eval(
         correct_episode_cited: Optional[bool] = None
         if expected_episode_ids:
             correct_episode_retrieved = any(e in context_episode_ids for e in expected_episode_ids)
-            correct_episode_cited = any(e in cited_episode_ids for e in expected_episode_ids) if cited_episode_ids else False
+            correct_episode_cited = (
+                any(e in cited_episode_ids for e in expected_episode_ids)
+                if cited_episode_ids
+                else False
+            )
 
         quotes = extract_answer_quotes(answer_text)
         quoted_context = any_quote_in_context(quotes, context_text)
@@ -1137,7 +1160,12 @@ def run_eval(
 
         grounding_failure: Optional[bool] = None
         # Only meaningful when an answer was generated.
-        if llm_enabled and answer_text is not None and not said_idk(answer_text) and context_docs > 0:
+        if (
+            llm_enabled
+            and answer_text is not None
+            and not said_idk(answer_text)
+            and context_docs > 0
+        ):
             grounding_failure = False
             # If the answer cites episodes that aren't in the retrieved context, it's very likely ungrounded.
             if cited_not_in_context:
@@ -1170,10 +1198,14 @@ def run_eval(
                 "doc_type_counts": _counter_to_sorted_dict(doc_type_counter),
                 "chunk_type_counts": _counter_to_sorted_dict(chunk_type_counter),
                 "source_dup_rate": (
-                    float(1.0 - (distinct_source_count / context_docs)) if context_docs > 0 else None
+                    float(1.0 - (distinct_source_count / context_docs))
+                    if context_docs > 0
+                    else None
                 ),
                 "episode_dup_rate": (
-                    float(1.0 - (distinct_episode_count / context_docs)) if context_docs > 0 else None
+                    float(1.0 - (distinct_episode_count / context_docs))
+                    if context_docs > 0
+                    else None
                 ),
             },
             "answer_quotes": {
@@ -1201,24 +1233,42 @@ def run_eval(
         "cases": len(cases),
         "answered_with_llm": bool(llm_enabled),
         "avg_retrieval_latency_ms": safe_mean_int(retrieval_latencies),
-        "avg_context_docs": safe_mean_float([float(x) for x in total_context_docs]) if total_context_docs else None,
-        "avg_context_chars": safe_mean_float([float(x) for x in total_context_chars]) if total_context_chars else None,
-        "avg_distinct_episodes_in_context": safe_mean_float([float(x) for x in distinct_episode_counts])
-        if distinct_episode_counts
-        else None,
-        "avg_distinct_sources_in_context": safe_mean_float([float(x) for x in distinct_source_counts])
-        if distinct_source_counts
-        else None,
-        "avg_top_episode_share_in_context": safe_mean_float(top_episode_shares) if top_episode_shares else None,
-        "avg_episode_entropy_norm_in_context": safe_mean_float(episode_entropy_norms)
-        if episode_entropy_norms
-        else None,
-        "avg_cited_episode_ids_not_in_context": safe_mean_float([float(x) for x in cited_not_in_context_counts])
-        if cited_not_in_context_counts
-        else None,
-        "avg_aggregation_readiness_score": safe_mean_float(agg_readiness_scores) if agg_readiness_scores else None,
+        "avg_context_docs": (
+            safe_mean_float([float(x) for x in total_context_docs]) if total_context_docs else None
+        ),
+        "avg_context_chars": (
+            safe_mean_float([float(x) for x in total_context_chars])
+            if total_context_chars
+            else None
+        ),
+        "avg_distinct_episodes_in_context": (
+            safe_mean_float([float(x) for x in distinct_episode_counts])
+            if distinct_episode_counts
+            else None
+        ),
+        "avg_distinct_sources_in_context": (
+            safe_mean_float([float(x) for x in distinct_source_counts])
+            if distinct_source_counts
+            else None
+        ),
+        "avg_top_episode_share_in_context": (
+            safe_mean_float(top_episode_shares) if top_episode_shares else None
+        ),
+        "avg_episode_entropy_norm_in_context": (
+            safe_mean_float(episode_entropy_norms) if episode_entropy_norms else None
+        ),
+        "avg_cited_episode_ids_not_in_context": (
+            safe_mean_float([float(x) for x in cited_not_in_context_counts])
+            if cited_not_in_context_counts
+            else None
+        ),
+        "avg_aggregation_readiness_score": (
+            safe_mean_float(agg_readiness_scores) if agg_readiness_scores else None
+        ),
         "avg_aggregation_readiness_score_agg_questions": (
-            safe_mean_float(agg_readiness_scores_agg_questions) if agg_readiness_scores_agg_questions else None
+            safe_mean_float(agg_readiness_scores_agg_questions)
+            if agg_readiness_scores_agg_questions
+            else None
         ),
         "avg_answer_latency_ms": safe_mean_int(answer_latencies) if answer_latencies else None,
         "avg_prompt_tokens": safe_mean_int(prompt_tokens) if prompt_tokens else None,
@@ -1230,23 +1280,34 @@ def run_eval(
             else None
         ),
         "episode_citation_rate": (
-            float(sum(1 for c in out["cases"] if c["heuristics"]["cited_episode"]) / len(out["cases"]))
+            float(
+                sum(1 for c in out["cases"] if c["heuristics"]["cited_episode"]) / len(out["cases"])
+            )
             if out["cases"]
             else None
         ),
         "retrieval_empty_rate": (
-            float(sum(1 for c in out["cases"] if not c["heuristics"]["retrieved_any"]) / len(out["cases"]))
+            float(
+                sum(1 for c in out["cases"] if not c["heuristics"]["retrieved_any"])
+                / len(out["cases"])
+            )
             if out["cases"]
             else None
         ),
         "retrieval_failure_rate": (
-            float(sum(1 for x in retrieval_failures if x) / len(retrieval_failures)) if retrieval_failures else None
+            float(sum(1 for x in retrieval_failures if x) / len(retrieval_failures))
+            if retrieval_failures
+            else None
         ),
         "grounding_failure_rate": (
-            float(sum(1 for x in grounding_failures if x) / len(grounding_failures)) if grounding_failures else None
+            float(sum(1 for x in grounding_failures if x) / len(grounding_failures))
+            if grounding_failures
+            else None
         ),
         "quote_in_context_rate": (
-            float(sum(1 for x in quote_match_rates if x) / len(quote_match_rates)) if quote_match_rates else None
+            float(sum(1 for x in quote_match_rates if x) / len(quote_match_rates))
+            if quote_match_rates
+            else None
         ),
         "errors_count": len(errors),
         "errors_sample": errors[:10],
@@ -1263,8 +1324,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run RAG eval and log results to JSON.")
     parser.add_argument("--test-file", default=DEFAULT_TEST_FILE, help="Path to test_queries.json")
     parser.add_argument("--runs-dir", default=DEFAULT_RUNS_DIR, help="Directory to write run logs")
-    parser.add_argument("--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist directory")
-    parser.add_argument("--collection-name", default=DEFAULT_COLLECTION_NAME, help="Chroma collection name (optional)")
+    parser.add_argument(
+        "--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist directory"
+    )
+    parser.add_argument(
+        "--collection-name",
+        default=DEFAULT_COLLECTION_NAME,
+        help="Chroma collection name (optional)",
+    )
 
     parser.add_argument(
         "--retrieval-policy",
@@ -1282,7 +1349,12 @@ def main() -> None:
         default=DEFAULT_DERIVED_COLLECTION_NAME,
         help="Chroma collection name for derived-cards index",
     )
-    parser.add_argument("--derived-k", type=int, default=DEFAULT_DERIVED_K, help="Top-k derived docs (routing stage 1)")
+    parser.add_argument(
+        "--derived-k",
+        type=int,
+        default=DEFAULT_DERIVED_K,
+        help="Top-k derived docs (routing stage 1)",
+    )
     parser.add_argument(
         "--episode-shortlist-size",
         type=int,
@@ -1298,8 +1370,18 @@ def main() -> None:
         help="Retrieval type",
     )
     parser.add_argument("--k", type=int, default=3, help="Top-k retrieved docs")
-    parser.add_argument("--fetch-k", type=int, default=DEFAULT_FETCH_K, help="MMR candidate pool size (only for mmr)")
-    parser.add_argument("--lambda-mult", type=float, default=DEFAULT_LAMBDA_MULT, help="MMR relevance/diversity tradeoff")
+    parser.add_argument(
+        "--fetch-k",
+        type=int,
+        default=DEFAULT_FETCH_K,
+        help="MMR candidate pool size (only for mmr)",
+    )
+    parser.add_argument(
+        "--lambda-mult",
+        type=float,
+        default=DEFAULT_LAMBDA_MULT,
+        help="MMR relevance/diversity tradeoff",
+    )
 
     # Query expansion (multi-query retrieval)
     parser.add_argument(
@@ -1308,8 +1390,15 @@ def main() -> None:
         default=DEFAULT_QUERY_EXPANSION_ENABLED,
         help="Enable query expansion + fusion (multi-query retrieval)",
     )
-    parser.add_argument("--expand-n", type=int, default=DEFAULT_EXPAND_N, help="Number of alternate queries to generate")
-    parser.add_argument("--expand-model", default=DEFAULT_EXPAND_MODEL, help="LLM model used for query expansion")
+    parser.add_argument(
+        "--expand-n",
+        type=int,
+        default=DEFAULT_EXPAND_N,
+        help="Number of alternate queries to generate",
+    )
+    parser.add_argument(
+        "--expand-model", default=DEFAULT_EXPAND_MODEL, help="LLM model used for query expansion"
+    )
     parser.add_argument(
         "--k-per-query",
         type=int,
@@ -1322,28 +1411,52 @@ def main() -> None:
         choices=["rrf"],
         help="Fusion method for combining per-query results",
     )
-    parser.add_argument("--rrf-k0", type=int, default=DEFAULT_RRF_K0, help="RRF constant k0 (higher reduces rank impact)")
+    parser.add_argument(
+        "--rrf-k0",
+        type=int,
+        default=DEFAULT_RRF_K0,
+        help="RRF constant k0 (higher reduces rank impact)",
+    )
     parser.add_argument(
         "--expand-cache",
         default=DEFAULT_EXPAND_CACHE,
         help="Path to query expansion cache JSON (set empty string to disable)",
     )
 
-    parser.add_argument("--no-llm", action="store_true", help="Skip LLM answering; log retrieval only")
+    parser.add_argument(
+        "--no-llm", action="store_true", help="Skip LLM answering; log retrieval only"
+    )
     parser.add_argument("--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model name")
-    parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE, help="LLM temperature")
+    parser.add_argument(
+        "--temperature", type=float, default=DEFAULT_TEMPERATURE, help="LLM temperature"
+    )
     parser.add_argument("--max-tokens", type=int, default=None, help="Max output tokens (optional)")
-    parser.add_argument("--timeout", type=float, default=None, help="Request timeout seconds (optional)")
+    parser.add_argument(
+        "--timeout", type=float, default=None, help="Request timeout seconds (optional)"
+    )
     parser.add_argument("--max-retries", type=int, default=None, help="Max retries (optional)")
-    parser.add_argument("--seed", type=int, default=None, help="Seed for determinism if supported (optional)")
+    parser.add_argument(
+        "--seed", type=int, default=None, help="Seed for determinism if supported (optional)"
+    )
 
-    parser.add_argument("--run-name", default="baseline_similarity_k3", help="Run name stored in the log")
+    parser.add_argument(
+        "--run-name", default="baseline_similarity_k3", help="Run name stored in the log"
+    )
     parser.add_argument("--notes", default="", help="Optional notes stored in the log")
 
     # Chunking config (logged for reproducibility; doesn't change anything here)
-    parser.add_argument("--chunk-splitter", default=DEFAULT_CHUNK_SPLITTER, help="Chunk splitter used in ingestion")
-    parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE, help="Chunk size used in ingestion")
-    parser.add_argument("--chunk-overlap", type=int, default=DEFAULT_CHUNK_OVERLAP, help="Chunk overlap used in ingestion")
+    parser.add_argument(
+        "--chunk-splitter", default=DEFAULT_CHUNK_SPLITTER, help="Chunk splitter used in ingestion"
+    )
+    parser.add_argument(
+        "--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE, help="Chunk size used in ingestion"
+    )
+    parser.add_argument(
+        "--chunk-overlap",
+        type=int,
+        default=DEFAULT_CHUNK_OVERLAP,
+        help="Chunk overlap used in ingestion",
+    )
 
     args = parser.parse_args()
 
@@ -1354,7 +1467,9 @@ def main() -> None:
         collection_name=args.collection_name if args.collection_name else None,
         retrieval_policy=str(args.retrieval_policy),
         derived_persist_directory=str(args.derived_persist_dir),
-        derived_collection_name=str(args.derived_collection_name) if args.derived_collection_name else None,
+        derived_collection_name=(
+            str(args.derived_collection_name) if args.derived_collection_name else None
+        ),
         derived_k=int(args.derived_k),
         episode_shortlist_size=int(args.episode_shortlist_size),
         embed_model=args.embed_model,

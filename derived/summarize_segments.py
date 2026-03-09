@@ -25,7 +25,12 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from derived.segment_episode import EpisodeScript, EpisodeSegment, iter_episode_scripts, segment_episode_text
+from derived.segment_episode import (
+    EpisodeScript,
+    EpisodeSegment,
+    iter_episode_scripts,
+    segment_episode_text,
+)
 
 DEFAULT_DOCS_DIR = "ingestion/normalized_docs_txt"
 DEFAULT_OUT_ROOT = "derived/artifacts"
@@ -63,7 +68,9 @@ def _segment_text(ep: EpisodeScript, seg: EpisodeSegment) -> str:
     return ep.body_text[seg.segment_char_start : seg.segment_char_end]
 
 
-def _make_prompt(*, episode: EpisodeScript, segment: EpisodeSegment, segment_text: str) -> Tuple[str, str]:
+def _make_prompt(
+    *, episode: EpisodeScript, segment: EpisodeSegment, segment_text: str
+) -> Tuple[str, str]:
     # We ask the model to provide verbatim snippets it is basing claims on.
     # Then we can locate those snippets and compute char offsets deterministically.
     system = (
@@ -87,28 +94,28 @@ def _make_prompt(*, episode: EpisodeScript, segment: EpisodeSegment, segment_tex
             "episode_id": episode.episode_id,
             "segment_id": segment.segment_id,
             "segment_index": segment.segment_index,
-            "people": ["<character names>"] ,
+            "people": ["<character names>"],
             "beats": [
                 {
                     "type": "event|joke|conflict|reveal|relationship|other",
                     "summary": "<one sentence>",
-                    "supporting_quotes": ["<verbatim snippet 1>", "<verbatim snippet 2>"]
+                    "supporting_quotes": ["<verbatim snippet 1>", "<verbatim snippet 2>"],
                 }
             ],
             "notable_quotes": [
                 {
                     "quote": "<verbatim quote>",
                     "speaker": "<speaker or null>",
-                    "supporting_quotes": ["<verbatim snippet that contains the quote>"]
+                    "supporting_quotes": ["<verbatim snippet that contains the quote>"],
                 }
             ],
             "uncertainties": [
                 {
                     "question": "<what is unknown / unresolved>",
                     "why_uncertain": "<why this segment cannot answer it>",
-                    "supporting_quotes": ["<verbatim snippet that shows the ambiguity>"]
+                    "supporting_quotes": ["<verbatim snippet that shows the ambiguity>"],
                 }
-            ]
+            ],
         },
         "rules": [
             "Return JSON only.",
@@ -357,7 +364,9 @@ def _normalize_segment_summary(
             sq = _clean_text(q)
             if sq:
                 supporting_quotes.append(sq)
-        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_BEAT, remaining_quotes_budget)]
+        supporting_quotes = supporting_quotes[
+            : min(MAX_SUPPORTING_QUOTES_PER_BEAT, remaining_quotes_budget)
+        ]
         remaining_quotes_budget -= len(supporting_quotes)
         evidence = _locate_evidence_spans(
             episode=episode,
@@ -394,7 +403,9 @@ def _normalize_segment_summary(
             sx = _clean_text(x)
             if sx:
                 supporting_quotes.append(sx)
-        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_NOTABLE, remaining_quotes_budget)]
+        supporting_quotes = supporting_quotes[
+            : min(MAX_SUPPORTING_QUOTES_PER_NOTABLE, remaining_quotes_budget)
+        ]
         remaining_quotes_budget -= len(supporting_quotes)
         evidence = _locate_evidence_spans(
             episode=episode,
@@ -450,7 +461,9 @@ def _normalize_segment_summary(
             sq = _clean_text(q)
             if sq:
                 supporting_quotes.append(sq)
-        supporting_quotes = supporting_quotes[: min(MAX_SUPPORTING_QUOTES_PER_UNCERTAINTY, remaining_quotes_budget)]
+        supporting_quotes = supporting_quotes[
+            : min(MAX_SUPPORTING_QUOTES_PER_UNCERTAINTY, remaining_quotes_budget)
+        ]
         remaining_quotes_budget -= len(supporting_quotes)
         if not question:
             continue
@@ -674,7 +687,9 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
             )
             content = (getattr(msg, "content", None) or "").strip()
         except Exception as e:
-            if ContentFilterFinishReasonError is not None and isinstance(e, ContentFilterFinishReasonError):
+            if ContentFilterFinishReasonError is not None and isinstance(
+                e, ContentFilterFinishReasonError
+            ):
                 # Graceful degradation: produce a minimal JSON that avoids quoting
                 # any potentially sensitive text, but still preserves segment provenance.
                 filtered = True
@@ -719,7 +734,9 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
                 }
             )
             _write_manifest(manifest_path, manifest)
-            raise ValueError(f"LLM did not return valid JSON for {s.segment_id}. Raw saved to {bad_path}")
+            raise ValueError(
+                f"LLM did not return valid JSON for {s.segment_id}. Raw saved to {bad_path}"
+            )
 
         normalized = _normalize_segment_summary(
             raw=raw,
@@ -757,7 +774,9 @@ def summarize_episode_segments(cfg: SummarizeConfig) -> Path:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Map step: summarize episode segments into SegmentSummaryV1 JSON.")
+    p = argparse.ArgumentParser(
+        description="Map step: summarize episode segments into SegmentSummaryV1 JSON."
+    )
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR, help="Normalized docs dir")
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT, help="Artifact output root")
     p.add_argument("--episode-id", required=True, help="Episode ID like S02E11")
@@ -768,11 +787,19 @@ def main() -> None:
     )
     p.add_argument("--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model")
     p.add_argument("--timeout", type=float, default=None, help="Optional request timeout seconds")
-    p.add_argument("--max-retries", type=int, default=None, help="Optional max retries for transient errors")
-    p.add_argument("--target-tokens", type=int, default=1800, help="Approx target tokens per segment")
+    p.add_argument(
+        "--max-retries", type=int, default=None, help="Optional max retries for transient errors"
+    )
+    p.add_argument(
+        "--target-tokens", type=int, default=1800, help="Approx target tokens per segment"
+    )
     p.add_argument("--min-tokens", type=int, default=400, help="Approx min tokens before splitting")
-    p.add_argument("--max-segments", type=int, default=None, help="Only summarize the first N segments")
-    p.add_argument("--segment-index", type=int, default=None, help="Only summarize a specific segment index")
+    p.add_argument(
+        "--max-segments", type=int, default=None, help="Only summarize the first N segments"
+    )
+    p.add_argument(
+        "--segment-index", type=int, default=None, help="Only summarize a specific segment index"
+    )
     p.add_argument("--force", action="store_true", help="Overwrite existing output JSON")
     p.add_argument(
         "--prompt-only",

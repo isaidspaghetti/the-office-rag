@@ -10,7 +10,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 EXPERIMENTS_DIR = REPO_ROOT / "experiments"
 
 
-def _pick_latest(candidates: list[Path], *, prefer_ctxfix: bool = True, prefer_llm: bool = True) -> Optional[Path]:
+def _pick_latest(
+    candidates: list[Path], *, prefer_ctxfix: bool = True, prefer_llm: bool = True
+) -> Optional[Path]:
     if not candidates:
         return None
 
@@ -87,7 +89,9 @@ def main() -> None:
     by_step = [p for p in jsons if "by_step" in p.name.lower()]
     phase_level = [p for p in jsons if "by_step" not in p.name.lower()]
 
-    latest_phase = _pick_latest(phase_level, prefer_ctxfix=True, prefer_llm=True) or sorted(phase_level)[-1]
+    latest_phase = (
+        _pick_latest(phase_level, prefer_ctxfix=True, prefer_llm=True) or sorted(phase_level)[-1]
+    )
     latest_step = _pick_latest(by_step, prefer_ctxfix=True, prefer_llm=True) if by_step else None
 
     alias_phase = exp_dir / "phase_score_summary_latest.json"
