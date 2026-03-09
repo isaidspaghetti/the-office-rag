@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+from turtle import left
 from typing import Any, Dict, List, Optional, Tuple
 
 import matplotlib.pyplot as plt
@@ -695,48 +696,52 @@ def render_summary() -> None:
 		# -----------------------------
 		# Main summary
 		# -----------------------------
-		left, right = st.columns([1.4, 1], gap="large")
+		# left, right = st.columns([1.4, 1], gap="large")
 
+		# with left:
+		st.markdown(
+			"""
+			<div class="section-card">
+				<div class="section-title">Overview</div>
+				<div class="body-text">
+					This application is an <b>Evaluation dashboard + Retrieval Augmented Generation (RAG) Chat Bot</b>.
+					
+The retrival corpus is generated based strictly on the closed captions of <b>The Office</b> tv show. 
+It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it with required citation and a 0.0 temperature.
+
+The evolution flows through basic to advanced AI engineering concepts, with a clear path for iterative improvement. It also requires understanding how to design experiments, analyze results, and how to measure and improve them over time.
+				</div>
+			</div>
+			""",
+			unsafe_allow_html=True,
+		)
+
+		st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+		st.markdown(
+			"""
+			<div class="section-card">
+				<div class="section-title">Why This Project Matters</div>
+				<div class="body-text">
+					AI makes it easy to build prototypes, but <b>building reliable AI systems requires measurement, evaluation, and iteration</b>.
+					This project demonstrates how to engineer AI systems responsibly by:
+					<ul>
+						<li>designing measurable experiments</li>
+						<li>evaluating answer accuracy and retrieval quality</li>
+						<li>identifying failure modes such as hallucination or missing context</li>
+						<li>improving the system through structured architectural changes</li>
+					</ul>
+					Every change was tested across multiple runs to understand <b>what actually improved results</b>.
+					Changes must be measurable. It takes human judgement to intervene, direct, and orchestrate changes. 
+				</div>
+			</div>
+			""",
+			unsafe_allow_html=True,
+		)
+		st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+		left, right = st.columns([1, 1], gap="large")
 		with left:
-			st.markdown(
-				"""
-				<div class="section-card">
-					<div class="section-title">Overview</div>
-					<div class="body-text">
-						This application is a <b>Evaluation dashboard + Retrieval Augmented Generation (RAG) Chat Bot</b>.
-						It answers questions about <i>The Office</i> using only the show’s closed caption dialog as its corpus (knowledge source).
-						<br><br>
-						The project was selected as an analogous sandbox to a project copilot -- a potential point of revenue for Tonic -- and a way to understand how retrieval systems behave when
-						working with sparse real-world data, and how to measure and improve them over time.
-					</div>
-				</div>
-				""",
-				unsafe_allow_html=True,
-			)
-
-			st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-
-			st.markdown(
-				"""
-				<div class="section-card">
-					<div class="section-title">Why This Project Matters</div>
-					<div class="body-text">
-						AI makes it easy to build prototypes, but <b>building reliable AI systems requires measurement, evaluation, and iteration</b>.
-						This project demonstrates how to engineer AI systems responsibly by:
-						<ul>
-							<li>designing measurable experiments</li>
-							<li>evaluating answer accuracy and retrieval quality</li>
-							<li>identifying failure modes such as hallucination or missing context</li>
-							<li>improving the system through structured architectural changes</li>
-						</ul>
-						Every change was tested across multiple runs to understand <b>what actually improved results</b>.
-					</div>
-				</div>
-				""",
-				unsafe_allow_html=True,
-			)
-
-		with right:
 			st.markdown(
 				"""
 				<div class="section-card">
@@ -756,9 +761,7 @@ def render_summary() -> None:
 				""",
 				unsafe_allow_html=True,
 			)
-
-			st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-
+		with right:
 			st.markdown(
 				"""
 				<div class="section-card">
@@ -802,31 +805,255 @@ def render_summary() -> None:
 			unsafe_allow_html=True,
 		)
 
-		# -----------------------------
-		# Optional placeholder area for charts / timeline
-		# -----------------------------
-		st.markdown("<div style='height: 1.25rem;'></div>", unsafe_allow_html=True)
 
-		st.subheader("Experiment Story")
+		# -----------------------------
+		# Experimentation Strategy
+		# -----------------------------
+
+		st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
+
+		st.markdown(
+		"""
+		<div class="section-card">
+		<div class="section-title">Experimentation Strategy</div>
+
+		<div class="body-text">
+		This system was intentionally evolved through <b>measured engineering phases</b>, beginning with a minimal RAG
+		baseline and gradually introducing more advanced retrieval and indexing techniques.
+
+		The objective was not simply to improve answers — it was to <b>understand why changes improved or degraded system behavior</b>.
+		Each architectural change was evaluated through controlled experiments and tracked across multiple runs.
+		</div>
+
+		<div class="highlight">
+		The core principle: <b>AI systems should be improved through measurement, not intuition.</b>
+		</div>
+
+		</div>
+		""",
+		unsafe_allow_html=True,
+		)
+
+		st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+		st.subheader("Phase Rollup")
+		# --- Group rollup chart (same as Timeline -> Groups) ---
 		st.caption(
-			"This section is a good place to add your stage timeline chart, best run score, and a concise summary of what worked vs. what failed."
+			"How to read this chart: the x-axis is a phase/step group from the selected phase summary. "
+			"The two lines show the best and worst `avg_overall` observed among runs in that group. "
+			"The Timeline view plots individual runs over time; this chart is the group-level rollup that helps explain "
+			"the upper/lower envelope you see in the timeline plots."
 		)
 
-		placeholder_col1, placeholder_col2, placeholder_col3 = st.columns(3)
+		rows_local = list(rows)
+		if not is_step_grouped:
+			# Match the Timeline page default: hide sweep stepXX groups in phase-level summaries.
+			rows_local = [r for r in rows_local if _step_num(r.group) is None]
 
-		with placeholder_col1:
-			st.metric("Best Run Score", "75", "+8 vs baseline")
+		baseline_group: Optional[str] = None
+		baseline_overall: Optional[int] = None
+		if is_step_grouped:
+			ordered = sorted(
+				[r for r in rows_local if _step_num(r.group) is not None],
+				key=lambda rr: int(_step_num(rr.group) or 10**9),
+			)
+			if ordered:
+				baseline_group = ordered[0].group
+				baseline_overall = (
+					ordered[0].best_avg_overall
+					if ordered[0].best_avg_overall is not None
+					else ordered[0].worst_avg_overall
+				)
 
-		with placeholder_col2:
-			st.metric("Biggest Win", "Higher Recall", "Increasing k improved coverage")
+		shown_sorted = sorted(rows_local, key=lambda rr: _group_sort_key(rr.group))
+		try:
+			labels = [_group_display(r.group) for r in shown_sorted]
+			best_y = [
+				float(r.best_avg_overall) if r.best_avg_overall is not None else float("nan")
+				for r in shown_sorted
+			]
+			worst_y = [
+				float(r.worst_avg_overall) if r.worst_avg_overall is not None else float("nan")
+				for r in shown_sorted
+			]
+			fig, ax = plt.subplots(figsize=(max(9.0, 0.6 * len(labels)), 4.4))
+			ax.plot(labels, best_y, marker="o", label="best avg_overall")
+			ax.plot(labels, worst_y, marker="o", label="worst avg_overall")
+			ax.set_ylim(0, 100)
+			ax.grid(True, axis="y", alpha=0.25)
+			ax.set_ylabel("avg_overall")
+			ax.set_title("Best/Worst avg_overall by group")
+			ax.legend(loc="lower right")
+			plt.setp(ax.get_xticklabels(), rotation=35, ha="right")
+			st.pyplot(fig, clear_figure=True)
+		except Exception:
+			st.info("Could not render group rollup chart for this phase summary.")
 
-		with placeholder_col3:
-			st.metric("Biggest Regression", "Scene Chunking", "Narrative cohesion dropped")
+		if is_step_grouped and baseline_group and baseline_overall is not None:
+			st.caption(f"Baseline for delta is {baseline_group} (avg_overall={baseline_overall}).")
 
-		st.info(
-			"Next step: replace these placeholder metrics with your real stage chart, failure mix, and cost-vs-quality visual."
+		phase1, phase2 = st.columns(2)
+
+		with phase1:
+
+				st.markdown(
+				"""
+				<div class="section-card">
+				<div class="section-title">Phase 1 — Baseline Retrieval</div>
+
+				<div class="body-text">
+				The system began with a minimal semantic retrieval architecture:
+
+				• basic chunking  
+				• similarity search  
+				• GPT-4.1 nano for answer generation
+
+				This configuration worked well for <b>direct lookups and quotes</b> but struggled with broader reasoning questions.
+
+				Without enough context diversity, the model often hallucinated or produced incomplete answers.
+				</div>
+
+				<div class="highlight">
+				Baseline runs established a reference point used to evaluate every later experiment.
+				</div>
+				</div>
+				""",
+				unsafe_allow_html=True
+				)
+
+				st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+				st.markdown(
+				"""
+				<div class="section-card">
+				<div class="section-title">Phase 2 — Retrieval Optimization</div>
+
+				<div class="body-text">
+				The next phase focused on improving retrieval quality and recall.
+
+				Techniques tested included:
+
+				• <b>MMR (Maximum Marginal Relevance)</b> to improve context diversity  
+				• <b>Higher recall retrieval</b> by increasing the number of documents returned  
+				• <b>Query Expansion + Rank Fusion</b> to combine results from multiple semantic searches
+
+				These experiments significantly improved the system’s ability to locate relevant context across episodes.
+				</div>
+
+				<div class="highlight">
+				Query expansion combined with MMR produced the most reliable retrieval improvements.
+				</div>
+				</div>
+				""",
+				unsafe_allow_html=True
+				)
+
+		with phase2:
+
+				st.markdown(
+				"""
+				<div class="section-card">
+				<div class="section-title">Phase 3 — Index Enrichment</div>
+
+				<div class="body-text">
+				Improving retrieval alone was not sufficient. The next phase focused on improving the data itself.
+
+				New capabilities included:
+
+				• structured <b>metadata</b> (season, episode, characters)  
+				• derived narrative summaries generated using <b>map-reduce pipelines</b>  
+				• multiple indexes containing both <b>dialogue and summarized context</b>
+
+				These derived knowledge layers allowed the system to reason across episodes instead of relying solely on raw dialogue.
+				</div>
+
+				<div class="highlight">
+				Data engineering proved just as important as retrieval tuning.
+				</div>
+				</div>
+				""",
+				unsafe_allow_html=True
+				)
+
+				st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+				st.markdown(
+				"""
+				<div class="section-card">
+				<div class="section-title">Phase 4 — Evaluation & Observability</div>
+
+				<div class="body-text">
+				A full evaluation framework was built to compare system configurations objectively.
+
+				The dashboard tracks:
+
+				• automated scoring of runs  
+				• AI-based judging of answer quality  
+				• retrieval diagnostics  
+				• experiment comparisons over time
+
+				This made it possible to identify which architectural changes produced real improvements.
+				</div>
+
+				<div class="highlight">
+				Evaluation must separate <b>retrieval quality</b> from <b>answer correctness</b>.
+				Both must be measured to build reliable AI systems.
+				</div>
+				</div>
+				""",
+				unsafe_allow_html=True
+				)
+
+		st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
+
+		st.markdown(
+		"""
+		<div class="section-card">
+		<div class="section-title">Key DesignTakeaways</div>
+
+		<ul>
+		<li>structured experimentation</li>
+		<li>retrieval diagnostics</li>
+		<li>data engineering</li>
+		<li>evaluation-driven iteration</li>
+		<li>Start with 2+ phase and prompt engineer individually instead of cramming into one judge</li>
+		<li>Cleaner data first: 
+-   while having tons of metrics is nice, I should have also chosen specific data points earlier on to highlight (first and second classes), 
+- Should have bookmarked best run results and important failures instead of asking AI to summarize later. Hand written notes much stronger and faster for retrospectives and forensics.
+- Modularity: as the model grew, genreations gave better insights over individual tuning. Having th ability to pass different routing stratgies, judges, and questions asgainst older models would have helped better express performance gains.
+		</ul>
+		</div>
+
+		</div>
+		""",
+		unsafe_allow_html=True
 		)
-		return
+
+		# # -----------------------------
+		# # Optional placeholder area for charts / timeline
+		# # -----------------------------
+		# st.markdown("<div style='height: 1.25rem;'></div>", unsafe_allow_html=True)
+
+		# st.subheader("Experiment Story")
+		# st.caption(
+		# 	"This section is a good place to add your stage timeline chart, best run score, and a concise summary of what worked vs. what failed."
+		# )
+
+		# placeholder_col1, placeholder_col2, placeholder_col3 = st.columns(3)
+
+		# with placeholder_col1:
+		# 	st.metric("Best Run Score", "75", "+8 vs baseline")
+
+		# with placeholder_col2:
+		# 	st.metric("Biggest Win", "Higher Recall", "Increasing k improved coverage")
+
+		# with placeholder_col3:
+		# 	st.metric("Biggest Regression", "Scene Chunking", "Narrative cohesion dropped")
+
+		# st.info(
+		# 	"Next step: replace these placeholder metrics with your real stage chart, failure mix, and cost-vs-quality visual."
+		# )
+		# return
 
 	if page == "Timeline":
 		# Order requested: Groups -> Timeline -> selector.
