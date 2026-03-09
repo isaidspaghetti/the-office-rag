@@ -41,7 +41,7 @@ Notes:
 
 This creates a *separate* index intended for broad/aggregation questions and routing.
 
-- Build a combined derived-cards index (Episode/Season/Topic cards) from `derived/artifacts/`:
+- Build a combined derived-cards index (Episode/Season/Topic cards) from generated artifacts under `derived/artifacts/` (this folder is gitignored):
 
   `python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
 
@@ -143,7 +143,7 @@ Single canonical deployment doc:
   - `summarize_runs.py`: flattens run logs to tables
   - `runs/`: historical run JSONs
 - `db/`
-  - Chroma persist dirs (e.g., `db/chroma_db_meta`)
+  - Chroma persist dirs (e.g., `db/chroma_db_meta`) (generated; gitignored)
 
 ## What we measure (high-level)
 
@@ -180,7 +180,7 @@ Then answer-time becomes a two-stage flow:
 
 ## Derived artifacts (pipeline quick notes)
 
-All derived artifacts live under `derived/artifacts/`.
+All derived artifacts live under `derived/artifacts/` (generated; gitignored).
 
 Common artifact types:
 
