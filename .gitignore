@@ -219,6 +219,9 @@ __marimo__/
 # Local vector DB persist dirs (Chroma) are huge and machine-specific.
 db/
 
+# Derived artifacts are generated outputs (often large) and should not be committed.
+derived/artifacts/
+
 # Query-expansion cache and other local experiment caches.
 experiments/cache/
 
