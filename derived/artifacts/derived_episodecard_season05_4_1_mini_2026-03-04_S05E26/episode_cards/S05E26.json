@@ -1,0 +1,369 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season05_4_1_mini_2026-03-04_S05E26",
+  "created_at_utc": "2026-03-06T00:02:48Z",
+  "llm_model": "gpt-4.1-mini",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S05E26",
+  "title": "Company Picnic",
+  "one_paragraph_synopsis": "During the company picnic, the Dunder Mifflin Scranton branch experiences a mix of lighthearted moments and serious conflicts. Michael falls asleep after overeating, prompting the office to quietly change the clocks to leave early. At the picnic, Jim and Pam plan a brief visit while sharing humorous memories. Michael interacts with Holly and her boyfriend AJ, and later performs a comedy sketch with Holly that unexpectedly announces the closure of the Buffalo branch, causing upset among employees and confrontation with David. Meanwhile, the Scranton team competes in volleyball, advancing despite injuries, including Pam's, which leads to disagreements about her continuing to play and efforts to stall the opposing team. The episode ends with unresolved questions about the volleyball game outcome, Pam's injury severity, and the impact of the branch closure announcement.",
+  "main_threads": [
+    {
+      "thread": "The company picnic features a mix of comedic and dramatic events including Michael's nap and early office departure, Jim and Pam's brief attendance, Michael and Holly's comedy sketch revealing the Buffalo branch closure, and the Scranton team's volleyball competition with injury challenges.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 1130,
+          "char_end": 1173,
+          "snippet": "Pam and Jim change the clocks in his office"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 2131,
+          "char_end": 2216,
+          "snippet": "Jim: I had this huge spider in my baseball mitt.\nPam: No, no, that guy who hit on me."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 10439,
+          "char_end": 10498,
+          "snippet": "Michael: And now, presenting…\nBoth: SlumDunder Mifflinaire!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12746,
+          "char_end": 12899,
+          "snippet": "David: I'm sorry, this certainly wasn't the time or the place to announce this sort of thing, but there have been talks about closing the Buffalo branch."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 7760,
+          "char_end": 7802,
+          "snippet": "Dwight: Yes! We advance to the next round!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 14721,
+          "char_end": 14738,
+          "snippet": "Pam (falls): Oof!"
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Michael",
+      "what_changes": "Michael moves from a humorous, sleepy state to performing a comedy sketch with Holly that inadvertently announces the Buffalo branch closure, leading to conflict with David.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 1130,
+          "char_end": 1173,
+          "snippet": "Pam and Jim change the clocks in his office"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 10439,
+          "char_end": 10498,
+          "snippet": "Michael: And now, presenting…\nBoth: SlumDunder Mifflinaire!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12746,
+          "char_end": 12899,
+          "snippet": "David: I'm sorry, this certainly wasn't the time or the place to announce this sort of thing, but there have been talks about closing the Buffalo branch."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13182,
+          "char_end": 13311,
+          "snippet": "David: How could you possibly think that the right way to announce a branch closing was in a comedy sketch at the company picnic?"
+        }
+      ]
+    },
+    {
+      "character": "Pam",
+      "what_changes": "Pam participates in the volleyball game but suffers an injury, leading to concern and debate about her ability to continue playing.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 14721,
+          "char_end": 14738,
+          "snippet": "Pam (falls): Oof!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 15389,
+          "char_end": 15453,
+          "snippet": "Charles: Yeah, I don't think we can let you play with that foot."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 15686,
+          "char_end": 15736,
+          "snippet": "[STAGE] picks Pam up and carries her off the court"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": [
+        "Michael",
+        "Holly"
+      ],
+      "status": "Collaborative and supportive, performing a comedy sketch together and discussing future plans.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 10439,
+          "char_end": 10498,
+          "snippet": "Michael: And now, presenting…\nBoth: SlumDunder Mifflinaire!"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16103,
+          "char_end": 16154,
+          "snippet": "Michael: I think it went well. I think it was good."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16383,
+          "char_end": 16415,
+          "snippet": "Holly: Well, I'm glad we did it."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Michael",
+        "David"
+      ],
+      "status": "Tense and conflicted due to Michael's inappropriate announcement of the Buffalo branch closure during the picnic.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12746,
+          "char_end": 12899,
+          "snippet": "David: I'm sorry, this certainly wasn't the time or the place to announce this sort of thing, but there have been talks about closing the Buffalo branch."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13182,
+          "char_end": 13311,
+          "snippet": "David: How could you possibly think that the right way to announce a branch closing was in a comedy sketch at the company picnic?"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13312,
+          "char_end": 13358,
+          "snippet": "Michael: Well… I didn't know they didn't know."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Jim",
+        "Pam"
+      ],
+      "status": "Supportive and close, sharing humorous stories and coordinating during Pam's injury situation.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 2131,
+          "char_end": 2216,
+          "snippet": "Jim: I had this huge spider in my baseball mitt.\nPam: No, no, that guy who hit on me."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 16548,
+          "char_end": 16646,
+          "snippet": "Jim (on the phone): Yeah, she's with the nurse right now, so you'll have to stall a little longer…"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 18547,
+          "char_end": 18712,
+          "snippet": "[STAGE] goes into a private room where Pam and the doctor are, the voices are inaudible, but the camera can see through a window, Pam and Jim look in shock, they hug"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "company picnic",
+    "volleyball",
+    "branch closure",
+    "comedy sketch",
+    "injury",
+    "office dynamics"
+  ],
+  "source_segments": [
+    "S05E26:seg:000",
+    "S05E26:seg:001",
+    "S05E26:seg:002"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season05_4_1_mini_2026-03-04_S05E26; Summary and highlights strictly based on provided evidence snippets and segment summaries; no extrapolation beyond given information.",
+  "uncertainties": [
+    "What is the outcome of the volleyball game?",
+    "Does Michael confess his feelings to Holly as planned?",
+    "What is the significance of the chair pants Michael is designing?",
+    "What is the ultimate outcome for the employees of the Buffalo branch after the announcement?",
+    "How will Michael's relationship with David and the employees be affected by this incident?",
+    "What is the extent of Pam's injury?",
+    "Does Pam return to play in the volleyball game?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the volleyball game?",
+      "why_uncertain": "The segments end with frustration and injury-related conflicts but do not provide the final result of the volleyball game.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 0,
+          "char_end": 6963,
+          "snippet": "=== SCENE 000 ===\n\nErin (phone rings, whispEring): Dunder Mifflin, this is Erin… He's not available right now… Uh huh… Yes… Sure, I'll give him the message when he gets up– gets..."
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, the..."
+        }
+      ]
+    },
+    {
+      "question": "Does Michael confess his feelings to Holly as planned?",
+      "why_uncertain": "Michael mentions planning to tell Holly why they should be together but the episode does not show if he actually does.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 0,
+          "char_end": 6963,
+          "snippet": "=== SCENE 000 ===\n\nErin (phone rings, whispEring): Dunder Mifflin, this is Erin… He's not available right now… Uh huh… Yes… Sure, I'll give him the message when he gets up– gets..."
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the chair pants Michael is designing?",
+      "why_uncertain": "Michael mentions designing chair pants but no further explanation or outcome is given in the episode.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 0,
+          "char_end": 6963,
+          "snippet": "=== SCENE 000 ===\n\nErin (phone rings, whispEring): Dunder Mifflin, this is Erin… He's not available right now… Uh huh… Yes… Sure, I'll give him the message when he gets up– gets..."
+        }
+      ]
+    },
+    {
+      "question": "What is the ultimate outcome for the employees of the Buffalo branch after the announcement?",
+      "why_uncertain": "The episode ends with the announcement and employee protests but does not provide further resolution about the branch closure consequences.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12925,
+          "char_end": 12972,
+          "snippet": "David: We're- we're closing the Buffalo branch."
+        }
+      ]
+    },
+    {
+      "question": "How will Michael's relationship with David and the employees be affected by this incident?",
+      "why_uncertain": "David expresses frustration but the episode does not reveal any consequences or changes in relationships following the announcement.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13586,
+          "char_end": 13713,
+          "snippet": "David: Damn it, Michael, I told you that in confidence. Now I have to go over and deal with these employees and their families."
+        }
+      ]
+    },
+    {
+      "question": "What is the extent of Pam's injury?",
+      "why_uncertain": "Pam undergoes an x-ray and is examined but the diagnosis or severity of her injury is not revealed.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, the..."
+        }
+      ]
+    },
+    {
+      "question": "Does Pam return to play in the volleyball game?",
+      "why_uncertain": "Pam expresses eagerness to return and is carried off, but the episode ends before showing if she actually plays again.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13878,
+          "char_end": 18837,
+          "snippet": "Meredith: Maybe we shouldn't play due to the circumstances.\nDwight: Hey, people need volleyball now more than ever.\nPam: How do you figure?\nDwight: Because if we don't play, the..."
+        }
+      ]
+    }
+  ]
+}

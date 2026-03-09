@@ -1,0 +1,266 @@
+{
+  "schema": "TopicEvidenceDiscoveryV1",
+  "schema_version": 1,
+  "topic_id": "object_teapot_letter",
+  "topic_type": "plot_object",
+  "entity_names": [
+    "teapot",
+    "teapot letter"
+  ],
+  "queries": [
+    "teapot letter",
+    "Jim teapot Pam letter",
+    "Christmas teapot letter Pam"
+  ],
+  "top_episode_ids": [
+    "S02E10",
+    "S09E20",
+    "S09E23",
+    "S07E11",
+    "S03E10",
+    "S09E09"
+  ],
+  "top_chunks_by_episode": {
+    "S02E10": [
+      "S02E10:chunk:000021",
+      "S02E10:chunk:000002",
+      "S02E10:chunk:000017",
+      "S02E10:chunk:000015",
+      "S02E10:chunk:000018"
+    ],
+    "S09E20": [
+      "S09E20:chunk:000018",
+      "S09E20:chunk:000010"
+    ],
+    "S09E23": [
+      "S09E23:chunk:000025",
+      "S09E23:chunk:000042"
+    ],
+    "S07E11": [
+      "S07E11:chunk:000012",
+      "S07E11:chunk:000014",
+      "S07E11:chunk:000003",
+      "S07E11:chunk:000022",
+      "S07E11:chunk:000039"
+    ],
+    "S03E10": [
+      "S03E10:chunk:000008",
+      "S03E10:chunk:000003",
+      "S03E10:chunk:000036",
+      "S03E10:chunk:000000",
+      "S03E10:chunk:000049"
+    ],
+    "S09E09": [
+      "S09E09:chunk:000009",
+      "S09E09:chunk:000019",
+      "S09E09:chunk:000003"
+    ]
+  },
+  "evidence_chunks": [
+    {
+      "chunk_ref_id": "S02E10:chunk:000021",
+      "episode_id": "S02E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "chunk_index": 21,
+      "query": "Jim teapot Pam letter",
+      "score": 0.43112707138061523,
+      "text": "=== SCENE 049 ===\n\nJim: You know, you don't have to answer calls during a party. Just thought you should know.\nPam (laughs): No, I was just checking out my present.\n[STAGE] holds up teapot\nJim: But …\nPam: I traded with Dwight. Just, I figured, you know, you went to a lot of trouble and it means a lot. And also, Roy got me an iPod or was going to get me an iPod, so …\nJim: Well, either way. This is an amazing gift because it comes with bonus gifts. Look inside.\nPam (opens teapot): Oh my god! The yearbook picture!\n\n=== SCENE 050 ===\n\nPam: Yeah, I think I made the right choice.\n\n=== SCENE 051 ===\n\nPam: Oh, my God! It's incredible. Is this the Boggle timer?\n[STAGE] Jim reaches and steals his card back before she can notice it\nJim: I didn't think you were going to get that one. I really didn't.\n\n=== SCENE 052 ==="
+    },
+    {
+      "chunk_ref_id": "S02E10:chunk:000002",
+      "episode_id": "S02E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "chunk_index": 2,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.43689626455307007,
+      "text": "=== SCENE 002 ===\n\nJim: So this year, for the first time ever, I got Pam in Secret Santa. And I got her this teapot, which I know she really wants, so she can make tea at her desk. But I'm also going to stuff it with some inside jokes. Like, this is my high school yearbook photo. She saw it at the party, and it really makes her laugh. Not sure why. What else … ooh. This is a hot sauce packet. She put this on a hot dog a couple years ago because she thought it was ketchup. And it was really funny, so I kept the other two. This would take a little too long to explain, so I won't. And this is the card. Because Christmas is the time to tell people how you feel.\n[STAGE] holds up a miniature pencil\n\n=== SCENE 003 ===\n\nAngela: Is there anything we're missing? Phyllis, you got the lights?\nPhyllis: Yes, I got those cute little ones. Do you think I should have gotten the big ones?\n[STAGE] Angela looks at her disapprovingly\nAngela: We'll see.\n\n=== SCENE 004 ==="
+    },
+    {
+      "chunk_ref_id": "S02E10:chunk:000017",
+      "episode_id": "S02E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "chunk_index": 17,
+      "query": "teapot letter",
+      "score": 0.6840295791625977,
+      "text": "=== SCENE 039 ===\n\nLiquor Store Clerk: It comes to $166.41.\nMichael: All right, now, you're the expert. Is this enough to get 20 people plastered?\nLiquor Store Clerk: Fifteen bottles of vodka? Yeah, that should do it.\nMichael: Cool, cool. Box it up.\n\n=== SCENE 040 ===\n\nJim: I bought this teapot for Pam, and I know she really wants it. So, can I trade you for it?\nDwight: No trades.\nJim: Come on, it's a shamrock keychain. Good luck.\nDwight: \"A real man makes his own luck.\" Billy Zane.\nJim: Look, it has sentimental value, Dwight. Can I buy it from you?\nDwight: No. I want it. I'm going to use it.\nJim: You don't even drink tea.\nDwight: True. But I get sinus infections, and sinus infections can be cured by making your tea from green tea leaf stems …\nJim: Okay …\nDwight: … and pouring it directly into your nose, like so.\n[STAGE] demonstrates\n\n=== SCENE 041 ===\n\nJim: To think that my gift for Pam will be used for that, it's a little too much to handle.\n\n=== SCENE 042 ==="
+    },
+    {
+      "chunk_ref_id": "S02E10:chunk:000015",
+      "episode_id": "S02E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "chunk_index": 15,
+      "query": "teapot letter",
+      "score": 0.7111541032791138,
+      "text": "=== SCENE 033 ===\n\nMichael: Last gift. Kevin.\nKevin: I want the foot bath.\n\n=== SCENE 034 ===\n\nKevin: That's the thing I bought myself. I'm really psyched to use it. Maybe I should have taken the iPod. Oh, shoot.\n[STAGE] pauses\n\n=== SCENE 035 ===\n\nDwight: Pam, steal something or pick the final gift.\nPam: I want the iPod.\nKelly: Damn it.\nJim: Sure you don't want the teapot?\nPam: Well, I mean, it's an iPod. But …\nJim: Right.\nPam: Sorry, I …\nJim: No. No. Definitely. It's …\nKelly: Okay, well, I guess I will take that book of short stories.\nDwight: Yes! There you go. I want the teapot. Gracias.\nJim: Got to be kidding me.\n\n=== SCENE 036 ===\n\nDwight: Yankee Swap is like Machiavelli meets … Christmas.\n\n=== SCENE 037 ==="
+    },
+    {
+      "chunk_ref_id": "S02E10:chunk:000018",
+      "episode_id": "S02E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e10_christmas_party_script.txt",
+      "chunk_index": 18,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5198610424995422,
+      "text": "=== SCENE 041 ===\n\nJim: To think that my gift for Pam will be used for that, it's a little too much to handle.\n\n=== SCENE 042 ===\n\nRoy: This is awesome.\nPam: I know. It's totally going to change the way I work out.\nRoy: Yeah, I was gonna get you one of these for Christmas, and now I don't have to. I'm gonna save a ton of money.\nPam: So what are you going to get me instead?\nRoy: I don't know. Probably like, a sweater or something.\n\n=== SCENE 043 ===\n\nMichael: Uh-oh. Looks like Santa was a little naughty.\nAngela: What is that?\nMichael: This is Christmas spirit, as in spirits, booze.\nMeredith: We can drink?\nToby: We're really not supposed to serve alcohol.\nMichael: Zip it, Toby! Just … I mean, it's a party. Come on. If I can't throw a good party for my employees, then I am a terrible boss. Who wants a drink?\nMeredith: Me. Please.\nMichael: Go, here we go!\n\n=== SCENE 044 ==="
+    },
+    {
+      "chunk_ref_id": "S09E20:chunk:000018",
+      "episode_id": "S09E20",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+      "chunk_index": 18,
+      "query": "Jim teapot Pam letter",
+      "score": 0.4383729100227356,
+      "text": "Pam: Oh, I made us a date to take my mom out to dinner to thank her for all that extra babysitting.\nJim: Well, you know how much I appreciate the opportunity to hang out with your mom more. So let me just put this in my calendar.\nPam: I acknowledge with gratitude that you are being kind and responsible enough to include it in your calendar.\nJim: Thank you. Your mom is a treasure.\nPam: Well, I appreciate that some opportunities can be unpleasant-\n[STAGE] Jim's phone rings, he answers\nJim: Hey that's work, hold on. Hey Wade, did Cole Hamels call back or what? Great. Good.\nPam: Uh, to speak my truth, I'd appreciate if you hung that up cause we were in the middle of a conversation. I appreciate the sacrifice.\n[STAGE] Jim hangs up phone\nJim: Ok to speak my truth, that was a little sarcastic. I think that's a little unfair.\nPam: Really? I've been putting the kids to bed by myself every night for a months. And you had to miss one phone call. Is that your truth, Jim? That's really your truth?\nJim: I guess I will swallow my truth.\nClark: Are you guys high? Because if so, to speak my truth, I would appreciate the sacrifice of including me in some hits off your kind buds.\nPam: We're not high."
+    },
+    {
+      "chunk_ref_id": "S09E20:chunk:000010",
+      "episode_id": "S09E20",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e20_paper_airplane_script.txt",
+      "chunk_index": 10,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5595074892044067,
+      "text": "=== SCENE 024 ===\n\nAngela: Was Dwight rooting for me? Hmm. I hadn't noticed.\n\n=== SCENE 025 ===\n\nKevin: I'm not giving up. I'm going to keep making planes until one of them flies. Like Wilbur and Orville Redenbacher.\n\n=== SCENE 026 ===\n\nJim: An Earl Grey tea for the lady.\nPam: Oh, thank you. I acknowledge and appreciate that you went out of your way to get me tea.\nJim: Thank you. I like being appreciated. But, to speak my truth, it wasn't out of the way because I felt like a tea anyway. So, one trip.\nPam: Well, to speak my truth, I switched to coffee in March. There's a new espresso machine. But I still acknowledge and appreciate the gesture.\n\n=== SCENE 027 ==="
+    },
+    {
+      "chunk_ref_id": "S09E23:chunk:000025",
+      "episode_id": "S09E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+      "chunk_index": 25,
+      "query": "Jim teapot Pam letter",
+      "score": 0.37868016958236694,
+      "text": "=== SCENE 054 ===\n\nWoman 1: Uh, Jim, that DVD in the last episode was so romantic. And, um, I think we'd all love to know, Pam, what romantic thing did you do to pay Jim back for leaving Athlead?\nPam: Well, I mean, How do you pay back someone for something like that? But, uh, I don't know. I'm working on something.\nJim: She pays me back every day just by being my wife so that's fine.\nAll: Awww.\nJim: O-Kay.\n\n=== SCENE 055 ===\n\nWoman 2: All I can say is, if I had Jim, he would have a free pass to do anything. I mean if I lucked into that… he could do anything. Anything.\nPam (pause): I'm sorry. Is there a question?\nWoman 2: Uh, no.\n\n=== SCENE 056 ===\n\nMan 2: Pam, what was in that teapot letter?\nPam: Oh, um, well, you know, I… I just… I just think I would rather keep that private. You know, if you'd been filmed for nine years of your life, there'd be some things that you just wanna keep to yourself.\nMan 2: I hear ya. What did it say?\nModerator: We're gonna move on. Next question please."
+    },
+    {
+      "chunk_ref_id": "S09E23:chunk:000042",
+      "episode_id": "S09E23",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e23_finale_script.txt",
+      "chunk_index": 42,
+      "query": "Jim teapot Pam letter",
+      "score": 0.44633346796035767,
+      "text": "=== SCENE 091 ===\n\nJim (whispEring to Pam): Let's go outside\nPam: Okay.\n\n=== SCENE 092 ===\n\nStanley: Okay, I need a drink.\nKevin: Yeah, we all need a drink. What the…there's only dandelion tea and raisins in here.\n[STAGE] opening Meredith's drawer\nMeredith: Hey, bottom drawer.\nKevin: Yes!\n\n=== SCENE 093 ===\n\nPam (answEring the phone): Dunder Mifflin, This is Pam. Oh, I'm sorry. Jim Halpert doesn't work here anymore.\n\n=== SCENE 094 ==="
+    },
+    {
+      "chunk_ref_id": "S07E11:chunk:000012",
+      "episode_id": "S07E11",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "chunk_index": 12,
+      "query": "Jim teapot Pam letter",
+      "score": 0.4451584815979004,
+      "text": "=== SCENE 017 ===\n\nJim: Hey.\nPam: Hey.\nJim: We still doing the gifts today? I mean, it is the Christmas party. Well, the classy Christmas party.\n[STAGE] Pam nods\nPam: Yes. But don't get too excited, 'cause I didn't have a lot of time this year.\nJim: Me neither. Whew.\nPam: Okay.\n\n=== SCENE 018 ===\n\nPam: I've been working forever on Jim's present. He always gives me the best Christmas gifts. He'll take a memory or a private joke, and he'll create something totally unique. I love them. So this year I made him something. A comic book. It stars Jimmy Halpert, a mild-mannered paper Salesman who, while riding his bike through the forest, is bitten by a radioactive bear, becomes 'bear man'. Wreaks havoc on the office. It's really good.\n\n=== SCENE 019 ===\n\nJim (A note is on Jim's computer that says, \"It is time. Parking lot at noon.\" Jim nods and hands it to Dwight who burns it.):\n\n=== SCENE 020 ==="
+    },
+    {
+      "chunk_ref_id": "S07E11:chunk:000014",
+      "episode_id": "S07E11",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "chunk_index": 14,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5112036466598511,
+      "text": "=== SCENE 022 ===\n\nPam: Hey, uh, any volunteers to come with me to go buy a Christmas tree?\nKevin: I would, but I don't want to get dirty. There might be girls at the party.\nPam: Why do you always think that girls are gonna be at the party? No one invited girls. It's just us.\nAndy: I will help. Although my 'brid', my hybrid, my Prius hybrid, won't fit a tree. Which is ironic, considEring how many trees it saves on a daily basis.\nKevin: Yeah.\nAndy: I do, however, have a hookup with a dude who has a pickup.\nPam: Oh, do you mean Darryl? That's a great idea. I'll ask him.\nAndy: You know Darryl?\nPam: Yeah. He works here. We all know him.\nAndy: I should come along, just 'cause he's my, you know, he's my hookup.\nPam: Cool.\nDarryl: Come on, now, Justine, look… Listen, look, I've been planning this, okay? You cannot do this, Justine.\nJustine (on the phone): I'm not doing it! She told me she wants to have Christmas here.\nDarryl: She did?\nJustine: Yes. She wants to be around family for Christmas."
+    },
+    {
+      "chunk_ref_id": "S07E11:chunk:000003",
+      "episode_id": "S07E11",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "chunk_index": 3,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5219026803970337,
+      "text": "Pam: It hardly looks fake. It's so lush.\nJim: Why's it smell real? Ah… good one.\n[STAGE] Pam shows him a hidden car-freshener\n\n=== SCENE 003 ===\n\nMichael: Oh, ho, ho, ho! Oh, ho, ho, ho, ho, ho! Merry Christmas, little children!\n[STAGE] dressed as Santa\nAll: Merry Christmas.\nMichael: How's everybody doing today?\nErin: Good.\nMichael: How's the party coming along?\nPam: Great.\nMichael: Are we over budget?\nPam: Nope.\nMichael: No? Good. Did anyone get drunk already?\nMeredith: Not yet!\nMichael: Good for you. Angela, lay it on me. What's the problem?\nAngela: Nothing. Should be fun.\nMichael: So Stanley, how big is the bug up your butt today?\nStanley (cheerily): Pam got those sugar-free cookies I like. I'm doing fine.\nMichael: Alright. Well, I will be in my office making toys for the good children. Andy?\nAndy: Yea?\nMichael: Whatcha got?\nAndy: All good, Santa.\nMichael: Well, that's a relief. Santa's gonna take some much-needed free time. Alright. Good!\n\n=== SCENE 004 ==="
+    },
+    {
+      "chunk_ref_id": "S07E11:chunk:000022",
+      "episode_id": "S07E11",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "chunk_index": 22,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5269825458526611,
+      "text": "Andy (singing): Christmas tree, Christmas tree. Won't you be my Christmas tree.\nPam: Hey, how about this one?\nAndy: Ehh, seems a little full of itself, right? Kind of a pretty boy? What if we got a really beat up one, like on Charlie Brown. And we just loved it for what it is?\nPam: Maybe. I mean…\nDarryl (on the phone): I just, no, she be talking to your mom or something. This is my daughter too, Justine! You seem to think, oh… pick a damn tree already.\n[STAGE] Justine hangs up\nPam: Um, hey, Darryl, listen, it's none of my business, but if I couldn't have Cece for Christmas, I'd be really upset too.\nAndy: I don't have kids or anything, but if my grandmother ever dies, I'm going to kill myself.\nDarryl: Jada don't want to spend Christmas with me. She told her mom it wasn't as much fun. And how could she say that? You know, I took her to the toy store to buy her own presents.\nPam: Well Darryl, no kid wants to buy their own Christmas presents.\nDarryl: Her mom wants me to take her to mass. I guess that's something to do.\nPam: No, you should have her mom do the boring Christmas stuff on her time. You should be associated with the fun parts of Christmas.\nDarryl: How do I do that?\nPam: Bring her to the party. Yeah, we'll have Santa, and we'll play games with her. It'll be a lot of fun.\nAndy: Yes.\nPam: You'll be Mr. Christmas by the end of the night."
+    },
+    {
+      "chunk_ref_id": "S07E11:chunk:000039",
+      "episode_id": "S07E11",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+      "chunk_index": 39,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5424360632896423,
+      "text": "=== SCENE 069 ===\n\nPam (Jim hits a ceiling panel): I don't think he's in the ceiling, babe.\nJim: Well, uh… I don't think any of us really know. Alright.\n[STAGE] Jim hands Pam a present\nPam: Is it… is it pebbles from that beach in Jamaica?\n[STAGE] she shakes it\nJim: Ooh, go easy with the shaking.\nPam (lifting up a diamond bracelet): Oh, my God.\nJim: You like it?\nPam: I love it.\n\n=== SCENE 070 ===\n\nJim: Yup, I do make great Christmas gifts. But I couldn't make that.\n\n=== SCENE 071 ===\n\nJim: Alright, my turn.\nPam: Oh, um, it's just, I didn't, I didn't have a lot of time, so that's just a place holder.\nJim: Right. Of course. \"The Adventures of Jimmy Halpert.\" Oh, my God. This is awesome! That's my bike. That's my desk. And that is my daughter.\n[STAGE] reading the comic book\n\n=== SCENE 072 ===\n\nJim: I mean…\n[STAGE] speechless\n\n=== SCENE 073 ==="
+    },
+    {
+      "chunk_ref_id": "S03E10:chunk:000008",
+      "episode_id": "S03E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "chunk_index": 8,
+      "query": "Jim teapot Pam letter",
+      "score": 0.431088924407959,
+      "text": "Pam: Psst. Jim. Um, hey. I need to give you your Christmas gift now because, well, I'll just tell you.\n[STAGE] Jim turns around. Pam nods head towards her for him to come over\nJim: What?\nPam: For the past few months I've been sending Dwight letters from the CIA.\n[STAGE] hands a folder to Jim\nJim: Are you serious?\nPam: They're considEring him for a top secret mission. There's his application. Oh, and this is where I made him list every secret he promised he'd never ever tell.\nJim (Opens folder and reads from Dwight's file): Last year, my boss, Michael Scott, took a day off because he said he had pneumonia, but really, he was leaving early to go to magic camp. Wow.\nPam: So… here's the gift. You get to decide what his top secret mission is. Sorry I didn't wrap it.\n[STAGE] Jim smiles\nJim (closes folder): You know what? Uh, I really don't think I should be doing this stuff anymore, you know?\nPam: Oh.\nJim: No, because of the promotion.\nPam: Oh yeah.\nJim: It just feels a little bit, like…\nPam: No, I get it, of course. OK.\n[STAGE] holds out hand for folder. Jim gives Pam back the folder."
+    },
+    {
+      "chunk_ref_id": "S03E10:chunk:000003",
+      "episode_id": "S03E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "chunk_index": 3,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5271813869476318,
+      "text": "Michael (Riding a bicycle down the hallway and singing): Deck the halls with boughs of holly. Fa la la la la la la la la. 'Tis the … ack. Hey! I would like a nice slice of Christmas Pam. Side of candied Pams. And perhaps, some Pam-chops, with mint…\n[STAGE] Struggling to stay on\n[STAGE] expletive\n[STAGE] to Pam\nPam: Can I help you, Michael?\nMichael: I'm looking for the toy drive box.\nPam: It's behind you.\nMichael: OK… Well, I need to put this bike in there. I hope it'll fit, with all these little knickknacks.\nJim: Wow. What kind of bike is that?\nMichael: Umm… I don't know? Average kind?\nKevin: The tires look pretty worn.\nMichael: Well, that is probably from the test drive.\nJim: But the paint's chipping. Is that your old bike, Michael?\nMichael: No.\nAndy: Yo, Michael, sweet ride Mike.\nMichael: Oh, thanks.\n[STAGE] Michael and Andy do a fist bump and explosion.\nPam: Michael?\nMichael: Yes? Oh Pam, that is so sweet. You didn't have to do that.\n[STAGE] Pam holds up a bag\nPam (hands over bag): I didn't, it's from corporate.\nMichael: OK. Did everybody get one of these?\nPam: Yup.\nMichael: Terrific. Good."
+    },
+    {
+      "chunk_ref_id": "S03E10:chunk:000036",
+      "episode_id": "S03E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "chunk_index": 36,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5369892120361328,
+      "text": "=== SCENE 053 ===\n\nAngela: Did you have fun at Benihana's?\nDwight: No. It was awful. I couldn't hear anything.\n[STAGE] cheers from other party\nAngela: I've had the worse day here [turns up Nutcracker music on the stereo.\n[STAGE] Sighs. Dwight reaches for and holds Angela's hand\nKaren (Karen and Pam enter): Dwight, you won the raffle!\n[STAGE] holds out gift\nDwight: No… way! Yeah!\nKaren: Open it! Open it ! Open it!\n[STAGE] Dwight rips open present. Angela is upset and Pam notices\nDwight: Oh.\nKaren: Do you like it?\nDwight: Walkie-talkies.\nPam: Can I talk to you a second?\nDwight: Yes!\n\n=== SCENE 054 ===\n\nKaren: Well the Committee to Plan Parties has served its purpose. We're gonna disband. In the name of Christmas.\nPam (holds up rice krispie shaped like a star): In the name of Nutcracker Christmas.\n\n=== SCENE 055 ==="
+    },
+    {
+      "chunk_ref_id": "S03E10:chunk:000000",
+      "episode_id": "S03E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "chunk_index": 0,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5388702750205994,
+      "text": "The Office — S03E10 — A Benihana Christmas\n\n=== SCENE 000 ===\n\nDwight: Merry Christmas!\n[STAGE] holds up dead goose and puts it on Pam's desk\nPam: Merry Christ– NO! Why… why did you bring that here?\n[STAGE] looks up\nDwight: Don't worry, she's dead. Oh wait. He's dead.\nPam: Dwight, what uh…\nDwight: I accidentally ran over it. It's a Christmas miracle!\nPam: Well, get it out of here.\nDwight: Relax, OK. And because this is Christmas, I am going to roast this goose and prepare it with a wild rice dressing. Do we have any cayenne pepper in the kitchen?\nJim: Merry Christmas Dwight.\nDwight: Jim.\nJim: Wow. What have we got here?\nDwight: What does it look like?\nJim: Dead goose.\nDwight: And circle gets the square.\nJim: All right.\nDwight (to Pam): So can you watch this? I'm gonna get my carving knife out of the trunk.\nToby: Oh, Dwight, we talked about this.\nDwight: No, Toby, this is different. He's already dead.\n\n=== SCENE 001 ==="
+    },
+    {
+      "chunk_ref_id": "S03E10:chunk:000049",
+      "episode_id": "S03E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e10_a_benihana_christmas_script.txt",
+      "chunk_index": 49,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5456365942955017,
+      "text": "=== SCENE 083 ===\n\nRyan (knocks on office wall): Hey.\nKelly: Hello, Ryan.\nRyan: Merry Christmas.\n[STAGE] hands over a gift\nKelly: Oh, thank you. Do you always get presents for your ex-girlfriends?\nRyan: Okay, we're never technically… um is there… Is there a problem?\nKelly: Well, I didn't get you anything, because you have treated me inconsiderately, and I'm not gonna stand for that anymore.\nRyan: Um That's… That's fair. I'm sorry. Merry Christmas.\n[STAGE] Ryan starts walking away.\nKelly (runnning after him): Wait, Ryan, you're not mean. You're adorable. I'm so sorry. I got you a present, too. But then when I got to work, I didn't see anything on my desk from you, so I threw it away. And then Asuncion took the trash out, that's why I think it's in the dumpster. I'm so sorry. I'm the worst.\n[STAGE] Kelly hugs Ryan\n\n=== SCENE 084 ===\n\nAngela: There's no fizz in this punch. Phyllis!\nPhyllis: I'll just go get a ginger ale.\nAngela: No, I've got it, Phyllis. Stay. Have fun. Eat your wand."
+    },
+    {
+      "chunk_ref_id": "S09E09:chunk:000009",
+      "episode_id": "S09E09",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+      "chunk_index": 9,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.47263777256011963,
+      "text": "=== SCENE 014 ===\n\nJim: Best Christmas ever.\nPam: You're welcome.\nJim: Thank you.\n\n=== SCENE 015 ==="
+    },
+    {
+      "chunk_ref_id": "S09E09:chunk:000019",
+      "episode_id": "S09E09",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+      "chunk_index": 19,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5402406454086304,
+      "text": "=== SCENE 029 ===\n\nJim (In the parking lot, holding his side, walking to the taxi, Pam follows): Oh…what was that? Now I'm gonna be all whipped for my first day at work. God. One second. Oh…\n[STAGE] To taxi driver\nPam: Well…this is it.\nJim: I'm probably never gonna see you again.\nPam: Shut up. I'm trying to be serious.\nJim: Okay, sorry, sorry.\nPam: I can't believe this is actually happening.\nJim: Listen, thank you so much for putting that all together. That was the perfect last Christmas party. All right, wish me luck.\nPam: Okay. Good luck. You're gonna be great.\n[STAGE] Jim and Pam hug\nJim: I'll call you when I get in.\nPam: Okay.\nJim: All right.\nPam: Love you.\nJim: Love you.\n\n=== SCENE 030 ===\n\nPam: What's going on?\nDwight: Party's over. You quit on Christmas, Christmas quits on you. And guess what, kids. Belsnickel isn't real. It's me, Dwight!\n[STAGE] To camera\n[STAGE] Takes off hat and beard\n\n=== SCENE 031 ==="
+    },
+    {
+      "chunk_ref_id": "S09E09:chunk:000003",
+      "episode_id": "S09E09",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e09_dwight_christmas_script.txt",
+      "chunk_index": 3,
+      "query": "Christmas teapot letter Pam",
+      "score": 0.5476762056350708,
+      "text": "=== SCENE 004 ===\n\nPhyllis: I knew the party was today, but nobody asked me to plan it, so I didn't. Hmm, funny how that works.\nMeredith (Scoffs): We're out there sweating our balls off every day, bustin' our balls. We deserve a Christmas party!\nNellie: Well, then, why don't we just get some liquor and those mini-Cupcakes?\nKevin: Mini-Cupcakes? As in the mini version of regular cupcakes, which is already a mini version of cake? Honestly, where does it end with you people?\nDwight: What about an authentic Pennsylvania Dutch Christmas? Drink some gluhwein, enjoy some hasenpfeffer. Enjoy Christmas with saint Nicolas' rural German companion, Belsnickel.\nJim: Yes! That, that, that! We're definitely doing that. Are we all in agreement?\nKevin: No.\nAngela: No!\nJim: Done, right?\nAngela: No.\nStanley: No. I want Tropical Christmas.\nMeredith: Topless Christmas.\nCreed: Tapas swiss miss.\n\n=== SCENE 005 ===\n\nCreed: Spanish tapas, and swiss miss hot cocoa–What's so hard to understand?"
+    }
+  ],
+  "params": {
+    "query_top_k": 25,
+    "top_episodes": 6,
+    "top_chunks_per_episode": 5,
+    "max_chunk_chars": 1400
+  },
+  "build_id": "topiccards_v1_both_2026-03-05"
+}

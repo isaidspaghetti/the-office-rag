@@ -1,0 +1,221 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E20",
+  "created_at_utc": "2026-03-04T21:42:40Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E20",
+  "segment_id": "S02E20:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 7062,
+  "segment_char_end": 13418,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Kevin",
+    "Angela",
+    "Kelly",
+    "Jim",
+    "Pam",
+    "Stanley",
+    "Toby",
+    "Linda"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael announces that drug testing has been canceled and will be replaced with visual inspections.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 7570,
+          "char_end": 7718,
+          "snippet": "Michael: Okay, attention everyone the drug testing has been cancelled. Instead, I will be going around to each of you and doing a visual inspection."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight objects to Michael conducting visual inspections, asserting it must be official.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 7719,
+          "char_end": 7748,
+          "snippet": "Dwight: No you can't do that."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 7749,
+          "char_end": 7789,
+          "snippet": "Michael: I can do that, it is my office."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael questions the prescription drug use of Kevin and Angela.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 7923,
+          "char_end": 7994,
+          "snippet": "Dwight: Kevin, what prescription drugs are you taking, besides Rogaine?"
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 7995,
+          "char_end": 8025,
+          "snippet": "Kevin: I'm not taking Rogaine."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 8026,
+          "char_end": 8057,
+          "snippet": "Dwight: Angela, what about you?"
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 8058,
+          "char_end": 8102,
+          "snippet": "Angela: I don't take any prescription drugs."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Kelly discusses her attempt to dress provocatively for a dinner date, and Jim's reaction.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 8514,
+          "char_end": 8549,
+          "snippet": "Jim hunches his shoulders and grins"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael criticizes drug use, claiming it destroys lives and careers, and attempts to scare the office with facts.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 9832,
+          "char_end": 9888,
+          "snippet": "Michael: Drugs ruin lives people. Drugs destroy careers."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael insists he is above suspicion regarding drug testing, despite the office's skepticism.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 9675,
+          "char_end": 9811,
+          "snippet": "Michael: I am ridiculously anti-drug. So anti-drug that I am above suspicion in any way that involves suspicion, or testing of any kind."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael attempts to get Jim to share a personal story about drug-related tragedy, but Jim refuses.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 11642,
+          "char_end": 11656,
+          "snippet": "Pam: Uh, hmmm."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 8558,
+          "char_end": 8580,
+          "snippet": "Jim shakes his head no"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Drugs ruin lives people. Drugs destroy careers.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 9832,
+          "char_end": 9888,
+          "snippet": "Michael: Drugs ruin lives people. Drugs destroy careers."
+        }
+      ]
+    },
+    {
+      "quote": "I am ridiculously anti-drug. So anti-drug that I am above suspicion in any way that involves suspicion, or testing of any kind.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 9675,
+          "char_end": 9811,
+          "snippet": "Michael: I am ridiculously anti-drug. So anti-drug that I am above suspicion in any way that involves suspicion, or testing of any kind."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What specific personal story Jim was going to share about a relative and drugs?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What specific personal story Jim was going to share about a relative and drugs?",
+      "why_uncertain": "Jim refuses to tell his story and shakes his head no, so the segment does not reveal the content.",
+      "evidence": [
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 11642,
+          "char_end": 11656,
+          "snippet": "Pam: Uh, hmmm."
+        },
+        {
+          "episode_id": "S02E20",
+          "segment_id": "S02E20:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e20_drug_testing_script.txt",
+          "char_start": 8558,
+          "char_end": 8580,
+          "snippet": "Jim shakes his head no"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_nano_2026-03-04_S02E06",
+  "created_at_utc": "2026-03-04T21:39:47Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S02E06",
+  "segment_id": "S02E06:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6862,
+  "segment_char_end": 13917,
+  "people": [
+    "Michael",
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Kelly",
+    "Ira",
+    "Kevin",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael challenges Jim to a fight and encourages him to hit him.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 7186,
+          "char_end": 7219,
+          "snippet": "Michael: Just hit me. You'll see."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael and Dwight engage in a staged fight with rules and physical exchanges.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 7936,
+          "char_end": 7978,
+          "snippet": "Michael: Ok, here we go. Alright, come on."
+        },
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 11710,
+          "char_end": 11723,
+          "snippet": "Dwight: Hiii!"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Dwight reflects on his family's fighting history and his own background.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 8047,
+          "char_end": 8137,
+          "snippet": "Dwight: Did I want to harm Michael? The one man I've been hired to protect? No, I did not."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam engage in playful palm reading and teasing.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 10853,
+          "char_end": 10924,
+          "snippet": "Pam: What?\nJim: Your love line- I'm just kidding. I can't see anything."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael discusses his emergency contact and interacts with Ryan.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 13529,
+          "char_end": 13626,
+          "snippet": "Michael: My emergency contact is Todd Packer. Todd F. Packer. Do you know what the F. stands for?"
+        },
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 13627,
+          "char_end": 13639,
+          "snippet": "Ryan: Fudge?"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Just hit me. You'll see.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 7186,
+          "char_end": 7219,
+          "snippet": "Michael: Just hit me. You'll see."
+        }
+      ]
+    },
+    {
+      "quote": "Did I want to harm Michael? The one man I've been hired to protect? No, I did not.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 8047,
+          "char_end": 8137,
+          "snippet": "Dwight: Did I want to harm Michael? The one man I've been hired to protect? No, I did not."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the fight?",
+    "What is Dwight's relationship with Michael?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the fight?",
+      "why_uncertain": "The segment does not show the conclusion or result of the fight.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 6862,
+          "char_end": 13917,
+          "snippet": "Michael: I'm friends with everybody in this office. We're all best friends – I love everybody here. But sometimes your best friends start coming into work late, and start having dentist appointments that aren't dentist appointments. And tha"
+        }
+      ]
+    },
+    {
+      "question": "What is Dwight's relationship with Michael?",
+      "why_uncertain": "The segment shows Dwight's reflection on his family's fighting history but does not clarify their current relationship.",
+      "evidence": [
+        {
+          "episode_id": "S02E06",
+          "segment_id": "S02E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e06_the_fight_script.txt",
+          "char_start": 8047,
+          "char_end": 8137,
+          "snippet": "Dwight: Did I want to harm Michael? The one man I've been hired to protect? No, I did not."
+        }
+      ]
+    }
+  ]
+}

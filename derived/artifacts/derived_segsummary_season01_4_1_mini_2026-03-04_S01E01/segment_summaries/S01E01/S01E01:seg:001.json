@@ -1,0 +1,234 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_4_1_mini_2026-03-04_S01E01",
+  "created_at_utc": "2026-03-05T06:29:53Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S01E01",
+  "segment_id": "S01E01:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6981,
+  "segment_char_end": 13998,
+  "people": [
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Michael",
+    "Ryan",
+    "Oscar",
+    "Stanley",
+    "Phyllis",
+    "Roy"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight is frustrated with Jim's prank of putting his belongings in Jell-O and complains to Michael.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 11998,
+          "char_end": 12019,
+          "snippet": "Dwight: Damn it! Jim!"
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 12102,
+          "char_end": 12142,
+          "snippet": "Dwight: He put my stuff in Jell-O again."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael announces a meeting about potential downsizing at the branch.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 9602,
+          "char_end": 9759,
+          "snippet": "Michael: Corporate has deemed it appropriate to enforce an ultimatum upon me. And Jan is thinking about downsizing either the Stamford branch or this branch."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Pam reveals in a meeting with Jan that their branch might be the one to be downsized.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 10511,
+          "char_end": 10609,
+          "snippet": "Pam: I was in the meeting with Jan and she did say that it could be this branch that gets the axe."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 10640,
+          "char_end": 10735,
+          "snippet": "Michael: Well, Pam maybe you should stick to the ongoing confidentiality agreement of meetings."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam discuss going out for drinks at the end of the week.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13692,
+          "char_end": 13754,
+          "snippet": "Jim: Do you like going out at the end of the week for a drink?"
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 13755,
+          "char_end": 13765,
+          "snippet": "Pam: Yeah."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Dwight describes his car and his role as Assistant Regional Manager to Ryan, the new temp.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 11611,
+          "char_end": 11662,
+          "snippet": "Dwight: Dwight Schrute, Assistant Regional Manager."
+        },
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 11777,
+          "char_end": 11874,
+          "snippet": "Dwight: Uh… yeah I got a '78 280Z. Bought it for $1,200. Fixed it up. It's now worth three grand."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Corporate has deemed it appropriate to enforce an ultimatum upon me.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 9602,
+          "char_end": 9759,
+          "snippet": "Michael: Corporate has deemed it appropriate to enforce an ultimatum upon me. And Jan is thinking about downsizing either the Stamford branch or this branch."
+        }
+      ]
+    },
+    {
+      "quote": "Pam, information is power.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 10736,
+          "char_end": 10770,
+          "snippet": "Dwight: Pam, information is power."
+        }
+      ]
+    },
+    {
+      "quote": "If I left, what would I do with all this useless information in my head?",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 11148,
+          "char_end": 11225,
+          "snippet": "Jim: If I left, what would I do with all this useless information in my head?"
+        }
+      ]
+    },
+    {
+      "quote": "You have to know when to start and as well as when to stop.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 13998,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up. Two minutes. Thank you very much. Dwight, what are you doing?\nDwight: What?\nJim: What are you doing?\nDwight: Just clearing my desk. I can't concentrate.\nJim: It"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will the branch actually be downsized or closed?",
+    "What is the outcome of the downsizing ultimatum?",
+    "What is the nature of Jim and Pam's relationship beyond coworkers?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will the branch actually be downsized or closed?",
+      "why_uncertain": "The segment only presents rumors and concerns but no definitive decision is revealed.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 13998,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up. Two minutes. Thank you very much. Dwight, what are you doing?\nDwight: What?\nJim: What are you doing?\nDwight: Just clearing my desk. I can't concentrate.\nJim: It"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the downsizing ultimatum?",
+      "why_uncertain": "Michael mentions the ultimatum but does not disclose the final outcome or decision in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 13998,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up. Two minutes. Thank you very much. Dwight, what are you doing?\nDwight: What?\nJim: What are you doing?\nDwight: Just clearing my desk. I can't concentrate.\nJim: It"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Jim and Pam's relationship beyond coworkers?",
+      "why_uncertain": "The segment shows casual conversation and plans to go out but does not clarify their relationship status.",
+      "evidence": [
+        {
+          "episode_id": "S01E01",
+          "segment_id": "S01E01:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e01_pilot_script.txt",
+          "char_start": 6981,
+          "char_end": 13998,
+          "snippet": "Jim: Sure. Mr. Davis, let me call you right back. Yeah, something just came up. Two minutes. Thank you very much. Dwight, what are you doing?\nDwight: What?\nJim: What are you doing?\nDwight: Just clearing my desk. I can't concentrate.\nJim: It"
+        }
+      ]
+    }
+  ]
+}

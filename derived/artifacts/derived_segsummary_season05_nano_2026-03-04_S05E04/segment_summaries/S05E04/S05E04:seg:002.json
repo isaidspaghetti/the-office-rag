@@ -1,0 +1,176 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_nano_2026-03-04_S05E04",
+  "created_at_utc": "2026-03-04T23:20:31Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S05E04",
+  "segment_id": "S05E04:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13440,
+  "segment_char_end": 17499,
+  "people": [
+    "Dwight",
+    "Phyllis",
+    "Roy",
+    "Jim",
+    "Michael",
+    "Bob Vance",
+    "Stanley",
+    "Andy",
+    "Angela",
+    "David Wallace",
+    "Holly"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight confronts Phyllis about her advice and her interference in his relationship.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 13440,
+          "char_end": 13498,
+          "snippet": "Dwight: I had to get your attention. This is an emergency."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Jim shares that Pam is in New York, engaged to him, and doing well.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 14592,
+          "char_end": 14622,
+          "snippet": "Jim: She's engaged, um… to me."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael attempts to auction off Bruce Springsteen tickets and other items, leading to a bidding war.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 16685,
+          "char_end": 16753,
+          "snippet": "Michael: 1,000 going once, 1,000 going twice. Sold for 1,000 dollar."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael considers the legality of the Springsteen tickets and discusses his relationship with Holly.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 17174,
+          "char_end": 17281,
+          "snippet": "Holly: The Springsteen tickets seemed too good to be true. But, a lot of Michael seems too good to be true."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Jim: She's engaged, um… to me.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 14592,
+          "char_end": 14622,
+          "snippet": "Jim: She's engaged, um… to me."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: 1,000 going once, 1,000 going twice. Sold for 1,000 dollar.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 16685,
+          "char_end": 16753,
+          "snippet": "Michael: 1,000 going once, 1,000 going twice. Sold for 1,000 dollar."
+        }
+      ]
+    },
+    {
+      "quote": "Holly: The Springsteen tickets seemed too good to be true. But, a lot of Michael seems too good to be true.",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 17174,
+          "char_end": 17281,
+          "snippet": "Holly: The Springsteen tickets seemed too good to be true. But, a lot of Michael seems too good to be true."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Did Michael actually have the Springsteen tickets?",
+    "What is the outcome of Dwight's conflict with Phyllis?",
+    "Are Jim and Pam actually together and happy?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Did Michael actually have the Springsteen tickets?",
+      "why_uncertain": "The segment discusses whether Michael had the tickets, but does not confirm if he did or not.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 13440,
+          "char_end": 17499,
+          "snippet": "Dwight: I had to get your attention. This is an emergency.\n[STAGE] the air is let out of one of Phyllis' tires\nPhyllis: Why couldn't have you just said it? Why did you actually do it?\nDwight: Listen, she ignored my ultimatum. Now what?\nPhyl"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Dwight's conflict with Phyllis?",
+      "why_uncertain": "The segment shows Dwight's questions and accusations but does not show the resolution.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 13702,
+          "char_end": 13763,
+          "snippet": "Dwight: Okay, fine. I've moved on. Now how do I get her back?"
+        }
+      ]
+    },
+    {
+      "question": "Are Jim and Pam actually together and happy?",
+      "why_uncertain": "Jim states Pam is engaged to him and doing well, but the segment does not confirm their current happiness or the status of their relationship.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 14592,
+          "char_end": 14622,
+          "snippet": "Jim: She's engaged, um… to me."
+        }
+      ]
+    }
+  ]
+}

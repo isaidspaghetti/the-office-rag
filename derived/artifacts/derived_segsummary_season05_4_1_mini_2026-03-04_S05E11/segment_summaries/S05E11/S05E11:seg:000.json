@@ -1,0 +1,227 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E11",
+  "created_at_utc": "2026-03-05T23:18:32Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E11",
+  "segment_id": "S05E11:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6652,
+  "people": [
+    "Pam",
+    "Michael",
+    "Dwight",
+    "Jim",
+    "Angela",
+    "Andy",
+    "Oscar",
+    "Kevin",
+    "Phyllis",
+    "Stanley"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael reveals to Andy that Dwight and Angela have been having an affair.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 6321,
+          "char_end": 6439,
+          "snippet": "Michael (rolls down car window): Dwight and Angela are having an affair. They've been sleeping together for some time."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael struggles with telling Andy about the affair, while Dwight and Angela disagree on how and when to reveal it.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1869,
+          "char_end": 1896,
+          "snippet": "Michael: I am telling Andy."
+        },
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 3820,
+          "char_end": 3871,
+          "snippet": "Angela: That is a terrible idea. One of your worst."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight and Angela are engaged in a secret affair despite Angela being engaged to Andy.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 2031,
+          "char_end": 2094,
+          "snippet": "Michael (to Dwight): Are you still having intercourse with her?"
+        },
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 4010,
+          "char_end": 4087,
+          "snippet": "Angela: I've already admitted that I do. Why do you keep making me repeat it?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Office members discuss the awkwardness of Andy not knowing about the affair after seventeen days.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1465,
+          "char_end": 1567,
+          "snippet": "Jim: Andy still doesn't know that Angela's having an affair with Dwight. And it's been seventeen days."
+        },
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1719,
+          "char_end": 1762,
+          "snippet": "Michael (sighs): How can he still not know?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael prepares for a meeting with CFO David Wallace, uncertain about the purpose.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1104,
+          "char_end": 1205,
+          "snippet": "Michael: Today's a big day. My presence has been requested by Chief Financial Officer, David Wallace."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight and Angela are having an affair. They've been sleeping together for some time.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 6321,
+          "char_end": 6439,
+          "snippet": "Michael (rolls down car window): Dwight and Angela are having an affair. They've been sleeping together for some time."
+        }
+      ]
+    },
+    {
+      "quote": "I am telling Andy.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1869,
+          "char_end": 1896,
+          "snippet": "Michael: I am telling Andy."
+        }
+      ]
+    },
+    {
+      "quote": "That is a terrible idea. One of your worst.",
+      "speaker": "Angela",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 3820,
+          "char_end": 3871,
+          "snippet": "Angela: That is a terrible idea. One of your worst."
+        }
+      ]
+    },
+    {
+      "quote": "Andy still doesn't know that Angela's having an affair with Dwight.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 1465,
+          "char_end": 1537,
+          "snippet": "Jim: Andy still doesn't know that Angela's having an affair with Dwight."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "When will Angela be ready to tell Andy about the affair?",
+    "How will Andy react to learning about the affair?",
+    "What is the outcome of Michael's meeting with David Wallace?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "When will Angela be ready to tell Andy about the affair?",
+      "why_uncertain": "Angela expresses reluctance and no clear timeline is given.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 0,
+          "char_end": 6652,
+          "snippet": "=== SCENE 000 ===\n\nPam (answEring the phone): Dunder Mifflin, this is Pam. I'm sorry, he's not in yet. Would you like his voicemail?\nMichael (heard yelling from the street): Yeah! Yeah! Yeah, okay! Twelve miles an hour. Eat that, Carl Lewis"
+        }
+      ]
+    },
+    {
+      "question": "How will Andy react to learning about the affair?",
+      "why_uncertain": "The segment ends with Michael telling Andy, but Andy's reaction is limited to surprise and disbelief.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 0,
+          "char_end": 6652,
+          "snippet": "=== SCENE 000 ===\n\nPam (answEring the phone): Dunder Mifflin, this is Pam. I'm sorry, he's not in yet. Would you like his voicemail?\nMichael (heard yelling from the street): Yeah! Yeah! Yeah, okay! Twelve miles an hour. Eat that, Carl Lewis"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's meeting with David Wallace?",
+      "why_uncertain": "Michael mentions the meeting but no details or results are provided in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S05E11",
+          "segment_id": "S05E11:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e11_the_duel_script.txt",
+          "char_start": 0,
+          "char_end": 6652,
+          "snippet": "=== SCENE 000 ===\n\nPam (answEring the phone): Dunder Mifflin, this is Pam. I'm sorry, he's not in yet. Would you like his voicemail?\nMichael (heard yelling from the street): Yeah! Yeah! Yeah, okay! Twelve miles an hour. Eat that, Carl Lewis"
+        }
+      ]
+    }
+  ]
+}

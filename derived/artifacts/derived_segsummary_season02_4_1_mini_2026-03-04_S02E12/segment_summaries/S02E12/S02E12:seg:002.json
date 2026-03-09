@@ -1,0 +1,219 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season02_4_1_mini_2026-03-04_S02E12",
+  "created_at_utc": "2026-03-05T07:04:01Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S02E12",
+  "segment_id": "S02E12:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13902,
+  "segment_char_end": 21028,
+  "people": [
+    "Michael",
+    "Jim",
+    "Dwight",
+    "Pam",
+    "Doctor",
+    "Lab Tech",
+    "Oscar",
+    "Angela",
+    "Toby",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight refuses to give Michael a bottle he found, leading to a playful struggle.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 14653,
+          "char_end": 14664,
+          "snippet": "Dwight: No."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Dwight go to the hospital for Dwight's head injury and a CAT scan is ordered.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 16287,
+          "char_end": 16335,
+          "snippet": "Doctor (to Dwight): So, I'm ordEring a CAT scan."
+        },
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 17251,
+          "char_end": 17327,
+          "snippet": "Jim: Uh hmm, he should be fine, but, uh, they brought him in for a CAT scan."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Dwight makes a joke 'That's what she said' which Michael claims as his own.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 16625,
+          "char_end": 16654,
+          "snippet": "Dwight: That's what she said."
+        },
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 16655,
+          "char_end": 16694,
+          "snippet": "Michael: That's my joke, damnit Dwight."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael accompanies Dwight into the hospital and shows concern for him.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 17374,
+          "char_end": 17433,
+          "snippet": "Jim: Michael went in there with him too. It's pretty sweet."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael uses bubble wrap to make a homemade cast for his foot and jokes about it.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 18572,
+          "char_end": 18630,
+          "snippet": "Michael: I always keep a stash of bubble wrap at my house."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: Danger.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 15336,
+          "char_end": 15394,
+          "snippet": "Michael: Dwight, what is your middle name.\nDwight: Danger."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: That's my joke, damnit Dwight.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 16625,
+          "char_end": 16694,
+          "snippet": "Dwight: That's what she said.\nMichael: That's my joke, damnit Dwight."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: Michael went in there with him too. It's pretty sweet.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 17374,
+          "char_end": 17433,
+          "snippet": "Jim: Michael went in there with him too. It's pretty sweet."
+        }
+      ]
+    },
+    {
+      "quote": "Michael: I always keep a stash of bubble wrap at my house.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 18572,
+          "char_end": 18735,
+          "snippet": "Michael: I always keep a stash of bubble wrap at my house. Some days, hectic, tiring days, I just like to go home and zone out and click on the tube and pop a few."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the exact nature and severity of Dwight's head injury?",
+    "What happens after Dwight's CAT scan and hospital visit?",
+    "How does Michael's homemade bubble wrap cast affect his injury recovery?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the exact nature and severity of Dwight's head injury?",
+      "why_uncertain": "The segment mentions a CAT scan and a concussion but does not provide a definitive diagnosis or outcome.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 13902,
+          "char_end": 21028,
+          "snippet": "Michael: Oh, God, a mini-van. What is Meredith's problem?\nJim: Well, I think she has a kid.\nMichael: Well, yeah she has one kid, no husband. She's not gonna find one driving this thing around.\nDwight: Where are we going?\nJim: Come on, get i"
+        }
+      ]
+    },
+    {
+      "question": "What happens after Dwight's CAT scan and hospital visit?",
+      "why_uncertain": "The segment ends with Dwight going into the hospital and no further information about the results or treatment is given.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 13902,
+          "char_end": 21028,
+          "snippet": "Michael: Oh, God, a mini-van. What is Meredith's problem?\nJim: Well, I think she has a kid.\nMichael: Well, yeah she has one kid, no husband. She's not gonna find one driving this thing around.\nDwight: Where are we going?\nJim: Come on, get i"
+        }
+      ]
+    },
+    {
+      "question": "How does Michael's homemade bubble wrap cast affect his injury recovery?",
+      "why_uncertain": "Michael jokes about the cast but no medical evaluation or consequences are described in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S02E12",
+          "segment_id": "S02E12:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e12_the_injury_script.txt",
+          "char_start": 13902,
+          "char_end": 21028,
+          "snippet": "Michael: Oh, God, a mini-van. What is Meredith's problem?\nJim: Well, I think she has a kid.\nMichael: Well, yeah she has one kid, no husband. She's not gonna find one driving this thing around.\nDwight: Where are we going?\nJim: Come on, get i"
+        }
+      ]
+    }
+  ]
+}

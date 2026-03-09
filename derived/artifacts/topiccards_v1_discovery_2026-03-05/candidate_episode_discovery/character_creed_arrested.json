@@ -1,0 +1,175 @@
+{
+  "schema": "TopicEvidenceDiscoveryV1",
+  "schema_version": 1,
+  "topic_id": "character_creed_arrested",
+  "topic_type": "character",
+  "entity_names": [
+    "Creed"
+  ],
+  "queries": [
+    "Creed arrested",
+    "police arrest Creed",
+    "Creed gets arrested at the office"
+  ],
+  "top_episode_ids": [
+    "S05E08",
+    "S04E02",
+    "S03E20",
+    "S02E05",
+    "S07E24",
+    "S07E10"
+  ],
+  "top_chunks_by_episode": {
+    "S05E08": [
+      "S05E08:chunk:000016",
+      "S05E08:chunk:000017"
+    ],
+    "S04E02": [
+      "S04E02:chunk:000016",
+      "S04E02:chunk:000008"
+    ],
+    "S03E20": [
+      "S03E20:chunk:000039",
+      "S03E20:chunk:000003",
+      "S03E20:chunk:000007"
+    ],
+    "S02E05": [
+      "S02E05:chunk:000019",
+      "S02E05:chunk:000017",
+      "S02E05:chunk:000018"
+    ],
+    "S07E24": [
+      "S07E24:chunk:000033",
+      "S07E24:chunk:000000"
+    ],
+    "S07E10": [
+      "S07E10:chunk:000014"
+    ]
+  },
+  "evidence_chunks": [
+    {
+      "chunk_ref_id": "S05E08:chunk:000016",
+      "episode_id": "S05E08",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+      "chunk_index": 16,
+      "query": "Creed gets arrested at the office",
+      "score": 0.4406026005744934,
+      "text": "=== SCENE 020 ===\n\nPolice Officer 1: Hi, we received a call?\nPam: I don't know anything about that.\nPolice Officer 1: We were tipped off about a possible narcotics situation.\nPam: Here?\nDwight: Hey, Pam. Hey I got this, okay? Hello, officers, Dwight Schrute, former volunteer Sheriff's Deputy. Listen, I may have inside information that someone is hiding drugs in this very office.\n[STAGE] leads them back towards the annex as Creed stands up and starts to put him hands up and then relaxes them behind his ears\n\n=== SCENE 021 ===\n\nCreed: Just pretend like we're talking until the cops leave.\n\n=== SCENE 022 ==="
+    },
+    {
+      "chunk_ref_id": "S05E08:chunk:000017",
+      "episode_id": "S05E08",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e08_frame_toby_script.txt",
+      "chunk_index": 17,
+      "query": "police arrest Creed",
+      "score": 0.6085580587387085,
+      "text": "Michael: Those are real cops, real guns. I wonder what's going on.\n[STAGE] follows them\nDwight: Officers, I reveal to you the perpetrator.\nToby: Hey, what is this?\nDwight: Search his things.\nPolice Officer 2: Sir, can you step away from your desk please?\nToby: Why?\nPolice Officer 2: Sir, please step away from your desk.\nToby: Hey, what's going on? You don't have my permission to do this.\nDwight: They don't need your permission, Flenderson, they've got the company's permission.\nToby: Hey, hey what are- why are you doing this?\nMichael: Uh, you know what? I think that this… uh, this is probably a misunderstanding.\nToby: Don't search my stuff.\nPolice Officer 1: Sir?\nToby: I have a reasonable right to privacy.\nDwight: Save your whining for the jury there, Flenderson.\nToby: Michael!\nMichael: Yeah, let's just cancel this, okay?\nPolice Officer 1: Sir, did you recently return from a trip to Central America?\nToby: Oh my God!\nMichael: No, no no no… No, no.\nToby: That was… I went to Costa Rica for a few months. What is going on?\nMichael: No, that was… that was legitimate. That was totally legitimate.\nPolice Officer 1: Really?\nPolice Officer 2: Check this out.\nMichael: Oh God!\nToby: That is not mine. I have never seen that before.\nMichael: No, no no no no.\nPolice Officer 1: Turn around.\nToby: What is going on here?\nMichael: God! No, that's not… I don't know what that is. And I… I bet he..."
+    },
+    {
+      "chunk_ref_id": "S04E02:chunk:000016",
+      "episode_id": "S04E02",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+      "chunk_index": 16,
+      "query": "Creed gets arrested at the office",
+      "score": 0.49542367458343506,
+      "text": "=== SCENE 028 ===\n\nOscar: Creed?\nCreed: Yes, sir.\nOscar: Everything OK?\n[STAGE] Creed has made his hair jet black\nCreed: Everything's cool, dude.\n\n=== SCENE 029 ===\n\nCreed: I'm thirty. Well, in November I'll be thirty.\n\n=== SCENE 030 ==="
+    },
+    {
+      "chunk_ref_id": "S04E02:chunk:000008",
+      "episode_id": "S04E02",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e02_dunder_mifflin_infinity_script.txt",
+      "chunk_index": 8,
+      "query": "Creed gets arrested at the office",
+      "score": 0.5217335224151611,
+      "text": "=== SCENE 014 ===\n\nCreed: We're screwed.\nMichael: Who is?\nCreed: Us? You and me. The old timers.\nMichael: I am not old. You are old. You are like a hundred.\nCreed: You're over 40, that's the cut off. Are you listening to what he's saying? Re-training. New system. Youth. I'm telling you this kid is the grim reaper. You deal with this or you, me, Sammy, Phyllis, the chick you hit with the car, we're goners.\n\n=== SCENE 015 ==="
+    },
+    {
+      "chunk_ref_id": "S03E20:chunk:000039",
+      "episode_id": "S03E20",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+      "chunk_index": 39,
+      "query": "Creed gets arrested at the office",
+      "score": 0.46826237440109253,
+      "text": "=== SCENE 074 ===\n\nDwight: …to the fullest extent of the law . Listen up, everyone! I just got off the phone with the mill. Final responsibility for Watermark-gate has been assigned. Floor manager Debbie Brown has officially been terminated. Lets give a big hand to Creed Bratton, without whose earnest and diligent sleuthing this scandal might never have been resolved .\n[STAGE] hangs up phone\n[STAGE] claps\nCreed: Just doing my job, guys."
+    },
+    {
+      "chunk_ref_id": "S03E20:chunk:000003",
+      "episode_id": "S03E20",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+      "chunk_index": 3,
+      "query": "Creed gets arrested at the office",
+      "score": 0.5318511724472046,
+      "text": "=== SCENE 005 ===\n\nMichael: Everybody in here. STAT. No time to lose. Cri-Man-Squa. F and C, doubletime.\nDwight: Cri-Man-Squa?\nMichael: Crisis Management Squad.\nRyan: F and C, doubletime?\nMichael: Front and Center. Twice as fast as you would normally go. Any other questions?\nJim: One more. Why are you talking like that?\nMichael: To save time, Jim.\nKaren: Actually I think you could make the argument that it wastes time.\nPam: Yeah, she has a good point. I mean, for example, with the last thing you said, by the time you explained it, it actually took up more time.\nMichael: You know what? Bluh bluh bluh bluh bluh! Forget it. Where is Creed?\nCreed: Here.\nMichael: Creed. Quality assurance. Your job. I really think you screwed the pooch on one, Creed. Because of you, the entire company is in jeopardy.\n\n=== SCENE 006 ===\n\nCreed: Every week I'm supposed to take four hours and do a quality spot-check at the paper mill. And of course the one year I blow it off, this happens.\n\n=== SCENE 007 ==="
+    },
+    {
+      "chunk_ref_id": "S03E20:chunk:000007",
+      "episode_id": "S03E20",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e20_product_recall_script.txt",
+      "chunk_index": 7,
+      "query": "police arrest Creed",
+      "score": 0.6115394830703735,
+      "text": "=== SCENE 014 ===\n\nCreed: The only difference between me and a homeless man is this job. I will do whatever it takes to survive. Like I did… when I was a homeless man.\n\n=== SCENE 015 ==="
+    },
+    {
+      "chunk_ref_id": "S02E05:chunk:000019",
+      "episode_id": "S02E05",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+      "chunk_index": 19,
+      "query": "Creed gets arrested at the office",
+      "score": 0.511965274810791,
+      "text": "=== SCENE 032 ===\n\nMichael: Yeah, I went hunting once. Shot the deer in the leg, had to kill it with a shovel. Took about an hour. Why do you ask?\n\n=== SCENE 033 ===\n\nMichael: I have to fire someone today, okay?\nCreed: Fine. Fire someone else. Fire Devon. He's terrible. I am so much better at my job than Devon.\nMichael: Okay, well… I already picked you. And you know that. So, unless I just go through with this, you're always gonna look at me as the guy who almost fired you.\nCreed: No, no, no, no, no, no. I will forget so fast. You will be my savior. You're they guy who gave me my life back. Thank you. I knew you'd see it my way Michael. God Bless you. You're a fine man.\nMichael: Don't…\nCreed: Listen, you will not regret this either. Devon is terrible; No one's gonna miss him. Good, good, good.\n\n=== SCENE 034 ===\n\nMichael: Devon, could I talk to you for a sec?\n\n=== SCENE 035 ==="
+    },
+    {
+      "chunk_ref_id": "S02E05:chunk:000017",
+      "episode_id": "S02E05",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+      "chunk_index": 17,
+      "query": "Creed gets arrested at the office",
+      "score": 0.5174346566200256,
+      "text": "=== SCENE 029 ===\n\nPam: What happened?\nJim: It wasn't me.\nPam: Oh. That was like crazy. 'Cause I was…\nJim: Yeah, I know.\n\n=== SCENE 030 ===\n\nMichael: Uh, hey… Creed?\nCreed: Huh?\nMichael: Could I talk to you for a second?\n\n=== SCENE 031 ==="
+    },
+    {
+      "chunk_ref_id": "S02E05:chunk:000018",
+      "episode_id": "S02E05",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e05_halloween_script.txt",
+      "chunk_index": 18,
+      "query": "Creed gets arrested at the office",
+      "score": 0.5230257511138916,
+      "text": "Michael: You are great. Very ambitious. And I feel like you want more than this little office has to offer. And I understand that you'd wanna just spread your wings, and fly the coop.\nCreed: What are you telling me?\nMichael: I… we're gonna have to… You… you want something better.\nCreed: No, I don't. I wanna stay right here.\nMichael: No, you wanna leave.\nCreed: No, I wanna stay here.\nMichael: Why… why are you making this so hard?\nCreed: Um, I think there's a misunderstanding, Michael.\nMichael: I think you're right.\nCreed: Can I go?\nMichael: No, of course you can't go. We haven't even started this horrible process of… okay, Creed. I need to let somebody go today. They told me I need to let somebody go. And as much as I think you're a great guy, and I like you, you're… you're, goodbye.\nCreed: Let's fight it.\nMichael: Hmm?\nCreed: Let's call Jan and fight this thing together like the old days.\nMichael: What old days? What are you talking about?\nCreed: Did you start the paperwork yet?\nMichael: It's right here on the desk, yeah.\nCreed: You don't have to do this, Michael.\nMichael: I can't, I can't…\nCreed: Undo it!\nMichael: I can't change anything. This is the way…\nCreed: No, you have the power to undo it.\nMichael: I don't… okay, just listen.\nCreed: Michael, undo it!\nMichael: Don't…"
+    },
+    {
+      "chunk_ref_id": "S07E24:chunk:000033",
+      "episode_id": "S07E24",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+      "chunk_index": 33,
+      "query": "Creed gets arrested at the office",
+      "score": 0.4801942706108093,
+      "text": "=== SCENE 056 ===\n\nCreed (to Jordan): Get me our biggest client on the phone, right this instant.\n[STAGE] closes his office door\nJordan: Who is our biggest client?\nPam: Uh, just put him through to me.\nJordan (laughs): Okay.\nPam: Hello! This is… the client.\nCreed: It's Creed. FYI, I'm starting my own paper company, looking to poach some chumps, you in?\nPam: Yes.\nCreed: Hehehe, cool. Let's keep this on the QT, okay? I uh, I don't want you to be a dead mamma jamma.\nPam: Great.\nCreed: All right, thank you, bye-bye.\nPam: Thank you, bye-bye.\n\n=== SCENE 057 ==="
+    },
+    {
+      "chunk_ref_id": "S07E24:chunk:000000",
+      "episode_id": "S07E24",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e24_search_committee_script.txt",
+      "chunk_index": 0,
+      "query": "Creed gets arrested at the office",
+      "score": 0.484091579914093,
+      "text": "The Office — S07E24 — Search Committee\n\n=== SCENE 000 ===\n\nCreed (drives up to the entrance of the building, his license plate reads \"NEW MGR\"): It's a beautiful morning at Dunder-Mifflin, or as I like to call it, Great Bratton. Keep it running.\n[STAGE] gets out of car, tosses his keys toward a nonexistent valet parker\n\n=== SCENE 001 ===\n\nCreed: Do I love being manager?… I love my kids. I love real estate. I love ceramics. I love my job. I-I love wrestling.\n[STAGE] slowly getting more excited\n\n=== SCENE 002 ===\n\nCreed (to Jordan): Find out what language this is.\n[STAGE] speaking in strange language\n\n=== SCENE 003 ===\n\nCreed (running a meeting in the conference room): Okay, team building! On this side of the room, Stanley, Phyllis, Jim, Ted, Elroy, and this side of the room, Pam, Meredith, Phyllis, Creed…\n[STAGE] camera switches to show only Meredith and Kevin have attended the meeting, Jim walks by and sees this\n\n=== SCENE 004 ===\n\nJim: He never called a meeting.\n\n=== SCENE 005 ==="
+    },
+    {
+      "chunk_ref_id": "S07E10:chunk:000014",
+      "episode_id": "S07E10",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e10_china_script.txt",
+      "chunk_index": 14,
+      "query": "Creed gets arrested at the office",
+      "score": 0.48018479347229004,
+      "text": "=== SCENE 021 ===\n\nDwight: Parley, my office, five minutes.\nPam: Parley?\nCreed: Pirate code, he wants to meet.\nPam: So everyone here knows pirate code?\nCreed: I understand it, I can't speak it.\n\n=== SCENE 022 ==="
+    }
+  ],
+  "params": {
+    "query_top_k": 25,
+    "top_episodes": 6,
+    "top_chunks_per_episode": 5,
+    "max_chunk_chars": 1400
+  },
+  "build_id": "topiccards_v1_discovery_2026-03-05"
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E17",
+  "created_at_utc": "2026-03-05T23:24:43Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E17",
+  "segment_id": "S05E17:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 21066,
+  "segment_char_end": 21711,
+  "people": [
+    "Andy",
+    "Dwight",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "joke",
+      "summary": "Dwight pretends to be the KGB when knocking on Jim's door.",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21129,
+          "char_end": 21147,
+          "snippet": "Dwight: Ding dong."
+        },
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21164,
+          "char_end": 21176,
+          "snippet": "Dwight: KGB."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jim is in a hurry and explains he is late for work and needs to brush his teeth before opening the door.",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21177,
+          "char_end": 21240,
+          "snippet": "Jim: Alright. I just got out of the shower, I'll be one second."
+        },
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21313,
+          "char_end": 21393,
+          "snippet": "Jim: Yeah, I'm late for work, so I have to brush my teeth, it's a whole routine."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight and Jim arrange a time for Dwight to return to visit more houses.",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21394,
+          "char_end": 21431,
+          "snippet": "Dwight: We have more houses to visit."
+        },
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21652,
+          "char_end": 21697,
+          "snippet": "Dwight: Very well, we will come back at 5:15."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: KGB.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21164,
+          "char_end": 21176,
+          "snippet": "Dwight: KGB."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: Yeah, I'm late for work, so I have to brush my teeth, it's a whole routine.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21313,
+          "char_end": 21393,
+          "snippet": "Jim: Yeah, I'm late for work, so I have to brush my teeth, it's a whole routine."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the purpose of Dwight and Jim visiting houses?",
+    "What is the significance of Andy's line about a funeral?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the purpose of Dwight and Jim visiting houses?",
+      "why_uncertain": "The segment only mentions visiting houses but does not explain why.",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21394,
+          "char_end": 21431,
+          "snippet": "Dwight: We have more houses to visit."
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of Andy's line about a funeral?",
+      "why_uncertain": "Andy only says \"Well, it's uh, his funeral. So… neh!\" without further context.",
+      "evidence": [
+        {
+          "episode_id": "S05E17",
+          "segment_id": "S05E17:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e17_golden_ticket_script.txt",
+          "char_start": 21066,
+          "char_end": 21108,
+          "snippet": "Andy: Well, it's uh, his funeral. So… neh!"
+        }
+      ]
+    }
+  ]
+}

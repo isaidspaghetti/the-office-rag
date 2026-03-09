@@ -1,0 +1,252 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_nano_2026-03-04_S03E15",
+  "created_at_utc": "2026-03-04T22:39:49Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S03E15",
+  "segment_id": "S03E15:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 7112,
+  "segment_char_end": 14087,
+  "people": [
+    "Dwight",
+    "Phyllis",
+    "Kelly",
+    "Pam",
+    "Michael",
+    "Kevin",
+    "Roy",
+    "Randy",
+    "Uncle Al",
+    "Bob Vance",
+    "Jim",
+    "Karen",
+    "Toby"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Dwight questions Phyllis about the wedding details, showing suspicion.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7131,
+          "char_end": 7260,
+          "snippet": "Dwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers."
+        },
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7261,
+          "char_end": 7296,
+          "snippet": "Phyllis: I don't have that, Dwight."
+        }
+      ]
+    },
+    {
+      "type": "emotion",
+      "summary": "Kelly expresses concern for Pam, implying the wedding is upsetting for her.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7342,
+          "char_end": 7398,
+          "snippet": "Kelly: Are you all right? This must be so awful for you."
+        },
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7399,
+          "char_end": 7421,
+          "snippet": "Pam: What do you mean?"
+        }
+      ]
+    },
+    {
+      "type": "humor",
+      "summary": "Michael attempts to give a speech about the couple, making humorous and awkward remarks.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael tries to enter the wedding but is stopped by Dwight, who cites orders.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 11672,
+          "char_end": 11695,
+          "snippet": "Michael: Come… Come on!"
+        },
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 11756,
+          "char_end": 11797,
+          "snippet": "Dwight: No, it's Bob and Phyllis' orders."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Guests participate in wedding activities, including dancing and throwing flowers.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 12665,
+          "char_end": 12695,
+          "snippet": "Women: One… Two… Three. Ahhhh!"
+        },
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 12704,
+          "char_end": 12792,
+          "snippet": "Phyllis throws the flowers, Ryan knocks them out of Kelly's hands, Toby's date gets them"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael reflects on Phyllis and Bob's relationship, calling it a love story.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 12851,
+          "char_end": 12900,
+          "snippet": "Michael: I just want Phyllis to have a great day."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Webster's Dictionary defines \"wedding\" as the fusing of two metals with a hot torch.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    },
+    {
+      "quote": "I think you guys are two metals. Gold medals.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    },
+    {
+      "quote": "Phyllis! Are you happy with everything? What can I do to make it more perfecter?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 8134,
+          "char_end": 8214,
+          "snippet": "Phyllis! Are you happy with everything? What can I do to make it more perfecter?"
+        }
+      ]
+    },
+    {
+      "quote": "Phyllis and Bob: their celebrity couple name would be Phlob.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 10569,
+          "char_end": 10629,
+          "snippet": "Phyllis and Bob: their celebrity couple name would be Phlob."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the overall outcome of the wedding or Michael's involvement?",
+    "Are there any specific reasons for Dwight's suspicion or actions?",
+    "What are the characters' full relationships or motivations?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the overall outcome of the wedding or Michael's involvement?",
+      "why_uncertain": "The segment does not show the final outcome or resolution.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    },
+    {
+      "question": "Are there any specific reasons for Dwight's suspicion or actions?",
+      "why_uncertain": "The segment only shows Dwight questioning Phyllis, but not his motivations.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    },
+    {
+      "question": "What are the characters' full relationships or motivations?",
+      "why_uncertain": "The segment provides limited context about relationships beyond immediate interactions.",
+      "evidence": [
+        {
+          "episode_id": "S03E15",
+          "segment_id": "S03E15:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e15_phyllis_wedding_script.txt",
+          "char_start": 7112,
+          "char_end": 14087,
+          "snippet": "=== SCENE 030 ===\n\nDwight: Best of luck, Phyllis. Also I'm going to need to see a copy of the guest manifest as well as photographs of the caterers.\nPhyllis: I don't have that, Dwight.\nDwight: Dammit, Phyllis!\n\n=== SCENE 031 ===\n\nKelly: Are"
+        }
+      ]
+    }
+  ]
+}

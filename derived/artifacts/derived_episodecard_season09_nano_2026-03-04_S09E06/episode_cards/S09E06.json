@@ -1,0 +1,209 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season09_nano_2026-03-04_S09E06",
+  "created_at_utc": "2026-03-05T00:11:58Z",
+  "llm_model": "gpt-4.1-nano",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S09E06",
+  "title": "The Boat",
+  "one_paragraph_synopsis": "In 'The Boat,' the office grapples with the decision to sell their family boat amid financial concerns, Oscar confesses to Kevin about his love for the Senator, and Andy plans to sail the boat to Bermuda, indicating his departure. The episode features humorous conflicts, revelations about Oscar's relationship, and preparations for a boat trip, culminating in unresolved tensions and uncertain outcomes.",
+  "main_threads": [
+    {
+      "thread": "The office considers selling the family boat to cover expenses, with Andy planning to leave on a sailing trip to Bermuda.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 0,
+          "char_end": 7110,
+          "snippet": "=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly f..."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 7110,
+          "char_end": 13369,
+          "snippet": "Kevin (Drives away waving, then screeches to a stop and runs from car):\n\n=== SCENE 021 ===\n\nErin: Ok, who wants to go for a super fun lunch with a super fun girlfriend?\nAndy: Lo..."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 12676,
+          "char_end": 12816,
+          "snippet": "The fallout from this morning's revelation continues to mount, since Mr. Dwight Shrute began speaking, Dunder Mifflin share prices fell 73%."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 17311,
+          "char_end": 17331,
+          "snippet": "Erin: Bahamas, Andy."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not ..."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 20116,
+          "char_end": 20196,
+          "snippet": "Andy: Alright guys, cast us off. Walt, all aboard! Erin, this is because of you."
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Oscar",
+      "what_changes": "Oscar confesses to Kevin that he is in love with the Senator.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 0,
+          "char_end": 7110,
+          "snippet": "=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly f..."
+        }
+      ]
+    },
+    {
+      "character": "Andy",
+      "what_changes": "Andy plans to sail the boat to Bermuda, indicating his decision to leave.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 17311,
+          "char_end": 17331,
+          "snippet": "Erin: Bahamas, Andy."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": [
+        "Oscar",
+        "Kevin"
+      ],
+      "status": "Oscar admits to setting Kevin up with false figures due to a personal fight.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 12162,
+          "char_end": 12229,
+          "snippet": "Oscar: I was mad at Kevin, we had a fight and I acted vindictively."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "office drama",
+    "conflict",
+    "revelation",
+    "sailing",
+    "financial decision"
+  ],
+  "source_segments": [
+    "S09E06:seg:000",
+    "S09E06:seg:001",
+    "S09E06:seg:002",
+    "S09E06:seg:003"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season09_nano_2026-03-04_S09E06",
+  "uncertainties": [
+    "What is the outcome of the decision to sell the boat?",
+    "What is the full extent of Oscar's relationship with the Senator?",
+    "Will Kevin's bathroom interruptions continue or escalate?",
+    "What is Andy's ultimate plan for the boat?",
+    "Will the hostage situation resolve peacefully?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the decision to sell the boat?",
+      "why_uncertain": "The segment ends with Andy deciding to tell the lawyer to pull the trigger, but the outcome is not shown.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 0,
+          "char_end": 7110,
+          "snippet": "=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly f..."
+        }
+      ]
+    },
+    {
+      "question": "What is the full extent of Oscar's relationship with the Senator?",
+      "why_uncertain": "Only Oscar's statement about being in love and having an affair is provided; no further details are given.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 0,
+          "char_end": 7110,
+          "snippet": "=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly f..."
+        }
+      ]
+    },
+    {
+      "question": "Will Kevin's bathroom interruptions continue or escalate?",
+      "why_uncertain": "The segment shows Kevin repeatedly saying he has to go to the bathroom, but future behavior is not shown.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 0,
+          "char_end": 7110,
+          "snippet": "=== SCENE 000 ===\n\nOscar (to camera crew): Can you guys come with me for a minute?\n\n=== SCENE 001 ===\n\nOscar: I know you saw me with the Senator. I think I'm in love, possibly f..."
+        }
+      ]
+    },
+    {
+      "question": "What is Andy's ultimate plan for the boat?",
+      "why_uncertain": "The segment only states he decided to sail it to Bermuda, but does not specify further plans or outcomes.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 17311,
+          "char_end": 17331,
+          "snippet": "Erin: Bahamas, Andy."
+        }
+      ]
+    },
+    {
+      "question": "Will the hostage situation resolve peacefully?",
+      "why_uncertain": "The segment shows Dwight giving instructions but does not show the outcome.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not ..."
+        }
+      ]
+    }
+  ]
+}

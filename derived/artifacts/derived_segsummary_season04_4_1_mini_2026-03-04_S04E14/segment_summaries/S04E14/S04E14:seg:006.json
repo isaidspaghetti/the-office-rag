@@ -1,0 +1,187 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E14",
+  "created_at_utc": "2026-03-05T20:24:08Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E14",
+  "segment_id": "S04E14:seg:006",
+  "segment_index": 6,
+  "segment_char_start": 41008,
+  "segment_char_end": 42832,
+  "people": [
+    "Michael",
+    "Toby",
+    "Co-workers",
+    "Darryl",
+    "Pam",
+    "Meredith",
+    "Creed"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael calls Toby to the stage to give a farewell speech.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41008,
+          "char_end": 41050,
+          "snippet": "Michael: Toby Flenderson, come on up here."
+        },
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41215,
+          "char_end": 41291,
+          "snippet": "Michael: Toby has written a fantastic speech for you, he spent a year on it."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Toby delivers a heartfelt and humorous farewell speech mentioning personal struggles and urging action on radon gas.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41008,
+          "char_end": 42832,
+          "snippet": "Michael: Toby Flenderson, come on up here.\nToby: Uh, no, that's okay.\nMichael: Come on, no, no, no.\nCo-workers: Toby! Come on, Toby!\nMichael: Toby!\nCo-workers: Toby! Toby! Toby!\nToby: Okay, okay, I'm going.\nMichael: Toby has written a fanta"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael interrupts Toby's speech multiple times, showing impatience and dismissiveness.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 42063,
+          "char_end": 42111,
+          "snippet": "Michael: Ach, okay, okay, play the cutoff music."
+        },
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 42560,
+          "char_end": 42629,
+          "snippet": "Michael: …blah, blah, overstaying your welcome! Let's keep it moving!"
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Creed jokes about giving Toby a contact in Costa Rica who can provide cable TV, women, and coffee to snort.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 42689,
+          "char_end": 42741,
+          "snippet": "Creed: I gave Toby my buddy Jorge's number in Costa."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Toby has written a fantastic speech for you, he spent a year on it.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41215,
+          "char_end": 41291,
+          "snippet": "Michael: Toby has written a fantastic speech for you, he spent a year on it."
+        }
+      ]
+    },
+    {
+      "quote": "I'm gonna miss you all when I go to Costa Rica",
+      "speaker": "Toby",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41008,
+          "char_end": 42832,
+          "snippet": "Michael: Toby Flenderson, come on up here.\nToby: Uh, no, that's okay.\nMichael: Come on, no, no, no.\nCo-workers: Toby! Come on, Toby!\nMichael: Toby!\nCo-workers: Toby! Toby! Toby!\nToby: Okay, okay, I'm going.\nMichael: Toby has written a fanta"
+        }
+      ]
+    },
+    {
+      "quote": "Let's keep it moving! Let's keep it moving! Toby, everybody!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 42560,
+          "char_end": 42668,
+          "snippet": "Michael: …blah, blah, overstaying your welcome! Let's keep it moving! Let's keep it moving! Toby, everybody!"
+        }
+      ]
+    },
+    {
+      "quote": "He'll hook Toby up with everything: cable TV, women, oh, and this amazing coffee to snort.",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41008,
+          "char_end": 42832,
+          "snippet": "Michael: Toby Flenderson, come on up here.\nToby: Uh, no, that's okay.\nMichael: Come on, no, no, no.\nCo-workers: Toby! Come on, Toby!\nMichael: Toby!\nCo-workers: Toby! Toby! Toby!\nToby: Okay, okay, I'm going.\nMichael: Toby has written a fanta"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "How Toby's farewell speech is received by the entire office beyond Michael's interruptions?",
+    "What happens after the speech and Creed's comment about Costa Rica?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "How Toby's farewell speech is received by the entire office beyond Michael's interruptions?",
+      "why_uncertain": "The segment only shows Michael's impatience and some co-worker reactions but does not provide a full response from the office.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41489,
+          "char_end": 41503,
+          "snippet": "[STAGE] laughs"
+        }
+      ]
+    },
+    {
+      "question": "What happens after the speech and Creed's comment about Costa Rica?",
+      "why_uncertain": "The segment ends immediately after Creed's joke without further context or follow-up.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:006",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 41008,
+          "char_end": 42832,
+          "snippet": "Michael: Toby Flenderson, come on up here.\nToby: Uh, no, that's okay.\nMichael: Come on, no, no, no.\nCo-workers: Toby! Come on, Toby!\nMichael: Toby!\nCo-workers: Toby! Toby! Toby!\nToby: Okay, okay, I'm going.\nMichael: Toby has written a fanta"
+        }
+      ]
+    }
+  ]
+}

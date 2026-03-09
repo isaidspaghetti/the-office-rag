@@ -1,0 +1,771 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season03_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-05T19:29:30Z",
+  "season": 3,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "llm_model": "gpt-4.1-mini",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S03E01",
+        "title": "Gay Witch Hunt",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01"
+      },
+      {
+        "episode_id": "S03E02",
+        "title": "The Convention",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E02"
+      },
+      {
+        "episode_id": "S03E03",
+        "title": "The Coup",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03"
+      },
+      {
+        "episode_id": "S03E04",
+        "title": "Grief Counseling",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S03E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E04"
+      },
+      {
+        "episode_id": "S03E05",
+        "title": "Initiation",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E05"
+      },
+      {
+        "episode_id": "S03E06",
+        "title": "Diwali",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E06"
+      },
+      {
+        "episode_id": "S03E07",
+        "title": "Branch Closing",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E07"
+      },
+      {
+        "episode_id": "S03E08",
+        "title": "The Merger",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S03E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E08"
+      },
+      {
+        "episode_id": "S03E09",
+        "title": "The Convict",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E09"
+      },
+      {
+        "episode_id": "S03E10",
+        "title": "A Benihana Christmas",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S03E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10"
+      },
+      {
+        "episode_id": "S03E11",
+        "title": "Back From Vacation",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S03E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E11"
+      },
+      {
+        "episode_id": "S03E12",
+        "title": "Traveling Salesmen",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E12"
+      },
+      {
+        "episode_id": "S03E13",
+        "title": "The Return",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E13"
+      },
+      {
+        "episode_id": "S03E14",
+        "title": "Ben Franklin",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E14"
+      },
+      {
+        "episode_id": "S03E15",
+        "title": "Phyllis’ Wedding",
+        "planned_segments": 2,
+        "planned_llm_calls": 2,
+        "segment_file": "segments/S03E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E15"
+      },
+      {
+        "episode_id": "S03E16",
+        "title": "Business School",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E16"
+      },
+      {
+        "episode_id": "S03E17",
+        "title": "Cocktails",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S03E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E17"
+      },
+      {
+        "episode_id": "S03E18",
+        "title": "The Negotiation",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S03E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E18"
+      },
+      {
+        "episode_id": "S03E19",
+        "title": "Safety Training",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S03E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E19"
+      },
+      {
+        "episode_id": "S03E20",
+        "title": "Product Recall",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S03E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20"
+      },
+      {
+        "episode_id": "S03E21",
+        "title": "Women’s Appreciation",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S03E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21"
+      },
+      {
+        "episode_id": "S03E22",
+        "title": "Beach Games",
+        "planned_segments": 5,
+        "planned_llm_calls": 5,
+        "segment_file": "segments/S03E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E22"
+      },
+      {
+        "episode_id": "S03E23",
+        "title": "The Job",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S03E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23"
+      }
+    ],
+    "planned_total_llm_calls": 85
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T19:29:30Z",
+    "ended_at_utc": "2026-03-05T20:47:25Z",
+    "episodes_done": 23,
+    "segment_summaries_written": 85,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S03E01",
+        "title": "Gay Witch Hunt",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01",
+        "started_at_utc": "2026-03-05T19:29:30Z",
+        "ended_at_utc": "2026-03-05T19:30:28Z",
+        "duration_ms": 58075,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E01/segment_summaries/S03E01"
+      },
+      {
+        "episode_id": "S03E02",
+        "title": "The Convention",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E02",
+        "started_at_utc": "2026-03-05T19:30:28Z",
+        "ended_at_utc": "2026-03-05T19:31:15Z",
+        "duration_ms": 47717,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E02/segment_summaries/S03E02"
+      },
+      {
+        "episode_id": "S03E03",
+        "title": "The Coup",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03",
+        "started_at_utc": "2026-03-05T19:31:15Z",
+        "ended_at_utc": "2026-03-05T19:32:01Z",
+        "duration_ms": 45592,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E03/segment_summaries/S03E03"
+      },
+      {
+        "episode_id": "S03E04",
+        "title": "Grief Counseling",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E04",
+        "started_at_utc": "2026-03-05T19:32:01Z",
+        "ended_at_utc": "2026-03-05T19:33:14Z",
+        "duration_ms": 73293,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E04/segment_summaries/S03E04"
+      },
+      {
+        "episode_id": "S03E05",
+        "title": "Initiation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E05",
+        "started_at_utc": "2026-03-05T19:33:14Z",
+        "ended_at_utc": "2026-03-05T19:34:01Z",
+        "duration_ms": 46488,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E05/segment_summaries/S03E05"
+      },
+      {
+        "episode_id": "S03E06",
+        "title": "Diwali",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E06",
+        "started_at_utc": "2026-03-05T19:34:01Z",
+        "ended_at_utc": "2026-03-05T19:34:44Z",
+        "duration_ms": 43004,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E06/segment_summaries/S03E06"
+      },
+      {
+        "episode_id": "S03E07",
+        "title": "Branch Closing",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E07",
+        "started_at_utc": "2026-03-05T19:34:44Z",
+        "ended_at_utc": "2026-03-05T19:35:43Z",
+        "duration_ms": 59289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E07/segment_summaries/S03E07"
+      },
+      {
+        "episode_id": "S03E08",
+        "title": "The Merger",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E08",
+        "started_at_utc": "2026-03-05T19:35:43Z",
+        "ended_at_utc": "2026-03-05T19:37:09Z",
+        "duration_ms": 85955,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E08/segment_summaries/S03E08"
+      },
+      {
+        "episode_id": "S03E09",
+        "title": "The Convict",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E09",
+        "started_at_utc": "2026-03-05T19:37:09Z",
+        "ended_at_utc": "2026-03-05T19:38:04Z",
+        "duration_ms": 55194,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E09/segment_summaries/S03E09"
+      },
+      {
+        "episode_id": "S03E10",
+        "title": "A Benihana Christmas",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+        "started_at_utc": "2026-03-05T19:38:04Z",
+        "ended_at_utc": "2026-03-05T19:40:01Z",
+        "duration_ms": 116998,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E10/segment_summaries/S03E10"
+      },
+      {
+        "episode_id": "S03E11",
+        "title": "Back From Vacation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E11",
+        "started_at_utc": "2026-03-05T19:40:01Z",
+        "ended_at_utc": "2026-03-05T19:41:56Z",
+        "duration_ms": 115102,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E11/segment_summaries/S03E11"
+      },
+      {
+        "episode_id": "S03E12",
+        "title": "Traveling Salesmen",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E12",
+        "started_at_utc": "2026-03-05T19:41:56Z",
+        "ended_at_utc": "2026-03-05T19:42:50Z",
+        "duration_ms": 53288,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E12/segment_summaries/S03E12"
+      },
+      {
+        "episode_id": "S03E13",
+        "title": "The Return",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E13",
+        "started_at_utc": "2026-03-05T19:42:50Z",
+        "ended_at_utc": "2026-03-05T19:43:39Z",
+        "duration_ms": 49409,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E13/segment_summaries/S03E13"
+      },
+      {
+        "episode_id": "S03E14",
+        "title": "Ben Franklin",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E14",
+        "started_at_utc": "2026-03-05T19:43:39Z",
+        "ended_at_utc": "2026-03-05T19:44:35Z",
+        "duration_ms": 55804,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E14/segment_summaries/S03E14"
+      },
+      {
+        "episode_id": "S03E15",
+        "title": "Phyllis’ Wedding",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E15",
+        "started_at_utc": "2026-03-05T19:44:35Z",
+        "ended_at_utc": "2026-03-05T19:45:13Z",
+        "duration_ms": 38007,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E15/segment_summaries/S03E15"
+      },
+      {
+        "episode_id": "S03E16",
+        "title": "Business School",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E16",
+        "started_at_utc": "2026-03-05T19:45:13Z",
+        "ended_at_utc": "2026-03-05T19:46:38Z",
+        "duration_ms": 85407,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E16/segment_summaries/S03E16"
+      },
+      {
+        "episode_id": "S03E17",
+        "title": "Cocktails",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E17",
+        "started_at_utc": "2026-03-05T19:46:38Z",
+        "ended_at_utc": "2026-03-05T19:47:33Z",
+        "duration_ms": 54302,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E17/segment_summaries/S03E17"
+      },
+      {
+        "episode_id": "S03E18",
+        "title": "The Negotiation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E18",
+        "started_at_utc": "2026-03-05T19:47:33Z",
+        "ended_at_utc": "2026-03-05T19:48:41Z",
+        "duration_ms": 68153,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E18/segment_summaries/S03E18"
+      },
+      {
+        "episode_id": "S03E19",
+        "title": "Safety Training",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E19",
+        "started_at_utc": "2026-03-05T19:48:41Z",
+        "ended_at_utc": "2026-03-05T19:49:48Z",
+        "duration_ms": 67279,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E19/segment_summaries/S03E19"
+      },
+      {
+        "episode_id": "S03E20",
+        "title": "Product Recall",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20",
+        "started_at_utc": "2026-03-05T19:49:48Z",
+        "ended_at_utc": "2026-03-05T19:51:13Z",
+        "duration_ms": 84575,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E20/segment_summaries/S03E20"
+      },
+      {
+        "episode_id": "S03E21",
+        "title": "Women’s Appreciation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21",
+        "started_at_utc": "2026-03-05T19:51:13Z",
+        "ended_at_utc": "2026-03-05T19:52:22Z",
+        "duration_ms": 69614,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E21/segment_summaries/S03E21"
+      },
+      {
+        "episode_id": "S03E22",
+        "title": "Beach Games",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E22",
+        "started_at_utc": "2026-03-05T19:52:22Z",
+        "ended_at_utc": "2026-03-05T19:53:56Z",
+        "duration_ms": 93412,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E22/segment_summaries/S03E22"
+      },
+      {
+        "episode_id": "S03E23",
+        "title": "The Job",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23",
+        "started_at_utc": "2026-03-05T19:53:56Z",
+        "ended_at_utc": "2026-03-05T19:55:39Z",
+        "duration_ms": 103320,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E23/segment_summaries/S03E23"
+      }
+    ],
+    "latest_episodes": [
+      {
+        "episode_id": "S03E01",
+        "title": "Gay Witch Hunt",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01",
+        "started_at_utc": "2026-03-05T19:29:30Z",
+        "ended_at_utc": "2026-03-05T19:30:28Z",
+        "duration_ms": 58075,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E01/segment_summaries/S03E01"
+      },
+      {
+        "episode_id": "S03E02",
+        "title": "The Convention",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E02",
+        "started_at_utc": "2026-03-05T19:30:28Z",
+        "ended_at_utc": "2026-03-05T19:31:15Z",
+        "duration_ms": 47717,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E02/segment_summaries/S03E02"
+      },
+      {
+        "episode_id": "S03E03",
+        "title": "The Coup",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03",
+        "started_at_utc": "2026-03-05T19:31:15Z",
+        "ended_at_utc": "2026-03-05T19:32:01Z",
+        "duration_ms": 45592,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E03/segment_summaries/S03E03"
+      },
+      {
+        "episode_id": "S03E04",
+        "title": "Grief Counseling",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E04",
+        "started_at_utc": "2026-03-05T19:32:01Z",
+        "ended_at_utc": "2026-03-05T19:33:14Z",
+        "duration_ms": 73293,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E04/segment_summaries/S03E04"
+      },
+      {
+        "episode_id": "S03E05",
+        "title": "Initiation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E05",
+        "started_at_utc": "2026-03-05T19:33:14Z",
+        "ended_at_utc": "2026-03-05T19:34:01Z",
+        "duration_ms": 46488,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E05/segment_summaries/S03E05"
+      },
+      {
+        "episode_id": "S03E06",
+        "title": "Diwali",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E06",
+        "started_at_utc": "2026-03-05T19:34:01Z",
+        "ended_at_utc": "2026-03-05T19:34:44Z",
+        "duration_ms": 43004,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E06/segment_summaries/S03E06"
+      },
+      {
+        "episode_id": "S03E07",
+        "title": "Branch Closing",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E07",
+        "started_at_utc": "2026-03-05T19:34:44Z",
+        "ended_at_utc": "2026-03-05T19:35:43Z",
+        "duration_ms": 59289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E07/segment_summaries/S03E07"
+      },
+      {
+        "episode_id": "S03E08",
+        "title": "The Merger",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E08",
+        "started_at_utc": "2026-03-05T19:35:43Z",
+        "ended_at_utc": "2026-03-05T19:37:09Z",
+        "duration_ms": 85955,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E08/segment_summaries/S03E08"
+      },
+      {
+        "episode_id": "S03E09",
+        "title": "The Convict",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E09",
+        "started_at_utc": "2026-03-05T19:37:09Z",
+        "ended_at_utc": "2026-03-05T19:38:04Z",
+        "duration_ms": 55194,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E09/segment_summaries/S03E09"
+      },
+      {
+        "episode_id": "S03E10",
+        "title": "A Benihana Christmas",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E10",
+        "started_at_utc": "2026-03-05T19:38:04Z",
+        "ended_at_utc": "2026-03-05T19:40:01Z",
+        "duration_ms": 116998,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E10/segment_summaries/S03E10"
+      },
+      {
+        "episode_id": "S03E11",
+        "title": "Back From Vacation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E11",
+        "started_at_utc": "2026-03-05T19:40:01Z",
+        "ended_at_utc": "2026-03-05T19:41:56Z",
+        "duration_ms": 115102,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E11/segment_summaries/S03E11"
+      },
+      {
+        "episode_id": "S03E12",
+        "title": "Traveling Salesmen",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E12",
+        "started_at_utc": "2026-03-05T19:41:56Z",
+        "ended_at_utc": "2026-03-05T19:42:50Z",
+        "duration_ms": 53288,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E12/segment_summaries/S03E12"
+      },
+      {
+        "episode_id": "S03E13",
+        "title": "The Return",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E13",
+        "started_at_utc": "2026-03-05T19:42:50Z",
+        "ended_at_utc": "2026-03-05T19:43:39Z",
+        "duration_ms": 49409,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E13/segment_summaries/S03E13"
+      },
+      {
+        "episode_id": "S03E14",
+        "title": "Ben Franklin",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E14",
+        "started_at_utc": "2026-03-05T19:43:39Z",
+        "ended_at_utc": "2026-03-05T19:44:35Z",
+        "duration_ms": 55804,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E14/segment_summaries/S03E14"
+      },
+      {
+        "episode_id": "S03E15",
+        "title": "Phyllis’ Wedding",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E15",
+        "started_at_utc": "2026-03-05T19:44:35Z",
+        "ended_at_utc": "2026-03-05T19:45:13Z",
+        "duration_ms": 38007,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E15/segment_summaries/S03E15"
+      },
+      {
+        "episode_id": "S03E16",
+        "title": "Business School",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E16",
+        "started_at_utc": "2026-03-05T19:45:13Z",
+        "ended_at_utc": "2026-03-05T19:46:38Z",
+        "duration_ms": 85407,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E16/segment_summaries/S03E16"
+      },
+      {
+        "episode_id": "S03E17",
+        "title": "Cocktails",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E17",
+        "started_at_utc": "2026-03-05T19:46:38Z",
+        "ended_at_utc": "2026-03-05T19:47:33Z",
+        "duration_ms": 54302,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E17/segment_summaries/S03E17"
+      },
+      {
+        "episode_id": "S03E18",
+        "title": "The Negotiation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E18",
+        "started_at_utc": "2026-03-05T19:47:33Z",
+        "ended_at_utc": "2026-03-05T19:48:41Z",
+        "duration_ms": 68153,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E18/segment_summaries/S03E18"
+      },
+      {
+        "episode_id": "S03E19",
+        "title": "Safety Training",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E19",
+        "started_at_utc": "2026-03-05T19:48:41Z",
+        "ended_at_utc": "2026-03-05T19:49:48Z",
+        "duration_ms": 67279,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E19/segment_summaries/S03E19"
+      },
+      {
+        "episode_id": "S03E20",
+        "title": "Product Recall",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E20",
+        "started_at_utc": "2026-03-05T19:49:48Z",
+        "ended_at_utc": "2026-03-05T19:51:13Z",
+        "duration_ms": 84575,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E20/segment_summaries/S03E20"
+      },
+      {
+        "episode_id": "S03E21",
+        "title": "Women’s Appreciation",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21",
+        "started_at_utc": "2026-03-05T19:51:13Z",
+        "ended_at_utc": "2026-03-05T19:52:22Z",
+        "duration_ms": 69614,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E21/segment_summaries/S03E21"
+      },
+      {
+        "episode_id": "S03E22",
+        "title": "Beach Games",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E22",
+        "started_at_utc": "2026-03-05T19:52:22Z",
+        "ended_at_utc": "2026-03-05T19:53:56Z",
+        "duration_ms": 93412,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E22/segment_summaries/S03E22"
+      },
+      {
+        "episode_id": "S03E23",
+        "title": "The Job",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S03E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E23",
+        "started_at_utc": "2026-03-05T19:53:56Z",
+        "ended_at_utc": "2026-03-05T19:55:39Z",
+        "duration_ms": 103320,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season03_4_1_mini_2026-03-04_S03E23/segment_summaries/S03E23"
+      }
+    ]
+  },
+  "resumed_at_utc": "2026-03-05T20:47:25Z"
+}

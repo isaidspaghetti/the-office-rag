@@ -1,0 +1,234 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E01",
+  "created_at_utc": "2026-03-05T19:29:30Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E01",
+  "segment_id": "S03E01:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13749,
+  "segment_char_end": 15758,
+  "people": [
+    "Oscar",
+    "Dwight",
+    "Jan",
+    "Michael",
+    "Toby",
+    "Pam",
+    "Meredith",
+    "Andy",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "joke",
+      "summary": "Dwight uses a 'gay-dar' device on Oscar and himself, which beeps near their belt buckles.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13756,
+          "char_end": 13803,
+          "snippet": "Dwight is running the gay-dar over Oscar's body"
+        },
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13884,
+          "char_end": 13937,
+          "snippet": "gay-dar beeps over Oscar's belt buckle, Dwight smiles"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Jan calls Michael to check on his work goals and suspects he might be on the toilet during the call.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 14012,
+          "char_end": 14075,
+          "snippet": "Jan (on speakerphone): Okay, what is your goal for after lunch?"
+        },
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 14497,
+          "char_end": 14551,
+          "snippet": "Jan (on speakerphone): Are you on the toilet, Michael?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael and Pam have a conversation about Pam painting her new apartment alone and missing Roy.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 14901,
+          "char_end": 14945,
+          "snippet": "Pam: I'm… painting my new apartment tonight."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Oscar openly states that he is gay, surprising Meredith.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15306,
+          "char_end": 15326,
+          "snippet": "Oscar: Yes, I'm gay."
+        },
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15327,
+          "char_end": 15357,
+          "snippet": "Meredith (shocked expression):"
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Andy and Jim joke about Googling the word 'Google' and the resulting search results.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15460,
+          "char_end": 15504,
+          "snippet": "Andy: Hey, Big Tuna. You ever Google Google?"
+        },
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15612,
+          "char_end": 15637,
+          "snippet": "Jim: Oh! Lots of results."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Yes, I'm gay.",
+      "speaker": "Oscar",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15306,
+          "char_end": 15326,
+          "snippet": "Oscar: Yes, I'm gay."
+        }
+      ]
+    },
+    {
+      "quote": "Are you on the toilet, Michael?",
+      "speaker": "Jan",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 14497,
+          "char_end": 14551,
+          "snippet": "Jan (on speakerphone): Are you on the toilet, Michael?"
+        }
+      ]
+    },
+    {
+      "quote": "Why are all the best-looking single men always gay?",
+      "speaker": "Meredith",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 15378,
+          "char_end": 15439,
+          "snippet": "Meredith: Why are all the best-looking single men always gay?"
+        }
+      ]
+    },
+    {
+      "quote": "You should get one of this big body pillows.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13749,
+          "char_end": 15758,
+          "snippet": "Oscar (Dwight is running the gay-dar over Oscar's body): What are you doing?!\nDwight: Shhh. Don't be scared. It works. …oh no.\n[STAGE] gay-dar beeps over Oscar's belt buckle, Dwight smiles\n[STAGE] gay-dar goes off next to Dwight's belt buck"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Michael's phone calls to Jan after stating his goals?",
+    "How does Meredith react beyond shock to Oscar's coming out?",
+    "What is the significance of the gay-dar beeping near Dwight's belt buckle?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Michael's phone calls to Jan after stating his goals?",
+      "why_uncertain": "The segment ends before showing any results or reactions to Michael's calls.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13749,
+          "char_end": 15758,
+          "snippet": "Oscar (Dwight is running the gay-dar over Oscar's body): What are you doing?!\nDwight: Shhh. Don't be scared. It works. …oh no.\n[STAGE] gay-dar beeps over Oscar's belt buckle, Dwight smiles\n[STAGE] gay-dar goes off next to Dwight's belt buck"
+        }
+      ]
+    },
+    {
+      "question": "How does Meredith react beyond shock to Oscar's coming out?",
+      "why_uncertain": "The segment only shows Meredith's shocked expression without further dialogue or action.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13749,
+          "char_end": 15758,
+          "snippet": "Oscar (Dwight is running the gay-dar over Oscar's body): What are you doing?!\nDwight: Shhh. Don't be scared. It works. …oh no.\n[STAGE] gay-dar beeps over Oscar's belt buckle, Dwight smiles\n[STAGE] gay-dar goes off next to Dwight's belt buck"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the gay-dar beeping near Dwight's belt buckle?",
+      "why_uncertain": "The segment does not explain the meaning or implications of the gay-dar beeping near Dwight.",
+      "evidence": [
+        {
+          "episode_id": "S03E01",
+          "segment_id": "S03E01:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e01_gay_witch_hunt_script.txt",
+          "char_start": 13749,
+          "char_end": 15758,
+          "snippet": "Oscar (Dwight is running the gay-dar over Oscar's body): What are you doing?!\nDwight: Shhh. Don't be scared. It works. …oh no.\n[STAGE] gay-dar beeps over Oscar's belt buckle, Dwight smiles\n[STAGE] gay-dar goes off next to Dwight's belt buck"
+        }
+      ]
+    }
+  ]
+}

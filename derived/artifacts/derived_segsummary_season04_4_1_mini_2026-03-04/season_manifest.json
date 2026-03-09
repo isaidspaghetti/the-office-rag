@@ -1,0 +1,483 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season04_4_1_mini_2026-03-04",
+  "created_at_utc": "2026-03-05T20:07:05Z",
+  "season": 4,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/artifacts/segments",
+    "llm_model": "gpt-4.1-mini",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S04E01",
+        "title": "Fun Run",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S04E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E01"
+      },
+      {
+        "episode_id": "S04E02",
+        "title": "Dunder Mifflin Infinity",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E02"
+      },
+      {
+        "episode_id": "S04E03",
+        "title": "Launch Party",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S04E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E03"
+      },
+      {
+        "episode_id": "S04E04",
+        "title": "Money",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S04E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E04"
+      },
+      {
+        "episode_id": "S04E05",
+        "title": "Local Ad",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E05"
+      },
+      {
+        "episode_id": "S04E06",
+        "title": "Branch Wars",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E06"
+      },
+      {
+        "episode_id": "S04E07",
+        "title": "Survivor Man",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E07"
+      },
+      {
+        "episode_id": "S04E08",
+        "title": "The Deposition",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E08"
+      },
+      {
+        "episode_id": "S04E09",
+        "title": "Dinner Party",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E09"
+      },
+      {
+        "episode_id": "S04E10",
+        "title": "Chair Model",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E10"
+      },
+      {
+        "episode_id": "S04E11",
+        "title": "Night Out",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E11"
+      },
+      {
+        "episode_id": "S04E12",
+        "title": "Did I Stutter?",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S04E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E12"
+      },
+      {
+        "episode_id": "S04E13",
+        "title": "Job Fair",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S04E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E13"
+      },
+      {
+        "episode_id": "S04E14",
+        "title": "Goodbye Toby",
+        "planned_segments": 7,
+        "planned_llm_calls": 7,
+        "segment_file": "segments/S04E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E14"
+      }
+    ],
+    "planned_total_llm_calls": 64
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T20:07:05Z",
+    "ended_at_utc": "2026-03-05T20:47:27Z",
+    "episodes_done": 14,
+    "segment_summaries_written": 61,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S04E01",
+        "title": "Fun Run",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E01",
+        "started_at_utc": "2026-03-05T20:07:05Z",
+        "ended_at_utc": "2026-03-05T20:08:59Z",
+        "duration_ms": 113378,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E01/segment_summaries/S04E01"
+      },
+      {
+        "episode_id": "S04E02",
+        "title": "Dunder Mifflin Infinity",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E02",
+        "started_at_utc": "2026-03-05T20:08:59Z",
+        "ended_at_utc": "2026-03-05T20:10:05Z",
+        "duration_ms": 66455,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E02/segment_summaries/S04E02"
+      },
+      {
+        "episode_id": "S04E03",
+        "title": "Launch Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E03",
+        "started_at_utc": "2026-03-05T20:10:05Z",
+        "ended_at_utc": "2026-03-05T20:12:11Z",
+        "duration_ms": 125509,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E03/segment_summaries/S04E03"
+      },
+      {
+        "episode_id": "S04E04",
+        "title": "Money",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E04",
+        "started_at_utc": "2026-03-05T20:13:45Z",
+        "ended_at_utc": "2026-03-05T20:14:48Z",
+        "duration_ms": 62732,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E04/segment_summaries/S04E04"
+      },
+      {
+        "episode_id": "S04E05",
+        "title": "Local Ad",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E05",
+        "started_at_utc": "2026-03-05T20:14:48Z",
+        "ended_at_utc": "2026-03-05T20:15:42Z",
+        "duration_ms": 54111,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E05/segment_summaries/S04E05"
+      },
+      {
+        "episode_id": "S04E06",
+        "title": "Branch Wars",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E06",
+        "started_at_utc": "2026-03-05T20:16:13Z",
+        "ended_at_utc": "2026-03-05T20:16:58Z",
+        "duration_ms": 45068,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E06/segment_summaries/S04E06"
+      },
+      {
+        "episode_id": "S04E07",
+        "title": "Survivor Man",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E07",
+        "started_at_utc": "2026-03-05T20:16:58Z",
+        "ended_at_utc": "2026-03-05T20:17:51Z",
+        "duration_ms": 53586,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E07/segment_summaries/S04E07"
+      },
+      {
+        "episode_id": "S04E08",
+        "title": "The Deposition",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E08",
+        "started_at_utc": "2026-03-05T20:17:51Z",
+        "ended_at_utc": "2026-03-05T20:18:58Z",
+        "duration_ms": 66836,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E08/segment_summaries/S04E08"
+      },
+      {
+        "episode_id": "S04E09",
+        "title": "Dinner Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E09",
+        "started_at_utc": "2026-03-05T20:18:58Z",
+        "ended_at_utc": "2026-03-05T20:20:03Z",
+        "duration_ms": 64306,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E09/segment_summaries/S04E09"
+      },
+      {
+        "episode_id": "S04E10",
+        "title": "Chair Model",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E10",
+        "started_at_utc": "2026-03-05T20:20:03Z",
+        "ended_at_utc": "2026-03-05T20:21:24Z",
+        "duration_ms": 81511,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E10/segment_summaries/S04E10"
+      },
+      {
+        "episode_id": "S04E11",
+        "title": "Night Out",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E11",
+        "started_at_utc": "2026-03-05T20:21:24Z",
+        "ended_at_utc": "2026-03-05T20:22:33Z",
+        "duration_ms": 68401,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E11/segment_summaries/S04E11"
+      },
+      {
+        "episode_id": "S04E12",
+        "title": "Did I Stutter?",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E12",
+        "started_at_utc": "2026-03-05T20:22:33Z",
+        "ended_at_utc": "2026-03-05T20:23:25Z",
+        "duration_ms": 52424,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E12/segment_summaries/S04E12"
+      },
+      {
+        "episode_id": "S04E13",
+        "title": "Job Fair",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E13",
+        "started_at_utc": "2026-03-05T20:23:25Z",
+        "ended_at_utc": "2026-03-05T20:24:08Z",
+        "duration_ms": 43219,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E13/segment_summaries/S04E13"
+      },
+      {
+        "episode_id": "S04E14",
+        "title": "Goodbye Toby",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E14",
+        "started_at_utc": "2026-03-05T20:24:08Z",
+        "ended_at_utc": "2026-03-05T20:26:17Z",
+        "duration_ms": 128349,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E14/segment_summaries/S04E14"
+      }
+    ],
+    "latest_episodes": [
+      {
+        "episode_id": "S04E01",
+        "title": "Fun Run",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E01",
+        "started_at_utc": "2026-03-05T20:07:05Z",
+        "ended_at_utc": "2026-03-05T20:08:59Z",
+        "duration_ms": 113378,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E01/segment_summaries/S04E01"
+      },
+      {
+        "episode_id": "S04E02",
+        "title": "Dunder Mifflin Infinity",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E02",
+        "started_at_utc": "2026-03-05T20:08:59Z",
+        "ended_at_utc": "2026-03-05T20:10:05Z",
+        "duration_ms": 66455,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E02/segment_summaries/S04E02"
+      },
+      {
+        "episode_id": "S04E03",
+        "title": "Launch Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E03",
+        "started_at_utc": "2026-03-05T20:10:05Z",
+        "ended_at_utc": "2026-03-05T20:12:11Z",
+        "duration_ms": 125509,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E03/segment_summaries/S04E03"
+      },
+      {
+        "episode_id": "S04E04",
+        "title": "Money",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E04",
+        "started_at_utc": "2026-03-05T20:13:45Z",
+        "ended_at_utc": "2026-03-05T20:14:48Z",
+        "duration_ms": 62732,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E04/segment_summaries/S04E04"
+      },
+      {
+        "episode_id": "S04E05",
+        "title": "Local Ad",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E05",
+        "started_at_utc": "2026-03-05T20:14:48Z",
+        "ended_at_utc": "2026-03-05T20:15:42Z",
+        "duration_ms": 54111,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E05/segment_summaries/S04E05"
+      },
+      {
+        "episode_id": "S04E06",
+        "title": "Branch Wars",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E06",
+        "started_at_utc": "2026-03-05T20:16:13Z",
+        "ended_at_utc": "2026-03-05T20:16:58Z",
+        "duration_ms": 45068,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E06/segment_summaries/S04E06"
+      },
+      {
+        "episode_id": "S04E07",
+        "title": "Survivor Man",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E07",
+        "started_at_utc": "2026-03-05T20:16:58Z",
+        "ended_at_utc": "2026-03-05T20:17:51Z",
+        "duration_ms": 53586,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E07/segment_summaries/S04E07"
+      },
+      {
+        "episode_id": "S04E08",
+        "title": "The Deposition",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E08",
+        "started_at_utc": "2026-03-05T20:17:51Z",
+        "ended_at_utc": "2026-03-05T20:18:58Z",
+        "duration_ms": 66836,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E08/segment_summaries/S04E08"
+      },
+      {
+        "episode_id": "S04E09",
+        "title": "Dinner Party",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E09",
+        "started_at_utc": "2026-03-05T20:18:58Z",
+        "ended_at_utc": "2026-03-05T20:20:03Z",
+        "duration_ms": 64306,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E09/segment_summaries/S04E09"
+      },
+      {
+        "episode_id": "S04E10",
+        "title": "Chair Model",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E10",
+        "started_at_utc": "2026-03-05T20:20:03Z",
+        "ended_at_utc": "2026-03-05T20:21:24Z",
+        "duration_ms": 81511,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E10/segment_summaries/S04E10"
+      },
+      {
+        "episode_id": "S04E11",
+        "title": "Night Out",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E11",
+        "started_at_utc": "2026-03-05T20:21:24Z",
+        "ended_at_utc": "2026-03-05T20:22:33Z",
+        "duration_ms": 68401,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E11/segment_summaries/S04E11"
+      },
+      {
+        "episode_id": "S04E12",
+        "title": "Did I Stutter?",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E12",
+        "started_at_utc": "2026-03-05T20:22:33Z",
+        "ended_at_utc": "2026-03-05T20:23:25Z",
+        "duration_ms": 52424,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E12/segment_summaries/S04E12"
+      },
+      {
+        "episode_id": "S04E13",
+        "title": "Job Fair",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E13",
+        "started_at_utc": "2026-03-05T20:23:25Z",
+        "ended_at_utc": "2026-03-05T20:24:08Z",
+        "duration_ms": 43219,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E13/segment_summaries/S04E13"
+      },
+      {
+        "episode_id": "S04E14",
+        "title": "Goodbye Toby",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/artifacts/segments/S04E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E14",
+        "started_at_utc": "2026-03-05T20:24:08Z",
+        "ended_at_utc": "2026-03-05T20:26:17Z",
+        "duration_ms": 128349,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season04_4_1_mini_2026-03-04_S04E14/segment_summaries/S04E14"
+      }
+    ]
+  },
+  "resumed_at_utc": "2026-03-05T20:47:27Z"
+}

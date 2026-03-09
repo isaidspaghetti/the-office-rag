@@ -1,0 +1,98 @@
+{
+  "schema": "SegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_nano_2026-03-04_S07E20",
+  "created_at_utc": "2026-03-04T23:58:00Z",
+  "episode": {
+    "episode_id": "S07E20",
+    "title": "Michael’s Last Dundies",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e20_michael_s_last_dundies_script.txt",
+    "body_char_count": 22868
+  },
+  "config": {
+    "llm_model": "gpt-4.1-nano",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "max_segments": null,
+    "segment_index": null,
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_segments": [
+      {
+        "segment_id": "S07E20:seg:000",
+        "segment_index": 0,
+        "segment_char_start": 0,
+        "segment_char_end": 6220,
+        "approx_tokens": 1563,
+        "out_file": "segment_summaries/S07E20/S07E20:seg:000.json"
+      },
+      {
+        "segment_id": "S07E20:seg:001",
+        "segment_index": 1,
+        "segment_char_start": 6220,
+        "segment_char_end": 12378,
+        "approx_tokens": 1545,
+        "out_file": "segment_summaries/S07E20/S07E20:seg:001.json"
+      },
+      {
+        "segment_id": "S07E20:seg:002",
+        "segment_index": 2,
+        "segment_char_start": 12378,
+        "segment_char_end": 19005,
+        "approx_tokens": 1660,
+        "out_file": "segment_summaries/S07E20/S07E20:seg:002.json"
+      },
+      {
+        "segment_id": "S07E20:seg:003",
+        "segment_index": 3,
+        "segment_char_start": 19005,
+        "segment_char_end": 22868,
+        "approx_tokens": 969,
+        "out_file": "segment_summaries/S07E20/S07E20:seg:003.json"
+      }
+    ],
+    "planned_llm_calls": 4
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T23:58:00Z",
+    "ended_at_utc": "2026-03-04T23:58:33Z",
+    "llm_calls_planned": 4,
+    "llm_calls_made": 4,
+    "skipped_existing": 0,
+    "written": 4,
+    "errors": 0,
+    "segments": [
+      {
+        "segment_id": "S07E20:seg:000",
+        "status": "written",
+        "out_file": "segment_summaries/S07E20/S07E20:seg:000.json",
+        "call_started_at_utc": "2026-03-04T23:58:00Z",
+        "call_duration_ms": 9287
+      },
+      {
+        "segment_id": "S07E20:seg:001",
+        "status": "written",
+        "out_file": "segment_summaries/S07E20/S07E20:seg:001.json",
+        "call_started_at_utc": "2026-03-04T23:58:09Z",
+        "call_duration_ms": 6771
+      },
+      {
+        "segment_id": "S07E20:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S07E20/S07E20:seg:002.json",
+        "call_started_at_utc": "2026-03-04T23:58:16Z",
+        "call_duration_ms": 7407
+      },
+      {
+        "segment_id": "S07E20:seg:003",
+        "status": "written",
+        "out_file": "segment_summaries/S07E20/S07E20:seg:003.json",
+        "call_started_at_utc": "2026-03-04T23:58:23Z",
+        "call_duration_ms": 9576
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_4_1_mini_2026-03-04_S07E08",
+  "created_at_utc": "2026-03-06T01:45:25Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S07E08",
+  "segment_id": "S07E08:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 20120,
+  "segment_char_end": 20465,
+  "people": [
+    "Gabe",
+    "Andy"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Andy reveals he accidentally ate some powdered seahorses and is leaning over the toilet.",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20171,
+          "char_end": 20211,
+          "snippet": "Andy: I accidentally ate some seahorses."
+        },
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20228,
+          "char_end": 20298,
+          "snippet": "Andy: I didn't know it's powdered, so like four or five, I don't know."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Gabe offers a solution by bringing a synthesizer and playing music called Earth Rise, on the Moon.",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20299,
+          "char_end": 20372,
+          "snippet": "Gabe: I've got just the thing! This one's called Earth Rise, on the Moon."
+        },
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20373,
+          "char_end": 20418,
+          "snippet": "[STAGE] leaves, comes back with a synthesizer"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy reacts positively to the music played by Gabe.",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20439,
+          "char_end": 20465,
+          "snippet": "Andy: That's so beautiful."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I accidentally ate some seahorses.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20171,
+          "char_end": 20211,
+          "snippet": "Andy: I accidentally ate some seahorses."
+        }
+      ]
+    },
+    {
+      "quote": "I've got just the thing! This one's called Earth Rise, on the Moon.",
+      "speaker": "Gabe",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20299,
+          "char_end": 20372,
+          "snippet": "Gabe: I've got just the thing! This one's called Earth Rise, on the Moon."
+        }
+      ]
+    },
+    {
+      "quote": "That's so beautiful.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20439,
+          "char_end": 20465,
+          "snippet": "Andy: That's so beautiful."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly is the effect of eating the powdered seahorses on Andy?",
+    "How does the music called Earth Rise, on the Moon, help Andy?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly is the effect of eating the powdered seahorses on Andy?",
+      "why_uncertain": "The segment only shows Andy leaning over the toilet and does not explain the symptoms or consequences.",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20120,
+          "char_end": 20465,
+          "snippet": "Gabe (Andy is leaning over toilet): What happened?\nAndy: I accidentally ate some seahorses.\nGabe: How much?\nAndy: I didn't know it's powdered, so like four or five, I don't know.\nGabe: I've got just the thing! This one's called Earth Rise, "
+        }
+      ]
+    },
+    {
+      "question": "How does the music called Earth Rise, on the Moon, help Andy?",
+      "why_uncertain": "The segment shows Gabe playing the music and Andy's positive reaction but does not clarify the connection or effect.",
+      "evidence": [
+        {
+          "episode_id": "S07E08",
+          "segment_id": "S07E08:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e08_viewing_party_script.txt",
+          "char_start": 20299,
+          "char_end": 20372,
+          "snippet": "Gabe: I've got just the thing! This one's called Earth Rise, on the Moon."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E05",
+  "created_at_utc": "2026-03-04T20:55:09Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E05",
+  "segment_id": "S01E05:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6320,
+  "segment_char_end": 13420,
+  "people": [
+    "Michael",
+    "Pam",
+    "Jim",
+    "Darryl",
+    "Angela",
+    "Phyllis",
+    "Dwight",
+    "Roy",
+    "Lonny",
+    "Ryan",
+    "Stanley",
+    "Madge"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The office prepares for a basketball game with some employees volunteering to play.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 6682,
+          "char_end": 6754,
+          "snippet": "Pam: I don't think so Michael. Besides, I can't cheer against my fiance."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael makes a series of jokes and comments about the game and players, including a comment about being 'not too gay on the court.'",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 6320,
+          "char_end": 13420,
+          "snippet": "Michael (hits Pam in the head with a piece of paper): Off the backboard!\nPam: Please don't throw garbage at me.\nMichael: Oh, Pam with a zinger. Hey, Pam, how would you, like to be our cheerleader today? You know, some, ah, pigtails? A littl"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "The game begins with players assigned to different matchups and some playful banter.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 9693,
+          "char_end": 9740,
+          "snippet": "Michael: OK, Ryan, you have Darryl. I have Roy."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "The game progresses with players scoring, missing shots, and some humorous commentary from Michael.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11029,
+          "char_end": 11107,
+          "snippet": "Michael (misses a half court shot): Aw, come on! What is wrong with me today!?"
+        },
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11538,
+          "char_end": 11598,
+          "snippet": "Michael (misses another shot): What is wrong with me today?!"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael describes how playing basketball helps him forget work stress and feels like being 'in the zone.'",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11388,
+          "char_end": 11489,
+          "snippet": "Michael: When I am playing hoops all of the stress and responsibility of my job here just melts away."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The segment includes humorous interactions, playful trash talk, and some singing by Michael about jazz and rock and roll.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 12950,
+          "char_end": 13003,
+          "snippet": "Michael (singing): Du-du-du-du-dupee-do, de-do-do-do."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "When I am playing hoops all of the stress and responsibility of my job here just melts away.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 11388,
+          "char_end": 11489,
+          "snippet": "Michael: When I am playing hoops all of the stress and responsibility of my job here just melts away."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the game?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the game?",
+      "why_uncertain": "The segment ends with the game still ongoing and no final score or winner mentioned.",
+      "evidence": [
+        {
+          "episode_id": "S01E05",
+          "segment_id": "S01E05:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e05_basketball_script.txt",
+          "char_start": 13225,
+          "char_end": 13305,
+          "snippet": "Michael: What's going on? What's going on? You're playing like a bunch of girls."
+        }
+      ]
+    }
+  ]
+}

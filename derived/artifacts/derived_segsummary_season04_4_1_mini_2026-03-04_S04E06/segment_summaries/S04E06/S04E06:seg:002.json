@@ -1,0 +1,226 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E06",
+  "created_at_utc": "2026-03-05T20:16:13Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E06",
+  "segment_id": "S04E06:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13252,
+  "segment_char_end": 19963,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Jim",
+    "Karen",
+    "Stanley",
+    "Pam",
+    "Andy",
+    "Oscar",
+    "Toby",
+    "Angela",
+    "Meredith"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael and Dwight attempt to steal an industrial copier but get stuck and call for Jim's help.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 14000,
+          "char_end": 14083,
+          "snippet": "Michael: We found something far better, their crown jewel. Their industrial copier."
+        },
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 14355,
+          "char_end": 14446,
+          "snippet": "Michael: We're wedged between the copier and the railing. Ah! Ow! Ow, my leg! Jim leave us."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim encounters Karen and they have an awkward conversation about their past relationship and current status.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 16234,
+          "char_end": 16287,
+          "snippet": "Karen: So you're still doing this kind of stuff, huh?"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael tries to convince Jim to reconcile with Karen while they are stuck with the copier.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 14905,
+          "char_end": 14951,
+          "snippet": "Michael: Just say you wanna get back together."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Stanley decides not to leave after Michael calls his bluff about quitting.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 17707,
+          "char_end": 17778,
+          "snippet": "Stanley: I wasn't really planning on leaving, all I wanted was a raise."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Pam invites Jim to join The Finer Things Club, a book club with a refined theme.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 18072,
+          "char_end": 18122,
+          "snippet": "Jim: Are you inviting me to the Finer Things Club?"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Andy tries to join The Finer Things Club and offers a questionable letter of recommendation, causing concern among members.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 19070,
+          "char_end": 19103,
+          "snippet": "Toby: He's gonna ruin everything."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "The eyes are the groin of the head.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13849,
+          "char_end": 13892,
+          "snippet": "Dwight: The eyes are the groin of the head."
+        }
+      ]
+    },
+    {
+      "quote": "If you so much as harm a hair on Stanley's head, we will burn Utica to the ground.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13252,
+          "char_end": 19963,
+          "snippet": "Michael (from the walkie-talkie): We are in a stairwell.\nDwight (from the walkie-talkie): We are climbing some stairs.\nDwight: I'm breathing heavily.\nJim: Okay, you know what? You don't need to be updating me as much as you're updating me.\n"
+        }
+      ]
+    },
+    {
+      "quote": "I wanna hear more about how happy you are with Pam.",
+      "speaker": "Karen",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 16869,
+          "char_end": 16920,
+          "snippet": "I wanna hear more about how happy you are with Pam."
+        }
+      ]
+    },
+    {
+      "quote": "Stanley, you may go. Here is a box, for your things.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13252,
+          "char_end": 19963,
+          "snippet": "Michael (from the walkie-talkie): We are in a stairwell.\nDwight (from the walkie-talkie): We are climbing some stairs.\nDwight: I'm breathing heavily.\nJim: Okay, you know what? You don't need to be updating me as much as you're updating me.\n"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the ultimate outcome of the copier theft attempt?",
+    "How will Jim and Karen's relationship develop after their awkward conversation?",
+    "Will Andy's involvement change The Finer Things Club dynamic?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the ultimate outcome of the copier theft attempt?",
+      "why_uncertain": "The segment ends with Michael and Dwight stuck and calling for help, but does not reveal if they succeed or fail.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13252,
+          "char_end": 19963,
+          "snippet": "Michael (from the walkie-talkie): We are in a stairwell.\nDwight (from the walkie-talkie): We are climbing some stairs.\nDwight: I'm breathing heavily.\nJim: Okay, you know what? You don't need to be updating me as much as you're updating me.\n"
+        }
+      ]
+    },
+    {
+      "question": "How will Jim and Karen's relationship develop after their awkward conversation?",
+      "why_uncertain": "The segment shows tension but does not provide resolution or next steps.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13252,
+          "char_end": 19963,
+          "snippet": "Michael (from the walkie-talkie): We are in a stairwell.\nDwight (from the walkie-talkie): We are climbing some stairs.\nDwight: I'm breathing heavily.\nJim: Okay, you know what? You don't need to be updating me as much as you're updating me.\n"
+        }
+      ]
+    },
+    {
+      "question": "Will Andy's involvement change The Finer Things Club dynamic?",
+      "why_uncertain": "The segment ends with Toby expressing concern but no further developments.",
+      "evidence": [
+        {
+          "episode_id": "S04E06",
+          "segment_id": "S04E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e06_branch_wars_script.txt",
+          "char_start": 13252,
+          "char_end": 19963,
+          "snippet": "Michael (from the walkie-talkie): We are in a stairwell.\nDwight (from the walkie-talkie): We are climbing some stairs.\nDwight: I'm breathing heavily.\nJim: Okay, you know what? You don't need to be updating me as much as you're updating me.\n"
+        }
+      ]
+    }
+  ]
+}

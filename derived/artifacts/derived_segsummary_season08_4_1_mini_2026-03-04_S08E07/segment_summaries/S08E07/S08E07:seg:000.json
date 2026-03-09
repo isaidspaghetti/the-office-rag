@@ -1,0 +1,239 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_4_1_mini_2026-03-04_S08E07",
+  "created_at_utc": "2026-03-06T01:45:00Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S08E07",
+  "segment_id": "S08E07:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6907,
+  "people": [
+    "Andy",
+    "Erin",
+    "Client",
+    "Dwight",
+    "Darryl",
+    "Pam",
+    "Cathy",
+    "Ryan",
+    "Jim",
+    "Gabe",
+    "Toby",
+    "Oscar",
+    "Phyllis",
+    "Kevin",
+    "Val",
+    "Robert California"
+  ],
+  "beats": [
+    {
+      "type": "joke",
+      "summary": "Andy instructs Erin to fake an important phone call to impress a client, but the prank escalates with a fake death call from Darryl.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 43,
+          "char_end": 150,
+          "snippet": "Andy: In two minutes I want you to come into this meeting and tell me I have a really important phone call."
+        },
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 1611,
+          "char_end": 1701,
+          "snippet": "Darryl (on phone): It's Darryl. Erin told me to pretend to be a cop and say your mom died."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Pam reveals she is pregnant and training a temp named Cathy to replace her during maternity leave.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 2580,
+          "char_end": 2694,
+          "snippet": "Pam: I'm training a temp to be my replacement while I'm on maternity leave. Oh I should've mentioned I'm pregnant."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Ryan discuss the new temp's relationship status, with Jim doubting she is single.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 2929,
+          "char_end": 2948,
+          "snippet": "Jim: Hmm. Doubt it."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Andy and Darryl plan to play music together during lunch, with Kevin joining on drums.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 3556,
+          "char_end": 3601,
+          "snippet": "[STAGE] Kevin playing drums with chicken legs"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Office staff discuss the attractiveness of the new temp and Pam, with Dwight objecting to praising a pregnant woman and Helen Mirren.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 0,
+          "char_end": 6907,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Erin.\nErin: Yeah.\nAndy: In two minutes I want you to come into this meeting and tell me I have a really important phone call. I'm not going to take it because I want him to know how important the meeting is to me.\nE"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Robert California joins Andy's band, 'Kevin and the Zits', surprising the group.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 5816,
+          "char_end": 5847,
+          "snippet": "Robert: I miss being in a band."
+        },
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 5848,
+          "char_end": 5894,
+          "snippet": "Andy: Miss no more! What do you play? Join us!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "There is nothing more important to me right now than this meeting.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 1074,
+          "char_end": 1146,
+          "snippet": "Andy: There is nothing more important to me right now than this meeting."
+        }
+      ]
+    },
+    {
+      "quote": "She's dead. She was hit by a bus.",
+      "speaker": "Erin",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 1241,
+          "char_end": 1280,
+          "snippet": "Erin: She's dead. She was hit by a bus."
+        }
+      ]
+    },
+    {
+      "quote": "You're a bad man Andy Bernard.",
+      "speaker": "Darryl",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 1935,
+          "char_end": 1965,
+          "snippet": "You're a bad man Andy Bernard."
+        }
+      ]
+    },
+    {
+      "quote": "CEOs don't play tambourines. Tambourines are for girlfriends.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 5989,
+          "char_end": 6050,
+          "snippet": "CEOs don't play tambourines. Tambourines are for girlfriends."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Andy's prank involving the fake phone call?",
+    "What is the new temp Cathy's relationship status?",
+    "How will the office react long term to Pam's pregnancy and the new temp?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Andy's prank involving the fake phone call?",
+      "why_uncertain": "The segment ends with the prank in progress but does not reveal the final outcome or consequences.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 0,
+          "char_end": 6907,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Erin.\nErin: Yeah.\nAndy: In two minutes I want you to come into this meeting and tell me I have a really important phone call. I'm not going to take it because I want him to know how important the meeting is to me.\nE"
+        }
+      ]
+    },
+    {
+      "question": "What is the new temp Cathy's relationship status?",
+      "why_uncertain": "Jim and Ryan speculate but do not confirm Cathy's actual relationship status.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 0,
+          "char_end": 6907,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Erin.\nErin: Yeah.\nAndy: In two minutes I want you to come into this meeting and tell me I have a really important phone call. I'm not going to take it because I want him to know how important the meeting is to me.\nE"
+        }
+      ]
+    },
+    {
+      "question": "How will the office react long term to Pam's pregnancy and the new temp?",
+      "why_uncertain": "The segment only shows initial reactions and discussions without further developments.",
+      "evidence": [
+        {
+          "episode_id": "S08E07",
+          "segment_id": "S08E07:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e07_pam_s_replacement_script.txt",
+          "char_start": 0,
+          "char_end": 6907,
+          "snippet": "=== SCENE 000 ===\n\nAndy: Erin.\nErin: Yeah.\nAndy: In two minutes I want you to come into this meeting and tell me I have a really important phone call. I'm not going to take it because I want him to know how important the meeting is to me.\nE"
+        }
+      ]
+    }
+  ]
+}

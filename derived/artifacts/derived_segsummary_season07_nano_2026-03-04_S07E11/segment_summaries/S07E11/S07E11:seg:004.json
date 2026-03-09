@@ -1,0 +1,182 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_nano_2026-03-04_S07E11",
+  "created_at_utc": "2026-03-04T23:34:24Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S07E11",
+  "segment_id": "S07E11:seg:004",
+  "segment_index": 4,
+  "segment_char_start": 27413,
+  "segment_char_end": 34554,
+  "people": [
+    "Phyllis",
+    "Pam",
+    "Holly",
+    "Michael",
+    "Erin",
+    "Toby",
+    "Kevin",
+    "Angela",
+    "Andy",
+    "Darryl",
+    "Jada",
+    "Oscar",
+    "AJ",
+    "Robert",
+    "Creed",
+    "Meredith",
+    "Ryan"
+  ],
+  "beats": [
+    {
+      "type": "other",
+      "summary": "The segment depicts a series of holiday and office interactions, including a prank involving a snowball and various conversations.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 29593,
+          "char_end": 29636,
+          "snippet": "Jim: No, fake girlfriends are always wrong."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael admits to accidentally causing a prank involving a snowball, claiming jealousy as the motive.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 27413,
+          "char_end": 34554,
+          "snippet": "Phyllis: So you went homemade this year.\nPam: Yup.\nPhyllis: Yeah. Money problems, is that what this is about? I mean, oh, dear, I don't think we can help you out.\nPam: No, no. Jim had a great year, actually. I just wanted to get your opinio"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael reveals the snowball incident was part of a party prank and claims he was framed.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 28882,
+          "char_end": 28954,
+          "snippet": "Michael: Ahhhhhh! Surprise! It was part of the party. Pretty funny, huh?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Holly and Michael discuss their feelings, with Holly indicating she is with someone else and no longer feels jealous.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 29341,
+          "char_end": 29435,
+          "snippet": "Holly: Michael, you have to let this go. I'm with someone else. I don't feel that way anymore."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The segment includes various holiday activities, gift exchanges, and office banter.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 31737,
+          "char_end": 31802,
+          "snippet": "Darryl: Ohh, that sounds fun and Christmasy, you mean old grinch!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "It was part of the party. Pretty funny, huh?",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 28882,
+          "char_end": 28954,
+          "snippet": "Michael: Ahhhhhh! Surprise! It was part of the party. Pretty funny, huh?"
+        }
+      ]
+    },
+    {
+      "quote": "Michael, you have to let this go. I'm with someone else. I don't feel that way anymore.",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 29341,
+          "char_end": 29435,
+          "snippet": "Holly: Michael, you have to let this go. I'm with someone else. I don't feel that way anymore."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly caused the snowball incident?",
+    "Are there any ongoing conflicts or relationships unresolved?",
+    "What is the full context of the prank and its aftermath?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly caused the snowball incident?",
+      "why_uncertain": "The segment only shows Michael admitting it was an accident and that he was jealous, but does not specify the exact cause.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 27413,
+          "char_end": 34554,
+          "snippet": "Phyllis: So you went homemade this year.\nPam: Yup.\nPhyllis: Yeah. Money problems, is that what this is about? I mean, oh, dear, I don't think we can help you out.\nPam: No, no. Jim had a great year, actually. I just wanted to get your opinio"
+        }
+      ]
+    },
+    {
+      "question": "Are there any ongoing conflicts or relationships unresolved?",
+      "why_uncertain": "The segment includes conversations suggesting unresolved feelings, but does not clarify the current status.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 29341,
+          "char_end": 29435,
+          "snippet": "Holly: Michael, you have to let this go. I'm with someone else. I don't feel that way anymore."
+        }
+      ]
+    },
+    {
+      "question": "What is the full context of the prank and its aftermath?",
+      "why_uncertain": "The segment only provides a partial view of the prank and Michael's explanation, lacking full context.",
+      "evidence": [
+        {
+          "episode_id": "S07E11",
+          "segment_id": "S07E11:seg:004",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e11_classy_christmas_script.txt",
+          "char_start": 27413,
+          "char_end": 34554,
+          "snippet": "Phyllis: So you went homemade this year.\nPam: Yup.\nPhyllis: Yeah. Money problems, is that what this is about? I mean, oh, dear, I don't think we can help you out.\nPam: No, no. Jim had a great year, actually. I just wanted to get your opinio"
+        }
+      ]
+    }
+  ]
+}

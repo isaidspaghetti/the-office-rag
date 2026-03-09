@@ -1,0 +1,236 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season09_4_1_mini_2026-03-04_S09E06",
+  "created_at_utc": "2026-03-06T01:43:36Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S09E06",
+  "segment_id": "S09E06:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13369,
+  "segment_char_end": 20443,
+  "people": [
+    "Andy",
+    "Erin",
+    "Boat Guy",
+    "Walter Jr",
+    "Dwight",
+    "Jim",
+    "Nellie",
+    "David Wallace",
+    "Kevin",
+    "Oscar",
+    "Angela",
+    "Senator Lipton",
+    "Darryl"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Andy tries to rig and sail his boat but is repeatedly stopped by the Boat Guy who enforces rules and insurance restrictions.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13398,
+          "char_end": 13495,
+          "snippet": "Boat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 14296,
+          "char_end": 14394,
+          "snippet": "Boat Guy: We've already started boarding. And no one is insured to rig her up right now except us."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Erin supports Andy's role as captain and encourages him despite the boat ownership complications.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 15120,
+          "char_end": 15201,
+          "snippet": "Erin: As long as we're on this boat, as far as I'm concerned, you're the captain."
+        },
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13848,
+          "char_end": 13859,
+          "snippet": "Erin: Yeah."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Boat Guy informs Andy that he has already signed the papers and the boat is effectively sold, with the deposit forfeited.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 15610,
+          "char_end": 15681,
+          "snippet": "Boat Guy: OK, no. I already said, you're not getting back your deposit."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Andy finds his brother Walter Jr passed out on the boat and invites him to join a sober sailing trip.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 16858,
+          "char_end": 16950,
+          "snippet": "Walter Jr: Oh god, thank goodness you're here. I was having a little trouble with this door."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight attempts to negotiate with David Wallace, who is holding a mailman hostage, urging him to surrender peacefully.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Kevin and Oscar discuss Kevin not getting a promotion and Oscar's stress related to his affair with Senator Lipton, who visits the office.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 18650,
+          "char_end": 18697,
+          "snippet": "Kevin: Well Oscar, I did not get the promotion."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "I am the captain.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 15202,
+          "char_end": 15225,
+          "snippet": "Andy: I am the captain."
+        }
+      ]
+    },
+    {
+      "quote": "I need a crew. You should be my crew.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    },
+    {
+      "quote": "I'm gonna need you to let the mailman go.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 17977,
+          "char_end": 18018,
+          "snippet": "I'm gonna need you to let the mailman go."
+        }
+      ]
+    },
+    {
+      "quote": "You already signed the papers.",
+      "speaker": "Boat Guy",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will Andy be able to reclaim or sail the boat despite the signed papers and forfeited deposit?",
+    "What will be the outcome of David Wallace's hostage situation?",
+    "How will Oscar's affair with Senator Lipton affect the office dynamics?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will Andy be able to reclaim or sail the boat despite the signed papers and forfeited deposit?",
+      "why_uncertain": "The segment ends with the Boat Guy stating the boat is sold and Andy planning to sail it, but no resolution is provided.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    },
+    {
+      "question": "What will be the outcome of David Wallace's hostage situation?",
+      "why_uncertain": "Dwight urges surrender but the segment ends without showing Wallace's response or resolution.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    },
+    {
+      "question": "How will Oscar's affair with Senator Lipton affect the office dynamics?",
+      "why_uncertain": "The segment reveals the affair and tension but does not show consequences or reactions beyond initial stress.",
+      "evidence": [
+        {
+          "episode_id": "S09E06",
+          "segment_id": "S09E06:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e06_the_boat_script.txt",
+          "char_start": 13369,
+          "char_end": 20443,
+          "snippet": "Boat Guy: Move.\nAndy: Sorry?\nBoat Guy: Trying to rig a boat here. I don't know how to do that when you're standing in the way.\nAndy: Sure, I um…I didn't know.\nBoat Guy: I'm not a ghost, so I can't walk through people.\nAndy: Ok.\nErin: Gee, h"
+        }
+      ]
+    }
+  ]
+}

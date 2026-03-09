@@ -1,0 +1,223 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_4_1_mini_2026-03-04_S01E02",
+  "created_at_utc": "2026-03-05T06:30:53Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S01E02",
+  "segment_id": "S01E02:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6722,
+  "people": [
+    "Michael",
+    "Mr. Brown",
+    "Jim",
+    "Dwight",
+    "Oscar",
+    "Pam",
+    "Kevin",
+    "Stanley"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael introduces Diversity Day and expresses excitement about the corporate-mandated event.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 186,
+          "char_end": 280,
+          "snippet": "Michael: Today is diversity day and someone's going to come in and talk to us about diversity."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael misunderstands the concept of diversity training, suggesting a color-blind approach which Mr. Brown corrects.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 3077,
+          "char_end": 3132,
+          "snippet": "Michael: You know what? This is a color-free-zone here."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Mr. Brown leads the diversity training session, emphasizing honesty and positive expectations and rejecting ignorance.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael suggests an inappropriate icebreaker about sexual attraction to races, which Mr. Brown stops.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 3926,
+          "char_end": 3980,
+          "snippet": "Mr. Brown: Actually, I'd prefer not to start that way."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "The group prepares to reenact an offensive workplace incident to learn from it, with Michael wanting to play the Chris Rock character.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 5559,
+          "char_end": 5599,
+          "snippet": "Michael: I will play the Chris Rock guy."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael performs the Chris Rock routine but is censored and stopped by Mr. Brown for inappropriate language.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 6557,
+          "char_end": 6632,
+          "snippet": "Michael (Bleep): They always want credit for something they supPOSED to do!"
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 6633,
+          "char_end": 6652,
+          "snippet": "Mr. Brown: Stop it!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "This is a color-free-zone here.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 3077,
+          "char_end": 3132,
+          "snippet": "Michael: You know what? This is a color-free-zone here."
+        }
+      ]
+    },
+    {
+      "quote": "We don't have to pretend we're color-blind.",
+      "speaker": "Mr. Brown",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    },
+    {
+      "quote": "Instead, we need to celebrate our diversity.",
+      "speaker": "Mr. Brown",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    },
+    {
+      "quote": "Why don't we go around and everybody say a race that you are attracted to sexually.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the diversity training session?",
+    "How do other employees besides Michael and Mr. Brown react to the diversity training?",
+    "What specific incident did the employees write down as offensive in the workplace?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the diversity training session?",
+      "why_uncertain": "The segment ends during the reenactment and does not reveal the session's conclusion or impact.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    },
+    {
+      "question": "How do other employees besides Michael and Mr. Brown react to the diversity training?",
+      "why_uncertain": "The segment provides limited dialogue from other employees and does not show their reactions.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    },
+    {
+      "question": "What specific incident did the employees write down as offensive in the workplace?",
+      "why_uncertain": "Mr. Brown mentions the incident but does not specify it in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 0,
+          "char_end": 6722,
+          "snippet": "=== SCENE 000 ===\n\nMichael: Hey, uh, can I help you out in here?\nMr. Brown: Oh, I'm all set, thanks.\nMichael: Gotcha. Good. I'd go with the rows. That's a good idea.\n\n=== SCENE 001 ===\n\nMichael: Today is diversity day and someone's going to"
+        }
+      ]
+    }
+  ]
+}

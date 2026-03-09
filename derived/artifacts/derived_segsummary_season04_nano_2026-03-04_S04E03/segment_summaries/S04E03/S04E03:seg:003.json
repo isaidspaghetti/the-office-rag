@@ -1,0 +1,212 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E03",
+  "created_at_utc": "2026-03-04T22:53:22Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E03",
+  "segment_id": "S04E03:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 20995,
+  "segment_char_end": 28154,
+  "people": [
+    "Michael",
+    "Stanley",
+    "Kevin",
+    "Oscar",
+    "Phyllis",
+    "Angela",
+    "Andy",
+    "Pam",
+    "Pizza guy",
+    "Dwight",
+    "Jim"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael orders pizza and discusses the type of pizza with Kevin and others.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 21062,
+          "char_end": 21134,
+          "snippet": "Michael: Guess who just ordered from your favorite pizza place, Alfredo?"
+        },
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 21286,
+          "char_end": 21364,
+          "snippet": "Michael: You know what? I don't understand when you all talk at the same time."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael argues with the pizza delivery person over the bill and demands a discount.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 23645,
+          "char_end": 23722,
+          "snippet": "Michael: You didn't actually think I was going to spend sixty bucks on pizza?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael keeps the pizza delivery person in the conference room until he gets a discount.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 20995,
+          "char_end": 28154,
+          "snippet": "=== SCENE 045 ===\n\nMichael: Good news.\nStanley: We get to go home?\nMichael: Guess who just ordered from your favorite pizza place, Alfredo?\nAll (murmurs of approval):\nKevin: Wait! Alfredo's Pizza Cafe? Or Pizza by Alfredo?\nMichael: Same thi"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael calls the pizza place with a list of demands, including holding the delivery kid hostage.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 26974,
+          "char_end": 26992,
+          "snippet": "Jim: As a hostage."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Kevin mentions that everyone is an accomplice and they decide to order pizza while waiting.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 27910,
+          "char_end": 28018,
+          "snippet": "Kevin: We're getting hungry out there. We're all accomplices now anyway, so we figured we might as well eat."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "You don't have to say it like that.",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 23139,
+          "char_end": 23177,
+          "snippet": "Pam: The Pizza by Alfredo guy is here."
+        }
+      ]
+    },
+    {
+      "quote": "It's about to get all stupid up in here.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 24972,
+          "char_end": 25061,
+          "snippet": "Michael: No, you don't even know what stupid is. It's about to get all stupid up in here."
+        }
+      ]
+    },
+    {
+      "quote": "Let go of the little jerk boy before he has learned his lesson?",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 26642,
+          "char_end": 26670,
+          "snippet": "Jim: You need to let him go."
+        }
+      ]
+    },
+    {
+      "quote": "We're getting hungry out there. We're all accomplices now anyway, so we figured we might as well eat.",
+      "speaker": "Kevin",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 27774,
+          "char_end": 27797,
+          "snippet": "Kevin: What's going on?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of the hostage situation?",
+    "What is the exact nature of the conflict over the pizza order?",
+    "Are there any consequences for Michael's actions?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of the hostage situation?",
+      "why_uncertain": "The segment does not show the resolution or outcome.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 20995,
+          "char_end": 28154,
+          "snippet": "=== SCENE 045 ===\n\nMichael: Good news.\nStanley: We get to go home?\nMichael: Guess who just ordered from your favorite pizza place, Alfredo?\nAll (murmurs of approval):\nKevin: Wait! Alfredo's Pizza Cafe? Or Pizza by Alfredo?\nMichael: Same thi"
+        }
+      ]
+    },
+    {
+      "question": "What is the exact nature of the conflict over the pizza order?",
+      "why_uncertain": "The segment only shows the argument but not the final resolution.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 20995,
+          "char_end": 28154,
+          "snippet": "=== SCENE 045 ===\n\nMichael: Good news.\nStanley: We get to go home?\nMichael: Guess who just ordered from your favorite pizza place, Alfredo?\nAll (murmurs of approval):\nKevin: Wait! Alfredo's Pizza Cafe? Or Pizza by Alfredo?\nMichael: Same thi"
+        }
+      ]
+    },
+    {
+      "question": "Are there any consequences for Michael's actions?",
+      "why_uncertain": "The segment does not include any consequences or follow-up.",
+      "evidence": [
+        {
+          "episode_id": "S04E03",
+          "segment_id": "S04E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e03_launch_party_script.txt",
+          "char_start": 20995,
+          "char_end": 28154,
+          "snippet": "=== SCENE 045 ===\n\nMichael: Good news.\nStanley: We get to go home?\nMichael: Guess who just ordered from your favorite pizza place, Alfredo?\nAll (murmurs of approval):\nKevin: Wait! Alfredo's Pizza Cafe? Or Pizza by Alfredo?\nMichael: Same thi"
+        }
+      ]
+    }
+  ]
+}

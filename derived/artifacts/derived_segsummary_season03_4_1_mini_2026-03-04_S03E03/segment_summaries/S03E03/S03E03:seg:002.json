@@ -1,0 +1,242 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E03",
+  "created_at_utc": "2026-03-05T19:31:15Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S03E03",
+  "segment_id": "S03E03:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 14031,
+  "segment_char_end": 19622,
+  "people": [
+    "Michael",
+    "Dwight",
+    "Jan",
+    "Jim",
+    "Karen",
+    "Stanley",
+    "Ryan",
+    "Angela",
+    "Creed",
+    "Pam",
+    "Kevin"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Michael and Dwight argue over the Sebring car, leading to Michael asserting ownership and Dwight begging not to be fired.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 14031,
+          "char_end": 14114,
+          "snippet": "Michael: Well, I guess it's time, that I turn over the keys, to the famous Sebring."
+        },
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 14617,
+          "char_end": 14640,
+          "snippet": "Michael: THAT'S MY CAR."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael and Dwight reconcile after the confrontation with a hug, though Michael remains somewhat angry and punishes Dwight.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 15822,
+          "char_end": 15885,
+          "snippet": "Michael: You can get up. Get up. And you can hug it out, bitch."
+        },
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 16520,
+          "char_end": 16604,
+          "snippet": "Michael: Yep. Yeah, we hugged it out. But, it turns out, I was still a little angry."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Dwight suggests cost-cutting measures to Michael, including firing Meredith and charging Creed rent, which Michael rejects.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 17222,
+          "char_end": 17253,
+          "snippet": "Michael: I'm not firing anyone."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Creed reveals he sleeps under his desk four nights a week and stays in Toronto three nights, hiding his other job.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 17353,
+          "char_end": 17455,
+          "snippet": "Creed: Four nights a week, I sleep under my desk, and then three nights I stay at my place in Toronto."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael tries to resume Movie Monday but no one joins, and he ends up playing online Scrabble.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 17952,
+          "char_end": 18079,
+          "snippet": "Michael: Okay, well, we had scheduled this time to watch a movie together, so I guess I will just go play some online Scrabble."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim experiences a different work environment in Stamford, including playful interactions with Jan and Karen.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 19042,
+          "char_end": 19129,
+          "snippet": "Jim (playing Call of Duty): Oh? Someone's left out in the open, taking a little siesta."
+        },
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 19537,
+          "char_end": 19594,
+          "snippet": "Jim: Things are a little bit… different here in Stamford."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "You can get up. Get up. And you can hug it out, bitch.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 15822,
+          "char_end": 15885,
+          "snippet": "Michael: You can get up. Get up. And you can hug it out, bitch."
+        }
+      ]
+    },
+    {
+      "quote": "Four nights a week, I sleep under my desk, and then three nights I stay at my place in Toronto.",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 17353,
+          "char_end": 17455,
+          "snippet": "Creed: Four nights a week, I sleep under my desk, and then three nights I stay at my place in Toronto."
+        }
+      ]
+    },
+    {
+      "quote": "I'm not firing anyone.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 17222,
+          "char_end": 17253,
+          "snippet": "Michael: I'm not firing anyone."
+        }
+      ]
+    },
+    {
+      "quote": "Things are a little bit… different here in Stamford.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 19542,
+          "char_end": 19594,
+          "snippet": "Things are a little bit… different here in Stamford."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly did Dwight say to Jan that Jim was supposed to hear?",
+    "Why is Michael still angry with Dwight after they hugged it out?",
+    "What is the outcome of Michael's cost-cutting discussion with Dwight?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly did Dwight say to Jan that Jim was supposed to hear?",
+      "why_uncertain": "The segment only mentions Jan telling Jim to remind her to tell him what Dwight said, but does not reveal the content.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 14031,
+          "char_end": 19622,
+          "snippet": "Michael: Well, I guess it's time, that I turn over the keys, to the famous Sebring.\nDwight (smiling): No thank you.\nMichael: It's a corporate lease Dwight, you've earned it.\nDwight: No thanks.\nMichael: What?\nDwight: Not my style.\nMichael: B"
+        }
+      ]
+    },
+    {
+      "question": "Why is Michael still angry with Dwight after they hugged it out?",
+      "why_uncertain": "Michael states he was still a little angry and punishes Dwight, but the segment does not explain the deeper reason.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 14031,
+          "char_end": 19622,
+          "snippet": "Michael: Well, I guess it's time, that I turn over the keys, to the famous Sebring.\nDwight (smiling): No thank you.\nMichael: It's a corporate lease Dwight, you've earned it.\nDwight: No thanks.\nMichael: What?\nDwight: Not my style.\nMichael: B"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's cost-cutting discussion with Dwight?",
+      "why_uncertain": "Dwight suggests ideas, Michael rejects firing anyone, but the segment does not show any further decisions.",
+      "evidence": [
+        {
+          "episode_id": "S03E03",
+          "segment_id": "S03E03:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e03_the_coup_script.txt",
+          "char_start": 14031,
+          "char_end": 19622,
+          "snippet": "Michael: Well, I guess it's time, that I turn over the keys, to the famous Sebring.\nDwight (smiling): No thank you.\nMichael: It's a corporate lease Dwight, you've earned it.\nDwight: No thanks.\nMichael: What?\nDwight: Not my style.\nMichael: B"
+        }
+      ]
+    }
+  ]
+}

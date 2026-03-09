@@ -1,0 +1,802 @@
+{
+  "schema": "SeasonSegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_prefix": "derived_segsummary_season06_nano_2026-03-04",
+  "created_at_utc": "2026-03-04T23:19:43Z",
+  "season": 6,
+  "config": {
+    "docs_dir": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt",
+    "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+    "segments_root": "/Users/tg/Developer/RAG-1/derived/segments",
+    "llm_model": "gpt-4.1-nano",
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "force_segments": false,
+    "force_summaries": false
+  },
+  "plan": {
+    "planned_episodes": [
+      {
+        "episode_id": "S06E01",
+        "title": "Gossip",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E01"
+      },
+      {
+        "episode_id": "S06E02",
+        "title": "The Meeting",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E02"
+      },
+      {
+        "episode_id": "S06E03",
+        "title": "The Promotion",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E03"
+      },
+      {
+        "episode_id": "S06E04",
+        "title": "Niagara",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S06E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E04"
+      },
+      {
+        "episode_id": "S06E05",
+        "title": "Mafia",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E05"
+      },
+      {
+        "episode_id": "S06E06",
+        "title": "The Lover",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E06"
+      },
+      {
+        "episode_id": "S06E07",
+        "title": "Koi Pond",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E07"
+      },
+      {
+        "episode_id": "S06E08",
+        "title": "Double Date",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E08"
+      },
+      {
+        "episode_id": "S06E09",
+        "title": "Murder",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E09"
+      },
+      {
+        "episode_id": "S06E10",
+        "title": "Shareholder Meeting",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E10"
+      },
+      {
+        "episode_id": "S06E11",
+        "title": "Scott’s Tots",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E11"
+      },
+      {
+        "episode_id": "S06E12",
+        "title": "Secret Santa",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E12"
+      },
+      {
+        "episode_id": "S06E13",
+        "title": "The Banker",
+        "planned_segments": 2,
+        "planned_llm_calls": 2,
+        "segment_file": "segments/S06E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E13"
+      },
+      {
+        "episode_id": "S06E14",
+        "title": "Sabre",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E14"
+      },
+      {
+        "episode_id": "S06E15",
+        "title": "Manager and Salesman",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E15"
+      },
+      {
+        "episode_id": "S06E16",
+        "title": "The Delivery",
+        "planned_segments": 6,
+        "planned_llm_calls": 6,
+        "segment_file": "segments/S06E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E16"
+      },
+      {
+        "episode_id": "S06E17",
+        "title": "St. Patrick’s Day",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E17"
+      },
+      {
+        "episode_id": "S06E18",
+        "title": "New Leads",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E18"
+      },
+      {
+        "episode_id": "S06E19",
+        "title": "Happy Hour",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E19"
+      },
+      {
+        "episode_id": "S06E20",
+        "title": "Secretary’s Day",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E20"
+      },
+      {
+        "episode_id": "S06E21",
+        "title": "Body Language",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E21"
+      },
+      {
+        "episode_id": "S06E22",
+        "title": "The Cover-Up",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E22"
+      },
+      {
+        "episode_id": "S06E23",
+        "title": "The Chump",
+        "planned_segments": 4,
+        "planned_llm_calls": 4,
+        "segment_file": "segments/S06E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E23"
+      },
+      {
+        "episode_id": "S06E24",
+        "title": "Whistleblower",
+        "planned_segments": 3,
+        "planned_llm_calls": 3,
+        "segment_file": "segments/S06E24.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E24"
+      }
+    ],
+    "planned_total_llm_calls": 88
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-04T23:19:43Z",
+    "ended_at_utc": "2026-03-04T23:38:54Z",
+    "episodes_done": 24,
+    "segment_summaries_written": 88,
+    "errors": 0,
+    "episodes": [
+      {
+        "episode_id": "S06E01",
+        "title": "Gossip",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E01",
+        "started_at_utc": "2026-03-04T23:19:43Z",
+        "ended_at_utc": "2026-03-04T23:20:22Z",
+        "duration_ms": 39111,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E01/segment_summaries/S06E01"
+      },
+      {
+        "episode_id": "S06E02",
+        "title": "The Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E02",
+        "started_at_utc": "2026-03-04T23:20:22Z",
+        "ended_at_utc": "2026-03-04T23:20:46Z",
+        "duration_ms": 23448,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E02/segment_summaries/S06E02"
+      },
+      {
+        "episode_id": "S06E03",
+        "title": "The Promotion",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E03",
+        "started_at_utc": "2026-03-04T23:20:46Z",
+        "ended_at_utc": "2026-03-04T23:21:24Z",
+        "duration_ms": 37963,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E03/segment_summaries/S06E03"
+      },
+      {
+        "episode_id": "S06E04",
+        "title": "Niagara",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E04",
+        "started_at_utc": "2026-03-04T23:21:24Z",
+        "ended_at_utc": "2026-03-04T23:22:31Z",
+        "duration_ms": 66992,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E04/segment_summaries/S06E04"
+      },
+      {
+        "episode_id": "S06E05",
+        "title": "Mafia",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E05",
+        "started_at_utc": "2026-03-04T23:22:31Z",
+        "ended_at_utc": "2026-03-04T23:23:09Z",
+        "duration_ms": 38058,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E05/segment_summaries/S06E05"
+      },
+      {
+        "episode_id": "S06E06",
+        "title": "The Lover",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E06",
+        "started_at_utc": "2026-03-04T23:23:09Z",
+        "ended_at_utc": "2026-03-04T23:23:52Z",
+        "duration_ms": 43762,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E06/segment_summaries/S06E06"
+      },
+      {
+        "episode_id": "S06E07",
+        "title": "Koi Pond",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E07",
+        "started_at_utc": "2026-03-04T23:23:52Z",
+        "ended_at_utc": "2026-03-04T23:24:38Z",
+        "duration_ms": 45052,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E07/segment_summaries/S06E07"
+      },
+      {
+        "episode_id": "S06E08",
+        "title": "Double Date",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E08",
+        "started_at_utc": "2026-03-04T23:24:38Z",
+        "ended_at_utc": "2026-03-04T23:25:32Z",
+        "duration_ms": 54882,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E08/segment_summaries/S06E08"
+      },
+      {
+        "episode_id": "S06E09",
+        "title": "Murder",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E09",
+        "started_at_utc": "2026-03-04T23:25:32Z",
+        "ended_at_utc": "2026-03-04T23:26:27Z",
+        "duration_ms": 54384,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E09/segment_summaries/S06E09"
+      },
+      {
+        "episode_id": "S06E10",
+        "title": "Shareholder Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E10",
+        "started_at_utc": "2026-03-04T23:26:27Z",
+        "ended_at_utc": "2026-03-04T23:27:19Z",
+        "duration_ms": 51851,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E10/segment_summaries/S06E10"
+      },
+      {
+        "episode_id": "S06E11",
+        "title": "Scott’s Tots",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E11",
+        "started_at_utc": "2026-03-04T23:27:19Z",
+        "ended_at_utc": "2026-03-04T23:28:08Z",
+        "duration_ms": 49461,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E11/segment_summaries/S06E11"
+      },
+      {
+        "episode_id": "S06E12",
+        "title": "Secret Santa",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E12",
+        "started_at_utc": "2026-03-04T23:28:08Z",
+        "ended_at_utc": "2026-03-04T23:29:02Z",
+        "duration_ms": 53451,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E12/segment_summaries/S06E12"
+      },
+      {
+        "episode_id": "S06E13",
+        "title": "The Banker",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E13",
+        "started_at_utc": "2026-03-04T23:29:02Z",
+        "ended_at_utc": "2026-03-04T23:29:29Z",
+        "duration_ms": 27936,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E13/segment_summaries/S06E13"
+      },
+      {
+        "episode_id": "S06E14",
+        "title": "Sabre",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E14",
+        "started_at_utc": "2026-03-04T23:29:29Z",
+        "ended_at_utc": "2026-03-04T23:30:14Z",
+        "duration_ms": 45010,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E14/segment_summaries/S06E14"
+      },
+      {
+        "episode_id": "S06E15",
+        "title": "Manager and Salesman",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E15",
+        "started_at_utc": "2026-03-04T23:30:15Z",
+        "ended_at_utc": "2026-03-04T23:31:04Z",
+        "duration_ms": 49035,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E15/segment_summaries/S06E15"
+      },
+      {
+        "episode_id": "S06E16",
+        "title": "The Delivery",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E16",
+        "started_at_utc": "2026-03-04T23:31:04Z",
+        "ended_at_utc": "2026-03-04T23:32:59Z",
+        "duration_ms": 115289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E16/segment_summaries/S06E16"
+      },
+      {
+        "episode_id": "S06E17",
+        "title": "St. Patrick’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E17",
+        "started_at_utc": "2026-03-04T23:32:59Z",
+        "ended_at_utc": "2026-03-04T23:33:53Z",
+        "duration_ms": 53943,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E17/segment_summaries/S06E17"
+      },
+      {
+        "episode_id": "S06E18",
+        "title": "New Leads",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E18",
+        "started_at_utc": "2026-03-04T23:33:53Z",
+        "ended_at_utc": "2026-03-04T23:34:30Z",
+        "duration_ms": 36770,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E18/segment_summaries/S06E18"
+      },
+      {
+        "episode_id": "S06E19",
+        "title": "Happy Hour",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E19",
+        "started_at_utc": "2026-03-04T23:34:30Z",
+        "ended_at_utc": "2026-03-04T23:34:58Z",
+        "duration_ms": 27967,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E19/segment_summaries/S06E19"
+      },
+      {
+        "episode_id": "S06E20",
+        "title": "Secretary’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E20",
+        "started_at_utc": "2026-03-04T23:34:58Z",
+        "ended_at_utc": "2026-03-04T23:35:38Z",
+        "duration_ms": 40662,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E20/segment_summaries/S06E20"
+      },
+      {
+        "episode_id": "S06E21",
+        "title": "Body Language",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E21",
+        "started_at_utc": "2026-03-04T23:35:38Z",
+        "ended_at_utc": "2026-03-04T23:36:46Z",
+        "duration_ms": 67864,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E21/segment_summaries/S06E21"
+      },
+      {
+        "episode_id": "S06E22",
+        "title": "The Cover-Up",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E22",
+        "started_at_utc": "2026-03-04T23:36:46Z",
+        "ended_at_utc": "2026-03-04T23:37:32Z",
+        "duration_ms": 45877,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E22/segment_summaries/S06E22"
+      },
+      {
+        "episode_id": "S06E23",
+        "title": "The Chump",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E23",
+        "started_at_utc": "2026-03-04T23:37:32Z",
+        "ended_at_utc": "2026-03-04T23:38:24Z",
+        "duration_ms": 51806,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E23/segment_summaries/S06E23"
+      },
+      {
+        "episode_id": "S06E24",
+        "title": "Whistleblower",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E24.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E24",
+        "started_at_utc": "2026-03-04T23:38:24Z",
+        "ended_at_utc": "2026-03-04T23:38:54Z",
+        "duration_ms": 30012,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E24/segment_summaries/S06E24"
+      }
+    ],
+    "latest_episodes": [
+      {
+        "episode_id": "S06E01",
+        "title": "Gossip",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E01.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E01",
+        "started_at_utc": "2026-03-04T23:19:43Z",
+        "ended_at_utc": "2026-03-04T23:20:22Z",
+        "duration_ms": 39111,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E01/segment_summaries/S06E01"
+      },
+      {
+        "episode_id": "S06E02",
+        "title": "The Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E02.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E02",
+        "started_at_utc": "2026-03-04T23:20:22Z",
+        "ended_at_utc": "2026-03-04T23:20:46Z",
+        "duration_ms": 23448,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E02/segment_summaries/S06E02"
+      },
+      {
+        "episode_id": "S06E03",
+        "title": "The Promotion",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E03.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E03",
+        "started_at_utc": "2026-03-04T23:20:46Z",
+        "ended_at_utc": "2026-03-04T23:21:24Z",
+        "duration_ms": 37963,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E03/segment_summaries/S06E03"
+      },
+      {
+        "episode_id": "S06E04",
+        "title": "Niagara",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E04.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E04",
+        "started_at_utc": "2026-03-04T23:21:24Z",
+        "ended_at_utc": "2026-03-04T23:22:31Z",
+        "duration_ms": 66992,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E04/segment_summaries/S06E04"
+      },
+      {
+        "episode_id": "S06E05",
+        "title": "Mafia",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E05.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E05",
+        "started_at_utc": "2026-03-04T23:22:31Z",
+        "ended_at_utc": "2026-03-04T23:23:09Z",
+        "duration_ms": 38058,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E05/segment_summaries/S06E05"
+      },
+      {
+        "episode_id": "S06E06",
+        "title": "The Lover",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E06.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E06",
+        "started_at_utc": "2026-03-04T23:23:09Z",
+        "ended_at_utc": "2026-03-04T23:23:52Z",
+        "duration_ms": 43762,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E06/segment_summaries/S06E06"
+      },
+      {
+        "episode_id": "S06E07",
+        "title": "Koi Pond",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E07.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E07",
+        "started_at_utc": "2026-03-04T23:23:52Z",
+        "ended_at_utc": "2026-03-04T23:24:38Z",
+        "duration_ms": 45052,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E07/segment_summaries/S06E07"
+      },
+      {
+        "episode_id": "S06E08",
+        "title": "Double Date",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E08.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E08",
+        "started_at_utc": "2026-03-04T23:24:38Z",
+        "ended_at_utc": "2026-03-04T23:25:32Z",
+        "duration_ms": 54882,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E08/segment_summaries/S06E08"
+      },
+      {
+        "episode_id": "S06E09",
+        "title": "Murder",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E09.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E09",
+        "started_at_utc": "2026-03-04T23:25:32Z",
+        "ended_at_utc": "2026-03-04T23:26:27Z",
+        "duration_ms": 54384,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E09/segment_summaries/S06E09"
+      },
+      {
+        "episode_id": "S06E10",
+        "title": "Shareholder Meeting",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E10.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E10",
+        "started_at_utc": "2026-03-04T23:26:27Z",
+        "ended_at_utc": "2026-03-04T23:27:19Z",
+        "duration_ms": 51851,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E10/segment_summaries/S06E10"
+      },
+      {
+        "episode_id": "S06E11",
+        "title": "Scott’s Tots",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E11.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E11",
+        "started_at_utc": "2026-03-04T23:27:19Z",
+        "ended_at_utc": "2026-03-04T23:28:08Z",
+        "duration_ms": 49461,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E11/segment_summaries/S06E11"
+      },
+      {
+        "episode_id": "S06E12",
+        "title": "Secret Santa",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E12.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E12",
+        "started_at_utc": "2026-03-04T23:28:08Z",
+        "ended_at_utc": "2026-03-04T23:29:02Z",
+        "duration_ms": 53451,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E12/segment_summaries/S06E12"
+      },
+      {
+        "episode_id": "S06E13",
+        "title": "The Banker",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E13.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E13",
+        "started_at_utc": "2026-03-04T23:29:02Z",
+        "ended_at_utc": "2026-03-04T23:29:29Z",
+        "duration_ms": 27936,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E13/segment_summaries/S06E13"
+      },
+      {
+        "episode_id": "S06E14",
+        "title": "Sabre",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E14.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E14",
+        "started_at_utc": "2026-03-04T23:29:29Z",
+        "ended_at_utc": "2026-03-04T23:30:14Z",
+        "duration_ms": 45010,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E14/segment_summaries/S06E14"
+      },
+      {
+        "episode_id": "S06E15",
+        "title": "Manager and Salesman",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E15.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E15",
+        "started_at_utc": "2026-03-04T23:30:15Z",
+        "ended_at_utc": "2026-03-04T23:31:04Z",
+        "duration_ms": 49035,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E15/segment_summaries/S06E15"
+      },
+      {
+        "episode_id": "S06E16",
+        "title": "The Delivery",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E16.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E16",
+        "started_at_utc": "2026-03-04T23:31:04Z",
+        "ended_at_utc": "2026-03-04T23:32:59Z",
+        "duration_ms": 115289,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E16/segment_summaries/S06E16"
+      },
+      {
+        "episode_id": "S06E17",
+        "title": "St. Patrick’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E17.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E17",
+        "started_at_utc": "2026-03-04T23:32:59Z",
+        "ended_at_utc": "2026-03-04T23:33:53Z",
+        "duration_ms": 53943,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E17/segment_summaries/S06E17"
+      },
+      {
+        "episode_id": "S06E18",
+        "title": "New Leads",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E18.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E18",
+        "started_at_utc": "2026-03-04T23:33:53Z",
+        "ended_at_utc": "2026-03-04T23:34:30Z",
+        "duration_ms": 36770,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E18/segment_summaries/S06E18"
+      },
+      {
+        "episode_id": "S06E19",
+        "title": "Happy Hour",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E19.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E19",
+        "started_at_utc": "2026-03-04T23:34:30Z",
+        "ended_at_utc": "2026-03-04T23:34:58Z",
+        "duration_ms": 27967,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E19/segment_summaries/S06E19"
+      },
+      {
+        "episode_id": "S06E20",
+        "title": "Secretary’s Day",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E20.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E20",
+        "started_at_utc": "2026-03-04T23:34:58Z",
+        "ended_at_utc": "2026-03-04T23:35:38Z",
+        "duration_ms": 40662,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E20/segment_summaries/S06E20"
+      },
+      {
+        "episode_id": "S06E21",
+        "title": "Body Language",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E21.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E21",
+        "started_at_utc": "2026-03-04T23:35:38Z",
+        "ended_at_utc": "2026-03-04T23:36:46Z",
+        "duration_ms": 67864,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E21/segment_summaries/S06E21"
+      },
+      {
+        "episode_id": "S06E22",
+        "title": "The Cover-Up",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E22.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E22",
+        "started_at_utc": "2026-03-04T23:36:46Z",
+        "ended_at_utc": "2026-03-04T23:37:32Z",
+        "duration_ms": 45877,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E22/segment_summaries/S06E22"
+      },
+      {
+        "episode_id": "S06E23",
+        "title": "The Chump",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E23.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E23",
+        "started_at_utc": "2026-03-04T23:37:32Z",
+        "ended_at_utc": "2026-03-04T23:38:24Z",
+        "duration_ms": 51806,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E23/segment_summaries/S06E23"
+      },
+      {
+        "episode_id": "S06E24",
+        "title": "Whistleblower",
+        "status": "done",
+        "segment_file": "/Users/tg/Developer/RAG-1/derived/segments/S06E24.json",
+        "segment_summaries_build_id": "derived_segsummary_season06_nano_2026-03-04_S06E24",
+        "started_at_utc": "2026-03-04T23:38:24Z",
+        "ended_at_utc": "2026-03-04T23:38:54Z",
+        "duration_ms": 30012,
+        "error": null,
+        "out_dir": "/Users/tg/Developer/RAG-1/derived/artifacts/derived_segsummary_season06_nano_2026-03-04_S06E24/segment_summaries/S06E24"
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season08_4_1_mini_2026-03-04_S08E18",
+  "created_at_utc": "2026-03-06T01:57:00Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S08E18",
+  "segment_id": "S08E18:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6327,
+  "people": [
+    "Andy",
+    "Dwight",
+    "Angela",
+    "Phyllis",
+    "Oscar",
+    "Erin",
+    "Creed",
+    "Pam",
+    "Nellie",
+    "Robert California",
+    "Jim",
+    "Darryl",
+    "Toby",
+    "Kevin",
+    "Irene",
+    "Elderly Woman"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Andy announces that Dwight has been promoted to VP of Sabre Retail and will stay in Florida permanently.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 19,
+          "char_end": 125,
+          "snippet": "Andy (exiting office): Everyone stop what you're doing, I have terrible news. Dwight is no longer with us."
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 164,
+          "char_end": 267,
+          "snippet": "Andy: He's gone, damn it! He's been promoted to VP of Sabre Retail and he's staying in Florida forever."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "The office debates about Dwight's 'treasure box' and whether it contains anything valuable.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 552,
+          "char_end": 630,
+          "snippet": "Phyllis: If Dwight's not coming back, does that mean we can open his treasure?"
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 631,
+          "char_end": 691,
+          "snippet": "Oscar: You guys, we've gone over this, there is no treasure."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Creed opens Dwight's treasure box revealing a photo of the office and a dart fires out.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 1686,
+          "char_end": 1764,
+          "snippet": "Creed (opens box, pulls out and displays contents): It's a photo of all of us."
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 1765,
+          "char_end": 1842,
+          "snippet": "Pam: Aw, that's so sweet!\n[STAGE] dart fires out of box and lodges in ceiling"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Dwight is shown playing golf with Nellie and Robert California, highlighting their camaraderie.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 2154,
+          "char_end": 2221,
+          "snippet": "Dwight (on a golf course): Well, mister ball, it's been a pleasure."
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 2381,
+          "char_end": 2443,
+          "snippet": "Nellie: I am so happy Dwight is gonna be working alongside me."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Darryl and Toby negotiate selling cookies in the office, agreeing to split the space.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 3996,
+          "char_end": 4064,
+          "snippet": "Darryl: You know what? It's your first time, let's split the office."
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 4152,
+          "char_end": 4199,
+          "snippet": "Toby: That's it? Yeah, well, ok. Thanks Darryl."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Erin describes her role as a live-in helper for Irene and her plans to stay in Florida.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 4787,
+          "char_end": 4830,
+          "snippet": "Erin: Irene hired me as her live-in helper."
+        },
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 5295,
+          "char_end": 5417,
+          "snippet": "Erin: Well, today might be kind of tough, Irene. I have to talk to my old boss, Andy, and tell him I'm staying in Florida."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "He's gone, damn it! He's been promoted to VP of Sabre Retail and he's staying in Florida forever.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 164,
+          "char_end": 267,
+          "snippet": "Andy: He's gone, damn it! He's been promoted to VP of Sabre Retail and he's staying in Florida forever."
+        }
+      ]
+    },
+    {
+      "quote": "It's a photo of all of us.",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 1686,
+          "char_end": 1764,
+          "snippet": "Creed (opens box, pulls out and displays contents): It's a photo of all of us."
+        }
+      ]
+    },
+    {
+      "quote": "I think that Dwight wanted us to realize that this conversation among friends is the true treasure.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 1261,
+          "char_end": 1360,
+          "snippet": "I think that Dwight wanted us to realize that this conversation among friends is the true treasure."
+        }
+      ]
+    },
+    {
+      "quote": "This is the last time I'll ever see Dwight. It's a weird feeling, it's, um, what's the word? It's not, it's not bittersweet. It's uh… sweet. Yeah.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 3157,
+          "char_end": 3303,
+          "snippet": "This is the last time I'll ever see Dwight. It's a weird feeling, it's, um, what's the word? It's not, it's not bittersweet. It's uh… sweet. Yeah."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly is inside Dwight's treasure box beyond the photo and dart?",
+    "What will be the long-term impact of Dwight's promotion on the office dynamics?",
+    "Will Erin's decision to stay in Florida affect her relationship with Andy or the office?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly is inside Dwight's treasure box beyond the photo and dart?",
+      "why_uncertain": "The segment only reveals a photo and a dart firing out but does not clarify if there is anything else inside.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nAndy (exiting office): Everyone stop what you're doing, I have terrible news. Dwight is no longer with us.\nEveryone (gasps): What?! Why is that?\nAndy: He's gone, damn it! He's been promoted to VP of Sabre Retail and he's "
+        }
+      ]
+    },
+    {
+      "question": "What will be the long-term impact of Dwight's promotion on the office dynamics?",
+      "why_uncertain": "The segment shows reactions but does not provide information on future consequences.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nAndy (exiting office): Everyone stop what you're doing, I have terrible news. Dwight is no longer with us.\nEveryone (gasps): What?! Why is that?\nAndy: He's gone, damn it! He's been promoted to VP of Sabre Retail and he's "
+        }
+      ]
+    },
+    {
+      "question": "Will Erin's decision to stay in Florida affect her relationship with Andy or the office?",
+      "why_uncertain": "Erin mentions she will tell Andy she is staying but the segment does not show the outcome.",
+      "evidence": [
+        {
+          "episode_id": "S08E18",
+          "segment_id": "S08E18:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_08/s08e18_last_day_in_florida_script.txt",
+          "char_start": 0,
+          "char_end": 6327,
+          "snippet": "=== SCENE 000 ===\n\nAndy (exiting office): Everyone stop what you're doing, I have terrible news. Dwight is no longer with us.\nEveryone (gasps): What?! Why is that?\nAndy: He's gone, damn it! He's been promoted to VP of Sabre Retail and he's "
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E04",
+  "created_at_utc": "2026-03-05T21:16:28Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E04",
+  "segment_id": "S05E04:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6931,
+  "people": [
+    "Pam",
+    "Michael",
+    "Holly",
+    "Andy",
+    "Dwight",
+    "Phyllis",
+    "Angela",
+    "Oscar",
+    "Kevin",
+    "Jim",
+    "Creed"
+  ],
+  "beats": [
+    {
+      "type": "relationship",
+      "summary": "Michael and Holly discuss their relationship and plans for a date, including the possibility of having sex.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 1600,
+          "char_end": 1684,
+          "snippet": "Michael: In my opinion, the third date is traditionally the one where… you have sex."
+        },
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 2818,
+          "char_end": 2836,
+          "snippet": "Holly: …Hell yeah."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Holly realize they might be responsible for a robbery at the office due to unlocked doors.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 4680,
+          "char_end": 4711,
+          "snippet": "Jim: We were robbed last night."
+        },
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 5088,
+          "char_end": 5129,
+          "snippet": "Holly: Michael I think this is our fault."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight struggles with Angela's engagement to Andy and considers confronting her with an ultimatum.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 3362,
+          "char_end": 3395,
+          "snippet": "Dwight: Why is she marrying Andy?"
+        },
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 6144,
+          "char_end": 6192,
+          "snippet": "Phyllis: Then you need to give her an ultimatum."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Pam runs out of money in New York and Michael offers her a part-time job at corporate.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 89,
+          "char_end": 163,
+          "snippet": "Pam: New York, as it turns out, is very expensive, and I ran out of money."
+        },
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 202,
+          "char_end": 257,
+          "snippet": "Michael offered to get me a part-time job at corporate."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Andy jokes about Dwight's nickname and the save-the-date card.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 1974,
+          "char_end": 2010,
+          "snippet": "Dwight (whispEring): You set a date?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Creed warns that nobody steals from him and gets away with it.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 6635,
+          "char_end": 6697,
+          "snippet": "Creed: Nobody steals from Creed Bratton and gets away with it."
+        },
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 6698,
+          "char_end": 6737,
+          "snippet": "The last person to do this disappeared."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Michael: In my opinion, the third date is traditionally the one where… you have sex.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 1600,
+          "char_end": 1684,
+          "snippet": "Michael: In my opinion, the third date is traditionally the one where… you have sex."
+        }
+      ]
+    },
+    {
+      "quote": "Holly: …Hell yeah.",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 2818,
+          "char_end": 2836,
+          "snippet": "Holly: …Hell yeah."
+        }
+      ]
+    },
+    {
+      "quote": "Holly: Michael I think this is our fault.",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 5088,
+          "char_end": 5129,
+          "snippet": "Holly: Michael I think this is our fault."
+        }
+      ]
+    },
+    {
+      "quote": "Creed: Nobody steals from Creed Bratton and gets away with it.",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 6635,
+          "char_end": 6697,
+          "snippet": "Creed: Nobody steals from Creed Bratton and gets away with it."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will Michael and Holly have sex on their date?",
+    "What will be the outcome of Dwight confronting Angela about her engagement?",
+    "Who committed the robbery at the office?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will Michael and Holly have sex on their date?",
+      "why_uncertain": "The segment only shows their discussion and anticipation but does not reveal the outcome.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 0,
+          "char_end": 6931,
+          "snippet": "=== SCENE 000 ===\n\nReceptionist: Pam, line three.\nPam: Okay, thanks.\n\n=== SCENE 001 ===\n\nPam: New York, as it turns out, is very expensive, and I ran out of money. I thought about selling a kidney, but Michael offered to get me a part-time "
+        }
+      ]
+    },
+    {
+      "question": "What will be the outcome of Dwight confronting Angela about her engagement?",
+      "why_uncertain": "The segment ends with Dwight considering an ultimatum but does not show any resolution.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 0,
+          "char_end": 6931,
+          "snippet": "=== SCENE 000 ===\n\nReceptionist: Pam, line three.\nPam: Okay, thanks.\n\n=== SCENE 001 ===\n\nPam: New York, as it turns out, is very expensive, and I ran out of money. I thought about selling a kidney, but Michael offered to get me a part-time "
+        }
+      ]
+    },
+    {
+      "question": "Who committed the robbery at the office?",
+      "why_uncertain": "The segment mentions the robbery and missing items but does not identify the culprit.",
+      "evidence": [
+        {
+          "episode_id": "S05E04",
+          "segment_id": "S05E04:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e04_crime_aid_script.txt",
+          "char_start": 0,
+          "char_end": 6931,
+          "snippet": "=== SCENE 000 ===\n\nReceptionist: Pam, line three.\nPam: Okay, thanks.\n\n=== SCENE 001 ===\n\nPam: New York, as it turns out, is very expensive, and I ran out of money. I thought about selling a kidney, but Michael offered to get me a part-time "
+        }
+      ]
+    }
+  ]
+}

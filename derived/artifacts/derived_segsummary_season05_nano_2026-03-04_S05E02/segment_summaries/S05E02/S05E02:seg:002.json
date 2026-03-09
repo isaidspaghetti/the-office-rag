@@ -1,0 +1,201 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_nano_2026-03-04_S05E02",
+  "created_at_utc": "2026-03-04T23:19:04Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S05E02",
+  "segment_id": "S05E02:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 8456,
+  "segment_char_end": 15527,
+  "people": [
+    "Holly",
+    "Meredith",
+    "Michael",
+    "Jim",
+    "Dwight",
+    "Andy"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Holly questions Meredith about her personal meet-ups and discounts, suspecting unethical behavior.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 8540,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?"
+        },
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8877,
+          "char_end": 8977,
+          "snippet": "Holly: No, it's not a formality. Now, were these, um, meet-ups just personal? Unrelated to business?"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Meredith admits to having meet-ups and receiving steak coupons, feeling good about herself.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8978,
+          "char_end": 9053,
+          "snippet": "Meredith: Nah, I wouldn't have done it if it wasn't for the discount paper."
+        },
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 9286,
+          "char_end": 9425,
+          "snippet": "Meredith: Well it's funny. Maybe it's a girl thing, but after we did it, and he would give me those coupons, I just felt good about myself."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim and Dwight engage in a humorous stopwatch game during work, and Michael discusses workplace ethics with Holly.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 10292,
+          "char_end": 10338,
+          "snippet": "Jim: Personal conversation. Seventeen seconds."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael suggests that Holly and he should work out the Meredith situation over lunch.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 15527,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?\nMeredith: Liaisons, you mean meet-ups? I don't know, once a month for six years. Something like that.\nMichael: Meredith, why don't you tell Holly… it's not"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "No, it's not a formality. Now, were these, um, meet-ups just personal? Unrelated to business?",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8877,
+          "char_end": 8977,
+          "snippet": "Holly: No, it's not a formality. Now, were these, um, meet-ups just personal? Unrelated to business?"
+        }
+      ]
+    },
+    {
+      "quote": "Well it's funny. Maybe it's a girl thing, but after we did it, and he would give me those coupons, I just felt good about myself.",
+      "speaker": "Meredith",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 9286,
+          "char_end": 9425,
+          "snippet": "Meredith: Well it's funny. Maybe it's a girl thing, but after we did it, and he would give me those coupons, I just felt good about myself."
+        }
+      ]
+    },
+    {
+      "quote": "Holly: So, regarding this supplier, approximately how many liaisons have there been?",
+      "speaker": "Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 8540,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: Anyway, I was giving it some thought, and there's no reason that two attractive, good looking, intelligent, funny, attractive people can't, you know, just… sit down and work this whole Meredith thing out.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 15527,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?\nMeredith: Liaisons, you mean meet-ups? I don't know, once a month for six years. Something like that.\nMichael: Meredith, why don't you tell Holly… it's not"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly is the nature of Meredith's meet-ups and discounts?",
+    "What is the outcome of the Meredith situation?",
+    "Are the workplace ethics policies explicitly violated?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly is the nature of Meredith's meet-ups and discounts?",
+      "why_uncertain": "The segment only shows Meredith's statements and Holly's questions, but does not clarify the full context or legality.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8978,
+          "char_end": 9053,
+          "snippet": "Meredith: Nah, I wouldn't have done it if it wasn't for the discount paper."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the Meredith situation?",
+      "why_uncertain": "The segment ends with Holly stating she can't write a report that doesn't end with her being terminated, but no resolution is shown.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 15527,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?\nMeredith: Liaisons, you mean meet-ups? I don't know, once a month for six years. Something like that.\nMichael: Meredith, why don't you tell Holly… it's not"
+        }
+      ]
+    },
+    {
+      "question": "Are the workplace ethics policies explicitly violated?",
+      "why_uncertain": "The segment suggests suspicion but does not explicitly state violations or policies broken.",
+      "evidence": [
+        {
+          "episode_id": "S05E02",
+          "segment_id": "S05E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e02_business_ethics_script.txt",
+          "char_start": 8456,
+          "char_end": 15527,
+          "snippet": "Holly: So, regarding this supplier, approximately how many liaisons have there been?\nMeredith: Liaisons, you mean meet-ups? I don't know, once a month for six years. Something like that.\nMichael: Meredith, why don't you tell Holly… it's not"
+        }
+      ]
+    }
+  ]
+}

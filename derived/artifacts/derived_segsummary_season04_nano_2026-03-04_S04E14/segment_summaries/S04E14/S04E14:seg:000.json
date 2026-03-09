@@ -1,0 +1,225 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_nano_2026-03-04_S04E14",
+  "created_at_utc": "2026-03-04T23:00:59Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S04E14",
+  "segment_id": "S04E14:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7047,
+  "people": [
+    "Dwight",
+    "Jim",
+    "Pam",
+    "Michael",
+    "Toby",
+    "Kelly",
+    "Angela",
+    "Phyllis",
+    "Holly",
+    "Stanley"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight's phone rings, leading to a series of miscommunications involving Jim and Dwight.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 19,
+          "char_end": 76,
+          "snippet": "Dwight (cell phone rings): Hello, this is Dwight Schrute."
+        },
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 112,
+          "char_end": 167,
+          "snippet": "Jim (presses button on headset): Hello, this is Dwight."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Dwight realizes Jim has paired his phone to his headset, causing tension.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 304,
+          "char_end": 347,
+          "snippet": "Dwight: Uh, uh, hang that up right now. Ha-"
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "summary": "Michael announces that today is Toby Flenderson's last day at work.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 1530,
+          "char_end": 1575,
+          "snippet": "Michael: Today is Toby Flenderson's last day."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Pam shares her excitement about her upcoming move to New York and her relationship with Jim.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "The office discusses Toby's going away party and Michael’s desire for a more elaborate celebration.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 2290,
+          "char_end": 2349,
+          "snippet": "Angela: We have a buttercream cake and a slideshow of Toby."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael talks about saving money from his grandmother to buy a motorcycle and his desire for an antigravity party.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Today is Toby Flenderson's last day.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 1530,
+          "char_end": 1575,
+          "snippet": "Michael: Today is Toby Flenderson's last day."
+        }
+      ]
+    },
+    {
+      "quote": "I want an antigravity machine.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    },
+    {
+      "quote": "You are talking to Jim.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 991,
+          "char_end": 1014,
+          "snippet": "You are talking to Jim."
+        }
+      ]
+    },
+    {
+      "quote": "I'm so clearly awesome!",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 4981,
+          "char_end": 5004,
+          "snippet": "I'm so clearly awesome!"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What exactly is the planned going away party for Toby?",
+    "What is the new HR person's name or details?",
+    "What is the outcome of the antigravity party idea?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What exactly is the planned going away party for Toby?",
+      "why_uncertain": "The segment discusses the party plans but does not specify the type of event.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    },
+    {
+      "question": "What is the new HR person's name or details?",
+      "why_uncertain": "The segment only mentions Toby's replacement but does not specify her name or background.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the antigravity party idea?",
+      "why_uncertain": "The segment shows Michael's desire but does not show any plans or results.",
+      "evidence": [
+        {
+          "episode_id": "S04E14",
+          "segment_id": "S04E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e14_goodbye_toby_script.txt",
+          "char_start": 0,
+          "char_end": 7047,
+          "snippet": "=== SCENE 000 ===\n\nDwight (cell phone rings): Hello, this is Dwight Schrute. Hello?\n[STAGE] phone keeps ringing\nJim (presses button on headset): Hello, this is Dwight.\nDwight: Hello? Hello?\nJim: Yes, we do have that. Hold on one second…\nDwi"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E12",
+  "created_at_utc": "2026-03-06T01:33:47Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S06E12",
+  "segment_id": "S06E12:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 20444,
+  "segment_char_end": 21478,
+  "people": [
+    "Michael",
+    "Phyllis",
+    "Bob Vance",
+    "Dwight",
+    "Jim",
+    "Pam",
+    "Andy",
+    "Erin"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael sits on Phyllis's lap and makes a wish for an Xbox and a compatible TV.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20526,
+          "char_end": 20559,
+          "snippet": "Michael: I'd like to make a wish."
+        },
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20575,
+          "char_end": 20646,
+          "snippet": "Michael: I would like an Xbox, and a TV that's compatible with an Xbox."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Bob Vance arrives dressed as Santa, causing tension with Michael and Phyllis.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20727,
+          "char_end": 20779,
+          "snippet": "Bob Vance: Scott! What in the hell is going on here?"
+        },
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20855,
+          "char_end": 20879,
+          "snippet": "Michael: You called Bob?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Phyllis and Bob Vance reconcile and kiss while both dressed as Santa.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20991,
+          "char_end": 21011,
+          "snippet": "Phyllis: Hi sweetie."
+        },
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 21062,
+          "char_end": 21102,
+          "snippet": "[STAGE] they kiss, both dressed as Santa"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "A marching drum band arrives and Andy leads them to perform for Erin.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 21319,
+          "char_end": 21394,
+          "snippet": "[STAGE] marching drum band lines up to perform, Andy steps out with cymbals"
+        },
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 21395,
+          "char_end": 21441,
+          "snippet": "Andy: Merry Christmas Erin! Take it away boys!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "An Xbox it is. Because I've decided you're a good boy.",
+      "speaker": "Phyllis",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20663,
+          "char_end": 20726,
+          "snippet": "Phyllis: An Xbox it is. Because I've decided you're a good boy."
+        }
+      ]
+    },
+    {
+      "quote": "Oh God. Get a room Santas!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 21103,
+          "char_end": 21138,
+          "snippet": "Michael: Oh God. Get a room Santas!"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Why did Phyllis call Bob Vance earlier?",
+    "What is the significance of the marching drum band performance?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Why did Phyllis call Bob Vance earlier?",
+      "why_uncertain": "The segment only mentions Phyllis apologizing for calling Bob but does not explain the reason.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 20927,
+          "char_end": 20975,
+          "snippet": "Phyllis: I'm really sorry. It was earlier today."
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the marching drum band performance?",
+      "why_uncertain": "The segment shows the band arriving and performing but does not explain its context or importance.",
+      "evidence": [
+        {
+          "episode_id": "S06E12",
+          "segment_id": "S06E12:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e12_secret_santa_script.txt",
+          "char_start": 21319,
+          "char_end": 21394,
+          "snippet": "[STAGE] marching drum band lines up to perform, Andy steps out with cymbals"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season07_4_1_mini_2026-03-04_S07E16",
+  "created_at_utc": "2026-03-06T01:54:07Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S07E16",
+  "segment_id": "S07E16:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6902,
+  "segment_char_end": 13334,
+  "people": [
+    "Samuel",
+    "Michael",
+    "Jan",
+    "Dwight",
+    "Pam",
+    "Goldenface",
+    "Kevin",
+    "Helene",
+    "President",
+    "Troy",
+    "Billy",
+    "Karen",
+    "Meredith",
+    "Phyllis",
+    "Angela",
+    "Todd Packer"
+  ],
+  "beats": [
+    {
+      "type": "reveal",
+      "summary": "Samuel intercepts the name Jasmine Winsong and learns the Funky Cat is a jazz club.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 6902,
+          "char_end": 6977,
+          "snippet": "Samuel: I'm intercepting a name. Jasmine Winsong. She works for Goldenface."
+        },
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 7028,
+          "char_end": 7099,
+          "snippet": "Michael: Not who, what. The Funky Cat is the hippest Jazz Club in town."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Goldenface holds hostages and threatens to blow up the stadium with a bomb hidden in a puck.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 8196,
+          "char_end": 8257,
+          "snippet": "Goldenface: Ha! This is gonna show them that I mean business."
+        },
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9082,
+          "char_end": 9106,
+          "snippet": "Goldenface: In the puck!"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael confronts Goldenface, who shoots at him and his ally [STAGE] jumps in front to take the bullet.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9458,
+          "char_end": 9509,
+          "snippet": "Goldenface (dodges the puck and shoots at Michael):"
+        },
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9525,
+          "char_end": 9580,
+          "snippet": "[STAGE] jumps in front of Michael to receive the bullet"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael reflects on his personal struggles and loss of self-confidence.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 10887,
+          "char_end": 10978,
+          "snippet": "Michael: Where had I gone wrong? All I wanted was to start a family with my beautiful wife."
+        },
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 11050,
+          "char_end": 11131,
+          "snippet": "Narrator: It wasn't easy for Scarn to admit that he had lost his self-confidence."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Michael performs 'The Scarn' dance in a bar to cheer himself up with friends and bachelorettes.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 12422,
+          "char_end": 12595,
+          "snippet": "Michael (A funky beat sounds from the Jukebox and Michael starts dancing poorly): Well my name's Michael Scarn and I'm here to say, I'm about to do The Scarn in a major way."
+        },
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 13207,
+          "char_end": 13313,
+          "snippet": "Todd Packer (as a drunken man in the bar): If doing The Scarn is gay, then I'm the biggest queer on Earth!"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Go puck yourself!",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9431,
+          "char_end": 9457,
+          "snippet": "Michael: Go puck yourself!"
+        }
+      ]
+    },
+    {
+      "quote": "That was not scripted.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9601,
+          "char_end": 9632,
+          "snippet": "Michael: That was not scripted."
+        }
+      ]
+    },
+    {
+      "quote": "It'll take a lot more than a bullet to the brain, lungs, heart, back, and balls to kill Michael Scarn.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9952,
+          "char_end": 10063,
+          "snippet": "Michael: It'll take a lot more than a bullet to the brain, lungs, heart, back, and balls to kill Michael Scarn."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the ultimate outcome of the confrontation between Michael and Goldenface?",
+    "What is the significance of the memories shown on the puck?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the ultimate outcome of the confrontation between Michael and Goldenface?",
+      "why_uncertain": "The segment ends with Goldenface shooting at Michael and [STAGE] taking a bullet, but no resolution is shown.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 9525,
+          "char_end": 9580,
+          "snippet": "[STAGE] jumps in front of Michael to receive the bullet"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the memories shown on the puck?",
+      "why_uncertain": "The segment shows memories of Goldenface and his wife on the puck but does not explain their meaning.",
+      "evidence": [
+        {
+          "episode_id": "S07E16",
+          "segment_id": "S07E16:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_07/s07e16_threat_level_midnight_script.txt",
+          "char_start": 6902,
+          "char_end": 13334,
+          "snippet": "Samuel: I'm intercepting a name. Jasmine Winsong. She works for Goldenface. What I can't figure out is, who is the Funky Cat.\nMichael: Not who, what. The Funky Cat is the hippest Jazz Club in town.\n[STAGE] stands up with his cup of tea and "
+        }
+      ]
+    }
+  ]
+}

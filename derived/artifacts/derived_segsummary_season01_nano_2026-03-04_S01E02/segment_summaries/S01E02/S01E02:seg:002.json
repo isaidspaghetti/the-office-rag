@@ -1,0 +1,152 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season01_nano_2026-03-04_S01E02",
+  "created_at_utc": "2026-03-04T20:53:54Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S01E02",
+  "segment_id": "S01E02:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13826,
+  "segment_char_end": 15782,
+  "people": [
+    "Michael",
+    "Kelly",
+    "Jim",
+    "Pam",
+    "Kevin",
+    "Stanley"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Michael interacts with Kelly in a humorous manner involving a fake store and googi googi.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 13826,
+          "char_end": 13884,
+          "snippet": "Michael (Voice raised, Indian accent): Kelly, how are you?"
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 13924,
+          "char_end": 14067,
+          "snippet": "Michael: Oh! Welcome to my convenience store. Would you like some googi googi? I have some very delicious googi, googi, only 99 cents plus tax."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael expresses frustration about a customer and a previous sales experience.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 14714,
+          "char_end": 14803,
+          "snippet": "Michael: I just hated it when that guy was in here. Mr. Brown, if that was his real name."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Jim and Pam share a quiet moment, with Pam resting her head on Jim's shoulder.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 15589,
+          "char_end": 15654,
+          "snippet": "Jim (Pam is asleep, resting her head on Jim's shoulder): Um… Hey."
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 15655,
+          "char_end": 15673,
+          "snippet": "Pam (stirs): Mmmm."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Try my googi, googi.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 13826,
+          "char_end": 15782,
+          "snippet": "Michael (Voice raised, Indian accent): Kelly, how are you?\nKelly: I just had the longest meeting.\nMichael: Oh! Welcome to my convenience store. Would you like some googi googi? I have some very delicious googi, googi, only 99 cents plus tax"
+        }
+      ]
+    },
+    {
+      "quote": "It's collard greens.",
+      "speaker": "Stanley",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 15256,
+          "char_end": 15285,
+          "snippet": "Stanley: It's collard greens."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the overall context or purpose of Michael's store scene?",
+    "What is the outcome of Jim and Pam's interaction?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the overall context or purpose of Michael's store scene?",
+      "why_uncertain": "The segment does not explicitly state the purpose or context of Michael's store scene.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 13826,
+          "char_end": 13884,
+          "snippet": "Michael (Voice raised, Indian accent): Kelly, how are you?"
+        },
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 13924,
+          "char_end": 14002,
+          "snippet": "Michael: Oh! Welcome to my convenience store. Would you like some googi googi?"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Jim and Pam's interaction?",
+      "why_uncertain": "The segment ends with Jim saying 'Not a bad day' but does not specify the outcome of their interaction.",
+      "evidence": [
+        {
+          "episode_id": "S01E02",
+          "segment_id": "S01E02:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e02_diversity_day_script.txt",
+          "char_start": 15759,
+          "char_end": 15782,
+          "snippet": "Jim: Uh… Not a bad day."
+        }
+      ]
+    }
+  ]
+}

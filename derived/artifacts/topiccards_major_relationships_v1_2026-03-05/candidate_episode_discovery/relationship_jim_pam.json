@@ -1,0 +1,145 @@
+{
+  "schema": "TopicEvidenceDiscoveryV1",
+  "schema_version": 1,
+  "topic_id": "relationship_jim_pam",
+  "topic_type": "relationship",
+  "entity_names": [
+    "Jim",
+    "Pam"
+  ],
+  "queries": [
+    "Jim Pam relationship",
+    "Jim Pam dating breakup"
+  ],
+  "top_episode_ids": [
+    "S02E13",
+    "S04E01",
+    "S09E16",
+    "S01E06",
+    "S03E18",
+    "S09E22"
+  ],
+  "top_chunks_by_episode": {
+    "S02E13": [
+      "S02E13:chunk:000016"
+    ],
+    "S04E01": [
+      "S04E01:chunk:000001",
+      "S04E01:chunk:000019"
+    ],
+    "S09E16": [
+      "S09E16:chunk:000035",
+      "S09E16:chunk:000010"
+    ],
+    "S01E06": [
+      "S01E06:chunk:000018",
+      "S01E06:chunk:000022"
+    ],
+    "S03E18": [
+      "S03E18:chunk:000015"
+    ],
+    "S09E22": [
+      "S09E22:chunk:000005",
+      "S09E22:chunk:000021"
+    ]
+  },
+  "evidence_chunks": [
+    {
+      "chunk_ref_id": "S02E13:chunk:000016",
+      "episode_id": "S02E13",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_02/s02e13_the_secret_script.txt",
+      "chunk_index": 16,
+      "query": "Jim Pam relationship",
+      "score": 0.3948212265968323,
+      "text": "Pam: Hey.\nJim: Hey.\nPam: Did you find anything good in your desk?\nJim: Ah, coupon for a free sandwich.\nPam: Score.\nJim: It expired in August, and my cell phone charger from two years ago.\nPam: Big day.\nJim: Big day.\nJim: Hey oh, listen, um, I told Michael on the booze cruise. It's so stupid. Um, I told Michael that I had had a crush on you when you first started here.\nPam: Oh.\nJim: Well I thought that, I figured you should hear it from me rather than, I mean you know Michael.\nPam: Right.\nJim: And seriously, it's totally not a big deal, ok? And when I found out you were engaged, I mean.\nPam: No, I know, like, I kind of like, I thought that maybe you did when I first started.\nJim: Oh you did?\nPam: No, I mean, just 'cause we like got along so well.\nJim: No, no, you saw through me, great.\nPam: So are you going to be like totally awkward around me now?\nJim: Oh yeah, yeah… hope that's okay.\nPam: Mmm, hmm.\nJim: And Pam it was like three years ago so I am totally over it.\nPam: Cool.\nJim: Ok."
+    },
+    {
+      "chunk_ref_id": "S04E01:chunk:000001",
+      "episode_id": "S04E01",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+      "chunk_index": 1,
+      "query": "Jim Pam dating breakup",
+      "score": 0.38633936643600464,
+      "text": "=== SCENE 002 ===\n\nIT Tech Guy: You know generally it's not a good idea to click on offers that you haven't requested. What was the exact offer?\nPam: It was for a video.\nIT Tech Guy: Yeah, what kind of video?\nPam: A celebrity sex tape.\nJim: Really, what kind of celebrity?\nPam: Not relevant.\nJim: How much did you pay for it?\nPam: Not relevant.\nJim: You paid for it?\nPam: It all happened so fast.\n\n=== SCENE 003 ===\n\nJim: I broke up with Karen after the job interview, and uh… it was a little awkward when she came back from the city. She told me, very clearly, just because we were broken up didn't mean she was going anywhere, because she worked really hard for her career. But the next day her desk was empty, and as for me and my current romantic life, I uh… I'm single now and looking, so if you know anybody.\n\n=== SCENE 004 ===\n\nPam: Jim and I went to dinner a few times when he got back from New York. I talked him through his break up. It's really nice to be good friends again."
+    },
+    {
+      "chunk_ref_id": "S04E01:chunk:000019",
+      "episode_id": "S04E01",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e01_fun_run_script.txt",
+      "chunk_index": 19,
+      "query": "Jim Pam dating breakup",
+      "score": 0.4646146297454834,
+      "text": "=== SCENE 032 ===\n\nMichael: Is there a God? If not, what are all the churches for? And who is Jesus' dad?\n\n=== SCENE 033 ===\n\nKevin (Pam walks out of the office into the parking lot alone. Kevin pops up from the back seat of his car as if spying): Oh well, if they aren't together now, then they probably never will be. I thought they'd be good together, like PB&J. Pam Beasley and Jim. What a waste. What – A – Waste!\nPam (Pam's car pulls out of parking lot and then off to the side of the road): I told you I'm not dating anyone. And even if I was, I don't think it's anyone's business. I mean, when I do fall in love, like when it's for real, the last person I'm gonna talk about it too is a camera crew, or my co-workers. Almost marrying Roy Anderson was as close to Pamela Anderson as I ever want to be. Trust me, when I fall in love, you'll know.\n[STAGE] Jim gets into the passenger side\n[STAGE] Jim leans over and kisses Pam\n\n=== SCENE 034 ==="
+    },
+    {
+      "chunk_ref_id": "S09E16:chunk:000035",
+      "episode_id": "S09E16",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+      "chunk_index": 35,
+      "query": "Jim Pam relationship",
+      "score": 0.40552735328674316,
+      "text": "Pam: So, imagine like the real estate version of Michael Scott and that was this guy. He did half the interview as Ace Ventura.\nJim: Tell me about the cologne. How much?\nPam: Oh, uh, entire bottle. At least.\nJim: You're definitely hoarding this by the way.\nPam: Guess what poster he had on his wall?\nJim: Austin Powers.\nPam: MmMm.\nJim: Ferris Bueller.\nPam: MmMm. You're getting colder.\nJim: Not Night at the Roxbury.\nPam (laughs): No. The Odd Life of Timothy Green.\nJim: I'm sorry, how did you think I was expected to guess that?\nPam: I don't know, but it's interesting right?\nJim: It's fascinating.\nPam: He said he can't help but tear up when he looks at it. It's like right next to his desk. He must look at it twenty times a day.\nJim: That's amazing. Well, listen. You can't win 'em all, right?\nPam: Mmhm.\nJim: So, next interview has to be better.\nPam: I don't know.\nJim: What do you mean? Of course it will. You're amazing.\nPam: I know. It's just even if it was, a great boss and a great job, I just, I don't know, I don't know if I want, um, I don't know if I want this.\nJim (long pause): Huh. This is a little out of left field.\nPam: Is it? I just, I liked our life in Scranton.\nJim: And I have started a business in Philadelphia.\n[STAGE] Pam shrugs"
+    },
+    {
+      "chunk_ref_id": "S09E16:chunk:000010",
+      "episode_id": "S09E16",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e16_moving_on_script.txt",
+      "chunk_index": 10,
+      "query": "Jim Pam relationship",
+      "score": 0.43077152967453003,
+      "text": "Pam (whispers): hello!\nJim: Hey! There she is. How you doin?\n[STAGE] Pam laughs\nPam: Hi! Hey, do I look ok?\nJim: You look great.\nPam: Ok\nJim: Yeah.\nPam (pointing to Jim's bluetooth headset): What's that? Is that a-\nJim: Ok, I know where you're going with this, and this is who I am now. I'm a douche. But look what I can do with my hands.\n[STAGE] Pam laughs\nIsaac: Gotta go, VIP just walked through the door.\nPam: How are you, Isaac? You have something in your ear.\nIsaac: It's a phone?\nPam: Yes. It is. And thank you so much for setting up this opportunity, I really appreciate it.\nIsaac: Of course, anything for Team Halpert. You're gonna crush it, Pam.\nPam: Thanks.\nJim: You are gonna crush it. Wow, I missed you.\nPam: Wait, are you saying that into the phone or are you saying that to me.\nJim (touches headset): Call you right back. What were you saying?\nPam: Ha ha.\nAthlead Coworker: Hey, Jim! We've got Trent Edwards on the line.\nJim: I've gotta go, but you know what? Team Halpert, ok? You're gonna crush it, you're gonna smash it. OK, good luck!\n[STAGE] Pam laughs\nPam: Bye."
+    },
+    {
+      "chunk_ref_id": "S01E06:chunk:000018",
+      "episode_id": "S01E06",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e06_hot_girl_script.txt",
+      "chunk_index": 18,
+      "query": "Jim Pam relationship",
+      "score": 0.41251617670059204,
+      "text": "=== SCENE 025 ===\n\nJim: A futon?\nPam (nods):\nJim: He's a grown man\nPam: That's what he said.\nJim: That's sad. Or it's innovative. Well, you know the futon is a bed and couch all rolled into one.\n[STAGE] Jim sees Roy and trails off\nRoy: What's up?\nPam (not looking at Roy): Hi.\nRoy: Are you still mad at me?\nPam: Roy…\nRoy: Come on\n[STAGE] begins to tickle Pam\nPam: Cut it out.\nRoy: Come on, you mad at me?\nPam: Stop it.\n[STAGE] laughing\nRoy: Are you still mad at me now?\nPam (giggling): Cut it out.\nRoy: Are you mad at me now?\nPam: Stop.\n[STAGE] giggling\nRoy: Huh? huh? Come on… Come on, Pammy I was just kidding.\nPam (breathless): Stop, I can't breathe.\nRoy: I was just kidding. You know I didn't mean it. I can't…\n\n=== SCENE 026 ===\n\nPam: Jim is a great guy. He's like a brother to me. We're like best friends in the office and I really hope he finds someone.\n\n=== SCENE 027 ==="
+    },
+    {
+      "chunk_ref_id": "S01E06:chunk:000022",
+      "episode_id": "S01E06",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_01/s01e06_hot_girl_script.txt",
+      "chunk_index": 22,
+      "query": "Jim Pam relationship",
+      "score": 0.4283817410469055,
+      "text": "=== SCENE 032 ===\n\nJim: What's up?\nPam: I'm bored.\nJim: Thank you for choosing me.\nPam: No, I'm kidding. Um, so you got big plans this weekend?\nJim: Ah, well I think I'm gonna see Katy.\nPam: Really?\nJim: Yeah.\nPam: What are you guys going to do?\nJim: Oh, man I don't know. Uh, dinner, drinks, movie, matching tattoos.\nPam: That's great.\nJim: And stuff… yeah.\nPam: That's cool.\nJim: What are you doing?\nPam: I, I was gonna say, I think that um, we're gonna help Roy's cousin move.\nJim: Okay.\nPam: 'Cause Roy's got a truck.\nJim: That's cool.\nPam: Uh, huh. Yes.\nJim: That is cool. Well, I'll see you Monday though, right?\nPam: Great.\nJim: Okay.\nPam: Okay, I'm gonna head back.\nJim: Alright.\n\n=== SCENE 033 ==="
+    },
+    {
+      "chunk_ref_id": "S03E18:chunk:000015",
+      "episode_id": "S03E18",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e18_the_negotiation_script.txt",
+      "chunk_index": 15,
+      "query": "Jim Pam dating breakup",
+      "score": 0.42208045721054077,
+      "text": "=== SCENE 027 ===\n\nPam: Sorry I almost got you killed.\nJim: Yeah, that was nuts.\nPam: He could have broken your nose or something. Crazy. It's just so stupid. I mean, getting back with Roy and everything. I mean, what was I thinking, right?\nJim: No, I mean, you guys really seem to have a strong connection.\nPam: Not anymore. It's, um… It's completely over now.\nJim: We'll see. I'm sure you guys will… find you way back to one another someday.\nPam: Jim… I am really… sorry.\nJim: Oh, yeah. Don't worry about it.\n\n=== SCENE 028 ==="
+    },
+    {
+      "chunk_ref_id": "S09E22:chunk:000005",
+      "episode_id": "S09E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+      "chunk_index": 5,
+      "query": "Jim Pam relationship",
+      "score": 0.4293155074119568,
+      "text": "=== SCENE 016 ===\n\nPam: When Jim decided to come back to Scranton full-time, I was relieved, but I also feel a little guilty. I mean, he's giving up this big thing for me. But he seems happy. I mean, he's certainly been goofing around a lot. I love goofy Jim.\n\n=== SCENE 017 ==="
+    },
+    {
+      "chunk_ref_id": "S09E22:chunk:000021",
+      "episode_id": "S09E22",
+      "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e22_a_a_r_m_script.txt",
+      "chunk_index": 21,
+      "query": "Jim Pam relationship",
+      "score": 0.43122369050979614,
+      "text": "=== SCENE 039 ===\n\nJim: Hey.\nPam: Hey.\nJim: You all right? What's going on?\nPam: Are you happy?\nJim: Yes, I'm happy.\nPam: No, I know that you're, like, happy and, like, you had fun today.\nJim: Yeah.\nPam: And that was fun. But what about a year from now?\nJim: What?\nPam: What about five years from now?\nJim: Pam.\nPam: Because I'm so glad you're back, baby, but I'm just—I was talking to Darryl, and he was talking about the trip, and I just feel like you're giving up so much.\nJim: This was my decision, not yours.\nPam: Okay.\nJim: You didn't force me.\nPam: I kind of forced you to do it.\nJim: You did not force me to do this.\nPam: Yes, I did.\nJim: I don't know how else to tell you.\nPam: I'm afraid that you're gonna resent me and I'm afraid that—\nJim: Resent you?\nPam: This is not enough for you and I'm afraid that I'm not enough for you.\nJim: Is that really what you think?\n\n=== SCENE 040 ==="
+    }
+  ],
+  "params": {
+    "query_top_k": 25,
+    "top_episodes": 6,
+    "top_chunks_per_episode": 5,
+    "max_chunk_chars": 1400
+  },
+  "build_id": "topiccards_major_relationships_v1_2026-03-05"
+}

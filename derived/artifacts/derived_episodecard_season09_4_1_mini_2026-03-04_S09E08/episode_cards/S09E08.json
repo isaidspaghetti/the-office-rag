@@ -1,0 +1,625 @@
+{
+  "schema": "EpisodeDerivedCardV1",
+  "schema_version": 1,
+  "build_id": "derived_episodecard_season09_4_1_mini_2026-03-04_S09E08",
+  "created_at_utc": "2026-03-06T02:06:22Z",
+  "llm_model": "gpt-4.1-mini",
+  "doc_type": "derived",
+  "derived_type": "episode_card",
+  "episode_id": "S09E08",
+  "title": "The Target",
+  "one_paragraph_synopsis": "In this episode, Oscar fears Angela may have discovered his affair with her husband, leading to tension and plans for revenge. Angela enlists Dwight and Trevor to arrange a violent retaliation against Oscar. Meanwhile, Jim prepares to ask for part-time work to focus on his sports marketing company, and Pam starts painting a warehouse mural but causes a client loss with a prank call. The episode culminates in confrontations between Angela and Oscar, Dwight preventing Trevor from attacking Oscar, and office dynamics adjusting to Jim's impending absence.",
+  "main_threads": [
+    {
+      "thread": "Oscar's affair with Angela's husband is suspected to be discovered by Angela, leading to plans for revenge involving Dwight and Trevor.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 19,
+          "char_end": 119,
+          "snippet": "Oscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 11410,
+          "char_end": 11493,
+          "snippet": "Dwight: The target– it's Oscar, isn't it? He and the senator are gaying each other."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 8174,
+          "char_end": 8229,
+          "snippet": "Trevor: All right, then it's settled. One knee-capping."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14134,
+          "char_end": 14219,
+          "snippet": "Dwight: No, Trevor, I am not gonna let you. He's a Dunder-Mifflin man. He's my tribe."
+        }
+      ]
+    },
+    {
+      "thread": "Jim plans to request part-time work to focus on his sports marketing company, with colleagues preparing to cover for him.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 1538,
+          "char_end": 1694,
+          "snippet": "Jim: Today I will be asking David Wallace if I can start working part-time, because the sports marketing company that I started really needs me to be there."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 8335,
+          "char_end": 8450,
+          "snippet": "Jim: You know, truth be told, I think all you'll really be doing is accepting calls from my clients while I'm gone."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17451,
+          "char_end": 17495,
+          "snippet": "Phyllis: We're gonna cover for you, ya know."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17872,
+          "char_end": 17886,
+          "snippet": "Stanley: Yeah."
+        }
+      ]
+    },
+    {
+      "thread": "Pam begins painting a warehouse mural and makes a prank call to a client, resulting in the loss of that client and an apology.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 1356,
+          "char_end": 1383,
+          "snippet": "Jim: You got this, Beesley."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14895,
+          "char_end": 15096,
+          "snippet": "Pam (into phone): Hello, this is Pam Halpert. I'm calling from Dunder-Mifflin. Yes, your paper provider. And I just called to say… your mama is so fat, when she wears red, peopl..."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 15294,
+          "char_end": 15430,
+          "snippet": "Erin: Dunder Mifflin. This is Erin. Yes, you can. Okay. I will make sure that goes on file. Ladies and gentlemen, we just lost a client!"
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 16851,
+          "char_end": 16869,
+          "snippet": "Pam: I'm so sorry."
+        }
+      ]
+    },
+    {
+      "thread": "Angela confronts Oscar about his involvement with her husband, leading to a physical altercation and emotional exchanges.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 15880,
+          "char_end": 15942,
+          "snippet": "Angela: You deserved every bit of it! You made my husband gay."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 16483,
+          "char_end": 16525,
+          "snippet": "Angela: You were supposed to be my friend."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 15918,
+          "char_end": 15942,
+          "snippet": "You made my husband gay."
+        }
+      ]
+    },
+    {
+      "thread": "Dwight shows conflicted feelings by preventing Trevor from attacking Oscar and comforting Angela about her emotions.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14134,
+          "char_end": 14219,
+          "snippet": "Dwight: No, Trevor, I am not gonna let you. He's a Dunder-Mifflin man. He's my tribe."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17093,
+          "char_end": 17135,
+          "snippet": "Dwight: You're not stupid. Jazz is stupid."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17291,
+          "char_end": 17350,
+          "snippet": "Dwight: I don't like him either. And yet I really like him."
+        }
+      ]
+    }
+  ],
+  "character_highlights": [
+    {
+      "character": "Oscar",
+      "what_changes": "Faces suspicion and planned revenge from Angela and associates due to his affair with Angela's husband.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 19,
+          "char_end": 119,
+          "snippet": "Oscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 11410,
+          "char_end": 11493,
+          "snippet": "Dwight: The target– it's Oscar, isn't it? He and the senator are gaying each other."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 8174,
+          "char_end": 8229,
+          "snippet": "Trevor: All right, then it's settled. One knee-capping."
+        }
+      ]
+    },
+    {
+      "character": "Angela",
+      "what_changes": "Reveals knowledge of Oscar's betrayal, initiates plans for revenge, and confronts Oscar emotionally and physically.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 19,
+          "char_end": 119,
+          "snippet": "Oscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 11681,
+          "char_end": 11715,
+          "snippet": "Angela: Fine! It's Oscar. So what?"
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 15880,
+          "char_end": 15942,
+          "snippet": "Angela: You deserved every bit of it! You made my husband gay."
+        }
+      ]
+    },
+    {
+      "character": "Dwight",
+      "what_changes": "Acts as a mediator by preventing violence against Oscar while supporting Angela emotionally and showing mixed feelings about Trevor.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14134,
+          "char_end": 14219,
+          "snippet": "Dwight: No, Trevor, I am not gonna let you. He's a Dunder-Mifflin man. He's my tribe."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17093,
+          "char_end": 17135,
+          "snippet": "Dwight: You're not stupid. Jazz is stupid."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17291,
+          "char_end": 17350,
+          "snippet": "Dwight: I don't like him either. And yet I really like him."
+        }
+      ]
+    },
+    {
+      "character": "Jim",
+      "what_changes": "Prepares to request part-time work to focus on his sports marketing company and arranges for colleagues to cover his duties.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 1538,
+          "char_end": 1694,
+          "snippet": "Jim: Today I will be asking David Wallace if I can start working part-time, because the sports marketing company that I started really needs me to be there."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 8335,
+          "char_end": 8450,
+          "snippet": "Jim: You know, truth be told, I think all you'll really be doing is accepting calls from my clients while I'm gone."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17451,
+          "char_end": 17495,
+          "snippet": "Phyllis: We're gonna cover for you, ya know."
+        }
+      ]
+    },
+    {
+      "character": "Pam",
+      "what_changes": "Begins painting a warehouse mural and causes a client loss due to a prank call, leading to an apology.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 1356,
+          "char_end": 1383,
+          "snippet": "Jim: You got this, Beesley."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14895,
+          "char_end": 15096,
+          "snippet": "Pam (into phone): Hello, this is Pam Halpert. I'm calling from Dunder-Mifflin. Yes, your paper provider. And I just called to say… your mama is so fat, when she wears red, peopl..."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 16851,
+          "char_end": 16869,
+          "snippet": "Pam: I'm so sorry."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "pair": [
+        "Angela",
+        "Oscar"
+      ],
+      "status": "betrayed and confrontational",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 19,
+          "char_end": 119,
+          "snippet": "Oscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 11681,
+          "char_end": 11715,
+          "snippet": "Angela: Fine! It's Oscar. So what?"
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 15880,
+          "char_end": 15942,
+          "snippet": "Angela: You deserved every bit of it! You made my husband gay."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 16483,
+          "char_end": 16525,
+          "snippet": "Angela: You were supposed to be my friend."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Dwight",
+        "Oscar"
+      ],
+      "status": "friendship with protective tension",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14134,
+          "char_end": 14219,
+          "snippet": "Dwight: No, Trevor, I am not gonna let you. He's a Dunder-Mifflin man. He's my tribe."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 14564,
+          "char_end": 14616,
+          "snippet": "Dwight: No! No, Oscar. He's a friend. He's a friend."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Dwight",
+        "Angela"
+      ],
+      "status": "supportive with emotional complexity",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17093,
+          "char_end": 17135,
+          "snippet": "Dwight: You're not stupid. Jazz is stupid."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17291,
+          "char_end": 17350,
+          "snippet": "Dwight: I don't like him either. And yet I really like him."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Jim",
+        "Phyllis"
+      ],
+      "status": "colleagues with supportive relationship",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17451,
+          "char_end": 17495,
+          "snippet": "Phyllis: We're gonna cover for you, ya know."
+        }
+      ]
+    },
+    {
+      "pair": [
+        "Jim",
+        "Stanley"
+      ],
+      "status": "colleagues with supportive relationship",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 17872,
+          "char_end": 17886,
+          "snippet": "Stanley: Yeah."
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "affair",
+    "betrayal",
+    "revenge",
+    "office dynamics",
+    "part-time work",
+    "prank call",
+    "friendship",
+    "conflict"
+  ],
+  "source_segments": [
+    "S09E08:seg:000",
+    "S09E08:seg:001",
+    "S09E08:seg:002"
+  ],
+  "build_notes": "segments_build_id=derived_segsummary_season09_4_1_mini_2026-03-04_S09E08; This card synthesizes key conflicts and character dynamics from the episode, focusing on the affair revelation, revenge plans, Jim's career shift, and Pam's client mishap, while noting unresolved plot points.",
+  "uncertainties": [
+    "Has Angela actually discovered Oscar's affair with her husband?",
+    "What is the outcome of Jim's request to work part-time?",
+    "What specific job is Angela hiring Trevor for?",
+    "What is the outcome of the knee-capping plan?",
+    "How does Oscar respond to the accusations and plan against him?",
+    "What is the nature of Jim's absence and its impact on the office?",
+    "What is the outcome of the conversation about gayness between Dwight, Angela, and Toby?",
+    "What happens to Trevor after he leaves?",
+    "Does Pam's prank call have long-term consequences for the client relationship?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Has Angela actually discovered Oscar's affair with her husband?",
+      "why_uncertain": "Oscar only speculates that Angela may or may not have figured it out; no confirmation is given.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 19,
+          "char_end": 119,
+          "snippet": "Oscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband."
+        },
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 0,
+          "char_end": 7119,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband. So I just have to wait and see. When she comes in, if she..."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Jim's request to work part-time?",
+      "why_uncertain": "The segment ends with Jim discussing the plan but does not reveal David Wallace's final decision.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 0,
+          "char_end": 7119,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband. So I just have to wait and see. When she comes in, if she..."
+        }
+      ]
+    },
+    {
+      "question": "What specific job is Angela hiring Trevor for?",
+      "why_uncertain": "Angela mentions the job is 'Murder' but no further details or outcomes are provided in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 0,
+          "char_end": 7119,
+          "snippet": "=== SCENE 000 ===\n\nOscar: Yesterday, Angela may or may not have figured out that I'm having an affair with her husband. So I just have to wait and see. When she comes in, if she..."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the knee-capping plan?",
+      "why_uncertain": "The segment ends before showing any result or consequences of the plan.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 7119,
+          "char_end": 13994,
+          "snippet": "Dwight: You can't have someone murdered.\nAngela: What if they deserved it?\nDwight: What did they do to you, Angela?\nAngela: They're sleeping with my husband.\nDwight: Oh, Monkey...."
+        }
+      ]
+    },
+    {
+      "question": "How does Oscar respond to the accusations and plan against him?",
+      "why_uncertain": "Oscar's reactions are limited and do not reveal his full response or next actions.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 7119,
+          "char_end": 13994,
+          "snippet": "Dwight: You can't have someone murdered.\nAngela: What if they deserved it?\nDwight: What did they do to you, Angela?\nAngela: They're sleeping with my husband.\nDwight: Oh, Monkey...."
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Jim's absence and its impact on the office?",
+      "why_uncertain": "The segment only briefly mentions Jim's absence without details on duration or effects.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 7119,
+          "char_end": 13994,
+          "snippet": "Dwight: You can't have someone murdered.\nAngela: What if they deserved it?\nDwight: What did they do to you, Angela?\nAngela: They're sleeping with my husband.\nDwight: Oh, Monkey...."
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of the conversation about gayness between Dwight, Angela, and Toby?",
+      "why_uncertain": "The segment ends with questions and no resolution about the topic.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 13994,
+          "char_end": 19157,
+          "snippet": "Dwight: Aah! Actually, he's right in front of us.\nTrevor: Let's get it on. I'm gonna do this. I might– I might puke, but I'm gonna do this.\nDwight: No, Trevor, I am not gonna le..."
+        }
+      ]
+    },
+    {
+      "question": "What happens to Trevor after he leaves?",
+      "why_uncertain": "The segment shows Trevor running away but does not reveal what happens next.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 13994,
+          "char_end": 19157,
+          "snippet": "Dwight: Aah! Actually, he's right in front of us.\nTrevor: Let's get it on. I'm gonna do this. I might– I might puke, but I'm gonna do this.\nDwight: No, Trevor, I am not gonna le..."
+        }
+      ]
+    },
+    {
+      "question": "Does Pam's prank call have long-term consequences for the client relationship?",
+      "why_uncertain": "The segment only shows immediate loss of the client but no further consequences.",
+      "evidence": [
+        {
+          "episode_id": "S09E08",
+          "segment_id": "S09E08:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_09/s09e08_the_target_script.txt",
+          "char_start": 13994,
+          "char_end": 19157,
+          "snippet": "Dwight: Aah! Actually, he's right in front of us.\nTrevor: Let's get it on. I'm gonna do this. I might– I might puke, but I'm gonna do this.\nDwight: No, Trevor, I am not gonna le..."
+        }
+      ]
+    }
+  ]
+}

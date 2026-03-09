@@ -1,0 +1,118 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_nano_2026-03-04_S05E03",
+  "created_at_utc": "2026-03-04T23:19:53Z",
+  "llm_model": "gpt-4.1-nano",
+  "episode_id": "S05E03",
+  "segment_id": "S05E03:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 20194,
+  "segment_char_end": 21429,
+  "people": [
+    "Dwight"
+  ],
+  "beats": [
+    {
+      "type": "other",
+      "summary": "Dwight tests the safety of a stroller by pushing a watermelon and observing its behavior.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21112,
+          "char_end": 21183,
+          "snippet": "Let's see what this baby can do… Aaaah! Aa-aaah! It's a hardy stroller."
+        },
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21201,
+          "char_end": 21283,
+          "snippet": "[STAGE] drives car fast, holding stroller alongside the car, stroller remains fine"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Inconclusive.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 20314,
+          "char_end": 20376,
+          "snippet": "Oh, look, a curb. Uh oh, let's see what happens… Inconclusive."
+        }
+      ]
+    },
+    {
+      "quote": "My parents left me beside the road.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 20435,
+          "char_end": 20486,
+          "snippet": "My parents left me beside the road. I crawled home."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the overall purpose of Dwight's stroller tests?",
+    "Are there any outcomes or consequences of the tests?",
+    "Who is the intended audience or viewer of Dwight's actions?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the overall purpose of Dwight's stroller tests?",
+      "why_uncertain": "The segment only shows Dwight testing the stroller but does not explicitly state the purpose.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21112,
+          "char_end": 21183,
+          "snippet": "Let's see what this baby can do… Aaaah! Aa-aaah! It's a hardy stroller."
+        }
+      ]
+    },
+    {
+      "question": "Are there any outcomes or consequences of the tests?",
+      "why_uncertain": "The segment does not show any results or conclusions from the tests.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21284,
+          "char_end": 21360,
+          "snippet": "[STAGE] throws it ahead of the car, it goes for a while and then is stopping"
+        }
+      ]
+    },
+    {
+      "question": "Who is the intended audience or viewer of Dwight's actions?",
+      "why_uncertain": "The segment does not specify who Dwight is performing for or if it is a demonstration.",
+      "evidence": [
+        {
+          "episode_id": "S05E03",
+          "segment_id": "S05E03:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e03_baby_shower_script.txt",
+          "char_start": 21361,
+          "char_end": 21429,
+          "snippet": "[STAGE] takes watermelon out of stroller, holds it up to show camera"
+        }
+      ]
+    }
+  ]
+}

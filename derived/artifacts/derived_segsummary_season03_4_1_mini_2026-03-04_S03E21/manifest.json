@@ -1,0 +1,100 @@
+{
+  "schema": "SegmentSummaryRunManifestV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season03_4_1_mini_2026-03-04_S03E21",
+  "created_at_utc": "2026-03-05T19:51:13Z",
+  "episode": {
+    "episode_id": "S03E21",
+    "title": "Women’s Appreciation",
+    "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_03/s03e21_women_s_appreciation_script.txt",
+    "body_char_count": 26384
+  },
+  "config": {
+    "llm_model": "gpt-4.1-mini",
+    "timeout": null,
+    "max_retries": null,
+    "target_tokens": 1800,
+    "min_tokens": 400,
+    "max_segments": null,
+    "segment_index": null,
+    "force": false,
+    "prompt_only": false
+  },
+  "plan": {
+    "planned_segments": [
+      {
+        "segment_id": "S03E21:seg:000",
+        "segment_index": 0,
+        "segment_char_start": 0,
+        "segment_char_end": 6601,
+        "approx_tokens": 1657,
+        "out_file": "segment_summaries/S03E21/S03E21:seg:000.json"
+      },
+      {
+        "segment_id": "S03E21:seg:001",
+        "segment_index": 1,
+        "segment_char_start": 6601,
+        "segment_char_end": 13514,
+        "approx_tokens": 1737,
+        "out_file": "segment_summaries/S03E21/S03E21:seg:001.json"
+      },
+      {
+        "segment_id": "S03E21:seg:002",
+        "segment_index": 2,
+        "segment_char_start": 13514,
+        "segment_char_end": 19868,
+        "approx_tokens": 1598,
+        "out_file": "segment_summaries/S03E21/S03E21:seg:002.json"
+      },
+      {
+        "segment_id": "S03E21:seg:003",
+        "segment_index": 3,
+        "segment_char_start": 19868,
+        "segment_char_end": 26384,
+        "approx_tokens": 1642,
+        "out_file": "segment_summaries/S03E21/S03E21:seg:003.json"
+      }
+    ],
+    "planned_llm_calls": 4
+  },
+  "execution": {
+    "status": "done",
+    "started_at_utc": "2026-03-05T19:51:13Z",
+    "ended_at_utc": "2026-03-05T19:52:22Z",
+    "llm_calls_planned": 4,
+    "llm_calls_made": 4,
+    "skipped_existing": 0,
+    "written": 4,
+    "errors": 0,
+    "segments": [
+      {
+        "segment_id": "S03E21:seg:000",
+        "status": "written",
+        "out_file": "segment_summaries/S03E21/S03E21:seg:000.json",
+        "call_started_at_utc": "2026-03-05T19:51:13Z",
+        "call_duration_ms": 25571
+      },
+      {
+        "segment_id": "S03E21:seg:001",
+        "status": "written",
+        "out_file": "segment_summaries/S03E21/S03E21:seg:001.json",
+        "call_started_at_utc": "2026-03-05T19:51:38Z",
+        "call_duration_ms": 13731
+      },
+      {
+        "segment_id": "S03E21:seg:002",
+        "status": "written",
+        "out_file": "segment_summaries/S03E21/S03E21:seg:002.json",
+        "call_started_at_utc": "2026-03-05T19:51:52Z",
+        "call_duration_ms": 14228
+      },
+      {
+        "segment_id": "S03E21:seg:003",
+        "status": "written",
+        "out_file": "segment_summaries/S03E21/S03E21:seg:003.json",
+        "call_started_at_utc": "2026-03-05T19:52:06Z",
+        "call_duration_ms": 16052
+      }
+    ]
+  }
+}

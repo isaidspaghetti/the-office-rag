@@ -1,0 +1,103 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season04_4_1_mini_2026-03-04_S04E07",
+  "created_at_utc": "2026-03-05T20:16:58Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S04E07",
+  "segment_id": "S04E07:seg:003",
+  "segment_index": 3,
+  "segment_char_start": 21294,
+  "segment_char_end": 22085,
+  "people": [
+    "Dwight",
+    "Michael"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight presents Michael with a Hassenfass knife, describing its features and offering additional survival gear.",
+      "evidence": [
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 21294,
+          "char_end": 21448,
+          "snippet": "Dwight: And this… is a Hassenfass. Case-hardened steel. One side, as sharp as you'd ever want something to be. The other side serrated for maximum damage."
+        },
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 21595,
+          "char_end": 21636,
+          "snippet": "Dwight: Don't you want a sheath for that?"
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Michael insists he only needs the knife and refuses other survival items Dwight suggests.",
+      "evidence": [
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 21637,
+          "char_end": 21680,
+          "snippet": "Michael: No, just get me a case. All right."
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Dwight looks at the camera and removes the sheath from his ankle to give to Michael.",
+      "evidence": [
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 21681,
+          "char_end": 21804,
+          "snippet": "[STAGE] Dwight looks at the camera, lifts his leg onto the desk, removes the sheath from his ankle, and gives it to Michael"
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "All I will need are my instincts and my will to survive.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 21928,
+          "char_end": 22010,
+          "snippet": "Michael: I'm telling you, all I will need are my instincts and my will to survive."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the exact name of the knife Michael is holding up at the end?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the exact name of the knife Michael is holding up at the end?",
+      "why_uncertain": "Michael asks for the name but it is not provided in the segment.",
+      "evidence": [
+        {
+          "episode_id": "S04E07",
+          "segment_id": "S04E07:seg:003",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_04/s04e07_survivor_man_script.txt",
+          "char_start": 22031,
+          "char_end": 22085,
+          "snippet": "Michael (holding up knife): What is this called again?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E14",
+  "created_at_utc": "2026-03-05T23:22:22Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E14",
+  "segment_id": "S05E14:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 6573,
+  "people": [
+    "Michael",
+    "Jim",
+    "Pam",
+    "Kelly",
+    "Dwight",
+    "Phyllis",
+    "Andy",
+    "Stanley",
+    "Julia"
+  ],
+  "beats": [
+    {
+      "type": "joke",
+      "summary": "Michael uses the office PA system to make humorous announcements and jokes.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 219,
+          "char_end": 325,
+          "snippet": "Michael (over PA): This is your captain speaking, the office will be flying at an altitude of two stories."
+        },
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 758,
+          "char_end": 896,
+          "snippet": "Michael (still talking over PA): Toby Flenderson to the principal's office. Your mother called, and it appears that you wet the bed again."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Pam prepare to go on a lecture circuit where Michael will share sales tips and Pam will assist him.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 2278,
+          "char_end": 2301,
+          "snippet": "Pam: He brought a sled."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Kelly is upset because everyone forgot her birthday and there was no party.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 4288,
+          "char_end": 4343,
+          "snippet": "Kelly: My birthday was yesterday, and everybody forgot."
+        },
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 3424,
+          "char_end": 3475,
+          "snippet": "Phyllis: You forgot her birthday, it was yesterday."
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Pam expresses discomfort about Karen's dislike of her and reflects on past relationship tensions.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 4859,
+          "char_end": 4936,
+          "snippet": "Michael: You nervous about seeing Karen again, since she was the other woman?"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Jim and Dwight discuss the party planning committee changes and their feelings about it.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 3639,
+          "char_end": 3790,
+          "snippet": "Jim: Basically after Phyllis blackmailed Angela, Michael asked them to both step down from the party planning committee cause there was too much drama."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Jim and Kelly have a confrontation about Kelly's birthday being forgotten, leading to an awkward apology.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 5819,
+          "char_end": 5864,
+          "snippet": "Jim: We just wanted to say we are very sorry."
+        },
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 5865,
+          "char_end": 5906,
+          "snippet": "Kelly: Screw you guys. You're dead to me."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "This is your captain speaking, the office will be flying at an altitude of two stories.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 219,
+          "char_end": 325,
+          "snippet": "Michael (over PA): This is your captain speaking, the office will be flying at an altitude of two stories."
+        }
+      ]
+    },
+    {
+      "quote": "Pam: Karen knows me, and she still hates me, so…",
+      "speaker": "Pam",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 0,
+          "char_end": 6573,
+          "snippet": "=== SCENE 000 ===\n\nMichael (breathing heavy over intercom, starts laughing):\n\n=== SCENE 001 ===\n\nJim: This morning the phone guy comes in, and he shows Michael that the phones have a PA function. And then he just left.\nMichael (over PA): Th"
+        }
+      ]
+    },
+    {
+      "quote": "Kelly: My birthday was yesterday, and everybody forgot.",
+      "speaker": "Kelly",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 4288,
+          "char_end": 4343,
+          "snippet": "Kelly: My birthday was yesterday, and everybody forgot."
+        }
+      ]
+    },
+    {
+      "quote": "Jim: Basically after Phyllis blackmailed Angela, Michael asked them to both step down from the party planning committee cause there was too much drama.",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 3639,
+          "char_end": 3790,
+          "snippet": "Jim: Basically after Phyllis blackmailed Angela, Michael asked them to both step down from the party planning committee cause there was too much drama."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the outcome of Michael's lecture circuit?",
+    "How will Kelly and Jim/Dwight's relationship develop after the birthday conflict?",
+    "What is the nature of Pam's relationship with Karen now?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the outcome of Michael's lecture circuit?",
+      "why_uncertain": "The segment only describes the start of the lecture circuit and Michael's plans, but does not show any results or reactions.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 0,
+          "char_end": 6573,
+          "snippet": "=== SCENE 000 ===\n\nMichael (breathing heavy over intercom, starts laughing):\n\n=== SCENE 001 ===\n\nJim: This morning the phone guy comes in, and he shows Michael that the phones have a PA function. And then he just left.\nMichael (over PA): Th"
+        }
+      ]
+    },
+    {
+      "question": "How will Kelly and Jim/Dwight's relationship develop after the birthday conflict?",
+      "why_uncertain": "The segment ends with an apology and argument but does not reveal any resolution or future interactions.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 0,
+          "char_end": 6573,
+          "snippet": "=== SCENE 000 ===\n\nMichael (breathing heavy over intercom, starts laughing):\n\n=== SCENE 001 ===\n\nJim: This morning the phone guy comes in, and he shows Michael that the phones have a PA function. And then he just left.\nMichael (over PA): Th"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of Pam's relationship with Karen now?",
+      "why_uncertain": "Pam mentions Karen hates her but no further context or resolution is provided in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 0,
+          "char_end": 6573,
+          "snippet": "=== SCENE 000 ===\n\nMichael (breathing heavy over intercom, starts laughing):\n\n=== SCENE 001 ===\n\nJim: This morning the phone guy comes in, and he shows Michael that the phones have a PA function. And then he just left.\nMichael (over PA): Th"
+        }
+      ]
+    }
+  ]
+}

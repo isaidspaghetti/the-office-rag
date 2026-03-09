@@ -1,0 +1,211 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E14",
+  "created_at_utc": "2026-03-05T23:22:22Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E14",
+  "segment_id": "S05E14:seg:002",
+  "segment_index": 2,
+  "segment_char_start": 13750,
+  "segment_char_end": 18653,
+  "people": [
+    "Stanley",
+    "Andy",
+    "Julia",
+    "Oscar",
+    "Creed",
+    "Michael",
+    "Pam",
+    "Dwight",
+    "Jim",
+    "Kelly"
+  ],
+  "beats": [
+    {
+      "type": "conflict",
+      "summary": "Andy nervously tries to ask out Julia but faces awkwardness when she reveals she has no boyfriend.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 13895,
+          "char_end": 14017,
+          "snippet": "Andy: So Julia, um, let's see. With regards to, uh, billing. Should we send bills to you, or to your boyfriend's house or?"
+        },
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 14228,
+          "char_end": 14273,
+          "snippet": "Julia: Actually, I, I don't have a boyfriend."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Creed advises Andy to skip small talk and just kiss Julia to show confidence.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 14884,
+          "char_end": 14926,
+          "snippet": "Creed: Have I ever steered you wrong, Jim?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Andy awkwardly leans in to kiss Julia, who reveals she just got out of a relationship, and they bond over their recent breakups.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 16108,
+          "char_end": 16170,
+          "snippet": "Julia: I just got out of a relationship too. It's really hard."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael reflects on needing closure from a past relationship with Holly and decides to skip a lecture to pursue it with Pam's support.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 18331,
+          "char_end": 18367,
+          "snippet": "Pam: Yeah, screw 'em. Let's do this."
+        }
+      ]
+    },
+    {
+      "type": "joke",
+      "summary": "Jim collects money for Kelly's party and receives a three dollar bill from Creed.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 18554,
+          "char_end": 18617,
+          "snippet": "Creed (opens wallet and hands Jim a single bill): There you go."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Have I ever steered you wrong, Jim?",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 14884,
+          "char_end": 14926,
+          "snippet": "Creed: Have I ever steered you wrong, Jim?"
+        }
+      ]
+    },
+    {
+      "quote": "I never got closure with her.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 13750,
+          "char_end": 18653,
+          "snippet": "Stanley: I have to take care of a couple things. So Andy will be taking over things here. You're in good hands, and give my best to your mother.\nAndy: So Julia, um, let's see. With regards to, uh, billing. Should we send bills to you, or to"
+        }
+      ]
+    },
+    {
+      "quote": "This is the Nard-Dog.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 15816,
+          "char_end": 15860,
+          "snippet": "Andy (points to self): This is the Nard-Dog."
+        }
+      ]
+    },
+    {
+      "quote": "Who do you think it is?",
+      "speaker": "Jim",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 16911,
+          "char_end": 16950,
+          "snippet": "Jim: It's Mose. Who do you think it is?"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will Andy and Julia pursue a relationship after their awkward encounter?",
+    "What is the outcome of Michael's plan to get closure with Holly?",
+    "What is the significance of the three dollar bill Creed gives Jim?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will Andy and Julia pursue a relationship after their awkward encounter?",
+      "why_uncertain": "The segment ends with Andy saying he will be in touch in three months but does not clarify if a relationship will develop.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 13750,
+          "char_end": 18653,
+          "snippet": "Stanley: I have to take care of a couple things. So Andy will be taking over things here. You're in good hands, and give my best to your mother.\nAndy: So Julia, um, let's see. With regards to, uh, billing. Should we send bills to you, or to"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Michael's plan to get closure with Holly?",
+      "why_uncertain": "Michael and Pam decide to go to Nashua but the segment does not show what happens next.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 13750,
+          "char_end": 18653,
+          "snippet": "Stanley: I have to take care of a couple things. So Andy will be taking over things here. You're in good hands, and give my best to your mother.\nAndy: So Julia, um, let's see. With regards to, uh, billing. Should we send bills to you, or to"
+        }
+      ]
+    },
+    {
+      "question": "What is the significance of the three dollar bill Creed gives Jim?",
+      "why_uncertain": "The segment ends with Jim noticing the three dollar bill but does not explain its meaning or impact.",
+      "evidence": [
+        {
+          "episode_id": "S05E14",
+          "segment_id": "S05E14:seg:002",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e14_lecture_circuit_1_script.txt",
+          "char_start": 13750,
+          "char_end": 18653,
+          "snippet": "Stanley: I have to take care of a couple things. So Andy will be taking over things here. You're in good hands, and give my best to your mother.\nAndy: So Julia, um, let's see. With regards to, uh, billing. Should we send bills to you, or to"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season06_4_1_mini_2026-03-04_S06E08",
+  "created_at_utc": "2026-03-06T01:16:14Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S06E08",
+  "segment_id": "S06E08:seg:000",
+  "segment_index": 0,
+  "segment_char_start": 0,
+  "segment_char_end": 7094,
+  "people": [
+    "Dwight",
+    "Stanley",
+    "Andy",
+    "Phyllis",
+    "Michael",
+    "Pam",
+    "Erin",
+    "Ryan",
+    "Helene",
+    "Angela",
+    "Kevin",
+    "Jim",
+    "Creed",
+    "Kelly"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "Dwight brings authentic New York bagels to the office, offering them to coworkers to create favors owed to him.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 19,
+          "char_end": 94,
+          "snippet": "Dwight: Good morning everybody. Who would like an authentic New York bagel?"
+        },
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 1238,
+          "char_end": 1409,
+          "snippet": "Dwight: Can't a guy just buy some bagels for his friends so they'll owe him a favor which he can use to get someone fired who stole a co-manager position from him anymore?"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "summary": "Michael is dating Pam's mother Helene, and plans a birthday lunch for her involving office staff.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 2576,
+          "char_end": 2665,
+          "snippet": "Michael: Birthday lunch. Birthday lunch– there is no better medicine than birthday lunch."
+        },
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 1720,
+          "char_end": 1813,
+          "snippet": "Pam: Michael's been trying to get Jim and me to hang out ever since he started dating my mom."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "Pam receives an urgent call about a shipping emergency, threatening her attendance at Helene's birthday lunch.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 4512,
+          "char_end": 4575,
+          "snippet": "Creed: Something's up. That paper was never supposed to arrive."
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Andy returns a favor to Dwight by polishing his briefcase, leading to a humorous exchange of politeness and small gifts.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 5681,
+          "char_end": 5804,
+          "snippet": "Andy: You give me a gift– Bam! Thank you note. You invite me somewhere– Pow! RSVP. You do me a favor– Wham! Favor returned."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "You owe me one. You all owe me one.",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 406,
+          "char_end": 471,
+          "snippet": "Dwight: Oh, don't mention it. You owe me one. You all owe me one."
+        }
+      ]
+    },
+    {
+      "quote": "Birthday lunch– there is no better medicine than birthday lunch.",
+      "speaker": "Michael",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 2576,
+          "char_end": 2665,
+          "snippet": "Michael: Birthday lunch. Birthday lunch– there is no better medicine than birthday lunch."
+        }
+      ]
+    },
+    {
+      "quote": "Something's up. That paper was never supposed to arrive.",
+      "speaker": "Creed",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 4512,
+          "char_end": 4575,
+          "snippet": "Creed: Something's up. That paper was never supposed to arrive."
+        }
+      ]
+    },
+    {
+      "quote": "You give me a gift– Bam! Thank you note. You invite me somewhere– Pow! RSVP. You do me a favor– Wham! Favor returned.",
+      "speaker": "Andy",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 5681,
+          "char_end": 5804,
+          "snippet": "Andy: You give me a gift– Bam! Thank you note. You invite me somewhere– Pow! RSVP. You do me a favor– Wham! Favor returned."
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Will Pam be able to attend Helene's birthday lunch despite the shipping emergency?",
+    "What is the outcome of Dwight's plan to have coworkers owe him favors to get someone fired?",
+    "What is the nature of the censored story Michael refers to about Helene's birthday present?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "Will Pam be able to attend Helene's birthday lunch despite the shipping emergency?",
+      "why_uncertain": "The segment ends with Pam receiving the urgent call and Jim taking over the phone call, but no resolution is provided.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 0,
+          "char_end": 7094,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Good morning everybody. Who would like an authentic New York bagel? Hmmm? Stanley?\nStanley: Thank you.\n[STAGE] reaches for bagel\nDwight: No, no, no, no. I got a pumpernickel just for you.\nAndy: Wow. H & H. You wen"
+        }
+      ]
+    },
+    {
+      "question": "What is the outcome of Dwight's plan to have coworkers owe him favors to get someone fired?",
+      "why_uncertain": "Dwight expresses his intent but no further developments or results are shown in this segment.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 1238,
+          "char_end": 1409,
+          "snippet": "Dwight: Can't a guy just buy some bagels for his friends so they'll owe him a favor which he can use to get someone fired who stole a co-manager position from him anymore?"
+        }
+      ]
+    },
+    {
+      "question": "What is the nature of the censored story Michael refers to about Helene's birthday present?",
+      "why_uncertain": "Michael mentions the story has been censored due to inappropriateness but does not reveal details.",
+      "evidence": [
+        {
+          "episode_id": "S06E08",
+          "segment_id": "S06E08:seg:000",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_06/s06e08_double_date_script.txt",
+          "char_start": 0,
+          "char_end": 7094,
+          "snippet": "=== SCENE 000 ===\n\nDwight: Good morning everybody. Who would like an authentic New York bagel? Hmmm? Stanley?\nStanley: Thank you.\n[STAGE] reaches for bagel\nDwight: No, no, no, no. I got a pumpernickel just for you.\nAndy: Wow. H & H. You wen"
+        }
+      ]
+    }
+  ]
+}

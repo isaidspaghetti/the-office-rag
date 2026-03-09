@@ -1,0 +1,192 @@
+{
+  "schema": "SegmentSummaryV1",
+  "schema_version": 1,
+  "build_id": "derived_segsummary_season05_4_1_mini_2026-03-04_S05E26",
+  "created_at_utc": "2026-03-05T23:51:35Z",
+  "llm_model": "gpt-4.1-mini",
+  "episode_id": "S05E26",
+  "segment_id": "S05E26:seg:001",
+  "segment_index": 1,
+  "segment_char_start": 6963,
+  "segment_char_end": 13878,
+  "people": [
+    "Dwight",
+    "Ryan",
+    "Pam",
+    "Jim",
+    "Phyllis",
+    "Stanley",
+    "Michael",
+    "Holly",
+    "Andy",
+    "Kevin",
+    "Angela",
+    "Rolf",
+    "Meredith",
+    "David",
+    "Charles",
+    "Toby",
+    "Kendall",
+    "Oscar",
+    "Man from Buffalo",
+    "Woman from Buffalo"
+  ],
+  "beats": [
+    {
+      "type": "event",
+      "summary": "The Scranton team plays volleyball and advances to the next round despite some injuries.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 7760,
+          "char_end": 7802,
+          "snippet": "Dwight: Yes! We advance to the next round!"
+        }
+      ]
+    },
+    {
+      "type": "other",
+      "summary": "Michael and Holly prepare and perform a comedy sketch called SlumDunder Mifflinaire at the company picnic.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 10439,
+          "char_end": 10498,
+          "snippet": "Michael: And now, presenting…\nBoth: SlumDunder Mifflinaire!"
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "summary": "Michael and Holly's sketch reveals the impending closure of the Buffalo branch, causing upset among employees.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12746,
+          "char_end": 12899,
+          "snippet": "David: I'm sorry, this certainly wasn't the time or the place to announce this sort of thing, but there have been talks about closing the Buffalo branch."
+        }
+      ]
+    },
+    {
+      "type": "conflict",
+      "summary": "David confronts Michael about the inappropriate timing and manner of announcing the branch closure during the picnic sketch.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13182,
+          "char_end": 13311,
+          "snippet": "David: How could you possibly think that the right way to announce a branch closing was in a comedy sketch at the company picnic?"
+        },
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13312,
+          "char_end": 13358,
+          "snippet": "Michael: Well… I didn't know they didn't know."
+        }
+      ]
+    }
+  ],
+  "notable_quotes": [
+    {
+      "quote": "Dwight: Yes! We advance to the next round!",
+      "speaker": "Dwight",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 7760,
+          "char_end": 7802,
+          "snippet": "Dwight: Yes! We advance to the next round!"
+        }
+      ]
+    },
+    {
+      "quote": "Michael: And now, presenting… Both: SlumDunder Mifflinaire!",
+      "speaker": "Michael and Holly",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 10439,
+          "char_end": 10498,
+          "snippet": "Michael: And now, presenting…\nBoth: SlumDunder Mifflinaire!"
+        }
+      ]
+    },
+    {
+      "quote": "David: How could you possibly think that the right way to announce a branch closing was in a comedy sketch at the company picnic?",
+      "speaker": "David",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13182,
+          "char_end": 13311,
+          "snippet": "David: How could you possibly think that the right way to announce a branch closing was in a comedy sketch at the company picnic?"
+        }
+      ]
+    },
+    {
+      "quote": "Man from Buffalo (over shouts of protest): You've got to be kidding me! We're the best branch in the company!",
+      "speaker": "Man from Buffalo",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 6963,
+          "char_end": 13878,
+          "snippet": "Dwight (playing volleyball, Ryan hits the ball away, not paying attention to the game): Oh come- Ryan, come on, man! W-w-wait. Net. Net. Her hand's on the net.\nWoman: So what?\nDwight: Rule violation. Ball is ours. Give it to me. Our point. "
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    "What is the ultimate outcome for the employees of the Buffalo branch after the announcement?",
+    "How will Michael's relationship with David and the employees be affected by this incident?"
+  ],
+  "uncertainty_items": [
+    {
+      "question": "What is the ultimate outcome for the employees of the Buffalo branch after the announcement?",
+      "why_uncertain": "The segment ends with the announcement and employee protests but does not provide further resolution.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 12925,
+          "char_end": 12972,
+          "snippet": "David: We're- we're closing the Buffalo branch."
+        }
+      ]
+    },
+    {
+      "question": "How will Michael's relationship with David and the employees be affected by this incident?",
+      "why_uncertain": "The segment shows David's frustration but does not reveal any consequences or changes in relationships.",
+      "evidence": [
+        {
+          "episode_id": "S05E26",
+          "segment_id": "S05E26:seg:001",
+          "source": "/Users/tg/Developer/RAG-1/ingestion/normalized_docs_txt/scripts/season_05/s05e26_company_picnic_script.txt",
+          "char_start": 13586,
+          "char_end": 13713,
+          "snippet": "David: Damn it, Michael, I told you that in confidence. Now I have to go over and deal with these employees and their families."
+        }
+      ]
+    }
+  ]
+}
