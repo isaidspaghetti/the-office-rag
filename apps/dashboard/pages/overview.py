@@ -40,6 +40,7 @@ def render_overview_page(
             "The evolution flows through basic to advanced AI engineering concepts, with a clear path for iterative improvement. "
             "It also requires understanding how to design experiments, analyze results, and how to measure and improve them over time."
         ),
+        classes="card-base card-neutral",
     )
 
     spacer(rem=1.0)
@@ -58,6 +59,7 @@ def render_overview_page(
             "Every change was tested across multiple runs to understand <b>what actually improved results</b>. "
             "Changes must be measurable. It takes human judgement to intervene, direct, and orchestrate changes."
         ),
+        classes="card-base card-method",
     )
 
     spacer(rem=1.0)
@@ -74,6 +76,7 @@ def render_overview_page(
                 "</div>"
             ),
             body_class=None,
+            classes="card-base card-insight",
         )
     with right:
         section_card(
@@ -87,6 +90,7 @@ def render_overview_page(
                 "<li>the cost vs. performance tradeoffs of different configurations</li>"
                 "</ul>"
             ),
+            classes="card-base card-insight",
         )
 
     spacer(rem=1.25)
@@ -104,6 +108,7 @@ def render_overview_page(
             "This project demonstrates the ability to <b>lead AI engineering initiatives with measurable results</b>, "
             "rather than relying on ad-hoc experimentation."
         ),
+        classes="card-base card-accent",
     )
 
     spacer(rem=1.5)
@@ -123,7 +128,26 @@ def render_overview_page(
             "</div>"
         ),
         body_class=None,
+        classes="card-base card-method",
     )
+
+    spacer(rem=1.25)
+
+    st.subheader("Primary Source")
+    left_ref, right_ref = st.columns([0.35, 0.65], gap="large")
+    with left_ref:
+        st.image("Aibook.jpg", caption="AI Engineering (O'Reilly, 2025)")
+    with right_ref:
+        section_card(
+            title="Reference: AI Engineering",
+            body_html=(
+                "“This project is heavily inspired by Chip Huyen’s <i>AI Engineering</i> (O’Reilly, 2025), especially the emphasis on evaluation-driven development, iteration loops, and production constraints (cost/latency/reliability). I used it as the backbone for the system design and experimentation methodology.”"
+                "<br/><br/>"
+                "<b>Chip Huyen</b>. <i>AI Engineering: Building Applications with Foundation Models</i>. "
+                "O’Reilly Media, 2025."
+            ),
+            classes="card-base card-neutral",
+        )
 
     spacer(rem=1.0)
 
@@ -281,4 +305,5 @@ def render_overview_page(
             "<li>As the model grew, generations gave better insights over individual tuning. Having the ability to pass different routing strategies, judges, and questions against older models would have helped better express performance gains.</li>"
             "</ul>"
         ),
+        classes="card-base card-insight",
     )

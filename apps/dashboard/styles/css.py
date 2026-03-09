@@ -58,6 +58,64 @@ _BASE_CSS = normalize_html(
   height: 100%;
 }
 
+/* ------------------------------------------------ */
+/* Card Variants (Overview page variety) */
+/* ------------------------------------------------ */
+
+.card-base {
+  padding: 1.3rem 1.4rem 1.2rem 1.4rem;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
+  transition: all .18s ease;
+}
+
+.card-neutral {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.card-insight {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #cbd5f5;
+}
+
+.card-insight .section-title {
+  color: #1e3a8a;
+}
+
+.card-method {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  border: 1px solid #c7d2fe;
+}
+
+.card-method .section-title {
+  color: #3730a3;
+}
+
+.card-warning {
+  background: linear-gradient(180deg, #fff7ed 0%, #fff1f2 100%);
+  border: 1px solid #fecaca;
+}
+
+.card-warning .section-title {
+  color: #9f1239;
+}
+
+.card-accent {
+  background: linear-gradient(180deg, #f0fdf4 0%, #ecfeff 100%);
+  border: 1px solid #bbf7d0;
+}
+
+.card-accent .section-title {
+  color: #065f46;
+}
+
+.card-base:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
 .section-title {
   font-size: 1.05rem;
   font-weight: 700;
@@ -143,4 +201,4 @@ def inject_dashboard_css(*, layout: LayoutMode = "default") -> None:
     # simplest reliable approach and still keeps styling centralized.
     st.markdown(f"<style>{_BASE_CSS}</style>", unsafe_allow_html=True)
     if layout == "overview":
-      st.markdown(f"<style>{_OVERVIEW_LAYOUT_CSS}</style>", unsafe_allow_html=True)
+        st.markdown(f"<style>{_OVERVIEW_LAYOUT_CSS}</style>", unsafe_allow_html=True)

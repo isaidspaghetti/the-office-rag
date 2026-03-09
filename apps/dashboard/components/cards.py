@@ -10,6 +10,7 @@ def section_card(
     title: str,
     body_html: str,
     variant: str = "default",
+    classes: Optional[str] = None,
     title_class: str = "section-title",
     body_class: Optional[str] = "body-text",
 ) -> None:
@@ -28,6 +29,10 @@ def section_card(
     extra_class = ""
     if variant == "phase":
         extra_class = " phase-card"
+
+    extra_classes = str(classes or "").strip()
+    if extra_classes:
+        extra_class = f"{extra_class} {extra_classes}"
 
     if body_class:
         body_block = f"<div class=\"{body_class}\">{body_html}</div>"
