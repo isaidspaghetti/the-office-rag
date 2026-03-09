@@ -1,0 +1,637 @@
+{
+  "run": {
+    "run_id": "2026-03-06T06-24-31Z_evo_4_1_mini_2026_03_05_llm_step03_derived_only_sim_k8",
+    "run_name": "evo_4_1_mini_2026-03-05_llm_step03_derived_only_sim_k8",
+    "created_at_utc": "2026-03-06T06:24:31Z",
+    "notes": "LLM-enabled sweep with gpt-4.1-mini; telemetry disabled; script=db/chroma_db_meta derived=db/chroma_db_derived_cards_4_1_mini_2026-03-04"
+  },
+  "config": {
+    "run_schema_version": "v4",
+    "code_version": {
+      "git_sha": "3413f2a47aba2bc5b9e76e28ed2f2b292578121a"
+    },
+    "data_version": {
+      "script": {
+        "persist_directory": "db/chroma_db_meta",
+        "collection_name": null,
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_meta/chroma.sqlite3",
+            "size_bytes": 89952256,
+            "mtime_utc": "2026-03-06T06:24:31Z",
+            "sha256": "2dd4eeaf3dce3f25f36e1c97d4c411ebba83acf90a24d9b4ee32051dc6c65b19"
+          }
+        }
+      },
+      "derived": {
+        "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+        "collection_name": "derived_cards",
+        "build_tag": "2026-03-06T04:52:41Z",
+        "build_meta": {
+          "created_at_utc": "2026-03-06T04:52:41Z",
+          "out_root": "/Users/tg/Developer/RAG-1/derived/artifacts",
+          "persist_dir": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+          "collection_name": "derived_cards",
+          "embed_model": "text-embedding-3-small",
+          "include_episode_cards": true,
+          "include_season_cards": true,
+          "include_topic_cards": false,
+          "episode_cards_build_prefixes": [
+            "derived_episodecard_season09_4_1_mini_2026-03-04"
+          ],
+          "season_cards_build_prefixes": [
+            "derived_seasoncard_season09_4_1_mini_2026-03-04"
+          ],
+          "topic_cards_build_prefixes": [],
+          "seasons_filter": null,
+          "docs_planned": 24,
+          "dry_run": false,
+          "docs_indexed": 24
+        },
+        "fingerprint": {
+          "chroma_sqlite": {
+            "path": "/Users/tg/Developer/RAG-1/db/chroma_db_derived_cards_4_1_mini_2026-03-04/chroma.sqlite3",
+            "size_bytes": 917504,
+            "mtime_utc": "2026-03-06T06:24:31Z",
+            "sha256": "80c690b696094cde6b8c3fef23cd3d65f8d191d0e235a8f13fa97d70e18d6705"
+          }
+        }
+      }
+    },
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_meta",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards_4_1_mini_2026-03-04",
+      "collection_name": "derived_cards",
+      "num_vectors": 24
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "derived_only",
+      "search_type": "similarity",
+      "k": 8,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": null,
+      "query_expansion": {
+        "enabled": false,
+        "n": null,
+        "model": null,
+        "k_per_query": null,
+        "fusion": null,
+        "rrf_k0": null,
+        "cache": null
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": 60.0,
+      "max_retries": 1,
+      "seed": 42
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-07T22:27:39Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 90.0,
+    "judge_max_retries": 4,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 81,
+    "overall_scores": [
+      90,
+      90,
+      90,
+      30,
+      90,
+      90,
+      90
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.5714285714285714,
+    "must_include_ok_rate": 0.14285714285714285,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The candidate answer correctly states that the retrieved context does not include the episode or context for the quote 'Bears. Beets. Battlestar Galactica.' | correctness: The candidate correctly states that the retrieved context does not include the episode or context for the quote, and therefore appropriately answers 'I don't know'. The gold answer is about Season 3, Episode 20, which is not present in the retrieved context.",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer correctly states that the retrieved context does not include the episode or context for the quote 'Bears. Beets. Battlestar Galactica.'"
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate correctly states that the retrieved context does not include the episode or context for the quote, and therefore appropriately answers 'I don't know'. The gold answer is about Season 3, Episode 20, which is not present in the retrieved context."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"sufficient\",\"unsupported_claims\":[],\"notes\":\"The candidate answer correctly states that the retrieved context does not include the episode or context for the quote 'Bears. Beets. Battlestar Galactica.'\"}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate correctly states that the retrieved context does not include the episode or context for the quote, and therefore appropriately answers 'I don't know'. The gold answer is about Season 3, Episode 20, which is not present in the retrieved context.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot. | correctness: The candidate correctly states that the retrieved context does not contain information about the episode where Michael burns his foot, which is Season 2, Episode 12 (\"The Injury\"). The answer is appropriately 'I don't know' given the context.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate correctly states that the retrieved context does not contain information about the episode where Michael burns his foot, which is Season 2, Episode 12 (\"The Injury\"). The answer is appropriately 'I don't know' given the context."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"The answer correctly states that the retrieved context does not contain information about the episode where Michael burns his foot.\"}",
+          "correctness": "```json\n{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate correctly states that the retrieved context does not contain information about the episode where Michael burns his foot, which is Season 2, Episode 12 (\\\"The Injury\\\"). The answer is appropriately 'I don't know' given the context.\"\n}\n```"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The answer correctly states that the context does not contain information about Season 2 and refrains from making unsupported claims. | correctness: The candidate correctly states that the retrieved context does not contain information about Season 2 and appropriately responds with 'I don't know'.",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The answer correctly states that the context does not contain information about Season 2 and refrains from making unsupported claims."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate correctly states that the retrieved context does not contain information about Season 2 and appropriately responds with 'I don't know'."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"The answer correctly states that the context does not contain information about Season 2 and refrains from making unsupported claims.\"}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate correctly states that the retrieved context does not contain information about Season 2 and appropriately responds with 'I don't know'.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 0,
+        "groundedness": 5,
+        "completeness": 0,
+        "hallucination": 0,
+        "overall": 30,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Reason 1: Jim constantly pranks and undermines Dwight",
+          "Reason 2: Dwight values hierarchy and authority, Jim is dismissive",
+          "Reason 3: Dwight is competitive and threatened by Jim's social ease",
+          "Examples from distinct episodes",
+          "Mention of underlying respect and Jim as best man at Dwight's wedding"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The answer correctly states that the context does not provide reasons for Dwight's dislike of Jim. | correctness: The candidate answer states 'I don't know' due to lack of explicit information in the retrieved context, which is correct. The retrieved context does not provide reasons or examples for Dwight's dislike of Jim.",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The answer correctly states that the context does not provide reasons for Dwight's dislike of Jim."
+        },
+        "correctness": {
+          "correctness": 0,
+          "completeness": 0,
+          "missing_points": [
+            "Reason 1: Jim constantly pranks and undermines Dwight",
+            "Reason 2: Dwight values hierarchy and authority, Jim is dismissive",
+            "Reason 3: Dwight is competitive and threatened by Jim's social ease",
+            "Examples from distinct episodes",
+            "Mention of underlying respect and Jim as best man at Dwight's wedding"
+          ],
+          "notes": "The candidate answer states 'I don't know' due to lack of explicit information in the retrieved context, which is correct. The retrieved context does not provide reasons or examples for Dwight's dislike of Jim."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"The answer correctly states that the context does not provide reasons for Dwight's dislike of Jim.\"}",
+          "correctness": "{\n  \"correctness\": 0,\n  \"completeness\": 0,\n  \"missing_points\": [\n    \"Reason 1: Jim constantly pranks and undermines Dwight\",\n    \"Reason 2: Dwight values hierarchy and authority, Jim is dismissive\",\n    \"Reason 3: Dwight is competitive and threatened by Jim's social ease\",\n    \"Examples from distinct episodes\",\n    \"Mention of underlying respect and Jim as best man at Dwight's wedding\"\n  ],\n  \"notes\": \"The candidate answer states 'I don't know' due to lack of explicit information in the retrieved context, which is correct. The retrieved context does not provide reasons or examples for Dwight's dislike of Jim.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 0,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The answer correctly states that the context does not provide information about Michael Scott's serious girlfriends or how those relationships ended. | correctness: The candidate answer correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended, which matches the evaluation criteria.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The answer correctly states that the context does not provide information about Michael Scott's serious girlfriends or how those relationships ended."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended, which matches the evaluation criteria."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"The answer correctly states that the context does not provide information about Michael Scott's serious girlfriends or how those relationships ended.\"}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly states that the retrieved context does not contain information about Michael Scott's serious girlfriends or how those relationships ended, which matches the evaluation criteria.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: Answer correctly states that the context does not contain information about the teapot letter. | correctness: The candidate correctly states that the retrieved context does not contain information about the teapot letter, which is indeed introduced in Season 2, Episode 10, not present in the retrieved context from Season 9 episodes.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "Answer correctly states that the context does not contain information about the teapot letter."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate correctly states that the retrieved context does not contain information about the teapot letter, which is indeed introduced in Season 2, Episode 10, not present in the retrieved context from Season 9 episodes."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"Answer correctly states that the context does not contain information about the teapot letter.\"}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate correctly states that the retrieved context does not contain information about the teapot letter, which is indeed introduced in Season 2, Episode 10, not present in the retrieved context from Season 9 episodes.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Creed Bratton works in Quality Assurance at Dunder Mifflin",
+          "He is bizarre and evasive, implying shady or criminal behavior and a questionable identity",
+          "He serves as comic relief as an unpredictable, mysterious presence",
+          "He is arrested in the series finale"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: Answer correctly states that the context does not contain information about Creed. | correctness: The candidate answer correctly states that the retrieved context does not contain information about Creed, so 'I don't know' is appropriate.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "Answer correctly states that the context does not contain information about Creed."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [
+            "Creed Bratton works in Quality Assurance at Dunder Mifflin",
+            "He is bizarre and evasive, implying shady or criminal behavior and a questionable identity",
+            "He serves as comic relief as an unpredictable, mysterious presence",
+            "He is arrested in the series finale"
+          ],
+          "notes": "The candidate answer correctly states that the retrieved context does not contain information about Creed, so 'I don't know' is appropriate."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"Answer correctly states that the context does not contain information about Creed.\"}",
+          "correctness": "```json\n{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [\n    \"Creed Bratton works in Quality Assurance at Dunder Mifflin\",\n    \"He is bizarre and evasive, implying shady or criminal behavior and a questionable identity\",\n    \"He serves as comic relief as an unpredictable, mysterious presence\",\n    \"He is arrested in the series finale\"\n  ],\n  \"notes\": \"The candidate answer correctly states that the retrieved context does not contain information about Creed, so 'I don't know' is appropriate.\"\n}\n```"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

@@ -223,7 +223,9 @@ def _to_markdown(report: Dict[str, object]) -> str:
     lines.append("")
     lines.append("## Status by season")
     lines.append("")
-    lines.append("| Season | Expected eps | Segments | Segment summaries | Episode cards | Season card |")
+    lines.append(
+        "| Season | Expected eps | Segments | Segment summaries | Episode cards | Season card |"
+    )
     lines.append("|---:|---:|---|---|---|---|")
 
     for r in rows:
@@ -273,19 +275,35 @@ def main() -> None:
     args = p.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
-    docs_dir = (repo_root / args.docs_dir).resolve() if not Path(args.docs_dir).is_absolute() else Path(args.docs_dir)
-    out_root = (repo_root / args.out_root).resolve() if not Path(args.out_root).is_absolute() else Path(args.out_root)
+    docs_dir = (
+        (repo_root / args.docs_dir).resolve()
+        if not Path(args.docs_dir).is_absolute()
+        else Path(args.docs_dir)
+    )
+    out_root = (
+        (repo_root / args.out_root).resolve()
+        if not Path(args.out_root).is_absolute()
+        else Path(args.out_root)
+    )
 
     report = audit(docs_dir=docs_dir, out_root=out_root)
 
     if str(args.write_json).strip():
-        path = (repo_root / args.write_json).resolve() if not Path(args.write_json).is_absolute() else Path(args.write_json)
+        path = (
+            (repo_root / args.write_json).resolve()
+            if not Path(args.write_json).is_absolute()
+            else Path(args.write_json)
+        )
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     md = _to_markdown(report)
     if str(args.write_md).strip():
-        path = (repo_root / args.write_md).resolve() if not Path(args.write_md).is_absolute() else Path(args.write_md)
+        path = (
+            (repo_root / args.write_md).resolve()
+            if not Path(args.write_md).is_absolute()
+            else Path(args.write_md)
+        )
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(md, encoding="utf-8")
 

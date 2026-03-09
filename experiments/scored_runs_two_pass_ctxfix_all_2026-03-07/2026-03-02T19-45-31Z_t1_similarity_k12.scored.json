@@ -1,0 +1,622 @@
+{
+  "run": {
+    "run_id": "2026-03-02T19-45-31Z_t1_similarity_k12",
+    "run_name": "t1_similarity_k12",
+    "created_at_utc": "2026-03-02T19:45:31Z",
+    "notes": "Tuning: increase k to 12 (same similarity)"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5239
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-07T20:29:52Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 68,
+    "overall_scores": [
+      90,
+      90,
+      62,
+      66,
+      62,
+      50,
+      58
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.5714285714285714,
+    "must_include_ok_rate": 0.2857142857142857,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 5,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The candidate answer correctly identifies the episode (Season 3, Episode 20, Product Recall) and accurately describes the context of Jim impersonating Dwight and saying the phrase 'Bears. Beets. Battlestar Galactica.' The retrieved script excerpt fully supports the answer. | correctness: The candidate answer correctly identifies the episode as Season 3, Episode 20 (\"Product Recall\") and accurately describes the context of Jim impersonating Dwight and saying the line \"Bears. Beets. Battlestar Galactica.\" The retrieved context fully supports this information.",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer correctly identifies the episode (Season 3, Episode 20, Product Recall) and accurately describes the context of Jim impersonating Dwight and saying the phrase 'Bears. Beets. Battlestar Galactica.' The retrieved script excerpt fully supports the answer."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly identifies the episode as Season 3, Episode 20 (\"Product Recall\") and accurately describes the context of Jim impersonating Dwight and saying the line \"Bears. Beets. Battlestar Galactica.\" The retrieved context fully supports this information."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate answer correctly identifies the episode (Season 3, Episode 20, Product Recall) and accurately describes the context of Jim impersonating Dwight and saying the phrase 'Bears. Beets. Battlestar Galactica.' The retrieved script excerpt fully supports the answer.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly identifies the episode as Season 3, Episode 20 (\\\"Product Recall\\\") and accurately describes the context of Jim impersonating Dwight and saying the line \\\"Bears. Beets. Battlestar Galactica.\\\" The retrieved context fully supports this information.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The answer is fully supported by multiple excerpts from the retrieved context confirming Michael burns his foot in Season 2, Episode 12 titled 'The Injury'. | correctness: The candidate answer correctly identifies the episode title and season/episode number where Michael burns his foot. The retrieved context fully supports this, confirming it is Season 2, Episode 12, titled 'The Injury', and that Michael burns his foot on a George Foreman grill.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The answer is fully supported by multiple excerpts from the retrieved context confirming Michael burns his foot in Season 2, Episode 12 titled 'The Injury'."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly identifies the episode title and season/episode number where Michael burns his foot. The retrieved context fully supports this, confirming it is Season 2, Episode 12, titled 'The Injury', and that Michael burns his foot on a George Foreman grill."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The answer is fully supported by multiple excerpts from the retrieved context confirming Michael burns his foot in Season 2, Episode 12 titled 'The Injury'.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly identifies the episode title and season/episode number where Michael burns his foot. The retrieved context fully supports this, confirming it is Season 2, Episode 12, titled 'The Injury', and that Michael burns his foot on a George Foreman grill.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E10",
+          "S02E15"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 5,
+        "completeness": 2,
+        "hallucination": 0,
+        "overall": 62,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Jim and Pam's relationship tension and Pam's engagement to Roy",
+          "Michael's relationship with Jan becoming more involved",
+          "Dwight's ambition and rivalry with Jim through conflicts and pranks",
+          "Major emotional beats like 'Casino Night' where Jim confesses feelings and kisses Pam"
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The candidate answer accurately summarizes season 2 using only information present in the retrieved context, including episode references and themes. | correctness: The candidate answer mentions various episodes and themes but lacks key plot points and emotional developments central to Season 2, such as the Jim-Pam relationship tension, Michael-Jan relationship, Dwight-Jim rivalry, and the climax at 'Casino Night'. The retrieved context provides episode summaries and scripts but does not explicitly cover these major story arcs.",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer accurately summarizes season 2 using only information present in the retrieved context, including episode references and themes."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Jim and Pam's relationship tension and Pam's engagement to Roy",
+            "Michael's relationship with Jan becoming more involved",
+            "Dwight's ambition and rivalry with Jim through conflicts and pranks",
+            "Major emotional beats like 'Casino Night' where Jim confesses feelings and kisses Pam"
+          ],
+          "notes": "The candidate answer mentions various episodes and themes but lacks key plot points and emotional developments central to Season 2, such as the Jim-Pam relationship tension, Michael-Jan relationship, Dwight-Jim rivalry, and the climax at 'Casino Night'. The retrieved context provides episode summaries and scripts but does not explicitly cover these major story arcs."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate answer accurately summarizes season 2 using only information present in the retrieved context, including episode references and themes.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Jim and Pam's relationship tension and Pam's engagement to Roy\",\n    \"Michael's relationship with Jan becoming more involved\",\n    \"Dwight's ambition and rivalry with Jim through conflicts and pranks\",\n    \"Major emotional beats like 'Casino Night' where Jim confesses feelings and kisses Pam\"\n  ],\n  \"notes\": \"The candidate answer mentions various episodes and themes but lacks key plot points and emotional developments central to Season 2, such as the Jim-Pam relationship tension, Michael-Jan relationship, Dwight-Jim rivalry, and the climax at 'Casino Night'. The retrieved context provides episode summaries and scripts but does not explicitly cover these major story arcs.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E06"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 3,
+        "completeness": 3,
+        "hallucination": 2,
+        "overall": 66,
+        "verdict": "partially_correct",
+        "unsupported_claims": [
+          "Jim tries to prevent Dwight from being fired by warning him about Robert California's plans (S02E06)",
+          "Jim's pranks and attempts to make Dwight look stupid",
+          "Jim's general attitude and behavior that Dwight finds disrespectful or mocking"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive of Dwight’s self-appointed authority",
+          "Dwight is competitive and threatened by Jim’s social ease and influence in the office",
+          "Example of deep respect underneath rivalry, such as Dwight naming Jim best man at his wedding"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The context shows Jim warning Dwight about Robert California's plan to fire him, but not in S02E06. The pranks and mocking behavior are implied but not explicitly detailed with examples in the context. The answer includes some claims not supported by the retrieved scripts. | correctness: The candidate answer correctly identifies Jim's pranks, challenges to Dwight's authority, and disrespectful attitude as reasons for Dwight's dislike, with examples. However, it misses the nuance about Dwight's respect for Jim and the competitive/social threat aspect. Also, it lacks explicit mention of Dwight's value of hierarchy and rules contrasted with Jim's dismissiveness.",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jim tries to prevent Dwight from being fired by warning him about Robert California's plans (S02E06)",
+            "Jim's pranks and attempts to make Dwight look stupid",
+            "Jim's general attitude and behavior that Dwight finds disrespectful or mocking"
+          ],
+          "notes": "The context shows Jim warning Dwight about Robert California's plan to fire him, but not in S02E06. The pranks and mocking behavior are implied but not explicitly detailed with examples in the context. The answer includes some claims not supported by the retrieved scripts."
+        },
+        "correctness": {
+          "correctness": 4,
+          "completeness": 3,
+          "missing_points": [
+            "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive of Dwight’s self-appointed authority",
+            "Dwight is competitive and threatened by Jim’s social ease and influence in the office",
+            "Example of deep respect underneath rivalry, such as Dwight naming Jim best man at his wedding"
+          ],
+          "notes": "The candidate answer correctly identifies Jim's pranks, challenges to Dwight's authority, and disrespectful attitude as reasons for Dwight's dislike, with examples. However, it misses the nuance about Dwight's respect for Jim and the competitive/social threat aspect. Also, it lacks explicit mention of Dwight's value of hierarchy and rules contrasted with Jim's dismissiveness."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jim tries to prevent Dwight from being fired by warning him about Robert California's plans (S02E06)\",\n    \"Jim's pranks and attempts to make Dwight look stupid\",\n    \"Jim's general attitude and behavior that Dwight finds disrespectful or mocking\"\n  ],\n  \"notes\": \"The context shows Jim warning Dwight about Robert California's plan to fire him, but not in S02E06. The pranks and mocking behavior are implied but not explicitly detailed with examples in the context. The answer includes some claims not supported by the retrieved scripts.\"\n}",
+          "correctness": "{\n  \"correctness\": 4,\n  \"completeness\": 3,\n  \"missing_points\": [\n    \"Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive of Dwight’s self-appointed authority\",\n    \"Dwight is competitive and threatened by Jim’s social ease and influence in the office\",\n    \"Example of deep respect underneath rivalry, such as Dwight naming Jim best man at his wedding\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Jim's pranks, challenges to Dwight's authority, and disrespectful attitude as reasons for Dwight's dislike, with examples. However, it misses the nuance about Dwight's respect for Jim and the competitive/social threat aspect. Also, it lacks explicit mention of Dwight's value of hierarchy and rules contrasted with Jim's dismissiveness.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 5,
+        "completeness": 2,
+        "hallucination": 0,
+        "overall": 62,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Carol Stills relationship and breakup details",
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Michael proposing to Carol on fourth date and photoshopping photo",
+          "Holly Flax as Michael's best match and eventual marriage"
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The answer correctly identifies Jan Levinson and Pam's mom Helene as Michael Scott's serious girlfriends and accurately describes how the relationships ended, fully supported by the retrieved context. | correctness: The candidate answer correctly identifies Jan Levinson and Helene Beesly as serious girlfriends and provides some context on their relationship endings. However, it omits Carol Stills, Holly Flax, and Donna Newton, which are mentioned in the gold answer. The retrieved context includes some information about Jan and Helene but lacks details on Carol, Holly, and Donna. Therefore, the candidate answer is partially correct but incomplete.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The answer correctly identifies Jan Levinson and Pam's mom Helene as Michael Scott's serious girlfriends and accurately describes how the relationships ended, fully supported by the retrieved context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Carol Stills relationship and breakup details",
+            "Holly Flax relationship and ending",
+            "Donna Newton relationship and ending",
+            "Michael proposing to Carol on fourth date and photoshopping photo",
+            "Holly Flax as Michael's best match and eventual marriage"
+          ],
+          "notes": "The candidate answer correctly identifies Jan Levinson and Helene Beesly as serious girlfriends and provides some context on their relationship endings. However, it omits Carol Stills, Holly Flax, and Donna Newton, which are mentioned in the gold answer. The retrieved context includes some information about Jan and Helene but lacks details on Carol, Holly, and Donna. Therefore, the candidate answer is partially correct but incomplete."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The answer correctly identifies Jan Levinson and Pam's mom Helene as Michael Scott's serious girlfriends and accurately describes how the relationships ended, fully supported by the retrieved context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Carol Stills relationship and breakup details\",\n    \"Holly Flax relationship and ending\",\n    \"Donna Newton relationship and ending\",\n    \"Michael proposing to Carol on fourth date and photoshopping photo\",\n    \"Holly Flax as Michael's best match and eventual marriage\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Jan Levinson and Helene Beesly as serious girlfriends and provides some context on their relationship endings. However, it omits Carol Stills, Holly Flax, and Donna Newton, which are mentioned in the gold answer. The retrieved context includes some information about Jan and Helene but lacks details on Carol, Holly, and Donna. Therefore, the candidate answer is partially correct but incomplete.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E06"
+        ],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 3,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 5,
+        "completeness": 1,
+        "hallucination": 0,
+        "overall": 50,
+        "verdict": "incorrect",
+        "unsupported_claims": [],
+        "missing_points": [
+          "The teapot was a Secret Santa gift from Jim to Pam filled with meaningful items and a letter.",
+          "The letter represents Jim's feelings and their relationship.",
+          "It was introduced in Season 2, Episode 10 (Christmas Party).",
+          "The teapot and letter are a meaningful symbol referenced later in the series."
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The answer accurately reflects the retrieved context where Pam states she prefers to keep the teapot letter private due to having been filmed for nine years, emphasizing her desire for privacy. | correctness: The retrieved context only contains Pam's refusal to reveal the letter's contents in Season 9, which is insufficient to explain what the teapot letter is or why it is important. The candidate answer incorrectly states that the letter is a private note Pam received and emphasizes privacy, but it misses the origin and significance of the teapot and letter from Season 2.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The answer accurately reflects the retrieved context where Pam states she prefers to keep the teapot letter private due to having been filmed for nine years, emphasizing her desire for privacy."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 1,
+          "missing_points": [
+            "The teapot was a Secret Santa gift from Jim to Pam filled with meaningful items and a letter.",
+            "The letter represents Jim's feelings and their relationship.",
+            "It was introduced in Season 2, Episode 10 (Christmas Party).",
+            "The teapot and letter are a meaningful symbol referenced later in the series."
+          ],
+          "notes": "The retrieved context only contains Pam's refusal to reveal the letter's contents in Season 9, which is insufficient to explain what the teapot letter is or why it is important. The candidate answer incorrectly states that the letter is a private note Pam received and emphasizes privacy, but it misses the origin and significance of the teapot and letter from Season 2."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The answer accurately reflects the retrieved context where Pam states she prefers to keep the teapot letter private due to having been filmed for nine years, emphasizing her desire for privacy.\"\n}",
+          "correctness": "{\n  \"correctness\": 2,\n  \"completeness\": 1,\n  \"missing_points\": [\n    \"The teapot was a Secret Santa gift from Jim to Pam filled with meaningful items and a letter.\",\n    \"The letter represents Jim's feelings and their relationship.\",\n    \"It was introduced in Season 2, Episode 10 (Christmas Party).\",\n    \"The teapot and letter are a meaningful symbol referenced later in the series.\"\n  ],\n  \"notes\": \"The retrieved context only contains Pam's refusal to reveal the letter's contents in Season 9, which is insufficient to explain what the teapot letter is or why it is important. The candidate answer incorrectly states that the letter is a private note Pam received and emphasizes privacy, but it misses the origin and significance of the teapot and letter from Season 2.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 4,
+        "completeness": 2,
+        "hallucination": 1,
+        "overall": 58,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Creed is portrayed as ambitious, quirky, and somewhat eccentric",
+          "Creed often provides comic relief with his odd remarks and actions",
+          "Creed has a close, if sometimes confusing, relationship with Michael and the rest of the staff"
+        ],
+        "missing_points": [
+          "Creed works specifically in Quality Assurance",
+          "He is evasive and implies shady or criminal behavior",
+          "He has a questionable identity",
+          "He is arrested in the series finale"
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The answer is mostly grounded in the retrieved context, which shows Creed working at Dunder Mifflin, his interactions with Michael, his attempt to start his own paper company, and his history with Ed Truck. However, some character traits and relationship details are not explicitly supported by the provided context. | correctness: The candidate answer correctly identifies Creed as a Dunder Mifflin employee and describes his quirky, ambitious, and unpredictable nature, including his attempts to start a paper company and poach clients. However, it lacks mention of his role in Quality Assurance, his bizarre and evasive behavior implying criminality, his mysterious identity, and the fact that he is arrested in the series finale, which are key aspects of his 'deal' as per the gold answer. The retrieved context provides some dialogue illustrating Creed's eccentricity and ambition but does not explicitly confirm all these points.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 4,
+          "hallucination": 1,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [
+            "Creed is portrayed as ambitious, quirky, and somewhat eccentric",
+            "Creed often provides comic relief with his odd remarks and actions",
+            "Creed has a close, if sometimes confusing, relationship with Michael and the rest of the staff"
+          ],
+          "notes": "The answer is mostly grounded in the retrieved context, which shows Creed working at Dunder Mifflin, his interactions with Michael, his attempt to start his own paper company, and his history with Ed Truck. However, some character traits and relationship details are not explicitly supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Creed works specifically in Quality Assurance",
+            "He is evasive and implies shady or criminal behavior",
+            "He has a questionable identity",
+            "He is arrested in the series finale"
+          ],
+          "notes": "The candidate answer correctly identifies Creed as a Dunder Mifflin employee and describes his quirky, ambitious, and unpredictable nature, including his attempts to start a paper company and poach clients. However, it lacks mention of his role in Quality Assurance, his bizarre and evasive behavior implying criminality, his mysterious identity, and the fact that he is arrested in the series finale, which are key aspects of his 'deal' as per the gold answer. The retrieved context provides some dialogue illustrating Creed's eccentricity and ambition but does not explicitly confirm all these points."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 4,\n  \"hallucination\": 1,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [\n    \"Creed is portrayed as ambitious, quirky, and somewhat eccentric\",\n    \"Creed often provides comic relief with his odd remarks and actions\",\n    \"Creed has a close, if sometimes confusing, relationship with Michael and the rest of the staff\"\n  ],\n  \"notes\": \"The answer is mostly grounded in the retrieved context, which shows Creed working at Dunder Mifflin, his interactions with Michael, his attempt to start his own paper company, and his history with Ed Truck. However, some character traits and relationship details are not explicitly supported by the provided context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Creed works specifically in Quality Assurance\",\n    \"He is evasive and implies shady or criminal behavior\",\n    \"He has a questionable identity\",\n    \"He is arrested in the series finale\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Creed as a Dunder Mifflin employee and describes his quirky, ambitious, and unpredictable nature, including his attempts to start a paper company and poach clients. However, it lacks mention of his role in Quality Assurance, his bizarre and evasive behavior implying criminality, his mysterious identity, and the fact that he is arrested in the series finale, which are key aspects of his 'deal' as per the gold answer. The retrieved context provides some dialogue illustrating Creed's eccentricity and ambition but does not explicitly confirm all these points.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

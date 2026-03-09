@@ -139,9 +139,7 @@ def _compact_episode_card(card: Dict[str, Any]) -> Dict[str, Any]:
     for t in threads_in[:6]:
         thread = str(t.get("thread") or "").strip()
         evidence = [
-            _compact_evidence(e)
-            for e in (list(t.get("evidence") or [])[:2])
-            if isinstance(e, dict)
+            _compact_evidence(e) for e in (list(t.get("evidence") or [])[:2]) if isinstance(e, dict)
         ]
         if thread:
             threads.append({"thread": thread, "evidence": evidence})
@@ -154,12 +152,12 @@ def _compact_episode_card(card: Dict[str, Any]) -> Dict[str, Any]:
         if len(what_changes) > 300:
             what_changes = what_changes[:297] + "..."
         evidence = [
-            _compact_evidence(e)
-            for e in (list(c.get("evidence") or [])[:2])
-            if isinstance(e, dict)
+            _compact_evidence(e) for e in (list(c.get("evidence") or [])[:2]) if isinstance(e, dict)
         ]
         if character and what_changes:
-            chars.append({"character": character, "what_changes": what_changes, "evidence": evidence})
+            chars.append(
+                {"character": character, "what_changes": what_changes, "evidence": evidence}
+            )
 
     return {
         "episode_id": episode_id,
@@ -374,7 +372,9 @@ def reduce_season_card(cfg: ReduceSeasonCardConfig) -> Path:
         }
 
         out_file.write_text(_safe_json(season_card) + "\n", encoding="utf-8")
-        manifest["execution"]["status"] = "done" if manifest["execution"]["errors"] == 0 else "done_with_errors"
+        manifest["execution"]["status"] = (
+            "done" if manifest["execution"]["errors"] == 0 else "done_with_errors"
+        )
 
     except Exception as e:
         manifest["execution"]["status"] = "error"
@@ -391,7 +391,9 @@ def reduce_season_card(cfg: ReduceSeasonCardConfig) -> Path:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Reduce EpisodeDerivedCardV1 files into a SeasonDerivedCardV1")
+    p = argparse.ArgumentParser(
+        description="Reduce EpisodeDerivedCardV1 files into a SeasonDerivedCardV1"
+    )
     p.add_argument("--season", type=int, required=True, help="Season number (1-9)")
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR)
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT)

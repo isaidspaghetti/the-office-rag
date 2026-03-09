@@ -147,8 +147,7 @@ def load_documents(
 
     if not documents:
         raise FileNotFoundError(
-            f"No .txt documents found under {docs_dir}. "
-            f"Please run ingestion/normalize_docs.py."
+            f"No .txt documents found under {docs_dir}. " f"Please run ingestion/normalize_docs.py."
         )
 
     if use_metadata:

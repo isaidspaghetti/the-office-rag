@@ -1,6 +1,5 @@
-3. In the summary page make some kind of timeline / graphic that shows how I eveolved the app by phase and a basic composit score just so if someone was to look at Jsut ONE page, they could see what worked / didnt, somethign like:
 
-This RAG application was built to make a Chat bot trained strictly on the closed captions of the Office tv show. It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it.
+This RAG Evaluation Applicationapplication was built to make a Chat bot trained strictly on the closed captions of the Office tv show. It is a training excercise with the idea of taking an extermely sparse corpus, and building intelligence around it.
 
 
 The experimentation phases wer as follows: 

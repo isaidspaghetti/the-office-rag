@@ -218,7 +218,11 @@ def build_derived_index(
         for s in summaries:
             meta = dict(s.metadata or {})
             meta.setdefault("doc_type", "summary")
-            out_docs.append(add_min_doc_identity_meta(Document(page_content=s.page_content, metadata=meta), chunk_type="summary_doc"))
+            out_docs.append(
+                add_min_doc_identity_meta(
+                    Document(page_content=s.page_content, metadata=meta), chunk_type="summary_doc"
+                )
+            )
 
     created_at = utc_now_iso()
     build_id = f"derived_{created_at.replace(':', '-') }"
@@ -271,7 +275,9 @@ def build_derived_index(
                 print(f"[relationship_timeline] No evidence found for {subject}; skipping")
                 continue
 
-            text = build_relationship_timeline(llm=llm, subject=subject, evidence_docs=evidence_docs)
+            text = build_relationship_timeline(
+                llm=llm, subject=subject, evidence_docs=evidence_docs
+            )
             evidence_eids = sorted({e for e in (_episode_id(d) for d in evidence_docs) if e})
 
             meta = {
@@ -287,7 +293,9 @@ def build_derived_index(
             }
             out_docs.append(Document(page_content=text, metadata=meta))
             ms = int((time.time() - t0) * 1000)
-            print(f"[relationship_timeline] Built {subject} ({len(evidence_docs)} episodes) in {ms}ms")
+            print(
+                f"[relationship_timeline] Built {subject} ({len(evidence_docs)} episodes) in {ms}ms"
+            )
 
     print(f"--- Writing derived index: {persist_dir} (docs={len(out_docs)}) ---")
     persist_dir.mkdir(parents=True, exist_ok=True)
@@ -314,7 +322,9 @@ def parse_csv_list(s: str) -> List[str]:
 def main() -> None:
     p = argparse.ArgumentParser(description="Build a separate derived-corpus Chroma index.")
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR, help="Path to normalized docs directory")
-    p.add_argument("--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist dir for derived corpus")
+    p.add_argument(
+        "--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist dir for derived corpus"
+    )
     p.add_argument("--collection-name", default=None, help="Optional Chroma collection name")
     p.add_argument("--embed-model", default=DEFAULT_EMBED_MODEL, help="Embedding model")
     p.add_argument("--reset", action="store_true", help="Delete persist dir before rebuilding")
@@ -354,7 +364,9 @@ def main() -> None:
         help="Max episode summaries to include as evidence per derived doc",
     )
 
-    p.add_argument("--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model for derived doc generation")
+    p.add_argument(
+        "--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model for derived doc generation"
+    )
 
     args = p.parse_args()
 

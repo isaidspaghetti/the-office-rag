@@ -1,0 +1,647 @@
+{
+  "run": {
+    "run_id": "2026-03-03T04-50-43Z_scene_chunks_similarity_k12",
+    "run_name": "scene_chunks_similarity_k12",
+    "created_at_utc": "2026-03-03T04:50:43Z",
+    "notes": "Scene Chunks, Removed MMR"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_scene",
+      "collection_name": null,
+      "num_vectors": 8993
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-07T20:31:58Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 60.0,
+    "judge_max_retries": 2,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 7,
+    "avg_overall": 71,
+    "overall_scores": [
+      46,
+      90,
+      74,
+      54,
+      58,
+      90,
+      86
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 7,
+    "episode_ok_rate": 0.7142857142857143,
+    "must_include_ok_rate": 0.5714285714285714,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q1",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E17"
+        ],
+        "expected_episode_ids": [
+          "S03E20"
+        ],
+        "episode_ok": false,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "impersonat",
+          "Dwight",
+          "bears",
+          "beets",
+          "battlestar"
+        ],
+        "must_include_hits": 6,
+        "must_include_needed": 4,
+        "must_include_total": 6,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 2,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 46,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "The episode is Season 2, Episode 17 titled 'Dwight's Speech'",
+          "Jim dresses up as Dwight and mimics him",
+          "Jim asks 'What kind of bear is best?' and Dwight calls it ridiculous",
+          "Jim answers 'Black bear'",
+          "Jim interrupts Dwight with the line 'Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.'",
+          "Dwight is confused and asks 'Bears do not— What is going on— What are you doing?!'"
+        ],
+        "missing_points": [
+          "The correct episode is Season 3, Episode 20 (Product Recall), not Season 2, Episode 17",
+          "The line is said by Jim impersonating Dwight, not by Dwight himself",
+          "The context involves Jim mocking Dwight's obsessions with bears, beets, and Battlestar Galactica"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context includes a scene with Jim dressed as Dwight asking 'What kind of bear is best?' and Dwight calling it ridiculous, but does not contain the full quote 'Bears. Beets. Battlestar Galactica.' or the detailed context of the prank. The episode number and title are only mentioned in a summary reference without script details. Therefore, the answer contains some hallucinated details not supported by the provided context. | correctness: The candidate answer correctly describes the scene where Jim impersonates Dwight and says the line, but incorrectly identifies the episode as S02E17 instead of the correct S03E20. The retrieved context supports the correct episode and scene but the candidate answer does not align with it.",
+        "question": "Find the episode where Dwight says something like 'Bears. Beets. Battlestar Galactica.' What is the context?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "The episode is Season 2, Episode 17 titled 'Dwight's Speech'",
+            "Jim dresses up as Dwight and mimics him",
+            "Jim asks 'What kind of bear is best?' and Dwight calls it ridiculous",
+            "Jim answers 'Black bear'",
+            "Jim interrupts Dwight with the line 'Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.'",
+            "Dwight is confused and asks 'Bears do not— What is going on— What are you doing?!'"
+          ],
+          "notes": "The retrieved context includes a scene with Jim dressed as Dwight asking 'What kind of bear is best?' and Dwight calling it ridiculous, but does not contain the full quote 'Bears. Beets. Battlestar Galactica.' or the detailed context of the prank. The episode number and title are only mentioned in a summary reference without script details. Therefore, the answer contains some hallucinated details not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 2,
+          "completeness": 2,
+          "missing_points": [
+            "The correct episode is Season 3, Episode 20 (Product Recall), not Season 2, Episode 17",
+            "The line is said by Jim impersonating Dwight, not by Dwight himself",
+            "The context involves Jim mocking Dwight's obsessions with bears, beets, and Battlestar Galactica"
+          ],
+          "notes": "The candidate answer correctly describes the scene where Jim impersonates Dwight and says the line, but incorrectly identifies the episode as S02E17 instead of the correct S03E20. The retrieved context supports the correct episode and scene but the candidate answer does not align with it."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"The episode is Season 2, Episode 17 titled 'Dwight's Speech'\",\n    \"Jim dresses up as Dwight and mimics him\",\n    \"Jim asks 'What kind of bear is best?' and Dwight calls it ridiculous\",\n    \"Jim answers 'Black bear'\",\n    \"Jim interrupts Dwight with the line 'Fact. Bears eat beets. Bears. Beets. Battlestar Galactica.'\",\n    \"Dwight is confused and asks 'Bears do not— What is going on— What are you doing?!'\"\n  ],\n  \"notes\": \"The retrieved context includes a scene with Jim dressed as Dwight asking 'What kind of bear is best?' and Dwight calling it ridiculous, but does not contain the full quote 'Bears. Beets. Battlestar Galactica.' or the detailed context of the prank. The episode number and title are only mentioned in a summary reference without script details. Therefore, the answer contains some hallucinated details not supported by the provided context.\"\n}",
+          "correctness": "{\n  \"correctness\": 2,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"The correct episode is Season 3, Episode 20 (Product Recall), not Season 2, Episode 17\",\n    \"The line is said by Jim impersonating Dwight, not by Dwight himself\",\n    \"The context involves Jim mocking Dwight's obsessions with bears, beets, and Battlestar Galactica\"\n  ],\n  \"notes\": \"The candidate answer correctly describes the scene where Jim impersonates Dwight and says the line, but incorrectly identifies the episode as S02E17 instead of the correct S03E20. The retrieved context supports the correct episode and scene but the candidate answer does not align with it.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q2",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E12"
+        ],
+        "expected_episode_ids": [
+          "S02E12"
+        ],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "The Injury",
+          "Foreman",
+          "grill"
+        ],
+        "must_include_hits": 3,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "correct",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The answer is fully supported by multiple retrieved context snippets confirming Michael burns his foot in Season 2, Episode 12, titled 'The Injury', and the detail about the George Foreman Grill is also present. | correctness: The candidate answer correctly identifies the episode as Season 2, Episode 12, titled 'The Injury', and mentions Michael burning his foot on a George Foreman grill, matching the gold answer and supported by the retrieved context.",
+        "question": "In what episode does Michael burn his foot?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The answer is fully supported by multiple retrieved context snippets confirming Michael burns his foot in Season 2, Episode 12, titled 'The Injury', and the detail about the George Foreman Grill is also present."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly identifies the episode as Season 2, Episode 12, titled 'The Injury', and mentions Michael burning his foot on a George Foreman grill, matching the gold answer and supported by the retrieved context."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The answer is fully supported by multiple retrieved context snippets confirming Michael burns his foot in Season 2, Episode 12, titled 'The Injury', and the detail about the George Foreman Grill is also present.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly identifies the episode as Season 2, Episode 12, titled 'The Injury', and mentions Michael burning his foot on a George Foreman grill, matching the gold answer and supported by the retrieved context.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q3",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S02E01",
+          "S02E02",
+          "S02E03",
+          "S02E04",
+          "S02E07",
+          "S02E08",
+          "S02E13",
+          "S02E15",
+          "S02E20",
+          "S02E22"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jim",
+          "Pam",
+          "Roy",
+          "Jan",
+          "Casino Night"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 5,
+        "completeness": 3,
+        "hallucination": 0,
+        "overall": 74,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Pam remains engaged to Roy",
+          "Michael’s relationship with Jan becomes more involved",
+          "Dwight’s ambition and rivalry with Jim through workplace conflicts and pranks",
+          "Jim confesses his feelings and kisses Pam in Casino Night"
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: All episodes and key events mentioned in the candidate answer are supported by the retrieved context summaries. | correctness: The candidate answer correctly references many key episodes and events from season 2, including the Casino Night and Jim's feelings for Pam. However, it lacks explicit mention of Pam's engagement to Roy, the deepening of Michael and Jan's relationship, and Dwight's rivalry with Jim, which are important emotional and character development points in the season.",
+        "question": "Summarize season 2 of The Office."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "All episodes and key events mentioned in the candidate answer are supported by the retrieved context summaries."
+        },
+        "correctness": {
+          "correctness": 4,
+          "completeness": 3,
+          "missing_points": [
+            "Pam remains engaged to Roy",
+            "Michael’s relationship with Jan becomes more involved",
+            "Dwight’s ambition and rivalry with Jim through workplace conflicts and pranks",
+            "Jim confesses his feelings and kisses Pam in Casino Night"
+          ],
+          "notes": "The candidate answer correctly references many key episodes and events from season 2, including the Casino Night and Jim's feelings for Pam. However, it lacks explicit mention of Pam's engagement to Roy, the deepening of Michael and Jan's relationship, and Dwight's rivalry with Jim, which are important emotional and character development points in the season."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"All episodes and key events mentioned in the candidate answer are supported by the retrieved context summaries.\"\n}",
+          "correctness": "{\n  \"correctness\": 4,\n  \"completeness\": 3,\n  \"missing_points\": [\n    \"Pam remains engaged to Roy\",\n    \"Michael’s relationship with Jan becomes more involved\",\n    \"Dwight’s ambition and rivalry with Jim through workplace conflicts and pranks\",\n    \"Jim confesses his feelings and kisses Pam in Casino Night\"\n  ],\n  \"notes\": \"The candidate answer correctly references many key episodes and events from season 2, including the Casino Night and Jim's feelings for Pam. However, it lacks explicit mention of Pam's engagement to Roy, the deepening of Michael and Jan's relationship, and Dwight's rivalry with Jim, which are important emotional and character development points in the season.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q4",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "prank",
+          "authority",
+          "rule"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 2,
+        "must_include_total": 3,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 3,
+        "completeness": 2,
+        "hallucination": 2,
+        "overall": 54,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Dwight complains about Jim's antics and pranks with specific quotes in SCENE 027",
+          "Dwight criticizes Jim for 'kissing the boss man's butt' in SCENE 023",
+          "Dwight is frustrated by Jim's relationship with Michael as a source of tension"
+        ],
+        "missing_points": [
+          "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+          "Dwight is competitive and threatened by Jim’s social ease and influence",
+          "Example of deep respect and naming Jim best man at wedding"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The answer correctly references Dwight calling Jim his enemy in SCENE 034 and Jim questioning Dwight's loyalty to Michael in SCENE 038. However, the retrieved context does not contain the quoted lines or explicit examples of pranks or criticism about Jim undermining Dwight. The claim about Dwight's frustration with Jim's relationship with Michael is only indirectly supported by Jim's comment, not Dwight's feelings. Overall, the context is insufficient to fully support the three reasons given. | correctness: The candidate answer correctly identifies Dwight's dislike due to Jim's pranks and undermining behavior, supported by examples. However, it misses key reasons such as Dwight's value of hierarchy and authority versus Jim's sarcasm, and the competitive threat Dwight feels from Jim's social influence. Also, the important nuance of underlying respect and the best man example is absent. The retrieved context provides some quotes but lacks comprehensive coverage of all reasons.",
+        "question": "Why does Dwight dislike Jim? Give 3 reasons with examples"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 3,
+          "hallucination": 2,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Dwight complains about Jim's antics and pranks with specific quotes in SCENE 027",
+            "Dwight criticizes Jim for 'kissing the boss man's butt' in SCENE 023",
+            "Dwight is frustrated by Jim's relationship with Michael as a source of tension"
+          ],
+          "notes": "The answer correctly references Dwight calling Jim his enemy in SCENE 034 and Jim questioning Dwight's loyalty to Michael in SCENE 038. However, the retrieved context does not contain the quoted lines or explicit examples of pranks or criticism about Jim undermining Dwight. The claim about Dwight's frustration with Jim's relationship with Michael is only indirectly supported by Jim's comment, not Dwight's feelings. Overall, the context is insufficient to fully support the three reasons given."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive",
+            "Dwight is competitive and threatened by Jim’s social ease and influence",
+            "Example of deep respect and naming Jim best man at wedding"
+          ],
+          "notes": "The candidate answer correctly identifies Dwight's dislike due to Jim's pranks and undermining behavior, supported by examples. However, it misses key reasons such as Dwight's value of hierarchy and authority versus Jim's sarcasm, and the competitive threat Dwight feels from Jim's social influence. Also, the important nuance of underlying respect and the best man example is absent. The retrieved context provides some quotes but lacks comprehensive coverage of all reasons."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 3,\n  \"hallucination\": 2,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Dwight complains about Jim's antics and pranks with specific quotes in SCENE 027\",\n    \"Dwight criticizes Jim for 'kissing the boss man's butt' in SCENE 023\",\n    \"Dwight is frustrated by Jim's relationship with Michael as a source of tension\"\n  ],\n  \"notes\": \"The answer correctly references Dwight calling Jim his enemy in SCENE 034 and Jim questioning Dwight's loyalty to Michael in SCENE 038. However, the retrieved context does not contain the quoted lines or explicit examples of pranks or criticism about Jim undermining Dwight. The claim about Dwight's frustration with Jim's relationship with Michael is only indirectly supported by Jim's comment, not Dwight's feelings. Overall, the context is insufficient to fully support the three reasons given.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Dwight values hierarchy, rules, and authority while Jim is sarcastic and dismissive\",\n    \"Dwight is competitive and threatened by Jim’s social ease and influence\",\n    \"Example of deep respect and naming Jim best man at wedding\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Dwight's dislike due to Jim's pranks and undermining behavior, supported by examples. However, it misses key reasons such as Dwight's value of hierarchy and authority versus Jim's sarcasm, and the competitive threat Dwight feels from Jim's social influence. Also, the important nuance of underlying respect and the best man example is absent. The retrieved context provides some quotes but lacks comprehensive coverage of all reasons.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": true,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 4,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 4,
+        "groundedness": 1,
+        "completeness": 3,
+        "hallucination": 4,
+        "overall": 58,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jan Levinson was Michael's girlfriend and their relationship ended with ambivalence",
+          "Michael had sex with Jan",
+          "Jan gave Michael poor performance reviews after their relationship became official",
+          "Michael was seeing Donna and the relationship was ongoing",
+          "Michael had a relationship with Helene (Pam's mom)",
+          "Michael planned to tell Pam about the relationship with Helene",
+          "Michael dated Carol and proposed to her on their fourth date",
+          "Michael revealed he had herpes to Carol and the relationship ended",
+          "Michael had a girlfriend named Tara who lived in New York City",
+          "Michael had an affair with Suzanne Summers"
+        ],
+        "missing_points": [
+          "Holly Flax relationship and ending",
+          "Michael proposing to Carol on fourth date and photoshopping face",
+          "Michael ending relationship with Donna after learning she is married",
+          "Michael ending relationship with Helene because she is too old"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains only scene identifiers and brief dialogue snippets without any explicit information about Michael Scott's serious girlfriends or details about how those relationships ended. Therefore, the candidate answer's detailed claims about relationships and their endings are not supported by the provided context. | correctness: The candidate answer correctly lists several serious girlfriends and some details about the relationships and endings, but it misses the important relationship with Holly Flax and how it ended positively. It also lacks details about Michael proposing to Carol on the fourth date and photoshopping his face, and the reasons for ending relationships with Donna and Helene as per the gold answer.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 1,
+          "hallucination": 4,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jan Levinson was Michael's girlfriend and their relationship ended with ambivalence",
+            "Michael had sex with Jan",
+            "Jan gave Michael poor performance reviews after their relationship became official",
+            "Michael was seeing Donna and the relationship was ongoing",
+            "Michael had a relationship with Helene (Pam's mom)",
+            "Michael planned to tell Pam about the relationship with Helene",
+            "Michael dated Carol and proposed to her on their fourth date",
+            "Michael revealed he had herpes to Carol and the relationship ended",
+            "Michael had a girlfriend named Tara who lived in New York City",
+            "Michael had an affair with Suzanne Summers"
+          ],
+          "notes": "The retrieved context contains only scene identifiers and brief dialogue snippets without any explicit information about Michael Scott's serious girlfriends or details about how those relationships ended. Therefore, the candidate answer's detailed claims about relationships and their endings are not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 4,
+          "completeness": 3,
+          "missing_points": [
+            "Holly Flax relationship and ending",
+            "Michael proposing to Carol on fourth date and photoshopping face",
+            "Michael ending relationship with Donna after learning she is married",
+            "Michael ending relationship with Helene because she is too old"
+          ],
+          "notes": "The candidate answer correctly lists several serious girlfriends and some details about the relationships and endings, but it misses the important relationship with Holly Flax and how it ended positively. It also lacks details about Michael proposing to Carol on the fourth date and photoshopping his face, and the reasons for ending relationships with Donna and Helene as per the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 1,\n  \"hallucination\": 4,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jan Levinson was Michael's girlfriend and their relationship ended with ambivalence\",\n    \"Michael had sex with Jan\",\n    \"Jan gave Michael poor performance reviews after their relationship became official\",\n    \"Michael was seeing Donna and the relationship was ongoing\",\n    \"Michael had a relationship with Helene (Pam's mom)\",\n    \"Michael planned to tell Pam about the relationship with Helene\",\n    \"Michael dated Carol and proposed to her on their fourth date\",\n    \"Michael revealed he had herpes to Carol and the relationship ended\",\n    \"Michael had a girlfriend named Tara who lived in New York City\",\n    \"Michael had an affair with Suzanne Summers\"\n  ],\n  \"notes\": \"The retrieved context contains only scene identifiers and brief dialogue snippets without any explicit information about Michael Scott's serious girlfriends or details about how those relationships ended. Therefore, the candidate answer's detailed claims about relationships and their endings are not supported by the provided context.\"\n}",
+          "correctness": "{\n  \"correctness\": 4,\n  \"completeness\": 3,\n  \"missing_points\": [\n    \"Holly Flax relationship and ending\",\n    \"Michael proposing to Carol on fourth date and photoshopping face\",\n    \"Michael ending relationship with Donna after learning she is married\",\n    \"Michael ending relationship with Helene because she is too old\"\n  ],\n  \"notes\": \"The candidate answer correctly lists several serious girlfriends and some details about the relationships and endings, but it misses the important relationship with Holly Flax and how it ended positively. It also lacks details about Michael proposing to Carol on the fourth date and photoshopping his face, and the reasons for ending relationships with Donna and Helene as per the gold answer.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q6",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [
+          "S02E10"
+        ],
+        "episode_ok": false,
+        "must_include_ok": false,
+        "must_include": [
+          "teapot",
+          "letter",
+          "Jim",
+          "Pam",
+          "Christmas"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 5,
+        "hallucination": 0,
+        "overall": 90,
+        "verdict": "idk_preferred",
+        "unsupported_claims": [],
+        "missing_points": [],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The candidate answer correctly states that the retrieved context does not contain information about the 'teapot letter' or its importance, thus it is fully grounded and not hallucinated. However, the context is insufficient to answer the question. | correctness: The candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate given the provided context. Therefore, the answer 'I don't know' is appropriate and complete.",
+        "question": "What is the teapot letter and why is it important?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer correctly states that the retrieved context does not contain information about the 'teapot letter' or its importance, thus it is fully grounded and not hallucinated. However, the context is insufficient to answer the question."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 5,
+          "missing_points": [],
+          "notes": "The candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate given the provided context. Therefore, the answer 'I don't know' is appropriate and complete."
+        },
+        "raw": {
+          "grounding": "{\"groundedness\":5,\"hallucination\":0,\"context_sufficiency\":\"insufficient\",\"unsupported_claims\":[],\"notes\":\"The candidate answer correctly states that the retrieved context does not contain information about the 'teapot letter' or its importance, thus it is fully grounded and not hallucinated. However, the context is insufficient to answer the question.\"}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 5,\n  \"missing_points\": [],\n  \"notes\": \"The candidate answer correctly states that the retrieved context does not contain information about the teapot letter, which is accurate given the provided context. Therefore, the answer 'I don't know' is appropriate and complete.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    },
+    {
+      "case_id": "q7",
+      "deterministic": {
+        "answer_episode_ids": [],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Creed",
+          "Quality",
+          "Assurance",
+          "arrest"
+        ],
+        "must_include_hits": 1,
+        "must_include_needed": 3,
+        "must_include_total": 4,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 5,
+        "groundedness": 5,
+        "completeness": 4,
+        "hallucination": 0,
+        "overall": 86,
+        "verdict": "partially_correct",
+        "unsupported_claims": [],
+        "missing_points": [
+          "Creed works in Quality Assurance at Dunder Mifflin",
+          "Creed is arrested in the series finale"
+        ],
+        "context_sufficiency": "sufficient",
+        "notes": "grounding: The candidate answer is fully supported by the retrieved context, with all claims directly referenced to specific scenes. | correctness: The candidate answer accurately describes Creed's mysterious and shady character, including specific anecdotes and quotes. However, it omits his official role in Quality Assurance and the fact that he is arrested in the series finale, which are part of the gold answer.",
+        "question": "Who is Creed and what is his deal?"
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 5,
+          "hallucination": 0,
+          "context_sufficiency": "sufficient",
+          "unsupported_claims": [],
+          "notes": "The candidate answer is fully supported by the retrieved context, with all claims directly referenced to specific scenes."
+        },
+        "correctness": {
+          "correctness": 5,
+          "completeness": 4,
+          "missing_points": [
+            "Creed works in Quality Assurance at Dunder Mifflin",
+            "Creed is arrested in the series finale"
+          ],
+          "notes": "The candidate answer accurately describes Creed's mysterious and shady character, including specific anecdotes and quotes. However, it omits his official role in Quality Assurance and the fact that he is arrested in the series finale, which are part of the gold answer."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 5,\n  \"hallucination\": 0,\n  \"context_sufficiency\": \"sufficient\",\n  \"unsupported_claims\": [],\n  \"notes\": \"The candidate answer is fully supported by the retrieved context, with all claims directly referenced to specific scenes.\"\n}",
+          "correctness": "{\n  \"correctness\": 5,\n  \"completeness\": 4,\n  \"missing_points\": [\n    \"Creed works in Quality Assurance at Dunder Mifflin\",\n    \"Creed is arrested in the series finale\"\n  ],\n  \"notes\": \"The candidate answer accurately describes Creed's mysterious and shady character, including specific anecdotes and quotes. However, it omits his official role in Quality Assurance and the fact that he is arrested in the series finale, which are part of the gold answer.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

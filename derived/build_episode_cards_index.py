@@ -110,7 +110,9 @@ def build_episode_cards_index(
     if reset and persist_dir.exists():
         shutil.rmtree(persist_dir)
 
-    paths = list(_iter_episode_card_files(out_root=out_root, build_prefix=episode_cards_build_prefix))
+    paths = list(
+        _iter_episode_card_files(out_root=out_root, build_prefix=episode_cards_build_prefix)
+    )
     if not paths:
         raise FileNotFoundError(
             f"No episode card files found under {out_root} for build prefix {episode_cards_build_prefix}."
@@ -170,7 +172,9 @@ def build_episode_cards_index(
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Build a Chroma index from EpisodeDerivedCardV1 JSON artifacts")
+    p = argparse.ArgumentParser(
+        description="Build a Chroma index from EpisodeDerivedCardV1 JSON artifacts"
+    )
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT)
     p.add_argument("--persist-dir", default=DEFAULT_PERSIST_DIR)
     p.add_argument("--collection-name", default=None)

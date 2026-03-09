@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+# Keep auto-generated / large artifact trees untouched.
+# Black uses a regex; paths are relative to repo root when run from repo root.
+extend-exclude = "/(venv|\\.venv|db|derived/artifacts|derived/segments|experiments/runs|experiments/scored_runs.*|ingestion/normalized_docs_txt)/"

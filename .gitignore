@@ -215,6 +215,15 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Local vector DB artifacts (Chroma persist dirs)
-# These are environment-specific, large, and should not be committed or deployed.
-db/chroma_db*/
+# --- Repo-specific heavy artifacts (do not commit) ---
+# Local vector DB persist dirs (Chroma) are huge and machine-specific.
+db/
+
+# Derived artifacts are generated outputs (often large) and should not be committed.
+derived/artifacts/
+
+# Query-expansion cache and other local experiment caches.
+experiments/cache/
+
+# Convenience scratch outputs.
+experiments/_last_*.txt

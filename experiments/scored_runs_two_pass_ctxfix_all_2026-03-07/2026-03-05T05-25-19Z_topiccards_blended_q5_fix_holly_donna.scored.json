@@ -1,0 +1,193 @@
+{
+  "run": {
+    "run_id": "2026-03-05T05-25-19Z_topiccards_blended_q5_fix_holly_donna",
+    "run_name": "topiccards_blended_q5_fix_holly_donna",
+    "created_at_utc": "2026-03-05T05:25:19Z",
+    "notes": "deterministic michael romance topic_cards + strict serious girlfriends"
+  },
+  "config": {
+    "vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db",
+      "collection_name": null,
+      "num_vectors": 5171
+    },
+    "derived_vectorstore": {
+      "kind": "chroma",
+      "persist_directory": "db/chroma_db_derived_cards",
+      "collection_name": "derived_cards",
+      "num_vectors": 225
+    },
+    "embedding": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    },
+    "chunking": {
+      "splitter": "CharacterTextSplitter",
+      "chunk_size": 1000,
+      "chunk_overlap": 0
+    },
+    "retrieval": {
+      "policy": "blended",
+      "search_type": "similarity",
+      "k": 12,
+      "fetch_k": null,
+      "lambda_mult": null,
+      "routing": {
+        "derived_k": 12,
+        "episode_shortlist_size": 6,
+        "route_backfill_unfiltered": true,
+        "route_backfill_min_docs": 3,
+        "blended": {
+          "base_k_mult": 1.0,
+          "routed_k_mult": 1.0,
+          "include_derived_for_non_agg": false
+        }
+      },
+      "query_expansion": {
+        "enabled": true,
+        "n": 5,
+        "model": "gpt-4.1-nano",
+        "k_per_query": 6,
+        "fusion": "rrf",
+        "rrf_k0": 60,
+        "cache": "experiments/cache/query_expansion_cache.json"
+      }
+    },
+    "llm": {
+      "enabled": true,
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "temperature": 0.0,
+      "max_tokens": null,
+      "timeout": null,
+      "max_retries": null,
+      "seed": null
+    }
+  },
+  "scoring_meta": {
+    "scored_at_utc": "2026-03-07T22:20:04Z",
+    "scoring_schema_version": "v2",
+    "judge_mode": "two_pass",
+    "judge_model": "gpt-4.1-mini",
+    "judge_temperature": 0.0,
+    "judge_timeout_s": 90.0,
+    "judge_max_retries": 4,
+    "openai_max_retries": 0,
+    "deterministic_only": false,
+    "gold_file": "/Users/tg/Developer/RAG-1/experiments/gold_answers.json",
+    "runs_dir": "/Users/tg/Developer/RAG-1/experiments/runs"
+  },
+  "score_summary": {
+    "cases_scored": 1,
+    "avg_overall": 50,
+    "overall_scores": [
+      50
+    ]
+  },
+  "deterministic_summary": {
+    "cases_total": 1,
+    "episode_ok_rate": 1.0,
+    "must_include_ok_rate": 0.0,
+    "forbidden_hit_rate": 0.0
+  },
+  "scored_cases": [
+    {
+      "case_id": "q5",
+      "deterministic": {
+        "answer_episode_ids": [
+          "S07E04"
+        ],
+        "expected_episode_ids": [],
+        "episode_ok": true,
+        "must_include_ok": false,
+        "must_include": [
+          "Jan",
+          "Carol",
+          "Holly",
+          "Donna",
+          "Helene"
+        ],
+        "must_include_hits": 2,
+        "must_include_needed": 4,
+        "must_include_total": 5,
+        "forbidden_hit": false,
+        "forbidden_terms_hit": []
+      },
+      "judge": {
+        "correctness": 3,
+        "groundedness": 2,
+        "completeness": 2,
+        "hallucination": 3,
+        "overall": 50,
+        "verdict": "incorrect",
+        "unsupported_claims": [
+          "Jan Levinson was Michael's girlfriend and they had a sexual relationship",
+          "Jan gave Michael poor performance reviews after their relationship became official",
+          "Michael refers to Tara as his girlfriend who lives in New York City",
+          "Michael was engaged to Carol and proposed on their fourth date",
+          "The relationship with Carol ended after Michael found out he had herpes",
+          "Michael mentions having a European girlfriend who is a dental hygienist from Carbondale"
+        ],
+        "missing_points": [
+          "Holly Flax relationship and ending",
+          "Donna Newton relationship and ending",
+          "Helene Beesly relationship and ending",
+          "Details on Jan Levinson relationship ending as toxic/co-dependent",
+          "Carol Stills breakup reasons beyond herpes (moving too fast, inappropriate behavior)",
+          "Michael proposing to Carol on fourth date and photoshopping face on family photo"
+        ],
+        "context_sufficiency": "insufficient",
+        "notes": "grounding: The retrieved context contains only minimal references to Michael's relationships and does not provide explicit details about serious girlfriends or how relationships ended. Most claims in the candidate answer are not supported by the provided context. | correctness: The candidate answer correctly identifies Jan, Carol, Tara, and a European girlfriend as serious girlfriends and provides some details on their relationships and endings. However, it misses key serious girlfriends mentioned in the gold answer such as Holly Flax, Donna Newton, and Helene Beesly, and lacks details on how some relationships ended, especially for Jan and Carol. The retrieved context does not fully support all the information in the candidate answer or the gold answer, leading to partial correctness and completeness.",
+        "question": "List Michael Scott’s serious girlfriends and how the relationships ended."
+      },
+      "judge_context_source": "retrieval_previews",
+      "judge_two_pass": {
+        "grounding": {
+          "groundedness": 2,
+          "hallucination": 3,
+          "context_sufficiency": "insufficient",
+          "unsupported_claims": [
+            "Jan Levinson was Michael's girlfriend and they had a sexual relationship",
+            "Jan gave Michael poor performance reviews after their relationship became official",
+            "Michael refers to Tara as his girlfriend who lives in New York City",
+            "Michael was engaged to Carol and proposed on their fourth date",
+            "The relationship with Carol ended after Michael found out he had herpes",
+            "Michael mentions having a European girlfriend who is a dental hygienist from Carbondale"
+          ],
+          "notes": "The retrieved context contains only minimal references to Michael's relationships and does not provide explicit details about serious girlfriends or how relationships ended. Most claims in the candidate answer are not supported by the provided context."
+        },
+        "correctness": {
+          "correctness": 3,
+          "completeness": 2,
+          "missing_points": [
+            "Holly Flax relationship and ending",
+            "Donna Newton relationship and ending",
+            "Helene Beesly relationship and ending",
+            "Details on Jan Levinson relationship ending as toxic/co-dependent",
+            "Carol Stills breakup reasons beyond herpes (moving too fast, inappropriate behavior)",
+            "Michael proposing to Carol on fourth date and photoshopping face on family photo"
+          ],
+          "notes": "The candidate answer correctly identifies Jan, Carol, Tara, and a European girlfriend as serious girlfriends and provides some details on their relationships and endings. However, it misses key serious girlfriends mentioned in the gold answer such as Holly Flax, Donna Newton, and Helene Beesly, and lacks details on how some relationships ended, especially for Jan and Carol. The retrieved context does not fully support all the information in the candidate answer or the gold answer, leading to partial correctness and completeness."
+        },
+        "raw": {
+          "grounding": "{\n  \"groundedness\": 2,\n  \"hallucination\": 3,\n  \"context_sufficiency\": \"insufficient\",\n  \"unsupported_claims\": [\n    \"Jan Levinson was Michael's girlfriend and they had a sexual relationship\",\n    \"Jan gave Michael poor performance reviews after their relationship became official\",\n    \"Michael refers to Tara as his girlfriend who lives in New York City\",\n    \"Michael was engaged to Carol and proposed on their fourth date\",\n    \"The relationship with Carol ended after Michael found out he had herpes\",\n    \"Michael mentions having a European girlfriend who is a dental hygienist from Carbondale\"\n  ],\n  \"notes\": \"The retrieved context contains only minimal references to Michael's relationships and does not provide explicit details about serious girlfriends or how relationships ended. Most claims in the candidate answer are not supported by the provided context.\"\n}",
+          "correctness": "{\n  \"correctness\": 3,\n  \"completeness\": 2,\n  \"missing_points\": [\n    \"Holly Flax relationship and ending\",\n    \"Donna Newton relationship and ending\",\n    \"Helene Beesly relationship and ending\",\n    \"Details on Jan Levinson relationship ending as toxic/co-dependent\",\n    \"Carol Stills breakup reasons beyond herpes (moving too fast, inappropriate behavior)\",\n    \"Michael proposing to Carol on fourth date and photoshopping face on family photo\"\n  ],\n  \"notes\": \"The candidate answer correctly identifies Jan, Carol, Tara, and a European girlfriend as serious girlfriends and provides some details on their relationships and endings. However, it misses key serious girlfriends mentioned in the gold answer such as Holly Flax, Donna Newton, and Helene Beesly, and lacks details on how some relationships ended, especially for Jan and Carol. The retrieved context does not fully support all the information in the candidate answer or the gold answer, leading to partial correctness and completeness.\"\n}"
+        },
+        "validation": {
+          "grounding_ok": true,
+          "grounding_errors": [],
+          "correctness_ok": true,
+          "correctness_errors": [],
+          "merged_ok": true,
+          "merged_errors": []
+        }
+      },
+      "judge_raw_text": null,
+      "judge_validation": {
+        "ok": true,
+        "errors": []
+      }
+    }
+  ]
+}

@@ -1,11 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import math
 import re
-import subprocess
 import sys
 import time
 from collections import Counter
@@ -30,7 +28,9 @@ from rag.query_expansion import QueryExpansionConfig, build_expander_llm, expand
 # Defaults (adjust as needed)
 # -----------------------------
 DEFAULT_PERSIST_DIR = "db/chroma_db"
-DEFAULT_COLLECTION_NAME: Optional[str] = None  # set if you explicitly named the collection in ingestion
+DEFAULT_COLLECTION_NAME: Optional[str] = (
+    None  # set if you explicitly named the collection in ingestion
+)
 DEFAULT_EMBED_MODEL = "text-embedding-3-small"
 DEFAULT_LLM_MODEL = "gpt-4.1-mini"
 DEFAULT_TEMPERATURE = 0.0
@@ -62,81 +62,11 @@ DEFAULT_RRF_K0 = 60
 DEFAULT_EXPAND_CACHE = "experiments/cache/query_expansion_cache.json"
 
 # Routing defaults
-DEFAULT_RETRIEVAL_POLICY = "blended"
+DEFAULT_RETRIEVAL_POLICY = "script_only"
 DEFAULT_DERIVED_PERSIST_DIR = "db/chroma_db_derived_cards"
 DEFAULT_DERIVED_COLLECTION_NAME = "derived_cards"
 DEFAULT_DERIVED_K = 12
 DEFAULT_EPISODE_SHORTLIST_SIZE = 6
-
-# Safety: in derived_then_script, backfill with unfiltered script docs so a bad shortlist
-# doesn't zero-out retrieval for quote/episode-ID questions.
-DEFAULT_ROUTE_BACKFILL_UNFILTERED = True
-DEFAULT_ROUTE_BACKFILL_MIN_DOCS = 3
-
-# Blended retrieval defaults
-DEFAULT_BLENDED_BASE_K_MULT = 1.0
-DEFAULT_BLENDED_ROUTED_K_MULT = 1.0
-DEFAULT_BLENDED_INCLUDE_DERIVED_FOR_NON_AGG = False
-
-# Run log schema version (bump when you change log structure/semantics).
-RUN_SCHEMA_VERSION = "v4"
-
-# How much of the retrieved context to store in the run log for auditability/scoring.
-# This is used by the scorer + dashboard Flight Recorder to judge answers against the
-# actual context the LLM saw, rather than only short previews.
-LOGGED_CONTEXT_TEXT_MAX_CHARS = 12000
-
-
-def _file_fingerprint(path: Path) -> Optional[Dict[str, Any]]:
-    """Best-effort fingerprint for auditability.
-
-    Returns a dict with size/mtime/sha256 when the file exists and can be read.
-    """
-    try:
-        p = Path(path)
-        if not p.exists() or not p.is_file():
-            return None
-
-        st = p.stat()
-        size_bytes = int(st.st_size)
-        mtime_utc = datetime.fromtimestamp(st.st_mtime, tz=timezone.utc).replace(microsecond=0)
-
-        h = hashlib.sha256()
-        with p.open("rb") as f:
-            for chunk in iter(lambda: f.read(1024 * 1024), b""):
-                h.update(chunk)
-
-        return {
-            "path": str(p),
-            "size_bytes": size_bytes,
-            "mtime_utc": mtime_utc.isoformat().replace("+00:00", "Z"),
-            "sha256": h.hexdigest(),
-        }
-    except Exception:
-        return None
-
-
-def _dedupe_doc_pairs(pairs: List[Tuple[Any, Optional[float]]]) -> List[Tuple[Any, Optional[float]]]:
-    """De-dupe by (source, page_content), keeping max score when available."""
-    best: Dict[Tuple[Optional[str], str], Tuple[Any, Optional[float]]] = {}
-    for doc, score in pairs:
-        meta = getattr(doc, "metadata", None) or {}
-        key = (meta.get("source"), getattr(doc, "page_content", None) or "")
-        prev = best.get(key)
-        if prev is None:
-            best[key] = (doc, score)
-            continue
-        prev_score = prev[1]
-        if prev_score is None and score is not None:
-            best[key] = (doc, score)
-        elif prev_score is not None and score is not None and float(score) > float(prev_score):
-            best[key] = (doc, score)
-    return list(best.values())
-
-
-def _sort_pairs_best_first(pairs: List[Tuple[Any, Optional[float]]]) -> List[Tuple[Any, Optional[float]]]:
-    # Scores are generally in [0,1] relevance for Chroma; treat None as lowest.
-    return sorted(pairs, key=lambda ds: (-float(ds[1]) if ds[1] is not None else 1e9,))
 
 
 # -----------------------------
@@ -144,85 +74,6 @@ def _sort_pairs_best_first(pairs: List[Tuple[Any, Optional[float]]]) -> List[Tup
 # -----------------------------
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-
-
-def _git_sha(repo_root: Path) -> Optional[str]:
-    """Best-effort git SHA for auditability.
-
-    Returns None when git isn't available or repo_root isn't a git repo.
-    """
-    try:
-        res = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=str(repo_root),
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        sha = (res.stdout or "").strip()
-        if res.returncode == 0 and sha:
-            return sha
-    except Exception:
-        return None
-    return None
-
-
-def _load_derived_build_meta(derived_persist_directory: str) -> Optional[Dict[str, Any]]:
-    """Load derived index build metadata if present.
-
-    build_derived_cards_index.py writes a _build_meta.json into the persist dir.
-    """
-    try:
-        p = Path(derived_persist_directory).expanduser().resolve() / "_build_meta.json"
-        if not p.exists():
-            return None
-        obj = json.loads(p.read_text(encoding="utf-8"))
-        return obj if isinstance(obj, dict) else None
-    except Exception:
-        return None
-
-
-def _data_version_block(
-    *,
-    script_persist_directory: str,
-    script_collection_name: Optional[str],
-    derived_persist_directory: str,
-    derived_collection_name: Optional[str],
-) -> Dict[str, Any]:
-    derived_meta = _load_derived_build_meta(derived_persist_directory)
-
-    # Fingerprint sqlite files when present. This gives a stable, defensible data-version
-    # signal even if persist dir names are reused.
-    script_sqlite_fp = _file_fingerprint(Path(script_persist_directory).expanduser().resolve() / "chroma.sqlite3")
-    derived_sqlite_fp = _file_fingerprint(Path(derived_persist_directory).expanduser().resolve() / "chroma.sqlite3")
-
-    # "build_id/tag" is best-effort: prefer explicit build_id/tag fields when present,
-    # else fall back to persist-dir basename.
-    derived_tag = None
-    if isinstance(derived_meta, dict):
-        # build_derived_cards_index.py writes created_at_utc and includes build prefixes.
-        derived_tag = derived_meta.get("created_at_utc") or derived_meta.get("persist_dir")
-    if not derived_tag:
-        derived_tag = Path(derived_persist_directory).name
-
-    return {
-        "script": {
-            "persist_directory": script_persist_directory,
-            "collection_name": script_collection_name,
-            "fingerprint": {
-                "chroma_sqlite": script_sqlite_fp,
-            },
-        },
-        "derived": {
-            "persist_directory": derived_persist_directory,
-            "collection_name": derived_collection_name,
-            "build_tag": derived_tag,
-            "build_meta": derived_meta,
-            "fingerprint": {
-                "chroma_sqlite": derived_sqlite_fp,
-            },
-        },
-    }
 
 
 def slug(s: str) -> str:
@@ -328,7 +179,9 @@ def aggregation_readiness_score(
     # Coverage: what fraction of the context docs come from distinct episodes.
     coverage = float(distinct_episode_count / context_docs) if context_docs > 0 else 0.0
 
-    score01 = 0.45 * _clamp01(diversity) + 0.35 * _clamp01(anti_concentration) + 0.20 * _clamp01(coverage)
+    score01 = (
+        0.45 * _clamp01(diversity) + 0.35 * _clamp01(anti_concentration) + 0.20 * _clamp01(coverage)
+    )
     return float(round(100.0 * _clamp01(score01), 2))
 
 
@@ -394,86 +247,6 @@ def _extract_episode_id_from_derived_doc(doc: Any) -> Optional[str]:
     return ids[0] if ids else None
 
 
-def _extract_episode_ids_from_derived_doc(doc: Any) -> List[str]:
-    meta = getattr(doc, "metadata", None) or {}
-
-    # Episode cards: single episode_id.
-    eid = meta.get("episode_id")
-    if isinstance(eid, str) and eid.strip():
-        return [eid.strip().upper()]
-
-    # Topic cards: episode_ids list.
-    eids = meta.get("episode_ids")
-    if isinstance(eids, list):
-        out: List[str] = []
-        seen: set[str] = set()
-        for x in eids:
-            s = str(x or "").strip().upper()
-            if not s:
-                continue
-            if s in seen:
-                continue
-            seen.add(s)
-            out.append(s)
-        if out:
-            return out
-
-    # Fallback: parse any SxxEyy tokens from the rendered derived card text.
-    txt = getattr(doc, "page_content", None) or ""
-    return extract_episode_ids(txt)
-
-
-def _build_season_to_episode_ids_from_script_index(db: Chroma) -> Dict[int, List[str]]:
-    """Build a mapping from season number -> episode_ids from the script index.
-
-    We derive season from canonical episode ids like "S02E12". This is best-effort and
-    safe to fail (returns {}). Used to expand season_card routing hits.
-    """
-    season_to: Dict[int, set[str]] = {}
-    try:
-        got = db._collection.get(include=["metadatas"])  # type: ignore[attr-defined]
-        metas = got.get("metadatas") or []
-        for md in metas:
-            if not isinstance(md, dict):
-                continue
-            eid = md.get("episode_id")
-            if not isinstance(eid, str):
-                continue
-            eid = eid.strip().upper()
-            if not _EP_CITE_RE.fullmatch(eid):
-                continue
-            m = re.match(r"^S(\d{2})E(\d{2})$", eid)
-            if not m:
-                continue
-            season = int(m.group(1))
-            season_to.setdefault(season, set()).add(eid)
-    except Exception:
-        return {}
-
-    return {s: sorted(list(eids)) for s, eids in sorted(season_to.items(), key=lambda kv: kv[0])}
-
-
-def _episode_ids_for_shortlist(doc: Any, *, season_to_episode_ids: Optional[Dict[int, List[str]]]) -> List[str]:
-    eids = _extract_episode_ids_from_derived_doc(doc)
-    if eids:
-        return eids
-
-    if not season_to_episode_ids:
-        return []
-
-    meta = getattr(doc, "metadata", None) or {}
-    if (meta.get("derived_type") or "") != "season_card":
-        return []
-
-    season_raw = meta.get("season")
-    try:
-        season = int(season_raw)
-    except Exception:
-        return []
-
-    return list(season_to_episode_ids.get(season) or [])
-
-
 def _doc_episode_id(doc: Any) -> Optional[str]:
     meta = getattr(doc, "metadata", None) or {}
     eid = meta.get("episode_id")
@@ -529,7 +302,10 @@ def _similarity_search_with_scores(
     filt: Optional[Dict[str, Any]] = None,
 ) -> List[Tuple[Any, Optional[float]]]:
     if not filt:
-        return [(doc, float(score)) for (doc, score) in db.similarity_search_with_relevance_scores(question, k=k)]
+        return [
+            (doc, float(score))
+            for (doc, score) in db.similarity_search_with_relevance_scores(question, k=k)
+        ]
 
     # Try passing filters through to LangChain/Chroma. Different versions use different kw names.
     last_exc: Optional[Exception] = None
@@ -678,7 +454,7 @@ def any_quote_in_context(quotes: List[str], context_text: str) -> bool:
         if qn in ctx:
             return True
         # Tolerate trailing punctuation differences (e.g., "The Injury." vs "The Injury")
-        q2 = (q or "").strip().rstrip(" .,!?:;\"")
+        q2 = (q or "").strip().rstrip(' .,!?:;"')
         if q2 and normalize_for_match(q2) in ctx:
             return True
     return False
@@ -814,19 +590,6 @@ def get_index_counts(db: Chroma) -> Dict[str, Optional[int]]:
         return {"num_vectors": None}
 
 
-def _index_has_metadata_key(db: Chroma, key: str) -> bool:
-    """Best-effort check for whether the underlying Chroma collection stores a metadata key."""
-    try:
-        got = db._collection.get(include=["metadatas"], limit=25)  # type: ignore[attr-defined]
-        metas = got.get("metadatas") or []
-        for md in metas:
-            if isinstance(md, dict) and key in md:
-                return True
-        return False
-    except Exception:
-        return False
-
-
 # -----------------------------
 # LLM
 # -----------------------------
@@ -884,11 +647,6 @@ def run_eval(
     derived_collection_name: Optional[str],
     derived_k: int,
     episode_shortlist_size: int,
-    route_backfill_unfiltered: bool,
-    route_backfill_min_docs: int,
-    blended_base_k_mult: float,
-    blended_routed_k_mult: float,
-    blended_include_derived_for_non_agg: bool,
     embed_model: str,
     search_type: str,
     k: int,
@@ -922,14 +680,9 @@ def run_eval(
     )
     index_counts = get_index_counts(script_db)
 
-    script_index_has_episode_id = _index_has_metadata_key(script_db, "episode_id")
-    season_to_episode_ids: Optional[Dict[int, List[str]]] = None
-    if script_index_has_episode_id:
-        season_to_episode_ids = _build_season_to_episode_ids_from_script_index(script_db)
-
     derived_db: Optional[Chroma] = None
     derived_index_counts: Optional[Dict[str, Optional[int]]] = None
-    if retrieval_policy in {"derived_only", "derived_then_script", "auto", "blended"}:
+    if retrieval_policy in {"derived_only", "derived_then_script"}:
         derived_db = build_vectorstore(
             persist_directory=derived_persist_directory,
             embed_model=embed_model,
@@ -964,17 +717,6 @@ def run_eval(
     created_at = utc_now_iso()
     run_id = f"{created_at.replace(':', '-')}_{slug(run_name)}"
 
-    code_version = {
-        "git_sha": _git_sha(_REPO_ROOT),
-    }
-
-    data_version = _data_version_block(
-        script_persist_directory=str(persist_directory),
-        script_collection_name=collection_name,
-        derived_persist_directory=str(derived_persist_directory),
-        derived_collection_name=derived_collection_name,
-    )
-
     out: Dict[str, Any] = {
         "run": {
             "run_id": run_id,
@@ -983,9 +725,6 @@ def run_eval(
             "notes": notes,
         },
         "config": {
-            "run_schema_version": RUN_SCHEMA_VERSION,
-            "code_version": code_version,
-            "data_version": data_version,
             "vectorstore": {
                 "kind": "chroma",
                 "persist_directory": persist_directory,
@@ -1018,22 +757,19 @@ def run_eval(
                     {
                         "derived_k": int(derived_k),
                         "episode_shortlist_size": int(episode_shortlist_size),
-                        "route_backfill_unfiltered": bool(route_backfill_unfiltered),
-                        "route_backfill_min_docs": int(route_backfill_min_docs),
-                        "blended": {
-                            "base_k_mult": float(blended_base_k_mult),
-                            "routed_k_mult": float(blended_routed_k_mult),
-                            "include_derived_for_non_agg": bool(blended_include_derived_for_non_agg),
-                        }
                     }
-                    if retrieval_policy in {"derived_then_script", "auto", "blended"}
+                    if retrieval_policy == "derived_then_script"
                     else None
                 ),
                 "query_expansion": {
                     "enabled": bool(query_expansion),
                     "n": int(expand_n) if query_expansion else None,
                     "model": str(expand_model) if query_expansion else None,
-                    "k_per_query": (int(k_per_query) if k_per_query is not None else None) if query_expansion else None,
+                    "k_per_query": (
+                        (int(k_per_query) if k_per_query is not None else None)
+                        if query_expansion
+                        else None
+                    ),
                     "fusion": str(fusion) if query_expansion else None,
                     "rrf_k0": int(rrf_k0) if (query_expansion and fusion == "rrf") else None,
                     "cache": str(expand_cache) if (query_expansion and expand_cache) else None,
@@ -1110,125 +846,52 @@ def run_eval(
             )
             return pairs, {"policy": "derived_only"}
 
-        if retrieval_policy in {"derived_then_script", "auto"}:
+        if retrieval_policy == "derived_then_script":
             if derived_db is None:
                 raise RuntimeError("derived_then_script policy requires derived_db")
 
-            effective_policy = "derived_then_script"
-            if retrieval_policy == "auto":
-                # Only apply routing to aggregation-like questions; otherwise stay script-only.
-                if not is_aggregation_question(question):
-                    effective_policy = "script_only"
-
-            if effective_policy == "script_only":
-                pairs = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type=search_type,
-                    k=effective_k,
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=None,
-                )
-                return pairs, {"policy": "auto", "effective_policy": "script_only"}
-
-            # Stage 1: use derived episode cards to propose which episodes matter.
             derived_pairs = _similarity_search_with_scores(
                 derived_db,
                 question,
                 k=int(derived_k),
-                filt={"derived_type": {"$in": ["episode_card", "season_card", "topic_card"]}},
+                filt={"derived_type": "episode_card"},
             )
 
             shortlist: List[str] = []
             seen: set[str] = set()
             for d, _s in derived_pairs:
-                for eid in _episode_ids_for_shortlist(d, season_to_episode_ids=season_to_episode_ids):
-                    if not eid or eid in seen:
-                        continue
-                    seen.add(eid)
-                    shortlist.append(eid)
-                    if len(shortlist) >= int(episode_shortlist_size):
-                        break
+                eid = _extract_episode_id_from_derived_doc(d)
+                if not eid or eid in seen:
+                    continue
+                seen.add(eid)
+                shortlist.append(eid)
                 if len(shortlist) >= int(episode_shortlist_size):
                     break
 
-            # Stage 2: retrieve scripts/summaries constrained to that episode shortlist.
-            shortlist_set = {s.strip().upper() for s in shortlist if str(s).strip()}
-
+            # If we failed to get a shortlist (e.g., empty derived index), fall back to script-only.
             script_filter: Optional[Dict[str, Any]] = None
-            script_filter_mode: str = "none"
+            if shortlist:
+                script_filter = {"episode_id": {"$in": shortlist}}
 
-            # Prefer metadata pushdown when episode_id exists in the script index.
-            if shortlist_set and script_index_has_episode_id:
-                script_filter = {"episode_id": {"$in": sorted(shortlist_set)}}
-                script_filter_mode = "metadata"
-                script_pairs = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type=search_type,
-                    k=effective_k,
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=script_filter,
-                )
-            elif shortlist_set:
-                # Legacy script index: only `source` is present. Retrieve a bigger candidate pool
-                # and filter by parsing episode from source.
-                script_filter_mode = "source_parse"
-                candidate_k = max(int(effective_k) * 14, 80)
-                candidates = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type="similarity",  # stable ordering for filtering
-                    k=int(candidate_k),
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=None,
-                )
-                filtered = [(d, s) for (d, s) in candidates if (_doc_episode_id(d) or "") in shortlist_set]
-                script_pairs = filtered[: int(effective_k)]
-                # Backfill with unfiltered docs to avoid catastrophic misses.
-                if route_backfill_unfiltered:
-                    min_docs = max(int(route_backfill_min_docs), 0)
-                    if len(script_pairs) < min_docs:
-                        seen_keys = {
-                            (
-                                (getattr(d, "metadata", {}) or {}).get("source"),
-                                getattr(d, "page_content", None) or "",
-                            )
-                            for (d, _s) in script_pairs
-                        }
-                        for d, s in candidates:
-                            key = ((getattr(d, "metadata", {}) or {}).get("source"), getattr(d, "page_content", None) or "")
-                            if key in seen_keys:
-                                continue
-                            script_pairs.append((d, s))
-                            seen_keys.add(key)
-                            if len(script_pairs) >= int(effective_k):
-                                break
-            else:
-                script_pairs = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type=search_type,
-                    k=effective_k,
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=None,
-                )
+            script_pairs = _retrieve_docs_with_scores(
+                script_db,
+                question,
+                search_type=search_type,
+                k=effective_k,
+                fetch_k=fetch_k,
+                lambda_mult=lambda_mult,
+                filt=script_filter,
+            )
 
             routing = {
-                "policy": ("auto" if retrieval_policy == "auto" else "derived_then_script"),
-                "effective_policy": effective_policy,
+                "policy": "derived_then_script",
                 "derived": {
                     "k": int(derived_k),
-                    "filter": {"derived_type": {"$in": ["episode_card", "season_card", "topic_card"]}},
-                    "included_in_context": bool(is_aggregation_question(question)),
+                    "filter": {"derived_type": "episode_card"},
                     "results": [
                         {
                             "rank": i + 1,
-                            "episode_ids": _episode_ids_for_shortlist(d, season_to_episode_ids=season_to_episode_ids),
+                            "episode_id": _extract_episode_id_from_derived_doc(d),
                             "derived_type": (getattr(d, "metadata", {}) or {}).get("derived_type"),
                             "season": (getattr(d, "metadata", {}) or {}).get("season"),
                             "title": (getattr(d, "metadata", {}) or {}).get("title"),
@@ -1239,153 +902,8 @@ def run_eval(
                 },
                 "episode_shortlist": shortlist,
                 "script_filter": script_filter,
-                "script_filter_mode": script_filter_mode,
-                "script_index_has_episode_id": bool(script_index_has_episode_id),
-                "backfill": {
-                    "enabled": bool(route_backfill_unfiltered),
-                    "min_docs": int(route_backfill_min_docs),
-                },
             }
-            # For aggregation-like questions, include a handful of derived cards directly
-            # in the context so the model can aggregate from rollups first, then use scripts
-            # for supporting quotes.
-            if is_aggregation_question(question):
-                derived_context_k = min(len(derived_pairs), max(2, min(6, int(round(0.4 * float(effective_k))))))
-                derived_context_pairs = derived_pairs[: int(derived_context_k)]
-            else:
-                derived_context_pairs = []
-
-            combined = _dedupe_doc_pairs(derived_context_pairs + script_pairs)
-            combined = _sort_pairs_best_first(combined)
-            combined = combined[: int(effective_k)]
-            return combined, routing
-
-        if retrieval_policy == "blended":
-            # Baseline scripts first (high recall for pinpoint questions).
-            base_k = max(1, int(round(float(blended_base_k_mult) * float(effective_k))))
-            base_pairs = _retrieve_docs_with_scores(
-                script_db,
-                question,
-                search_type=search_type,
-                k=base_k,
-                fetch_k=fetch_k,
-                lambda_mult=lambda_mult,
-                filt=None,
-            )
-
-            agg_like = is_aggregation_question(question)
-            include_derived = bool(agg_like or blended_include_derived_for_non_agg)
-            if not include_derived:
-                # Pure baseline for non-aggregation questions.
-                return base_pairs[: int(effective_k)], {"policy": "blended", "effective_policy": "script_only", "agg_like": agg_like}
-
-            if derived_db is None:
-                # Should not happen due to earlier setup, but keep safe.
-                return base_pairs[: int(effective_k)], {"policy": "blended", "effective_policy": "script_only", "agg_like": agg_like, "note": "derived_db_missing"}
-
-            # Use derived episode cards to propose which episodes to expand with scripts.
-            derived_pairs = _similarity_search_with_scores(
-                derived_db,
-                question,
-                k=int(derived_k),
-                filt={"derived_type": {"$in": ["episode_card", "season_card", "topic_card"]}},
-            )
-
-            # For aggregation-like questions, include derived rollups directly in context.
-            if agg_like:
-                derived_context_k = min(len(derived_pairs), max(2, min(6, int(round(0.4 * float(effective_k))))))
-                derived_context_pairs = derived_pairs[: int(derived_context_k)]
-            else:
-                derived_context_pairs = []
-
-            shortlist: List[str] = []
-            seen: set[str] = set()
-            for d, _s in derived_pairs:
-                for eid in _episode_ids_for_shortlist(d, season_to_episode_ids=season_to_episode_ids):
-                    if not eid or eid in seen:
-                        continue
-                    seen.add(eid)
-                    shortlist.append(eid)
-                    if len(shortlist) >= int(episode_shortlist_size):
-                        break
-                if len(shortlist) >= int(episode_shortlist_size):
-                    break
-
-            routed_k = max(1, int(round(float(blended_routed_k_mult) * float(effective_k))))
-
-            routed_pairs: List[Tuple[Any, Optional[float]]]
-            script_filter: Optional[Dict[str, Any]] = None
-            script_filter_mode: str = "none"
-
-            if shortlist and script_index_has_episode_id:
-                script_filter = {"episode_id": {"$in": [s.strip().upper() for s in shortlist]}}
-                script_filter_mode = "metadata"
-                routed_pairs = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type=search_type,
-                    k=routed_k,
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=script_filter,
-                )
-            elif shortlist:
-                script_filter_mode = "source_parse"
-                candidate_k = max(int(routed_k) * 14, 80)
-                candidates = _retrieve_docs_with_scores(
-                    script_db,
-                    question,
-                    search_type="similarity",
-                    k=int(candidate_k),
-                    fetch_k=fetch_k,
-                    lambda_mult=lambda_mult,
-                    filt=None,
-                )
-                shortlist_set = {s.strip().upper() for s in shortlist}
-                routed_pairs = [(d, s) for (d, s) in candidates if (_doc_episode_id(d) or "") in shortlist_set][: int(routed_k)]
-            else:
-                routed_pairs = []
-
-            combined = _dedupe_doc_pairs(derived_context_pairs + base_pairs + routed_pairs)
-            combined = _sort_pairs_best_first(combined)
-            combined = combined[: int(effective_k)]
-
-            routing = {
-                "policy": "blended",
-                "effective_policy": "blended",
-                "agg_like": bool(agg_like),
-                "base": {"k": int(base_k), "returned": len(base_pairs)},
-                "derived": {
-                    "k": int(derived_k),
-                    "filter": {"derived_type": {"$in": ["episode_card", "season_card", "topic_card"]}},
-                    "included_in_context": bool(agg_like),
-                    "results": [
-                        {
-                            "rank": i + 1,
-                            # Back-compat: keep a single episode_id field while also logging
-                            # full episode_ids (topic cards can map to many episodes).
-                            "episode_id": _extract_episode_id_from_derived_doc(d),
-                            "episode_ids": _episode_ids_for_shortlist(d, season_to_episode_ids=season_to_episode_ids),
-                            "derived_type": (getattr(d, "metadata", {}) or {}).get("derived_type"),
-                            "topic_id": (getattr(d, "metadata", {}) or {}).get("topic_id"),
-                            "topic_type": (getattr(d, "metadata", {}) or {}).get("topic_type"),
-                            "season": (getattr(d, "metadata", {}) or {}).get("season"),
-                            "title": (getattr(d, "metadata", {}) or {}).get("title"),
-                            "score": (float(s) if s is not None else None),
-                        }
-                        for i, (d, s) in enumerate(derived_pairs[: min(len(derived_pairs), 10)])
-                    ],
-                },
-                "episode_shortlist": shortlist,
-                "routed": {
-                    "k": int(routed_k),
-                    "script_filter": script_filter,
-                    "script_filter_mode": script_filter_mode,
-                    "returned": len(routed_pairs),
-                },
-                "combined": {"returned": len(combined)},
-            }
-            return combined, routing
+            return script_pairs, routing
 
         raise ValueError(f"Unsupported retrieval_policy: {retrieval_policy}")
 
@@ -1400,7 +918,9 @@ def run_eval(
                 if expander_llm is None:
                     raise RuntimeError("query_expansion enabled but expander_llm is None")
 
-                expanded_queries = expand_queries(question=case.question, llm=expander_llm, config=expand_cfg)
+                expanded_queries = expand_queries(
+                    question=case.question, llm=expander_llm, config=expand_cfg
+                )
                 per_q_k = int(k_per_query) if k_per_query is not None else min(int(k), 6)
 
                 per_query_results: Dict[str, List[Tuple[Any, Optional[float]]]] = {}
@@ -1470,9 +990,6 @@ def run_eval(
                     "source": src,
                     "episode_id": doc.metadata.get("episode_id"),
                     "doc_type": doc.metadata.get("doc_type"),
-                    "derived_type": doc.metadata.get("derived_type"),
-                    "topic_id": doc.metadata.get("topic_id"),
-                    "topic_type": doc.metadata.get("topic_type"),
                     "chunk_type": doc.metadata.get("chunk_type"),
                     "chunk_index": doc.metadata.get("chunk_index"),
                     "first_line": first_line(txt),
@@ -1491,7 +1008,11 @@ def run_eval(
         # Answer (optional)
         answer_text: Optional[str] = None
         answer_latency_ms: Optional[int] = None
-        usage: Dict[str, Optional[int]] = {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None}
+        usage: Dict[str, Optional[int]] = {
+            "prompt_tokens": None,
+            "completion_tokens": None,
+            "total_tokens": None,
+        }
         answer_error: Optional[str] = None
 
         if llm is not None:
@@ -1516,18 +1037,14 @@ def run_eval(
             if answer_latency_ms is not None:
                 answer_latencies.append(answer_latency_ms)
 
-        logged_context_text = context_text
-        context_text_truncated = False
-        if len(logged_context_text) > int(LOGGED_CONTEXT_TEXT_MAX_CHARS):
-            logged_context_text = logged_context_text[: int(LOGGED_CONTEXT_TEXT_MAX_CHARS)] + "\n… (truncated)"
-            context_text_truncated = True
-
         out_case = {
             "case_id": case.case_id,
             "question": case.question,
             "expected_notes": case.expected_notes,
             "expected": {
-                "episode_ids": list(case.expected_episode_ids) if case.expected_episode_ids else None,
+                "episode_ids": (
+                    list(case.expected_episode_ids) if case.expected_episode_ids else None
+                ),
             },
             "retrieval": {
                 "top_k": k,
@@ -1542,8 +1059,6 @@ def run_eval(
                 "latency_ms": answer_latency_ms,
                 "error": answer_error,
                 "usage": usage,
-                "context_text": (logged_context_text if logged_context_text else None),
-                "context_text_truncated": (context_text_truncated if logged_context_text else None),
                 "stats": {
                     "context_docs": context_docs,
                     "context_chars": context_chars,
@@ -1567,7 +1082,7 @@ def run_eval(
         source_vals: List[str] = []
         doc_type_vals: List[str] = []
         chunk_type_vals: List[str] = []
-        for (doc, _score) in retrieved:
+        for doc, _score in retrieved:
             meta = getattr(doc, "metadata", None) or {}
             eid = meta.get("episode_id")
             if not isinstance(eid, str) or not eid.strip():
@@ -1626,7 +1141,11 @@ def run_eval(
         correct_episode_cited: Optional[bool] = None
         if expected_episode_ids:
             correct_episode_retrieved = any(e in context_episode_ids for e in expected_episode_ids)
-            correct_episode_cited = any(e in cited_episode_ids for e in expected_episode_ids) if cited_episode_ids else False
+            correct_episode_cited = (
+                any(e in cited_episode_ids for e in expected_episode_ids)
+                if cited_episode_ids
+                else False
+            )
 
         quotes = extract_answer_quotes(answer_text)
         quoted_context = any_quote_in_context(quotes, context_text)
@@ -1641,7 +1160,12 @@ def run_eval(
 
         grounding_failure: Optional[bool] = None
         # Only meaningful when an answer was generated.
-        if llm_enabled and answer_text is not None and not said_idk(answer_text) and context_docs > 0:
+        if (
+            llm_enabled
+            and answer_text is not None
+            and not said_idk(answer_text)
+            and context_docs > 0
+        ):
             grounding_failure = False
             # If the answer cites episodes that aren't in the retrieved context, it's very likely ungrounded.
             if cited_not_in_context:
@@ -1674,10 +1198,14 @@ def run_eval(
                 "doc_type_counts": _counter_to_sorted_dict(doc_type_counter),
                 "chunk_type_counts": _counter_to_sorted_dict(chunk_type_counter),
                 "source_dup_rate": (
-                    float(1.0 - (distinct_source_count / context_docs)) if context_docs > 0 else None
+                    float(1.0 - (distinct_source_count / context_docs))
+                    if context_docs > 0
+                    else None
                 ),
                 "episode_dup_rate": (
-                    float(1.0 - (distinct_episode_count / context_docs)) if context_docs > 0 else None
+                    float(1.0 - (distinct_episode_count / context_docs))
+                    if context_docs > 0
+                    else None
                 ),
             },
             "answer_quotes": {
@@ -1705,24 +1233,42 @@ def run_eval(
         "cases": len(cases),
         "answered_with_llm": bool(llm_enabled),
         "avg_retrieval_latency_ms": safe_mean_int(retrieval_latencies),
-        "avg_context_docs": safe_mean_float([float(x) for x in total_context_docs]) if total_context_docs else None,
-        "avg_context_chars": safe_mean_float([float(x) for x in total_context_chars]) if total_context_chars else None,
-        "avg_distinct_episodes_in_context": safe_mean_float([float(x) for x in distinct_episode_counts])
-        if distinct_episode_counts
-        else None,
-        "avg_distinct_sources_in_context": safe_mean_float([float(x) for x in distinct_source_counts])
-        if distinct_source_counts
-        else None,
-        "avg_top_episode_share_in_context": safe_mean_float(top_episode_shares) if top_episode_shares else None,
-        "avg_episode_entropy_norm_in_context": safe_mean_float(episode_entropy_norms)
-        if episode_entropy_norms
-        else None,
-        "avg_cited_episode_ids_not_in_context": safe_mean_float([float(x) for x in cited_not_in_context_counts])
-        if cited_not_in_context_counts
-        else None,
-        "avg_aggregation_readiness_score": safe_mean_float(agg_readiness_scores) if agg_readiness_scores else None,
+        "avg_context_docs": (
+            safe_mean_float([float(x) for x in total_context_docs]) if total_context_docs else None
+        ),
+        "avg_context_chars": (
+            safe_mean_float([float(x) for x in total_context_chars])
+            if total_context_chars
+            else None
+        ),
+        "avg_distinct_episodes_in_context": (
+            safe_mean_float([float(x) for x in distinct_episode_counts])
+            if distinct_episode_counts
+            else None
+        ),
+        "avg_distinct_sources_in_context": (
+            safe_mean_float([float(x) for x in distinct_source_counts])
+            if distinct_source_counts
+            else None
+        ),
+        "avg_top_episode_share_in_context": (
+            safe_mean_float(top_episode_shares) if top_episode_shares else None
+        ),
+        "avg_episode_entropy_norm_in_context": (
+            safe_mean_float(episode_entropy_norms) if episode_entropy_norms else None
+        ),
+        "avg_cited_episode_ids_not_in_context": (
+            safe_mean_float([float(x) for x in cited_not_in_context_counts])
+            if cited_not_in_context_counts
+            else None
+        ),
+        "avg_aggregation_readiness_score": (
+            safe_mean_float(agg_readiness_scores) if agg_readiness_scores else None
+        ),
         "avg_aggregation_readiness_score_agg_questions": (
-            safe_mean_float(agg_readiness_scores_agg_questions) if agg_readiness_scores_agg_questions else None
+            safe_mean_float(agg_readiness_scores_agg_questions)
+            if agg_readiness_scores_agg_questions
+            else None
         ),
         "avg_answer_latency_ms": safe_mean_int(answer_latencies) if answer_latencies else None,
         "avg_prompt_tokens": safe_mean_int(prompt_tokens) if prompt_tokens else None,
@@ -1734,23 +1280,34 @@ def run_eval(
             else None
         ),
         "episode_citation_rate": (
-            float(sum(1 for c in out["cases"] if c["heuristics"]["cited_episode"]) / len(out["cases"]))
+            float(
+                sum(1 for c in out["cases"] if c["heuristics"]["cited_episode"]) / len(out["cases"])
+            )
             if out["cases"]
             else None
         ),
         "retrieval_empty_rate": (
-            float(sum(1 for c in out["cases"] if not c["heuristics"]["retrieved_any"]) / len(out["cases"]))
+            float(
+                sum(1 for c in out["cases"] if not c["heuristics"]["retrieved_any"])
+                / len(out["cases"])
+            )
             if out["cases"]
             else None
         ),
         "retrieval_failure_rate": (
-            float(sum(1 for x in retrieval_failures if x) / len(retrieval_failures)) if retrieval_failures else None
+            float(sum(1 for x in retrieval_failures if x) / len(retrieval_failures))
+            if retrieval_failures
+            else None
         ),
         "grounding_failure_rate": (
-            float(sum(1 for x in grounding_failures if x) / len(grounding_failures)) if grounding_failures else None
+            float(sum(1 for x in grounding_failures if x) / len(grounding_failures))
+            if grounding_failures
+            else None
         ),
         "quote_in_context_rate": (
-            float(sum(1 for x in quote_match_rates if x) / len(quote_match_rates)) if quote_match_rates else None
+            float(sum(1 for x in quote_match_rates if x) / len(quote_match_rates))
+            if quote_match_rates
+            else None
         ),
         "errors_count": len(errors),
         "errors_sample": errors[:10],
@@ -1767,13 +1324,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run RAG eval and log results to JSON.")
     parser.add_argument("--test-file", default=DEFAULT_TEST_FILE, help="Path to test_queries.json")
     parser.add_argument("--runs-dir", default=DEFAULT_RUNS_DIR, help="Directory to write run logs")
-    parser.add_argument("--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist directory")
-    parser.add_argument("--collection-name", default=DEFAULT_COLLECTION_NAME, help="Chroma collection name (optional)")
+    parser.add_argument(
+        "--persist-dir", default=DEFAULT_PERSIST_DIR, help="Chroma persist directory"
+    )
+    parser.add_argument(
+        "--collection-name",
+        default=DEFAULT_COLLECTION_NAME,
+        help="Chroma collection name (optional)",
+    )
 
     parser.add_argument(
         "--retrieval-policy",
         default=DEFAULT_RETRIEVAL_POLICY,
-        choices=["script_only", "derived_only", "derived_then_script", "auto", "blended"],
+        choices=["script_only", "derived_only", "derived_then_script"],
         help="Routing policy: script-only baseline, derived-only, or derived->script two-stage",
     )
     parser.add_argument(
@@ -1786,43 +1349,17 @@ def main() -> None:
         default=DEFAULT_DERIVED_COLLECTION_NAME,
         help="Chroma collection name for derived-cards index",
     )
-    parser.add_argument("--derived-k", type=int, default=DEFAULT_DERIVED_K, help="Top-k derived docs (routing stage 1)")
+    parser.add_argument(
+        "--derived-k",
+        type=int,
+        default=DEFAULT_DERIVED_K,
+        help="Top-k derived docs (routing stage 1)",
+    )
     parser.add_argument(
         "--episode-shortlist-size",
         type=int,
         default=DEFAULT_EPISODE_SHORTLIST_SIZE,
         help="How many episode_ids to shortlist from derived results (routing stage 1)",
-    )
-    parser.add_argument(
-        "--route-backfill-unfiltered",
-        action="store_true",
-        default=DEFAULT_ROUTE_BACKFILL_UNFILTERED,
-        help="In derived_then_script routing, backfill with unfiltered script docs when the shortlist yields too few hits",
-    )
-    parser.add_argument(
-        "--route-backfill-min-docs",
-        type=int,
-        default=DEFAULT_ROUTE_BACKFILL_MIN_DOCS,
-        help="Minimum number of docs to ensure even if routing shortlist is poor (only when backfill enabled)",
-    )
-
-    parser.add_argument(
-        "--blended-base-k-mult",
-        type=float,
-        default=DEFAULT_BLENDED_BASE_K_MULT,
-        help="For blended policy: retrieve base scripts with k = round(k * mult)",
-    )
-    parser.add_argument(
-        "--blended-routed-k-mult",
-        type=float,
-        default=DEFAULT_BLENDED_ROUTED_K_MULT,
-        help="For blended policy: retrieve routed scripts with k = round(k * mult)",
-    )
-    parser.add_argument(
-        "--blended-include-derived-for-non-agg",
-        action="store_true",
-        default=DEFAULT_BLENDED_INCLUDE_DERIVED_FOR_NON_AGG,
-        help="For blended policy: also use derived episode routing for non-aggregation questions",
     )
     parser.add_argument("--embed-model", default=DEFAULT_EMBED_MODEL, help="Embedding model name")
 
@@ -1833,8 +1370,18 @@ def main() -> None:
         help="Retrieval type",
     )
     parser.add_argument("--k", type=int, default=3, help="Top-k retrieved docs")
-    parser.add_argument("--fetch-k", type=int, default=DEFAULT_FETCH_K, help="MMR candidate pool size (only for mmr)")
-    parser.add_argument("--lambda-mult", type=float, default=DEFAULT_LAMBDA_MULT, help="MMR relevance/diversity tradeoff")
+    parser.add_argument(
+        "--fetch-k",
+        type=int,
+        default=DEFAULT_FETCH_K,
+        help="MMR candidate pool size (only for mmr)",
+    )
+    parser.add_argument(
+        "--lambda-mult",
+        type=float,
+        default=DEFAULT_LAMBDA_MULT,
+        help="MMR relevance/diversity tradeoff",
+    )
 
     # Query expansion (multi-query retrieval)
     parser.add_argument(
@@ -1843,8 +1390,15 @@ def main() -> None:
         default=DEFAULT_QUERY_EXPANSION_ENABLED,
         help="Enable query expansion + fusion (multi-query retrieval)",
     )
-    parser.add_argument("--expand-n", type=int, default=DEFAULT_EXPAND_N, help="Number of alternate queries to generate")
-    parser.add_argument("--expand-model", default=DEFAULT_EXPAND_MODEL, help="LLM model used for query expansion")
+    parser.add_argument(
+        "--expand-n",
+        type=int,
+        default=DEFAULT_EXPAND_N,
+        help="Number of alternate queries to generate",
+    )
+    parser.add_argument(
+        "--expand-model", default=DEFAULT_EXPAND_MODEL, help="LLM model used for query expansion"
+    )
     parser.add_argument(
         "--k-per-query",
         type=int,
@@ -1857,28 +1411,52 @@ def main() -> None:
         choices=["rrf"],
         help="Fusion method for combining per-query results",
     )
-    parser.add_argument("--rrf-k0", type=int, default=DEFAULT_RRF_K0, help="RRF constant k0 (higher reduces rank impact)")
+    parser.add_argument(
+        "--rrf-k0",
+        type=int,
+        default=DEFAULT_RRF_K0,
+        help="RRF constant k0 (higher reduces rank impact)",
+    )
     parser.add_argument(
         "--expand-cache",
         default=DEFAULT_EXPAND_CACHE,
         help="Path to query expansion cache JSON (set empty string to disable)",
     )
 
-    parser.add_argument("--no-llm", action="store_true", help="Skip LLM answering; log retrieval only")
+    parser.add_argument(
+        "--no-llm", action="store_true", help="Skip LLM answering; log retrieval only"
+    )
     parser.add_argument("--llm-model", default=DEFAULT_LLM_MODEL, help="LLM model name")
-    parser.add_argument("--temperature", type=float, default=DEFAULT_TEMPERATURE, help="LLM temperature")
+    parser.add_argument(
+        "--temperature", type=float, default=DEFAULT_TEMPERATURE, help="LLM temperature"
+    )
     parser.add_argument("--max-tokens", type=int, default=None, help="Max output tokens (optional)")
-    parser.add_argument("--timeout", type=float, default=None, help="Request timeout seconds (optional)")
+    parser.add_argument(
+        "--timeout", type=float, default=None, help="Request timeout seconds (optional)"
+    )
     parser.add_argument("--max-retries", type=int, default=None, help="Max retries (optional)")
-    parser.add_argument("--seed", type=int, default=None, help="Seed for determinism if supported (optional)")
+    parser.add_argument(
+        "--seed", type=int, default=None, help="Seed for determinism if supported (optional)"
+    )
 
-    parser.add_argument("--run-name", default="baseline_similarity_k3", help="Run name stored in the log")
+    parser.add_argument(
+        "--run-name", default="baseline_similarity_k3", help="Run name stored in the log"
+    )
     parser.add_argument("--notes", default="", help="Optional notes stored in the log")
 
     # Chunking config (logged for reproducibility; doesn't change anything here)
-    parser.add_argument("--chunk-splitter", default=DEFAULT_CHUNK_SPLITTER, help="Chunk splitter used in ingestion")
-    parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE, help="Chunk size used in ingestion")
-    parser.add_argument("--chunk-overlap", type=int, default=DEFAULT_CHUNK_OVERLAP, help="Chunk overlap used in ingestion")
+    parser.add_argument(
+        "--chunk-splitter", default=DEFAULT_CHUNK_SPLITTER, help="Chunk splitter used in ingestion"
+    )
+    parser.add_argument(
+        "--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE, help="Chunk size used in ingestion"
+    )
+    parser.add_argument(
+        "--chunk-overlap",
+        type=int,
+        default=DEFAULT_CHUNK_OVERLAP,
+        help="Chunk overlap used in ingestion",
+    )
 
     args = parser.parse_args()
 
@@ -1889,14 +1467,11 @@ def main() -> None:
         collection_name=args.collection_name if args.collection_name else None,
         retrieval_policy=str(args.retrieval_policy),
         derived_persist_directory=str(args.derived_persist_dir),
-        derived_collection_name=str(args.derived_collection_name) if args.derived_collection_name else None,
+        derived_collection_name=(
+            str(args.derived_collection_name) if args.derived_collection_name else None
+        ),
         derived_k=int(args.derived_k),
         episode_shortlist_size=int(args.episode_shortlist_size),
-        route_backfill_unfiltered=bool(args.route_backfill_unfiltered),
-        route_backfill_min_docs=int(args.route_backfill_min_docs),
-        blended_base_k_mult=float(args.blended_base_k_mult),
-        blended_routed_k_mult=float(args.blended_routed_k_mult),
-        blended_include_derived_for_non_agg=bool(args.blended_include_derived_for_non_agg),
         embed_model=args.embed_model,
         search_type=args.search_type,
         k=args.k,

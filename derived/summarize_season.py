@@ -14,7 +14,12 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from derived.segment_episode import EpisodeScript, approx_tokens_from_chars, iter_episode_scripts, segment_episode_text
+from derived.segment_episode import (
+    EpisodeScript,
+    approx_tokens_from_chars,
+    iter_episode_scripts,
+    segment_episode_text,
+)
 from derived.summarize_segments import SummarizeConfig, summarize_episode_segments
 
 DEFAULT_DOCS_DIR = "ingestion/normalized_docs_txt"
@@ -285,7 +290,9 @@ def summarize_season(cfg: SeasonRunConfig) -> Path:
         manifest["execution"]["episodes"].append(ep_status)
 
         season_manifest_path.write_text(_safe_json(manifest) + "\n", encoding="utf-8")
-        print(f"[{idx}/{len(episodes)}] {ep.episode_id} {ep_status['status']} ({ep_status['duration_ms']}ms)")
+        print(
+            f"[{idx}/{len(episodes)}] {ep.episode_id} {ep_status['status']} ({ep_status['duration_ms']}ms)"
+        )
 
     # Recompute aggregate counters based on the latest status per episode.
     latest_by_episode: Dict[str, Dict[str, Any]] = {}
@@ -324,7 +331,9 @@ def summarize_season(cfg: SeasonRunConfig) -> Path:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Summarize all episode segments for one season (map step)")
+    p = argparse.ArgumentParser(
+        description="Summarize all episode segments for one season (map step)"
+    )
     p.add_argument("--season", type=int, required=True, help="Season number (1-9)")
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR)
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT)
@@ -343,7 +352,7 @@ def main() -> None:
     segments_root = _resolve_under_repo(str(args.segments_root))
 
     # If unset, reuse summarize_segments.py's default.
-    llm_model = (str(args.llm_model).strip() if args.llm_model else None)
+    llm_model = str(args.llm_model).strip() if args.llm_model else None
     if not llm_model:
         from derived.summarize_segments import DEFAULT_LLM_MODEL as SUM_DEFAULT
 

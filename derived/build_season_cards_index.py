@@ -143,7 +143,9 @@ def build_season_cards_index(
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Build a Chroma index from SeasonDerivedCardV1 JSON artifacts")
+    p = argparse.ArgumentParser(
+        description="Build a Chroma index from SeasonDerivedCardV1 JSON artifacts"
+    )
     p.add_argument("--out-root", default=DEFAULT_OUT_ROOT)
     p.add_argument("--persist-dir", default=DEFAULT_PERSIST_DIR)
     p.add_argument("--collection-name", default=None)

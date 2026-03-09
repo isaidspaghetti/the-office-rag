@@ -41,7 +41,7 @@ Notes:
 
 This creates a *separate* index intended for broad/aggregation questions and routing.
 
-- Build a combined derived-cards index (Episode/Season/Topic cards) from `derived/artifacts/`:
+- Build a combined derived-cards index (Episode/Season/Topic cards) from generated artifacts under `derived/artifacts/` (this folder is gitignored):
 
   `python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
 
@@ -116,21 +116,19 @@ This repo uses a single Streamlit entrypoint:
 
 The app routes between:
 
-- Summary (offline; reads run logs + two-pass scores)
+- Reports (offline; reads run logs + two-pass scores) — URL mode key: `summary`
 - Chat & Debug (optional live retrieval; recommended backend is Qdrant)
 
 Deep links:
 
-- Summary: `/?mode=summary`
+- Reports: `/?mode=summary`
 - Chat & Debug: `/?mode=chat_debug`
 
 ## Streamlit Cloud (Qdrant + OpenAI)
 
-Deployment notes (secrets, two Qdrant collections, smoke tests):
+Single canonical deployment doc:
 
-- `docs/STREAMLIT_CLOUD_DEPLOY.md` (canonical quick checklist)
-- `docs/STREAMLIT_CLOUD_DEPLOYMENT.md` (detailed Streamlit Cloud notes)
-- `docs/DEPLOY_STREAMLIT_CLOUD_QDRANT.md` (Qdrant indexing: two collections)
+- `docs/DEPLOYMENT.md`
 
 ## Repo layout
 
@@ -145,7 +143,7 @@ Deployment notes (secrets, two Qdrant collections, smoke tests):
   - `summarize_runs.py`: flattens run logs to tables
   - `runs/`: historical run JSONs
 - `db/`
-  - Chroma persist dirs (e.g., `db/chroma_db_meta`)
+  - Chroma persist dirs (e.g., `db/chroma_db_meta`) (generated; gitignored)
 
 ## What we measure (high-level)
 
@@ -159,9 +157,8 @@ For more detail, see `experiments/tuning steps.md`.
 
 ## Docs
 
-- `docs/RESUME.md`: snapshot for starting a new ChatGPT thread
-- `docs/GLOSSARY.md`: terminology handout for lunch-and-learn
-- `docs/DERIVED_CHECKLIST_AND_SCHEMAS.md`: derived-corpus build checklist, schemas, provenance contract
+- `docs/GLOSSARY.md`
+- `docs/DEPLOYMENT.md`
 
 ## Known gotchas / lessons learned
 
@@ -181,4 +178,23 @@ Then answer-time becomes a two-stage flow:
 1) retrieve derived docs to build the "map"
 2) retrieve raw script chunks for quotes/citations
 
-See `docs/RESUME.md` for a “where we left off” snapshot.
+## Derived artifacts (pipeline quick notes)
+
+All derived artifacts live under `derived/artifacts/` (generated; gitignored).
+
+Common artifact types:
+
+- Segments (deterministic): `derived/artifacts/segments/SxxEyy.json`
+- Topic cards (two-pass): `derived/artifacts/<build-prefix>/topic_cards/*.json`
+
+Typical flow:
+
+1) Generate segments / maps / reduces (see `derived/runbooks/` for copy/paste scripts).
+2) Build a derived-cards index for eval routing:
+
+`python derived/build_derived_cards_index.py --persist-dir db/chroma_db_derived_cards --reset`
+
+3) (Optional) Build topic cards:
+
+`python derived/build_topic_cards.py --pass both --topics derived/topic_cards/topics.example.json --build-prefix topiccards_v1_YYYY-MM-DD`
+

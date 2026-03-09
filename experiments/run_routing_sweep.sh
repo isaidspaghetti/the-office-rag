@@ -6,20 +6,12 @@ set -euo pipefail
 
 PY="/Users/tg/Developer/RAG-1/venv/bin/python"
 PERSIST_DIR="db/chroma_db"
-if [[ -d "db/chroma_db_meta" ]]; then
-  # Prefer metadata-enabled index for routing filters + more stable episode_id behavior.
-  PERSIST_DIR="db/chroma_db_meta"
-fi
 DERIVED_PERSIST_DIR="db/chroma_db_derived_cards"
 DERIVED_COLLECTION_NAME="derived_cards"
-# LLM used for the answer generation step in run_eval.py
-GEN_LLM_MODEL="gpt-4.1-mini"
-GEN_LLM_TIMEOUT="90"
-GEN_LLM_MAX_RETRIES="2"
 # Tag used to prefix run-name entries written into experiments/runs.
 # This sweep runs against the unified derived-cards index which now includes
 # episode_card + season_card + topic_card docs.
-RUN_TAG="topiccards_blended_gen_$(echo "$GEN_LLM_MODEL" | tr '.' '_' | tr '-' '_')"
+RUN_TAG="topiccards_blended"
 
 run() {
   echo
@@ -29,9 +21,6 @@ run() {
     --retrieval-policy blended \
     --derived-persist-dir "$DERIVED_PERSIST_DIR" \
     --derived-collection-name "$DERIVED_COLLECTION_NAME" \
-    --llm-model "$GEN_LLM_MODEL" \
-    --timeout "$GEN_LLM_TIMEOUT" \
-    --max-retries "$GEN_LLM_MAX_RETRIES" \
     "$@"
 }
 
@@ -43,6 +32,14 @@ run --run-name ${RUN_TAG}_t1_similarity_k12 --search-type similarity --k 12 --no
 
 # MMR
 run --run-name ${RUN_TAG}_t2_mmr_k12_fetch40_l07_fixed --search-type mmr --k 12 --fetch-k 40 --lambda-mult 0.7 --notes "Routing: blended (base + intent-conditioned derived-guided add-on) + MMR k=12 fetch_k=40 lambda=0.7"
+
+# Scene chunking strategy (persist dir must already exist)
+run --persist-dir db/chroma_db_scene --run-name ${RUN_TAG}_scene_chunks_mmr_k12 --search-type mmr --k 12 --fetch-k 40 --lambda-mult 0.7
+run --persist-dir db/chroma_db_scene --run-name ${RUN_TAG}_scene_chunks_similarity_k12 --search-type similarity --k 12 --notes "Routing (blended) + scene chunks, similarity"
+run --persist-dir db/chroma_db_scene --run-name ${RUN_TAG}_scene_chunks_mmr_k12_fetch80_lambda09 --search-type mmr --k 12 --fetch-k 80 --lambda-mult 0.9
+
+# Scene windows (known to hit context limits in some configs, but re-run for parity)
+run --persist-dir db/chroma_db_scene_w1 --run-name ${RUN_TAG}_scene_chunks_mmr_k12_fetch80_lambda09_w1 --search-type mmr --k 12 --fetch-k 80 --lambda-mult 0.9
 
 # Query Expansion + RRF fusion
 run --run-name ${RUN_TAG}_qe_rrf_similarity_k12 \
@@ -70,10 +67,8 @@ run --run-name ${RUN_TAG}_qe_rrf_mmr_k12 \
   --rrf-k0 60 \
   --notes "Routing (blended) + query expansion + RRF fusion + MMR"
 
-
-# If metadata index exists but wasn't selected as default (e.g., user forced PERSIST_DIR),
-# run one explicit meta-index configuration for comparison.
-if [[ -d "db/chroma_db_meta" && "$PERSIST_DIR" != "db/chroma_db_meta" ]]; then
+# Metadata index (if you built it)
+if [[ -d "db/chroma_db_meta" ]]; then
   run --persist-dir db/chroma_db_meta \
     --run-name ${RUN_TAG}_meta_qe_rrf_mmr_k12 \
     --search-type mmr \
@@ -87,6 +82,9 @@ if [[ -d "db/chroma_db_meta" && "$PERSIST_DIR" != "db/chroma_db_meta" ]]; then
     --fusion rrf \
     --rrf-k0 60 \
     --notes "Routing (blended) + metadata index + query expansion + RRF + MMR"
+else
+  echo
+  echo "Skipping db/chroma_db_meta (not found)."
 fi
 
 echo

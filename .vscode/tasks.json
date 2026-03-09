@@ -301,6 +301,135 @@
 			"isBackground": false,
 			"problemMatcher": [],
 			"group": "test"
+		},
+		{
+			"label": "coverage diff scored vs runs",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"from pathlib import Path\nruns_dir=Path('experiments/runs'); s2_dir=Path('experiments/scored_runs_two_pass'); s1_dir=Path('experiments/scored_runs')\nrun_ids=sorted(p.stem for p in runs_dir.glob('*.json'))\ns2_ids=sorted(p.name[:-len('.scored.json')] for p in s2_dir.glob('*.scored.json'))\ns1_ids=sorted(p.name[:-len('.scored.json')] for p in s1_dir.glob('*.scored.json'))\nset_runs=set(run_ids); set_s2=set(s2_ids); set_s1=set(s1_ids)\nmissing_s2=sorted(set_runs-set_s2); missing_s1=sorted(set_runs-set_s1)\nextra_s2=sorted(set_s2-set_runs); extra_s1=sorted(set_s1-set_runs)\nprint('runs:',len(run_ids))\nprint('scored_two_pass:',len(s2_ids))\nprint('scored_one_pass:',len(s1_ids))\nprint('missing_two_pass:',len(missing_s2))\nprint('missing_one_pass:',len(missing_s1))\nprint('extra_two_pass:',len(extra_s2))\nprint('extra_one_pass:',len(extra_s1))\nprint('\\nmissing_two_pass_sample:')\nfor x in missing_s2[:30]:\n    print(' -',x)\nprint('\\nextra_two_pass_sample:')\nfor x in extra_s2[:30]:\n    print(' -',x)\n"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "smoke: score one run two-pass",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--out-dir",
+				"experiments/scored_runs_two_pass_rescored_2026-03-07",
+				"--judge-mode",
+				"two_pass",
+				"--max-runs",
+				"1",
+				"--overwrite"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "smoke: score one run two-pass",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--out-dir",
+				"experiments/scored_runs_two_pass_rescored_2026-03-07",
+				"--judge-mode",
+				"two_pass",
+				"--max-runs",
+				"1",
+				"--overwrite"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "compile: score_runs.py",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-m",
+				"py_compile",
+				"experiments/score_runs.py"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "count runs",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"from pathlib import Path; print('runs',len(list(Path('experiments/runs').rglob('*.json'))))"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "count runs",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"from pathlib import Path; print(\"runs\", len(list(Path(\"experiments/runs\").rglob(\"*.json\"))))"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "rescore all runs two-pass (fresh dir)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/score_runs.py",
+				"--runs-dir",
+				"experiments/runs",
+				"--gold",
+				"experiments/gold_answers.json",
+				"--out-dir",
+				"experiments/scored_runs_two_pass_rescored_2026-03-07",
+				"--judge-mode",
+				"two_pass",
+				"--overwrite"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "compare best vs worst routing_blended (ctxfix_all)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"-c",
+				"import json\nfrom pathlib import Path\n\nscored_dir = Path('experiments/scored_runs_two_pass_ctxfix_all_2026-03-07')\nrun_best = '2026-03-06T23-26-34Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12'\nrun_worst = '2026-03-05T02-23-28Z_sanity_blended_similarity_k3'\n\nbest = json.loads((scored_dir / f'{run_best}.scored.json').read_text(encoding='utf-8'))\nworst = json.loads((scored_dir / f'{run_worst}.scored.json').read_text(encoding='utf-8'))\n\ndef cmap(obj):\n    out = {}\n    for row in obj.get('scored_cases', []):\n        cid = str(row.get('case_id') or '')\n        j = row.get('judge') or {}\n        out[cid] = {\n            'overall': j.get('overall'),\n            'verdict': j.get('verdict'),\n            'question': j.get('question') or ''\n        }\n    return out\n\nmb = cmap(best)\nmw = cmap(worst)\nrows = []\nfor cid in sorted(set(mb) & set(mw)):\n    ob = mb[cid]['overall']\n    ow = mw[cid]['overall']\n    if isinstance(ob, int) and isinstance(ow, int):\n        rows.append({\n            'case_id': cid,\n            'delta': ob - ow,\n            'best_overall': ob,\n            'worst_overall': ow,\n            'best_verdict': mb[cid]['verdict'],\n            'worst_verdict': mw[cid]['verdict'],\n            'question': mb[cid]['question'],\n        })\nrows.sort(key=lambda r: r['delta'], reverse=True)\n\nreport = {\n    'best_run_id': run_best,\n    'worst_run_id': run_worst,\n    'top_deltas': rows[:15],\n    'top_regressions': sorted([r for r in rows if r['delta'] < 0], key=lambda r: r['delta'])[:10],\n}\n\nout_path = Path('experiments/compare_routing_blended_best_vs_worst_ctxfix_all_2026-03-07.json')\nout_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\\n', encoding='utf-8')\nprint('Wrote', out_path)\nprint('Top deltas:')\nfor r in report['top_deltas'][:8]:\n    print('-', r['case_id'], 'delta', r['delta'], 'best', r['best_overall'], 'worst', r['worst_overall'])\n"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "compare routing_blended best vs worst (script)",
+			"type": "shell",
+			"command": "/Users/tg/Developer/RAG-1/venv/bin/python",
+			"args": [
+				"experiments/compare_scored_runs_pair.py",
+				"--scored-dir",
+				"experiments/scored_runs_two_pass_ctxfix_all_2026-03-07",
+				"--best-run-id",
+				"2026-03-06T23-26-34Z_topiccards_blended_gen_gpt_4_1_mini_t1_similarity_k12",
+				"--worst-run-id",
+				"2026-03-05T02-23-28Z_sanity_blended_similarity_k3",
+				"--out",
+				"experiments/compare_routing_blended_best_vs_worst_ctxfix_all_2026-03-07.json"
+			],
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	]
 }

@@ -14,7 +14,11 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from derived.segment_episode import approx_tokens_from_chars, iter_episode_scripts, segment_episode_text
+from derived.segment_episode import (
+    approx_tokens_from_chars,
+    iter_episode_scripts,
+    segment_episode_text,
+)
 
 DEFAULT_DOCS_DIR = "ingestion/normalized_docs_txt"
 
@@ -115,7 +119,9 @@ def main() -> None:
         description="Estimate LLM call counts for the derived pipeline (map: segment summaries, reduce: episode cards)."
     )
     p.add_argument("--docs-dir", default=DEFAULT_DOCS_DIR, help="Normalized docs dir")
-    p.add_argument("--segment-target-tokens", type=int, default=1800, help="Approx target tokens per segment")
+    p.add_argument(
+        "--segment-target-tokens", type=int, default=1800, help="Approx target tokens per segment"
+    )
     p.add_argument("--min-tokens", type=int, default=400, help="Approx min tokens before splitting")
     p.add_argument(
         "--include-reduce",
@@ -123,8 +129,12 @@ def main() -> None:
         help="Include 1 additional reduce call per episode (episode card build)",
     )
     p.add_argument("--top-n", type=int, default=15, help="Print the episodes with the most calls")
-    p.add_argument("--limit-episodes", type=int, default=None, help="Only consider the first N episodes")
-    p.add_argument("--csv-out", default=None, help="Optional path to write per-episode call plan CSV")
+    p.add_argument(
+        "--limit-episodes", type=int, default=None, help="Only consider the first N episodes"
+    )
+    p.add_argument(
+        "--csv-out", default=None, help="Optional path to write per-episode call plan CSV"
+    )
 
     args = p.parse_args()
 
