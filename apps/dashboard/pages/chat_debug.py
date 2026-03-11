@@ -515,11 +515,6 @@ def render_chat_debug() -> None:
             }
 
     if not question_to_run:
-        with st.expander("Setup / expectations"):
-            st.write(
-                "Local: uses Chroma under `db/`. Deployed: auto-switches to Qdrant when QDRANT_URL is set."
-            )
-            st.write("Policy `derived_then_script` uses derived cards to route into script chunks.")
         return
 
     # If quick rerun was used, override sidebar settings for this execution only.

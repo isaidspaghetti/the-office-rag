@@ -545,9 +545,9 @@ def _st_dataframe(rows: Any, **kwargs: Any) -> Any:
 def _st_image(img: Any, **kwargs: Any) -> Any:
     """Compatibility wrapper for Streamlit width API changes."""
     try:
-        return st.image(img, width="stretch", **kwargs)
-    except TypeError:
         return st.image(img, use_container_width=True, **kwargs)
+    except TypeError:
+        return st.image(img, **kwargs)
 
 
 _STEP_GROUP_RE = re.compile(r"^step(?P<num>\d{2,3})$", re.IGNORECASE)

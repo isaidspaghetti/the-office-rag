@@ -9,6 +9,7 @@ from apps.dashboard.pages.analysis import render_analysis_page
 from apps.dashboard.pages.artifacts import render_artifacts_page
 from apps.dashboard.pages.overview import render_overview_page
 from apps.dashboard.pages.structure import render_structure_page
+from apps.dashboard.components.html import markdown_html
 from apps.dashboard.shared import (
     EXPERIMENTS_DIR,
     REPO_ROOT,
@@ -31,6 +32,34 @@ def render_summary() -> None:
     """
 
     st.header("Reports")
+
+    # First-visit hint to guide people to the analysis results.
+    if not bool(st.session_state.get("first_visit_analysis_tip_shown")):
+        st.session_state["first_visit_analysis_tip_shown"] = True
+        current_page = str(st.session_state.get("reports_subpage") or "").strip()
+        if current_page != "Analysis":
+            markdown_html(
+                """
+<style>
+    .floating-analysis-tip {
+        position: sticky;
+        top: 0.75rem;
+        z-index: 10000;
+        max-width: 620px;
+        margin-bottom: 0.75rem;
+    }
+
+    .floating-analysis-tip .section-title {
+        margin-bottom: 0.25rem;
+    }
+</style>
+
+<div class="floating-analysis-tip card-base card-accent">
+    <div class="section-title">📊 Tip</div>
+    <div class="body-text">Select <b>Analysis</b> below to see the results and pretty graphs ;)</div>
+</div>
+"""
+            )
 
     def _has_scored_files(p: Path) -> bool:
         return p.exists() and p.is_dir() and any(p.glob("*.scored.json"))
