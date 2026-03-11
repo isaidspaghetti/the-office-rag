@@ -32,71 +32,36 @@ def render_overview_page(
     section_card(
         title="Overview",
         body_html=(
-            "This application is an <b>Evaluation dashboard + Retrieval Augmented Generation (RAG) Chat Bot</b>."
+            "Evaluation dashboard and RAG chatbot built solely on closed captions from <b>The Office</b>."
             "<br/><br/>"
-            "The retrieval corpus is generated strictly from the closed captions of <b>The Office</b>. "
-            "It’s a training exercise: take a deliberately sparse corpus and build a system that answers with required citation and a 0.0 temperature."
+            "The system requires citations, runs at temperature 0.0, and is designed to study how retrieval architectures improve through controlled experiments and evaluation."
             "<br/><br/>"
-            "The evolution flows through basic to advanced AI engineering concepts, with a clear path for iterative improvement. "
-            "It also requires understanding how to design experiments, analyze results, and how to measure and improve them over time."
+            "Charts show how different techniques affect accuracy, retrieval quality, and cost."
         ),
         classes="card-base card-neutral",
     )
 
     spacer(rem=1.0)
 
+  
     section_card(
-        title="Why This Project Matters",
+        title="Engineering Focus",
         body_html=(
-            "AI makes it easy to build prototypes, but <b>building reliable AI systems requires measurement, evaluation, and iteration</b>. "
-            "This project demonstrates how to engineer AI systems responsibly by:"
-            "<ul>"
-            "<li>designing measurable experiments</li>"
-            "<li>evaluating answer accuracy and retrieval quality</li>"
-            "<li>identifying failure modes such as hallucination or missing context</li>"
-            "<li>improving the system through structured architectural changes</li>"
-            "</ul>"
-            "Every change is tested across runs to understand <b>what actually improved results</b>. "
-            "Changes must be measurable — and it still takes human judgment to intervene, direct, and orchestrate improvements."
+            f'<div style="margin-top: 0.35rem;">{pills(labels=["Evaluation Design", "Failure Analysis", "Retrieval Tuning", "Observability", "Cost / Quality Tradeoffs"])}</div>'
+            "<div class=\"highlight\">"
+            "The value of this project is not just the chatbot itself — it is the "
+            "<b>engineering discipline behind building, measuring, and improving a system</b>."
+            "</div>"
         ),
-        classes="card-base card-method",
+        body_class=None,
+        classes="card-base card-insight",
     )
 
-    spacer(rem=1.0)
-
-    left, right = st.columns([1, 1], gap="large")
-    with left:
-        section_card(
-            title="What This Demonstrates",
-            body_html=(
-                f'<div style="margin-top: 0.35rem;">{pills(labels=["Evaluation Design", "Failure Analysis", "Retrieval Tuning", "Observability", "Cost / Quality Tradeoffs"])}</div>'
-                "<div class=\"highlight\">"
-                "The value of this project is not just the chatbot itself — it is the "
-                "<b>engineering discipline behind building, measuring, and improving a system</b>."
-                "</div>"
-            ),
-            body_class=None,
-            classes="card-base card-insight",
-        )
-    with right:
-        section_card(
-            title="Key Result",
-            body_html=(
-                "Through iterative experimentation, the system evolved from a simple prototype into a "
-                "<b>measurably improved retrieval architecture</b>, with clear visibility into:"
-                "<ul>"
-                "<li>which techniques improved accuracy</li>"
-                "<li>which approaches regressed</li>"
-                "<li>the cost vs. performance tradeoffs of different configurations</li>"
-                "</ul>"
-            ),
-            classes="card-base card-insight",
-        )
 
     spacer(rem=1.25)
 
     section_card(
-        title="Why This Matters",
+        title="Application",
         body_html=(
             "The same engineering approach applies directly to real-world AI systems, including:"
             "<ul>"
@@ -106,30 +71,10 @@ def render_overview_page(
             "<li>AI-powered product features</li>"
             "</ul>"
             "This project demonstrates how to <b>lead an evaluation-driven iteration loop</b>, "
-            "rather than relying on ad-hoc prompt tweaking."
         ),
         classes="card-base card-accent",
     )
 
-    spacer(rem=1.5)
-
-    section_card(
-        title="Experimentation Strategy",
-        body_html=(
-            "<div class=\"body-text\">"
-            "This system was intentionally evolved through <b>measured engineering phases</b>, beginning with a minimal RAG "
-            "baseline and gradually introducing more advanced retrieval and indexing techniques."
-            "<br/><br/>"
-            "The objective was not simply to improve answers — it was to <b>understand why changes improved or degraded system behavior</b>. "
-            "Each architectural change was evaluated through controlled experiments and tracked across multiple runs."
-            "</div>"
-            "<div class=\"highlight\">"
-            "The core principle: <b>AI systems should be improved through measurement, not intuition.</b>"
-            "</div>"
-        ),
-        body_class=None,
-        classes="card-base card-method",
-    )
 
     spacer(rem=1.25)
 
